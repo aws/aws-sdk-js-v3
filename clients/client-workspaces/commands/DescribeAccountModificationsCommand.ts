@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAccountModificationsCommandInput = DescribeAccountModificationsRequest;
-export type DescribeAccountModificationsCommandOutput = DescribeAccountModificationsResult & __MetadataBearer;
+export interface DescribeAccountModificationsCommandInput extends DescribeAccountModificationsRequest {}
+export interface DescribeAccountModificationsCommandOutput
+  extends DescribeAccountModificationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes modifications to the configuration of Bring Your Own

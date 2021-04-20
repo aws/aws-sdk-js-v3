@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeScalingProcessTypesCommandInput = {};
-export type DescribeScalingProcessTypesCommandOutput = ProcessesType & __MetadataBearer;
+export interface DescribeScalingProcessTypesCommandInput {}
+export interface DescribeScalingProcessTypesCommandOutput extends ProcessesType, __MetadataBearer {}
 
 /**
  * <p>Describes the scaling process types for use with the <a>ResumeProcesses</a>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTagsCommandInput = CreateTagsMessage;
-export type CreateTagsCommandOutput = __MetadataBearer;
+export interface CreateTagsCommandInput extends CreateTagsMessage {}
+export interface CreateTagsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds tags to a cluster.</p>

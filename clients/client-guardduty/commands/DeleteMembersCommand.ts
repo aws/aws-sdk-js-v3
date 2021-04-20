@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMembersCommandInput = DeleteMembersRequest;
-export type DeleteMembersCommandOutput = DeleteMembersResponse & __MetadataBearer;
+export interface DeleteMembersCommandInput extends DeleteMembersRequest {}
+export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes GuardDuty member accounts (to the current GuardDuty administrator account) specified by

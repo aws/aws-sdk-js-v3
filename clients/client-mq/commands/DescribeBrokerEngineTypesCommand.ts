@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBrokerEngineTypesCommandInput = DescribeBrokerEngineTypesRequest;
-export type DescribeBrokerEngineTypesCommandOutput = DescribeBrokerEngineTypesResponse & __MetadataBearer;
+export interface DescribeBrokerEngineTypesCommandInput extends DescribeBrokerEngineTypesRequest {}
+export interface DescribeBrokerEngineTypesCommandOutput extends DescribeBrokerEngineTypesResponse, __MetadataBearer {}
 
 /**
  * Describe available engine types and versions.

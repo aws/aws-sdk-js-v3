@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PollForTaskCommandInput = PollForTaskInput;
-export type PollForTaskCommandOutput = PollForTaskOutput & __MetadataBearer;
+export interface PollForTaskCommandInput extends PollForTaskInput {}
+export interface PollForTaskCommandOutput extends PollForTaskOutput, __MetadataBearer {}
 
 /**
  * <p>Task runners call <code>PollForTask</code> to receive a task to perform from AWS Data Pipeline. The task runner specifies which tasks it can perform

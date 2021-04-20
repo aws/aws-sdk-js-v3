@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeComponentCommandInput = DescribeComponentRequest;
-export type DescribeComponentCommandOutput = DescribeComponentResponse & __MetadataBearer;
+export interface DescribeComponentCommandInput extends DescribeComponentRequest {}
+export interface DescribeComponentCommandOutput extends DescribeComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a component and lists the resources that are grouped together in a component.</p>

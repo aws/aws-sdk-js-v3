@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteScalingPolicyCommandInput = DeleteScalingPolicyRequest;
-export type DeleteScalingPolicyCommandOutput = DeleteScalingPolicyResponse & __MetadataBearer;
+export interface DeleteScalingPolicyCommandInput extends DeleteScalingPolicyRequest {}
+export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified scaling policy for an Application Auto Scaling scalable target.</p>

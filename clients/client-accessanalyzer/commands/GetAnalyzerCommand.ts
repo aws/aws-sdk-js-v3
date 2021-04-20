@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAnalyzerCommandInput = GetAnalyzerRequest;
-export type GetAnalyzerCommandOutput = GetAnalyzerResponse & __MetadataBearer;
+export interface GetAnalyzerCommandInput extends GetAnalyzerRequest {}
+export interface GetAnalyzerCommandOutput extends GetAnalyzerResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the specified analyzer.</p>

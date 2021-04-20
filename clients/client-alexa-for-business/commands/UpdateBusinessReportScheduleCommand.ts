@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBusinessReportScheduleCommandInput = UpdateBusinessReportScheduleRequest;
-export type UpdateBusinessReportScheduleCommandOutput = UpdateBusinessReportScheduleResponse & __MetadataBearer;
+export interface UpdateBusinessReportScheduleCommandInput extends UpdateBusinessReportScheduleRequest {}
+export interface UpdateBusinessReportScheduleCommandOutput
+  extends UpdateBusinessReportScheduleResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the configuration of the report delivery schedule with the specified schedule

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDetectorVersionCommandInput = UpdateDetectorVersionRequest;
-export type UpdateDetectorVersionCommandOutput = UpdateDetectorVersionResult & __MetadataBearer;
+export interface UpdateDetectorVersionCommandInput extends UpdateDetectorVersionRequest {}
+export interface UpdateDetectorVersionCommandOutput extends UpdateDetectorVersionResult, __MetadataBearer {}
 
 /**
  * <p> Updates a detector version. The detector version attributes that you can update include models, external model endpoints, rules, rule execution mode, and description. You can only update a <code>DRAFT</code> detector version.</p>

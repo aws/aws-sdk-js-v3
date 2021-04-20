@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartAuditMitigationActionsTaskCommandInput = StartAuditMitigationActionsTaskRequest;
-export type StartAuditMitigationActionsTaskCommandOutput = StartAuditMitigationActionsTaskResponse & __MetadataBearer;
+export interface StartAuditMitigationActionsTaskCommandInput extends StartAuditMitigationActionsTaskRequest {}
+export interface StartAuditMitigationActionsTaskCommandOutput
+  extends StartAuditMitigationActionsTaskResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Starts a task that applies a set of mitigation actions to the specified target.</p>

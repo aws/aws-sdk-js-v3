@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVirtualNodeCommandInput = DeleteVirtualNodeInput;
-export type DeleteVirtualNodeCommandOutput = DeleteVirtualNodeOutput & __MetadataBearer;
+export interface DeleteVirtualNodeCommandInput extends DeleteVirtualNodeInput {}
+export interface DeleteVirtualNodeCommandOutput extends DeleteVirtualNodeOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing virtual node.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUserPermissionsBoundaryCommandInput = DeleteUserPermissionsBoundaryRequest;
-export type DeleteUserPermissionsBoundaryCommandOutput = __MetadataBearer;
+export interface DeleteUserPermissionsBoundaryCommandInput extends DeleteUserPermissionsBoundaryRequest {}
+export interface DeleteUserPermissionsBoundaryCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the permissions boundary for the specified IAM user.</p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAccessPointPolicyCommandInput = DeleteAccessPointPolicyRequest;
-export type DeleteAccessPointPolicyCommandOutput = __MetadataBearer;
+export interface DeleteAccessPointPolicyCommandInput extends DeleteAccessPointPolicyRequest {}
+export interface DeleteAccessPointPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the access point policy for the specified access point.</p>

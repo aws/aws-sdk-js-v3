@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListClusterJobsCommandInput = ListClusterJobsRequest;
-export type ListClusterJobsCommandOutput = ListClusterJobsResult & __MetadataBearer;
+export interface ListClusterJobsCommandInput extends ListClusterJobsRequest {}
+export interface ListClusterJobsCommandOutput extends ListClusterJobsResult, __MetadataBearer {}
 
 /**
  * <p>Returns an array of <code>JobListEntry</code> objects of the specified length. Each

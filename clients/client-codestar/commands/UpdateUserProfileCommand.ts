@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateUserProfileCommandInput = UpdateUserProfileRequest;
-export type UpdateUserProfileCommandOutput = UpdateUserProfileResult & __MetadataBearer;
+export interface UpdateUserProfileCommandInput extends UpdateUserProfileRequest {}
+export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResult, __MetadataBearer {}
 
 /**
  * <p>Updates a user's profile in AWS CodeStar. The user profile is not project-specific.

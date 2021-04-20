@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CommitTransactionCommandInput = CommitTransactionRequest;
-export type CommitTransactionCommandOutput = CommitTransactionResponse & __MetadataBearer;
+export interface CommitTransactionCommandInput extends CommitTransactionRequest {}
+export interface CommitTransactionCommandOutput extends CommitTransactionResponse, __MetadataBearer {}
 
 /**
  * <p>Ends a SQL transaction started with the <code>BeginTransaction</code> operation and

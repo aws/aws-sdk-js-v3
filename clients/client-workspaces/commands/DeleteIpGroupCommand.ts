@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteIpGroupCommandInput = DeleteIpGroupRequest;
-export type DeleteIpGroupCommandOutput = DeleteIpGroupResult & __MetadataBearer;
+export interface DeleteIpGroupCommandInput extends DeleteIpGroupRequest {}
+export interface DeleteIpGroupCommandOutput extends DeleteIpGroupResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified IP access control group.</p>

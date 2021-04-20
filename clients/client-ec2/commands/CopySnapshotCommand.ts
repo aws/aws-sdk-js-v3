@@ -15,8 +15,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CopySnapshotCommandInput = CopySnapshotRequest;
-export type CopySnapshotCommandOutput = CopySnapshotResult & __MetadataBearer;
+export interface CopySnapshotCommandInput extends CopySnapshotRequest {}
+export interface CopySnapshotCommandOutput extends CopySnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can copy a

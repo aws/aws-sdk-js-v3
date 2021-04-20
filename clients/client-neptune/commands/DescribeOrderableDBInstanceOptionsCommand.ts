@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeOrderableDBInstanceOptionsCommandInput = DescribeOrderableDBInstanceOptionsMessage;
-export type DescribeOrderableDBInstanceOptionsCommandOutput = OrderableDBInstanceOptionsMessage & __MetadataBearer;
+export interface DescribeOrderableDBInstanceOptionsCommandInput extends DescribeOrderableDBInstanceOptionsMessage {}
+export interface DescribeOrderableDBInstanceOptionsCommandOutput
+  extends OrderableDBInstanceOptionsMessage,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of orderable DB instance options for the specified engine.</p>

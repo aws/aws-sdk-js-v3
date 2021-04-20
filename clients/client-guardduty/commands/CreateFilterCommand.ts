@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFilterCommandInput = CreateFilterRequest;
-export type CreateFilterCommandOutput = CreateFilterResponse & __MetadataBearer;
+export interface CreateFilterCommandInput extends CreateFilterRequest {}
+export interface CreateFilterCommandOutput extends CreateFilterResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a filter using the specified finding criteria.</p>

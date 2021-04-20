@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRoomCommandInput = DeleteRoomRequest;
-export type DeleteRoomCommandOutput = __MetadataBearer;
+export interface DeleteRoomCommandInput extends DeleteRoomRequest {}
+export interface DeleteRoomCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a chat room in an Amazon Chime Enterprise account.</p>

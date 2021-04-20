@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTagsCommandInput = DescribeTagsInput;
-export type DescribeTagsCommandOutput = DescribeTagsOutput & __MetadataBearer;
+export interface DescribeTagsCommandInput extends DescribeTagsInput {}
+export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the tags associated with the specified load balancers.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterApplicationRevisionCommandInput = RegisterApplicationRevisionInput;
-export type RegisterApplicationRevisionCommandOutput = __MetadataBearer;
+export interface RegisterApplicationRevisionCommandInput extends RegisterApplicationRevisionInput {}
+export interface RegisterApplicationRevisionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Registers with AWS CodeDeploy a revision for the specified application.</p>

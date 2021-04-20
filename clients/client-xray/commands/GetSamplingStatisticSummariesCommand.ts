@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSamplingStatisticSummariesCommandInput = GetSamplingStatisticSummariesRequest;
-export type GetSamplingStatisticSummariesCommandOutput = GetSamplingStatisticSummariesResult & __MetadataBearer;
+export interface GetSamplingStatisticSummariesCommandInput extends GetSamplingStatisticSummariesRequest {}
+export interface GetSamplingStatisticSummariesCommandOutput
+  extends GetSamplingStatisticSummariesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves information about recent sampling results for all sampling rules.</p>

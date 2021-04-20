@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReportInstanceStatusCommandInput = ReportInstanceStatusRequest;
-export type ReportInstanceStatusCommandOutput = __MetadataBearer;
+export interface ReportInstanceStatusCommandInput extends ReportInstanceStatusRequest {}
+export interface ReportInstanceStatusCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Submits feedback about the status of an instance. The instance must be in the

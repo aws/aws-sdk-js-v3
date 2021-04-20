@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutEventsCommandInput = PutEventsRequest;
-export type PutEventsCommandOutput = __MetadataBearer;
+export interface PutEventsCommandInput extends PutEventsRequest {}
+export interface PutEventsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Records user interaction event data. For more information see

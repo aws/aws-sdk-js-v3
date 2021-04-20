@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateConnectionWithLagCommandInput = AssociateConnectionWithLagRequest;
-export type AssociateConnectionWithLagCommandOutput = Connection & __MetadataBearer;
+export interface AssociateConnectionWithLagCommandInput extends AssociateConnectionWithLagRequest {}
+export interface AssociateConnectionWithLagCommandOutput extends Connection, __MetadataBearer {}
 
 /**
  * <p>Associates an existing connection with a link aggregation group (LAG). The connection

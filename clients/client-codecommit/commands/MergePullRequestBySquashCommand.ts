@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type MergePullRequestBySquashCommandInput = MergePullRequestBySquashInput;
-export type MergePullRequestBySquashCommandOutput = MergePullRequestBySquashOutput & __MetadataBearer;
+export interface MergePullRequestBySquashCommandInput extends MergePullRequestBySquashInput {}
+export interface MergePullRequestBySquashCommandOutput extends MergePullRequestBySquashOutput, __MetadataBearer {}
 
 /**
  * <p>Attempts to merge the source commit of a pull request into the specified destination

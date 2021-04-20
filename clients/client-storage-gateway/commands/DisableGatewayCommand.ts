@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableGatewayCommandInput = DisableGatewayInput;
-export type DisableGatewayCommandOutput = DisableGatewayOutput & __MetadataBearer;
+export interface DisableGatewayCommandInput extends DisableGatewayInput {}
+export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __MetadataBearer {}
 
 /**
  * <p>Disables a tape gateway when the gateway is no longer functioning. For example, if your

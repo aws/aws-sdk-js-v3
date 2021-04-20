@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBackupPlanVersionsCommandInput = ListBackupPlanVersionsInput;
-export type ListBackupPlanVersionsCommandOutput = ListBackupPlanVersionsOutput & __MetadataBearer;
+export interface ListBackupPlanVersionsCommandInput extends ListBackupPlanVersionsInput {}
+export interface ListBackupPlanVersionsCommandOutput extends ListBackupPlanVersionsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns version metadata of your backup plans, including Amazon Resource Names (ARNs),

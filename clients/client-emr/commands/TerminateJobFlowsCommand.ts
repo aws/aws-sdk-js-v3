@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TerminateJobFlowsCommandInput = TerminateJobFlowsInput;
-export type TerminateJobFlowsCommandOutput = __MetadataBearer;
+export interface TerminateJobFlowsCommandInput extends TerminateJobFlowsInput {}
+export interface TerminateJobFlowsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>TerminateJobFlows shuts a list of clusters (job flows) down. When a job flow is shut

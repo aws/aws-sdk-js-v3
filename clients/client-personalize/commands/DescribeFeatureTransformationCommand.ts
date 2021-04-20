@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFeatureTransformationCommandInput = DescribeFeatureTransformationRequest;
-export type DescribeFeatureTransformationCommandOutput = DescribeFeatureTransformationResponse & __MetadataBearer;
+export interface DescribeFeatureTransformationCommandInput extends DescribeFeatureTransformationRequest {}
+export interface DescribeFeatureTransformationCommandOutput
+  extends DescribeFeatureTransformationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the given feature transformation.</p>

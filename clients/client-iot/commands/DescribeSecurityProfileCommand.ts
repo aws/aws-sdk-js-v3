@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSecurityProfileCommandInput = DescribeSecurityProfileRequest;
-export type DescribeSecurityProfileCommandOutput = DescribeSecurityProfileResponse & __MetadataBearer;
+export interface DescribeSecurityProfileCommandInput extends DescribeSecurityProfileRequest {}
+export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a Device Defender security profile.</p>

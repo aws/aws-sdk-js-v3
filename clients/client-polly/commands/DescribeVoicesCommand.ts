@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVoicesCommandInput = DescribeVoicesInput;
-export type DescribeVoicesCommandOutput = DescribeVoicesOutput & __MetadataBearer;
+export interface DescribeVoicesCommandInput extends DescribeVoicesInput {}
+export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the list of voices that are available for use when requesting speech synthesis.

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetComplianceDetailsByConfigRuleCommandInput = GetComplianceDetailsByConfigRuleRequest;
-export type GetComplianceDetailsByConfigRuleCommandOutput = GetComplianceDetailsByConfigRuleResponse & __MetadataBearer;
+export interface GetComplianceDetailsByConfigRuleCommandInput extends GetComplianceDetailsByConfigRuleRequest {}
+export interface GetComplianceDetailsByConfigRuleCommandOutput
+  extends GetComplianceDetailsByConfigRuleResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the evaluation results for the specified AWS Config

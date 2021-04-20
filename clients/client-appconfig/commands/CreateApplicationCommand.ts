@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateApplicationCommandInput = CreateApplicationRequest;
-export type CreateApplicationCommandOutput = Application & __MetadataBearer;
+export interface CreateApplicationCommandInput extends CreateApplicationRequest {}
+export interface CreateApplicationCommandOutput extends Application, __MetadataBearer {}
 
 /**
  * <p>An application in AppConfig is a logical unit of code that provides capabilities for your

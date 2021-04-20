@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopEdgePackagingJobCommandInput = StopEdgePackagingJobRequest;
-export type StopEdgePackagingJobCommandOutput = __MetadataBearer;
+export interface StopEdgePackagingJobCommandInput extends StopEdgePackagingJobRequest {}
+export interface StopEdgePackagingJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Request to stop an edge packaging job.</p>

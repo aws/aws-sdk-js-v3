@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateVirtualGatewayCommandInput = UpdateVirtualGatewayInput;
-export type UpdateVirtualGatewayCommandOutput = UpdateVirtualGatewayOutput & __MetadataBearer;
+export interface UpdateVirtualGatewayCommandInput extends UpdateVirtualGatewayInput {}
+export interface UpdateVirtualGatewayCommandOutput extends UpdateVirtualGatewayOutput, __MetadataBearer {}
 
 /**
  * <p>Updates an existing virtual gateway in a specified service mesh.</p>

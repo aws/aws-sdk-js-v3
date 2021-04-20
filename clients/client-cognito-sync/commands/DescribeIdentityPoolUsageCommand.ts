@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeIdentityPoolUsageCommandInput = DescribeIdentityPoolUsageRequest;
-export type DescribeIdentityPoolUsageCommandOutput = DescribeIdentityPoolUsageResponse & __MetadataBearer;
+export interface DescribeIdentityPoolUsageCommandInput extends DescribeIdentityPoolUsageRequest {}
+export interface DescribeIdentityPoolUsageCommandOutput extends DescribeIdentityPoolUsageResponse, __MetadataBearer {}
 
 /**
  * <p>Gets usage details (for example, data storage) about a particular identity pool.</p>

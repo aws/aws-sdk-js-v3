@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFleetsCommandInput = ListFleetsRequest;
-export type ListFleetsCommandOutput = ListFleetsResponse & __MetadataBearer;
+export interface ListFleetsCommandInput extends ListFleetsRequest {}
+export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of fleets. You can optionally provide filters to retrieve specific

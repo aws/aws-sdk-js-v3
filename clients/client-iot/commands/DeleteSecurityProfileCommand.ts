@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSecurityProfileCommandInput = DeleteSecurityProfileRequest;
-export type DeleteSecurityProfileCommandOutput = DeleteSecurityProfileResponse & __MetadataBearer;
+export interface DeleteSecurityProfileCommandInput extends DeleteSecurityProfileRequest {}
+export interface DeleteSecurityProfileCommandOutput extends DeleteSecurityProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a Device Defender security profile.</p>

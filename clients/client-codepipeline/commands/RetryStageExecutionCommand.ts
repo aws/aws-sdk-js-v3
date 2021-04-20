@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RetryStageExecutionCommandInput = RetryStageExecutionInput;
-export type RetryStageExecutionCommandOutput = RetryStageExecutionOutput & __MetadataBearer;
+export interface RetryStageExecutionCommandInput extends RetryStageExecutionInput {}
+export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOutput, __MetadataBearer {}
 
 /**
  * <p>Resumes the pipeline execution by retrying the last failed actions in a stage. You

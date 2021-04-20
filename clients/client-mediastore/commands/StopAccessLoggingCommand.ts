@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopAccessLoggingCommandInput = StopAccessLoggingInput;
-export type StopAccessLoggingCommandOutput = StopAccessLoggingOutput & __MetadataBearer;
+export interface StopAccessLoggingCommandInput extends StopAccessLoggingInput {}
+export interface StopAccessLoggingCommandOutput extends StopAccessLoggingOutput, __MetadataBearer {}
 
 /**
  * <p>Stops access logging on the specified container. When you stop access logging on a container, MediaStore stops sending access logs to Amazon CloudWatch Logs. These access logs are not saved and are not retrievable.</p>

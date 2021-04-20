@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPrincipalsForPortfolioCommandInput = ListPrincipalsForPortfolioInput;
-export type ListPrincipalsForPortfolioCommandOutput = ListPrincipalsForPortfolioOutput & __MetadataBearer;
+export interface ListPrincipalsForPortfolioCommandInput extends ListPrincipalsForPortfolioInput {}
+export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsForPortfolioOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all principal ARNs associated with the specified portfolio.</p>

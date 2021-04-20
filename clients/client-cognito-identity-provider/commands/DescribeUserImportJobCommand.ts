@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUserImportJobCommandInput = DescribeUserImportJobRequest;
-export type DescribeUserImportJobCommandOutput = DescribeUserImportJobResponse & __MetadataBearer;
+export interface DescribeUserImportJobCommandInput extends DescribeUserImportJobRequest {}
+export interface DescribeUserImportJobCommandOutput extends DescribeUserImportJobResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the user import job.</p>

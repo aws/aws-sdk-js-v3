@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVoiceConnectorCommandInput = CreateVoiceConnectorRequest;
-export type CreateVoiceConnectorCommandOutput = CreateVoiceConnectorResponse & __MetadataBearer;
+export interface CreateVoiceConnectorCommandInput extends CreateVoiceConnectorRequest {}
+export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Chime Voice Connector under the administrator's AWS account. You can choose to create an Amazon Chime Voice Connector in a specific AWS Region.</p>

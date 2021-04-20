@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSigningCertificateCommandInput = DeleteSigningCertificateRequest;
-export type DeleteSigningCertificateCommandOutput = __MetadataBearer;
+export interface DeleteSigningCertificateCommandInput extends DeleteSigningCertificateRequest {}
+export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a signing certificate associated with the specified IAM user.</p>

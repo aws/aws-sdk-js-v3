@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFirewallRuleGroupPolicyCommandInput = GetFirewallRuleGroupPolicyRequest;
-export type GetFirewallRuleGroupPolicyCommandOutput = GetFirewallRuleGroupPolicyResponse & __MetadataBearer;
+export interface GetFirewallRuleGroupPolicyCommandInput extends GetFirewallRuleGroupPolicyRequest {}
+export interface GetFirewallRuleGroupPolicyCommandOutput extends GetFirewallRuleGroupPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the AWS Identity and Access Management (AWS IAM) policy for sharing the specified rule group. You can use the policy to share the rule group using AWS Resource Access Manager (RAM). </p>

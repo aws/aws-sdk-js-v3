@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRepositoryCommandInput = DeleteRepositoryRequest;
-export type DeleteRepositoryCommandOutput = DeleteRepositoryResponse & __MetadataBearer;
+export interface DeleteRepositoryCommandInput extends DeleteRepositoryRequest {}
+export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a repository in a public registry. If the repository contains images, you must

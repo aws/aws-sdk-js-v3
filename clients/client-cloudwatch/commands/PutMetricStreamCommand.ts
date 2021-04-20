@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutMetricStreamCommandInput = PutMetricStreamInput;
-export type PutMetricStreamCommandOutput = PutMetricStreamOutput & __MetadataBearer;
+export interface PutMetricStreamCommandInput extends PutMetricStreamInput {}
+export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Creates or updates a metric stream. Metric streams can automatically stream CloudWatch metrics

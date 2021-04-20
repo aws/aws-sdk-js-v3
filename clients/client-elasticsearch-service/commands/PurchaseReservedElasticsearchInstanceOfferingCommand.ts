@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PurchaseReservedElasticsearchInstanceOfferingCommandInput = PurchaseReservedElasticsearchInstanceOfferingRequest;
-export type PurchaseReservedElasticsearchInstanceOfferingCommandOutput = PurchaseReservedElasticsearchInstanceOfferingResponse &
-  __MetadataBearer;
+export interface PurchaseReservedElasticsearchInstanceOfferingCommandInput
+  extends PurchaseReservedElasticsearchInstanceOfferingRequest {}
+export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
+  extends PurchaseReservedElasticsearchInstanceOfferingResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Allows you to purchase reserved Elasticsearch instances.</p>

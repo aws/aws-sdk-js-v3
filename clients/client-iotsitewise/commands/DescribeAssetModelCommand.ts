@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAssetModelCommandInput = DescribeAssetModelRequest;
-export type DescribeAssetModelCommandOutput = DescribeAssetModelResponse & __MetadataBearer;
+export interface DescribeAssetModelCommandInput extends DescribeAssetModelRequest {}
+export interface DescribeAssetModelCommandOutput extends DescribeAssetModelResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an asset model.</p>

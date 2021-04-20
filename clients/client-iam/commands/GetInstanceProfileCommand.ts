@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInstanceProfileCommandInput = GetInstanceProfileRequest;
-export type GetInstanceProfileCommandOutput = GetInstanceProfileResponse & __MetadataBearer;
+export interface GetInstanceProfileCommandInput extends GetInstanceProfileRequest {}
+export interface GetInstanceProfileCommandOutput extends GetInstanceProfileResponse, __MetadataBearer {}
 
 /**
  * <p> Retrieves information about the specified instance profile, including the instance

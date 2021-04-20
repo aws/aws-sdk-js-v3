@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListOfferingsCommandInput = ListOfferingsRequest;
-export type ListOfferingsCommandOutput = ListOfferingsResult & __MetadataBearer;
+export interface ListOfferingsCommandInput extends ListOfferingsRequest {}
+export interface ListOfferingsCommandOutput extends ListOfferingsResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of products or offerings that the user can manage through the API. Each offering record

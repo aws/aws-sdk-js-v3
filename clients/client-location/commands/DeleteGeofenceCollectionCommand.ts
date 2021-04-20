@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGeofenceCollectionCommandInput = DeleteGeofenceCollectionRequest;
-export type DeleteGeofenceCollectionCommandOutput = DeleteGeofenceCollectionResponse & __MetadataBearer;
+export interface DeleteGeofenceCollectionCommandInput extends DeleteGeofenceCollectionRequest {}
+export interface DeleteGeofenceCollectionCommandOutput extends DeleteGeofenceCollectionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a geofence collection from your AWS account.</p>

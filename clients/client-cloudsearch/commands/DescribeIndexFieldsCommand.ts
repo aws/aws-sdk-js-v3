@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeIndexFieldsCommandInput = DescribeIndexFieldsRequest;
-export type DescribeIndexFieldsCommandOutput = DescribeIndexFieldsResponse & __MetadataBearer;
+export interface DescribeIndexFieldsCommandInput extends DescribeIndexFieldsRequest {}
+export interface DescribeIndexFieldsCommandOutput extends DescribeIndexFieldsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the index fields configured for the search domain.

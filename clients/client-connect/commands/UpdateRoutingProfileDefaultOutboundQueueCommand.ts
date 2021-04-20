@@ -17,8 +17,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRoutingProfileDefaultOutboundQueueCommandInput = UpdateRoutingProfileDefaultOutboundQueueRequest;
-export type UpdateRoutingProfileDefaultOutboundQueueCommandOutput = __MetadataBearer;
+export interface UpdateRoutingProfileDefaultOutboundQueueCommandInput
+  extends UpdateRoutingProfileDefaultOutboundQueueRequest {}
+export interface UpdateRoutingProfileDefaultOutboundQueueCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the default outbound queue of a routing profile.</p>

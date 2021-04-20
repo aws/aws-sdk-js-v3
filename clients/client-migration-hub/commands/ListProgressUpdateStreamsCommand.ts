@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProgressUpdateStreamsCommandInput = ListProgressUpdateStreamsRequest;
-export type ListProgressUpdateStreamsCommandOutput = ListProgressUpdateStreamsResult & __MetadataBearer;
+export interface ListProgressUpdateStreamsCommandInput extends ListProgressUpdateStreamsRequest {}
+export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpdateStreamsResult, __MetadataBearer {}
 
 /**
  * <p>Lists progress update streams associated with the user account making this call.</p>

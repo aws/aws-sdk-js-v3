@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetWirelessGatewayCertificateCommandInput = GetWirelessGatewayCertificateRequest;
-export type GetWirelessGatewayCertificateCommandOutput = GetWirelessGatewayCertificateResponse & __MetadataBearer;
+export interface GetWirelessGatewayCertificateCommandInput extends GetWirelessGatewayCertificateRequest {}
+export interface GetWirelessGatewayCertificateCommandOutput
+  extends GetWirelessGatewayCertificateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the ID of the certificate that is currently associated with a wireless gateway.</p>

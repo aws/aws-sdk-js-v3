@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFileSystemCommandInput = DeleteFileSystemRequest;
-export type DeleteFileSystemCommandOutput = DeleteFileSystemResponse & __MetadataBearer;
+export interface DeleteFileSystemCommandInput extends DeleteFileSystemRequest {}
+export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a file system, deleting its contents. After deletion, the file system no

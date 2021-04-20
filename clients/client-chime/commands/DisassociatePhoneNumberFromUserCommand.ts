@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociatePhoneNumberFromUserCommandInput = DisassociatePhoneNumberFromUserRequest;
-export type DisassociatePhoneNumberFromUserCommandOutput = DisassociatePhoneNumberFromUserResponse & __MetadataBearer;
+export interface DisassociatePhoneNumberFromUserCommandInput extends DisassociatePhoneNumberFromUserRequest {}
+export interface DisassociatePhoneNumberFromUserCommandOutput
+  extends DisassociatePhoneNumberFromUserResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates the primary provisioned phone number from the specified Amazon Chime

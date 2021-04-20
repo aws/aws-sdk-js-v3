@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLoggerDefinitionCommandInput = DeleteLoggerDefinitionRequest;
-export type DeleteLoggerDefinitionCommandOutput = DeleteLoggerDefinitionResponse & __MetadataBearer;
+export interface DeleteLoggerDefinitionCommandInput extends DeleteLoggerDefinitionRequest {}
+export interface DeleteLoggerDefinitionCommandOutput extends DeleteLoggerDefinitionResponse, __MetadataBearer {}
 
 /**
  * Deletes a logger definition.

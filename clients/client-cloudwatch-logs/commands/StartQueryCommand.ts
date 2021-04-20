@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartQueryCommandInput = StartQueryRequest;
-export type StartQueryCommandOutput = StartQueryResponse & __MetadataBearer;
+export interface StartQueryCommandInput extends StartQueryRequest {}
+export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataBearer {}
 
 /**
  * <p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group

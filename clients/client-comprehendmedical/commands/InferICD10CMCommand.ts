@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InferICD10CMCommandInput = InferICD10CMRequest;
-export type InferICD10CMCommandOutput = InferICD10CMResponse & __MetadataBearer;
+export interface InferICD10CMCommandInput extends InferICD10CMRequest {}
+export interface InferICD10CMCommandOutput extends InferICD10CMResponse, __MetadataBearer {}
 
 /**
  * <p>InferICD10CM detects medical conditions as entities listed in a patient record and links

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePlatformVersionCommandInput = DeletePlatformVersionRequest;
-export type DeletePlatformVersionCommandOutput = DeletePlatformVersionResult & __MetadataBearer;
+export interface DeletePlatformVersionCommandInput extends DeletePlatformVersionRequest {}
+export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersionResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified version of a custom platform.</p>

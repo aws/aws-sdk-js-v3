@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDataSourceCommandInput = DeleteDataSourceRequest;
-export type DeleteDataSourceCommandOutput = __MetadataBearer;
+export interface DeleteDataSourceCommandInput extends DeleteDataSourceRequest {}
+export interface DeleteDataSourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an Amazon Kendra data source. An exception is not thrown if the

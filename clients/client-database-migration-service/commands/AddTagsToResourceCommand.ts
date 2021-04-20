@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddTagsToResourceCommandInput = AddTagsToResourceMessage;
-export type AddTagsToResourceCommandOutput = AddTagsToResourceResponse & __MetadataBearer;
+export interface AddTagsToResourceCommandInput extends AddTagsToResourceMessage {}
+export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Adds metadata tags to an AWS DMS resource, including replication instance, endpoint,

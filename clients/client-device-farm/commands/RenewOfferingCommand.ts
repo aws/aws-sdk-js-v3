@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RenewOfferingCommandInput = RenewOfferingRequest;
-export type RenewOfferingCommandOutput = RenewOfferingResult & __MetadataBearer;
+export interface RenewOfferingCommandInput extends RenewOfferingRequest {}
+export interface RenewOfferingCommandOutput extends RenewOfferingResult, __MetadataBearer {}
 
 /**
  * <p>Explicitly sets the quantity of devices to renew for an offering, starting from the

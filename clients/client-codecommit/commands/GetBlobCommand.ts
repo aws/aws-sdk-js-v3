@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBlobCommandInput = GetBlobInput;
-export type GetBlobCommandOutput = GetBlobOutput & __MetadataBearer;
+export interface GetBlobCommandInput extends GetBlobInput {}
+export interface GetBlobCommandOutput extends GetBlobOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the base-64 encoded content of an individual blob in a repository.</p>

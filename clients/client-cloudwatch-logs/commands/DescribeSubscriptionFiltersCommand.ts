@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSubscriptionFiltersCommandInput = DescribeSubscriptionFiltersRequest;
-export type DescribeSubscriptionFiltersCommandOutput = DescribeSubscriptionFiltersResponse & __MetadataBearer;
+export interface DescribeSubscriptionFiltersCommandInput extends DescribeSubscriptionFiltersRequest {}
+export interface DescribeSubscriptionFiltersCommandOutput
+  extends DescribeSubscriptionFiltersResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the subscription filters for the specified log group. You can list all the subscription filters or filter the results by prefix.

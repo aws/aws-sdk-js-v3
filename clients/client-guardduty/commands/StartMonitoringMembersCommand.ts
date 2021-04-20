@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartMonitoringMembersCommandInput = StartMonitoringMembersRequest;
-export type StartMonitoringMembersCommandOutput = StartMonitoringMembersResponse & __MetadataBearer;
+export interface StartMonitoringMembersCommandInput extends StartMonitoringMembersRequest {}
+export interface StartMonitoringMembersCommandOutput extends StartMonitoringMembersResponse, __MetadataBearer {}
 
 /**
  * <p>Turns on GuardDuty monitoring of the specified member accounts. Use this operation to

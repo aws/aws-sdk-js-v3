@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateEmailChannelCommandInput = UpdateEmailChannelRequest;
-export type UpdateEmailChannelCommandOutput = UpdateEmailChannelResponse & __MetadataBearer;
+export interface UpdateEmailChannelCommandInput extends UpdateEmailChannelRequest {}
+export interface UpdateEmailChannelCommandOutput extends UpdateEmailChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the email channel for an application or updates the status and settings of the email channel for an application.</p>

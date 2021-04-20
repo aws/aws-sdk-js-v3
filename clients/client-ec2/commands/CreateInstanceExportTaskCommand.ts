@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateInstanceExportTaskCommandInput = CreateInstanceExportTaskRequest;
-export type CreateInstanceExportTaskCommandOutput = CreateInstanceExportTaskResult & __MetadataBearer;
+export interface CreateInstanceExportTaskCommandInput extends CreateInstanceExportTaskRequest {}
+export interface CreateInstanceExportTaskCommandOutput extends CreateInstanceExportTaskResult, __MetadataBearer {}
 
 /**
  * <p>Exports a running or stopped instance to an Amazon S3 bucket.</p>

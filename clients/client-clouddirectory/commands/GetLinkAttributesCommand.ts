@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLinkAttributesCommandInput = GetLinkAttributesRequest;
-export type GetLinkAttributesCommandOutput = GetLinkAttributesResponse & __MetadataBearer;
+export interface GetLinkAttributesCommandInput extends GetLinkAttributesRequest {}
+export interface GetLinkAttributesCommandOutput extends GetLinkAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves attributes that are associated with a typed link.</p>

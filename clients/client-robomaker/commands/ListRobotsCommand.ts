@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRobotsCommandInput = ListRobotsRequest;
-export type ListRobotsCommandOutput = ListRobotsResponse & __MetadataBearer;
+export interface ListRobotsCommandInput extends ListRobotsRequest {}
+export interface ListRobotsCommandOutput extends ListRobotsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of robots. You can optionally provide filters to retrieve specific

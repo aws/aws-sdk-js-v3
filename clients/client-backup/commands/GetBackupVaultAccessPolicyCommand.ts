@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBackupVaultAccessPolicyCommandInput = GetBackupVaultAccessPolicyInput;
-export type GetBackupVaultAccessPolicyCommandOutput = GetBackupVaultAccessPolicyOutput & __MetadataBearer;
+export interface GetBackupVaultAccessPolicyCommandInput extends GetBackupVaultAccessPolicyInput {}
+export interface GetBackupVaultAccessPolicyCommandOutput extends GetBackupVaultAccessPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the access policy document that is associated with the named backup

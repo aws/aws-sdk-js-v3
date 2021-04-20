@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableProactiveEngagementCommandInput = DisableProactiveEngagementRequest;
-export type DisableProactiveEngagementCommandOutput = DisableProactiveEngagementResponse & __MetadataBearer;
+export interface DisableProactiveEngagementCommandInput extends DisableProactiveEngagementRequest {}
+export interface DisableProactiveEngagementCommandOutput extends DisableProactiveEngagementResponse, __MetadataBearer {}
 
 /**
  * <p>Removes authorization from the DDoS Response Team (DRT) to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>

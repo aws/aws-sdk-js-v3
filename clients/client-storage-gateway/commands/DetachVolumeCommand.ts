@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachVolumeCommandInput = DetachVolumeInput;
-export type DetachVolumeCommandOutput = DetachVolumeOutput & __MetadataBearer;
+export interface DetachVolumeCommandInput extends DetachVolumeInput {}
+export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __MetadataBearer {}
 
 /**
  * <p>Disconnects a volume from an iSCSI connection and then detaches the volume from the

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConfigRuleEvaluationStatusCommandInput = DescribeConfigRuleEvaluationStatusRequest;
-export type DescribeConfigRuleEvaluationStatusCommandOutput = DescribeConfigRuleEvaluationStatusResponse &
-  __MetadataBearer;
+export interface DescribeConfigRuleEvaluationStatusCommandInput extends DescribeConfigRuleEvaluationStatusRequest {}
+export interface DescribeConfigRuleEvaluationStatusCommandOutput
+  extends DescribeConfigRuleEvaluationStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns status information for each of your AWS managed Config

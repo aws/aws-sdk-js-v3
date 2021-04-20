@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEdgePackagingJobCommandInput = DescribeEdgePackagingJobRequest;
-export type DescribeEdgePackagingJobCommandOutput = DescribeEdgePackagingJobResponse & __MetadataBearer;
+export interface DescribeEdgePackagingJobCommandInput extends DescribeEdgePackagingJobRequest {}
+export interface DescribeEdgePackagingJobCommandOutput extends DescribeEdgePackagingJobResponse, __MetadataBearer {}
 
 /**
  * <p>A description of edge packaging jobs.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartGatewayCommandInput = StartGatewayInput;
-export type StartGatewayCommandOutput = StartGatewayOutput & __MetadataBearer;
+export interface StartGatewayCommandInput extends StartGatewayInput {}
+export interface StartGatewayCommandOutput extends StartGatewayOutput, __MetadataBearer {}
 
 /**
  * <p>Starts a gateway that you previously shut down (see <a>ShutdownGateway</a>).

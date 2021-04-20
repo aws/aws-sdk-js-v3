@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListStudiosCommandInput = ListStudiosInput;
-export type ListStudiosCommandOutput = ListStudiosOutput & __MetadataBearer;
+export interface ListStudiosCommandInput extends ListStudiosInput {}
+export interface ListStudiosCommandOutput extends ListStudiosOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of all Amazon EMR Studios associated with the AWS account. The list

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAccountsCommandInput = ListAccountsRequest;
-export type ListAccountsCommandOutput = ListAccountsResponse & __MetadataBearer;
+export interface ListAccountsCommandInput extends ListAccountsRequest {}
+export interface ListAccountsCommandOutput extends ListAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetDeploymentTargetsCommandInput = BatchGetDeploymentTargetsInput;
-export type BatchGetDeploymentTargetsCommandOutput = BatchGetDeploymentTargetsOutput & __MetadataBearer;
+export interface BatchGetDeploymentTargetsCommandInput extends BatchGetDeploymentTargetsInput {}
+export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeploymentTargetsOutput, __MetadataBearer {}
 
 /**
  * <p> Returns an array of one or more targets associated with a deployment. This method

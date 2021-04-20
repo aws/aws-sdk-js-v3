@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateResolverRuleCommandInput = DisassociateResolverRuleRequest;
-export type DisassociateResolverRuleCommandOutput = DisassociateResolverRuleResponse & __MetadataBearer;
+export interface DisassociateResolverRuleCommandInput extends DisassociateResolverRuleRequest {}
+export interface DisassociateResolverRuleCommandOutput extends DisassociateResolverRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the association between a specified Resolver rule and a specified VPC.</p>

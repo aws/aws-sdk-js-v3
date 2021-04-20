@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResolverEndpointIpAddressesCommandInput = ListResolverEndpointIpAddressesRequest;
-export type ListResolverEndpointIpAddressesCommandOutput = ListResolverEndpointIpAddressesResponse & __MetadataBearer;
+export interface ListResolverEndpointIpAddressesCommandInput extends ListResolverEndpointIpAddressesRequest {}
+export interface ListResolverEndpointIpAddressesCommandOutput
+  extends ListResolverEndpointIpAddressesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the IP addresses for a specified Resolver endpoint.</p>

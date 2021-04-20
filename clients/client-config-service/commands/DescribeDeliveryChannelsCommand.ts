@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDeliveryChannelsCommandInput = DescribeDeliveryChannelsRequest;
-export type DescribeDeliveryChannelsCommandOutput = DescribeDeliveryChannelsResponse & __MetadataBearer;
+export interface DescribeDeliveryChannelsCommandInput extends DescribeDeliveryChannelsRequest {}
+export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryChannelsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns details about the specified delivery channel. If a

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDBParameterGroupsCommandInput = DescribeDBParameterGroupsMessage;
-export type DescribeDBParameterGroupsCommandOutput = DBParameterGroupsMessage & __MetadataBearer;
+export interface DescribeDBParameterGroupsCommandInput extends DescribeDBParameterGroupsMessage {}
+export interface DescribeDBParameterGroupsCommandOutput extends DBParameterGroupsMessage, __MetadataBearer {}
 
 /**
  * <p>

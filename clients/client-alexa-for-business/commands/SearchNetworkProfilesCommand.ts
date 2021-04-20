@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchNetworkProfilesCommandInput = SearchNetworkProfilesRequest;
-export type SearchNetworkProfilesCommandOutput = SearchNetworkProfilesResponse & __MetadataBearer;
+export interface SearchNetworkProfilesCommandInput extends SearchNetworkProfilesRequest {}
+export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfilesResponse, __MetadataBearer {}
 
 /**
  * <p>Searches network profiles and lists the ones that meet a set of filter and sort

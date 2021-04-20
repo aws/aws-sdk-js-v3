@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RejectCertificateTransferCommandInput = RejectCertificateTransferRequest;
-export type RejectCertificateTransferCommandOutput = __MetadataBearer;
+export interface RejectCertificateTransferCommandInput extends RejectCertificateTransferRequest {}
+export interface RejectCertificateTransferCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer,

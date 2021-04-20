@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeServicesCommandInput = DescribeServicesRequest;
-export type DescribeServicesCommandOutput = DescribeServicesResponse & __MetadataBearer;
+export interface DescribeServicesCommandInput extends DescribeServicesRequest {}
+export interface DescribeServicesCommandOutput extends DescribeServicesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the current list of AWS services and a list of service categories for each

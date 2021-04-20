@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBrokerCommandInput = CreateBrokerRequest;
-export type CreateBrokerCommandOutput = CreateBrokerResponse & __MetadataBearer;
+export interface CreateBrokerCommandInput extends CreateBrokerRequest {}
+export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __MetadataBearer {}
 
 /**
  * Creates a broker. Note: This API is asynchronous.

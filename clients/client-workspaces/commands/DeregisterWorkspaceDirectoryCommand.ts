@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterWorkspaceDirectoryCommandInput = DeregisterWorkspaceDirectoryRequest;
-export type DeregisterWorkspaceDirectoryCommandOutput = DeregisterWorkspaceDirectoryResult & __MetadataBearer;
+export interface DeregisterWorkspaceDirectoryCommandInput extends DeregisterWorkspaceDirectoryRequest {}
+export interface DeregisterWorkspaceDirectoryCommandOutput
+  extends DeregisterWorkspaceDirectoryResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deregisters the specified directory. This operation is asynchronous

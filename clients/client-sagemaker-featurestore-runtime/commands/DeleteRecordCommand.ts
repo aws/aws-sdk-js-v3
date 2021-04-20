@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRecordCommandInput = DeleteRecordRequest;
-export type DeleteRecordCommandOutput = __MetadataBearer;
+export interface DeleteRecordCommandInput extends DeleteRecordRequest {}
+export interface DeleteRecordCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a <code>Record</code> from a <code>FeatureGroup</code>. A new record will show

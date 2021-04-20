@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUserPolicyCommandInput = GetUserPolicyRequest;
-export type GetUserPolicyCommandOutput = GetUserPolicyResponse & __MetadataBearer;
+export interface GetUserPolicyCommandInput extends GetUserPolicyRequest {}
+export interface GetUserPolicyCommandOutput extends GetUserPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified inline policy document that is embedded in the specified IAM

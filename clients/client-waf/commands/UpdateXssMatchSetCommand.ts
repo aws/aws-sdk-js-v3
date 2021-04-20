@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateXssMatchSetCommandInput = UpdateXssMatchSetRequest;
-export type UpdateXssMatchSetCommandOutput = UpdateXssMatchSetResponse & __MetadataBearer;
+export interface UpdateXssMatchSetCommandInput extends UpdateXssMatchSetRequest {}
+export interface UpdateXssMatchSetCommandOutput extends UpdateXssMatchSetResponse, __MetadataBearer {}
 
 /**
  * <note>

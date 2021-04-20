@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCasesCommandInput = DescribeCasesRequest;
-export type DescribeCasesCommandOutput = DescribeCasesResponse & __MetadataBearer;
+export interface DescribeCasesCommandInput extends DescribeCasesRequest {}
+export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of cases that you specify by passing one or more case IDs. You can use

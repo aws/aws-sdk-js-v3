@@ -24,9 +24,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelReplicationTaskAssessmentRunCommandInput = CancelReplicationTaskAssessmentRunMessage;
-export type CancelReplicationTaskAssessmentRunCommandOutput = CancelReplicationTaskAssessmentRunResponse &
-  __MetadataBearer;
+export interface CancelReplicationTaskAssessmentRunCommandInput extends CancelReplicationTaskAssessmentRunMessage {}
+export interface CancelReplicationTaskAssessmentRunCommandOutput
+  extends CancelReplicationTaskAssessmentRunResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Cancels a single premigration assessment run.</p>

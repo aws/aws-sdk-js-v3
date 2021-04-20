@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutManagedScalingPolicyCommandInput = PutManagedScalingPolicyInput;
-export type PutManagedScalingPolicyCommandOutput = PutManagedScalingPolicyOutput & __MetadataBearer;
+export interface PutManagedScalingPolicyCommandInput extends PutManagedScalingPolicyInput {}
+export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Creates or updates a managed scaling policy for an Amazon EMR cluster. The managed

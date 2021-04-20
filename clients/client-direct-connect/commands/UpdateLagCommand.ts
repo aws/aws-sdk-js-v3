@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateLagCommandInput = UpdateLagRequest;
-export type UpdateLagCommandOutput = Lag & __MetadataBearer;
+export interface UpdateLagCommandInput extends UpdateLagRequest {}
+export interface UpdateLagCommandOutput extends Lag, __MetadataBearer {}
 
 /**
  * <p>Updates the attributes of the specified link aggregation group (LAG).</p>

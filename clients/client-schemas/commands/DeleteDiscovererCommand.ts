@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDiscovererCommandInput = DeleteDiscovererRequest;
-export type DeleteDiscovererCommandOutput = __MetadataBearer;
+export interface DeleteDiscovererCommandInput extends DeleteDiscovererRequest {}
+export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a discoverer.</p>

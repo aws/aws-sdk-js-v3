@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDiscoveredSchemaCommandInput = GetDiscoveredSchemaRequest;
-export type GetDiscoveredSchemaCommandOutput = GetDiscoveredSchemaResponse & __MetadataBearer;
+export interface GetDiscoveredSchemaCommandInput extends GetDiscoveredSchemaRequest {}
+export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaResponse, __MetadataBearer {}
 
 /**
  * <p>Get the discovered schema that was generated based on sampled events.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateLifecyclePolicyCommandInput = UpdateLifecyclePolicyRequest;
-export type UpdateLifecyclePolicyCommandOutput = UpdateLifecyclePolicyResponse & __MetadataBearer;
+export interface UpdateLifecyclePolicyCommandInput extends UpdateLifecyclePolicyRequest {}
+export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified lifecycle policy.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVolumesModificationsCommandInput = DescribeVolumesModificationsRequest;
-export type DescribeVolumesModificationsCommandOutput = DescribeVolumesModificationsResult & __MetadataBearer;
+export interface DescribeVolumesModificationsCommandInput extends DescribeVolumesModificationsRequest {}
+export interface DescribeVolumesModificationsCommandOutput
+  extends DescribeVolumesModificationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the most recent volume modification request for the specified EBS volumes.</p>

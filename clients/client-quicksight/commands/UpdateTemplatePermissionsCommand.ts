@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTemplatePermissionsCommandInput = UpdateTemplatePermissionsRequest;
-export type UpdateTemplatePermissionsCommandOutput = UpdateTemplatePermissionsResponse & __MetadataBearer;
+export interface UpdateTemplatePermissionsCommandInput extends UpdateTemplatePermissionsRequest {}
+export interface UpdateTemplatePermissionsCommandOutput extends UpdateTemplatePermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the resource permissions for a template.</p>

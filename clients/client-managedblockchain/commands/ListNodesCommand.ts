@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListNodesCommandInput = ListNodesInput;
-export type ListNodesCommandOutput = ListNodesOutput & __MetadataBearer;
+export interface ListNodesCommandInput extends ListNodesInput {}
+export interface ListNodesCommandOutput extends ListNodesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the nodes within a network.</p>

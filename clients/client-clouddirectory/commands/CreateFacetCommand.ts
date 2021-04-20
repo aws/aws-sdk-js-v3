@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFacetCommandInput = CreateFacetRequest;
-export type CreateFacetCommandOutput = CreateFacetResponse & __MetadataBearer;
+export interface CreateFacetCommandInput extends CreateFacetRequest {}
+export interface CreateFacetCommandOutput extends CreateFacetResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new <a>Facet</a> in a schema. Facet creation is allowed only

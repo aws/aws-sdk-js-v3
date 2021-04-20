@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVirtualServiceCommandInput = DeleteVirtualServiceInput;
-export type DeleteVirtualServiceCommandOutput = DeleteVirtualServiceOutput & __MetadataBearer;
+export interface DeleteVirtualServiceCommandInput extends DeleteVirtualServiceInput {}
+export interface DeleteVirtualServiceCommandOutput extends DeleteVirtualServiceOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing virtual service.</p>

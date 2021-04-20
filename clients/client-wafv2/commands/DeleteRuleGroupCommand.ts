@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRuleGroupCommandInput = DeleteRuleGroupRequest;
-export type DeleteRuleGroupCommandOutput = DeleteRuleGroupResponse & __MetadataBearer;
+export interface DeleteRuleGroupCommandInput extends DeleteRuleGroupRequest {}
+export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified <a>RuleGroup</a>.</p>

@@ -16,8 +16,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EmptyOperationCommandInput = {};
-export type EmptyOperationCommandOutput = __MetadataBearer;
+export interface EmptyOperationCommandInput {}
+export interface EmptyOperationCommandOutput extends __MetadataBearer {}
 
 export class EmptyOperationCommand extends $Command<
   EmptyOperationCommandInput,

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendEventCommandInput = SendEventRequest;
-export type SendEventCommandOutput = SendEventResponse & __MetadataBearer;
+export interface SendEventCommandInput extends SendEventRequest {}
+export interface SendEventCommandOutput extends SendEventResponse, __MetadataBearer {}
 
 /**
  * <p>Sends an event. Note that ConnectionToken is used for invoking this API instead of

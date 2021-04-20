@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ActivateKeySigningKeyCommandInput = ActivateKeySigningKeyRequest;
-export type ActivateKeySigningKeyCommandOutput = ActivateKeySigningKeyResponse & __MetadataBearer;
+export interface ActivateKeySigningKeyCommandInput extends ActivateKeySigningKeyRequest {}
+export interface ActivateKeySigningKeyCommandOutput extends ActivateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Activates a key-signing key (KSK) so that it can be used for signing by DNSSEC. This operation changes the

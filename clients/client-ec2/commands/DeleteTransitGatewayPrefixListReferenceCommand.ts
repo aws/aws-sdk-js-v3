@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTransitGatewayPrefixListReferenceCommandInput = DeleteTransitGatewayPrefixListReferenceRequest;
-export type DeleteTransitGatewayPrefixListReferenceCommandOutput = DeleteTransitGatewayPrefixListReferenceResult &
-  __MetadataBearer;
+export interface DeleteTransitGatewayPrefixListReferenceCommandInput
+  extends DeleteTransitGatewayPrefixListReferenceRequest {}
+export interface DeleteTransitGatewayPrefixListReferenceCommandOutput
+  extends DeleteTransitGatewayPrefixListReferenceResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes a reference (route) to a prefix list in a specified transit gateway route table.</p>

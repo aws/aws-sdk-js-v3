@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ConfirmPrivateVirtualInterfaceCommandInput = ConfirmPrivateVirtualInterfaceRequest;
-export type ConfirmPrivateVirtualInterfaceCommandOutput = ConfirmPrivateVirtualInterfaceResponse & __MetadataBearer;
+export interface ConfirmPrivateVirtualInterfaceCommandInput extends ConfirmPrivateVirtualInterfaceRequest {}
+export interface ConfirmPrivateVirtualInterfaceCommandOutput
+  extends ConfirmPrivateVirtualInterfaceResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Accepts ownership of a private virtual interface created by another AWS account.</p>

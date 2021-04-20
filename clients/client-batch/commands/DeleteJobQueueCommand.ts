@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteJobQueueCommandInput = DeleteJobQueueRequest;
-export type DeleteJobQueueCommandOutput = DeleteJobQueueResponse & __MetadataBearer;
+export interface DeleteJobQueueCommandInput extends DeleteJobQueueRequest {}
+export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified job queue. You must first disable submissions for a queue with the <a>UpdateJobQueue</a> operation. All jobs in the queue are eventually terminated when you delete a job queue.

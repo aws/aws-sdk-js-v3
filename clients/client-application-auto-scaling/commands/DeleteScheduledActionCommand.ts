@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteScheduledActionCommandInput = DeleteScheduledActionRequest;
-export type DeleteScheduledActionCommandOutput = DeleteScheduledActionResponse & __MetadataBearer;
+export interface DeleteScheduledActionCommandInput extends DeleteScheduledActionRequest {}
+export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified scheduled action for an Application Auto Scaling scalable target.</p>

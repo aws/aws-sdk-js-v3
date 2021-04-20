@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAnswerCommandInput = UpdateAnswerInput;
-export type UpdateAnswerCommandOutput = UpdateAnswerOutput & __MetadataBearer;
+export interface UpdateAnswerCommandInput extends UpdateAnswerInput {}
+export interface UpdateAnswerCommandOutput extends UpdateAnswerOutput, __MetadataBearer {}
 
 /**
  * <p>Update the answer to a specific question in a workload review.</p>

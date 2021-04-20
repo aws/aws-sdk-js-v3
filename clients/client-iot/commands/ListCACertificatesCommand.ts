@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCACertificatesCommandInput = ListCACertificatesRequest;
-export type ListCACertificatesCommandOutput = ListCACertificatesResponse & __MetadataBearer;
+export interface ListCACertificatesCommandInput extends ListCACertificatesRequest {}
+export interface ListCACertificatesCommandOutput extends ListCACertificatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the CA certificates registered for your AWS account.</p>

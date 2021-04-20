@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteClientVpnRouteCommandInput = DeleteClientVpnRouteRequest;
-export type DeleteClientVpnRouteCommandOutput = DeleteClientVpnRouteResult & __MetadataBearer;
+export interface DeleteClientVpnRouteCommandInput extends DeleteClientVpnRouteRequest {}
+export interface DeleteClientVpnRouteCommandOutput extends DeleteClientVpnRouteResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a route from a Client VPN endpoint. You can only delete routes that you manually added using

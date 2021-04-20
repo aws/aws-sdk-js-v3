@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CompleteVaultLockCommandInput = CompleteVaultLockInput;
-export type CompleteVaultLockCommandOutput = __MetadataBearer;
+export interface CompleteVaultLockCommandInput extends CompleteVaultLockInput {}
+export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation completes the vault locking process by transitioning the vault lock

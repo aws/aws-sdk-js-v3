@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelDataRepositoryTaskCommandInput = CancelDataRepositoryTaskRequest;
-export type CancelDataRepositoryTaskCommandOutput = CancelDataRepositoryTaskResponse & __MetadataBearer;
+export interface CancelDataRepositoryTaskCommandInput extends CancelDataRepositoryTaskRequest {}
+export interface CancelDataRepositoryTaskCommandOutput extends CancelDataRepositoryTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels an existing Amazon FSx for Lustre data repository task if that task is in either the

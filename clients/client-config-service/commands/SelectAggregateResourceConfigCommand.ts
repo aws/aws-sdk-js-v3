@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SelectAggregateResourceConfigCommandInput = SelectAggregateResourceConfigRequest;
-export type SelectAggregateResourceConfigCommandOutput = SelectAggregateResourceConfigResponse & __MetadataBearer;
+export interface SelectAggregateResourceConfigCommandInput extends SelectAggregateResourceConfigRequest {}
+export interface SelectAggregateResourceConfigCommandOutput
+  extends SelectAggregateResourceConfigResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Accepts a structured query language (SQL) SELECT command and an aggregator to query configuration state of AWS resources across multiple accounts and regions,

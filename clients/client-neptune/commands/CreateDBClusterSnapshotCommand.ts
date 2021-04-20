@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDBClusterSnapshotCommandInput = CreateDBClusterSnapshotMessage;
-export type CreateDBClusterSnapshotCommandOutput = CreateDBClusterSnapshotResult & __MetadataBearer;
+export interface CreateDBClusterSnapshotCommandInput extends CreateDBClusterSnapshotMessage {}
+export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a snapshot of a DB cluster.</p>

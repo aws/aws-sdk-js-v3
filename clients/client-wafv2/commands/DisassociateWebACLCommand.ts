@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateWebACLCommandInput = DisassociateWebACLRequest;
-export type DisassociateWebACLCommandOutput = DisassociateWebACLResponse & __MetadataBearer;
+export interface DisassociateWebACLCommandInput extends DisassociateWebACLRequest {}
+export interface DisassociateWebACLCommandOutput extends DisassociateWebACLResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a Web ACL from a regional application resource. A regional application can be an Application Load Balancer (ALB), an API Gateway REST API, or an AppSync GraphQL API.  </p>

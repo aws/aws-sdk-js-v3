@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ShutdownGatewayCommandInput = ShutdownGatewayInput;
-export type ShutdownGatewayCommandOutput = ShutdownGatewayOutput & __MetadataBearer;
+export interface ShutdownGatewayCommandInput extends ShutdownGatewayInput {}
+export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __MetadataBearer {}
 
 /**
  * <p>Shuts down a gateway. To specify which gateway to shut down, use the Amazon Resource

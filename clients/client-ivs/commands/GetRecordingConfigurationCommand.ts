@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRecordingConfigurationCommandInput = GetRecordingConfigurationRequest;
-export type GetRecordingConfigurationCommandOutput = GetRecordingConfigurationResponse & __MetadataBearer;
+export interface GetRecordingConfigurationCommandInput extends GetRecordingConfigurationRequest {}
+export interface GetRecordingConfigurationCommandOutput extends GetRecordingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the recording configuration for the specified ARN.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachPolicyCommandInput = DetachPolicyRequest;
-export type DetachPolicyCommandOutput = __MetadataBearer;
+export interface DetachPolicyCommandInput extends DetachPolicyRequest {}
+export interface DetachPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Detaches a policy from a target root, organizational unit (OU), or account.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMetricSetsCommandInput = ListMetricSetsRequest;
-export type ListMetricSetsCommandOutput = ListMetricSetsResponse & __MetadataBearer;
+export interface ListMetricSetsCommandInput extends ListMetricSetsRequest {}
+export interface ListMetricSetsCommandOutput extends ListMetricSetsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the datasets in the current AWS Region.</p>

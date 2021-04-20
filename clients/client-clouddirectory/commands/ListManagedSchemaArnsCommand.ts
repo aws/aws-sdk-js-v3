@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListManagedSchemaArnsCommandInput = ListManagedSchemaArnsRequest;
-export type ListManagedSchemaArnsCommandOutput = ListManagedSchemaArnsResponse & __MetadataBearer;
+export interface ListManagedSchemaArnsCommandInput extends ListManagedSchemaArnsRequest {}
+export interface ListManagedSchemaArnsCommandOutput extends ListManagedSchemaArnsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the major version families of each managed schema. If a major version ARN is provided as SchemaArn, the minor version revisions in that family are listed instead.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteOriginEndpointCommandInput = DeleteOriginEndpointRequest;
-export type DeleteOriginEndpointCommandOutput = DeleteOriginEndpointResponse & __MetadataBearer;
+export interface DeleteOriginEndpointCommandInput extends DeleteOriginEndpointRequest {}
+export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointResponse, __MetadataBearer {}
 
 /**
  * Deletes an existing OriginEndpoint.

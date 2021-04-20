@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateLinkCommandInput = DisassociateLinkRequest;
-export type DisassociateLinkCommandOutput = DisassociateLinkResponse & __MetadataBearer;
+export interface DisassociateLinkCommandInput extends DisassociateLinkRequest {}
+export interface DisassociateLinkCommandOutput extends DisassociateLinkResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates an existing device from a link. You must first disassociate any customer

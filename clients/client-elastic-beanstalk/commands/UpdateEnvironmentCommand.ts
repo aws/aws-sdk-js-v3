@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateEnvironmentCommandInput = UpdateEnvironmentMessage;
-export type UpdateEnvironmentCommandOutput = EnvironmentDescription & __MetadataBearer;
+export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentMessage {}
+export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, __MetadataBearer {}
 
 /**
  * <p>Updates the environment description, deploys a new application version, updates the

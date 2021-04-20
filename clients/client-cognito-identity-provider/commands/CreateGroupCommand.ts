@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGroupCommandInput = CreateGroupRequest;
-export type CreateGroupCommandOutput = CreateGroupResponse & __MetadataBearer;
+export interface CreateGroupCommandInput extends CreateGroupRequest {}
+export interface CreateGroupCommandOutput extends CreateGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new group in the specified user pool.</p>

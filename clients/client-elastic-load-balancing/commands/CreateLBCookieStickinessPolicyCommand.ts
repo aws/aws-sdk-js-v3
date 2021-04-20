@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLBCookieStickinessPolicyCommandInput = CreateLBCookieStickinessPolicyInput;
-export type CreateLBCookieStickinessPolicyCommandOutput = CreateLBCookieStickinessPolicyOutput & __MetadataBearer;
+export interface CreateLBCookieStickinessPolicyCommandInput extends CreateLBCookieStickinessPolicyInput {}
+export interface CreateLBCookieStickinessPolicyCommandOutput
+  extends CreateLBCookieStickinessPolicyOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Generates a stickiness policy with sticky session lifetimes controlled by the lifetime of the browser (user-agent) or a specified expiration period. This policy can be associated only with HTTP/HTTPS listeners.</p>

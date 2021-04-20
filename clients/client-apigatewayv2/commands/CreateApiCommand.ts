@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateApiCommandInput = CreateApiRequest;
-export type CreateApiCommandOutput = CreateApiResponse & __MetadataBearer;
+export interface CreateApiCommandInput extends CreateApiRequest {}
+export interface CreateApiCommandOutput extends CreateApiResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Api resource.</p>

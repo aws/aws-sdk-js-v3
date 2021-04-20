@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMobileDeviceAccessRulesCommandInput = ListMobileDeviceAccessRulesRequest;
-export type ListMobileDeviceAccessRulesCommandOutput = ListMobileDeviceAccessRulesResponse & __MetadataBearer;
+export interface ListMobileDeviceAccessRulesCommandInput extends ListMobileDeviceAccessRulesRequest {}
+export interface ListMobileDeviceAccessRulesCommandOutput
+  extends ListMobileDeviceAccessRulesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the mobile device access rules for the specified Amazon WorkMail organization.</p>

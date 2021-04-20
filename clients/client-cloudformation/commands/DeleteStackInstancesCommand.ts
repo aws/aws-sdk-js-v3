@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteStackInstancesCommandInput = DeleteStackInstancesInput;
-export type DeleteStackInstancesCommandOutput = DeleteStackInstancesOutput & __MetadataBearer;
+export interface DeleteStackInstancesCommandInput extends DeleteStackInstancesInput {}
+export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes stack instances for the specified accounts, in the specified Regions. </p>

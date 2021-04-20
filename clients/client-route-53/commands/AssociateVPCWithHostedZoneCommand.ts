@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateVPCWithHostedZoneCommandInput = AssociateVPCWithHostedZoneRequest;
-export type AssociateVPCWithHostedZoneCommandOutput = AssociateVPCWithHostedZoneResponse & __MetadataBearer;
+export interface AssociateVPCWithHostedZoneCommandInput extends AssociateVPCWithHostedZoneRequest {}
+export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWithHostedZoneResponse, __MetadataBearer {}
 
 /**
  * <p>Associates an Amazon VPC with a private hosted zone. </p>

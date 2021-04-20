@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelJournalKinesisStreamCommandInput = CancelJournalKinesisStreamRequest;
-export type CancelJournalKinesisStreamCommandOutput = CancelJournalKinesisStreamResponse & __MetadataBearer;
+export interface CancelJournalKinesisStreamCommandInput extends CancelJournalKinesisStreamRequest {}
+export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKinesisStreamResponse, __MetadataBearer {}
 
 /**
  * <p>Ends a given Amazon QLDB journal stream. Before a stream can be canceled, its current

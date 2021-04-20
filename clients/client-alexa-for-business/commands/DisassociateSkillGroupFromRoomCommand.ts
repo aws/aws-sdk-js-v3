@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateSkillGroupFromRoomCommandInput = DisassociateSkillGroupFromRoomRequest;
-export type DisassociateSkillGroupFromRoomCommandOutput = DisassociateSkillGroupFromRoomResponse & __MetadataBearer;
+export interface DisassociateSkillGroupFromRoomCommandInput extends DisassociateSkillGroupFromRoomRequest {}
+export interface DisassociateSkillGroupFromRoomCommandOutput
+  extends DisassociateSkillGroupFromRoomResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates a skill group from a specified room. This disables all skills in the

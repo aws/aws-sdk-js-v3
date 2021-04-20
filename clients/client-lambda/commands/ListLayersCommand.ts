@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListLayersCommandInput = ListLayersRequest;
-export type ListLayersCommandOutput = ListLayersResponse & __MetadataBearer;
+export interface ListLayersCommandInput extends ListLayersRequest {}
+export interface ListLayersCommandOutput extends ListLayersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda

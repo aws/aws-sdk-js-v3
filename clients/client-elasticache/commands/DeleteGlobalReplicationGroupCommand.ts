@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGlobalReplicationGroupCommandInput = DeleteGlobalReplicationGroupMessage;
-export type DeleteGlobalReplicationGroupCommandOutput = DeleteGlobalReplicationGroupResult & __MetadataBearer;
+export interface DeleteGlobalReplicationGroupCommandInput extends DeleteGlobalReplicationGroupMessage {}
+export interface DeleteGlobalReplicationGroupCommandOutput
+  extends DeleteGlobalReplicationGroupResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deleting a Global datastore is a two-step process: </p>

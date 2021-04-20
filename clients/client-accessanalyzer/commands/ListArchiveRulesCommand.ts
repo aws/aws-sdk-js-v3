@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListArchiveRulesCommandInput = ListArchiveRulesRequest;
-export type ListArchiveRulesCommandOutput = ListArchiveRulesResponse & __MetadataBearer;
+export interface ListArchiveRulesCommandInput extends ListArchiveRulesRequest {}
+export interface ListArchiveRulesCommandOutput extends ListArchiveRulesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of archive rules created for the specified analyzer.</p>

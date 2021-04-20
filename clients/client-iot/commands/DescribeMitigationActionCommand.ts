@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMitigationActionCommandInput = DescribeMitigationActionRequest;
-export type DescribeMitigationActionCommandOutput = DescribeMitigationActionResponse & __MetadataBearer;
+export interface DescribeMitigationActionCommandInput extends DescribeMitigationActionRequest {}
+export interface DescribeMitigationActionCommandOutput extends DescribeMitigationActionResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a mitigation action.</p>

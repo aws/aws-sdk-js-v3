@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachNetworkInterfaceCommandInput = AttachNetworkInterfaceRequest;
-export type AttachNetworkInterfaceCommandOutput = AttachNetworkInterfaceResult & __MetadataBearer;
+export interface AttachNetworkInterfaceCommandInput extends AttachNetworkInterfaceRequest {}
+export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterfaceResult, __MetadataBearer {}
 
 /**
  * <p>Attaches a network interface to an instance.</p>

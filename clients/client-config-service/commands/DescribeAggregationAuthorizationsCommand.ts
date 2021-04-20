@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAggregationAuthorizationsCommandInput = DescribeAggregationAuthorizationsRequest;
-export type DescribeAggregationAuthorizationsCommandOutput = DescribeAggregationAuthorizationsResponse &
-  __MetadataBearer;
+export interface DescribeAggregationAuthorizationsCommandInput extends DescribeAggregationAuthorizationsRequest {}
+export interface DescribeAggregationAuthorizationsCommandOutput
+  extends DescribeAggregationAuthorizationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of authorizations granted to various aggregator

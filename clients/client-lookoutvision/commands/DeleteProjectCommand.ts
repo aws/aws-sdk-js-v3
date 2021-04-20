@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProjectCommandInput = DeleteProjectRequest;
-export type DeleteProjectCommandOutput = DeleteProjectResponse & __MetadataBearer;
+export interface DeleteProjectCommandInput extends DeleteProjectRequest {}
+export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an Amazon Lookout for Vision project.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateJourneyCommandInput = CreateJourneyRequest;
-export type CreateJourneyCommandOutput = CreateJourneyResponse & __MetadataBearer;
+export interface CreateJourneyCommandInput extends CreateJourneyRequest {}
+export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a journey for an application.</p>

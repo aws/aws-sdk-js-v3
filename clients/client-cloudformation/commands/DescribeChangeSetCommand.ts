@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeChangeSetCommandInput = DescribeChangeSetInput;
-export type DescribeChangeSetCommandOutput = DescribeChangeSetOutput & __MetadataBearer;
+export interface DescribeChangeSetCommandInput extends DescribeChangeSetInput {}
+export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the inputs for the change set and a list of changes that AWS CloudFormation

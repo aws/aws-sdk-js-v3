@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSMBSecurityStrategyCommandInput = UpdateSMBSecurityStrategyInput;
-export type UpdateSMBSecurityStrategyCommandOutput = UpdateSMBSecurityStrategyOutput & __MetadataBearer;
+export interface UpdateSMBSecurityStrategyCommandInput extends UpdateSMBSecurityStrategyInput {}
+export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurityStrategyOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the SMB security strategy on a file gateway. This action is only supported in

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePartitionCommandInput = DeletePartitionRequest;
-export type DeletePartitionCommandOutput = DeletePartitionResponse & __MetadataBearer;
+export interface DeletePartitionCommandInput extends DeletePartitionRequest {}
+export interface DeletePartitionCommandOutput extends DeletePartitionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a specified partition.</p>

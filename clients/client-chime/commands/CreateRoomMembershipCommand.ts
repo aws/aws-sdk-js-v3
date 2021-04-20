@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRoomMembershipCommandInput = CreateRoomMembershipRequest;
-export type CreateRoomMembershipCommandOutput = CreateRoomMembershipResponse & __MetadataBearer;
+export interface CreateRoomMembershipCommandInput extends CreateRoomMembershipRequest {}
+export interface CreateRoomMembershipCommandOutput extends CreateRoomMembershipResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a member to a chat room in an Amazon Chime Enterprise account. A member can be either a user or a bot. The member role designates whether the member is a chat room administrator or a general chat room member.</p>

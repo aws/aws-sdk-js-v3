@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyClusterMaintenanceCommandInput = ModifyClusterMaintenanceMessage;
-export type ModifyClusterMaintenanceCommandOutput = ModifyClusterMaintenanceResult & __MetadataBearer;
+export interface ModifyClusterMaintenanceCommandInput extends ModifyClusterMaintenanceMessage {}
+export interface ModifyClusterMaintenanceCommandOutput extends ModifyClusterMaintenanceResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the maintenance settings of a cluster.</p>

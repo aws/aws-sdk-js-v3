@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTopicRuleCommandInput = GetTopicRuleRequest;
-export type GetTopicRuleCommandOutput = GetTopicRuleResponse & __MetadataBearer;
+export interface GetTopicRuleCommandInput extends GetTopicRuleRequest {}
+export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the rule.</p>

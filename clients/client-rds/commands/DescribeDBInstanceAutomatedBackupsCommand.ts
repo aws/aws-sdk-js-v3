@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDBInstanceAutomatedBackupsCommandInput = DescribeDBInstanceAutomatedBackupsMessage;
-export type DescribeDBInstanceAutomatedBackupsCommandOutput = DBInstanceAutomatedBackupMessage & __MetadataBearer;
+export interface DescribeDBInstanceAutomatedBackupsCommandInput extends DescribeDBInstanceAutomatedBackupsMessage {}
+export interface DescribeDBInstanceAutomatedBackupsCommandOutput
+  extends DBInstanceAutomatedBackupMessage,
+    __MetadataBearer {}
 
 /**
  * <p>Displays backups for both current and deleted

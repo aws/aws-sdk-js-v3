@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetContainerServicesCommandInput = GetContainerServicesRequest;
-export type GetContainerServicesCommandOutput = ContainerServicesListResult & __MetadataBearer;
+export interface GetContainerServicesCommandInput extends GetContainerServicesRequest {}
+export interface GetContainerServicesCommandOutput extends ContainerServicesListResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about one or more of your Amazon Lightsail container services.</p>

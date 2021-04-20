@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteJobCommandInput = DeleteJobRequest;
-export type DeleteJobCommandOutput = DeleteJobResponse & __MetadataBearer;
+export interface DeleteJobCommandInput extends DeleteJobRequest {}
+export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a single Job by ID.</p>

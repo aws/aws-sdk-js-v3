@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopProcessingJobCommandInput = StopProcessingJobRequest;
-export type StopProcessingJobCommandOutput = __MetadataBearer;
+export interface StopProcessingJobCommandInput extends StopProcessingJobRequest {}
+export interface StopProcessingJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a processing job.</p>

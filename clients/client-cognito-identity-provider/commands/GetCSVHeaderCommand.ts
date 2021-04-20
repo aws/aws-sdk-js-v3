@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCSVHeaderCommandInput = GetCSVHeaderRequest;
-export type GetCSVHeaderCommandOutput = GetCSVHeaderResponse & __MetadataBearer;
+export interface GetCSVHeaderCommandInput extends GetCSVHeaderRequest {}
+export interface GetCSVHeaderCommandOutput extends GetCSVHeaderResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the header information for the .csv file to be used as input for the user import

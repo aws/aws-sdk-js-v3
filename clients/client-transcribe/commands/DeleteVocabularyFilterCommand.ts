@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVocabularyFilterCommandInput = DeleteVocabularyFilterRequest;
-export type DeleteVocabularyFilterCommandOutput = __MetadataBearer;
+export interface DeleteVocabularyFilterCommandInput extends DeleteVocabularyFilterRequest {}
+export interface DeleteVocabularyFilterCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes a vocabulary filter.</p>

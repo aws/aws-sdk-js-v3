@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVpcsCommandInput = DescribeVpcsRequest;
-export type DescribeVpcsCommandOutput = DescribeVpcsResult & __MetadataBearer;
+export interface DescribeVpcsCommandInput extends DescribeVpcsRequest {}
+export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your VPCs.</p>

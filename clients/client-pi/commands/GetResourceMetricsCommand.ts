@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResourceMetricsCommandInput = GetResourceMetricsRequest;
-export type GetResourceMetricsCommandOutput = GetResourceMetricsResponse & __MetadataBearer;
+export interface GetResourceMetricsCommandInput extends GetResourceMetricsRequest {}
+export interface GetResourceMetricsCommandOutput extends GetResourceMetricsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieve Performance Insights metrics for a set of data sources, over a time period. You can provide

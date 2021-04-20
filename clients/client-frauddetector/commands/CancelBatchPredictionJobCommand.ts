@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelBatchPredictionJobCommandInput = CancelBatchPredictionJobRequest;
-export type CancelBatchPredictionJobCommandOutput = CancelBatchPredictionJobResult & __MetadataBearer;
+export interface CancelBatchPredictionJobCommandInput extends CancelBatchPredictionJobRequest {}
+export interface CancelBatchPredictionJobCommandOutput extends CancelBatchPredictionJobResult, __MetadataBearer {}
 
 /**
  * <p>Cancels the specified batch prediction job.</p>

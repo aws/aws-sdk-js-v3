@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDocumentationPartCommandInput = UpdateDocumentationPartRequest;
-export type UpdateDocumentationPartCommandOutput = DocumentationPart & __MetadataBearer;
+export interface UpdateDocumentationPartCommandInput extends UpdateDocumentationPartRequest {}
+export interface UpdateDocumentationPartCommandOutput extends DocumentationPart, __MetadataBearer {}
 
 export class UpdateDocumentationPartCommand extends $Command<
   UpdateDocumentationPartCommandInput,

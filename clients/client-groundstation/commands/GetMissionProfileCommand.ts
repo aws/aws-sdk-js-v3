@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMissionProfileCommandInput = GetMissionProfileRequest;
-export type GetMissionProfileCommandOutput = GetMissionProfileResponse & __MetadataBearer;
+export interface GetMissionProfileCommandInput extends GetMissionProfileRequest {}
+export interface GetMissionProfileCommandOutput extends GetMissionProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a mission profile.</p>

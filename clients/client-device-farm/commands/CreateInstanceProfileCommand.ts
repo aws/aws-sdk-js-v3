@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateInstanceProfileCommandInput = CreateInstanceProfileRequest;
-export type CreateInstanceProfileCommandOutput = CreateInstanceProfileResult & __MetadataBearer;
+export interface CreateInstanceProfileCommandInput extends CreateInstanceProfileRequest {}
+export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfileResult, __MetadataBearer {}
 
 /**
  * <p>Creates a profile that can be applied to one or more private fleet device

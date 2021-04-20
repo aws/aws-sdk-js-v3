@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListChannelMembershipsForAppInstanceUserCommandInput = ListChannelMembershipsForAppInstanceUserRequest;
-export type ListChannelMembershipsForAppInstanceUserCommandOutput = ListChannelMembershipsForAppInstanceUserResponse &
-  __MetadataBearer;
+export interface ListChannelMembershipsForAppInstanceUserCommandInput
+  extends ListChannelMembershipsForAppInstanceUserRequest {}
+export interface ListChannelMembershipsForAppInstanceUserCommandOutput
+  extends ListChannelMembershipsForAppInstanceUserResponse,
+    __MetadataBearer {}
 
 /**
  * <p> Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only an

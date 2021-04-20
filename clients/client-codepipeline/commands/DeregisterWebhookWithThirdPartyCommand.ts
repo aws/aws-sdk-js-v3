@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterWebhookWithThirdPartyCommandInput = DeregisterWebhookWithThirdPartyInput;
-export type DeregisterWebhookWithThirdPartyCommandOutput = DeregisterWebhookWithThirdPartyOutput & __MetadataBearer;
+export interface DeregisterWebhookWithThirdPartyCommandInput extends DeregisterWebhookWithThirdPartyInput {}
+export interface DeregisterWebhookWithThirdPartyCommandOutput
+  extends DeregisterWebhookWithThirdPartyOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Removes the connection between the webhook that was created by CodePipeline and the

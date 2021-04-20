@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetStreamCommandInput = GetStreamRequest;
-export type GetStreamCommandOutput = GetStreamResponse & __MetadataBearer;
+export interface GetStreamCommandInput extends GetStreamRequest {}
+export interface GetStreamCommandOutput extends GetStreamResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the active (live) stream on a specified channel.</p>

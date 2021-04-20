@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRouteSettingsCommandInput = DeleteRouteSettingsRequest;
-export type DeleteRouteSettingsCommandOutput = __MetadataBearer;
+export interface DeleteRouteSettingsCommandInput extends DeleteRouteSettingsRequest {}
+export interface DeleteRouteSettingsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the RouteSettings for a stage.</p>

@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminCreateUserCommandInput = AdminCreateUserRequest;
-export type AdminCreateUserCommandOutput = AdminCreateUserResponse & __MetadataBearer;
+export interface AdminCreateUserCommandInput extends AdminCreateUserRequest {}
+export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new user in the specified user pool.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSchemaCommandInput = UpdateSchemaRequest;
-export type UpdateSchemaCommandOutput = UpdateSchemaResponse & __MetadataBearer;
+export interface UpdateSchemaCommandInput extends UpdateSchemaRequest {}
+export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the schema name with a new name. Only development schema names can be

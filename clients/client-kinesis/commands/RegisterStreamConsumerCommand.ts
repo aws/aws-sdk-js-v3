@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterStreamConsumerCommandInput = RegisterStreamConsumerInput;
-export type RegisterStreamConsumerCommandOutput = RegisterStreamConsumerOutput & __MetadataBearer;
+export interface RegisterStreamConsumerCommandInput extends RegisterStreamConsumerInput {}
+export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsumerOutput, __MetadataBearer {}
 
 /**
  * <p>Registers a consumer with a Kinesis data stream. When you use this operation, the

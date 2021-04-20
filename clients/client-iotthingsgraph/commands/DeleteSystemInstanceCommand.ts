@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSystemInstanceCommandInput = DeleteSystemInstanceRequest;
-export type DeleteSystemInstanceCommandOutput = DeleteSystemInstanceResponse & __MetadataBearer;
+export interface DeleteSystemInstanceCommandInput extends DeleteSystemInstanceRequest {}
+export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a system instance.

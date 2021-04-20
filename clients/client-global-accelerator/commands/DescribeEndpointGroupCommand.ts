@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEndpointGroupCommandInput = DescribeEndpointGroupRequest;
-export type DescribeEndpointGroupCommandOutput = DescribeEndpointGroupResponse & __MetadataBearer;
+export interface DescribeEndpointGroupCommandInput extends DescribeEndpointGroupRequest {}
+export interface DescribeEndpointGroupCommandOutput extends DescribeEndpointGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Describe an endpoint group. </p>

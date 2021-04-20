@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateProgressUpdateStreamCommandInput = CreateProgressUpdateStreamRequest;
-export type CreateProgressUpdateStreamCommandOutput = CreateProgressUpdateStreamResult & __MetadataBearer;
+export interface CreateProgressUpdateStreamCommandInput extends CreateProgressUpdateStreamRequest {}
+export interface CreateProgressUpdateStreamCommandOutput extends CreateProgressUpdateStreamResult, __MetadataBearer {}
 
 /**
  * <p>Creates a progress update stream which is an AWS resource used for access control as

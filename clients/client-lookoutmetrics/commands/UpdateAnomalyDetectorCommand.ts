@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAnomalyDetectorCommandInput = UpdateAnomalyDetectorRequest;
-export type UpdateAnomalyDetectorCommandOutput = UpdateAnomalyDetectorResponse & __MetadataBearer;
+export interface UpdateAnomalyDetectorCommandInput extends UpdateAnomalyDetectorRequest {}
+export interface UpdateAnomalyDetectorCommandOutput extends UpdateAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a detector. After activation, you can only change a detector's ingestion delay and description.</p>

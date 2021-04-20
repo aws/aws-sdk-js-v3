@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReplaceIamInstanceProfileAssociationCommandInput = ReplaceIamInstanceProfileAssociationRequest;
-export type ReplaceIamInstanceProfileAssociationCommandOutput = ReplaceIamInstanceProfileAssociationResult &
-  __MetadataBearer;
+export interface ReplaceIamInstanceProfileAssociationCommandInput extends ReplaceIamInstanceProfileAssociationRequest {}
+export interface ReplaceIamInstanceProfileAssociationCommandOutput
+  extends ReplaceIamInstanceProfileAssociationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Replaces an IAM instance profile for the specified running instance. You can use

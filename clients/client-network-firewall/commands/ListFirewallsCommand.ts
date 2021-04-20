@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFirewallsCommandInput = ListFirewallsRequest;
-export type ListFirewallsCommandOutput = ListFirewallsResponse & __MetadataBearer;
+export interface ListFirewallsCommandInput extends ListFirewallsRequest {}
+export interface ListFirewallsCommandOutput extends ListFirewallsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the metadata for the firewalls that you have defined. If you provide VPC

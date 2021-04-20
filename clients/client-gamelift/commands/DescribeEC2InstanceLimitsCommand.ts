@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEC2InstanceLimitsCommandInput = DescribeEC2InstanceLimitsInput;
-export type DescribeEC2InstanceLimitsCommandOutput = DescribeEC2InstanceLimitsOutput & __MetadataBearer;
+export interface DescribeEC2InstanceLimitsCommandInput extends DescribeEC2InstanceLimitsInput {}
+export interface DescribeEC2InstanceLimitsCommandOutput extends DescribeEC2InstanceLimitsOutput, __MetadataBearer {}
 
 /**
  * <p>The GameLift service limits and current utilization for an AWS Region or location.

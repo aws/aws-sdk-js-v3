@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRulesPackagesCommandInput = ListRulesPackagesRequest;
-export type ListRulesPackagesCommandOutput = ListRulesPackagesResponse & __MetadataBearer;
+export interface ListRulesPackagesCommandInput extends ListRulesPackagesRequest {}
+export interface ListRulesPackagesCommandOutput extends ListRulesPackagesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all available Amazon Inspector rules packages.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchPlaceIndexForPositionCommandInput = SearchPlaceIndexForPositionRequest;
-export type SearchPlaceIndexForPositionCommandOutput = SearchPlaceIndexForPositionResponse & __MetadataBearer;
+export interface SearchPlaceIndexForPositionCommandInput extends SearchPlaceIndexForPositionRequest {}
+export interface SearchPlaceIndexForPositionCommandOutput
+  extends SearchPlaceIndexForPositionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Reverse geocodes a given coordinate and returns a legible address. Allows you to search

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetWorkloadCommandInput = GetWorkloadInput;
-export type GetWorkloadCommandOutput = GetWorkloadOutput & __MetadataBearer;
+export interface GetWorkloadCommandInput extends GetWorkloadInput {}
+export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataBearer {}
 
 /**
  * <p>Get an existing workload.</p>

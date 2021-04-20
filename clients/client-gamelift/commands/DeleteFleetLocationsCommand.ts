@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFleetLocationsCommandInput = DeleteFleetLocationsInput;
-export type DeleteFleetLocationsCommandOutput = DeleteFleetLocationsOutput & __MetadataBearer;
+export interface DeleteFleetLocationsCommandInput extends DeleteFleetLocationsInput {}
+export interface DeleteFleetLocationsCommandOutput extends DeleteFleetLocationsOutput, __MetadataBearer {}
 
 /**
  * <p>Removes locations from a multi-location fleet. When deleting a location, all game

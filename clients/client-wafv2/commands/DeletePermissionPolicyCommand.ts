@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePermissionPolicyCommandInput = DeletePermissionPolicyRequest;
-export type DeletePermissionPolicyCommandOutput = DeletePermissionPolicyResponse & __MetadataBearer;
+export interface DeletePermissionPolicyCommandInput extends DeletePermissionPolicyRequest {}
+export interface DeletePermissionPolicyCommandOutput extends DeletePermissionPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Permanently deletes an IAM policy from the specified rule group.</p>

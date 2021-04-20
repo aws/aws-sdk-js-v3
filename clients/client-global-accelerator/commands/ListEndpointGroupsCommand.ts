@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEndpointGroupsCommandInput = ListEndpointGroupsRequest;
-export type ListEndpointGroupsCommandOutput = ListEndpointGroupsResponse & __MetadataBearer;
+export interface ListEndpointGroupsCommandInput extends ListEndpointGroupsRequest {}
+export interface ListEndpointGroupsCommandOutput extends ListEndpointGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>List the endpoint groups that are associated with a listener. </p>

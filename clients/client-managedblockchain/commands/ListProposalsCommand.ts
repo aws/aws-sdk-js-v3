@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProposalsCommandInput = ListProposalsInput;
-export type ListProposalsCommandOutput = ListProposalsOutput & __MetadataBearer;
+export interface ListProposalsCommandInput extends ListProposalsInput {}
+export interface ListProposalsCommandOutput extends ListProposalsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of proposals for the network.</p>

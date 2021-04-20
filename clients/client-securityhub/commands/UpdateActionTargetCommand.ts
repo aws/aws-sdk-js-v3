@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateActionTargetCommandInput = UpdateActionTargetRequest;
-export type UpdateActionTargetCommandOutput = UpdateActionTargetResponse & __MetadataBearer;
+export interface UpdateActionTargetCommandInput extends UpdateActionTargetRequest {}
+export interface UpdateActionTargetCommandOutput extends UpdateActionTargetResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the name and description of a custom action target in Security Hub.</p>

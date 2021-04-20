@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutSecretValueCommandInput = PutSecretValueRequest;
-export type PutSecretValueCommandOutput = PutSecretValueResponse & __MetadataBearer;
+export interface PutSecretValueCommandInput extends PutSecretValueRequest {}
+export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __MetadataBearer {}
 
 /**
  * <p>Stores a new encrypted secret value in the specified secret. To do this, the operation

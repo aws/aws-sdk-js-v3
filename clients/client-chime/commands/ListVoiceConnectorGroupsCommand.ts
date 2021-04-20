@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVoiceConnectorGroupsCommandInput = ListVoiceConnectorGroupsRequest;
-export type ListVoiceConnectorGroupsCommandOutput = ListVoiceConnectorGroupsResponse & __MetadataBearer;
+export interface ListVoiceConnectorGroupsCommandInput extends ListVoiceConnectorGroupsRequest {}
+export interface ListVoiceConnectorGroupsCommandOutput extends ListVoiceConnectorGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Amazon Chime Voice Connector groups for the administrator's AWS account.</p>

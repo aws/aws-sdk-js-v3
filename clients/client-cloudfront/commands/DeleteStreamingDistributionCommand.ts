@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteStreamingDistributionCommandInput = DeleteStreamingDistributionRequest;
-export type DeleteStreamingDistributionCommandOutput = __MetadataBearer;
+export interface DeleteStreamingDistributionCommandInput extends DeleteStreamingDistributionRequest {}
+export interface DeleteStreamingDistributionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete a streaming distribution. To delete an RTMP distribution using the CloudFront API,

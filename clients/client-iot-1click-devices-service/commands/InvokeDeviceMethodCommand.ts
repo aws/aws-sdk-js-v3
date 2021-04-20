@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InvokeDeviceMethodCommandInput = InvokeDeviceMethodRequest;
-export type InvokeDeviceMethodCommandOutput = InvokeDeviceMethodResponse & __MetadataBearer;
+export interface InvokeDeviceMethodCommandInput extends InvokeDeviceMethodRequest {}
+export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodResponse, __MetadataBearer {}
 
 /**
  * <p>Given a device ID, issues a request to invoke a named device method (with possible

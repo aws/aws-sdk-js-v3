@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetOrganizationConformancePackDetailedStatusCommandInput = GetOrganizationConformancePackDetailedStatusRequest;
-export type GetOrganizationConformancePackDetailedStatusCommandOutput = GetOrganizationConformancePackDetailedStatusResponse &
-  __MetadataBearer;
+export interface GetOrganizationConformancePackDetailedStatusCommandInput
+  extends GetOrganizationConformancePackDetailedStatusRequest {}
+export interface GetOrganizationConformancePackDetailedStatusCommandOutput
+  extends GetOrganizationConformancePackDetailedStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns detailed status for each member account within an organization for a given organization conformance pack.</p>

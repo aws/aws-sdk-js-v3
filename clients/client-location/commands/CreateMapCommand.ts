@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMapCommandInput = CreateMapRequest;
-export type CreateMapCommandOutput = CreateMapResponse & __MetadataBearer;
+export interface CreateMapCommandInput extends CreateMapRequest {}
+export interface CreateMapCommandOutput extends CreateMapResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a map resource in your AWS account, which provides map tiles of different

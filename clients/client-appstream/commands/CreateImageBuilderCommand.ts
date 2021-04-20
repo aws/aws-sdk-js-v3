@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateImageBuilderCommandInput = CreateImageBuilderRequest;
-export type CreateImageBuilderCommandOutput = CreateImageBuilderResult & __MetadataBearer;
+export interface CreateImageBuilderCommandInput extends CreateImageBuilderRequest {}
+export interface CreateImageBuilderCommandOutput extends CreateImageBuilderResult, __MetadataBearer {}
 
 /**
  * <p>Creates an image builder. An image builder is a virtual machine that is used to create an image.</p>

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateAwsAccountFromPartnerAccountCommandInput = DisassociateAwsAccountFromPartnerAccountRequest;
-export type DisassociateAwsAccountFromPartnerAccountCommandOutput = DisassociateAwsAccountFromPartnerAccountResponse &
-  __MetadataBearer;
+export interface DisassociateAwsAccountFromPartnerAccountCommandInput
+  extends DisassociateAwsAccountFromPartnerAccountRequest {}
+export interface DisassociateAwsAccountFromPartnerAccountCommandOutput
+  extends DisassociateAwsAccountFromPartnerAccountResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates your AWS account from a partner account. If <code>PartnerAccountId</code> and <code>PartnerType</code> are <code>null</code>, disassociates your AWS account from all partner accounts.</p>

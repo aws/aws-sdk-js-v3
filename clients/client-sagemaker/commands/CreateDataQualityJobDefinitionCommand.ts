@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDataQualityJobDefinitionCommandInput = CreateDataQualityJobDefinitionRequest;
-export type CreateDataQualityJobDefinitionCommandOutput = CreateDataQualityJobDefinitionResponse & __MetadataBearer;
+export interface CreateDataQualityJobDefinitionCommandInput extends CreateDataQualityJobDefinitionRequest {}
+export interface CreateDataQualityJobDefinitionCommandOutput
+  extends CreateDataQualityJobDefinitionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a definition for a job that monitors data quality and drift. For information

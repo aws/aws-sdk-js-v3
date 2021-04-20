@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyEventSubscriptionCommandInput = ModifyEventSubscriptionMessage;
-export type ModifyEventSubscriptionCommandOutput = ModifyEventSubscriptionResult & __MetadataBearer;
+export interface ModifyEventSubscriptionCommandInput extends ModifyEventSubscriptionMessage {}
+export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Modifies an existing RDS event notification subscription. You can't modify the source identifiers using this call. To change

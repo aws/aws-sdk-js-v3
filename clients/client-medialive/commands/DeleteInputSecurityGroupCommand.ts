@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteInputSecurityGroupCommandInput = DeleteInputSecurityGroupRequest;
-export type DeleteInputSecurityGroupCommandOutput = DeleteInputSecurityGroupResponse & __MetadataBearer;
+export interface DeleteInputSecurityGroupCommandInput extends DeleteInputSecurityGroupRequest {}
+export interface DeleteInputSecurityGroupCommandOutput extends DeleteInputSecurityGroupResponse, __MetadataBearer {}
 
 /**
  * Deletes an Input Security Group

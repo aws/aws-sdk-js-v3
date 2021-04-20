@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFunctionDefinitionCommandInput = UpdateFunctionDefinitionRequest;
-export type UpdateFunctionDefinitionCommandOutput = UpdateFunctionDefinitionResponse & __MetadataBearer;
+export interface UpdateFunctionDefinitionCommandInput extends UpdateFunctionDefinitionRequest {}
+export interface UpdateFunctionDefinitionCommandOutput extends UpdateFunctionDefinitionResponse, __MetadataBearer {}
 
 /**
  * Updates a Lambda function definition.

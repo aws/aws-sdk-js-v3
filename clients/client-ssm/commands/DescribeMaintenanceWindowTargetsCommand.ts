@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMaintenanceWindowTargetsCommandInput = DescribeMaintenanceWindowTargetsRequest;
-export type DescribeMaintenanceWindowTargetsCommandOutput = DescribeMaintenanceWindowTargetsResult & __MetadataBearer;
+export interface DescribeMaintenanceWindowTargetsCommandInput extends DescribeMaintenanceWindowTargetsRequest {}
+export interface DescribeMaintenanceWindowTargetsCommandOutput
+  extends DescribeMaintenanceWindowTargetsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the targets registered with the maintenance window.</p>

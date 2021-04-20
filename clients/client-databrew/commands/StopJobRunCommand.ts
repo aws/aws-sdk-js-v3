@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopJobRunCommandInput = StopJobRunRequest;
-export type StopJobRunCommandOutput = StopJobRunResponse & __MetadataBearer;
+export interface StopJobRunCommandInput extends StopJobRunRequest {}
+export interface StopJobRunCommandOutput extends StopJobRunResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a particular run of a job.</p>

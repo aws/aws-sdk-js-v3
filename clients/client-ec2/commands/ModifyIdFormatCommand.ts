@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyIdFormatCommandInput = ModifyIdFormatRequest;
-export type ModifyIdFormatCommandOutput = __MetadataBearer;
+export interface ModifyIdFormatCommandInput extends ModifyIdFormatRequest {}
+export interface ModifyIdFormatCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Modifies the ID format for the specified resource on a per-Region basis. You can

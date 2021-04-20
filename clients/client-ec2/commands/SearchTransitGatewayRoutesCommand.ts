@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchTransitGatewayRoutesCommandInput = SearchTransitGatewayRoutesRequest;
-export type SearchTransitGatewayRoutesCommandOutput = SearchTransitGatewayRoutesResult & __MetadataBearer;
+export interface SearchTransitGatewayRoutesCommandInput extends SearchTransitGatewayRoutesRequest {}
+export interface SearchTransitGatewayRoutesCommandOutput extends SearchTransitGatewayRoutesResult, __MetadataBearer {}
 
 /**
  * <p>Searches for routes in the specified transit gateway route table.</p>

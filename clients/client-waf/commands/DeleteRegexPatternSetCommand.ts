@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRegexPatternSetCommandInput = DeleteRegexPatternSetRequest;
-export type DeleteRegexPatternSetCommandOutput = DeleteRegexPatternSetResponse & __MetadataBearer;
+export interface DeleteRegexPatternSetCommandInput extends DeleteRegexPatternSetRequest {}
+export interface DeleteRegexPatternSetCommandOutput extends DeleteRegexPatternSetResponse, __MetadataBearer {}
 
 /**
  * <note>

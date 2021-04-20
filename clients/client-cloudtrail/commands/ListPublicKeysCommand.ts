@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPublicKeysCommandInput = ListPublicKeysRequest;
-export type ListPublicKeysCommandOutput = ListPublicKeysResponse & __MetadataBearer;
+export interface ListPublicKeysCommandInput extends ListPublicKeysRequest {}
+export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __MetadataBearer {}
 
 /**
  * <p>Returns all public keys whose private keys were used to sign the digest files within the specified time range. The public key is needed to validate digest files that were signed with its corresponding private key.</p>

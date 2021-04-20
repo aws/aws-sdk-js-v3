@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTrafficPolicyVersionsCommandInput = ListTrafficPolicyVersionsRequest;
-export type ListTrafficPolicyVersionsCommandOutput = ListTrafficPolicyVersionsResponse & __MetadataBearer;
+export interface ListTrafficPolicyVersionsCommandInput extends ListTrafficPolicyVersionsRequest {}
+export interface ListTrafficPolicyVersionsCommandOutput extends ListTrafficPolicyVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about all of the versions for a specified traffic policy.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRemoteAccessSessionCommandInput = CreateRemoteAccessSessionRequest;
-export type CreateRemoteAccessSessionCommandOutput = CreateRemoteAccessSessionResult & __MetadataBearer;
+export interface CreateRemoteAccessSessionCommandInput extends CreateRemoteAccessSessionRequest {}
+export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAccessSessionResult, __MetadataBearer {}
 
 /**
  * <p>Specifies and starts a remote access session.</p>

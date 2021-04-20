@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PurchaseScheduledInstancesCommandInput = PurchaseScheduledInstancesRequest;
-export type PurchaseScheduledInstancesCommandOutput = PurchaseScheduledInstancesResult & __MetadataBearer;
+export interface PurchaseScheduledInstancesCommandInput extends PurchaseScheduledInstancesRequest {}
+export interface PurchaseScheduledInstancesCommandOutput extends PurchaseScheduledInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Purchases the Scheduled Instances with the specified schedule.</p>

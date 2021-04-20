@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExportClientVpnClientCertificateRevocationListCommandInput = ExportClientVpnClientCertificateRevocationListRequest;
-export type ExportClientVpnClientCertificateRevocationListCommandOutput = ExportClientVpnClientCertificateRevocationListResult &
-  __MetadataBearer;
+export interface ExportClientVpnClientCertificateRevocationListCommandInput
+  extends ExportClientVpnClientCertificateRevocationListRequest {}
+export interface ExportClientVpnClientCertificateRevocationListCommandOutput
+  extends ExportClientVpnClientCertificateRevocationListResult,
+    __MetadataBearer {}
 
 /**
  * <p>Downloads the client certificate revocation list for the specified Client VPN endpoint.</p>

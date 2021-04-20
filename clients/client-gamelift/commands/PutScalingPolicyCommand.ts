@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutScalingPolicyCommandInput = PutScalingPolicyInput;
-export type PutScalingPolicyCommandOutput = PutScalingPolicyOutput & __MetadataBearer;
+export interface PutScalingPolicyCommandInput extends PutScalingPolicyInput {}
+export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Creates or updates a scaling policy for a fleet. Scaling policies are used to

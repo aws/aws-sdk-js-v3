@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTargetsByRuleCommandInput = ListTargetsByRuleRequest;
-export type ListTargetsByRuleCommandOutput = ListTargetsByRuleResponse & __MetadataBearer;
+export interface ListTargetsByRuleCommandInput extends ListTargetsByRuleRequest {}
+export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the targets assigned to the specified rule.</p>

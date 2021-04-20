@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type OmitsNullSerializesEmptyStringCommandInput = OmitsNullSerializesEmptyStringInput;
-export type OmitsNullSerializesEmptyStringCommandOutput = __MetadataBearer;
+export interface OmitsNullSerializesEmptyStringCommandInput extends OmitsNullSerializesEmptyStringInput {}
+export interface OmitsNullSerializesEmptyStringCommandOutput extends __MetadataBearer {}
 
 /**
  * Omits null, but serializes empty string value.

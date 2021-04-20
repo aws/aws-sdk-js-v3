@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSmsChannelCommandInput = DeleteSmsChannelRequest;
-export type DeleteSmsChannelCommandOutput = DeleteSmsChannelResponse & __MetadataBearer;
+export interface DeleteSmsChannelCommandInput extends DeleteSmsChannelRequest {}
+export interface DeleteSmsChannelCommandOutput extends DeleteSmsChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Disables the SMS channel for an application and deletes any existing settings for the channel.</p>

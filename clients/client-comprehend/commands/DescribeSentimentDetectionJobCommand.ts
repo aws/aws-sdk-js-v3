@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSentimentDetectionJobCommandInput = DescribeSentimentDetectionJobRequest;
-export type DescribeSentimentDetectionJobCommandOutput = DescribeSentimentDetectionJobResponse & __MetadataBearer;
+export interface DescribeSentimentDetectionJobCommandInput extends DescribeSentimentDetectionJobRequest {}
+export interface DescribeSentimentDetectionJobCommandOutput
+  extends DescribeSentimentDetectionJobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a sentiment detection job. Use this operation to get

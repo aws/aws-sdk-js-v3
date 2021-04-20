@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartDataCollectionByAgentIdsCommandInput = StartDataCollectionByAgentIdsRequest;
-export type StartDataCollectionByAgentIdsCommandOutput = StartDataCollectionByAgentIdsResponse & __MetadataBearer;
+export interface StartDataCollectionByAgentIdsCommandInput extends StartDataCollectionByAgentIdsRequest {}
+export interface StartDataCollectionByAgentIdsCommandOutput
+  extends StartDataCollectionByAgentIdsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Instructs the specified agents or connectors to start collecting data.</p>

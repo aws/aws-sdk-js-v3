@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAuditTasksCommandInput = ListAuditTasksRequest;
-export type ListAuditTasksCommandOutput = ListAuditTasksResponse & __MetadataBearer;
+export interface ListAuditTasksCommandInput extends ListAuditTasksRequest {}
+export interface ListAuditTasksCommandOutput extends ListAuditTasksResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Device Defender audits that have been performed during a given

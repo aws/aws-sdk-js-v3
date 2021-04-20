@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteWorkspaceCommandInput = DeleteWorkspaceRequest;
-export type DeleteWorkspaceCommandOutput = __MetadataBearer;
+export interface DeleteWorkspaceCommandInput extends DeleteWorkspaceRequest {}
+export interface DeleteWorkspaceCommandOutput extends __MetadataBearer {}
 
 /**
  * Deletes an AMP workspace.

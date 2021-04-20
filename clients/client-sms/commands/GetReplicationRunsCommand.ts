@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetReplicationRunsCommandInput = GetReplicationRunsRequest;
-export type GetReplicationRunsCommandOutput = GetReplicationRunsResponse & __MetadataBearer;
+export interface GetReplicationRunsCommandInput extends GetReplicationRunsRequest {}
+export interface GetReplicationRunsCommandOutput extends GetReplicationRunsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the replication runs for the specified replication job.</p>

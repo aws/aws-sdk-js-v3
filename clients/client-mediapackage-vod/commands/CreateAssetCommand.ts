@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAssetCommandInput = CreateAssetRequest;
-export type CreateAssetCommandOutput = CreateAssetResponse & __MetadataBearer;
+export interface CreateAssetCommandInput extends CreateAssetRequest {}
+export interface CreateAssetCommandOutput extends CreateAssetResponse, __MetadataBearer {}
 
 /**
  * Creates a new MediaPackage VOD Asset resource.

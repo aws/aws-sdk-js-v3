@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListGroupsCommandInput = ListGroupsInput;
-export type ListGroupsCommandOutput = ListGroupsOutput & __MetadataBearer;
+export interface ListGroupsCommandInput extends ListGroupsInput {}
+export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of existing resource groups in your account.</p>

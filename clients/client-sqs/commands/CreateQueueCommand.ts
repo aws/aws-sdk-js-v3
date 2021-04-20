@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateQueueCommandInput = CreateQueueRequest;
-export type CreateQueueCommandOutput = CreateQueueResult & __MetadataBearer;
+export interface CreateQueueCommandInput extends CreateQueueRequest {}
+export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new standard or FIFO queue. You can pass one or more attributes in

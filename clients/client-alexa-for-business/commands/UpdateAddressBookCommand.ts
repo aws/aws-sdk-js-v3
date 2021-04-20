@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAddressBookCommandInput = UpdateAddressBookRequest;
-export type UpdateAddressBookCommandOutput = UpdateAddressBookResponse & __MetadataBearer;
+export interface UpdateAddressBookCommandInput extends UpdateAddressBookRequest {}
+export interface UpdateAddressBookCommandOutput extends UpdateAddressBookResponse, __MetadataBearer {}
 
 /**
  * <p>Updates address book details by the address book ARN.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeResourceGroupsCommandInput = DescribeResourceGroupsRequest;
-export type DescribeResourceGroupsCommandOutput = DescribeResourceGroupsResponse & __MetadataBearer;
+export interface DescribeResourceGroupsCommandInput extends DescribeResourceGroupsRequest {}
+export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the resource groups that are specified by the ARNs of the resource

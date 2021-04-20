@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInsightRulesCommandInput = DescribeInsightRulesInput;
-export type DescribeInsightRulesCommandOutput = DescribeInsightRulesOutput & __MetadataBearer;
+export interface DescribeInsightRulesCommandInput extends DescribeInsightRulesInput {}
+export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of all the Contributor Insights rules in your account.</p>

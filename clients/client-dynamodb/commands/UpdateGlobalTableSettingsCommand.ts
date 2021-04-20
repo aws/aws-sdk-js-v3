@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateGlobalTableSettingsCommandInput = UpdateGlobalTableSettingsInput;
-export type UpdateGlobalTableSettingsCommandOutput = UpdateGlobalTableSettingsOutput & __MetadataBearer;
+export interface UpdateGlobalTableSettingsCommandInput extends UpdateGlobalTableSettingsInput {}
+export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTableSettingsOutput, __MetadataBearer {}
 
 /**
  * <p>Updates settings for a global table.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelSigningProfileCommandInput = CancelSigningProfileRequest;
-export type CancelSigningProfileCommandOutput = __MetadataBearer;
+export interface CancelSigningProfileCommandInput extends CancelSigningProfileRequest {}
+export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Changes the state of an <code>ACTIVE</code> signing profile to <code>CANCELED</code>.

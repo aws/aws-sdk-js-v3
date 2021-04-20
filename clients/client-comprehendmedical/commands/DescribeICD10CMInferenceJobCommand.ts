@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeICD10CMInferenceJobCommandInput = DescribeICD10CMInferenceJobRequest;
-export type DescribeICD10CMInferenceJobCommandOutput = DescribeICD10CMInferenceJobResponse & __MetadataBearer;
+export interface DescribeICD10CMInferenceJobCommandInput extends DescribeICD10CMInferenceJobRequest {}
+export interface DescribeICD10CMInferenceJobCommandOutput
+  extends DescribeICD10CMInferenceJobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with an InferICD10CM job. Use this operation to get the

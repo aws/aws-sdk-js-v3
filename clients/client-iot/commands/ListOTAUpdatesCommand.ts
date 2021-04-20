@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListOTAUpdatesCommandInput = ListOTAUpdatesRequest;
-export type ListOTAUpdatesCommandOutput = ListOTAUpdatesResponse & __MetadataBearer;
+export interface ListOTAUpdatesCommandInput extends ListOTAUpdatesRequest {}
+export interface ListOTAUpdatesCommandOutput extends ListOTAUpdatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists OTA updates.</p>

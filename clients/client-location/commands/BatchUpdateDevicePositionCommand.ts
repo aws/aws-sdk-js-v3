@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchUpdateDevicePositionCommandInput = BatchUpdateDevicePositionRequest;
-export type BatchUpdateDevicePositionCommandOutput = BatchUpdateDevicePositionResponse & __MetadataBearer;
+export interface BatchUpdateDevicePositionCommandInput extends BatchUpdateDevicePositionRequest {}
+export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevicePositionResponse, __MetadataBearer {}
 
 /**
  * <p>Uploads position update data for one or more devices to a tracker resource. Amazon Location

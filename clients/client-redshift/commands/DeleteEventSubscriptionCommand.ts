@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEventSubscriptionCommandInput = DeleteEventSubscriptionMessage;
-export type DeleteEventSubscriptionCommandOutput = __MetadataBearer;
+export interface DeleteEventSubscriptionCommandInput extends DeleteEventSubscriptionMessage {}
+export interface DeleteEventSubscriptionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an Amazon Redshift event notification subscription.</p>

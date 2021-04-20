@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListServicesCommandInput = ListServicesRequest;
-export type ListServicesCommandOutput = ListServicesResponse & __MetadataBearer;
+export interface ListServicesCommandInput extends ListServicesRequest {}
+export interface ListServicesCommandOutput extends ListServicesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the names and codes for the services integrated with Service Quotas.</p>

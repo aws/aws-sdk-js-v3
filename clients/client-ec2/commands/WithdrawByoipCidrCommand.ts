@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type WithdrawByoipCidrCommandInput = WithdrawByoipCidrRequest;
-export type WithdrawByoipCidrCommandOutput = WithdrawByoipCidrResult & __MetadataBearer;
+export interface WithdrawByoipCidrCommandInput extends WithdrawByoipCidrRequest {}
+export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult, __MetadataBearer {}
 
 /**
  * <p>Stops advertising an address range that is provisioned as an address pool.</p>

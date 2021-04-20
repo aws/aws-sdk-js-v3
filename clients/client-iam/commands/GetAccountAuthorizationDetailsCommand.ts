@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccountAuthorizationDetailsCommandInput = GetAccountAuthorizationDetailsRequest;
-export type GetAccountAuthorizationDetailsCommandOutput = GetAccountAuthorizationDetailsResponse & __MetadataBearer;
+export interface GetAccountAuthorizationDetailsCommandInput extends GetAccountAuthorizationDetailsRequest {}
+export interface GetAccountAuthorizationDetailsCommandOutput
+  extends GetAccountAuthorizationDetailsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves information about all IAM users, groups, roles, and policies in your AWS

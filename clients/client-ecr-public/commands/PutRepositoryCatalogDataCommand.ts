@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutRepositoryCatalogDataCommandInput = PutRepositoryCatalogDataRequest;
-export type PutRepositoryCatalogDataCommandOutput = PutRepositoryCatalogDataResponse & __MetadataBearer;
+export interface PutRepositoryCatalogDataCommandInput extends PutRepositoryCatalogDataRequest {}
+export interface PutRepositoryCatalogDataCommandOutput extends PutRepositoryCatalogDataResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates the catalog data for a repository in a public registry.</p>

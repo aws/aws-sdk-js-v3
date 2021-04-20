@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTrailCommandInput = CreateTrailRequest;
-export type CreateTrailCommandOutput = CreateTrailResponse & __MetadataBearer;
+export interface CreateTrailCommandInput extends CreateTrailRequest {}
+export interface CreateTrailCommandOutput extends CreateTrailResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. </p>

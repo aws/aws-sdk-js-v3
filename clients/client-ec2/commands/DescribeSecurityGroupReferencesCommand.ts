@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSecurityGroupReferencesCommandInput = DescribeSecurityGroupReferencesRequest;
-export type DescribeSecurityGroupReferencesCommandOutput = DescribeSecurityGroupReferencesResult & __MetadataBearer;
+export interface DescribeSecurityGroupReferencesCommandInput extends DescribeSecurityGroupReferencesRequest {}
+export interface DescribeSecurityGroupReferencesCommandOutput
+  extends DescribeSecurityGroupReferencesResult,
+    __MetadataBearer {}
 
 /**
  * <p>[VPC only] Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.</p>

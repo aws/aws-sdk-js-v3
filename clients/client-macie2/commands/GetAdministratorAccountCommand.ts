@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAdministratorAccountCommandInput = GetAdministratorAccountRequest;
-export type GetAdministratorAccountCommandOutput = GetAdministratorAccountResponse & __MetadataBearer;
+export interface GetAdministratorAccountCommandInput extends GetAdministratorAccountRequest {}
+export interface GetAdministratorAccountCommandOutput extends GetAdministratorAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the Amazon Macie administrator account for an account.</p>

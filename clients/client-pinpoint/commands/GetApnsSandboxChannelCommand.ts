@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetApnsSandboxChannelCommandInput = GetApnsSandboxChannelRequest;
-export type GetApnsSandboxChannelCommandOutput = GetApnsSandboxChannelResponse & __MetadataBearer;
+export interface GetApnsSandboxChannelCommandInput extends GetApnsSandboxChannelRequest {}
+export interface GetApnsSandboxChannelCommandOutput extends GetApnsSandboxChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the status and settings of the APNs sandbox channel for an application.</p>

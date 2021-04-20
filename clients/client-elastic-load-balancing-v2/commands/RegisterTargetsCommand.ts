@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterTargetsCommandInput = RegisterTargetsInput;
-export type RegisterTargetsCommandOutput = RegisterTargetsOutput & __MetadataBearer;
+export interface RegisterTargetsCommandInput extends RegisterTargetsInput {}
+export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __MetadataBearer {}
 
 /**
  * <p>Registers the specified targets with the specified target group.</p>

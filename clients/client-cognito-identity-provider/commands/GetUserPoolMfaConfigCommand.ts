@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUserPoolMfaConfigCommandInput = GetUserPoolMfaConfigRequest;
-export type GetUserPoolMfaConfigCommandOutput = GetUserPoolMfaConfigResponse & __MetadataBearer;
+export interface GetUserPoolMfaConfigCommandInput extends GetUserPoolMfaConfigRequest {}
+export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the user pool multi-factor authentication (MFA) configuration.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVolumesCommandInput = ListVolumesInput;
-export type ListVolumesCommandOutput = ListVolumesOutput & __MetadataBearer;
+export interface ListVolumesCommandInput extends ListVolumesInput {}
+export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN. The

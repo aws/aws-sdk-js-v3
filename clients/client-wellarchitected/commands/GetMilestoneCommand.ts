@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMilestoneCommandInput = GetMilestoneInput;
-export type GetMilestoneCommandOutput = GetMilestoneOutput & __MetadataBearer;
+export interface GetMilestoneCommandInput extends GetMilestoneInput {}
+export interface GetMilestoneCommandOutput extends GetMilestoneOutput, __MetadataBearer {}
 
 /**
  * <p>Get a milestone for an existing workload.</p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteJobTaggingCommandInput = DeleteJobTaggingRequest;
-export type DeleteJobTaggingCommandOutput = DeleteJobTaggingResult & __MetadataBearer;
+export interface DeleteJobTaggingCommandInput extends DeleteJobTaggingRequest {}
+export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, __MetadataBearer {}
 
 /**
  * <p>Removes the entire tag set from the specified S3 Batch Operations job. To use this operation,

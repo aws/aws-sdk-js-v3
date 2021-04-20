@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCustomDataIdentifierCommandInput = DeleteCustomDataIdentifierRequest;
-export type DeleteCustomDataIdentifierCommandOutput = DeleteCustomDataIdentifierResponse & __MetadataBearer;
+export interface DeleteCustomDataIdentifierCommandInput extends DeleteCustomDataIdentifierRequest {}
+export interface DeleteCustomDataIdentifierCommandOutput extends DeleteCustomDataIdentifierResponse, __MetadataBearer {}
 
 /**
  * <p>Soft deletes a custom data identifier.</p>

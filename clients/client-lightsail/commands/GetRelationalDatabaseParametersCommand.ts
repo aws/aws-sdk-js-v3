@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRelationalDatabaseParametersCommandInput = GetRelationalDatabaseParametersRequest;
-export type GetRelationalDatabaseParametersCommandOutput = GetRelationalDatabaseParametersResult & __MetadataBearer;
+export interface GetRelationalDatabaseParametersCommandInput extends GetRelationalDatabaseParametersRequest {}
+export interface GetRelationalDatabaseParametersCommandOutput
+  extends GetRelationalDatabaseParametersResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns all of the runtime parameters offered by the underlying database software, or

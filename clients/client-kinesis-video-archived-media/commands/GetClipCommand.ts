@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetClipCommandInput = GetClipInput;
-export type GetClipCommandOutput = GetClipOutput & __MetadataBearer;
+export interface GetClipCommandInput extends GetClipInput {}
+export interface GetClipCommandOutput extends GetClipOutput, __MetadataBearer {}
 
 /**
  * <p>Downloads an MP4 file (clip) containing the archived, on-demand media from the

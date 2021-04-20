@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetComplianceSummaryByConfigRuleCommandInput = {};
-export type GetComplianceSummaryByConfigRuleCommandOutput = GetComplianceSummaryByConfigRuleResponse & __MetadataBearer;
+export interface GetComplianceSummaryByConfigRuleCommandInput {}
+export interface GetComplianceSummaryByConfigRuleCommandOutput
+  extends GetComplianceSummaryByConfigRuleResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the number of AWS Config rules that are compliant and

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyTargetGroupCommandInput = ModifyTargetGroupInput;
-export type ModifyTargetGroupCommandOutput = ModifyTargetGroupOutput & __MetadataBearer;
+export interface ModifyTargetGroupCommandInput extends ModifyTargetGroupInput {}
+export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput, __MetadataBearer {}
 
 /**
  * <p>Modifies the health checks used when evaluating the health state of the targets in the

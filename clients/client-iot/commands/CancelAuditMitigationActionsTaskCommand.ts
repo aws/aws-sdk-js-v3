@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelAuditMitigationActionsTaskCommandInput = CancelAuditMitigationActionsTaskRequest;
-export type CancelAuditMitigationActionsTaskCommandOutput = CancelAuditMitigationActionsTaskResponse & __MetadataBearer;
+export interface CancelAuditMitigationActionsTaskCommandInput extends CancelAuditMitigationActionsTaskRequest {}
+export interface CancelAuditMitigationActionsTaskCommandOutput
+  extends CancelAuditMitigationActionsTaskResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Cancels a mitigation action task that is in progress. If the task

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutRawMessageContentCommandInput = PutRawMessageContentRequest;
-export type PutRawMessageContentCommandOutput = PutRawMessageContentResponse & __MetadataBearer;
+export interface PutRawMessageContentCommandInput extends PutRawMessageContentRequest {}
+export interface PutRawMessageContentCommandOutput extends PutRawMessageContentResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the raw content of an in-transit email message, in MIME format.</p>

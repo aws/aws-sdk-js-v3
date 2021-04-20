@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateUserPoolCommandInput = UpdateUserPoolRequest;
-export type UpdateUserPoolCommandOutput = UpdateUserPoolResponse & __MetadataBearer;
+export interface UpdateUserPoolCommandInput extends UpdateUserPoolRequest {}
+export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified user pool with the specified attributes. You can get a list of

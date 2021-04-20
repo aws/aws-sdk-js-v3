@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetManagedPrefixListEntriesCommandInput = GetManagedPrefixListEntriesRequest;
-export type GetManagedPrefixListEntriesCommandOutput = GetManagedPrefixListEntriesResult & __MetadataBearer;
+export interface GetManagedPrefixListEntriesCommandInput extends GetManagedPrefixListEntriesRequest {}
+export interface GetManagedPrefixListEntriesCommandOutput extends GetManagedPrefixListEntriesResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about the entries for a specified managed prefix list.</p>

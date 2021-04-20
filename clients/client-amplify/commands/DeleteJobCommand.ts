@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteJobCommandInput = DeleteJobRequest;
-export type DeleteJobCommandOutput = DeleteJobResult & __MetadataBearer;
+export interface DeleteJobCommandInput extends DeleteJobRequest {}
+export interface DeleteJobCommandOutput extends DeleteJobResult, __MetadataBearer {}
 
 /**
  * <p> Deletes a job for a branch of an Amplify app. </p>

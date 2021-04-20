@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSmsChannelCommandInput = GetSmsChannelRequest;
-export type GetSmsChannelCommandOutput = GetSmsChannelResponse & __MetadataBearer;
+export interface GetSmsChannelCommandInput extends GetSmsChannelRequest {}
+export interface GetSmsChannelCommandOutput extends GetSmsChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the status and settings of the SMS channel for an application.</p>

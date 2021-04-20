@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFilterCommandInput = GetFilterRequest;
-export type GetFilterCommandOutput = GetFilterResponse & __MetadataBearer;
+export interface GetFilterCommandInput extends GetFilterRequest {}
+export interface GetFilterCommandOutput extends GetFilterResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the details of the filter specified by the filter name.</p>

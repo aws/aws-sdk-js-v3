@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAppLaunchConfigurationCommandInput = GetAppLaunchConfigurationRequest;
-export type GetAppLaunchConfigurationCommandOutput = GetAppLaunchConfigurationResponse & __MetadataBearer;
+export interface GetAppLaunchConfigurationCommandInput extends GetAppLaunchConfigurationRequest {}
+export interface GetAppLaunchConfigurationCommandOutput extends GetAppLaunchConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the application launch configuration associated with the specified application.</p>

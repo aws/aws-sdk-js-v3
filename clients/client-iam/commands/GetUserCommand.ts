@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUserCommandInput = GetUserRequest;
-export type GetUserCommandOutput = GetUserResponse & __MetadataBearer;
+export interface GetUserCommandInput extends GetUserRequest {}
+export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the specified IAM user, including the user's creation

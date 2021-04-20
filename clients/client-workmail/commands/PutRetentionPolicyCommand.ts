@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutRetentionPolicyCommandInput = PutRetentionPolicyRequest;
-export type PutRetentionPolicyCommandOutput = PutRetentionPolicyResponse & __MetadataBearer;
+export interface PutRetentionPolicyCommandInput extends PutRetentionPolicyRequest {}
+export interface PutRetentionPolicyCommandOutput extends PutRetentionPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Puts a retention policy to the specified organization.</p>

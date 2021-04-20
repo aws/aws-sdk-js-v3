@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMaintenanceWindowsCommandInput = DescribeMaintenanceWindowsRequest;
-export type DescribeMaintenanceWindowsCommandOutput = DescribeMaintenanceWindowsResult & __MetadataBearer;
+export interface DescribeMaintenanceWindowsCommandInput extends DescribeMaintenanceWindowsRequest {}
+export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMaintenanceWindowsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the maintenance windows in an AWS account.</p>

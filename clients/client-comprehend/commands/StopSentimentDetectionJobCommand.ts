@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopSentimentDetectionJobCommandInput = StopSentimentDetectionJobRequest;
-export type StopSentimentDetectionJobCommandOutput = StopSentimentDetectionJobResponse & __MetadataBearer;
+export interface StopSentimentDetectionJobCommandInput extends StopSentimentDetectionJobRequest {}
+export interface StopSentimentDetectionJobCommandOutput extends StopSentimentDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a sentiment detection job in progress.</p>

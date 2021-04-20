@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetOpenIDConnectProviderCommandInput = GetOpenIDConnectProviderRequest;
-export type GetOpenIDConnectProviderCommandOutput = GetOpenIDConnectProviderResponse & __MetadataBearer;
+export interface GetOpenIDConnectProviderCommandInput extends GetOpenIDConnectProviderRequest {}
+export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the specified OpenID Connect (OIDC) provider resource object

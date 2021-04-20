@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRecoveryPointsByBackupVaultCommandInput = ListRecoveryPointsByBackupVaultInput;
-export type ListRecoveryPointsByBackupVaultCommandOutput = ListRecoveryPointsByBackupVaultOutput & __MetadataBearer;
+export interface ListRecoveryPointsByBackupVaultCommandInput extends ListRecoveryPointsByBackupVaultInput {}
+export interface ListRecoveryPointsByBackupVaultCommandOutput
+  extends ListRecoveryPointsByBackupVaultOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Returns detailed information about the recovery points stored in a backup vault.</p>

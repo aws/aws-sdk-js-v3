@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAppCookieStickinessPolicyCommandInput = CreateAppCookieStickinessPolicyInput;
-export type CreateAppCookieStickinessPolicyCommandOutput = CreateAppCookieStickinessPolicyOutput & __MetadataBearer;
+export interface CreateAppCookieStickinessPolicyCommandInput extends CreateAppCookieStickinessPolicyInput {}
+export interface CreateAppCookieStickinessPolicyCommandOutput
+  extends CreateAppCookieStickinessPolicyOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP/HTTPS listeners.</p>

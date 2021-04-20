@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateRepositoryCommandInput = AssociateRepositoryRequest;
-export type AssociateRepositoryCommandOutput = AssociateRepositoryResponse & __MetadataBearer;
+export interface AssociateRepositoryCommandInput extends AssociateRepositoryRequest {}
+export interface AssociateRepositoryCommandOutput extends AssociateRepositoryResponse, __MetadataBearer {}
 
 /**
  * <p>

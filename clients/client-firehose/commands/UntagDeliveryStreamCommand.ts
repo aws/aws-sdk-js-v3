@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagDeliveryStreamCommandInput = UntagDeliveryStreamInput;
-export type UntagDeliveryStreamCommandOutput = UntagDeliveryStreamOutput & __MetadataBearer;
+export interface UntagDeliveryStreamCommandInput extends UntagDeliveryStreamInput {}
+export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you

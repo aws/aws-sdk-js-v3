@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeOrganizationConfigurationCommandInput = DescribeOrganizationConfigurationRequest;
-export type DescribeOrganizationConfigurationCommandOutput = DescribeOrganizationConfigurationResponse &
-  __MetadataBearer;
+export interface DescribeOrganizationConfigurationCommandInput extends DescribeOrganizationConfigurationRequest {}
+export interface DescribeOrganizationConfigurationCommandOutput
+  extends DescribeOrganizationConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about the account selected as the delegated administrator for

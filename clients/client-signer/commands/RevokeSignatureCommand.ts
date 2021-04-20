@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RevokeSignatureCommandInput = RevokeSignatureRequest;
-export type RevokeSignatureCommandOutput = __MetadataBearer;
+export interface RevokeSignatureCommandInput extends RevokeSignatureRequest {}
+export interface RevokeSignatureCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Changes the state of a signing job to REVOKED. This indicates that the signature is no

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddRoleToDBClusterCommandInput = AddRoleToDBClusterMessage;
-export type AddRoleToDBClusterCommandOutput = __MetadataBearer;
+export interface AddRoleToDBClusterCommandInput extends AddRoleToDBClusterMessage {}
+export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Associates an Identity and Access Management (IAM) role from an Amazon Aurora DB cluster.

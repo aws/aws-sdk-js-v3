@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminSetUserMFAPreferenceCommandInput = AdminSetUserMFAPreferenceRequest;
-export type AdminSetUserMFAPreferenceCommandOutput = AdminSetUserMFAPreferenceResponse & __MetadataBearer;
+export interface AdminSetUserMFAPreferenceCommandInput extends AdminSetUserMFAPreferenceRequest {}
+export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAPreferenceResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the user's multi-factor authentication (MFA) preference, including which MFA

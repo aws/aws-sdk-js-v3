@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAssociatedResourcesCommandInput = ListAssociatedResourcesRequest;
-export type ListAssociatedResourcesCommandOutput = ListAssociatedResourcesResponse & __MetadataBearer;
+export interface ListAssociatedResourcesCommandInput extends ListAssociatedResourcesRequest {}
+export interface ListAssociatedResourcesCommandOutput extends ListAssociatedResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all resources that are associated with specified application. Results are paginated.</p>

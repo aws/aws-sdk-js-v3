@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteOpsMetadataCommandInput = DeleteOpsMetadataRequest;
-export type DeleteOpsMetadataCommandOutput = DeleteOpsMetadataResult & __MetadataBearer;
+export interface DeleteOpsMetadataCommandInput extends DeleteOpsMetadataRequest {}
+export interface DeleteOpsMetadataCommandOutput extends DeleteOpsMetadataResult, __MetadataBearer {}
 
 /**
  * <p>Delete OpsMetadata related to an application.</p>

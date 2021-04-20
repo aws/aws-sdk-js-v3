@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListGroupCertificateAuthoritiesCommandInput = ListGroupCertificateAuthoritiesRequest;
-export type ListGroupCertificateAuthoritiesCommandOutput = ListGroupCertificateAuthoritiesResponse & __MetadataBearer;
+export interface ListGroupCertificateAuthoritiesCommandInput extends ListGroupCertificateAuthoritiesRequest {}
+export interface ListGroupCertificateAuthoritiesCommandOutput
+  extends ListGroupCertificateAuthoritiesResponse,
+    __MetadataBearer {}
 
 /**
  * Retrieves the current CAs for a group.

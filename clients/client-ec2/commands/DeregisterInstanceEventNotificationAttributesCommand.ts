@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterInstanceEventNotificationAttributesCommandInput = DeregisterInstanceEventNotificationAttributesRequest;
-export type DeregisterInstanceEventNotificationAttributesCommandOutput = DeregisterInstanceEventNotificationAttributesResult &
-  __MetadataBearer;
+export interface DeregisterInstanceEventNotificationAttributesCommandInput
+  extends DeregisterInstanceEventNotificationAttributesRequest {}
+export interface DeregisterInstanceEventNotificationAttributesCommandOutput
+  extends DeregisterInstanceEventNotificationAttributesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included

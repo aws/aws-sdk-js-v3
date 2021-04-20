@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRuleCommandInput = CreateRuleRequest;
-export type CreateRuleCommandOutput = CreateRuleResult & __MetadataBearer;
+export interface CreateRuleCommandInput extends CreateRuleRequest {}
+export interface CreateRuleCommandOutput extends CreateRuleResult, __MetadataBearer {}
 
 /**
  * <p>Creates a rule for use with the specified detector. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLabelsCommandInput = CreateLabelsRequest;
-export type CreateLabelsCommandOutput = CreateLabelsResponse & __MetadataBearer;
+export interface CreateLabelsCommandInput extends CreateLabelsRequest {}
+export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __MetadataBearer {}
 
 /**
  * <p>Adds the specified list of labels to the given resource (a document or

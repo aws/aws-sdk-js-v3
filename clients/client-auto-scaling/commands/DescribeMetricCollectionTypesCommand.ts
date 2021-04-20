@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMetricCollectionTypesCommandInput = {};
-export type DescribeMetricCollectionTypesCommandOutput = DescribeMetricCollectionTypesAnswer & __MetadataBearer;
+export interface DescribeMetricCollectionTypesCommandInput {}
+export interface DescribeMetricCollectionTypesCommandOutput
+  extends DescribeMetricCollectionTypesAnswer,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.</p>

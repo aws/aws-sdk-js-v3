@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRoutingProfileNameCommandInput = UpdateRoutingProfileNameRequest;
-export type UpdateRoutingProfileNameCommandOutput = __MetadataBearer;
+export interface UpdateRoutingProfileNameCommandInput extends UpdateRoutingProfileNameRequest {}
+export interface UpdateRoutingProfileNameCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the name and description of a routing profile. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>

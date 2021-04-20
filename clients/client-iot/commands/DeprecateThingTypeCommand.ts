@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeprecateThingTypeCommandInput = DeprecateThingTypeRequest;
-export type DeprecateThingTypeCommandOutput = DeprecateThingTypeResponse & __MetadataBearer;
+export interface DeprecateThingTypeCommandInput extends DeprecateThingTypeRequest {}
+export interface DeprecateThingTypeCommandOutput extends DeprecateThingTypeResponse, __MetadataBearer {}
 
 /**
  * <p>Deprecates a thing type. You can not associate new things with deprecated thing

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCustomerGatewayAssociationsCommandInput = GetCustomerGatewayAssociationsRequest;
-export type GetCustomerGatewayAssociationsCommandOutput = GetCustomerGatewayAssociationsResponse & __MetadataBearer;
+export interface GetCustomerGatewayAssociationsCommandInput extends GetCustomerGatewayAssociationsRequest {}
+export interface GetCustomerGatewayAssociationsCommandOutput
+  extends GetCustomerGatewayAssociationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the association information for customer gateways that are associated with

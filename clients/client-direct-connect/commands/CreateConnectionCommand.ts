@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateConnectionCommandInput = CreateConnectionRequest;
-export type CreateConnectionCommandOutput = Connection & __MetadataBearer;
+export interface CreateConnectionCommandInput extends CreateConnectionRequest {}
+export interface CreateConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
  * <p>Creates a connection between a customer network and a specific AWS Direct Connect location.</p>

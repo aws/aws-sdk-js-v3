@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCertificateAuthoritiesCommandInput = ListCertificateAuthoritiesRequest;
-export type ListCertificateAuthoritiesCommandOutput = ListCertificateAuthoritiesResponse & __MetadataBearer;
+export interface ListCertificateAuthoritiesCommandInput extends ListCertificateAuthoritiesRequest {}
+export interface ListCertificateAuthoritiesCommandOutput extends ListCertificateAuthoritiesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the private certificate authorities that you created by using the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action.</p>

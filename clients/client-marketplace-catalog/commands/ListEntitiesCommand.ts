@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEntitiesCommandInput = ListEntitiesRequest;
-export type ListEntitiesCommandOutput = ListEntitiesResponse & __MetadataBearer;
+export interface ListEntitiesCommandInput extends ListEntitiesRequest {}
+export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Provides the list of entities of a given type.</p>

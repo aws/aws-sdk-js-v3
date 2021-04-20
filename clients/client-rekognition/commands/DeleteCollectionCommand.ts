@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCollectionCommandInput = DeleteCollectionRequest;
-export type DeleteCollectionCommandOutput = DeleteCollectionResponse & __MetadataBearer;
+export interface DeleteCollectionCommandInput extends DeleteCollectionRequest {}
+export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified collection. Note that this operation

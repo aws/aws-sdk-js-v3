@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDeviceCommandInput = DescribeDeviceRequest;
-export type DescribeDeviceCommandOutput = DescribeDeviceResponse & __MetadataBearer;
+export interface DescribeDeviceCommandInput extends DescribeDeviceRequest {}
+export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Provides information about a user's device.</p>

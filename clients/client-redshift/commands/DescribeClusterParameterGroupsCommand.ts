@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeClusterParameterGroupsCommandInput = DescribeClusterParameterGroupsMessage;
-export type DescribeClusterParameterGroupsCommandOutput = ClusterParameterGroupsMessage & __MetadataBearer;
+export interface DescribeClusterParameterGroupsCommandInput extends DescribeClusterParameterGroupsMessage {}
+export interface DescribeClusterParameterGroupsCommandOutput extends ClusterParameterGroupsMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of Amazon Redshift parameter groups, including parameter groups you

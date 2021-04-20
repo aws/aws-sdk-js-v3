@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateJobCommandInput = CreateJobRequest;
-export type CreateJobCommandOutput = CreateJobResponse & __MetadataBearer;
+export interface CreateJobCommandInput extends CreateJobRequest {}
+export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBearer {}
 
 /**
  * Create a new transcoding job. For information about jobs and job settings, see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMatchmakingRuleSetCommandInput = DeleteMatchmakingRuleSetInput;
-export type DeleteMatchmakingRuleSetCommandOutput = DeleteMatchmakingRuleSetOutput & __MetadataBearer;
+export interface DeleteMatchmakingRuleSetCommandInput extends DeleteMatchmakingRuleSetInput {}
+export interface DeleteMatchmakingRuleSetCommandOutput extends DeleteMatchmakingRuleSetOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing matchmaking rule set. To delete the rule set, provide the rule

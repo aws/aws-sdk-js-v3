@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateProtectionCommandInput = CreateProtectionRequest;
-export type CreateProtectionCommandOutput = CreateProtectionResponse & __MetadataBearer;
+export interface CreateProtectionCommandInput extends CreateProtectionRequest {}
+export interface CreateProtectionCommandOutput extends CreateProtectionResponse, __MetadataBearer {}
 
 /**
  * <p>Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon

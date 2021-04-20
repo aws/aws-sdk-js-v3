@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetOnPremisesInstanceCommandInput = GetOnPremisesInstanceInput;
-export type GetOnPremisesInstanceCommandOutput = GetOnPremisesInstanceOutput & __MetadataBearer;
+export interface GetOnPremisesInstanceCommandInput extends GetOnPremisesInstanceInput {}
+export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanceOutput, __MetadataBearer {}
 
 /**
  * <p> Gets information about an on-premises instance. </p>

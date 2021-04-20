@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDeviceProfilesCommandInput = ListDeviceProfilesRequest;
-export type ListDeviceProfilesCommandOutput = ListDeviceProfilesResponse & __MetadataBearer;
+export interface ListDeviceProfilesCommandInput extends ListDeviceProfilesRequest {}
+export interface ListDeviceProfilesCommandOutput extends ListDeviceProfilesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the device profiles registered to your AWS account.</p>

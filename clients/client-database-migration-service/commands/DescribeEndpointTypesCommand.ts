@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEndpointTypesCommandInput = DescribeEndpointTypesMessage;
-export type DescribeEndpointTypesCommandOutput = DescribeEndpointTypesResponse & __MetadataBearer;
+export interface DescribeEndpointTypesCommandInput extends DescribeEndpointTypesMessage {}
+export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointTypesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the type of endpoints available.</p>

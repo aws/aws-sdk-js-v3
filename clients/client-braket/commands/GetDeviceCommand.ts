@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDeviceCommandInput = GetDeviceRequest;
-export type GetDeviceCommandOutput = GetDeviceResponse & __MetadataBearer;
+export interface GetDeviceCommandInput extends GetDeviceRequest {}
+export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the devices available in Amazon Braket.</p>

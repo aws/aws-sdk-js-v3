@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReservedDBInstancesOfferingsCommandInput = DescribeReservedDBInstancesOfferingsMessage;
-export type DescribeReservedDBInstancesOfferingsCommandOutput = ReservedDBInstancesOfferingMessage & __MetadataBearer;
+export interface DescribeReservedDBInstancesOfferingsCommandInput extends DescribeReservedDBInstancesOfferingsMessage {}
+export interface DescribeReservedDBInstancesOfferingsCommandOutput
+  extends ReservedDBInstancesOfferingMessage,
+    __MetadataBearer {}
 
 /**
  * <p>Lists available reserved DB instance offerings.</p>

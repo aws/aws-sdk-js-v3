@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PurchaseReservedDBInstancesOfferingCommandInput = PurchaseReservedDBInstancesOfferingMessage;
-export type PurchaseReservedDBInstancesOfferingCommandOutput = PurchaseReservedDBInstancesOfferingResult &
-  __MetadataBearer;
+export interface PurchaseReservedDBInstancesOfferingCommandInput extends PurchaseReservedDBInstancesOfferingMessage {}
+export interface PurchaseReservedDBInstancesOfferingCommandOutput
+  extends PurchaseReservedDBInstancesOfferingResult,
+    __MetadataBearer {}
 
 /**
  * <p>Purchases a reserved DB instance offering.</p>

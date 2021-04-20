@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFunctionEventInvokeConfigCommandInput = DeleteFunctionEventInvokeConfigRequest;
-export type DeleteFunctionEventInvokeConfigCommandOutput = __MetadataBearer;
+export interface DeleteFunctionEventInvokeConfigCommandInput extends DeleteFunctionEventInvokeConfigRequest {}
+export interface DeleteFunctionEventInvokeConfigCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the configuration for asynchronous invocation for a function, version, or alias.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateAddressCommandInput = AssociateAddressRequest;
-export type AssociateAddressCommandOutput = AssociateAddressResult & __MetadataBearer;
+export interface AssociateAddressCommandInput extends AssociateAddressRequest {}
+export interface AssociateAddressCommandOutput extends AssociateAddressResult, __MetadataBearer {}
 
 /**
  * <p>Associates an Elastic IP address, or carrier IP address (for instances that are in

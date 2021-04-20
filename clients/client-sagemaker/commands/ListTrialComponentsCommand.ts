@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTrialComponentsCommandInput = ListTrialComponentsRequest;
-export type ListTrialComponentsCommandOutput = ListTrialComponentsResponse & __MetadataBearer;
+export interface ListTrialComponentsCommandInput extends ListTrialComponentsRequest {}
+export interface ListTrialComponentsCommandOutput extends ListTrialComponentsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the trial components in your account. You can sort the list by trial component name

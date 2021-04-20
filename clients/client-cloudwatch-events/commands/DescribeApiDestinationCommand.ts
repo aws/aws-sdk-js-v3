@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeApiDestinationCommandInput = DescribeApiDestinationRequest;
-export type DescribeApiDestinationCommandOutput = DescribeApiDestinationResponse & __MetadataBearer;
+export interface DescribeApiDestinationCommandInput extends DescribeApiDestinationRequest {}
+export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details about an API destination.</p>

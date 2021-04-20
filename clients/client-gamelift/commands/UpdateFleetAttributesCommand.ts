@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFleetAttributesCommandInput = UpdateFleetAttributesInput;
-export type UpdateFleetAttributesCommandOutput = UpdateFleetAttributesOutput & __MetadataBearer;
+export interface UpdateFleetAttributesCommandInput extends UpdateFleetAttributesInput {}
+export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttributesOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a fleet's mutable attributes, including game session protection and resource

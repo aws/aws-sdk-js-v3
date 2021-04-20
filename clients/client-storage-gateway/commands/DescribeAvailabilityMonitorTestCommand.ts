@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAvailabilityMonitorTestCommandInput = DescribeAvailabilityMonitorTestInput;
-export type DescribeAvailabilityMonitorTestCommandOutput = DescribeAvailabilityMonitorTestOutput & __MetadataBearer;
+export interface DescribeAvailabilityMonitorTestCommandInput extends DescribeAvailabilityMonitorTestInput {}
+export interface DescribeAvailabilityMonitorTestCommandOutput
+  extends DescribeAvailabilityMonitorTestOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about the most recent high availability monitoring test that was

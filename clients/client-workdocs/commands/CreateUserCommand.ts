@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUserCommandInput = CreateUserRequest;
-export type CreateUserCommandOutput = CreateUserResponse & __MetadataBearer;
+export interface CreateUserCommandInput extends CreateUserRequest {}
+export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a user in a Simple AD or Microsoft AD directory. The status of a newly

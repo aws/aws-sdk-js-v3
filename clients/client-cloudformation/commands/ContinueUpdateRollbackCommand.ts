@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ContinueUpdateRollbackCommandInput = ContinueUpdateRollbackInput;
-export type ContinueUpdateRollbackCommandOutput = ContinueUpdateRollbackOutput & __MetadataBearer;
+export interface ContinueUpdateRollbackCommandInput extends ContinueUpdateRollbackInput {}
+export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollbackOutput, __MetadataBearer {}
 
 /**
  * <p>For a specified stack that is in the <code>UPDATE_ROLLBACK_FAILED</code> state,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMedicalVocabularyCommandInput = UpdateMedicalVocabularyRequest;
-export type UpdateMedicalVocabularyCommandOutput = UpdateMedicalVocabularyResponse & __MetadataBearer;
+export interface UpdateMedicalVocabularyCommandInput extends UpdateMedicalVocabularyRequest {}
+export interface UpdateMedicalVocabularyCommandOutput extends UpdateMedicalVocabularyResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a vocabulary with new values that you provide in a different text file from

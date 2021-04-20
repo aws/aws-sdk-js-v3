@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRestApiCommandInput = GetRestApiRequest;
-export type GetRestApiCommandOutput = RestApi & __MetadataBearer;
+export interface GetRestApiCommandInput extends GetRestApiRequest {}
+export interface GetRestApiCommandOutput extends RestApi, __MetadataBearer {}
 
 /**
  * <p>Lists the <a>RestApi</a> resource in the collection.</p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopReplicationTaskCommandInput = StopReplicationTaskMessage;
-export type StopReplicationTaskCommandOutput = StopReplicationTaskResponse & __MetadataBearer;
+export interface StopReplicationTaskCommandInput extends StopReplicationTaskMessage {}
+export interface StopReplicationTaskCommandOutput extends StopReplicationTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Stops the replication task.</p>

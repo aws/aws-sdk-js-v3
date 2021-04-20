@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetOperationsCommandInput = GetOperationsRequest;
-export type GetOperationsCommandOutput = GetOperationsResult & __MetadataBearer;
+export interface GetOperationsCommandInput extends GetOperationsRequest {}
+export interface GetOperationsCommandOutput extends GetOperationsResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about all operations.</p>

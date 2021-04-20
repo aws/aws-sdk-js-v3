@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateLinkCommandInput = AssociateLinkRequest;
-export type AssociateLinkCommandOutput = AssociateLinkResponse & __MetadataBearer;
+export interface AssociateLinkCommandInput extends AssociateLinkRequest {}
+export interface AssociateLinkCommandOutput extends AssociateLinkResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.</p>

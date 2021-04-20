@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchTablesCommandInput = SearchTablesRequest;
-export type SearchTablesCommandOutput = SearchTablesResponse & __MetadataBearer;
+export interface SearchTablesCommandInput extends SearchTablesRequest {}
+export interface SearchTablesCommandOutput extends SearchTablesResponse, __MetadataBearer {}
 
 /**
  * <p>Searches a set of tables based on properties in the table metadata as well as on the parent database. You can search against text or filter conditions. </p>

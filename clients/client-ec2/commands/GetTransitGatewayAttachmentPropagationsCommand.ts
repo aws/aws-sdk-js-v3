@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTransitGatewayAttachmentPropagationsCommandInput = GetTransitGatewayAttachmentPropagationsRequest;
-export type GetTransitGatewayAttachmentPropagationsCommandOutput = GetTransitGatewayAttachmentPropagationsResult &
-  __MetadataBearer;
+export interface GetTransitGatewayAttachmentPropagationsCommandInput
+  extends GetTransitGatewayAttachmentPropagationsRequest {}
+export interface GetTransitGatewayAttachmentPropagationsCommandOutput
+  extends GetTransitGatewayAttachmentPropagationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the route tables to which the specified resource attachment propagates routes.</p>

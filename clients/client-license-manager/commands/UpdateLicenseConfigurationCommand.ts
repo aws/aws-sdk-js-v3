@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateLicenseConfigurationCommandInput = UpdateLicenseConfigurationRequest;
-export type UpdateLicenseConfigurationCommandOutput = UpdateLicenseConfigurationResponse & __MetadataBearer;
+export interface UpdateLicenseConfigurationCommandInput extends UpdateLicenseConfigurationRequest {}
+export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the attributes of an existing license configuration.</p>

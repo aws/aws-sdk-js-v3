@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMFADeviceTagsCommandInput = ListMFADeviceTagsRequest;
-export type ListMFADeviceTagsCommandOutput = ListMFADeviceTagsResponse & __MetadataBearer;
+export interface ListMFADeviceTagsCommandInput extends ListMFADeviceTagsRequest {}
+export interface ListMFADeviceTagsCommandOutput extends ListMFADeviceTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the tags that are attached to the specified IAM virtual multi-factor authentication (MFA) device. The returned list of tags is

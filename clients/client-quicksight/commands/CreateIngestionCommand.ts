@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateIngestionCommandInput = CreateIngestionRequest;
-export type CreateIngestionCommandOutput = CreateIngestionResponse & __MetadataBearer;
+export interface CreateIngestionCommandInput extends CreateIngestionRequest {}
+export interface CreateIngestionCommandOutput extends CreateIngestionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates and starts a new SPICE ingestion on a dataset</p>

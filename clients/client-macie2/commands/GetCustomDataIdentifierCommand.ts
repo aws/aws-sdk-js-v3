@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCustomDataIdentifierCommandInput = GetCustomDataIdentifierRequest;
-export type GetCustomDataIdentifierCommandOutput = GetCustomDataIdentifierResponse & __MetadataBearer;
+export interface GetCustomDataIdentifierCommandInput extends GetCustomDataIdentifierRequest {}
+export interface GetCustomDataIdentifierCommandOutput extends GetCustomDataIdentifierResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the criteria and other settings for a custom data identifier.</p>

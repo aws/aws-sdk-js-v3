@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVocabularyFilterCommandInput = CreateVocabularyFilterRequest;
-export type CreateVocabularyFilterCommandOutput = CreateVocabularyFilterResponse & __MetadataBearer;
+export interface CreateVocabularyFilterCommandInput extends CreateVocabularyFilterRequest {}
+export interface CreateVocabularyFilterCommandOutput extends CreateVocabularyFilterResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new vocabulary filter that you can use to filter words, such as profane

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RecognizeTextCommandInput = RecognizeTextRequest;
-export type RecognizeTextCommandOutput = RecognizeTextResponse & __MetadataBearer;
+export interface RecognizeTextCommandInput extends RecognizeTextRequest {}
+export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __MetadataBearer {}
 
 /**
  * <p>Sends user input to Amazon Lex. Client applications use this API to send

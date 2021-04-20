@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEventBusesCommandInput = ListEventBusesRequest;
-export type ListEventBusesCommandOutput = ListEventBusesResponse & __MetadataBearer;
+export interface ListEventBusesCommandInput extends ListEventBusesRequest {}
+export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the event buses in your account, including the default event bus, custom event

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListObjectPoliciesCommandInput = ListObjectPoliciesRequest;
-export type ListObjectPoliciesCommandOutput = ListObjectPoliciesResponse & __MetadataBearer;
+export interface ListObjectPoliciesCommandInput extends ListObjectPoliciesRequest {}
+export interface ListObjectPoliciesCommandOutput extends ListObjectPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns policies attached to an object in pagination fashion.</p>

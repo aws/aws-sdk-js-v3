@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeclineHandshakeCommandInput = DeclineHandshakeRequest;
-export type DeclineHandshakeCommandOutput = DeclineHandshakeResponse & __MetadataBearer;
+export interface DeclineHandshakeCommandInput extends DeclineHandshakeRequest {}
+export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse, __MetadataBearer {}
 
 /**
  * <p>Declines a handshake request. This sets the handshake state to <code>DECLINED</code>

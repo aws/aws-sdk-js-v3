@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UploadSigningCertificateCommandInput = UploadSigningCertificateRequest;
-export type UploadSigningCertificateCommandOutput = UploadSigningCertificateResponse & __MetadataBearer;
+export interface UploadSigningCertificateCommandInput extends UploadSigningCertificateRequest {}
+export interface UploadSigningCertificateCommandOutput extends UploadSigningCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Uploads an X.509 signing certificate and associates it with the specified IAM user.

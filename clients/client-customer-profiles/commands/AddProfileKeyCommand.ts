@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddProfileKeyCommandInput = AddProfileKeyRequest;
-export type AddProfileKeyCommandOutput = AddProfileKeyResponse & __MetadataBearer;
+export interface AddProfileKeyCommandInput extends AddProfileKeyRequest {}
+export interface AddProfileKeyCommandOutput extends AddProfileKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a new key value with a specific profile, such as a Contact Trace Record (CTR)

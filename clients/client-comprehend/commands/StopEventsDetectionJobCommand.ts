@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopEventsDetectionJobCommandInput = StopEventsDetectionJobRequest;
-export type StopEventsDetectionJobCommandOutput = StopEventsDetectionJobResponse & __MetadataBearer;
+export interface StopEventsDetectionJobCommandInput extends StopEventsDetectionJobRequest {}
+export interface StopEventsDetectionJobCommandOutput extends StopEventsDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Stops an events detection job in progress.</p>

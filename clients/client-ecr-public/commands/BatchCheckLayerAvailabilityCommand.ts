@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchCheckLayerAvailabilityCommandInput = BatchCheckLayerAvailabilityRequest;
-export type BatchCheckLayerAvailabilityCommandOutput = BatchCheckLayerAvailabilityResponse & __MetadataBearer;
+export interface BatchCheckLayerAvailabilityCommandInput extends BatchCheckLayerAvailabilityRequest {}
+export interface BatchCheckLayerAvailabilityCommandOutput
+  extends BatchCheckLayerAvailabilityResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Checks the availability of one or more image layers within a repository in a public

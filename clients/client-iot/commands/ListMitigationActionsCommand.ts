@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMitigationActionsCommandInput = ListMitigationActionsRequest;
-export type ListMitigationActionsCommandOutput = ListMitigationActionsResponse & __MetadataBearer;
+export interface ListMitigationActionsCommandInput extends ListMitigationActionsRequest {}
+export interface ListMitigationActionsCommandOutput extends ListMitigationActionsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of all mitigation actions that match the specified filter criteria.</p>

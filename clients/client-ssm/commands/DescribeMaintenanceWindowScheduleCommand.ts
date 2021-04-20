@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMaintenanceWindowScheduleCommandInput = DescribeMaintenanceWindowScheduleRequest;
-export type DescribeMaintenanceWindowScheduleCommandOutput = DescribeMaintenanceWindowScheduleResult & __MetadataBearer;
+export interface DescribeMaintenanceWindowScheduleCommandInput extends DescribeMaintenanceWindowScheduleRequest {}
+export interface DescribeMaintenanceWindowScheduleCommandOutput
+  extends DescribeMaintenanceWindowScheduleResult,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves information about upcoming executions of a maintenance window.</p>

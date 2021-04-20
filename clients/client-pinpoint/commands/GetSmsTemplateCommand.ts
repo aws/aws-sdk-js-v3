@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSmsTemplateCommandInput = GetSmsTemplateRequest;
-export type GetSmsTemplateCommandOutput = GetSmsTemplateResponse & __MetadataBearer;
+export interface GetSmsTemplateCommandInput extends GetSmsTemplateRequest {}
+export interface GetSmsTemplateCommandOutput extends GetSmsTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the content and settings of a message template for messages that are sent through the SMS channel.</p>

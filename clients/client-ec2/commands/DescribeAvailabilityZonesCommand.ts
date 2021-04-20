@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAvailabilityZonesCommandInput = DescribeAvailabilityZonesRequest;
-export type DescribeAvailabilityZonesCommandOutput = DescribeAvailabilityZonesResult & __MetadataBearer;
+export interface DescribeAvailabilityZonesCommandInput extends DescribeAvailabilityZonesRequest {}
+export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabilityZonesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to

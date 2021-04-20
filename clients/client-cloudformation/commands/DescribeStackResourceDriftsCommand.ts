@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStackResourceDriftsCommandInput = DescribeStackResourceDriftsInput;
-export type DescribeStackResourceDriftsCommandOutput = DescribeStackResourceDriftsOutput & __MetadataBearer;
+export interface DescribeStackResourceDriftsCommandInput extends DescribeStackResourceDriftsInput {}
+export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackResourceDriftsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns drift information for the resources that have been checked for drift in the

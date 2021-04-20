@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListModelBiasJobDefinitionsCommandInput = ListModelBiasJobDefinitionsRequest;
-export type ListModelBiasJobDefinitionsCommandOutput = ListModelBiasJobDefinitionsResponse & __MetadataBearer;
+export interface ListModelBiasJobDefinitionsCommandInput extends ListModelBiasJobDefinitionsRequest {}
+export interface ListModelBiasJobDefinitionsCommandOutput
+  extends ListModelBiasJobDefinitionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists model bias jobs definitions that satisfy various filters.</p>

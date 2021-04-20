@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDatasetImportJobCommandInput = DeleteDatasetImportJobRequest;
-export type DeleteDatasetImportJobCommandOutput = __MetadataBearer;
+export interface DeleteDatasetImportJobCommandInput extends DeleteDatasetImportJobRequest {}
+export interface DeleteDatasetImportJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a dataset import job created using the <a>CreateDatasetImportJob</a>

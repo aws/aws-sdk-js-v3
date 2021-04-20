@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateServerCommandInput = UpdateServerRequest;
-export type UpdateServerCommandOutput = UpdateServerResponse & __MetadataBearer;
+export interface UpdateServerCommandInput extends UpdateServerRequest {}
+export interface UpdateServerCommandOutput extends UpdateServerResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the file transfer protocol-enabled server's properties after that server has

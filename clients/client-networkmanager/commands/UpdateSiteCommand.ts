@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSiteCommandInput = UpdateSiteRequest;
-export type UpdateSiteCommandOutput = UpdateSiteResponse & __MetadataBearer;
+export interface UpdateSiteCommandInput extends UpdateSiteRequest {}
+export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the information for an existing site. To remove information for any of the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateConfigurationTemplateCommandInput = UpdateConfigurationTemplateMessage;
-export type UpdateConfigurationTemplateCommandOutput = ConfigurationSettingsDescription & __MetadataBearer;
+export interface UpdateConfigurationTemplateCommandInput extends UpdateConfigurationTemplateMessage {}
+export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationSettingsDescription, __MetadataBearer {}
 
 /**
  * <p>Updates the specified configuration template to have the specified properties or

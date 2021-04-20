@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListImportsCommandInput = ListImportsInput;
-export type ListImportsCommandOutput = ListImportsOutput & __MetadataBearer;
+export interface ListImportsCommandInput extends ListImportsInput {}
+export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all stacks that are importing an exported output value. To modify or remove an

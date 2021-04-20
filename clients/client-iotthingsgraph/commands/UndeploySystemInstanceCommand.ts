@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UndeploySystemInstanceCommandInput = UndeploySystemInstanceRequest;
-export type UndeploySystemInstanceCommandOutput = UndeploySystemInstanceResponse & __MetadataBearer;
+export interface UndeploySystemInstanceCommandInput extends UndeploySystemInstanceRequest {}
+export interface UndeploySystemInstanceCommandOutput extends UndeploySystemInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a system instance from its target (Cloud or Greengrass).</p>

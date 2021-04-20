@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVpcPeeringAuthorizationsCommandInput = DescribeVpcPeeringAuthorizationsInput;
-export type DescribeVpcPeeringAuthorizationsCommandOutput = DescribeVpcPeeringAuthorizationsOutput & __MetadataBearer;
+export interface DescribeVpcPeeringAuthorizationsCommandInput extends DescribeVpcPeeringAuthorizationsInput {}
+export interface DescribeVpcPeeringAuthorizationsCommandOutput
+  extends DescribeVpcPeeringAuthorizationsOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves valid VPC peering authorizations that are pending for the AWS account.

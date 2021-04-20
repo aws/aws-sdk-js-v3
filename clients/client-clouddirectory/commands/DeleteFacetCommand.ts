@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFacetCommandInput = DeleteFacetRequest;
-export type DeleteFacetCommandOutput = DeleteFacetResponse & __MetadataBearer;
+export interface DeleteFacetCommandInput extends DeleteFacetRequest {}
+export interface DeleteFacetCommandOutput extends DeleteFacetResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a given <a>Facet</a>. All attributes and <a>Rule</a>s

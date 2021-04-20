@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLifecyclePolicyCommandInput = CreateLifecyclePolicyRequest;
-export type CreateLifecyclePolicyCommandOutput = CreateLifecyclePolicyResponse & __MetadataBearer;
+export interface CreateLifecyclePolicyCommandInput extends CreateLifecyclePolicyRequest {}
+export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a policy to manage the lifecycle of the specified AWS resources. You can

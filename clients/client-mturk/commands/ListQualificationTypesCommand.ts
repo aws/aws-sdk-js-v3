@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListQualificationTypesCommandInput = ListQualificationTypesRequest;
-export type ListQualificationTypesCommandOutput = ListQualificationTypesResponse & __MetadataBearer;
+export interface ListQualificationTypesCommandInput extends ListQualificationTypesRequest {}
+export interface ListQualificationTypesCommandOutput extends ListQualificationTypesResponse, __MetadataBearer {}
 
 /**
  * <p>

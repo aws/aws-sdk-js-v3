@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDBInstanceCommandInput = CreateDBInstanceMessage;
-export type CreateDBInstanceCommandOutput = CreateDBInstanceResult & __MetadataBearer;
+export interface CreateDBInstanceCommandInput extends CreateDBInstanceMessage {}
+export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new instance.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResolversCommandInput = ListResolversRequest;
-export type ListResolversCommandOutput = ListResolversResponse & __MetadataBearer;
+export interface ListResolversCommandInput extends ListResolversRequest {}
+export interface ListResolversCommandOutput extends ListResolversResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the resolvers for a given API and type.</p>

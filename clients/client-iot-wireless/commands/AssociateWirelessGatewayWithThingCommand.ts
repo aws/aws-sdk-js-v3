@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateWirelessGatewayWithThingCommandInput = AssociateWirelessGatewayWithThingRequest;
-export type AssociateWirelessGatewayWithThingCommandOutput = AssociateWirelessGatewayWithThingResponse &
-  __MetadataBearer;
+export interface AssociateWirelessGatewayWithThingCommandInput extends AssociateWirelessGatewayWithThingRequest {}
+export interface AssociateWirelessGatewayWithThingCommandOutput
+  extends AssociateWirelessGatewayWithThingResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates a wireless gateway with a thing.</p>

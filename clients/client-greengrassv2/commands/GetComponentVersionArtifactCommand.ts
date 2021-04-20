@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetComponentVersionArtifactCommandInput = GetComponentVersionArtifactRequest;
-export type GetComponentVersionArtifactCommandOutput = GetComponentVersionArtifactResponse & __MetadataBearer;
+export interface GetComponentVersionArtifactCommandInput extends GetComponentVersionArtifactRequest {}
+export interface GetComponentVersionArtifactCommandOutput
+  extends GetComponentVersionArtifactResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the pre-signed URL to download a public component artifact. Core devices call this

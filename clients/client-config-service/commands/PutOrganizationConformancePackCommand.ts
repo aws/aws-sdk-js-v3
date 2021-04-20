@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutOrganizationConformancePackCommandInput = PutOrganizationConformancePackRequest;
-export type PutOrganizationConformancePackCommandOutput = PutOrganizationConformancePackResponse & __MetadataBearer;
+export interface PutOrganizationConformancePackCommandInput extends PutOrganizationConformancePackRequest {}
+export interface PutOrganizationConformancePackCommandOutput
+  extends PutOrganizationConformancePackResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deploys conformance packs across member accounts in an AWS Organization.</p>

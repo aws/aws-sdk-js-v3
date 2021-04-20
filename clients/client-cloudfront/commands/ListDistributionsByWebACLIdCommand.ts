@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDistributionsByWebACLIdCommandInput = ListDistributionsByWebACLIdRequest;
-export type ListDistributionsByWebACLIdCommandOutput = ListDistributionsByWebACLIdResult & __MetadataBearer;
+export interface ListDistributionsByWebACLIdCommandInput extends ListDistributionsByWebACLIdRequest {}
+export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributionsByWebACLIdResult, __MetadataBearer {}
 
 /**
  * <p>List the distributions that are associated with a specified AWS WAF web ACL. </p>

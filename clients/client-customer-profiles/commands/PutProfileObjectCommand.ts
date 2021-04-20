@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutProfileObjectCommandInput = PutProfileObjectRequest;
-export type PutProfileObjectCommandOutput = PutProfileObjectResponse & __MetadataBearer;
+export interface PutProfileObjectCommandInput extends PutProfileObjectRequest {}
+export interface PutProfileObjectCommandOutput extends PutProfileObjectResponse, __MetadataBearer {}
 
 /**
  * <p>Adds additional objects to customer profiles of a given ObjectType.</p>

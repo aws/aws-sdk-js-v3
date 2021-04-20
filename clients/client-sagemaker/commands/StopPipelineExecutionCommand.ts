@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopPipelineExecutionCommandInput = StopPipelineExecutionRequest;
-export type StopPipelineExecutionCommandOutput = StopPipelineExecutionResponse & __MetadataBearer;
+export interface StopPipelineExecutionCommandInput extends StopPipelineExecutionRequest {}
+export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutionResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a pipeline execution.</p>

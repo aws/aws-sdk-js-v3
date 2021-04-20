@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLocalGatewayVirtualInterfaceGroupsCommandInput = DescribeLocalGatewayVirtualInterfaceGroupsRequest;
-export type DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput = DescribeLocalGatewayVirtualInterfaceGroupsResult &
-  __MetadataBearer;
+export interface DescribeLocalGatewayVirtualInterfaceGroupsCommandInput
+  extends DescribeLocalGatewayVirtualInterfaceGroupsRequest {}
+export interface DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
+  extends DescribeLocalGatewayVirtualInterfaceGroupsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the specified local gateway virtual interface groups.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RequestUploadCredentialsCommandInput = RequestUploadCredentialsInput;
-export type RequestUploadCredentialsCommandOutput = RequestUploadCredentialsOutput & __MetadataBearer;
+export interface RequestUploadCredentialsCommandInput extends RequestUploadCredentialsInput {}
+export interface RequestUploadCredentialsCommandOutput extends RequestUploadCredentialsOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves a fresh set of credentials for use when uploading a new set of game build

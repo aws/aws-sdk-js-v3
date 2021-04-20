@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemovePermissionCommandInput = RemovePermissionRequest;
-export type RemovePermissionCommandOutput = RemovePermissionResponse & __MetadataBearer;
+export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
+export interface RemovePermissionCommandOutput extends RemovePermissionResponse, __MetadataBearer {}
 
 /**
  * <p> Removes permissions from a profiling group's resource-based policy that are provided

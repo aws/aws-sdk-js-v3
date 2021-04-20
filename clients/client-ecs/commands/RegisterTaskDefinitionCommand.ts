@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterTaskDefinitionCommandInput = RegisterTaskDefinitionRequest;
-export type RegisterTaskDefinitionCommandOutput = RegisterTaskDefinitionResponse & __MetadataBearer;
+export interface RegisterTaskDefinitionCommandInput extends RegisterTaskDefinitionRequest {}
+export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Registers a new task definition from the supplied <code>family</code> and

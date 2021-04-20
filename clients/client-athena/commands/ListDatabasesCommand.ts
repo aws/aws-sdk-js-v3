@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDatabasesCommandInput = ListDatabasesInput;
-export type ListDatabasesCommandOutput = ListDatabasesOutput & __MetadataBearer;
+export interface ListDatabasesCommandInput extends ListDatabasesInput {}
+export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the databases in the specified data catalog.</p>

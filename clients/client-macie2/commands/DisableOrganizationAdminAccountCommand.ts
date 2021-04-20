@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableOrganizationAdminAccountCommandInput = DisableOrganizationAdminAccountRequest;
-export type DisableOrganizationAdminAccountCommandOutput = DisableOrganizationAdminAccountResponse & __MetadataBearer;
+export interface DisableOrganizationAdminAccountCommandInput extends DisableOrganizationAdminAccountRequest {}
+export interface DisableOrganizationAdminAccountCommandOutput
+  extends DisableOrganizationAdminAccountResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disables an account as the delegated Amazon Macie administrator account for an AWS organization.</p>

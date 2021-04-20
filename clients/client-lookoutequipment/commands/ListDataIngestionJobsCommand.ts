@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDataIngestionJobsCommandInput = ListDataIngestionJobsRequest;
-export type ListDataIngestionJobsCommandOutput = ListDataIngestionJobsResponse & __MetadataBearer;
+export interface ListDataIngestionJobsCommandInput extends ListDataIngestionJobsRequest {}
+export interface ListDataIngestionJobsCommandOutput extends ListDataIngestionJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a list of all data ingestion jobs, including dataset name and ARN, S3 location

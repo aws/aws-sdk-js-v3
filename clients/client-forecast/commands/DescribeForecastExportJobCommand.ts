@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeForecastExportJobCommandInput = DescribeForecastExportJobRequest;
-export type DescribeForecastExportJobCommandOutput = DescribeForecastExportJobResponse & __MetadataBearer;
+export interface DescribeForecastExportJobCommandInput extends DescribeForecastExportJobRequest {}
+export interface DescribeForecastExportJobCommandOutput extends DescribeForecastExportJobResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a forecast export job created using the <a>CreateForecastExportJob</a> operation.</p>

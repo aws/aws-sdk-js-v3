@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableKeyCommandInput = EnableKeyRequest;
-export type EnableKeyCommandOutput = __MetadataBearer;
+export interface EnableKeyCommandInput extends EnableKeyRequest {}
+export interface EnableKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the key state of a customer master key (CMK) to enabled. This allows you to use the

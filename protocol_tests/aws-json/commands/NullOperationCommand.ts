@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type NullOperationCommandInput = NullOperationInputOutput;
-export type NullOperationCommandOutput = NullOperationInputOutput & __MetadataBearer;
+export interface NullOperationCommandInput extends NullOperationInputOutput {}
+export interface NullOperationCommandOutput extends NullOperationInputOutput, __MetadataBearer {}
 
 export class NullOperationCommand extends $Command<
   NullOperationCommandInput,

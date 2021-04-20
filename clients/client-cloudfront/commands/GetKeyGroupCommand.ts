@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetKeyGroupCommandInput = GetKeyGroupRequest;
-export type GetKeyGroupCommandOutput = GetKeyGroupResult & __MetadataBearer;
+export interface GetKeyGroupCommandInput extends GetKeyGroupRequest {}
+export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataBearer {}
 
 /**
  * <p>Gets a key group, including the date and time when the key group was last modified.</p>

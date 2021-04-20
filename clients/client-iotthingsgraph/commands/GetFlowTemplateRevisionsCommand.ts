@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFlowTemplateRevisionsCommandInput = GetFlowTemplateRevisionsRequest;
-export type GetFlowTemplateRevisionsCommandOutput = GetFlowTemplateRevisionsResponse & __MetadataBearer;
+export interface GetFlowTemplateRevisionsCommandInput extends GetFlowTemplateRevisionsRequest {}
+export interface GetFlowTemplateRevisionsCommandOutput extends GetFlowTemplateRevisionsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets revisions of the specified workflow. Only the last 100 revisions are stored. If the workflow has been deprecated,

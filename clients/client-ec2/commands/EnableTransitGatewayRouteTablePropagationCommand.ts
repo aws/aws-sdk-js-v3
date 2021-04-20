@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableTransitGatewayRouteTablePropagationCommandInput = EnableTransitGatewayRouteTablePropagationRequest;
-export type EnableTransitGatewayRouteTablePropagationCommandOutput = EnableTransitGatewayRouteTablePropagationResult &
-  __MetadataBearer;
+export interface EnableTransitGatewayRouteTablePropagationCommandInput
+  extends EnableTransitGatewayRouteTablePropagationRequest {}
+export interface EnableTransitGatewayRouteTablePropagationCommandOutput
+  extends EnableTransitGatewayRouteTablePropagationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Enables the specified attachment to propagate routes to the specified

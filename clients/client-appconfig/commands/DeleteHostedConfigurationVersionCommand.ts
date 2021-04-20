@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteHostedConfigurationVersionCommandInput = DeleteHostedConfigurationVersionRequest;
-export type DeleteHostedConfigurationVersionCommandOutput = __MetadataBearer;
+export interface DeleteHostedConfigurationVersionCommandInput extends DeleteHostedConfigurationVersionRequest {}
+export interface DeleteHostedConfigurationVersionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete a version of a configuration from the AppConfig configuration store.</p>

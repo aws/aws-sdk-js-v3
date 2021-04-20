@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDeleteImageCommandInput = BatchDeleteImageRequest;
-export type BatchDeleteImageCommandOutput = BatchDeleteImageResponse & __MetadataBearer;
+export interface BatchDeleteImageCommandInput extends BatchDeleteImageRequest {}
+export interface BatchDeleteImageCommandOutput extends BatchDeleteImageResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a list of specified images within a repository. Images are specified with

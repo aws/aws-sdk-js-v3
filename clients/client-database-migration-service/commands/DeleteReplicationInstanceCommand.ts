@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteReplicationInstanceCommandInput = DeleteReplicationInstanceMessage;
-export type DeleteReplicationInstanceCommandOutput = DeleteReplicationInstanceResponse & __MetadataBearer;
+export interface DeleteReplicationInstanceCommandInput extends DeleteReplicationInstanceMessage {}
+export interface DeleteReplicationInstanceCommandOutput extends DeleteReplicationInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified replication instance.</p>

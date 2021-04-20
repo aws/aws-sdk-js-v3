@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDataSourcesCommandInput = DescribeDataSourcesInput;
-export type DescribeDataSourcesCommandOutput = DescribeDataSourcesOutput & __MetadataBearer;
+export interface DescribeDataSourcesCommandInput extends DescribeDataSourcesInput {}
+export interface DescribeDataSourcesCommandOutput extends DescribeDataSourcesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of <code>DataSource</code> that match the search criteria in the request.</p>

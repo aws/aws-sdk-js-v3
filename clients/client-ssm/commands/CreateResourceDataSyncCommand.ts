@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateResourceDataSyncCommandInput = CreateResourceDataSyncRequest;
-export type CreateResourceDataSyncCommandOutput = CreateResourceDataSyncResult & __MetadataBearer;
+export interface CreateResourceDataSyncCommandInput extends CreateResourceDataSyncRequest {}
+export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataSyncResult, __MetadataBearer {}
 
 /**
  * <p>A resource data sync helps you view data from multiple sources in a single location. Systems

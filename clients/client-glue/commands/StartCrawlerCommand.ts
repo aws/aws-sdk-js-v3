@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartCrawlerCommandInput = StartCrawlerRequest;
-export type StartCrawlerCommandOutput = StartCrawlerResponse & __MetadataBearer;
+export interface StartCrawlerCommandInput extends StartCrawlerRequest {}
+export interface StartCrawlerCommandOutput extends StartCrawlerResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a crawl using the specified crawler, regardless

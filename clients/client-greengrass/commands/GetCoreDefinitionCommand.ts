@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCoreDefinitionCommandInput = GetCoreDefinitionRequest;
-export type GetCoreDefinitionCommandOutput = GetCoreDefinitionResponse & __MetadataBearer;
+export interface GetCoreDefinitionCommandInput extends GetCoreDefinitionRequest {}
+export interface GetCoreDefinitionCommandOutput extends GetCoreDefinitionResponse, __MetadataBearer {}
 
 /**
  * Retrieves information about a core definition version.

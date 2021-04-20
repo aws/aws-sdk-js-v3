@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPipelineParametersForExecutionCommandInput = ListPipelineParametersForExecutionRequest;
-export type ListPipelineParametersForExecutionCommandOutput = ListPipelineParametersForExecutionResponse &
-  __MetadataBearer;
+export interface ListPipelineParametersForExecutionCommandInput extends ListPipelineParametersForExecutionRequest {}
+export interface ListPipelineParametersForExecutionCommandOutput
+  extends ListPipelineParametersForExecutionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets a list of parameters for a pipeline execution.</p>

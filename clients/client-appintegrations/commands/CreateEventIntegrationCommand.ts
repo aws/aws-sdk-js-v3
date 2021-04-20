@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEventIntegrationCommandInput = CreateEventIntegrationRequest;
-export type CreateEventIntegrationCommandOutput = CreateEventIntegrationResponse & __MetadataBearer;
+export interface CreateEventIntegrationCommandInput extends CreateEventIntegrationRequest {}
+export interface CreateEventIntegrationCommandOutput extends CreateEventIntegrationResponse, __MetadataBearer {}
 
 /**
  * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>

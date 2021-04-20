@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsCommandInput = ListTagsRequest;
-export type ListTagsCommandOutput = ListTagsResponse & __MetadataBearer;
+export interface ListTagsCommandInput extends ListTagsRequest {}
+export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. You can

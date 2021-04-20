@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLoadBalancerTlsCertificateCommandInput = CreateLoadBalancerTlsCertificateRequest;
-export type CreateLoadBalancerTlsCertificateCommandOutput = CreateLoadBalancerTlsCertificateResult & __MetadataBearer;
+export interface CreateLoadBalancerTlsCertificateCommandInput extends CreateLoadBalancerTlsCertificateRequest {}
+export interface CreateLoadBalancerTlsCertificateCommandOutput
+  extends CreateLoadBalancerTlsCertificateResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates an SSL/TLS certificate for an Amazon Lightsail load balancer.</p>

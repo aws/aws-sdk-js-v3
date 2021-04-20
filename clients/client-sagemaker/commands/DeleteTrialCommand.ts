@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTrialCommandInput = DeleteTrialRequest;
-export type DeleteTrialCommandOutput = DeleteTrialResponse & __MetadataBearer;
+export interface DeleteTrialCommandInput extends DeleteTrialRequest {}
+export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified trial. All trial components that make up the trial must be deleted

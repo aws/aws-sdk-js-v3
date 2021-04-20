@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAuditSuppressionCommandInput = CreateAuditSuppressionRequest;
-export type CreateAuditSuppressionCommandOutput = CreateAuditSuppressionResponse & __MetadataBearer;
+export interface CreateAuditSuppressionCommandInput extends CreateAuditSuppressionRequest {}
+export interface CreateAuditSuppressionCommandOutput extends CreateAuditSuppressionResponse, __MetadataBearer {}
 
 /**
  * <p>

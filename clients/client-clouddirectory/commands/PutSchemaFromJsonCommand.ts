@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutSchemaFromJsonCommandInput = PutSchemaFromJsonRequest;
-export type PutSchemaFromJsonCommandOutput = PutSchemaFromJsonResponse & __MetadataBearer;
+export interface PutSchemaFromJsonCommandInput extends PutSchemaFromJsonRequest {}
+export interface PutSchemaFromJsonCommandOutput extends PutSchemaFromJsonResponse, __MetadataBearer {}
 
 /**
  * <p>Allows a schema to be updated using JSON upload. Only available for development schemas. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json">JSON Schema Format</a> for more information.</p>

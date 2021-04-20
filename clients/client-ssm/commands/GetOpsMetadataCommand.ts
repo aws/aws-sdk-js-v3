@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetOpsMetadataCommandInput = GetOpsMetadataRequest;
-export type GetOpsMetadataCommandOutput = GetOpsMetadataResult & __MetadataBearer;
+export interface GetOpsMetadataCommandInput extends GetOpsMetadataRequest {}
+export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __MetadataBearer {}
 
 /**
  * <p>View operational metadata related to an application in Application Manager.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListReceivedGrantsCommandInput = ListReceivedGrantsRequest;
-export type ListReceivedGrantsCommandOutput = ListReceivedGrantsResponse & __MetadataBearer;
+export interface ListReceivedGrantsCommandInput extends ListReceivedGrantsRequest {}
+export interface ListReceivedGrantsCommandOutput extends ListReceivedGrantsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists grants that are received but not accepted.</p>

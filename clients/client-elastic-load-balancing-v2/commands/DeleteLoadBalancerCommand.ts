@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLoadBalancerCommandInput = DeleteLoadBalancerInput;
-export type DeleteLoadBalancerCommandOutput = DeleteLoadBalancerOutput & __MetadataBearer;
+export interface DeleteLoadBalancerCommandInput extends DeleteLoadBalancerInput {}
+export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Application Load Balancer, Network Load Balancer, or Gateway Load

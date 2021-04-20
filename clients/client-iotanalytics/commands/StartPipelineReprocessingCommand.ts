@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartPipelineReprocessingCommandInput = StartPipelineReprocessingRequest;
-export type StartPipelineReprocessingCommandOutput = StartPipelineReprocessingResponse & __MetadataBearer;
+export interface StartPipelineReprocessingCommandInput extends StartPipelineReprocessingRequest {}
+export interface StartPipelineReprocessingCommandOutput extends StartPipelineReprocessingResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the reprocessing of raw message data through the pipeline.</p>

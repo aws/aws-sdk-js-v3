@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListApplicationRevisionsCommandInput = ListApplicationRevisionsInput;
-export type ListApplicationRevisionsCommandOutput = ListApplicationRevisionsOutput & __MetadataBearer;
+export interface ListApplicationRevisionsCommandInput extends ListApplicationRevisionsInput {}
+export interface ListApplicationRevisionsCommandOutput extends ListApplicationRevisionsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists information about revisions for an application.</p>

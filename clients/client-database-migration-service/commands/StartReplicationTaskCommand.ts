@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartReplicationTaskCommandInput = StartReplicationTaskMessage;
-export type StartReplicationTaskCommandOutput = StartReplicationTaskResponse & __MetadataBearer;
+export interface StartReplicationTaskCommandInput extends StartReplicationTaskMessage {}
+export interface StartReplicationTaskCommandOutput extends StartReplicationTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the replication task.</p>

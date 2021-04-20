@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEndpointAccessCommandInput = DescribeEndpointAccessMessage;
-export type DescribeEndpointAccessCommandOutput = EndpointAccessList & __MetadataBearer;
+export interface DescribeEndpointAccessCommandInput extends DescribeEndpointAccessMessage {}
+export interface DescribeEndpointAccessCommandOutput extends EndpointAccessList, __MetadataBearer {}
 
 /**
  * <p>Describes a Redshift-managed VPC endpoint.</p>

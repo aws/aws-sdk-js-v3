@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteForecastCommandInput = DeleteForecastRequest;
-export type DeleteForecastCommandOutput = __MetadataBearer;
+export interface DeleteForecastCommandInput extends DeleteForecastRequest {}
+export interface DeleteForecastCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a forecast created using the <a>CreateForecast</a> operation. You can

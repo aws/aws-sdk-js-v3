@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RetrieveTapeArchiveCommandInput = RetrieveTapeArchiveInput;
-export type RetrieveTapeArchiveCommandOutput = RetrieveTapeArchiveOutput & __MetadataBearer;
+export interface RetrieveTapeArchiveCommandInput extends RetrieveTapeArchiveInput {}
+export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a tape gateway.

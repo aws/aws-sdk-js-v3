@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopMultiplexCommandInput = StopMultiplexRequest;
-export type StopMultiplexCommandOutput = StopMultiplexResponse & __MetadataBearer;
+export interface StopMultiplexCommandInput extends StopMultiplexRequest {}
+export interface StopMultiplexCommandOutput extends StopMultiplexResponse, __MetadataBearer {}
 
 /**
  * Stops a running multiplex. If the multiplex isn't running, this action has no effect.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCanariesLastRunCommandInput = DescribeCanariesLastRunRequest;
-export type DescribeCanariesLastRunCommandOutput = DescribeCanariesLastRunResponse & __MetadataBearer;
+export interface DescribeCanariesLastRunCommandInput extends DescribeCanariesLastRunRequest {}
+export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLastRunResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to see information from the most recent run of each canary that you have created.</p>

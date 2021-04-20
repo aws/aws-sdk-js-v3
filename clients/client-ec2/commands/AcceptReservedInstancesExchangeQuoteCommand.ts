@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptReservedInstancesExchangeQuoteCommandInput = AcceptReservedInstancesExchangeQuoteRequest;
-export type AcceptReservedInstancesExchangeQuoteCommandOutput = AcceptReservedInstancesExchangeQuoteResult &
-  __MetadataBearer;
+export interface AcceptReservedInstancesExchangeQuoteCommandInput extends AcceptReservedInstancesExchangeQuoteRequest {}
+export interface AcceptReservedInstancesExchangeQuoteCommandOutput
+  extends AcceptReservedInstancesExchangeQuoteResult,
+    __MetadataBearer {}
 
 /**
  * <p>Accepts the Convertible Reserved Instance exchange quote described in the <a>GetReservedInstancesExchangeQuote</a> call.</p>

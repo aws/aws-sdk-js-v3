@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePendingMaintenanceActionsCommandInput = DescribePendingMaintenanceActionsMessage;
-export type DescribePendingMaintenanceActionsCommandOutput = PendingMaintenanceActionsMessage & __MetadataBearer;
+export interface DescribePendingMaintenanceActionsCommandInput extends DescribePendingMaintenanceActionsMessage {}
+export interface DescribePendingMaintenanceActionsCommandOutput
+  extends PendingMaintenanceActionsMessage,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAggregateIdFormatCommandInput = DescribeAggregateIdFormatRequest;
-export type DescribeAggregateIdFormatCommandOutput = DescribeAggregateIdFormatResult & __MetadataBearer;
+export interface DescribeAggregateIdFormatCommandInput extends DescribeAggregateIdFormatRequest {}
+export interface DescribeAggregateIdFormatCommandOutput extends DescribeAggregateIdFormatResult, __MetadataBearer {}
 
 /**
  * <p>Describes the longer ID format settings for all resource types in a specific

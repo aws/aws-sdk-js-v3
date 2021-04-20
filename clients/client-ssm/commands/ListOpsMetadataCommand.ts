@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListOpsMetadataCommandInput = ListOpsMetadataRequest;
-export type ListOpsMetadataCommandOutput = ListOpsMetadataResult & __MetadataBearer;
+export interface ListOpsMetadataCommandInput extends ListOpsMetadataRequest {}
+export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __MetadataBearer {}
 
 /**
  * <p>Systems Manager calls this API action when displaying all Application Manager OpsMetadata objects or

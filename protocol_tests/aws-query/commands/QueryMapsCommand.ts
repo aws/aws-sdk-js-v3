@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type QueryMapsCommandInput = QueryMapsInput;
-export type QueryMapsCommandOutput = __MetadataBearer;
+export interface QueryMapsCommandInput extends QueryMapsInput {}
+export interface QueryMapsCommandOutput extends __MetadataBearer {}
 
 /**
  * This test serializes simple and complex maps.

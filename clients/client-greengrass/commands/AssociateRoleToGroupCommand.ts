@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateRoleToGroupCommandInput = AssociateRoleToGroupRequest;
-export type AssociateRoleToGroupCommandOutput = AssociateRoleToGroupResponse & __MetadataBearer;
+export interface AssociateRoleToGroupCommandInput extends AssociateRoleToGroupRequest {}
+export interface AssociateRoleToGroupCommandOutput extends AssociateRoleToGroupResponse, __MetadataBearer {}
 
 /**
  * Associates a role with a group. Your Greengrass core will use the role to access AWS cloud services. The role's permissions should allow Greengrass core Lambda functions to perform actions against the cloud.

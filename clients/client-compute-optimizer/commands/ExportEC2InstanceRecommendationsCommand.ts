@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExportEC2InstanceRecommendationsCommandInput = ExportEC2InstanceRecommendationsRequest;
-export type ExportEC2InstanceRecommendationsCommandOutput = ExportEC2InstanceRecommendationsResponse & __MetadataBearer;
+export interface ExportEC2InstanceRecommendationsCommandInput extends ExportEC2InstanceRecommendationsRequest {}
+export interface ExportEC2InstanceRecommendationsCommandOutput
+  extends ExportEC2InstanceRecommendationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Exports optimization recommendations for Amazon EC2 instances.</p>

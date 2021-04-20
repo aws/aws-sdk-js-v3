@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteIntegrationAssociationCommandInput = DeleteIntegrationAssociationRequest;
-export type DeleteIntegrationAssociationCommandOutput = __MetadataBearer;
+export interface DeleteIntegrationAssociationCommandInput extends DeleteIntegrationAssociationRequest {}
+export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

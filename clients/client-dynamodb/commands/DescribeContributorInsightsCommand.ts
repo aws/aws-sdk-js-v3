@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeContributorInsightsCommandInput = DescribeContributorInsightsInput;
-export type DescribeContributorInsightsCommandOutput = DescribeContributorInsightsOutput & __MetadataBearer;
+export interface DescribeContributorInsightsCommandInput extends DescribeContributorInsightsInput {}
+export interface DescribeContributorInsightsCommandOutput extends DescribeContributorInsightsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about contributor insights, for a given table or global secondary index.</p>

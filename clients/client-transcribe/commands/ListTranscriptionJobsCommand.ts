@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTranscriptionJobsCommandInput = ListTranscriptionJobsRequest;
-export type ListTranscriptionJobsCommandOutput = ListTranscriptionJobsResponse & __MetadataBearer;
+export interface ListTranscriptionJobsCommandInput extends ListTranscriptionJobsRequest {}
+export interface ListTranscriptionJobsCommandOutput extends ListTranscriptionJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists transcription jobs with the specified status.</p>

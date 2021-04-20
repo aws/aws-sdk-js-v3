@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddInstanceFleetCommandInput = AddInstanceFleetInput;
-export type AddInstanceFleetCommandOutput = AddInstanceFleetOutput & __MetadataBearer;
+export interface AddInstanceFleetCommandInput extends AddInstanceFleetInput {}
+export interface AddInstanceFleetCommandOutput extends AddInstanceFleetOutput, __MetadataBearer {}
 
 /**
  * <p>Adds an instance fleet to a running cluster.</p>

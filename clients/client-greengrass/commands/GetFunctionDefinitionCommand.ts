@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFunctionDefinitionCommandInput = GetFunctionDefinitionRequest;
-export type GetFunctionDefinitionCommandOutput = GetFunctionDefinitionResponse & __MetadataBearer;
+export interface GetFunctionDefinitionCommandInput extends GetFunctionDefinitionRequest {}
+export interface GetFunctionDefinitionCommandOutput extends GetFunctionDefinitionResponse, __MetadataBearer {}
 
 /**
  * Retrieves information about a Lambda function definition, including its creation time and latest version.

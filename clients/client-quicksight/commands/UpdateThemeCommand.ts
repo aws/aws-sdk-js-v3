@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateThemeCommandInput = UpdateThemeRequest;
-export type UpdateThemeCommandOutput = UpdateThemeResponse & __MetadataBearer;
+export interface UpdateThemeCommandInput extends UpdateThemeRequest {}
+export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a theme.</p>

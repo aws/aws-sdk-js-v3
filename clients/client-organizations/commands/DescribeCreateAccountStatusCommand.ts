@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCreateAccountStatusCommandInput = DescribeCreateAccountStatusRequest;
-export type DescribeCreateAccountStatusCommandOutput = DescribeCreateAccountStatusResponse & __MetadataBearer;
+export interface DescribeCreateAccountStatusCommandInput extends DescribeCreateAccountStatusRequest {}
+export interface DescribeCreateAccountStatusCommandOutput
+  extends DescribeCreateAccountStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the current status of an asynchronous request to create an account.</p>

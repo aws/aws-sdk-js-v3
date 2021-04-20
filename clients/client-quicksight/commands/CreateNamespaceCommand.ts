@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNamespaceCommandInput = CreateNamespaceRequest;
-export type CreateNamespaceCommandOutput = CreateNamespaceResponse & __MetadataBearer;
+export interface CreateNamespaceCommandInput extends CreateNamespaceRequest {}
+export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, __MetadataBearer {}
 
 /**
  * <p>(Enterprise edition only) Creates a new namespace for you to use with Amazon QuickSight.</p>

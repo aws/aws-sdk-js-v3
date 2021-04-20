@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSentimentDetectionJobsCommandInput = ListSentimentDetectionJobsRequest;
-export type ListSentimentDetectionJobsCommandOutput = ListSentimentDetectionJobsResponse & __MetadataBearer;
+export interface ListSentimentDetectionJobsCommandInput extends ListSentimentDetectionJobsRequest {}
+export interface ListSentimentDetectionJobsCommandOutput extends ListSentimentDetectionJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of sentiment detection jobs that you have submitted.</p>

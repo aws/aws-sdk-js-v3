@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResolveComponentCandidatesCommandInput = ResolveComponentCandidatesRequest;
-export type ResolveComponentCandidatesCommandOutput = ResolveComponentCandidatesResponse & __MetadataBearer;
+export interface ResolveComponentCandidatesCommandInput extends ResolveComponentCandidatesRequest {}
+export interface ResolveComponentCandidatesCommandOutput extends ResolveComponentCandidatesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of components that meet the component, version, and platform requirements

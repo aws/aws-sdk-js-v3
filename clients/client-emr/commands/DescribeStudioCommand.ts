@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStudioCommandInput = DescribeStudioInput;
-export type DescribeStudioCommandOutput = DescribeStudioOutput & __MetadataBearer;
+export interface DescribeStudioCommandInput extends DescribeStudioInput {}
+export interface DescribeStudioCommandOutput extends DescribeStudioOutput, __MetadataBearer {}
 
 /**
  * <p>Returns details for the specified Amazon EMR Studio including ID, Name, VPC, Studio

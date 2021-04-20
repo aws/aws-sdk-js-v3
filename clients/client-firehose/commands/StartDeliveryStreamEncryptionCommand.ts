@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartDeliveryStreamEncryptionCommandInput = StartDeliveryStreamEncryptionInput;
-export type StartDeliveryStreamEncryptionCommandOutput = StartDeliveryStreamEncryptionOutput & __MetadataBearer;
+export interface StartDeliveryStreamEncryptionCommandInput extends StartDeliveryStreamEncryptionInput {}
+export interface StartDeliveryStreamEncryptionCommandOutput
+  extends StartDeliveryStreamEncryptionOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Enables server-side encryption (SSE) for the delivery stream. </p>

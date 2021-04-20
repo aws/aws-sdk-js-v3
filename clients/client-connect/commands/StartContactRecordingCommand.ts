@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartContactRecordingCommandInput = StartContactRecordingRequest;
-export type StartContactRecordingCommandOutput = StartContactRecordingResponse & __MetadataBearer;
+export interface StartContactRecordingCommandInput extends StartContactRecordingRequest {}
+export interface StartContactRecordingCommandOutput extends StartContactRecordingResponse, __MetadataBearer {}
 
 /**
  * <p>Starts recording the contact when the agent joins the call. StartContactRecording is a

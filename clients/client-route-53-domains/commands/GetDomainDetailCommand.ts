@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDomainDetailCommandInput = GetDomainDetailRequest;
-export type GetDomainDetailCommandOutput = GetDomainDetailResponse & __MetadataBearer;
+export interface GetDomainDetailCommandInput extends GetDomainDetailRequest {}
+export interface GetDomainDetailCommandOutput extends GetDomainDetailResponse, __MetadataBearer {}
 
 /**
  * <p>This operation returns detailed information about a specified domain that is associated with the current AWS account.

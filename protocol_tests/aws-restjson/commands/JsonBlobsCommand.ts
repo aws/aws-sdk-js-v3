@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type JsonBlobsCommandInput = JsonBlobsInputOutput;
-export type JsonBlobsCommandOutput = JsonBlobsInputOutput & __MetadataBearer;
+export interface JsonBlobsCommandInput extends JsonBlobsInputOutput {}
+export interface JsonBlobsCommandOutput extends JsonBlobsInputOutput, __MetadataBearer {}
 
 /**
  * Blobs are base64 encoded

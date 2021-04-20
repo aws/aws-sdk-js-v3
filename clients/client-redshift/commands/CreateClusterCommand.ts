@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateClusterCommandInput = CreateClusterMessage;
-export type CreateClusterCommandOutput = CreateClusterResult & __MetadataBearer;
+export interface CreateClusterCommandInput extends CreateClusterMessage {}
+export interface CreateClusterCommandOutput extends CreateClusterResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new cluster with the specified parameters.</p>

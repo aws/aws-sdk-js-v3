@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableRuleCommandInput = DisableRuleRequest;
-export type DisableRuleCommandOutput = __MetadataBearer;
+export interface DisableRuleCommandInput extends DisableRuleRequest {}
+export interface DisableRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disables the specified rule. A disabled rule won't match any events, and won't

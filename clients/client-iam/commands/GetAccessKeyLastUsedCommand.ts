@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccessKeyLastUsedCommandInput = GetAccessKeyLastUsedRequest;
-export type GetAccessKeyLastUsedCommandOutput = GetAccessKeyLastUsedResponse & __MetadataBearer;
+export interface GetAccessKeyLastUsedCommandInput extends GetAccessKeyLastUsedRequest {}
+export interface GetAccessKeyLastUsedCommandOutput extends GetAccessKeyLastUsedResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about when the specified access key was last used. The

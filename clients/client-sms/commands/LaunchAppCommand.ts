@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type LaunchAppCommandInput = LaunchAppRequest;
-export type LaunchAppCommandOutput = LaunchAppResponse & __MetadataBearer;
+export interface LaunchAppCommandInput extends LaunchAppRequest {}
+export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBearer {}
 
 /**
  * <p>Launches the specified application as a stack in AWS CloudFormation.</p>

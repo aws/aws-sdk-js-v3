@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBotChannelAssociationCommandInput = DeleteBotChannelAssociationRequest;
-export type DeleteBotChannelAssociationCommandOutput = __MetadataBearer;
+export interface DeleteBotChannelAssociationCommandInput extends DeleteBotChannelAssociationRequest {}
+export interface DeleteBotChannelAssociationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the association between an Amazon Lex bot and a messaging

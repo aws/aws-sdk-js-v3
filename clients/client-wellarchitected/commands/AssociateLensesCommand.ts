@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateLensesCommandInput = AssociateLensesInput;
-export type AssociateLensesCommandOutput = __MetadataBearer;
+export interface AssociateLensesCommandInput extends AssociateLensesInput {}
+export interface AssociateLensesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Associate a lens to a workload.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCatalogImportStatusCommandInput = GetCatalogImportStatusRequest;
-export type GetCatalogImportStatusCommandOutput = GetCatalogImportStatusResponse & __MetadataBearer;
+export interface GetCatalogImportStatusCommandInput extends GetCatalogImportStatusRequest {}
+export interface GetCatalogImportStatusCommandOutput extends GetCatalogImportStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the status of a migration operation.</p>

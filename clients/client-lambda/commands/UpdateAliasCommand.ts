@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAliasCommandInput = UpdateAliasRequest;
-export type UpdateAliasCommandOutput = AliasConfiguration & __MetadataBearer;
+export interface UpdateAliasCommandInput extends UpdateAliasRequest {}
+export interface UpdateAliasCommandOutput extends AliasConfiguration, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration of a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>

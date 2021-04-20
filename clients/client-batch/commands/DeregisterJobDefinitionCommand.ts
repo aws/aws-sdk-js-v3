@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterJobDefinitionCommandInput = DeregisterJobDefinitionRequest;
-export type DeregisterJobDefinitionCommandOutput = DeregisterJobDefinitionResponse & __MetadataBearer;
+export interface DeregisterJobDefinitionCommandInput extends DeregisterJobDefinitionRequest {}
+export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Deregisters an AWS Batch job definition. Job definitions are permanently deleted after 180 days.</p>

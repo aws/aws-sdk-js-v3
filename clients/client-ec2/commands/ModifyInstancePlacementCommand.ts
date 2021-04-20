@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyInstancePlacementCommandInput = ModifyInstancePlacementRequest;
-export type ModifyInstancePlacementCommandOutput = ModifyInstancePlacementResult & __MetadataBearer;
+export interface ModifyInstancePlacementCommandInput extends ModifyInstancePlacementRequest {}
+export interface ModifyInstancePlacementCommandOutput extends ModifyInstancePlacementResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the placement attributes for a specified instance. You can do the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRoomMembershipsCommandInput = ListRoomMembershipsRequest;
-export type ListRoomMembershipsCommandOutput = ListRoomMembershipsResponse & __MetadataBearer;
+export interface ListRoomMembershipsCommandInput extends ListRoomMembershipsRequest {}
+export interface ListRoomMembershipsCommandOutput extends ListRoomMembershipsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the membership details for the specified room in an Amazon Chime Enterprise account,

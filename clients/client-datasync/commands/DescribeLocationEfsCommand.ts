@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLocationEfsCommandInput = DescribeLocationEfsRequest;
-export type DescribeLocationEfsCommandOutput = DescribeLocationEfsResponse & __MetadataBearer;
+export interface DescribeLocationEfsCommandInput extends DescribeLocationEfsRequest {}
+export interface DescribeLocationEfsCommandOutput extends DescribeLocationEfsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns metadata, such as the path information about an Amazon EFS location.</p>

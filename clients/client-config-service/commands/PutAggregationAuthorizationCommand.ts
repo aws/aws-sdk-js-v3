@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAggregationAuthorizationCommandInput = PutAggregationAuthorizationRequest;
-export type PutAggregationAuthorizationCommandOutput = PutAggregationAuthorizationResponse & __MetadataBearer;
+export interface PutAggregationAuthorizationCommandInput extends PutAggregationAuthorizationRequest {}
+export interface PutAggregationAuthorizationCommandOutput
+  extends PutAggregationAuthorizationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Authorizes the aggregator account and region to collect data

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RecursiveXmlShapesCommandInput = {};
-export type RecursiveXmlShapesCommandOutput = RecursiveXmlShapesOutput & __MetadataBearer;
+export interface RecursiveXmlShapesCommandInput {}
+export interface RecursiveXmlShapesCommandOutput extends RecursiveXmlShapesOutput, __MetadataBearer {}
 
 /**
  * Recursive shapes

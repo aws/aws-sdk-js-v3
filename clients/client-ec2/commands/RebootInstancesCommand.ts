@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RebootInstancesCommandInput = RebootInstancesRequest;
-export type RebootInstancesCommandOutput = __MetadataBearer;
+export interface RebootInstancesCommandInput extends RebootInstancesRequest {}
+export interface RebootInstancesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Requests a reboot of the specified instances. This operation is asynchronous; it only

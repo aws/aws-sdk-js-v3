@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResourcesCommandInput = GetResourcesInput;
-export type GetResourcesCommandOutput = GetResourcesOutput & __MetadataBearer;
+export interface GetResourcesCommandInput extends GetResourcesInput {}
+export interface GetResourcesCommandOutput extends GetResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns all the tagged or previously tagged resources that are located in the

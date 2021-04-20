@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateGatewayResponseCommandInput = UpdateGatewayResponseRequest;
-export type UpdateGatewayResponseCommandOutput = GatewayResponse & __MetadataBearer;
+export interface UpdateGatewayResponseCommandInput extends UpdateGatewayResponseRequest {}
+export interface UpdateGatewayResponseCommandOutput extends GatewayResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a <a>GatewayResponse</a> of a specified response type on the given <a>RestApi</a>.</p>

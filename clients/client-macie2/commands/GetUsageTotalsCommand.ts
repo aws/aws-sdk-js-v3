@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUsageTotalsCommandInput = GetUsageTotalsRequest;
-export type GetUsageTotalsCommandOutput = GetUsageTotalsResponse & __MetadataBearer;
+export interface GetUsageTotalsCommandInput extends GetUsageTotalsRequest {}
+export interface GetUsageTotalsCommandOutput extends GetUsageTotalsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves (queries) aggregated usage data for an account.</p>

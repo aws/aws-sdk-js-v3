@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListChannelsCommandInput = ListChannelsRequest;
-export type ListChannelsCommandOutput = ListChannelsResponse & __MetadataBearer;
+export interface ListChannelsCommandInput extends ListChannelsRequest {}
+export interface ListChannelsCommandOutput extends ListChannelsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify filters to narrow results.</p>

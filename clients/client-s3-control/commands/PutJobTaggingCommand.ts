@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutJobTaggingCommandInput = PutJobTaggingRequest;
-export type PutJobTaggingCommandOutput = PutJobTaggingResult & __MetadataBearer;
+export interface PutJobTaggingCommandInput extends PutJobTaggingRequest {}
+export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __MetadataBearer {}
 
 /**
  * <p>Sets the supplied tag-set on an S3 Batch Operations job.</p>

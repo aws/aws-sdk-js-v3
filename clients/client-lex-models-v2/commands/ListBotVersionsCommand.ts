@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBotVersionsCommandInput = ListBotVersionsRequest;
-export type ListBotVersionsCommandOutput = ListBotVersionsResponse & __MetadataBearer;
+export interface ListBotVersionsCommandInput extends ListBotVersionsRequest {}
+export interface ListBotVersionsCommandOutput extends ListBotVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about all of the versions of a bot.</p>

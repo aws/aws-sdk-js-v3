@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListIAMPolicyAssignmentsForUserCommandInput = ListIAMPolicyAssignmentsForUserRequest;
-export type ListIAMPolicyAssignmentsForUserCommandOutput = ListIAMPolicyAssignmentsForUserResponse & __MetadataBearer;
+export interface ListIAMPolicyAssignmentsForUserCommandInput extends ListIAMPolicyAssignmentsForUserRequest {}
+export interface ListIAMPolicyAssignmentsForUserCommandOutput
+  extends ListIAMPolicyAssignmentsForUserResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists all the IAM policy assignments, including the Amazon Resource Names (ARNs) for the IAM

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateVoiceConnectorCommandInput = UpdateVoiceConnectorRequest;
-export type UpdateVoiceConnectorCommandOutput = UpdateVoiceConnectorResponse & __MetadataBearer;
+export interface UpdateVoiceConnectorCommandInput extends UpdateVoiceConnectorRequest {}
+export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorResponse, __MetadataBearer {}
 
 /**
  * <p>Updates details for the specified Amazon Chime Voice Connector.</p>

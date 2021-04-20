@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RefreshCacheCommandInput = RefreshCacheInput;
-export type RefreshCacheCommandOutput = RefreshCacheOutput & __MetadataBearer;
+export interface RefreshCacheCommandInput extends RefreshCacheInput {}
+export interface RefreshCacheCommandOutput extends RefreshCacheOutput, __MetadataBearer {}
 
 /**
  * <p>Refreshes the cached inventory of objects for the specified file share. This operation

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAnalyzersCommandInput = ListAnalyzersRequest;
-export type ListAnalyzersCommandOutput = ListAnalyzersResponse & __MetadataBearer;
+export interface ListAnalyzersCommandInput extends ListAnalyzersRequest {}
+export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of analyzers.</p>

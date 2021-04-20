@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachLoadBalancerToSubnetsCommandInput = AttachLoadBalancerToSubnetsInput;
-export type AttachLoadBalancerToSubnetsCommandOutput = AttachLoadBalancerToSubnetsOutput & __MetadataBearer;
+export interface AttachLoadBalancerToSubnetsCommandInput extends AttachLoadBalancerToSubnetsInput {}
+export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBalancerToSubnetsOutput, __MetadataBearer {}
 
 /**
  * <p>Adds one or more subnets to the set of configured subnets for the specified load balancer.</p>

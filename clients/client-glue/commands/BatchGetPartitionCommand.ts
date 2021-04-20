@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetPartitionCommandInput = BatchGetPartitionRequest;
-export type BatchGetPartitionCommandOutput = BatchGetPartitionResponse & __MetadataBearer;
+export interface BatchGetPartitionCommandInput extends BatchGetPartitionRequest {}
+export interface BatchGetPartitionCommandOutput extends BatchGetPartitionResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves partitions in a batch request.</p>

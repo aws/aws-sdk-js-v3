@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateConfigurationSetSendingEnabledCommandInput = UpdateConfigurationSetSendingEnabledRequest;
-export type UpdateConfigurationSetSendingEnabledCommandOutput = __MetadataBearer;
+export interface UpdateConfigurationSetSendingEnabledCommandInput extends UpdateConfigurationSetSendingEnabledRequest {}
+export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables or disables email sending for messages sent using a specific configuration set

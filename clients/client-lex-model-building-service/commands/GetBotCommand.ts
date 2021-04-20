@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBotCommandInput = GetBotRequest;
-export type GetBotCommandOutput = GetBotResponse & __MetadataBearer;
+export interface GetBotCommandInput extends GetBotRequest {}
+export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
 
 /**
  * <p>Returns metadata information for a specific bot. You must provide

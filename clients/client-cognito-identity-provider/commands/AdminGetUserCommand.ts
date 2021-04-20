@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminGetUserCommandInput = AdminGetUserRequest;
-export type AdminGetUserCommandOutput = AdminGetUserResponse & __MetadataBearer;
+export interface AdminGetUserCommandInput extends AdminGetUserRequest {}
+export interface AdminGetUserCommandOutput extends AdminGetUserResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the specified user by user name in a user pool as an administrator. Works on any

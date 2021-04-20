@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDocumentCommandInput = UpdateDocumentRequest;
-export type UpdateDocumentCommandOutput = UpdateDocumentResult & __MetadataBearer;
+export interface UpdateDocumentCommandInput extends UpdateDocumentRequest {}
+export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __MetadataBearer {}
 
 /**
  * <p>Updates one or more values for an SSM document.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInstancesCommandInput = ListInstancesRequest;
-export type ListInstancesCommandOutput = ListInstancesResponse & __MetadataBearer;
+export interface ListInstancesCommandInput extends ListInstancesRequest {}
+export interface ListInstancesCommandOutput extends ListInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the SSO instances that the caller has access to.</p>

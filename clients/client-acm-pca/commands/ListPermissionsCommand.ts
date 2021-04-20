@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPermissionsCommandInput = ListPermissionsRequest;
-export type ListPermissionsCommandOutput = ListPermissionsResponse & __MetadataBearer;
+export interface ListPermissionsCommandInput extends ListPermissionsRequest {}
+export interface ListPermissionsCommandOutput extends ListPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>List all permissions on a private CA, if any, granted to the AWS Certificate Manager (ACM) service

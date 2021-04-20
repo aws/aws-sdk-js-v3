@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteContainerPolicyCommandInput = DeleteContainerPolicyInput;
-export type DeleteContainerPolicyCommandOutput = DeleteContainerPolicyOutput & __MetadataBearer;
+export interface DeleteContainerPolicyCommandInput extends DeleteContainerPolicyInput {}
+export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the access policy that is associated with the specified container.</p>

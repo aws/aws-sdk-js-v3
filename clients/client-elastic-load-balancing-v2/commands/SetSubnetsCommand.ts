@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetSubnetsCommandInput = SetSubnetsInput;
-export type SetSubnetsCommandOutput = SetSubnetsOutput & __MetadataBearer;
+export interface SetSubnetsCommandInput extends SetSubnetsInput {}
+export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBearer {}
 
 /**
  * <p>Enables the Availability Zones for the specified public subnets for the specified

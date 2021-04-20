@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type IncreaseReplicaCountCommandInput = IncreaseReplicaCountMessage;
-export type IncreaseReplicaCountCommandOutput = IncreaseReplicaCountResult & __MetadataBearer;
+export interface IncreaseReplicaCountCommandInput extends IncreaseReplicaCountMessage {}
+export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountResult, __MetadataBearer {}
 
 /**
  * <p>Dynamically increases the number of replicas in a Redis (cluster mode disabled) replication group or the number of

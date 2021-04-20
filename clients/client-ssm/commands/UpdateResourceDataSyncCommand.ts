@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateResourceDataSyncCommandInput = UpdateResourceDataSyncRequest;
-export type UpdateResourceDataSyncCommandOutput = UpdateResourceDataSyncResult & __MetadataBearer;
+export interface UpdateResourceDataSyncCommandInput extends UpdateResourceDataSyncRequest {}
+export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataSyncResult, __MetadataBearer {}
 
 /**
  * <p>Update a resource data sync. After you create a resource data sync for a Region, you can't

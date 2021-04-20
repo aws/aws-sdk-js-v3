@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type HeadBucketCommandInput = HeadBucketRequest;
-export type HeadBucketCommandOutput = __MetadataBearer;
+export interface HeadBucketCommandInput extends HeadBucketRequest {}
+export interface HeadBucketCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This action is useful to determine if a bucket exists and you have permission to

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGatewayGroupCommandInput = CreateGatewayGroupRequest;
-export type CreateGatewayGroupCommandOutput = CreateGatewayGroupResponse & __MetadataBearer;
+export interface CreateGatewayGroupCommandInput extends CreateGatewayGroupRequest {}
+export interface CreateGatewayGroupCommandOutput extends CreateGatewayGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a gateway group with the specified details.</p>

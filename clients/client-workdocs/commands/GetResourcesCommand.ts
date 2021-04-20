@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResourcesCommandInput = GetResourcesRequest;
-export type GetResourcesCommandOutput = GetResourcesResponse & __MetadataBearer;
+export interface GetResourcesCommandInput extends GetResourcesRequest {}
+export interface GetResourcesCommandOutput extends GetResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a collection of resources, including folders and documents. The only

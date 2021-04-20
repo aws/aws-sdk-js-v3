@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVodSourceCommandInput = DescribeVodSourceRequest;
-export type DescribeVodSourceCommandOutput = DescribeVodSourceResponse & __MetadataBearer;
+export interface DescribeVodSourceCommandInput extends DescribeVodSourceRequest {}
+export interface DescribeVodSourceCommandOutput extends DescribeVodSourceResponse, __MetadataBearer {}
 
 /**
  * <p>Provides details about a specific VOD source in a specific source location.</p>

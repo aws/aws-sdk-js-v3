@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUpdateCommandInput = DescribeUpdateRequest;
-export type DescribeUpdateCommandOutput = DescribeUpdateResponse & __MetadataBearer;
+export interface DescribeUpdateCommandInput extends DescribeUpdateRequest {}
+export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __MetadataBearer {}
 
 /**
  * <p>Returns descriptive information about an update against your Amazon EKS cluster or

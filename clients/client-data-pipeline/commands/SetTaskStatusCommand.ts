@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetTaskStatusCommandInput = SetTaskStatusInput;
-export type SetTaskStatusCommandOutput = SetTaskStatusOutput & __MetadataBearer;
+export interface SetTaskStatusCommandInput extends SetTaskStatusInput {}
+export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __MetadataBearer {}
 
 /**
  * <p>Task runners call <code>SetTaskStatus</code> to notify AWS Data Pipeline that a task is completed and provide information about the final status.

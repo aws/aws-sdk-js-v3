@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPartnerEventSourceAccountsCommandInput = ListPartnerEventSourceAccountsRequest;
-export type ListPartnerEventSourceAccountsCommandOutput = ListPartnerEventSourceAccountsResponse & __MetadataBearer;
+export interface ListPartnerEventSourceAccountsCommandInput extends ListPartnerEventSourceAccountsRequest {}
+export interface ListPartnerEventSourceAccountsCommandOutput
+  extends ListPartnerEventSourceAccountsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>An SaaS partner can use this operation to display the AWS account ID that a particular

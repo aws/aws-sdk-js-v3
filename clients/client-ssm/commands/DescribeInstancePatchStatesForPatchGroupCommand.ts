@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInstancePatchStatesForPatchGroupCommandInput = DescribeInstancePatchStatesForPatchGroupRequest;
-export type DescribeInstancePatchStatesForPatchGroupCommandOutput = DescribeInstancePatchStatesForPatchGroupResult &
-  __MetadataBearer;
+export interface DescribeInstancePatchStatesForPatchGroupCommandInput
+  extends DescribeInstancePatchStatesForPatchGroupRequest {}
+export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
+  extends DescribeInstancePatchStatesForPatchGroupResult,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the high-level patch state for the instances in the specified patch group.</p>

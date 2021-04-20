@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEnvironmentStatusCommandInput = DescribeEnvironmentStatusRequest;
-export type DescribeEnvironmentStatusCommandOutput = DescribeEnvironmentStatusResult & __MetadataBearer;
+export interface DescribeEnvironmentStatusCommandInput extends DescribeEnvironmentStatusRequest {}
+export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironmentStatusResult, __MetadataBearer {}
 
 /**
  * <p>Gets status information for an AWS Cloud9 development environment.</p>

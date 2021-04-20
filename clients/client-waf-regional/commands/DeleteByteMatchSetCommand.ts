@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteByteMatchSetCommandInput = DeleteByteMatchSetRequest;
-export type DeleteByteMatchSetCommandOutput = DeleteByteMatchSetResponse & __MetadataBearer;
+export interface DeleteByteMatchSetCommandInput extends DeleteByteMatchSetRequest {}
+export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetResponse, __MetadataBearer {}
 
 /**
  * <note>

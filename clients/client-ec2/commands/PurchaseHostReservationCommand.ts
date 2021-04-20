@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PurchaseHostReservationCommandInput = PurchaseHostReservationRequest;
-export type PurchaseHostReservationCommandOutput = PurchaseHostReservationResult & __MetadataBearer;
+export interface PurchaseHostReservationCommandInput extends PurchaseHostReservationRequest {}
+export interface PurchaseHostReservationCommandOutput extends PurchaseHostReservationResult, __MetadataBearer {}
 
 /**
  * <p>Purchase a reservation with configurations that match those of your Dedicated Host.

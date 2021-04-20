@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteStackCommandInput = DeleteStackRequest;
-export type DeleteStackCommandOutput = __MetadataBearer;
+export interface DeleteStackCommandInput extends DeleteStackRequest {}
+export interface DeleteStackCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a specified stack. You must first delete all instances, layers, and apps or

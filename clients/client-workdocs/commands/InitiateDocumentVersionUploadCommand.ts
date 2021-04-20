@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InitiateDocumentVersionUploadCommandInput = InitiateDocumentVersionUploadRequest;
-export type InitiateDocumentVersionUploadCommandOutput = InitiateDocumentVersionUploadResponse & __MetadataBearer;
+export interface InitiateDocumentVersionUploadCommandInput extends InitiateDocumentVersionUploadRequest {}
+export interface InitiateDocumentVersionUploadCommandOutput
+  extends InitiateDocumentVersionUploadResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a new document object and version object.</p>

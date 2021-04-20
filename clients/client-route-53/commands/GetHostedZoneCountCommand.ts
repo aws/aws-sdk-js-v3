@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetHostedZoneCountCommandInput = GetHostedZoneCountRequest;
-export type GetHostedZoneCountCommandOutput = GetHostedZoneCountResponse & __MetadataBearer;
+export interface GetHostedZoneCountCommandInput extends GetHostedZoneCountRequest {}
+export interface GetHostedZoneCountCommandOutput extends GetHostedZoneCountResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the number of hosted zones that are associated with the current AWS account.</p>

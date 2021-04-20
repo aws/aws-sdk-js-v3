@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutConformancePackCommandInput = PutConformancePackRequest;
-export type PutConformancePackCommandOutput = PutConformancePackResponse & __MetadataBearer;
+export interface PutConformancePackCommandInput extends PutConformancePackRequest {}
+export interface PutConformancePackCommandOutput extends PutConformancePackResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates a conformance pack. A conformance pack is a collection of AWS Config rules that can be easily deployed in an account and a region and across AWS Organization.</p>

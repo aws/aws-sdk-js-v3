@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTagsForDomainCommandInput = DeleteTagsForDomainRequest;
-export type DeleteTagsForDomainCommandOutput = DeleteTagsForDomainResponse & __MetadataBearer;
+export interface DeleteTagsForDomainCommandInput extends DeleteTagsForDomainRequest {}
+export interface DeleteTagsForDomainCommandOutput extends DeleteTagsForDomainResponse, __MetadataBearer {}
 
 /**
  * <p>This operation deletes the specified tags for a domain.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCodeBindingSourceCommandInput = GetCodeBindingSourceRequest;
-export type GetCodeBindingSourceCommandOutput = GetCodeBindingSourceResponse & __MetadataBearer;
+export interface GetCodeBindingSourceCommandInput extends GetCodeBindingSourceRequest {}
+export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceResponse, __MetadataBearer {}
 
 /**
  * <p>Get the code binding source URI.</p>

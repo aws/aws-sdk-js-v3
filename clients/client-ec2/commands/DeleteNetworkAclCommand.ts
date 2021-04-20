@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteNetworkAclCommandInput = DeleteNetworkAclRequest;
-export type DeleteNetworkAclCommandOutput = __MetadataBearer;
+export interface DeleteNetworkAclCommandInput extends DeleteNetworkAclRequest {}
+export interface DeleteNetworkAclCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified network ACL. You can't delete the ACL if it's associated with any subnets. You can't delete the default network ACL.</p>

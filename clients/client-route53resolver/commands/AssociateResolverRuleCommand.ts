@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateResolverRuleCommandInput = AssociateResolverRuleRequest;
-export type AssociateResolverRuleCommandOutput = AssociateResolverRuleResponse & __MetadataBearer;
+export interface AssociateResolverRuleCommandInput extends AssociateResolverRuleRequest {}
+export interface AssociateResolverRuleCommandOutput extends AssociateResolverRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a Resolver rule with a VPC. When you associate a rule with a VPC, Resolver forwards all DNS queries

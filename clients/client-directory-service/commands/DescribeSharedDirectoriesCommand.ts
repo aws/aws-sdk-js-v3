@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSharedDirectoriesCommandInput = DescribeSharedDirectoriesRequest;
-export type DescribeSharedDirectoriesCommandOutput = DescribeSharedDirectoriesResult & __MetadataBearer;
+export interface DescribeSharedDirectoriesCommandInput extends DescribeSharedDirectoriesRequest {}
+export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDirectoriesResult, __MetadataBearer {}
 
 /**
  * <p>Returns the shared directories in your account. </p>

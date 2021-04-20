@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFieldLevelEncryptionProfileCommandInput = CreateFieldLevelEncryptionProfileRequest;
-export type CreateFieldLevelEncryptionProfileCommandOutput = CreateFieldLevelEncryptionProfileResult & __MetadataBearer;
+export interface CreateFieldLevelEncryptionProfileCommandInput extends CreateFieldLevelEncryptionProfileRequest {}
+export interface CreateFieldLevelEncryptionProfileCommandOutput
+  extends CreateFieldLevelEncryptionProfileResult,
+    __MetadataBearer {}
 
 /**
  * <p>Create a field-level encryption profile.</p>

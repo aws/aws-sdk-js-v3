@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAffectedAccountsForOrganizationCommandInput = DescribeAffectedAccountsForOrganizationRequest;
-export type DescribeAffectedAccountsForOrganizationCommandOutput = DescribeAffectedAccountsForOrganizationResponse &
-  __MetadataBearer;
+export interface DescribeAffectedAccountsForOrganizationCommandInput
+  extends DescribeAffectedAccountsForOrganizationRequest {}
+export interface DescribeAffectedAccountsForOrganizationCommandOutput
+  extends DescribeAffectedAccountsForOrganizationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of accounts in the organization from AWS Organizations that are affected by the

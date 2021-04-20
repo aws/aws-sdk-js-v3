@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetProfileObjectTypeCommandInput = GetProfileObjectTypeRequest;
-export type GetProfileObjectTypeCommandOutput = GetProfileObjectTypeResponse & __MetadataBearer;
+export interface GetProfileObjectTypeCommandInput extends GetProfileObjectTypeRequest {}
+export interface GetProfileObjectTypeCommandOutput extends GetProfileObjectTypeResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the object types for a specific domain.</p>

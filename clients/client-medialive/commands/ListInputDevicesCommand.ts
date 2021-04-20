@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInputDevicesCommandInput = ListInputDevicesRequest;
-export type ListInputDevicesCommandOutput = ListInputDevicesResponse & __MetadataBearer;
+export interface ListInputDevicesCommandInput extends ListInputDevicesRequest {}
+export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse, __MetadataBearer {}
 
 /**
  * List input devices

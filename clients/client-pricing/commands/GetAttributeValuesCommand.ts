@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAttributeValuesCommandInput = GetAttributeValuesRequest;
-export type GetAttributeValuesCommandOutput = GetAttributeValuesResponse & __MetadataBearer;
+export interface GetAttributeValuesCommandInput extends GetAttributeValuesRequest {}
+export interface GetAttributeValuesCommandOutput extends GetAttributeValuesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of attribute values. Attibutes are similar to the details

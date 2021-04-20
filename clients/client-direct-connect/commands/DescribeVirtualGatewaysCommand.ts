@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVirtualGatewaysCommandInput = {};
-export type DescribeVirtualGatewaysCommandOutput = VirtualGateways & __MetadataBearer;
+export interface DescribeVirtualGatewaysCommandInput {}
+export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, __MetadataBearer {}
 
 /**
  * <p>Lists the virtual private gateways owned by the AWS account.</p>

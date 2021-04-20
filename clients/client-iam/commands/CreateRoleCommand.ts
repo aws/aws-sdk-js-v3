@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRoleCommandInput = CreateRoleRequest;
-export type CreateRoleCommandOutput = CreateRoleResponse & __MetadataBearer;
+export interface CreateRoleCommandInput extends CreateRoleRequest {}
+export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new role for your AWS account. For more information about roles, see

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RevokeSecurityGroupEgressCommandInput = RevokeSecurityGroupEgressRequest;
-export type RevokeSecurityGroupEgressCommandOutput = RevokeSecurityGroupEgressResult & __MetadataBearer;
+export interface RevokeSecurityGroupEgressCommandInput extends RevokeSecurityGroupEgressRequest {}
+export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGroupEgressResult, __MetadataBearer {}
 
 /**
  * <p>[VPC only] Removes the specified egress rules from a security group for EC2-VPC.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsForResourceCommandInput = ListTagsForResourceMessage;
-export type ListTagsForResourceCommandOutput = ResourceTagsDescriptionMessage & __MetadataBearer;
+export interface ListTagsForResourceCommandInput extends ListTagsForResourceMessage {}
+export interface ListTagsForResourceCommandOutput extends ResourceTagsDescriptionMessage, __MetadataBearer {}
 
 /**
  * <p>Return the tags applied to an AWS Elastic Beanstalk resource. The response contains a list of tag key-value pairs.</p>

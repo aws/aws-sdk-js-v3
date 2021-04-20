@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateMacSecKeyCommandInput = AssociateMacSecKeyRequest;
-export type AssociateMacSecKeyCommandOutput = AssociateMacSecKeyResponse & __MetadataBearer;
+export interface AssociateMacSecKeyCommandInput extends AssociateMacSecKeyRequest {}
+export interface AssociateMacSecKeyCommandOutput extends AssociateMacSecKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity Association Key (CAK) pair with an  AWS Direct Connect dedicated connection.</p>

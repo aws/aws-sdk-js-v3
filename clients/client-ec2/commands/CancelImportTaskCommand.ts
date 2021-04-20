@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelImportTaskCommandInput = CancelImportTaskRequest;
-export type CancelImportTaskCommandOutput = CancelImportTaskResult & __MetadataBearer;
+export interface CancelImportTaskCommandInput extends CancelImportTaskRequest {}
+export interface CancelImportTaskCommandOutput extends CancelImportTaskResult, __MetadataBearer {}
 
 /**
  * <p>Cancels an in-process import virtual machine or import snapshot task.</p>

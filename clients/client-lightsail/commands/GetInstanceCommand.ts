@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInstanceCommandInput = GetInstanceRequest;
-export type GetInstanceCommandOutput = GetInstanceResult & __MetadataBearer;
+export interface GetInstanceCommandInput extends GetInstanceRequest {}
+export interface GetInstanceCommandOutput extends GetInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about a specific Amazon Lightsail instance, which is a virtual private

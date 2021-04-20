@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePlaceIndexCommandInput = CreatePlaceIndexRequest;
-export type CreatePlaceIndexCommandOutput = CreatePlaceIndexResponse & __MetadataBearer;
+export interface CreatePlaceIndexCommandInput extends CreatePlaceIndexRequest {}
+export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a Place index resource in your AWS account, which supports Places functions with

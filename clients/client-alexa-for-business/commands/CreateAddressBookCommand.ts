@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAddressBookCommandInput = CreateAddressBookRequest;
-export type CreateAddressBookCommandOutput = CreateAddressBookResponse & __MetadataBearer;
+export interface CreateAddressBookCommandInput extends CreateAddressBookRequest {}
+export interface CreateAddressBookCommandOutput extends CreateAddressBookResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an address book with the specified details.</p>

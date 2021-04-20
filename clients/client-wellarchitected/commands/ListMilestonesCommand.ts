@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMilestonesCommandInput = ListMilestonesInput;
-export type ListMilestonesCommandOutput = ListMilestonesOutput & __MetadataBearer;
+export interface ListMilestonesCommandInput extends ListMilestonesInput {}
+export interface ListMilestonesCommandOutput extends ListMilestonesOutput, __MetadataBearer {}
 
 /**
  * <p>List all milestones for an existing workload.</p>

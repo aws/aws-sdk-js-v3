@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePipelineStatusCommandInput = UpdatePipelineStatusRequest;
-export type UpdatePipelineStatusCommandOutput = UpdatePipelineStatusResponse & __MetadataBearer;
+export interface UpdatePipelineStatusCommandInput extends UpdatePipelineStatusRequest {}
+export interface UpdatePipelineStatusCommandOutput extends UpdatePipelineStatusResponse, __MetadataBearer {}
 
 /**
  * <p>The UpdatePipelineStatus operation pauses or reactivates a pipeline, so that the pipeline

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutSchemaVersionMetadataCommandInput = PutSchemaVersionMetadataInput;
-export type PutSchemaVersionMetadataCommandOutput = PutSchemaVersionMetadataResponse & __MetadataBearer;
+export interface PutSchemaVersionMetadataCommandInput extends PutSchemaVersionMetadataInput {}
+export interface PutSchemaVersionMetadataCommandOutput extends PutSchemaVersionMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Puts the metadata key value pair for a specified schema version ID. A maximum of 10 key value pairs will be allowed per schema version. They can be added over one or more calls.</p>

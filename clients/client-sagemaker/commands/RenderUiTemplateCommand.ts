@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RenderUiTemplateCommandInput = RenderUiTemplateRequest;
-export type RenderUiTemplateCommandOutput = RenderUiTemplateResponse & __MetadataBearer;
+export interface RenderUiTemplateCommandInput extends RenderUiTemplateRequest {}
+export interface RenderUiTemplateCommandOutput extends RenderUiTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Renders the UI template so that you can preview the worker's experience. </p>

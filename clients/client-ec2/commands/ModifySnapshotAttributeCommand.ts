@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifySnapshotAttributeCommandInput = ModifySnapshotAttributeRequest;
-export type ModifySnapshotAttributeCommandOutput = __MetadataBearer;
+export interface ModifySnapshotAttributeCommandInput extends ModifySnapshotAttributeRequest {}
+export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds or removes permission settings for the specified snapshot. You may add or remove

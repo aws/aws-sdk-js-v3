@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateContactCommandInput = CreateContactRequest;
-export type CreateContactCommandOutput = CreateContactResponse & __MetadataBearer;
+export interface CreateContactCommandInput extends CreateContactRequest {}
+export interface CreateContactCommandOutput extends CreateContactResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a contact with the specified details.</p>

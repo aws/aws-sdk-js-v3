@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCelebrityRecognitionCommandInput = GetCelebrityRecognitionRequest;
-export type GetCelebrityRecognitionCommandOutput = GetCelebrityRecognitionResponse & __MetadataBearer;
+export interface GetCelebrityRecognitionCommandInput extends GetCelebrityRecognitionRequest {}
+export interface GetCelebrityRecognitionCommandOutput extends GetCelebrityRecognitionResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the celebrity recognition results for a Amazon Rekognition Video analysis started by

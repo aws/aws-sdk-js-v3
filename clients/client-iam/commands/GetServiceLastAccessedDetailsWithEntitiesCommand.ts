@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetServiceLastAccessedDetailsWithEntitiesCommandInput = GetServiceLastAccessedDetailsWithEntitiesRequest;
-export type GetServiceLastAccessedDetailsWithEntitiesCommandOutput = GetServiceLastAccessedDetailsWithEntitiesResponse &
-  __MetadataBearer;
+export interface GetServiceLastAccessedDetailsWithEntitiesCommandInput
+  extends GetServiceLastAccessedDetailsWithEntitiesRequest {}
+export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
+  extends GetServiceLastAccessedDetailsWithEntitiesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>After you generate a group or policy report using the

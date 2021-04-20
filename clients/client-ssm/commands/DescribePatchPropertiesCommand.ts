@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePatchPropertiesCommandInput = DescribePatchPropertiesRequest;
-export type DescribePatchPropertiesCommandOutput = DescribePatchPropertiesResult & __MetadataBearer;
+export interface DescribePatchPropertiesCommandInput extends DescribePatchPropertiesRequest {}
+export interface DescribePatchPropertiesCommandOutput extends DescribePatchPropertiesResult, __MetadataBearer {}
 
 /**
  * <p>Lists the properties of available patches organized by product, product family,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendVoiceMessageCommandInput = SendVoiceMessageRequest;
-export type SendVoiceMessageCommandOutput = SendVoiceMessageResponse & __MetadataBearer;
+export interface SendVoiceMessageCommandInput extends SendVoiceMessageRequest {}
+export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResponse, __MetadataBearer {}
 
 /**
  * Create a new voice message and send it to a recipient's phone number.

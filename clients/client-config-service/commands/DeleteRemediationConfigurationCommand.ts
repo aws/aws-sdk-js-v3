@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRemediationConfigurationCommandInput = DeleteRemediationConfigurationRequest;
-export type DeleteRemediationConfigurationCommandOutput = DeleteRemediationConfigurationResponse & __MetadataBearer;
+export interface DeleteRemediationConfigurationCommandInput extends DeleteRemediationConfigurationRequest {}
+export interface DeleteRemediationConfigurationCommandOutput
+  extends DeleteRemediationConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the remediation configuration.</p>

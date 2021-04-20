@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUserHierarchyStructureCommandInput = DescribeUserHierarchyStructureRequest;
-export type DescribeUserHierarchyStructureCommandOutput = DescribeUserHierarchyStructureResponse & __MetadataBearer;
+export interface DescribeUserHierarchyStructureCommandInput extends DescribeUserHierarchyStructureRequest {}
+export interface DescribeUserHierarchyStructureCommandOutput
+  extends DescribeUserHierarchyStructureResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the hierarchy structure of the specified Amazon Connect instance.</p>

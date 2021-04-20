@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRequestedServiceQuotaChangeHistoryCommandInput = ListRequestedServiceQuotaChangeHistoryRequest;
-export type ListRequestedServiceQuotaChangeHistoryCommandOutput = ListRequestedServiceQuotaChangeHistoryResponse &
-  __MetadataBearer;
+export interface ListRequestedServiceQuotaChangeHistoryCommandInput
+  extends ListRequestedServiceQuotaChangeHistoryRequest {}
+export interface ListRequestedServiceQuotaChangeHistoryCommandOutput
+  extends ListRequestedServiceQuotaChangeHistoryResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the quota increase requests for the specified service.</p>

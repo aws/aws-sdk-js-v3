@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelSpotFleetRequestsCommandInput = CancelSpotFleetRequestsRequest;
-export type CancelSpotFleetRequestsCommandOutput = CancelSpotFleetRequestsResponse & __MetadataBearer;
+export interface CancelSpotFleetRequestsCommandInput extends CancelSpotFleetRequestsRequest {}
+export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetRequestsResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels the specified Spot Fleet requests.</p>

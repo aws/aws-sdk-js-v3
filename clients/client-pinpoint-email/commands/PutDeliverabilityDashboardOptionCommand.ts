@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutDeliverabilityDashboardOptionCommandInput = PutDeliverabilityDashboardOptionRequest;
-export type PutDeliverabilityDashboardOptionCommandOutput = PutDeliverabilityDashboardOptionResponse & __MetadataBearer;
+export interface PutDeliverabilityDashboardOptionCommandInput extends PutDeliverabilityDashboardOptionRequest {}
+export interface PutDeliverabilityDashboardOptionCommandOutput
+  extends PutDeliverabilityDashboardOptionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Enable or disable the Deliverability dashboard for your Amazon Pinpoint account. When you enable the

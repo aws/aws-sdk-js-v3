@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GenerateBackendAPIModelsCommandInput = GenerateBackendAPIModelsRequest;
-export type GenerateBackendAPIModelsCommandOutput = GenerateBackendAPIModelsResponse & __MetadataBearer;
+export interface GenerateBackendAPIModelsCommandInput extends GenerateBackendAPIModelsRequest {}
+export interface GenerateBackendAPIModelsCommandOutput extends GenerateBackendAPIModelsResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a model schema for an existing backend API resource.</p>

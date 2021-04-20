@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutEmailIdentityDkimSigningAttributesCommandInput = PutEmailIdentityDkimSigningAttributesRequest;
-export type PutEmailIdentityDkimSigningAttributesCommandOutput = PutEmailIdentityDkimSigningAttributesResponse &
-  __MetadataBearer;
+export interface PutEmailIdentityDkimSigningAttributesCommandInput
+  extends PutEmailIdentityDkimSigningAttributesRequest {}
+export interface PutEmailIdentityDkimSigningAttributesCommandOutput
+  extends PutEmailIdentityDkimSigningAttributesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Used to configure or change the DKIM authentication settings for an email domain

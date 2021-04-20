@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DenyCustomRoutingTrafficCommandInput = DenyCustomRoutingTrafficRequest;
-export type DenyCustomRoutingTrafficCommandOutput = __MetadataBearer;
+export interface DenyCustomRoutingTrafficCommandInput extends DenyCustomRoutingTrafficRequest {}
+export interface DenyCustomRoutingTrafficCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Specify the Amazon EC2 instance (destination) IP addresses and ports for a VPC subnet endpoint that cannot receive traffic

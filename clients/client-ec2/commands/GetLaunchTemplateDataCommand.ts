@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLaunchTemplateDataCommandInput = GetLaunchTemplateDataRequest;
-export type GetLaunchTemplateDataCommandOutput = GetLaunchTemplateDataResult & __MetadataBearer;
+export interface GetLaunchTemplateDataCommandInput extends GetLaunchTemplateDataRequest {}
+export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDataResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the configuration data of the specified instance. You can use this data

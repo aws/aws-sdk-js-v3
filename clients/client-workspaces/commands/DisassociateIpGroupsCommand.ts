@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateIpGroupsCommandInput = DisassociateIpGroupsRequest;
-export type DisassociateIpGroupsCommandOutput = DisassociateIpGroupsResult & __MetadataBearer;
+export interface DisassociateIpGroupsCommandInput extends DisassociateIpGroupsRequest {}
+export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified IP access control group from the specified directory.</p>

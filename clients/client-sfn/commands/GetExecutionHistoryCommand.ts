@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetExecutionHistoryCommandInput = GetExecutionHistoryInput;
-export type GetExecutionHistoryCommandOutput = GetExecutionHistoryOutput & __MetadataBearer;
+export interface GetExecutionHistoryCommandInput extends GetExecutionHistoryInput {}
+export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the history of the specified execution as a list of events. By default, the

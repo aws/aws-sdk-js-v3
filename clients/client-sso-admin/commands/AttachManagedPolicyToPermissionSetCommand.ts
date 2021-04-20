@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachManagedPolicyToPermissionSetCommandInput = AttachManagedPolicyToPermissionSetRequest;
-export type AttachManagedPolicyToPermissionSetCommandOutput = AttachManagedPolicyToPermissionSetResponse &
-  __MetadataBearer;
+export interface AttachManagedPolicyToPermissionSetCommandInput extends AttachManagedPolicyToPermissionSetRequest {}
+export interface AttachManagedPolicyToPermissionSetCommandOutput
+  extends AttachManagedPolicyToPermissionSetResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Attaches an IAM managed policy ARN to a permission set.</p>

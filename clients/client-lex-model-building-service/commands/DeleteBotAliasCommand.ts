@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBotAliasCommandInput = DeleteBotAliasRequest;
-export type DeleteBotAliasCommandOutput = __MetadataBearer;
+export interface DeleteBotAliasCommandInput extends DeleteBotAliasRequest {}
+export interface DeleteBotAliasCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an alias for the specified bot. </p>

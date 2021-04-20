@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTemplateActiveVersionCommandInput = UpdateTemplateActiveVersionRequest;
-export type UpdateTemplateActiveVersionCommandOutput = UpdateTemplateActiveVersionResponse & __MetadataBearer;
+export interface UpdateTemplateActiveVersionCommandInput extends UpdateTemplateActiveVersionRequest {}
+export interface UpdateTemplateActiveVersionCommandOutput
+  extends UpdateTemplateActiveVersionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Changes the status of a specific version of a message template to <i>active</i>.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAdmChannelCommandInput = GetAdmChannelRequest;
-export type GetAdmChannelCommandOutput = GetAdmChannelResponse & __MetadataBearer;
+export interface GetAdmChannelCommandInput extends GetAdmChannelRequest {}
+export interface GetAdmChannelCommandOutput extends GetAdmChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the status and settings of the ADM channel for an application.</p>

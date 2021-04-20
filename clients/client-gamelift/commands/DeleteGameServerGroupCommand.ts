@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGameServerGroupCommandInput = DeleteGameServerGroupInput;
-export type DeleteGameServerGroupCommandOutput = DeleteGameServerGroupOutput & __MetadataBearer;
+export interface DeleteGameServerGroupCommandInput extends DeleteGameServerGroupInput {}
+export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGroupOutput, __MetadataBearer {}
 
 /**
  * <p>

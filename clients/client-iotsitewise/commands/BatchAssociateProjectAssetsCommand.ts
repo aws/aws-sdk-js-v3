@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchAssociateProjectAssetsCommandInput = BatchAssociateProjectAssetsRequest;
-export type BatchAssociateProjectAssetsCommandOutput = BatchAssociateProjectAssetsResponse & __MetadataBearer;
+export interface BatchAssociateProjectAssetsCommandInput extends BatchAssociateProjectAssetsRequest {}
+export interface BatchAssociateProjectAssetsCommandOutput
+  extends BatchAssociateProjectAssetsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates a group (batch) of assets with an AWS IoT SiteWise Monitor project.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMergeConflictsCommandInput = GetMergeConflictsInput;
-export type GetMergeConflictsCommandOutput = GetMergeConflictsOutput & __MetadataBearer;
+export interface GetMergeConflictsCommandInput extends GetMergeConflictsInput {}
+export interface GetMergeConflictsCommandOutput extends GetMergeConflictsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about merge conflicts between the before and after commit IDs for a pull request in a repository.</p>

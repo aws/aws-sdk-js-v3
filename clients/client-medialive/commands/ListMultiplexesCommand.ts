@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMultiplexesCommandInput = ListMultiplexesRequest;
-export type ListMultiplexesCommandOutput = ListMultiplexesResponse & __MetadataBearer;
+export interface ListMultiplexesCommandInput extends ListMultiplexesRequest {}
+export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, __MetadataBearer {}
 
 /**
  * Retrieve a list of the existing multiplexes.

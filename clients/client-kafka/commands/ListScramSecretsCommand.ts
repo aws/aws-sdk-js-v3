@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListScramSecretsCommandInput = ListScramSecretsRequest;
-export type ListScramSecretsCommandOutput = ListScramSecretsResponse & __MetadataBearer;
+export interface ListScramSecretsCommandInput extends ListScramSecretsRequest {}
+export interface ListScramSecretsCommandOutput extends ListScramSecretsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the Scram Secrets associated with an Amazon MSK cluster.</p>

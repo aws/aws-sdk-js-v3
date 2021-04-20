@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTemplateVersionsCommandInput = ListTemplateVersionsRequest;
-export type ListTemplateVersionsCommandOutput = ListTemplateVersionsResponse & __MetadataBearer;
+export interface ListTemplateVersionsCommandInput extends ListTemplateVersionsRequest {}
+export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about all the versions of a specific message template.</p>

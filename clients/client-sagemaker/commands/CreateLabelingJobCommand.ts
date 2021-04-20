@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLabelingJobCommandInput = CreateLabelingJobRequest;
-export type CreateLabelingJobCommandOutput = CreateLabelingJobResponse & __MetadataBearer;
+export interface CreateLabelingJobCommandInput extends CreateLabelingJobRequest {}
+export interface CreateLabelingJobCommandOutput extends CreateLabelingJobResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a job that uses workers to label the data objects in your input dataset. You

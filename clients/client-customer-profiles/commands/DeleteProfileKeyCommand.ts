@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProfileKeyCommandInput = DeleteProfileKeyRequest;
-export type DeleteProfileKeyCommandOutput = DeleteProfileKeyResponse & __MetadataBearer;
+export interface DeleteProfileKeyCommandInput extends DeleteProfileKeyRequest {}
+export interface DeleteProfileKeyCommandOutput extends DeleteProfileKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a searchable key from a customer profile.</p>

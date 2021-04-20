@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDistributedGrantsCommandInput = ListDistributedGrantsRequest;
-export type ListDistributedGrantsCommandOutput = ListDistributedGrantsResponse & __MetadataBearer;
+export interface ListDistributedGrantsCommandInput extends ListDistributedGrantsRequest {}
+export interface ListDistributedGrantsCommandOutput extends ListDistributedGrantsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the grants distributed for the specified license.</p>

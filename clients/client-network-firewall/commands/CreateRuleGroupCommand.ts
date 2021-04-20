@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRuleGroupCommandInput = CreateRuleGroupRequest;
-export type CreateRuleGroupCommandOutput = CreateRuleGroupResponse & __MetadataBearer;
+export interface CreateRuleGroupCommandInput extends CreateRuleGroupRequest {}
+export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates the specified stateless or stateful rule group, which includes the rules for

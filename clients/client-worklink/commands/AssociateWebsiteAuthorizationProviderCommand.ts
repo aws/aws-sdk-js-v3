@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateWebsiteAuthorizationProviderCommandInput = AssociateWebsiteAuthorizationProviderRequest;
-export type AssociateWebsiteAuthorizationProviderCommandOutput = AssociateWebsiteAuthorizationProviderResponse &
-  __MetadataBearer;
+export interface AssociateWebsiteAuthorizationProviderCommandInput
+  extends AssociateWebsiteAuthorizationProviderRequest {}
+export interface AssociateWebsiteAuthorizationProviderCommandOutput
+  extends AssociateWebsiteAuthorizationProviderResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates a website authorization provider with a specified fleet. This is used to authorize users against associated websites in the company network.</p>

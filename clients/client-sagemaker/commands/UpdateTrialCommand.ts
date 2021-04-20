@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTrialCommandInput = UpdateTrialRequest;
-export type UpdateTrialCommandOutput = UpdateTrialResponse & __MetadataBearer;
+export interface UpdateTrialCommandInput extends UpdateTrialRequest {}
+export interface UpdateTrialCommandOutput extends UpdateTrialResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the display name of a trial.</p>

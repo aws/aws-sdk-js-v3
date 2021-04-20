@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachLoadBalancerFromSubnetsCommandInput = DetachLoadBalancerFromSubnetsInput;
-export type DetachLoadBalancerFromSubnetsCommandOutput = DetachLoadBalancerFromSubnetsOutput & __MetadataBearer;
+export interface DetachLoadBalancerFromSubnetsCommandInput extends DetachLoadBalancerFromSubnetsInput {}
+export interface DetachLoadBalancerFromSubnetsCommandOutput
+  extends DetachLoadBalancerFromSubnetsOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Removes the specified subnets from the set of configured subnets for the load balancer.</p>

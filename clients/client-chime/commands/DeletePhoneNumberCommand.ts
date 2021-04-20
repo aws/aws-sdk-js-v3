@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePhoneNumberCommandInput = DeletePhoneNumberRequest;
-export type DeletePhoneNumberCommandOutput = __MetadataBearer;
+export interface DeletePhoneNumberCommandInput extends DeletePhoneNumberRequest {}
+export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Moves the specified phone number into the <b>Deletionqueue</b>. A

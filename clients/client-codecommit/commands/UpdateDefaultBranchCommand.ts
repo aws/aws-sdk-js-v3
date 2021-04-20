@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDefaultBranchCommandInput = UpdateDefaultBranchInput;
-export type UpdateDefaultBranchCommandOutput = __MetadataBearer;
+export interface UpdateDefaultBranchCommandInput extends UpdateDefaultBranchInput {}
+export interface UpdateDefaultBranchCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets or changes the default branch name for the specified repository.</p>

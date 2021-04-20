@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResumeWorkflowRunCommandInput = ResumeWorkflowRunRequest;
-export type ResumeWorkflowRunCommandOutput = ResumeWorkflowRunResponse & __MetadataBearer;
+export interface ResumeWorkflowRunCommandInput extends ResumeWorkflowRunRequest {}
+export interface ResumeWorkflowRunCommandOutput extends ResumeWorkflowRunResponse, __MetadataBearer {}
 
 /**
  * <p>Restarts selected nodes of a previous partially completed workflow run and resumes the workflow run. The selected nodes and all nodes that are downstream from the selected nodes are run.</p>

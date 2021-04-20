@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBuildsCommandInput = ListBuildsInput;
-export type ListBuildsCommandOutput = ListBuildsOutput & __MetadataBearer;
+export interface ListBuildsCommandInput extends ListBuildsInput {}
+export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a list of build IDs, with each build ID representing a single build.</p>

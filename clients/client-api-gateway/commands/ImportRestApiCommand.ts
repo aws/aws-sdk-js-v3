@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportRestApiCommandInput = ImportRestApiRequest;
-export type ImportRestApiCommandOutput = RestApi & __MetadataBearer;
+export interface ImportRestApiCommandInput extends ImportRestApiRequest {}
+export interface ImportRestApiCommandOutput extends RestApi, __MetadataBearer {}
 
 /**
  * <p>A feature of the API Gateway control service for creating a new API from an external API definition file.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDetectorModelCommandInput = DeleteDetectorModelRequest;
-export type DeleteDetectorModelCommandOutput = DeleteDetectorModelResponse & __MetadataBearer;
+export interface DeleteDetectorModelCommandInput extends DeleteDetectorModelRequest {}
+export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a detector model. Any active instances of the detector model are also

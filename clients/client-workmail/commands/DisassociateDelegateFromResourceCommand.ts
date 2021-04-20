@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateDelegateFromResourceCommandInput = DisassociateDelegateFromResourceRequest;
-export type DisassociateDelegateFromResourceCommandOutput = DisassociateDelegateFromResourceResponse & __MetadataBearer;
+export interface DisassociateDelegateFromResourceCommandInput extends DisassociateDelegateFromResourceRequest {}
+export interface DisassociateDelegateFromResourceCommandOutput
+  extends DisassociateDelegateFromResourceResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Removes a member from the resource's set of delegates.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableSerialConsoleAccessCommandInput = EnableSerialConsoleAccessRequest;
-export type EnableSerialConsoleAccessCommandOutput = EnableSerialConsoleAccessResult & __MetadataBearer;
+export interface EnableSerialConsoleAccessCommandInput extends EnableSerialConsoleAccessRequest {}
+export interface EnableSerialConsoleAccessCommandOutput extends EnableSerialConsoleAccessResult, __MetadataBearer {}
 
 /**
  * <p>Enables access to the EC2 serial console of all instances for your account. By default,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConnectorsCommandInput = GetConnectorsRequest;
-export type GetConnectorsCommandOutput = GetConnectorsResponse & __MetadataBearer;
+export interface GetConnectorsCommandInput extends GetConnectorsRequest {}
+export interface GetConnectorsCommandOutput extends GetConnectorsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the connectors registered with the AWS SMS.</p>

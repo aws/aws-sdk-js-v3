@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDomainContactPrivacyCommandInput = UpdateDomainContactPrivacyRequest;
-export type UpdateDomainContactPrivacyCommandOutput = UpdateDomainContactPrivacyResponse & __MetadataBearer;
+export interface UpdateDomainContactPrivacyCommandInput extends UpdateDomainContactPrivacyRequest {}
+export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainContactPrivacyResponse, __MetadataBearer {}
 
 /**
  * <p>This operation updates the specified domain contact's privacy setting. When privacy protection is enabled,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutApprovalResultCommandInput = PutApprovalResultInput;
-export type PutApprovalResultCommandOutput = PutApprovalResultOutput & __MetadataBearer;
+export interface PutApprovalResultCommandInput extends PutApprovalResultInput {}
+export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput, __MetadataBearer {}
 
 /**
  * <p>Provides the response to a manual approval request to AWS CodePipeline. Valid

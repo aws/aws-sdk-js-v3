@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeParameterGroupsCommandInput = DescribeParameterGroupsRequest;
-export type DescribeParameterGroupsCommandOutput = DescribeParameterGroupsResponse & __MetadataBearer;
+export interface DescribeParameterGroupsCommandInput extends DescribeParameterGroupsRequest {}
+export interface DescribeParameterGroupsCommandOutput extends DescribeParameterGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of parameter group descriptions. If a parameter group name is

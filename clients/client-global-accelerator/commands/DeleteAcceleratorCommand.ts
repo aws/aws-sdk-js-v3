@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAcceleratorCommandInput = DeleteAcceleratorRequest;
-export type DeleteAcceleratorCommandOutput = __MetadataBearer;
+export interface DeleteAcceleratorCommandInput extends DeleteAcceleratorRequest {}
+export interface DeleteAcceleratorCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete an accelerator. Before you can delete an accelerator, you must disable it and remove all dependent resources

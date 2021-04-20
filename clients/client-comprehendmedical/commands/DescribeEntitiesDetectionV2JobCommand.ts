@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEntitiesDetectionV2JobCommandInput = DescribeEntitiesDetectionV2JobRequest;
-export type DescribeEntitiesDetectionV2JobCommandOutput = DescribeEntitiesDetectionV2JobResponse & __MetadataBearer;
+export interface DescribeEntitiesDetectionV2JobCommandInput extends DescribeEntitiesDetectionV2JobRequest {}
+export interface DescribeEntitiesDetectionV2JobCommandOutput
+  extends DescribeEntitiesDetectionV2JobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a medical entities detection job. Use this operation

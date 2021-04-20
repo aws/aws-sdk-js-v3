@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPublicKeysCommandInput = ListPublicKeysRequest;
-export type ListPublicKeysCommandOutput = ListPublicKeysResult & __MetadataBearer;
+export interface ListPublicKeysCommandInput extends ListPublicKeysRequest {}
+export interface ListPublicKeysCommandOutput extends ListPublicKeysResult, __MetadataBearer {}
 
 /**
  * <p>List all public keys that have been added to CloudFront for this account.</p>

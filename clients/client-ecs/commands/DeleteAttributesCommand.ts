@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAttributesCommandInput = DeleteAttributesRequest;
-export type DeleteAttributesCommandOutput = DeleteAttributesResponse & __MetadataBearer;
+export interface DeleteAttributesCommandInput extends DeleteAttributesRequest {}
+export interface DeleteAttributesCommandOutput extends DeleteAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes one or more custom attributes from an Amazon ECS resource.</p>

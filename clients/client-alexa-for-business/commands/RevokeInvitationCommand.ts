@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RevokeInvitationCommandInput = RevokeInvitationRequest;
-export type RevokeInvitationCommandOutput = RevokeInvitationResponse & __MetadataBearer;
+export interface RevokeInvitationCommandInput extends RevokeInvitationRequest {}
+export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse, __MetadataBearer {}
 
 /**
  * <p>Revokes an invitation and invalidates the enrollment URL.</p>

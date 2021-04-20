@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCustomRoutingAcceleratorsCommandInput = ListCustomRoutingAcceleratorsRequest;
-export type ListCustomRoutingAcceleratorsCommandOutput = ListCustomRoutingAcceleratorsResponse & __MetadataBearer;
+export interface ListCustomRoutingAcceleratorsCommandInput extends ListCustomRoutingAcceleratorsRequest {}
+export interface ListCustomRoutingAcceleratorsCommandOutput
+  extends ListCustomRoutingAcceleratorsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>List the custom routing accelerators for an AWS account. </p>

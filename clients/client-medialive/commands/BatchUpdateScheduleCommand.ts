@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchUpdateScheduleCommandInput = BatchUpdateScheduleRequest;
-export type BatchUpdateScheduleCommandOutput = BatchUpdateScheduleResponse & __MetadataBearer;
+export interface BatchUpdateScheduleCommandInput extends BatchUpdateScheduleRequest {}
+export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleResponse, __MetadataBearer {}
 
 /**
  * Update a channel schedule

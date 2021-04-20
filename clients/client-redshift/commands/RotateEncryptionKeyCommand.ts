@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RotateEncryptionKeyCommandInput = RotateEncryptionKeyMessage;
-export type RotateEncryptionKeyCommandOutput = RotateEncryptionKeyResult & __MetadataBearer;
+export interface RotateEncryptionKeyCommandInput extends RotateEncryptionKeyMessage {}
+export interface RotateEncryptionKeyCommandOutput extends RotateEncryptionKeyResult, __MetadataBearer {}
 
 /**
  * <p>Rotates the encryption keys for a cluster.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBackupJobsCommandInput = ListBackupJobsInput;
-export type ListBackupJobsCommandOutput = ListBackupJobsOutput & __MetadataBearer;
+export interface ListBackupJobsCommandInput extends ListBackupJobsInput {}
+export interface ListBackupJobsCommandOutput extends ListBackupJobsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of existing backup jobs for an authenticated account for the last 30

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePreparedStatementCommandInput = UpdatePreparedStatementInput;
-export type UpdatePreparedStatementCommandOutput = UpdatePreparedStatementOutput & __MetadataBearer;
+export interface UpdatePreparedStatementCommandInput extends UpdatePreparedStatementInput {}
+export interface UpdatePreparedStatementCommandOutput extends UpdatePreparedStatementOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a prepared statement.</p>

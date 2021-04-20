@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TranslateTextCommandInput = TranslateTextRequest;
-export type TranslateTextCommandOutput = TranslateTextResponse & __MetadataBearer;
+export interface TranslateTextCommandInput extends TranslateTextRequest {}
+export interface TranslateTextCommandOutput extends TranslateTextResponse, __MetadataBearer {}
 
 /**
  * <p>Translates input text from the source language to the target language. For a list of

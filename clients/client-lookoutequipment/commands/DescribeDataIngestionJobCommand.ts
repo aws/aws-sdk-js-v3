@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDataIngestionJobCommandInput = DescribeDataIngestionJobRequest;
-export type DescribeDataIngestionJobCommandOutput = DescribeDataIngestionJobResponse & __MetadataBearer;
+export interface DescribeDataIngestionJobCommandInput extends DescribeDataIngestionJobRequest {}
+export interface DescribeDataIngestionJobCommandOutput extends DescribeDataIngestionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Provides information on a specific data ingestion job such as creation time, dataset

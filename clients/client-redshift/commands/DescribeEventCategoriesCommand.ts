@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEventCategoriesCommandInput = DescribeEventCategoriesMessage;
-export type DescribeEventCategoriesCommandOutput = EventCategoriesMessage & __MetadataBearer;
+export interface DescribeEventCategoriesCommandInput extends DescribeEventCategoriesMessage {}
+export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMessage, __MetadataBearer {}
 
 /**
  * <p>Displays a list of event categories for all event source types, or for a specified

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBasePathMappingCommandInput = DeleteBasePathMappingRequest;
-export type DeleteBasePathMappingCommandOutput = __MetadataBearer;
+export interface DeleteBasePathMappingCommandInput extends DeleteBasePathMappingRequest {}
+export interface DeleteBasePathMappingCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the <a>BasePathMapping</a> resource.</p>

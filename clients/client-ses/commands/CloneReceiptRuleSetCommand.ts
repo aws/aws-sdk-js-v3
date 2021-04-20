@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CloneReceiptRuleSetCommandInput = CloneReceiptRuleSetRequest;
-export type CloneReceiptRuleSetCommandOutput = CloneReceiptRuleSetResponse & __MetadataBearer;
+export interface CloneReceiptRuleSetCommandInput extends CloneReceiptRuleSetRequest {}
+export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a receipt rule set by cloning an existing one. All receipt rules and

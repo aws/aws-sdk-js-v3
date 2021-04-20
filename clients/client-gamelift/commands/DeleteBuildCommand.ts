@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBuildCommandInput = DeleteBuildInput;
-export type DeleteBuildCommandOutput = __MetadataBearer;
+export interface DeleteBuildCommandInput extends DeleteBuildInput {}
+export interface DeleteBuildCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a build. This operation permanently deletes the build resource and any uploaded

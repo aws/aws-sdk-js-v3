@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateWirelessGatewayFromCertificateCommandInput = DisassociateWirelessGatewayFromCertificateRequest;
-export type DisassociateWirelessGatewayFromCertificateCommandOutput = DisassociateWirelessGatewayFromCertificateResponse &
-  __MetadataBearer;
+export interface DisassociateWirelessGatewayFromCertificateCommandInput
+  extends DisassociateWirelessGatewayFromCertificateRequest {}
+export interface DisassociateWirelessGatewayFromCertificateCommandOutput
+  extends DisassociateWirelessGatewayFromCertificateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates a wireless gateway from its currently associated certificate.</p>

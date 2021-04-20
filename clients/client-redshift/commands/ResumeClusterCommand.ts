@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResumeClusterCommandInput = ResumeClusterMessage;
-export type ResumeClusterCommandOutput = ResumeClusterResult & __MetadataBearer;
+export interface ResumeClusterCommandInput extends ResumeClusterMessage {}
+export interface ResumeClusterCommandOutput extends ResumeClusterResult, __MetadataBearer {}
 
 /**
  * <p>Resumes a paused cluster.</p>

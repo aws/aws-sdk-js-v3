@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type LookupPolicyCommandInput = LookupPolicyRequest;
-export type LookupPolicyCommandOutput = LookupPolicyResponse & __MetadataBearer;
+export interface LookupPolicyCommandInput extends LookupPolicyRequest {}
+export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all policies from the root of the <a>Directory</a> to the object

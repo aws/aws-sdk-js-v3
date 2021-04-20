@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListJourneysCommandInput = ListJourneysRequest;
-export type ListJourneysCommandOutput = ListJourneysResponse & __MetadataBearer;
+export interface ListJourneysCommandInput extends ListJourneysRequest {}
+export interface ListJourneysCommandOutput extends ListJourneysResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the status, configuration, and other settings for all the journeys that are associated with an application.</p>

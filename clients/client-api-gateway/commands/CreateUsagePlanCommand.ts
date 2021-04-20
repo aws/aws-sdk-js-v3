@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUsagePlanCommandInput = CreateUsagePlanRequest;
-export type CreateUsagePlanCommandOutput = UsagePlan & __MetadataBearer;
+export interface CreateUsagePlanCommandInput extends CreateUsagePlanRequest {}
+export interface CreateUsagePlanCommandOutput extends UsagePlan, __MetadataBearer {}
 
 /**
  * <p>Creates a usage plan with the throttle and quota limits, as well as the associated API stages, specified in the payload. </p>

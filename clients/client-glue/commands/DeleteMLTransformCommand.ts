@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMLTransformCommandInput = DeleteMLTransformRequest;
-export type DeleteMLTransformCommandOutput = DeleteMLTransformResponse & __MetadataBearer;
+export interface DeleteMLTransformCommandInput extends DeleteMLTransformRequest {}
+export interface DeleteMLTransformCommandOutput extends DeleteMLTransformResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an AWS Glue machine learning transform. Machine learning transforms are a special

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportSnapshotCommandInput = ImportSnapshotRequest;
-export type ImportSnapshotCommandOutput = ImportSnapshotResult & __MetadataBearer;
+export interface ImportSnapshotCommandInput extends ImportSnapshotRequest {}
+export interface ImportSnapshotCommandOutput extends ImportSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Imports a disk into an EBS snapshot.</p>

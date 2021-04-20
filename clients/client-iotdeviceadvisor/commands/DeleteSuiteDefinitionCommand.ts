@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSuiteDefinitionCommandInput = DeleteSuiteDefinitionRequest;
-export type DeleteSuiteDefinitionCommandOutput = DeleteSuiteDefinitionResponse & __MetadataBearer;
+export interface DeleteSuiteDefinitionCommandInput extends DeleteSuiteDefinitionRequest {}
+export interface DeleteSuiteDefinitionCommandOutput extends DeleteSuiteDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a Device Advisor test suite.</p>

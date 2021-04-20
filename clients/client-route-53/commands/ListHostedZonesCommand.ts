@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListHostedZonesCommandInput = ListHostedZonesRequest;
-export type ListHostedZonesCommandOutput = ListHostedZonesResponse & __MetadataBearer;
+export interface ListHostedZonesCommandInput extends ListHostedZonesRequest {}
+export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of the public and private hosted zones that are associated with the current AWS account. The response

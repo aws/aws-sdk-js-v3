@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSignalingChannelCommandInput = DeleteSignalingChannelInput;
-export type DeleteSignalingChannelCommandOutput = DeleteSignalingChannelOutput & __MetadataBearer;
+export interface DeleteSignalingChannelCommandInput extends DeleteSignalingChannelInput {}
+export interface DeleteSignalingChannelCommandOutput extends DeleteSignalingChannelOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a specified signaling channel. <code>DeleteSignalingChannel</code> is an

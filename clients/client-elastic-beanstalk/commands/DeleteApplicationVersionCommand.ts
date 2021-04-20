@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteApplicationVersionCommandInput = DeleteApplicationVersionMessage;
-export type DeleteApplicationVersionCommandOutput = __MetadataBearer;
+export interface DeleteApplicationVersionCommandInput extends DeleteApplicationVersionMessage {}
+export interface DeleteApplicationVersionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified version from the specified application.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendInvitationCommandInput = SendInvitationRequest;
-export type SendInvitationCommandOutput = SendInvitationResponse & __MetadataBearer;
+export interface SendInvitationCommandInput extends SendInvitationRequest {}
+export interface SendInvitationCommandOutput extends SendInvitationResponse, __MetadataBearer {}
 
 /**
  * <p>Sends an enrollment invitation email with a URL to a user. The URL is valid for 30

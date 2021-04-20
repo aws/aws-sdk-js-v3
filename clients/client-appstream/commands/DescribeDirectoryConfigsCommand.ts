@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDirectoryConfigsCommandInput = DescribeDirectoryConfigsRequest;
-export type DescribeDirectoryConfigsCommandOutput = DescribeDirectoryConfigsResult & __MetadataBearer;
+export interface DescribeDirectoryConfigsCommandInput extends DescribeDirectoryConfigsRequest {}
+export interface DescribeDirectoryConfigsCommandOutput extends DescribeDirectoryConfigsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes one or more specified Directory Config objects for AppStream 2.0, if the names for these objects are provided. Otherwise, all Directory Config objects in the account are described. These objects include the configuration information required to join fleets and image builders to Microsoft Active Directory domains.

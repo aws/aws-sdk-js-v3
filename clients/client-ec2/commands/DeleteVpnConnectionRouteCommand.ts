@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVpnConnectionRouteCommandInput = DeleteVpnConnectionRouteRequest;
-export type DeleteVpnConnectionRouteCommandOutput = __MetadataBearer;
+export interface DeleteVpnConnectionRouteCommandInput extends DeleteVpnConnectionRouteRequest {}
+export interface DeleteVpnConnectionRouteCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.</p>

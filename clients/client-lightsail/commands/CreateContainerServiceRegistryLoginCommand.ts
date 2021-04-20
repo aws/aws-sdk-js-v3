@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateContainerServiceRegistryLoginCommandInput = CreateContainerServiceRegistryLoginRequest;
-export type CreateContainerServiceRegistryLoginCommandOutput = CreateContainerServiceRegistryLoginResult &
-  __MetadataBearer;
+export interface CreateContainerServiceRegistryLoginCommandInput extends CreateContainerServiceRegistryLoginRequest {}
+export interface CreateContainerServiceRegistryLoginCommandOutput
+  extends CreateContainerServiceRegistryLoginResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a temporary set of log in credentials that you can use to log in to the Docker

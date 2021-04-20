@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetDeploymentGroupsCommandInput = BatchGetDeploymentGroupsInput;
-export type BatchGetDeploymentGroupsCommandOutput = BatchGetDeploymentGroupsOutput & __MetadataBearer;
+export interface BatchGetDeploymentGroupsCommandInput extends BatchGetDeploymentGroupsInput {}
+export interface BatchGetDeploymentGroupsCommandOutput extends BatchGetDeploymentGroupsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about one or more deployment groups.</p>

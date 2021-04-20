@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartMigrationCommandInput = StartMigrationMessage;
-export type StartMigrationCommandOutput = StartMigrationResponse & __MetadataBearer;
+export interface StartMigrationCommandInput extends StartMigrationMessage {}
+export interface StartMigrationCommandOutput extends StartMigrationResponse, __MetadataBearer {}
 
 /**
  * <p>Start the migration of data.</p>

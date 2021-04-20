@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePresetCommandInput = DeletePresetRequest;
-export type DeletePresetCommandOutput = DeletePresetResponse & __MetadataBearer;
+export interface DeletePresetCommandInput extends DeletePresetRequest {}
+export interface DeletePresetCommandOutput extends DeletePresetResponse, __MetadataBearer {}
 
 /**
  * Permanently delete a preset you have created.

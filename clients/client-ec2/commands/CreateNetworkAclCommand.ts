@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNetworkAclCommandInput = CreateNetworkAclRequest;
-export type CreateNetworkAclCommandOutput = CreateNetworkAclResult & __MetadataBearer;
+export interface CreateNetworkAclCommandInput extends CreateNetworkAclRequest {}
+export interface CreateNetworkAclCommandOutput extends CreateNetworkAclResult, __MetadataBearer {}
 
 /**
  * <p>Creates a network ACL in a VPC. Network ACLs provide an optional layer of security (in addition to security groups) for the instances in your VPC.</p>

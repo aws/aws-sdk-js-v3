@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEmailTemplateCommandInput = DeleteEmailTemplateRequest;
-export type DeleteEmailTemplateCommandOutput = DeleteEmailTemplateResponse & __MetadataBearer;
+export interface DeleteEmailTemplateCommandInput extends DeleteEmailTemplateRequest {}
+export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a message template for messages that were sent through the email channel.</p>

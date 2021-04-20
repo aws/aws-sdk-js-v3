@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartSnapshotCommandInput = StartSnapshotRequest;
-export type StartSnapshotCommandOutput = StartSnapshotResponse & __MetadataBearer;
+export interface StartSnapshotCommandInput extends StartSnapshotRequest {}
+export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new Amazon EBS snapshot. The new snapshot enters the <code>pending</code> state

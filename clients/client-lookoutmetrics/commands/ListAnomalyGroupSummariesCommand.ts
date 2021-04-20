@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAnomalyGroupSummariesCommandInput = ListAnomalyGroupSummariesRequest;
-export type ListAnomalyGroupSummariesCommandOutput = ListAnomalyGroupSummariesResponse & __MetadataBearer;
+export interface ListAnomalyGroupSummariesCommandInput extends ListAnomalyGroupSummariesRequest {}
+export interface ListAnomalyGroupSummariesCommandOutput extends ListAnomalyGroupSummariesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of anomaly groups.</p>

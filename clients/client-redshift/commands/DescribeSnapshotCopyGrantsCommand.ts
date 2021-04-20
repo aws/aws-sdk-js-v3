@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSnapshotCopyGrantsCommandInput = DescribeSnapshotCopyGrantsMessage;
-export type DescribeSnapshotCopyGrantsCommandOutput = SnapshotCopyGrantMessage & __MetadataBearer;
+export interface DescribeSnapshotCopyGrantsCommandInput extends DescribeSnapshotCopyGrantsMessage {}
+export interface DescribeSnapshotCopyGrantsCommandOutput extends SnapshotCopyGrantMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of snapshot copy grants owned by the AWS account in the destination

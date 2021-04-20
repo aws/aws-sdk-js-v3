@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagMeetingCommandInput = UntagMeetingRequest;
-export type UntagMeetingCommandOutput = __MetadataBearer;
+export interface UntagMeetingCommandInput extends UntagMeetingRequest {}
+export interface UntagMeetingCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Untags the specified tags from the specified Amazon Chime SDK meeting.</p>

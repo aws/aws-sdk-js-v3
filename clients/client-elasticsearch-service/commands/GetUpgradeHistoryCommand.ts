@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUpgradeHistoryCommandInput = GetUpgradeHistoryRequest;
-export type GetUpgradeHistoryCommandOutput = GetUpgradeHistoryResponse & __MetadataBearer;
+export interface GetUpgradeHistoryCommandInput extends GetUpgradeHistoryRequest {}
+export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the complete history of the last 10 upgrades that were performed on the domain.</p>

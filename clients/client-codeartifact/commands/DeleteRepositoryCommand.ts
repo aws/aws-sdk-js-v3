@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRepositoryCommandInput = DeleteRepositoryRequest;
-export type DeleteRepositoryCommandOutput = DeleteRepositoryResult & __MetadataBearer;
+export interface DeleteRepositoryCommandInput extends DeleteRepositoryRequest {}
+export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, __MetadataBearer {}
 
 /**
  * <p>

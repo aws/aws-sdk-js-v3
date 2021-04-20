@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminResetUserPasswordCommandInput = AdminResetUserPasswordRequest;
-export type AdminResetUserPasswordCommandOutput = AdminResetUserPasswordResponse & __MetadataBearer;
+export interface AdminResetUserPasswordCommandInput extends AdminResetUserPasswordRequest {}
+export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPasswordResponse, __MetadataBearer {}
 
 /**
  * <p>Resets the specified user's password in a user pool as an administrator. Works on any

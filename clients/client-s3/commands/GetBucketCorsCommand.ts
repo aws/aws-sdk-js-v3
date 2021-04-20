@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketCorsCommandInput = GetBucketCorsRequest;
-export type GetBucketCorsCommandOutput = GetBucketCorsOutput & __MetadataBearer;
+export interface GetBucketCorsCommandInput extends GetBucketCorsRequest {}
+export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the cors configuration information set for the bucket.</p>

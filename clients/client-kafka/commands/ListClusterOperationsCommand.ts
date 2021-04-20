@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListClusterOperationsCommandInput = ListClusterOperationsRequest;
-export type ListClusterOperationsCommandOutput = ListClusterOperationsResponse & __MetadataBearer;
+export interface ListClusterOperationsCommandInput extends ListClusterOperationsRequest {}
+export interface ListClusterOperationsCommandOutput extends ListClusterOperationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of all the operations that have been performed on the specified MSK cluster.</p>

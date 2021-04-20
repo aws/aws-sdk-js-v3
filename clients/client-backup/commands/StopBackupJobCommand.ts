@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopBackupJobCommandInput = StopBackupJobInput;
-export type StopBackupJobCommandOutput = __MetadataBearer;
+export interface StopBackupJobCommandInput extends StopBackupJobInput {}
+export interface StopBackupJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>

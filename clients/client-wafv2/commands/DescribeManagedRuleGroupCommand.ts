@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeManagedRuleGroupCommandInput = DescribeManagedRuleGroupRequest;
-export type DescribeManagedRuleGroupCommandOutput = DescribeManagedRuleGroupResponse & __MetadataBearer;
+export interface DescribeManagedRuleGroupCommandInput extends DescribeManagedRuleGroupRequest {}
+export interface DescribeManagedRuleGroupCommandOutput extends DescribeManagedRuleGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Provides high-level information for a managed rule group, including descriptions of the rules. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMLModelsCommandInput = DescribeMLModelsInput;
-export type DescribeMLModelsCommandOutput = DescribeMLModelsOutput & __MetadataBearer;
+export interface DescribeMLModelsCommandInput extends DescribeMLModelsInput {}
+export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of <code>MLModel</code> that match the search criteria in the request.</p>

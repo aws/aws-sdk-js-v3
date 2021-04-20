@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExportProjectCommandInput = ExportProjectRequest;
-export type ExportProjectCommandOutput = ExportProjectResult & __MetadataBearer;
+export interface ExportProjectCommandInput extends ExportProjectRequest {}
+export interface ExportProjectCommandOutput extends ExportProjectResult, __MetadataBearer {}
 
 /**
  * <p>

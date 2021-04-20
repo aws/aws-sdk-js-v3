@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateJourneyCommandInput = UpdateJourneyRequest;
-export type UpdateJourneyCommandOutput = UpdateJourneyResponse & __MetadataBearer;
+export interface UpdateJourneyCommandInput extends UpdateJourneyRequest {}
+export interface UpdateJourneyCommandOutput extends UpdateJourneyResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration and other settings for a journey.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGraphCommandInput = DeleteGraphRequest;
-export type DeleteGraphCommandOutput = __MetadataBearer;
+export interface DeleteGraphCommandInput extends DeleteGraphRequest {}
+export interface DeleteGraphCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disables the specified behavior graph and queues it to be deleted. This operation

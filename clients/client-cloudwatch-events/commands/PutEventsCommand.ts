@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutEventsCommandInput = PutEventsRequest;
-export type PutEventsCommandOutput = PutEventsResponse & __MetadataBearer;
+export interface PutEventsCommandInput extends PutEventsRequest {}
+export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBearer {}
 
 /**
  * <p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>

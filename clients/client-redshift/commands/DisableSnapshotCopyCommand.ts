@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableSnapshotCopyCommandInput = DisableSnapshotCopyMessage;
-export type DisableSnapshotCopyCommandOutput = DisableSnapshotCopyResult & __MetadataBearer;
+export interface DisableSnapshotCopyCommandInput extends DisableSnapshotCopyMessage {}
+export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyResult, __MetadataBearer {}
 
 /**
  * <p>Disables the automatic copying of snapshots from one region to another region for a

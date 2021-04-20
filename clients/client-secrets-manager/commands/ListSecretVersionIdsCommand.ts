@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSecretVersionIdsCommandInput = ListSecretVersionIdsRequest;
-export type ListSecretVersionIdsCommandOutput = ListSecretVersionIdsResponse & __MetadataBearer;
+export interface ListSecretVersionIdsCommandInput extends ListSecretVersionIdsRequest {}
+export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of the versions attached to the specified secret. The output does not include

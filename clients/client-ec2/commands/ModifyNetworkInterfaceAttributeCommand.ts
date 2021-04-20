@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyNetworkInterfaceAttributeCommandInput = ModifyNetworkInterfaceAttributeRequest;
-export type ModifyNetworkInterfaceAttributeCommandOutput = __MetadataBearer;
+export interface ModifyNetworkInterfaceAttributeCommandInput extends ModifyNetworkInterfaceAttributeRequest {}
+export interface ModifyNetworkInterfaceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Modifies the specified network interface attribute. You can specify only one

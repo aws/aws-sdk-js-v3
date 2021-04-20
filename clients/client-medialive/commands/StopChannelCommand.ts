@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopChannelCommandInput = StopChannelRequest;
-export type StopChannelCommandOutput = StopChannelResponse & __MetadataBearer;
+export interface StopChannelCommandInput extends StopChannelRequest {}
+export interface StopChannelCommandOutput extends StopChannelResponse, __MetadataBearer {}
 
 /**
  * Stops a running channel

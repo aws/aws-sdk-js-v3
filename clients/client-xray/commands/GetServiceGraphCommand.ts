@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetServiceGraphCommandInput = GetServiceGraphRequest;
-export type GetServiceGraphCommandOutput = GetServiceGraphResult & __MetadataBearer;
+export interface GetServiceGraphCommandInput extends GetServiceGraphRequest {}
+export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a document that describes services that process incoming requests, and

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVaultCommandInput = DescribeVaultInput;
-export type DescribeVaultCommandOutput = DescribeVaultOutput & __MetadataBearer;
+export interface DescribeVaultCommandInput extends DescribeVaultInput {}
+export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __MetadataBearer {}
 
 /**
  * <p>This operation returns information about a vault, including the vault's Amazon

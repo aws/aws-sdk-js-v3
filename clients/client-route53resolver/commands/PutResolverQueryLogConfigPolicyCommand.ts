@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutResolverQueryLogConfigPolicyCommandInput = PutResolverQueryLogConfigPolicyRequest;
-export type PutResolverQueryLogConfigPolicyCommandOutput = PutResolverQueryLogConfigPolicyResponse & __MetadataBearer;
+export interface PutResolverQueryLogConfigPolicyCommandInput extends PutResolverQueryLogConfigPolicyRequest {}
+export interface PutResolverQueryLogConfigPolicyCommandOutput
+  extends PutResolverQueryLogConfigPolicyResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Specifies an AWS account that you want to share a query logging configuration with, the query logging configuration that you want to share,

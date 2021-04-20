@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetProductsCommandInput = GetProductsRequest;
-export type GetProductsCommandOutput = GetProductsResponse & __MetadataBearer;
+export interface GetProductsCommandInput extends GetProductsRequest {}
+export interface GetProductsCommandOutput extends GetProductsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of all products that match the filter criteria.</p>

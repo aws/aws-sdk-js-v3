@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateThingGroupCommandInput = CreateThingGroupRequest;
-export type CreateThingGroupCommandOutput = CreateThingGroupResponse & __MetadataBearer;
+export interface CreateThingGroupCommandInput extends CreateThingGroupRequest {}
+export interface CreateThingGroupCommandOutput extends CreateThingGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Create a thing group.</p>

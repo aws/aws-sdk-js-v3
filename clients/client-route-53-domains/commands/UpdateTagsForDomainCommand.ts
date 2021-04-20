@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTagsForDomainCommandInput = UpdateTagsForDomainRequest;
-export type UpdateTagsForDomainCommandOutput = UpdateTagsForDomainResponse & __MetadataBearer;
+export interface UpdateTagsForDomainCommandInput extends UpdateTagsForDomainRequest {}
+export interface UpdateTagsForDomainCommandOutput extends UpdateTagsForDomainResponse, __MetadataBearer {}
 
 /**
  * <p>This operation adds or updates tags for a specified domain.</p>

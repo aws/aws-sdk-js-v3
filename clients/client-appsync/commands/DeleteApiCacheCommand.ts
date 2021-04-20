@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteApiCacheCommandInput = DeleteApiCacheRequest;
-export type DeleteApiCacheCommandOutput = DeleteApiCacheResponse & __MetadataBearer;
+export interface DeleteApiCacheCommandInput extends DeleteApiCacheRequest {}
+export interface DeleteApiCacheCommandOutput extends DeleteApiCacheResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an <code>ApiCache</code> object.</p>

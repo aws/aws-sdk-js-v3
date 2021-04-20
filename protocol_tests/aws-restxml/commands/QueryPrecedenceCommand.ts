@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type QueryPrecedenceCommandInput = QueryPrecedenceInput;
-export type QueryPrecedenceCommandOutput = __MetadataBearer;
+export interface QueryPrecedenceCommandInput extends QueryPrecedenceInput {}
+export interface QueryPrecedenceCommandOutput extends __MetadataBearer {}
 
 export class QueryPrecedenceCommand extends $Command<
   QueryPrecedenceCommandInput,

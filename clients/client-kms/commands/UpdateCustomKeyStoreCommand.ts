@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCustomKeyStoreCommandInput = UpdateCustomKeyStoreRequest;
-export type UpdateCustomKeyStoreCommandOutput = UpdateCustomKeyStoreResponse & __MetadataBearer;
+export interface UpdateCustomKeyStoreCommandInput extends UpdateCustomKeyStoreRequest {}
+export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
  * <p>Changes the properties of a custom key store. Use the <code>CustomKeyStoreId</code>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStreamCommandInput = DescribeStreamInput;
-export type DescribeStreamCommandOutput = DescribeStreamOutput & __MetadataBearer;
+export interface DescribeStreamCommandInput extends DescribeStreamInput {}
+export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the most current information about the specified stream. You must specify

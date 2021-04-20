@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMonitoringScheduleCommandInput = DeleteMonitoringScheduleRequest;
-export type DeleteMonitoringScheduleCommandOutput = __MetadataBearer;
+export interface DeleteMonitoringScheduleCommandInput extends DeleteMonitoringScheduleRequest {}
+export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a monitoring schedule. Also stops the schedule had not already been stopped.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAccountAttributesCommandInput = {};
-export type DescribeAccountAttributesCommandOutput = DescribeAccountAttributesResult & __MetadataBearer;
+export interface DescribeAccountAttributesCommandInput {}
+export interface DescribeAccountAttributesCommandOutput extends DescribeAccountAttributesResult, __MetadataBearer {}
 
 /**
  * <p>Returns attributes related to AWS Elastic Beanstalk that are associated with the calling AWS

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateRouteTableCommandInput = AssociateRouteTableRequest;
-export type AssociateRouteTableCommandOutput = AssociateRouteTableResult & __MetadataBearer;
+export interface AssociateRouteTableCommandInput extends AssociateRouteTableRequest {}
+export interface AssociateRouteTableCommandOutput extends AssociateRouteTableResult, __MetadataBearer {}
 
 /**
  * <p>Associates a subnet in your VPC or an internet gateway or virtual private gateway

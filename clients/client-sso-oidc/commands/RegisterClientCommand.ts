@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterClientCommandInput = RegisterClientRequest;
-export type RegisterClientCommandOutput = RegisterClientResponse & __MetadataBearer;
+export interface RegisterClientCommandInput extends RegisterClientRequest {}
+export interface RegisterClientCommandOutput extends RegisterClientResponse, __MetadataBearer {}
 
 /**
  * <p>Registers a client with AWS SSO. This allows clients to initiate device authorization.

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRoleCommandInput = UpdateRoleRequest;
-export type UpdateRoleCommandOutput = UpdateRoleResponse & __MetadataBearer;
+export interface UpdateRoleCommandInput extends UpdateRoleRequest {}
+export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the description or maximum session duration setting of a role.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PurchaseOfferingCommandInput = PurchaseOfferingRequest;
-export type PurchaseOfferingCommandOutput = PurchaseOfferingResult & __MetadataBearer;
+export interface PurchaseOfferingCommandInput extends PurchaseOfferingRequest {}
+export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResult, __MetadataBearer {}
 
 /**
  * <p>Immediately purchases offerings for an AWS account. Offerings renew with the latest total purchased

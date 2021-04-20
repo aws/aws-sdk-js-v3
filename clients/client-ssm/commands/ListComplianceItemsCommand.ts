@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListComplianceItemsCommandInput = ListComplianceItemsRequest;
-export type ListComplianceItemsCommandOutput = ListComplianceItemsResult & __MetadataBearer;
+export interface ListComplianceItemsCommandInput extends ListComplianceItemsRequest {}
+export interface ListComplianceItemsCommandOutput extends ListComplianceItemsResult, __MetadataBearer {}
 
 /**
  * <p>For a specified resource ID, this API action returns a list of compliance statuses for

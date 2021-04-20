@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLicenseConfigurationCommandInput = CreateLicenseConfigurationRequest;
-export type CreateLicenseConfigurationCommandOutput = CreateLicenseConfigurationResponse & __MetadataBearer;
+export interface CreateLicenseConfigurationCommandInput extends CreateLicenseConfigurationRequest {}
+export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a license configuration.</p>

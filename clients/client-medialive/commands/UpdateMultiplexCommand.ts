@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMultiplexCommandInput = UpdateMultiplexRequest;
-export type UpdateMultiplexCommandOutput = UpdateMultiplexResponse & __MetadataBearer;
+export interface UpdateMultiplexCommandInput extends UpdateMultiplexRequest {}
+export interface UpdateMultiplexCommandOutput extends UpdateMultiplexResponse, __MetadataBearer {}
 
 /**
  * Updates a multiplex.

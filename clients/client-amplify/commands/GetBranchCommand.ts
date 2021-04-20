@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBranchCommandInput = GetBranchRequest;
-export type GetBranchCommandOutput = GetBranchResult & __MetadataBearer;
+export interface GetBranchCommandInput extends GetBranchRequest {}
+export interface GetBranchCommandOutput extends GetBranchResult, __MetadataBearer {}
 
 /**
  * <p> Returns a branch for an Amplify app. </p>

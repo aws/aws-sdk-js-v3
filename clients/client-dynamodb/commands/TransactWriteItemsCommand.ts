@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TransactWriteItemsCommandInput = TransactWriteItemsInput;
-export type TransactWriteItemsCommandOutput = TransactWriteItemsOutput & __MetadataBearer;
+export interface TransactWriteItemsCommandInput extends TransactWriteItemsInput {}
+export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutput, __MetadataBearer {}
 
 /**
  * <p>

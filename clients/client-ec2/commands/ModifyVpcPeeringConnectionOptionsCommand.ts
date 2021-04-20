@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyVpcPeeringConnectionOptionsCommandInput = ModifyVpcPeeringConnectionOptionsRequest;
-export type ModifyVpcPeeringConnectionOptionsCommandOutput = ModifyVpcPeeringConnectionOptionsResult & __MetadataBearer;
+export interface ModifyVpcPeeringConnectionOptionsCommandInput extends ModifyVpcPeeringConnectionOptionsRequest {}
+export interface ModifyVpcPeeringConnectionOptionsCommandOutput
+  extends ModifyVpcPeeringConnectionOptionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies the VPC peering connection options on one side of a VPC peering connection. You can do the following:</p>

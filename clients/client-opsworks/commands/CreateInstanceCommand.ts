@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateInstanceCommandInput = CreateInstanceRequest;
-export type CreateInstanceCommandOutput = CreateInstanceResult & __MetadataBearer;
+export interface CreateInstanceCommandInput extends CreateInstanceRequest {}
+export interface CreateInstanceCommandOutput extends CreateInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Creates an instance in a specified stack. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html">Adding an

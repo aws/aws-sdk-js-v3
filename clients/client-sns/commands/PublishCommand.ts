@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PublishCommandInput = PublishInput;
-export type PublishCommandOutput = PublishResponse & __MetadataBearer;
+export interface PublishCommandInput extends PublishInput {}
+export interface PublishCommandOutput extends PublishResponse, __MetadataBearer {}
 
 /**
  * <p>Sends a message to an Amazon SNS topic, a text message (SMS message) directly to a phone

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListNamespacesCommandInput = ListNamespacesRequest;
-export type ListNamespacesCommandOutput = ListNamespacesResponse & __MetadataBearer;
+export interface ListNamespacesCommandInput extends ListNamespacesRequest {}
+export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists summary information about the namespaces that were created by the current AWS account.</p>

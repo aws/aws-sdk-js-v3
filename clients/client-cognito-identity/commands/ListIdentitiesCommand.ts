@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListIdentitiesCommandInput = ListIdentitiesInput;
-export type ListIdentitiesCommandOutput = ListIdentitiesResponse & __MetadataBearer;
+export interface ListIdentitiesCommandInput extends ListIdentitiesInput {}
+export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the identities in an identity pool.</p>

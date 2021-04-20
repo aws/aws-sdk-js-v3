@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminConfirmSignUpCommandInput = AdminConfirmSignUpRequest;
-export type AdminConfirmSignUpCommandOutput = AdminConfirmSignUpResponse & __MetadataBearer;
+export interface AdminConfirmSignUpCommandInput extends AdminConfirmSignUpRequest {}
+export interface AdminConfirmSignUpCommandOutput extends AdminConfirmSignUpResponse, __MetadataBearer {}
 
 /**
  * <p>Confirms user registration as an admin without using a confirmation code. Works on any

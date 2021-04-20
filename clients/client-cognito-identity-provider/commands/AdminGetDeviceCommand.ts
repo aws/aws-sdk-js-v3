@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminGetDeviceCommandInput = AdminGetDeviceRequest;
-export type AdminGetDeviceCommandOutput = AdminGetDeviceResponse & __MetadataBearer;
+export interface AdminGetDeviceCommandInput extends AdminGetDeviceRequest {}
+export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the device, as an administrator.</p>

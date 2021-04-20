@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CopyOptionGroupCommandInput = CopyOptionGroupMessage;
-export type CopyOptionGroupCommandOutput = CopyOptionGroupResult & __MetadataBearer;
+export interface CopyOptionGroupCommandInput extends CopyOptionGroupMessage {}
+export interface CopyOptionGroupCommandOutput extends CopyOptionGroupResult, __MetadataBearer {}
 
 /**
  * <p>Copies the specified option group.</p>

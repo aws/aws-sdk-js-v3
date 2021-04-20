@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeElasticGpusCommandInput = DescribeElasticGpusRequest;
-export type DescribeElasticGpusCommandOutput = DescribeElasticGpusResult & __MetadataBearer;
+export interface DescribeElasticGpusCommandInput extends DescribeElasticGpusRequest {}
+export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusResult, __MetadataBearer {}
 
 /**
  * <p>Describes the Elastic Graphics accelerator associated with your instances. For more information

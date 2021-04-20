@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAnomalySubscriptionCommandInput = CreateAnomalySubscriptionRequest;
-export type CreateAnomalySubscriptionCommandOutput = CreateAnomalySubscriptionResponse & __MetadataBearer;
+export interface CreateAnomalySubscriptionCommandInput extends CreateAnomalySubscriptionRequest {}
+export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a subscription to a cost anomaly detection monitor. You can use each subscription to

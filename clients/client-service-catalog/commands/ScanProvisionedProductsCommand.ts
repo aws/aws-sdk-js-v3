@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ScanProvisionedProductsCommandInput = ScanProvisionedProductsInput;
-export type ScanProvisionedProductsCommandOutput = ScanProvisionedProductsOutput & __MetadataBearer;
+export interface ScanProvisionedProductsCommandInput extends ScanProvisionedProductsInput {}
+export interface ScanProvisionedProductsCommandOutput extends ScanProvisionedProductsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the provisioned products that are available (not terminated).</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEnvironmentEC2CommandInput = CreateEnvironmentEC2Request;
-export type CreateEnvironmentEC2CommandOutput = CreateEnvironmentEC2Result & __MetadataBearer;
+export interface CreateEnvironmentEC2CommandInput extends CreateEnvironmentEC2Request {}
+export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2Result, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then connects from the instance to the environment.</p>

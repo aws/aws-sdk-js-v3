@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteWorkloadCommandInput = DeleteWorkloadInput;
-export type DeleteWorkloadCommandOutput = __MetadataBearer;
+export interface DeleteWorkloadCommandInput extends DeleteWorkloadInput {}
+export interface DeleteWorkloadCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete an existing workload.</p>

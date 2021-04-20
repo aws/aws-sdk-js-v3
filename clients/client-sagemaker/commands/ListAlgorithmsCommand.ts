@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAlgorithmsCommandInput = ListAlgorithmsInput;
-export type ListAlgorithmsCommandOutput = ListAlgorithmsOutput & __MetadataBearer;
+export interface ListAlgorithmsCommandInput extends ListAlgorithmsInput {}
+export interface ListAlgorithmsCommandOutput extends ListAlgorithmsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the machine learning algorithms that have been created.</p>

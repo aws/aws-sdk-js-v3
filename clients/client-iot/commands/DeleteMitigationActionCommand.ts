@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMitigationActionCommandInput = DeleteMitigationActionRequest;
-export type DeleteMitigationActionCommandOutput = DeleteMitigationActionResponse & __MetadataBearer;
+export interface DeleteMitigationActionCommandInput extends DeleteMitigationActionRequest {}
+export interface DeleteMitigationActionCommandOutput extends DeleteMitigationActionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a defined mitigation action from your AWS account.</p>

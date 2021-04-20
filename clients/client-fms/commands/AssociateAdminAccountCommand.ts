@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateAdminAccountCommandInput = AssociateAdminAccountRequest;
-export type AssociateAdminAccountCommandOutput = __MetadataBearer;
+export interface AssociateAdminAccountCommandInput extends AssociateAdminAccountRequest {}
+export interface AssociateAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the AWS Firewall Manager administrator account. AWS Firewall Manager must be

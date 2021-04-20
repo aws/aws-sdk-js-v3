@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutConfigRuleCommandInput = PutConfigRuleRequest;
-export type PutConfigRuleCommandOutput = __MetadataBearer;
+export interface PutConfigRuleCommandInput extends PutConfigRuleRequest {}
+export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds or updates an AWS Config rule for evaluating whether your

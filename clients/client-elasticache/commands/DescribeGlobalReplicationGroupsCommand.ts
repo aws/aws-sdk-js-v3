@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeGlobalReplicationGroupsCommandInput = DescribeGlobalReplicationGroupsMessage;
-export type DescribeGlobalReplicationGroupsCommandOutput = DescribeGlobalReplicationGroupsResult & __MetadataBearer;
+export interface DescribeGlobalReplicationGroupsCommandInput extends DescribeGlobalReplicationGroupsMessage {}
+export interface DescribeGlobalReplicationGroupsCommandOutput
+  extends DescribeGlobalReplicationGroupsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about a particular global replication group. If no identifier is specified, returns information about all Global datastores. </p>

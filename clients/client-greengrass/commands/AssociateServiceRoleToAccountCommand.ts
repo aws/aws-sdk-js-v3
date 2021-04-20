@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateServiceRoleToAccountCommandInput = AssociateServiceRoleToAccountRequest;
-export type AssociateServiceRoleToAccountCommandOutput = AssociateServiceRoleToAccountResponse & __MetadataBearer;
+export interface AssociateServiceRoleToAccountCommandInput extends AssociateServiceRoleToAccountRequest {}
+export interface AssociateServiceRoleToAccountCommandOutput
+  extends AssociateServiceRoleToAccountResponse,
+    __MetadataBearer {}
 
 /**
  * Associates a role with your account. AWS IoT Greengrass will use the role to access your Lambda functions and AWS IoT resources. This is necessary for deployments to succeed. The role must have at least minimum permissions in the policy ''AWSGreengrassResourceAccessRolePolicy''.

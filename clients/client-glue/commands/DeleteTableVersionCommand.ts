@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTableVersionCommandInput = DeleteTableVersionRequest;
-export type DeleteTableVersionCommandOutput = DeleteTableVersionResponse & __MetadataBearer;
+export interface DeleteTableVersionCommandInput extends DeleteTableVersionRequest {}
+export interface DeleteTableVersionCommandOutput extends DeleteTableVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a specified version of a table.</p>

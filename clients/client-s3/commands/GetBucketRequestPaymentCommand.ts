@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketRequestPaymentCommandInput = GetBucketRequestPaymentRequest;
-export type GetBucketRequestPaymentCommandOutput = GetBucketRequestPaymentOutput & __MetadataBearer;
+export interface GetBucketRequestPaymentCommandInput extends GetBucketRequestPaymentRequest {}
+export interface GetBucketRequestPaymentCommandOutput extends GetBucketRequestPaymentOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the request payment configuration of a bucket. To use this version of the

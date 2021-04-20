@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExportClientVpnClientConfigurationCommandInput = ExportClientVpnClientConfigurationRequest;
-export type ExportClientVpnClientConfigurationCommandOutput = ExportClientVpnClientConfigurationResult &
-  __MetadataBearer;
+export interface ExportClientVpnClientConfigurationCommandInput extends ExportClientVpnClientConfigurationRequest {}
+export interface ExportClientVpnClientConfigurationCommandOutput
+  extends ExportClientVpnClientConfigurationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Downloads the contents of the Client VPN endpoint configuration file for the specified Client VPN endpoint. The Client VPN endpoint configuration

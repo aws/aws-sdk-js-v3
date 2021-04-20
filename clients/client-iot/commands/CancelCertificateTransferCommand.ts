@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelCertificateTransferCommandInput = CancelCertificateTransferRequest;
-export type CancelCertificateTransferCommandOutput = __MetadataBearer;
+export interface CancelCertificateTransferCommandInput extends CancelCertificateTransferRequest {}
+export interface CancelCertificateTransferCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Cancels a pending transfer for the specified certificate.</p>

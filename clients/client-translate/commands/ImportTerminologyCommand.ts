@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportTerminologyCommandInput = ImportTerminologyRequest;
-export type ImportTerminologyCommandOutput = ImportTerminologyResponse & __MetadataBearer;
+export interface ImportTerminologyCommandInput extends ImportTerminologyRequest {}
+export interface ImportTerminologyCommandOutput extends ImportTerminologyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates a custom terminology, depending on whether or not one already exists

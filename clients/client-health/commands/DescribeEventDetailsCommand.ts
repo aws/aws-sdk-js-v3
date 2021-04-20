@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEventDetailsCommandInput = DescribeEventDetailsRequest;
-export type DescribeEventDetailsCommandOutput = DescribeEventDetailsResponse & __MetadataBearer;
+export interface DescribeEventDetailsCommandInput extends DescribeEventDetailsRequest {}
+export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns detailed information about one or more specified events. Information includes

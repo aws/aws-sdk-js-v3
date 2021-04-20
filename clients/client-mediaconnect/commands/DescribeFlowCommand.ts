@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFlowCommandInput = DescribeFlowRequest;
-export type DescribeFlowCommandOutput = DescribeFlowResponse & __MetadataBearer;
+export interface DescribeFlowCommandInput extends DescribeFlowRequest {}
+export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __MetadataBearer {}
 
 /**
  * Displays the details of a flow. The response includes the flow ARN, name, and Availability Zone, as well as details about the source, outputs, and entitlements.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateTeamMemberCommandInput = DisassociateTeamMemberRequest;
-export type DisassociateTeamMemberCommandOutput = DisassociateTeamMemberResult & __MetadataBearer;
+export interface DisassociateTeamMemberCommandInput extends DisassociateTeamMemberRequest {}
+export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMemberResult, __MetadataBearer {}
 
 /**
  * <p>Removes a user from a project. Removing a user from a project also removes the IAM

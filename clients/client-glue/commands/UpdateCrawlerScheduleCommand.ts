@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCrawlerScheduleCommandInput = UpdateCrawlerScheduleRequest;
-export type UpdateCrawlerScheduleCommandOutput = UpdateCrawlerScheduleResponse & __MetadataBearer;
+export interface UpdateCrawlerScheduleCommandInput extends UpdateCrawlerScheduleRequest {}
+export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the schedule of a crawler using a <code>cron</code> expression. </p>

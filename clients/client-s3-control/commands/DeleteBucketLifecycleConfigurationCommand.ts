@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBucketLifecycleConfigurationCommandInput = DeleteBucketLifecycleConfigurationRequest;
-export type DeleteBucketLifecycleConfigurationCommandOutput = __MetadataBearer;
+export interface DeleteBucketLifecycleConfigurationCommandInput extends DeleteBucketLifecycleConfigurationRequest {}
+export interface DeleteBucketLifecycleConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>

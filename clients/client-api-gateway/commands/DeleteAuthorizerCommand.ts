@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAuthorizerCommandInput = DeleteAuthorizerRequest;
-export type DeleteAuthorizerCommandOutput = __MetadataBearer;
+export interface DeleteAuthorizerCommandInput extends DeleteAuthorizerRequest {}
+export interface DeleteAuthorizerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an existing <a>Authorizer</a> resource.</p>

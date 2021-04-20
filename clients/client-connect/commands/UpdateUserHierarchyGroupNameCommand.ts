@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateUserHierarchyGroupNameCommandInput = UpdateUserHierarchyGroupNameRequest;
-export type UpdateUserHierarchyGroupNameCommandOutput = __MetadataBearer;
+export interface UpdateUserHierarchyGroupNameCommandInput extends UpdateUserHierarchyGroupNameRequest {}
+export interface UpdateUserHierarchyGroupNameCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the name of the user hierarchy group. </p>

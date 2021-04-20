@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateComponentConfigurationCommandInput = UpdateComponentConfigurationRequest;
-export type UpdateComponentConfigurationCommandOutput = UpdateComponentConfigurationResponse & __MetadataBearer;
+export interface UpdateComponentConfigurationCommandInput extends UpdateComponentConfigurationRequest {}
+export interface UpdateComponentConfigurationCommandOutput
+  extends UpdateComponentConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the monitoring configurations for the component. The configuration input parameter

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccessPreviewCommandInput = GetAccessPreviewRequest;
-export type GetAccessPreviewCommandOutput = GetAccessPreviewResponse & __MetadataBearer;
+export interface GetAccessPreviewCommandInput extends GetAccessPreviewRequest {}
+export interface GetAccessPreviewCommandOutput extends GetAccessPreviewResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an access preview for the specified analyzer.</p>

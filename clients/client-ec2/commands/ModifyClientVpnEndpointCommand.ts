@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyClientVpnEndpointCommandInput = ModifyClientVpnEndpointRequest;
-export type ModifyClientVpnEndpointCommandOutput = ModifyClientVpnEndpointResult & __MetadataBearer;
+export interface ModifyClientVpnEndpointCommandInput extends ModifyClientVpnEndpointRequest {}
+export interface ModifyClientVpnEndpointCommandOutput extends ModifyClientVpnEndpointResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified Client VPN endpoint. Modifying the DNS server resets existing client connections.</p>

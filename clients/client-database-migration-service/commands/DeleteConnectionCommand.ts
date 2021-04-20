@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteConnectionCommandInput = DeleteConnectionMessage;
-export type DeleteConnectionCommandOutput = DeleteConnectionResponse & __MetadataBearer;
+export interface DeleteConnectionCommandInput extends DeleteConnectionMessage {}
+export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the connection between a replication instance and an endpoint.</p>

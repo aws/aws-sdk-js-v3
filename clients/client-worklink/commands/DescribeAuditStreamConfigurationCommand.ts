@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAuditStreamConfigurationCommandInput = DescribeAuditStreamConfigurationRequest;
-export type DescribeAuditStreamConfigurationCommandOutput = DescribeAuditStreamConfigurationResponse & __MetadataBearer;
+export interface DescribeAuditStreamConfigurationCommandInput extends DescribeAuditStreamConfigurationRequest {}
+export interface DescribeAuditStreamConfigurationCommandOutput
+  extends DescribeAuditStreamConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the configuration for delivering audit streams to the customer account.</p>

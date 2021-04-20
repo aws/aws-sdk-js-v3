@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RunJobFlowCommandInput = RunJobFlowInput;
-export type RunJobFlowCommandOutput = RunJobFlowOutput & __MetadataBearer;
+export interface RunJobFlowCommandInput extends RunJobFlowInput {}
+export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBearer {}
 
 /**
  * <p>RunJobFlow creates and starts running a new cluster (job flow). The cluster runs the

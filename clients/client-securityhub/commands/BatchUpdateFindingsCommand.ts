@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchUpdateFindingsCommandInput = BatchUpdateFindingsRequest;
-export type BatchUpdateFindingsCommandOutput = BatchUpdateFindingsResponse & __MetadataBearer;
+export interface BatchUpdateFindingsCommandInput extends BatchUpdateFindingsRequest {}
+export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsResponse, __MetadataBearer {}
 
 /**
  * <p>Used by Security Hub customers to update information about their investigation into a finding.

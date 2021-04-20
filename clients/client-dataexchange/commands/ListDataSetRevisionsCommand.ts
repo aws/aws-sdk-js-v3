@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDataSetRevisionsCommandInput = ListDataSetRevisionsRequest;
-export type ListDataSetRevisionsCommandOutput = ListDataSetRevisionsResponse & __MetadataBearer;
+export interface ListDataSetRevisionsCommandInput extends ListDataSetRevisionsRequest {}
+export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsResponse, __MetadataBearer {}
 
 /**
  * <p>This operation lists a data set's revisions sorted by CreatedAt in descending order.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetTriggersCommandInput = BatchGetTriggersRequest;
-export type BatchGetTriggersCommandOutput = BatchGetTriggersResponse & __MetadataBearer;
+export interface BatchGetTriggersCommandInput extends BatchGetTriggersRequest {}
+export interface BatchGetTriggersCommandOutput extends BatchGetTriggersResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of resource metadata for a given list of trigger names. After calling the <code>ListTriggers</code> operation, you can call this operation to access the data to which you have been granted permissions. This operation supports all IAM permissions, including permission conditions that uses tags.</p>

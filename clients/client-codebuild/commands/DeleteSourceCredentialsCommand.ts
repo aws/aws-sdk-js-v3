@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSourceCredentialsCommandInput = DeleteSourceCredentialsInput;
-export type DeleteSourceCredentialsCommandOutput = DeleteSourceCredentialsOutput & __MetadataBearer;
+export interface DeleteSourceCredentialsCommandInput extends DeleteSourceCredentialsInput {}
+export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCredentialsOutput, __MetadataBearer {}
 
 /**
  * <p> Deletes a set of GitHub, GitHub Enterprise, or Bitbucket source credentials. </p>

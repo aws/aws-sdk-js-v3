@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVirtualInterfaceCommandInput = DeleteVirtualInterfaceRequest;
-export type DeleteVirtualInterfaceCommandOutput = DeleteVirtualInterfaceResponse & __MetadataBearer;
+export interface DeleteVirtualInterfaceCommandInput extends DeleteVirtualInterfaceRequest {}
+export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterfaceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a virtual interface.</p>

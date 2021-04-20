@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDeleteTableRowsCommandInput = BatchDeleteTableRowsRequest;
-export type BatchDeleteTableRowsCommandOutput = BatchDeleteTableRowsResult & __MetadataBearer;
+export interface BatchDeleteTableRowsCommandInput extends BatchDeleteTableRowsRequest {}
+export interface BatchDeleteTableRowsCommandOutput extends BatchDeleteTableRowsResult, __MetadataBearer {}
 
 /**
  * <p>

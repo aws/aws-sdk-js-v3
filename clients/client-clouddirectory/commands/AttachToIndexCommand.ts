@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachToIndexCommandInput = AttachToIndexRequest;
-export type AttachToIndexCommandOutput = AttachToIndexResponse & __MetadataBearer;
+export interface AttachToIndexCommandInput extends AttachToIndexRequest {}
+export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __MetadataBearer {}
 
 /**
  * <p>Attaches the specified object to the specified index.</p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccessPointCommandInput = GetAccessPointRequest;
-export type GetAccessPointCommandOutput = GetAccessPointResult & __MetadataBearer;
+export interface GetAccessPointCommandInput extends GetAccessPointRequest {}
+export interface GetAccessPointCommandOutput extends GetAccessPointResult, __MetadataBearer {}
 
 /**
  * <p>Returns configuration information about the specified access point.</p>

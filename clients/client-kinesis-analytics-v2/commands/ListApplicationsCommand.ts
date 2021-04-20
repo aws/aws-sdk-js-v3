@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListApplicationsCommandInput = ListApplicationsRequest;
-export type ListApplicationsCommandOutput = ListApplicationsResponse & __MetadataBearer;
+export interface ListApplicationsCommandInput extends ListApplicationsRequest {}
+export interface ListApplicationsCommandOutput extends ListApplicationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of Kinesis Data Analytics applications in your account. For each

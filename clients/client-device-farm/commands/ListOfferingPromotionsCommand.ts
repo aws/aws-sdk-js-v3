@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListOfferingPromotionsCommandInput = ListOfferingPromotionsRequest;
-export type ListOfferingPromotionsCommandOutput = ListOfferingPromotionsResult & __MetadataBearer;
+export interface ListOfferingPromotionsCommandInput extends ListOfferingPromotionsRequest {}
+export interface ListOfferingPromotionsCommandOutput extends ListOfferingPromotionsResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of offering promotions. Each offering promotion record contains the ID and description

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableSerialConsoleAccessCommandInput = DisableSerialConsoleAccessRequest;
-export type DisableSerialConsoleAccessCommandOutput = DisableSerialConsoleAccessResult & __MetadataBearer;
+export interface DisableSerialConsoleAccessCommandInput extends DisableSerialConsoleAccessRequest {}
+export interface DisableSerialConsoleAccessCommandOutput extends DisableSerialConsoleAccessResult, __MetadataBearer {}
 
 /**
  * <p>Disables access to the EC2 serial console of all instances for your account. By default,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSuppressedDestinationCommandInput = GetSuppressedDestinationRequest;
-export type GetSuppressedDestinationCommandOutput = GetSuppressedDestinationResponse & __MetadataBearer;
+export interface GetSuppressedDestinationCommandInput extends GetSuppressedDestinationRequest {}
+export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a specific email address that's on the suppression list

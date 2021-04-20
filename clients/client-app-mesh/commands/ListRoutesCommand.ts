@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRoutesCommandInput = ListRoutesInput;
-export type ListRoutesCommandOutput = ListRoutesOutput & __MetadataBearer;
+export interface ListRoutesCommandInput extends ListRoutesInput {}
+export interface ListRoutesCommandOutput extends ListRoutesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of existing routes in a service mesh.</p>

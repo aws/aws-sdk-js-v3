@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachThingPrincipalCommandInput = DetachThingPrincipalRequest;
-export type DetachThingPrincipalCommandOutput = DetachThingPrincipalResponse & __MetadataBearer;
+export interface DetachThingPrincipalCommandInput extends DetachThingPrincipalRequest {}
+export interface DetachThingPrincipalCommandOutput extends DetachThingPrincipalResponse, __MetadataBearer {}
 
 /**
  * <p>Detaches the specified principal from the specified thing. A principal can be X.509

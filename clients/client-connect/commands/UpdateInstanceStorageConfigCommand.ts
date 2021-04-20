@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateInstanceStorageConfigCommandInput = UpdateInstanceStorageConfigRequest;
-export type UpdateInstanceStorageConfigCommandOutput = __MetadataBearer;
+export interface UpdateInstanceStorageConfigCommandInput extends UpdateInstanceStorageConfigRequest {}
+export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

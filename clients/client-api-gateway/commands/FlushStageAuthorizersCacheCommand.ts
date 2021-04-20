@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type FlushStageAuthorizersCacheCommandInput = FlushStageAuthorizersCacheRequest;
-export type FlushStageAuthorizersCacheCommandOutput = __MetadataBearer;
+export interface FlushStageAuthorizersCacheCommandInput extends FlushStageAuthorizersCacheRequest {}
+export interface FlushStageAuthorizersCacheCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Flushes all authorizer cache entries on a stage.</p>

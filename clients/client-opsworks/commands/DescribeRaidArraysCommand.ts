@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRaidArraysCommandInput = DescribeRaidArraysRequest;
-export type DescribeRaidArraysCommandOutput = DescribeRaidArraysResult & __MetadataBearer;
+export interface DescribeRaidArraysCommandInput extends DescribeRaidArraysRequest {}
+export interface DescribeRaidArraysCommandOutput extends DescribeRaidArraysResult, __MetadataBearer {}
 
 /**
  * <p>Describe an instance's RAID arrays.</p>

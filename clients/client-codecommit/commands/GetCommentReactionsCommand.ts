@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCommentReactionsCommandInput = GetCommentReactionsInput;
-export type GetCommentReactionsCommandOutput = GetCommentReactionsOutput & __MetadataBearer;
+export interface GetCommentReactionsCommandInput extends GetCommentReactionsInput {}
+export interface GetCommentReactionsCommandOutput extends GetCommentReactionsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about reactions to a specified comment ID. Reactions from users who have been deleted will not be included in the count.</p>

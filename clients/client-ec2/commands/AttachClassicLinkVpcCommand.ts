@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachClassicLinkVpcCommandInput = AttachClassicLinkVpcRequest;
-export type AttachClassicLinkVpcCommandOutput = AttachClassicLinkVpcResult & __MetadataBearer;
+export interface AttachClassicLinkVpcCommandInput extends AttachClassicLinkVpcRequest {}
+export interface AttachClassicLinkVpcCommandOutput extends AttachClassicLinkVpcResult, __MetadataBearer {}
 
 /**
  * <p>Links an EC2-Classic instance to a ClassicLink-enabled VPC through one or more of the VPC's

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteConfigurationSetTrackingOptionsCommandInput = DeleteConfigurationSetTrackingOptionsRequest;
-export type DeleteConfigurationSetTrackingOptionsCommandOutput = DeleteConfigurationSetTrackingOptionsResponse &
-  __MetadataBearer;
+export interface DeleteConfigurationSetTrackingOptionsCommandInput
+  extends DeleteConfigurationSetTrackingOptionsRequest {}
+export interface DeleteConfigurationSetTrackingOptionsCommandOutput
+  extends DeleteConfigurationSetTrackingOptionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes an association between a configuration set and a custom domain for open and

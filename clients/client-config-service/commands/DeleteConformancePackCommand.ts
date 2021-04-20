@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteConformancePackCommandInput = DeleteConformancePackRequest;
-export type DeleteConformancePackCommandOutput = __MetadataBearer;
+export interface DeleteConformancePackCommandInput extends DeleteConformancePackRequest {}
+export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified conformance pack and all the AWS Config rules, remediation actions, and all evaluation results within that

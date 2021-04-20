@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateStreamCommandInput = UpdateStreamRequest;
-export type UpdateStreamCommandOutput = UpdateStreamResponse & __MetadataBearer;
+export interface UpdateStreamCommandInput extends UpdateStreamRequest {}
+export interface UpdateStreamCommandOutput extends UpdateStreamResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing stream. The stream version will be incremented by one.</p>

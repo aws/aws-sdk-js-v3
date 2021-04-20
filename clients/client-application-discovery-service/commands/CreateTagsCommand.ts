@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTagsCommandInput = CreateTagsRequest;
-export type CreateTagsCommandOutput = CreateTagsResponse & __MetadataBearer;
+export interface CreateTagsCommandInput extends CreateTagsRequest {}
+export interface CreateTagsCommandOutput extends CreateTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Creates one or more tags for configuration items. Tags are metadata that help you

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateDomainCommandInput = DisassociateDomainRequest;
-export type DisassociateDomainCommandOutput = DisassociateDomainResponse & __MetadataBearer;
+export interface DisassociateDomainCommandInput extends DisassociateDomainRequest {}
+export interface DisassociateDomainCommandOutput extends DisassociateDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. </p>

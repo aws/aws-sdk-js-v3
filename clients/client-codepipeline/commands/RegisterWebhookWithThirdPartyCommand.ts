@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterWebhookWithThirdPartyCommandInput = RegisterWebhookWithThirdPartyInput;
-export type RegisterWebhookWithThirdPartyCommandOutput = RegisterWebhookWithThirdPartyOutput & __MetadataBearer;
+export interface RegisterWebhookWithThirdPartyCommandInput extends RegisterWebhookWithThirdPartyInput {}
+export interface RegisterWebhookWithThirdPartyCommandOutput
+  extends RegisterWebhookWithThirdPartyOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Configures a connection between the webhook that was created and the external tool

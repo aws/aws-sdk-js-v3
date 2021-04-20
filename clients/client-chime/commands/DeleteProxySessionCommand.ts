@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProxySessionCommandInput = DeleteProxySessionRequest;
-export type DeleteProxySessionCommandOutput = __MetadataBearer;
+export interface DeleteProxySessionCommandInput extends DeleteProxySessionRequest {}
+export interface DeleteProxySessionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified proxy session from the specified Amazon Chime Voice Connector.</p>

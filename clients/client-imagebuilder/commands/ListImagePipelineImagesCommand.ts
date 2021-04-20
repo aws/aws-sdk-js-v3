@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListImagePipelineImagesCommandInput = ListImagePipelineImagesRequest;
-export type ListImagePipelineImagesCommandOutput = ListImagePipelineImagesResponse & __MetadataBearer;
+export interface ListImagePipelineImagesCommandInput extends ListImagePipelineImagesRequest {}
+export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineImagesResponse, __MetadataBearer {}
 
 /**
  * <p> Returns a list of images created by the specified pipeline.</p>

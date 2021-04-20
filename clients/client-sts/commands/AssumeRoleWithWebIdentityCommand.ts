@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssumeRoleWithWebIdentityCommandInput = AssumeRoleWithWebIdentityRequest;
-export type AssumeRoleWithWebIdentityCommandOutput = AssumeRoleWithWebIdentityResponse & __MetadataBearer;
+export interface AssumeRoleWithWebIdentityCommandInput extends AssumeRoleWithWebIdentityRequest {}
+export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWebIdentityResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a set of temporary security credentials for users who have been authenticated in

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRulesOfIpGroupCommandInput = UpdateRulesOfIpGroupRequest;
-export type UpdateRulesOfIpGroupCommandOutput = UpdateRulesOfIpGroupResult & __MetadataBearer;
+export interface UpdateRulesOfIpGroupCommandInput extends UpdateRulesOfIpGroupRequest {}
+export interface UpdateRulesOfIpGroupCommandOutput extends UpdateRulesOfIpGroupResult, __MetadataBearer {}
 
 /**
  * <p>Replaces the current rules of the specified IP access control group with the specified

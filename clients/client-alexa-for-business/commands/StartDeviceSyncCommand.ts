@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartDeviceSyncCommandInput = StartDeviceSyncRequest;
-export type StartDeviceSyncCommandOutput = StartDeviceSyncResponse & __MetadataBearer;
+export interface StartDeviceSyncCommandInput extends StartDeviceSyncRequest {}
+export interface StartDeviceSyncCommandOutput extends StartDeviceSyncResponse, __MetadataBearer {}
 
 /**
  * <p>Resets a device and its account to the known default settings. This clears all

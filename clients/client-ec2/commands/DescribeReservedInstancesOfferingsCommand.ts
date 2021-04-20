@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReservedInstancesOfferingsCommandInput = DescribeReservedInstancesOfferingsRequest;
-export type DescribeReservedInstancesOfferingsCommandOutput = DescribeReservedInstancesOfferingsResult &
-  __MetadataBearer;
+export interface DescribeReservedInstancesOfferingsCommandInput extends DescribeReservedInstancesOfferingsRequest {}
+export interface DescribeReservedInstancesOfferingsCommandOutput
+  extends DescribeReservedInstancesOfferingsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes Reserved Instance offerings that are available for purchase. With Reserved Instances, you purchase the right to launch instances for a period of time. During that time period, you do not receive insufficient capacity errors, and you pay a lower usage rate than the rate charged for On-Demand instances for the actual time used.</p>

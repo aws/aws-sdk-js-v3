@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTableStatisticsCommandInput = DescribeTableStatisticsMessage;
-export type DescribeTableStatisticsCommandOutput = DescribeTableStatisticsResponse & __MetadataBearer;
+export interface DescribeTableStatisticsCommandInput extends DescribeTableStatisticsMessage {}
+export interface DescribeTableStatisticsCommandOutput extends DescribeTableStatisticsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns table statistics on the database migration task, including table name, rows

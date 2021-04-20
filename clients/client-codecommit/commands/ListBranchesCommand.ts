@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBranchesCommandInput = ListBranchesInput;
-export type ListBranchesCommandOutput = ListBranchesOutput & __MetadataBearer;
+export interface ListBranchesCommandInput extends ListBranchesInput {}
+export interface ListBranchesCommandOutput extends ListBranchesOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about one or more branches in a repository.</p>

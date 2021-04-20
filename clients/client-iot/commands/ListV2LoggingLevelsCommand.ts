@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListV2LoggingLevelsCommandInput = ListV2LoggingLevelsRequest;
-export type ListV2LoggingLevelsCommandOutput = ListV2LoggingLevelsResponse & __MetadataBearer;
+export interface ListV2LoggingLevelsCommandInput extends ListV2LoggingLevelsRequest {}
+export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists logging levels.</p>

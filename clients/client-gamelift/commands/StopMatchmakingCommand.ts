@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopMatchmakingCommandInput = StopMatchmakingInput;
-export type StopMatchmakingCommandOutput = StopMatchmakingOutput & __MetadataBearer;
+export interface StopMatchmakingCommandInput extends StopMatchmakingInput {}
+export interface StopMatchmakingCommandOutput extends StopMatchmakingOutput, __MetadataBearer {}
 
 /**
  * <p>Cancels a matchmaking ticket or match backfill ticket that is currently being

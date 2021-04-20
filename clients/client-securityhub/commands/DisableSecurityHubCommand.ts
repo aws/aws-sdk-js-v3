@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableSecurityHubCommandInput = DisableSecurityHubRequest;
-export type DisableSecurityHubCommandOutput = DisableSecurityHubResponse & __MetadataBearer;
+export interface DisableSecurityHubCommandInput extends DisableSecurityHubRequest {}
+export interface DisableSecurityHubCommandOutput extends DisableSecurityHubResponse, __MetadataBearer {}
 
 /**
  * <p>Disables Security Hub in your account only in the current Region. To disable Security Hub in all

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateFileSystemAliasesCommandInput = AssociateFileSystemAliasesRequest;
-export type AssociateFileSystemAliasesCommandOutput = AssociateFileSystemAliasesResponse & __MetadataBearer;
+export interface AssociateFileSystemAliasesCommandInput extends AssociateFileSystemAliasesRequest {}
+export interface AssociateFileSystemAliasesCommandOutput extends AssociateFileSystemAliasesResponse, __MetadataBearer {}
 
 /**
  * <p>Use this action to associate one or more Domain Name Server (DNS) aliases with an existing Amazon FSx for Windows File Server file system.

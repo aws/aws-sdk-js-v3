@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRepositoryCommandInput = CreateRepositoryInput;
-export type CreateRepositoryCommandOutput = CreateRepositoryOutput & __MetadataBearer;
+export interface CreateRepositoryCommandInput extends CreateRepositoryInput {}
+export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new, empty repository.</p>

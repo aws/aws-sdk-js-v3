@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReportDefinitionsCommandInput = DescribeReportDefinitionsRequest;
-export type DescribeReportDefinitionsCommandOutput = DescribeReportDefinitionsResponse & __MetadataBearer;
+export interface DescribeReportDefinitionsCommandInput extends DescribeReportDefinitionsRequest {}
+export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDefinitionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the AWS Cost and Usage reports available to this account.</p>

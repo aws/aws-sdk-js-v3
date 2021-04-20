@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePublicDnsNamespaceCommandInput = CreatePublicDnsNamespaceRequest;
-export type CreatePublicDnsNamespaceCommandOutput = CreatePublicDnsNamespaceResponse & __MetadataBearer;
+export interface CreatePublicDnsNamespaceCommandInput extends CreatePublicDnsNamespaceRequest {}
+export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNamespaceResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a public namespace based on DNS, which will be visible on the internet. The namespace defines your

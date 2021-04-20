@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutStorageLensConfigurationCommandInput = PutStorageLensConfigurationRequest;
-export type PutStorageLensConfigurationCommandOutput = __MetadataBearer;
+export interface PutStorageLensConfigurationCommandInput extends PutStorageLensConfigurationRequest {}
+export interface PutStorageLensConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Puts an Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Working with

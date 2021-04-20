@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagOpenIDConnectProviderCommandInput = UntagOpenIDConnectProviderRequest;
-export type UntagOpenIDConnectProviderCommandOutput = __MetadataBearer;
+export interface UntagOpenIDConnectProviderCommandInput extends UntagOpenIDConnectProviderRequest {}
+export interface UntagOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified tags from the specified OpenID Connect (OIDC)-compatible identity

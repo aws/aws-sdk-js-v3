@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCommandsCommandInput = ListCommandsRequest;
-export type ListCommandsCommandOutput = ListCommandsResult & __MetadataBearer;
+export interface ListCommandsCommandInput extends ListCommandsRequest {}
+export interface ListCommandsCommandOutput extends ListCommandsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the commands requested by users of the AWS account.</p>

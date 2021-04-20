@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDeleteCommandInput = BatchDeleteRequest;
-export type BatchDeleteCommandOutput = BatchDeleteResponse & __MetadataBearer;
+export interface BatchDeleteCommandInput extends BatchDeleteRequest {}
+export interface BatchDeleteCommandOutput extends BatchDeleteResponse, __MetadataBearer {}
 
 /**
  * Starts delete of resources.

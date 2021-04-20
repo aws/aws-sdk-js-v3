@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSigningJobCommandInput = DescribeSigningJobRequest;
-export type DescribeSigningJobCommandOutput = DescribeSigningJobResponse & __MetadataBearer;
+export interface DescribeSigningJobCommandInput extends DescribeSigningJobRequest {}
+export interface DescribeSigningJobCommandOutput extends DescribeSigningJobResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a specific code signing job. You specify the job by using

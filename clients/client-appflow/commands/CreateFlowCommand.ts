@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFlowCommandInput = CreateFlowRequest;
-export type CreateFlowCommandOutput = CreateFlowResponse & __MetadataBearer;
+export interface CreateFlowCommandInput extends CreateFlowRequest {}
+export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataBearer {}
 
 /**
  * <p>

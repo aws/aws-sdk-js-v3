@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSMSAttributesCommandInput = GetSMSAttributesInput;
-export type GetSMSAttributesCommandOutput = GetSMSAttributesResponse & __MetadataBearer;
+export interface GetSMSAttributesCommandInput extends GetSMSAttributesInput {}
+export interface GetSMSAttributesCommandOutput extends GetSMSAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the settings for sending SMS messages from your account.</p>

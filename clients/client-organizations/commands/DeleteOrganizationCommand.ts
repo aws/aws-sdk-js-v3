@@ -16,8 +16,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteOrganizationCommandInput = {};
-export type DeleteOrganizationCommandOutput = __MetadataBearer;
+export interface DeleteOrganizationCommandInput {}
+export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the organization. You can delete an organization only by using credentials

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDirectoryCommandInput = DeleteDirectoryRequest;
-export type DeleteDirectoryCommandOutput = DeleteDirectoryResult & __MetadataBearer;
+export interface DeleteDirectoryCommandInput extends DeleteDirectoryRequest {}
+export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an AWS Directory Service directory.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterOnPremisesInstanceCommandInput = RegisterOnPremisesInstanceInput;
-export type RegisterOnPremisesInstanceCommandOutput = __MetadataBearer;
+export interface RegisterOnPremisesInstanceCommandInput extends RegisterOnPremisesInstanceInput {}
+export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Registers an on-premises instance.</p>

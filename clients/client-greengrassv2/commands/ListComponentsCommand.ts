@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListComponentsCommandInput = ListComponentsRequest;
-export type ListComponentsCommandOutput = ListComponentsResponse & __MetadataBearer;
+export interface ListComponentsCommandInput extends ListComponentsRequest {}
+export interface ListComponentsCommandOutput extends ListComponentsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of component summaries. This list includes components that you

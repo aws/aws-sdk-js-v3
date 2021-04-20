@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLifecycleHookCommandInput = DeleteLifecycleHookType;
-export type DeleteLifecycleHookCommandOutput = DeleteLifecycleHookAnswer & __MetadataBearer;
+export interface DeleteLifecycleHookCommandInput extends DeleteLifecycleHookType {}
+export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAnswer, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified lifecycle hook.</p>

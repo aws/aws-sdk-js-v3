@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEgressOnlyInternetGatewayCommandInput = CreateEgressOnlyInternetGatewayRequest;
-export type CreateEgressOnlyInternetGatewayCommandOutput = CreateEgressOnlyInternetGatewayResult & __MetadataBearer;
+export interface CreateEgressOnlyInternetGatewayCommandInput extends CreateEgressOnlyInternetGatewayRequest {}
+export interface CreateEgressOnlyInternetGatewayCommandOutput
+  extends CreateEgressOnlyInternetGatewayResult,
+    __MetadataBearer {}
 
 /**
  * <p>[IPv6 only] Creates an egress-only internet gateway for your VPC. An egress-only

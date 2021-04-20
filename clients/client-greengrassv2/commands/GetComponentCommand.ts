@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetComponentCommandInput = GetComponentRequest;
-export type GetComponentCommandOutput = GetComponentResponse & __MetadataBearer;
+export interface GetComponentCommandInput extends GetComponentRequest {}
+export interface GetComponentCommandOutput extends GetComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the recipe for a version of a component. Core devices can call this operation to

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteApprovalRuleTemplateCommandInput = DeleteApprovalRuleTemplateInput;
-export type DeleteApprovalRuleTemplateCommandOutput = DeleteApprovalRuleTemplateOutput & __MetadataBearer;
+export interface DeleteApprovalRuleTemplateCommandInput extends DeleteApprovalRuleTemplateInput {}
+export interface DeleteApprovalRuleTemplateCommandOutput extends DeleteApprovalRuleTemplateOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a specified approval rule template. Deleting a template does not remove approval rules on pull requests already created with the template.</p>

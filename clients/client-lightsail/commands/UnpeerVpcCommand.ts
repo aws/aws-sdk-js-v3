@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UnpeerVpcCommandInput = UnpeerVpcRequest;
-export type UnpeerVpcCommandOutput = UnpeerVpcResult & __MetadataBearer;
+export interface UnpeerVpcCommandInput extends UnpeerVpcRequest {}
+export interface UnpeerVpcCommandOutput extends UnpeerVpcResult, __MetadataBearer {}
 
 /**
  * <p>Attempts to unpeer the Lightsail VPC from the user's default VPC.</p>

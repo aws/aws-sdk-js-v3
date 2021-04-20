@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPendingInvitationResourcesCommandInput = ListPendingInvitationResourcesRequest;
-export type ListPendingInvitationResourcesCommandOutput = ListPendingInvitationResourcesResponse & __MetadataBearer;
+export interface ListPendingInvitationResourcesCommandInput extends ListPendingInvitationResourcesRequest {}
+export interface ListPendingInvitationResourcesCommandOutput
+  extends ListPendingInvitationResourcesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the resources in a resource share that is shared with you but that the invitation is still pending for.</p>

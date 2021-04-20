@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateChannelBanCommandInput = CreateChannelBanRequest;
-export type CreateChannelBanCommandOutput = CreateChannelBanResponse & __MetadataBearer;
+export interface CreateChannelBanCommandInput extends CreateChannelBanRequest {}
+export interface CreateChannelBanCommandOutput extends CreateChannelBanResponse, __MetadataBearer {}
 
 /**
  * <p>Permanently bans a member from a channel. Moderators can't add banned members to a channel.

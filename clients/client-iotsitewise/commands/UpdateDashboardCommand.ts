@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDashboardCommandInput = UpdateDashboardRequest;
-export type UpdateDashboardCommandOutput = UpdateDashboardResponse & __MetadataBearer;
+export interface UpdateDashboardCommandInput extends UpdateDashboardRequest {}
+export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an AWS IoT SiteWise Monitor dashboard.</p>

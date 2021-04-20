@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeProjectVersionsCommandInput = DescribeProjectVersionsRequest;
-export type DescribeProjectVersionsCommandOutput = DescribeProjectVersionsResponse & __MetadataBearer;
+export interface DescribeProjectVersionsCommandInput extends DescribeProjectVersionsRequest {}
+export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists and describes the models in an Amazon Rekognition Custom Labels project. You

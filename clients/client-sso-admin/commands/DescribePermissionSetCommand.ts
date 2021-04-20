@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePermissionSetCommandInput = DescribePermissionSetRequest;
-export type DescribePermissionSetCommandOutput = DescribePermissionSetResponse & __MetadataBearer;
+export interface DescribePermissionSetCommandInput extends DescribePermissionSetRequest {}
+export interface DescribePermissionSetCommandOutput extends DescribePermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the details of the permission set.</p>

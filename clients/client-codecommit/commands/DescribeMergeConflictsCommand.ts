@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMergeConflictsCommandInput = DescribeMergeConflictsInput;
-export type DescribeMergeConflictsCommandOutput = DescribeMergeConflictsOutput & __MetadataBearer;
+export interface DescribeMergeConflictsCommandInput extends DescribeMergeConflictsInput {}
+export interface DescribeMergeConflictsCommandOutput extends DescribeMergeConflictsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about one or more merge conflicts in the attempted merge of two

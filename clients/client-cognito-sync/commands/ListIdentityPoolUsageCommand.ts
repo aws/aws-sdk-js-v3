@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListIdentityPoolUsageCommandInput = ListIdentityPoolUsageRequest;
-export type ListIdentityPoolUsageCommandOutput = ListIdentityPoolUsageResponse & __MetadataBearer;
+export interface ListIdentityPoolUsageCommandInput extends ListIdentityPoolUsageRequest {}
+export interface ListIdentityPoolUsageCommandOutput extends ListIdentityPoolUsageResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of identity pools registered with Cognito.</p>

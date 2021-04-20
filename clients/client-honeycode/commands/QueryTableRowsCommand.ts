@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type QueryTableRowsCommandInput = QueryTableRowsRequest;
-export type QueryTableRowsCommandOutput = QueryTableRowsResult & __MetadataBearer;
+export interface QueryTableRowsCommandInput extends QueryTableRowsRequest {}
+export interface QueryTableRowsCommandOutput extends QueryTableRowsResult, __MetadataBearer {}
 
 /**
  * <p>

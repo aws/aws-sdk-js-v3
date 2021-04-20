@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateTransitGatewayConnectPeerCommandInput = AssociateTransitGatewayConnectPeerRequest;
-export type AssociateTransitGatewayConnectPeerCommandOutput = AssociateTransitGatewayConnectPeerResponse &
-  __MetadataBearer;
+export interface AssociateTransitGatewayConnectPeerCommandInput extends AssociateTransitGatewayConnectPeerRequest {}
+export interface AssociateTransitGatewayConnectPeerCommandOutput
+  extends AssociateTransitGatewayConnectPeerResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates a transit gateway Connect peer with a device, and optionally, with a link. If you

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RecordLifecycleActionHeartbeatCommandInput = RecordLifecycleActionHeartbeatType;
-export type RecordLifecycleActionHeartbeatCommandOutput = RecordLifecycleActionHeartbeatAnswer & __MetadataBearer;
+export interface RecordLifecycleActionHeartbeatCommandInput extends RecordLifecycleActionHeartbeatType {}
+export interface RecordLifecycleActionHeartbeatCommandOutput
+  extends RecordLifecycleActionHeartbeatAnswer,
+    __MetadataBearer {}
 
 /**
  * <p>Records a heartbeat for the lifecycle action associated with the specified token or

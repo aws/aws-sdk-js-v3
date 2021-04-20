@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutLifecycleEventHookExecutionStatusCommandInput = PutLifecycleEventHookExecutionStatusInput;
-export type PutLifecycleEventHookExecutionStatusCommandOutput = PutLifecycleEventHookExecutionStatusOutput &
-  __MetadataBearer;
+export interface PutLifecycleEventHookExecutionStatusCommandInput extends PutLifecycleEventHookExecutionStatusInput {}
+export interface PutLifecycleEventHookExecutionStatusCommandOutput
+  extends PutLifecycleEventHookExecutionStatusOutput,
+    __MetadataBearer {}
 
 /**
  * <p> Sets the result of a Lambda validation function. The function validates lifecycle

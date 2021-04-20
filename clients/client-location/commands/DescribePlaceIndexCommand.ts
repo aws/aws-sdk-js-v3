@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePlaceIndexCommandInput = DescribePlaceIndexRequest;
-export type DescribePlaceIndexCommandOutput = DescribePlaceIndexResponse & __MetadataBearer;
+export interface DescribePlaceIndexCommandInput extends DescribePlaceIndexRequest {}
+export interface DescribePlaceIndexCommandOutput extends DescribePlaceIndexResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the Place index resource details.</p>

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVpcEndpointServiceConfigurationsCommandInput = DeleteVpcEndpointServiceConfigurationsRequest;
-export type DeleteVpcEndpointServiceConfigurationsCommandOutput = DeleteVpcEndpointServiceConfigurationsResult &
-  __MetadataBearer;
+export interface DeleteVpcEndpointServiceConfigurationsCommandInput
+  extends DeleteVpcEndpointServiceConfigurationsRequest {}
+export interface DeleteVpcEndpointServiceConfigurationsCommandOutput
+  extends DeleteVpcEndpointServiceConfigurationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes one or more VPC endpoint service configurations in your account. Before you

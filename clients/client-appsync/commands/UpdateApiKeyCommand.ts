@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateApiKeyCommandInput = UpdateApiKeyRequest;
-export type UpdateApiKeyCommandOutput = UpdateApiKeyResponse & __MetadataBearer;
+export interface UpdateApiKeyCommandInput extends UpdateApiKeyRequest {}
+export interface UpdateApiKeyCommandOutput extends UpdateApiKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an API key. The key can be updated while it is not deleted.</p>

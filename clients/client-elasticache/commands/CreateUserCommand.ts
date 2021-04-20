@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUserCommandInput = CreateUserMessage;
-export type CreateUserCommandOutput = User & __MetadataBearer;
+export interface CreateUserCommandInput extends CreateUserMessage {}
+export interface CreateUserCommandOutput extends User, __MetadataBearer {}
 
 /**
  * <p>For Redis engine version 6.x onwards: Creates a Redis user. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>.</p>

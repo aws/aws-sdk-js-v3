@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePrimaryEmailAddressCommandInput = UpdatePrimaryEmailAddressRequest;
-export type UpdatePrimaryEmailAddressCommandOutput = UpdatePrimaryEmailAddressResponse & __MetadataBearer;
+export interface UpdatePrimaryEmailAddressCommandInput extends UpdatePrimaryEmailAddressRequest {}
+export interface UpdatePrimaryEmailAddressCommandOutput extends UpdatePrimaryEmailAddressResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the primary email for a user, group, or resource. The current email is moved

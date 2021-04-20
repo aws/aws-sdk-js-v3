@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetQueueCommandInput = GetQueueRequest;
-export type GetQueueCommandOutput = GetQueueResponse & __MetadataBearer;
+export interface GetQueueCommandInput extends GetQueueRequest {}
+export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBearer {}
 
 /**
  * Retrieve the JSON for a specific queue.

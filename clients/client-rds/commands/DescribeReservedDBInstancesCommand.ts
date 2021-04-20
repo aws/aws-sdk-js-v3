@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReservedDBInstancesCommandInput = DescribeReservedDBInstancesMessage;
-export type DescribeReservedDBInstancesCommandOutput = ReservedDBInstanceMessage & __MetadataBearer;
+export interface DescribeReservedDBInstancesCommandInput extends DescribeReservedDBInstancesMessage {}
+export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInstanceMessage, __MetadataBearer {}
 
 /**
  * <p>Returns information about reserved DB instances for this account, or about a specified reserved DB instance.</p>

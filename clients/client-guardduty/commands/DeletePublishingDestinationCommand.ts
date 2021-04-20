@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePublishingDestinationCommandInput = DeletePublishingDestinationRequest;
-export type DeletePublishingDestinationCommandOutput = DeletePublishingDestinationResponse & __MetadataBearer;
+export interface DeletePublishingDestinationCommandInput extends DeletePublishingDestinationRequest {}
+export interface DeletePublishingDestinationCommandOutput
+  extends DeletePublishingDestinationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the publishing definition with the specified <code>destinationId</code>.</p>

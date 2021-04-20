@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InitializeClusterCommandInput = InitializeClusterRequest;
-export type InitializeClusterCommandOutput = InitializeClusterResponse & __MetadataBearer;
+export interface InitializeClusterCommandInput extends InitializeClusterRequest {}
+export interface InitializeClusterCommandOutput extends InitializeClusterResponse, __MetadataBearer {}
 
 /**
  * <p>Claims an AWS CloudHSM cluster by submitting the cluster certificate issued by your

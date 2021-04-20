@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableTopicRuleCommandInput = DisableTopicRuleRequest;
-export type DisableTopicRuleCommandOutput = __MetadataBearer;
+export interface DisableTopicRuleCommandInput extends DisableTopicRuleRequest {}
+export interface DisableTopicRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disables the rule.</p>

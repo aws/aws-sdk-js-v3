@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePlaybackKeyPairCommandInput = DeletePlaybackKeyPairRequest;
-export type DeletePlaybackKeyPairCommandOutput = DeletePlaybackKeyPairResponse & __MetadataBearer;
+export interface DeletePlaybackKeyPairCommandInput extends DeletePlaybackKeyPairRequest {}
+export interface DeletePlaybackKeyPairCommandOutput extends DeletePlaybackKeyPairResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a specified authorization key pair. This invalidates future viewer tokens

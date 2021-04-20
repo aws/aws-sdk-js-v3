@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListNodegroupsCommandInput = ListNodegroupsRequest;
-export type ListNodegroupsCommandOutput = ListNodegroupsResponse & __MetadataBearer;
+export interface ListNodegroupsCommandInput extends ListNodegroupsRequest {}
+export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Amazon EKS managed node groups associated with the specified cluster in your

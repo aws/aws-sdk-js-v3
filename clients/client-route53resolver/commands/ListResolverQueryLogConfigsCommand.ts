@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResolverQueryLogConfigsCommandInput = ListResolverQueryLogConfigsRequest;
-export type ListResolverQueryLogConfigsCommandOutput = ListResolverQueryLogConfigsResponse & __MetadataBearer;
+export interface ListResolverQueryLogConfigsCommandInput extends ListResolverQueryLogConfigsRequest {}
+export interface ListResolverQueryLogConfigsCommandOutput
+  extends ListResolverQueryLogConfigsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists information about the specified query logging configurations. Each configuration defines where you want Resolver to save

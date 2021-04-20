@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPersonalizedRankingCommandInput = GetPersonalizedRankingRequest;
-export type GetPersonalizedRankingCommandOutput = GetPersonalizedRankingResponse & __MetadataBearer;
+export interface GetPersonalizedRankingCommandInput extends GetPersonalizedRankingRequest {}
+export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRankingResponse, __MetadataBearer {}
 
 /**
  * <p>Re-ranks a list of recommended items for the given user. The first item in the list is

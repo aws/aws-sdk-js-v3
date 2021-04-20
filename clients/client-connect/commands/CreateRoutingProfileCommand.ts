@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRoutingProfileCommandInput = CreateRoutingProfileRequest;
-export type CreateRoutingProfileCommandOutput = CreateRoutingProfileResponse & __MetadataBearer;
+export interface CreateRoutingProfileCommandInput extends CreateRoutingProfileRequest {}
+export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new routing profile.</p>

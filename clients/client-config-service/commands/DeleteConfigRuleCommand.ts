@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteConfigRuleCommandInput = DeleteConfigRuleRequest;
-export type DeleteConfigRuleCommandOutput = __MetadataBearer;
+export interface DeleteConfigRuleCommandInput extends DeleteConfigRuleRequest {}
+export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified AWS Config rule and all of its evaluation

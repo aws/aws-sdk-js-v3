@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSignalingChannelCommandInput = UpdateSignalingChannelInput;
-export type UpdateSignalingChannelCommandOutput = UpdateSignalingChannelOutput & __MetadataBearer;
+export interface UpdateSignalingChannelCommandInput extends UpdateSignalingChannelInput {}
+export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChannelOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the existing signaling channel. This is an asynchronous operation and takes

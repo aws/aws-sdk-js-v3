@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartStreamEncryptionCommandInput = StartStreamEncryptionInput;
-export type StartStreamEncryptionCommandOutput = __MetadataBearer;
+export interface StartStreamEncryptionCommandInput extends StartStreamEncryptionInput {}
+export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables or updates server-side encryption using an AWS KMS key for a specified

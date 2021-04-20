@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAccountsCommandInput = ListAccountsRequest;
-export type ListAccountsCommandOutput = ListAccountsResponse & __MetadataBearer;
+export interface ListAccountsCommandInput extends ListAccountsRequest {}
+export interface ListAccountsCommandOutput extends ListAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Amazon Chime accounts under the administrator's AWS account. You can filter accounts

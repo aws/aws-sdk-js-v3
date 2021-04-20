@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartLabelDetectionCommandInput = StartLabelDetectionRequest;
-export type StartLabelDetectionCommandOutput = StartLabelDetectionResponse & __MetadataBearer;
+export interface StartLabelDetectionCommandInput extends StartLabelDetectionRequest {}
+export interface StartLabelDetectionCommandOutput extends StartLabelDetectionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts asynchronous detection of labels in a stored video.</p>

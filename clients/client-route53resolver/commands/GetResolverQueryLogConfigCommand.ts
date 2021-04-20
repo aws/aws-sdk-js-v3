@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResolverQueryLogConfigCommandInput = GetResolverQueryLogConfigRequest;
-export type GetResolverQueryLogConfigCommandOutput = GetResolverQueryLogConfigResponse & __MetadataBearer;
+export interface GetResolverQueryLogConfigCommandInput extends GetResolverQueryLogConfigRequest {}
+export interface GetResolverQueryLogConfigCommandOutput extends GetResolverQueryLogConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a specified Resolver query logging configuration, such as the number of VPCs that the configuration

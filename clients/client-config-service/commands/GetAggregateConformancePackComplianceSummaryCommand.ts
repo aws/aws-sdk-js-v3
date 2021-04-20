@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAggregateConformancePackComplianceSummaryCommandInput = GetAggregateConformancePackComplianceSummaryRequest;
-export type GetAggregateConformancePackComplianceSummaryCommandOutput = GetAggregateConformancePackComplianceSummaryResponse &
-  __MetadataBearer;
+export interface GetAggregateConformancePackComplianceSummaryCommandInput
+  extends GetAggregateConformancePackComplianceSummaryRequest {}
+export interface GetAggregateConformancePackComplianceSummaryCommandOutput
+  extends GetAggregateConformancePackComplianceSummaryResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the count of compliant and noncompliant conformance packs across all AWS Accounts and AWS Regions in an aggregator. You can filter based on AWS Account ID or AWS Region.</p>

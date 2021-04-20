@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEventCommandInput = DeleteEventRequest;
-export type DeleteEventCommandOutput = DeleteEventResult & __MetadataBearer;
+export interface DeleteEventCommandInput extends DeleteEventRequest {}
+export interface DeleteEventCommandOutput extends DeleteEventResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified event.</p>

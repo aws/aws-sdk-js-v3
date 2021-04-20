@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AllocateAddressCommandInput = AllocateAddressRequest;
-export type AllocateAddressCommandOutput = AllocateAddressResult & __MetadataBearer;
+export interface AllocateAddressCommandInput extends AllocateAddressRequest {}
+export interface AllocateAddressCommandOutput extends AllocateAddressResult, __MetadataBearer {}
 
 /**
  * <p>Allocates an Elastic IP address to your AWS account. After you allocate the Elastic IP address you can associate

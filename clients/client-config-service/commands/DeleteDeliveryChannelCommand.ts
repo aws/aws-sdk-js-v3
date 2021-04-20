@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDeliveryChannelCommandInput = DeleteDeliveryChannelRequest;
-export type DeleteDeliveryChannelCommandOutput = __MetadataBearer;
+export interface DeleteDeliveryChannelCommandInput extends DeleteDeliveryChannelRequest {}
+export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the delivery channel.</p>

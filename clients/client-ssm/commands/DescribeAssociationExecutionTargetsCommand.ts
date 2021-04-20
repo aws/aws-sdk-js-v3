@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAssociationExecutionTargetsCommandInput = DescribeAssociationExecutionTargetsRequest;
-export type DescribeAssociationExecutionTargetsCommandOutput = DescribeAssociationExecutionTargetsResult &
-  __MetadataBearer;
+export interface DescribeAssociationExecutionTargetsCommandInput extends DescribeAssociationExecutionTargetsRequest {}
+export interface DescribeAssociationExecutionTargetsCommandOutput
+  extends DescribeAssociationExecutionTargetsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Use this API action to view information about a specific execution of a specific

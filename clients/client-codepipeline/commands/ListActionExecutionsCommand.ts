@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListActionExecutionsCommandInput = ListActionExecutionsInput;
-export type ListActionExecutionsCommandOutput = ListActionExecutionsOutput & __MetadataBearer;
+export interface ListActionExecutionsCommandInput extends ListActionExecutionsInput {}
+export interface ListActionExecutionsCommandOutput extends ListActionExecutionsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the action executions that have occurred in a pipeline.</p>

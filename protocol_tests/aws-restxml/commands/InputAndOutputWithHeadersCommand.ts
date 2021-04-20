@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InputAndOutputWithHeadersCommandInput = InputAndOutputWithHeadersIO;
-export type InputAndOutputWithHeadersCommandOutput = InputAndOutputWithHeadersIO & __MetadataBearer;
+export interface InputAndOutputWithHeadersCommandInput extends InputAndOutputWithHeadersIO {}
+export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWithHeadersIO, __MetadataBearer {}
 
 /**
  * The example tests how requests and responses are serialized when there is

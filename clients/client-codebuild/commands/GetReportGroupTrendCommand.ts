@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetReportGroupTrendCommandInput = GetReportGroupTrendInput;
-export type GetReportGroupTrendCommandOutput = GetReportGroupTrendOutput & __MetadataBearer;
+export interface GetReportGroupTrendCommandInput extends GetReportGroupTrendInput {}
+export interface GetReportGroupTrendCommandOutput extends GetReportGroupTrendOutput, __MetadataBearer {}
 
 /**
  * <p>Analyzes and accumulates test report values for the specified test reports.</p>

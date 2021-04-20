@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDatasetCommandInput = UpdateDatasetRequest;
-export type UpdateDatasetCommandOutput = UpdateDatasetResponse & __MetadataBearer;
+export interface UpdateDatasetCommandInput extends UpdateDatasetRequest {}
+export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the definition of an existing DataBrew dataset.</p>

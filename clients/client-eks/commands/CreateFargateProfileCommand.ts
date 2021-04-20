@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFargateProfileCommandInput = CreateFargateProfileRequest;
-export type CreateFargateProfileCommandOutput = CreateFargateProfileResponse & __MetadataBearer;
+export interface CreateFargateProfileCommandInput extends CreateFargateProfileRequest {}
+export interface CreateFargateProfileCommandOutput extends CreateFargateProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS Fargate profile for your Amazon EKS cluster. You must have at least one Fargate

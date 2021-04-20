@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateResourceSharePermissionCommandInput = DisassociateResourceSharePermissionRequest;
-export type DisassociateResourceSharePermissionCommandOutput = DisassociateResourceSharePermissionResponse &
-  __MetadataBearer;
+export interface DisassociateResourceSharePermissionCommandInput extends DisassociateResourceSharePermissionRequest {}
+export interface DisassociateResourceSharePermissionCommandOutput
+  extends DisassociateResourceSharePermissionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates an AWS RAM permission from a resource share.</p>

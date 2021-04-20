@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAccountAssignmentDeletionStatusCommandInput = DescribeAccountAssignmentDeletionStatusRequest;
-export type DescribeAccountAssignmentDeletionStatusCommandOutput = DescribeAccountAssignmentDeletionStatusResponse &
-  __MetadataBearer;
+export interface DescribeAccountAssignmentDeletionStatusCommandInput
+  extends DescribeAccountAssignmentDeletionStatusRequest {}
+export interface DescribeAccountAssignmentDeletionStatusCommandOutput
+  extends DescribeAccountAssignmentDeletionStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the status of the assignment deletion request.</p>

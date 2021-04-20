@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRecordsCommandInput = ListRecordsRequest;
-export type ListRecordsCommandOutput = ListRecordsResponse & __MetadataBearer;
+export interface ListRecordsCommandInput extends ListRecordsRequest {}
+export interface ListRecordsCommandOutput extends ListRecordsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets paginated records, optionally changed after a particular sync count for a dataset and

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeScalingParametersCommandInput = DescribeScalingParametersRequest;
-export type DescribeScalingParametersCommandOutput = DescribeScalingParametersResponse & __MetadataBearer;
+export interface DescribeScalingParametersCommandInput extends DescribeScalingParametersRequest {}
+export interface DescribeScalingParametersCommandOutput extends DescribeScalingParametersResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the scaling parameters configured for a domain. A domain's scaling parameters specify the desired search instance type and replication count. For more information, see   <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html" target="_blank">Configuring Scaling Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>

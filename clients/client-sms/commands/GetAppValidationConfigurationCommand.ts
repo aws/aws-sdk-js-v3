@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAppValidationConfigurationCommandInput = GetAppValidationConfigurationRequest;
-export type GetAppValidationConfigurationCommandOutput = GetAppValidationConfigurationResponse & __MetadataBearer;
+export interface GetAppValidationConfigurationCommandInput extends GetAppValidationConfigurationRequest {}
+export interface GetAppValidationConfigurationCommandOutput
+  extends GetAppValidationConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a configuration for validating an application.</p>

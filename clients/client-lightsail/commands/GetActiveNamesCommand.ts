@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetActiveNamesCommandInput = GetActiveNamesRequest;
-export type GetActiveNamesCommandOutput = GetActiveNamesResult & __MetadataBearer;
+export interface GetActiveNamesCommandInput extends GetActiveNamesRequest {}
+export interface GetActiveNamesCommandOutput extends GetActiveNamesResult, __MetadataBearer {}
 
 /**
  * <p>Returns the names of all active (not deleted) resources.</p>

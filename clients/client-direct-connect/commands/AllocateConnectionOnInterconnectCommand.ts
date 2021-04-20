@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AllocateConnectionOnInterconnectCommandInput = AllocateConnectionOnInterconnectRequest;
-export type AllocateConnectionOnInterconnectCommandOutput = Connection & __MetadataBearer;
+export interface AllocateConnectionOnInterconnectCommandInput extends AllocateConnectionOnInterconnectRequest {}
+export interface AllocateConnectionOnInterconnectCommandOutput extends Connection, __MetadataBearer {}
 
 /**
  * @deprecated

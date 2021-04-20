@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAccessKeysCommandInput = ListAccessKeysRequest;
-export type ListAccessKeysCommandOutput = ListAccessKeysResponse & __MetadataBearer;
+export interface ListAccessKeysCommandInput extends ListAccessKeysRequest {}
+export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the access key IDs associated with the specified IAM user.

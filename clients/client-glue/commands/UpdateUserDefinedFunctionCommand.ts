@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateUserDefinedFunctionCommandInput = UpdateUserDefinedFunctionRequest;
-export type UpdateUserDefinedFunctionCommandOutput = UpdateUserDefinedFunctionResponse & __MetadataBearer;
+export interface UpdateUserDefinedFunctionCommandInput extends UpdateUserDefinedFunctionRequest {}
+export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefinedFunctionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing function definition in the Data Catalog.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateConfigurationTemplateCommandInput = CreateConfigurationTemplateMessage;
-export type CreateConfigurationTemplateCommandOutput = ConfigurationSettingsDescription & __MetadataBearer;
+export interface CreateConfigurationTemplateCommandInput extends CreateConfigurationTemplateMessage {}
+export interface CreateConfigurationTemplateCommandOutput extends ConfigurationSettingsDescription, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS Elastic Beanstalk configuration template, associated with a specific Elastic Beanstalk

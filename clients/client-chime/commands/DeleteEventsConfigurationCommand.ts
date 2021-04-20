@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEventsConfigurationCommandInput = DeleteEventsConfigurationRequest;
-export type DeleteEventsConfigurationCommandOutput = __MetadataBearer;
+export interface DeleteEventsConfigurationCommandInput extends DeleteEventsConfigurationRequest {}
+export interface DeleteEventsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the events configuration that allows a bot to receive outgoing events.</p>

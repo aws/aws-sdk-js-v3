@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteThingTypeCommandInput = DeleteThingTypeRequest;
-export type DeleteThingTypeCommandOutput = DeleteThingTypeResponse & __MetadataBearer;
+export interface DeleteThingTypeCommandInput extends DeleteThingTypeRequest {}
+export interface DeleteThingTypeCommandOutput extends DeleteThingTypeResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified thing type. You cannot delete a thing type if it has things

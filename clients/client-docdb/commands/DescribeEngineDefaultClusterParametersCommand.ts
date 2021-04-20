@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEngineDefaultClusterParametersCommandInput = DescribeEngineDefaultClusterParametersMessage;
-export type DescribeEngineDefaultClusterParametersCommandOutput = DescribeEngineDefaultClusterParametersResult &
-  __MetadataBearer;
+export interface DescribeEngineDefaultClusterParametersCommandInput
+  extends DescribeEngineDefaultClusterParametersMessage {}
+export interface DescribeEngineDefaultClusterParametersCommandOutput
+  extends DescribeEngineDefaultClusterParametersResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the default engine and system parameter information for the cluster database

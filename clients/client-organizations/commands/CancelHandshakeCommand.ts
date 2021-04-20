@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelHandshakeCommandInput = CancelHandshakeRequest;
-export type CancelHandshakeCommandOutput = CancelHandshakeResponse & __MetadataBearer;
+export interface CancelHandshakeCommandInput extends CancelHandshakeRequest {}
+export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a handshake. Canceling a handshake sets the handshake state to

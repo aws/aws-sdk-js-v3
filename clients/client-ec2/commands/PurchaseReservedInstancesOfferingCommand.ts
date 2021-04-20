@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PurchaseReservedInstancesOfferingCommandInput = PurchaseReservedInstancesOfferingRequest;
-export type PurchaseReservedInstancesOfferingCommandOutput = PurchaseReservedInstancesOfferingResult & __MetadataBearer;
+export interface PurchaseReservedInstancesOfferingCommandInput extends PurchaseReservedInstancesOfferingRequest {}
+export interface PurchaseReservedInstancesOfferingCommandOutput
+  extends PurchaseReservedInstancesOfferingResult,
+    __MetadataBearer {}
 
 /**
  * <p>Purchases a Reserved Instance for use with your account. With Reserved Instances, you pay a lower

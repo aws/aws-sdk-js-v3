@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopActivityStreamCommandInput = StopActivityStreamRequest;
-export type StopActivityStreamCommandOutput = StopActivityStreamResponse & __MetadataBearer;
+export interface StopActivityStreamCommandInput extends StopActivityStreamRequest {}
+export interface StopActivityStreamCommandOutput extends StopActivityStreamResponse, __MetadataBearer {}
 
 /**
  * <p>Stops a database activity stream that was started using the AWS console,

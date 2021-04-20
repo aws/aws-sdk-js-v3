@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInvitationsCountCommandInput = GetInvitationsCountRequest;
-export type GetInvitationsCountCommandOutput = GetInvitationsCountResponse & __MetadataBearer;
+export interface GetInvitationsCountCommandInput extends GetInvitationsCountRequest {}
+export interface GetInvitationsCountCommandOutput extends GetInvitationsCountResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the count of all Security Hub membership invitations that were sent to the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteNatGatewayCommandInput = DeleteNatGatewayRequest;
-export type DeleteNatGatewayCommandOutput = DeleteNatGatewayResult & __MetadataBearer;
+export interface DeleteNatGatewayCommandInput extends DeleteNatGatewayRequest {}
+export interface DeleteNatGatewayCommandOutput extends DeleteNatGatewayResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified NAT gateway. Deleting a NAT gateway disassociates its Elastic IP address, but does not release the address from your account. Deleting a NAT gateway does not delete any NAT gateway routes in your route tables.</p>

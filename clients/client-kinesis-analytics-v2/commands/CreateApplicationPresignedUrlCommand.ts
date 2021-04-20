@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateApplicationPresignedUrlCommandInput = CreateApplicationPresignedUrlRequest;
-export type CreateApplicationPresignedUrlCommandOutput = CreateApplicationPresignedUrlResponse & __MetadataBearer;
+export interface CreateApplicationPresignedUrlCommandInput extends CreateApplicationPresignedUrlRequest {}
+export interface CreateApplicationPresignedUrlCommandOutput
+  extends CreateApplicationPresignedUrlResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates and returns a URL that you can use to connect to

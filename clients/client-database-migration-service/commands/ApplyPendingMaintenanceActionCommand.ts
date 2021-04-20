@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ApplyPendingMaintenanceActionCommandInput = ApplyPendingMaintenanceActionMessage;
-export type ApplyPendingMaintenanceActionCommandOutput = ApplyPendingMaintenanceActionResponse & __MetadataBearer;
+export interface ApplyPendingMaintenanceActionCommandInput extends ApplyPendingMaintenanceActionMessage {}
+export interface ApplyPendingMaintenanceActionCommandOutput
+  extends ApplyPendingMaintenanceActionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Applies a pending maintenance action to a resource (for example, to a replication instance).</p>

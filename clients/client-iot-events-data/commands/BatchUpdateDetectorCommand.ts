@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchUpdateDetectorCommandInput = BatchUpdateDetectorRequest;
-export type BatchUpdateDetectorCommandOutput = BatchUpdateDetectorResponse & __MetadataBearer;
+export interface BatchUpdateDetectorCommandInput extends BatchUpdateDetectorRequest {}
+export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the state, variable values, and timer settings of one or more detectors (instances)

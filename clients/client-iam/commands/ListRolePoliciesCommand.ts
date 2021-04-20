@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRolePoliciesCommandInput = ListRolePoliciesRequest;
-export type ListRolePoliciesCommandOutput = ListRolePoliciesResponse & __MetadataBearer;
+export interface ListRolePoliciesCommandInput extends ListRolePoliciesRequest {}
+export interface ListRolePoliciesCommandOutput extends ListRolePoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the names of the inline policies that are embedded in the specified IAM

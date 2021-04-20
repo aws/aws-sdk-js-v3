@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePublicKeyCommandInput = UpdatePublicKeyRequest;
-export type UpdatePublicKeyCommandOutput = UpdatePublicKeyResult & __MetadataBearer;
+export interface UpdatePublicKeyCommandInput extends UpdatePublicKeyRequest {}
+export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __MetadataBearer {}
 
 /**
  * <p>Update public key information. Note that the only value you can change is the comment.</p>

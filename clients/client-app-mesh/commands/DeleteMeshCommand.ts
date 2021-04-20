@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMeshCommandInput = DeleteMeshInput;
-export type DeleteMeshCommandOutput = DeleteMeshOutput & __MetadataBearer;
+export interface DeleteMeshCommandInput extends DeleteMeshInput {}
+export interface DeleteMeshCommandOutput extends DeleteMeshOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing service mesh.</p>

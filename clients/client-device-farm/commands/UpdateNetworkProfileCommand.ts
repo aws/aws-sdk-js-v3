@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateNetworkProfileCommandInput = UpdateNetworkProfileRequest;
-export type UpdateNetworkProfileCommandOutput = UpdateNetworkProfileResult & __MetadataBearer;
+export interface UpdateNetworkProfileCommandInput extends UpdateNetworkProfileRequest {}
+export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileResult, __MetadataBearer {}
 
 /**
  * <p>Updates the network profile.</p>

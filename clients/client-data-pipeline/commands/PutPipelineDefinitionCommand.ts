@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutPipelineDefinitionCommandInput = PutPipelineDefinitionInput;
-export type PutPipelineDefinitionCommandOutput = PutPipelineDefinitionOutput & __MetadataBearer;
+export interface PutPipelineDefinitionCommandInput extends PutPipelineDefinitionInput {}
+export interface PutPipelineDefinitionCommandOutput extends PutPipelineDefinitionOutput, __MetadataBearer {}
 
 /**
  * <p>Adds tasks, schedules, and preconditions to the specified pipeline. You can use <code>PutPipelineDefinition</code> to populate a new pipeline.</p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePlacementCommandInput = UpdatePlacementRequest;
-export type UpdatePlacementCommandOutput = UpdatePlacementResponse & __MetadataBearer;
+export interface UpdatePlacementCommandInput extends UpdatePlacementRequest {}
+export interface UpdatePlacementCommandOutput extends UpdatePlacementResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a placement with the given attributes. To clear an attribute, pass an empty value

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBucketLoggingCommandInput = PutBucketLoggingRequest;
-export type PutBucketLoggingCommandOutput = __MetadataBearer;
+export interface PutBucketLoggingCommandInput extends PutBucketLoggingRequest {}
+export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Set the logging parameters for a bucket and to specify permissions for who can view and

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDirectConnectGatewayAssociationCommandInput = UpdateDirectConnectGatewayAssociationRequest;
-export type UpdateDirectConnectGatewayAssociationCommandOutput = UpdateDirectConnectGatewayAssociationResult &
-  __MetadataBearer;
+export interface UpdateDirectConnectGatewayAssociationCommandInput
+  extends UpdateDirectConnectGatewayAssociationRequest {}
+export interface UpdateDirectConnectGatewayAssociationCommandOutput
+  extends UpdateDirectConnectGatewayAssociationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the specified attributes of the Direct Connect gateway association.</p>

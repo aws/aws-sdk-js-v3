@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTypeCommandInput = GetTypeRequest;
-export type GetTypeCommandOutput = GetTypeResponse & __MetadataBearer;
+export interface GetTypeCommandInput extends GetTypeRequest {}
+export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a <code>Type</code> object.</p>

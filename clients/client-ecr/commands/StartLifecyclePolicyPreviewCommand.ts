@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartLifecyclePolicyPreviewCommandInput = StartLifecyclePolicyPreviewRequest;
-export type StartLifecyclePolicyPreviewCommandOutput = StartLifecyclePolicyPreviewResponse & __MetadataBearer;
+export interface StartLifecyclePolicyPreviewCommandInput extends StartLifecyclePolicyPreviewRequest {}
+export interface StartLifecyclePolicyPreviewCommandOutput
+  extends StartLifecyclePolicyPreviewResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Starts a preview of a lifecycle policy for the specified repository. This allows you

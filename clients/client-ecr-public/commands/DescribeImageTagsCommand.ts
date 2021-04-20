@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeImageTagsCommandInput = DescribeImageTagsRequest;
-export type DescribeImageTagsCommandOutput = DescribeImageTagsResponse & __MetadataBearer;
+export interface DescribeImageTagsCommandInput extends DescribeImageTagsRequest {}
+export interface DescribeImageTagsCommandOutput extends DescribeImageTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the image tag details for a repository in a public registry.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreAddressToClassicCommandInput = RestoreAddressToClassicRequest;
-export type RestoreAddressToClassicCommandOutput = RestoreAddressToClassicResult & __MetadataBearer;
+export interface RestoreAddressToClassicCommandInput extends RestoreAddressToClassicRequest {}
+export interface RestoreAddressToClassicCommandOutput extends RestoreAddressToClassicResult, __MetadataBearer {}
 
 /**
  * <p>Restores an Elastic IP address that was previously moved to the EC2-VPC platform back to the EC2-Classic platform. You cannot move an Elastic IP address that was originally allocated for use in EC2-VPC. The Elastic IP address must not be associated with an instance or network interface.</p>

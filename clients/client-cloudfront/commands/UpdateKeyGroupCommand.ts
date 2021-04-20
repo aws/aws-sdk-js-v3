@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateKeyGroupCommandInput = UpdateKeyGroupRequest;
-export type UpdateKeyGroupCommandOutput = UpdateKeyGroupResult & __MetadataBearer;
+export interface UpdateKeyGroupCommandInput extends UpdateKeyGroupRequest {}
+export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __MetadataBearer {}
 
 /**
  * <p>Updates a key group.</p>

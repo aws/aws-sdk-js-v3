@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResolverRuleAssociationCommandInput = GetResolverRuleAssociationRequest;
-export type GetResolverRuleAssociationCommandOutput = GetResolverRuleAssociationResponse & __MetadataBearer;
+export interface GetResolverRuleAssociationCommandInput extends GetResolverRuleAssociationRequest {}
+export interface GetResolverRuleAssociationCommandOutput extends GetResolverRuleAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about an association between a specified Resolver rule and a VPC. You associate a Resolver rule and a VPC using

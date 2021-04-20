@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateOptionGroupCommandInput = CreateOptionGroupMessage;
-export type CreateOptionGroupCommandOutput = CreateOptionGroupResult & __MetadataBearer;
+export interface CreateOptionGroupCommandInput extends CreateOptionGroupMessage {}
+export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new option group. You can create up to 20 option groups.</p>

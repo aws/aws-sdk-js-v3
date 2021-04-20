@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateGroupCommandInput = UpdateGroupInput;
-export type UpdateGroupCommandOutput = UpdateGroupOutput & __MetadataBearer;
+export interface UpdateGroupCommandInput extends UpdateGroupInput {}
+export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the description for an existing group. You cannot update the name of a

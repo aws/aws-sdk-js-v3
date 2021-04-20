@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RetrieveTapeRecoveryPointCommandInput = RetrieveTapeRecoveryPointInput;
-export type RetrieveTapeRecoveryPointCommandOutput = RetrieveTapeRecoveryPointOutput & __MetadataBearer;
+export interface RetrieveTapeRecoveryPointCommandInput extends RetrieveTapeRecoveryPointInput {}
+export interface RetrieveTapeRecoveryPointCommandOutput extends RetrieveTapeRecoveryPointOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the recovery point for the specified virtual tape. This operation is only

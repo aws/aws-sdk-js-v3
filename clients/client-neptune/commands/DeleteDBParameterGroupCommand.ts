@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDBParameterGroupCommandInput = DeleteDBParameterGroupMessage;
-export type DeleteDBParameterGroupCommandOutput = __MetadataBearer;
+export interface DeleteDBParameterGroupCommandInput extends DeleteDBParameterGroupMessage {}
+export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted can't be

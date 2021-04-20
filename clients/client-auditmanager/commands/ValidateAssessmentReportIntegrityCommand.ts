@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ValidateAssessmentReportIntegrityCommandInput = ValidateAssessmentReportIntegrityRequest;
-export type ValidateAssessmentReportIntegrityCommandOutput = ValidateAssessmentReportIntegrityResponse &
-  __MetadataBearer;
+export interface ValidateAssessmentReportIntegrityCommandInput extends ValidateAssessmentReportIntegrityRequest {}
+export interface ValidateAssessmentReportIntegrityCommandOutput
+  extends ValidateAssessmentReportIntegrityResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateClusterParameterGroupCommandInput = CreateClusterParameterGroupMessage;
-export type CreateClusterParameterGroupCommandOutput = CreateClusterParameterGroupResult & __MetadataBearer;
+export interface CreateClusterParameterGroupCommandInput extends CreateClusterParameterGroupMessage {}
+export interface CreateClusterParameterGroupCommandOutput extends CreateClusterParameterGroupResult, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Redshift parameter group.</p>

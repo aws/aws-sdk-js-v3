@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetServiceEndpointCommandInput = GetServiceEndpointRequest;
-export type GetServiceEndpointCommandOutput = GetServiceEndpointResponse & __MetadataBearer;
+export interface GetServiceEndpointCommandInput extends GetServiceEndpointRequest {}
+export interface GetServiceEndpointCommandOutput extends GetServiceEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the account-specific endpoint for Configuration and Update Server (CUPS) protocol or LoRaWAN Network Server (LNS) connections.</p>

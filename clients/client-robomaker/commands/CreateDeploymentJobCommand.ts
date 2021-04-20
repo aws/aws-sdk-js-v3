@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDeploymentJobCommandInput = CreateDeploymentJobRequest;
-export type CreateDeploymentJobCommandOutput = CreateDeploymentJobResponse & __MetadataBearer;
+export interface CreateDeploymentJobCommandInput extends CreateDeploymentJobRequest {}
+export interface CreateDeploymentJobCommandOutput extends CreateDeploymentJobResponse, __MetadataBearer {}
 
 /**
  * <p>Deploys a specific version of a robot application to robots in a fleet.</p>

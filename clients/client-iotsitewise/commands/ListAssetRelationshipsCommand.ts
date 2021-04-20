@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAssetRelationshipsCommandInput = ListAssetRelationshipsRequest;
-export type ListAssetRelationshipsCommandOutput = ListAssetRelationshipsResponse & __MetadataBearer;
+export interface ListAssetRelationshipsCommandInput extends ListAssetRelationshipsRequest {}
+export interface ListAssetRelationshipsCommandOutput extends ListAssetRelationshipsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of asset relationships for an asset. You can use this operation

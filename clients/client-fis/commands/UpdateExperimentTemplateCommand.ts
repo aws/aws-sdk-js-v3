@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateExperimentTemplateCommandInput = UpdateExperimentTemplateRequest;
-export type UpdateExperimentTemplateCommandOutput = UpdateExperimentTemplateResponse & __MetadataBearer;
+export interface UpdateExperimentTemplateCommandInput extends UpdateExperimentTemplateRequest {}
+export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified experiment template.</p>

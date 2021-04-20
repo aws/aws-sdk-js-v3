@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeGroupCommandInput = DescribeGroupRequest;
-export type DescribeGroupCommandOutput = DescribeGroupResponse & __MetadataBearer;
+export interface DescribeGroupCommandInput extends DescribeGroupRequest {}
+export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the group metadata and attributes from <code>GroupId</code> in an identity store.</p>

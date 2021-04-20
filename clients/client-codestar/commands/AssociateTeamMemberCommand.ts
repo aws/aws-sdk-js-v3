@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateTeamMemberCommandInput = AssociateTeamMemberRequest;
-export type AssociateTeamMemberCommandOutput = AssociateTeamMemberResult & __MetadataBearer;
+export interface AssociateTeamMemberCommandInput extends AssociateTeamMemberRequest {}
+export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberResult, __MetadataBearer {}
 
 /**
  * <p>Adds an IAM user to the team for an AWS CodeStar project.</p>

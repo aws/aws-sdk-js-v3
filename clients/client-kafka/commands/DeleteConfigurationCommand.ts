@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteConfigurationCommandInput = DeleteConfigurationRequest;
-export type DeleteConfigurationCommandOutput = DeleteConfigurationResponse & __MetadataBearer;
+export interface DeleteConfigurationCommandInput extends DeleteConfigurationRequest {}
+export interface DeleteConfigurationCommandOutput extends DeleteConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an MSK Configuration.</p>

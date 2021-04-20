@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagRoleCommandInput = UntagRoleRequest;
-export type UntagRoleCommandOutput = __MetadataBearer;
+export interface UntagRoleCommandInput extends UntagRoleRequest {}
+export interface UntagRoleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified tags from the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the

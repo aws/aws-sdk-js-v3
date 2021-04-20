@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDirectoryCommandInput = CreateDirectoryRequest;
-export type CreateDirectoryCommandOutput = CreateDirectoryResult & __MetadataBearer;
+export interface CreateDirectoryCommandInput extends CreateDirectoryRequest {}
+export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __MetadataBearer {}
 
 /**
  * <p>Creates a Simple AD directory. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html">Simple Active Directory</a> in the <i>AWS Directory Service Admin

@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ConfirmDeviceCommandInput = ConfirmDeviceRequest;
-export type ConfirmDeviceCommandOutput = ConfirmDeviceResponse & __MetadataBearer;
+export interface ConfirmDeviceCommandInput extends ConfirmDeviceRequest {}
+export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Confirms tracking of the device. This API call is the call that begins device

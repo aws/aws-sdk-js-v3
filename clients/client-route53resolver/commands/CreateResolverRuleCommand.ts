@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateResolverRuleCommandInput = CreateResolverRuleRequest;
-export type CreateResolverRuleCommandOutput = CreateResolverRuleResponse & __MetadataBearer;
+export interface CreateResolverRuleCommandInput extends CreateResolverRuleRequest {}
+export interface CreateResolverRuleCommandOutput extends CreateResolverRuleResponse, __MetadataBearer {}
 
 /**
  * <p>For DNS queries that originate in your VPCs, specifies which Resolver endpoint the queries pass through,

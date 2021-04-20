@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEndpointGroupCommandInput = DeleteEndpointGroupRequest;
-export type DeleteEndpointGroupCommandOutput = __MetadataBearer;
+export interface DeleteEndpointGroupCommandInput extends DeleteEndpointGroupRequest {}
+export interface DeleteEndpointGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete an endpoint group from a listener.</p>

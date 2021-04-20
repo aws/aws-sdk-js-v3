@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDatasetEntriesCommandInput = ListDatasetEntriesRequest;
-export type ListDatasetEntriesCommandOutput = ListDatasetEntriesResponse & __MetadataBearer;
+export interface ListDatasetEntriesCommandInput extends ListDatasetEntriesRequest {}
+export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the JSON Lines within a dataset. An Amazon Lookout for Vision JSON Line contains the anomaly

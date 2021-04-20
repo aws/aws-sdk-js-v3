@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDomainEndpointOptionsCommandInput = UpdateDomainEndpointOptionsRequest;
-export type UpdateDomainEndpointOptionsCommandOutput = UpdateDomainEndpointOptionsResponse & __MetadataBearer;
+export interface UpdateDomainEndpointOptionsCommandInput extends UpdateDomainEndpointOptionsRequest {}
+export interface UpdateDomainEndpointOptionsCommandOutput
+  extends UpdateDomainEndpointOptionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the domain's endpoint options, specifically whether all requests to the domain must arrive over HTTPS. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-domain-endpoint-options.html" target="_blank">Configuring Domain Endpoint Options</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRouteTableCommandInput = CreateRouteTableRequest;
-export type CreateRouteTableCommandOutput = CreateRouteTableResult & __MetadataBearer;
+export interface CreateRouteTableCommandInput extends CreateRouteTableRequest {}
+export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, __MetadataBearer {}
 
 /**
  * <p>Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.</p>

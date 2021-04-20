@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDataQualityJobDefinitionsCommandInput = ListDataQualityJobDefinitionsRequest;
-export type ListDataQualityJobDefinitionsCommandOutput = ListDataQualityJobDefinitionsResponse & __MetadataBearer;
+export interface ListDataQualityJobDefinitionsCommandInput extends ListDataQualityJobDefinitionsRequest {}
+export interface ListDataQualityJobDefinitionsCommandOutput
+  extends ListDataQualityJobDefinitionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the data quality job definitions in your account.</p>

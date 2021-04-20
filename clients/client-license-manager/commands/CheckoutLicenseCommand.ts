@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CheckoutLicenseCommandInput = CheckoutLicenseRequest;
-export type CheckoutLicenseCommandOutput = CheckoutLicenseResponse & __MetadataBearer;
+export interface CheckoutLicenseCommandInput extends CheckoutLicenseRequest {}
+export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, __MetadataBearer {}
 
 /**
  * <p>Checks out the specified license.</p>

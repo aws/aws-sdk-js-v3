@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAddressBookCommandInput = GetAddressBookRequest;
-export type GetAddressBookCommandOutput = GetAddressBookResponse & __MetadataBearer;
+export interface GetAddressBookCommandInput extends GetAddressBookRequest {}
+export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __MetadataBearer {}
 
 /**
  * <p>Gets address the book details by the address book ARN.</p>

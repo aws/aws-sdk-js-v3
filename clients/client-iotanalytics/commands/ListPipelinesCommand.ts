@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPipelinesCommandInput = ListPipelinesRequest;
-export type ListPipelinesCommandOutput = ListPipelinesResponse & __MetadataBearer;
+export interface ListPipelinesCommandInput extends ListPipelinesRequest {}
+export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of pipelines.</p>

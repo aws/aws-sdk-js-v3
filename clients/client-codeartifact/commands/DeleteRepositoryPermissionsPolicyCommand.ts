@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRepositoryPermissionsPolicyCommandInput = DeleteRepositoryPermissionsPolicyRequest;
-export type DeleteRepositoryPermissionsPolicyCommandOutput = DeleteRepositoryPermissionsPolicyResult & __MetadataBearer;
+export interface DeleteRepositoryPermissionsPolicyCommandInput extends DeleteRepositoryPermissionsPolicyRequest {}
+export interface DeleteRepositoryPermissionsPolicyCommandOutput
+  extends DeleteRepositoryPermissionsPolicyResult,
+    __MetadataBearer {}
 
 /**
  * <p>

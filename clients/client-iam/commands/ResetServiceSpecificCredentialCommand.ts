@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetServiceSpecificCredentialCommandInput = ResetServiceSpecificCredentialRequest;
-export type ResetServiceSpecificCredentialCommandOutput = ResetServiceSpecificCredentialResponse & __MetadataBearer;
+export interface ResetServiceSpecificCredentialCommandInput extends ResetServiceSpecificCredentialRequest {}
+export interface ResetServiceSpecificCredentialCommandOutput
+  extends ResetServiceSpecificCredentialResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Resets the password for a service-specific credential. The new password is AWS

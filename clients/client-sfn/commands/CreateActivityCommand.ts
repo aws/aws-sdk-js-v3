@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateActivityCommandInput = CreateActivityInput;
-export type CreateActivityCommandOutput = CreateActivityOutput & __MetadataBearer;
+export interface CreateActivityCommandInput extends CreateActivityInput {}
+export interface CreateActivityCommandOutput extends CreateActivityOutput, __MetadataBearer {}
 
 /**
  * <p>Creates an activity. An activity is a task that you write in any programming language and

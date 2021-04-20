@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInputDeviceThumbnailCommandInput = DescribeInputDeviceThumbnailRequest;
-export type DescribeInputDeviceThumbnailCommandOutput = DescribeInputDeviceThumbnailResponse & __MetadataBearer;
+export interface DescribeInputDeviceThumbnailCommandInput extends DescribeInputDeviceThumbnailRequest {}
+export interface DescribeInputDeviceThumbnailCommandOutput
+  extends DescribeInputDeviceThumbnailResponse,
+    __MetadataBearer {}
 
 /**
  * Get the latest thumbnail data for the input device.

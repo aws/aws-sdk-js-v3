@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBlockPublicAccessConfigurationCommandInput = PutBlockPublicAccessConfigurationInput;
-export type PutBlockPublicAccessConfigurationCommandOutput = PutBlockPublicAccessConfigurationOutput & __MetadataBearer;
+export interface PutBlockPublicAccessConfigurationCommandInput extends PutBlockPublicAccessConfigurationInput {}
+export interface PutBlockPublicAccessConfigurationCommandOutput
+  extends PutBlockPublicAccessConfigurationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Creates or updates an Amazon EMR block public access configuration for your AWS account

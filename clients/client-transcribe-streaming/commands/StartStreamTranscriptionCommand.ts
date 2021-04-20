@@ -23,8 +23,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartStreamTranscriptionCommandInput = StartStreamTranscriptionRequest;
-export type StartStreamTranscriptionCommandOutput = StartStreamTranscriptionResponse & __MetadataBearer;
+export interface StartStreamTranscriptionCommandInput extends StartStreamTranscriptionRequest {}
+export interface StartStreamTranscriptionCommandOutput extends StartStreamTranscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a bidirectional HTTP2 stream where audio is streamed to Amazon Transcribe and the transcription

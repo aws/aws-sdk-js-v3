@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartEntitiesDetectionJobCommandInput = StartEntitiesDetectionJobRequest;
-export type StartEntitiesDetectionJobCommandOutput = StartEntitiesDetectionJobResponse & __MetadataBearer;
+export interface StartEntitiesDetectionJobCommandInput extends StartEntitiesDetectionJobRequest {}
+export interface StartEntitiesDetectionJobCommandOutput extends StartEntitiesDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous entity detection job for a collection of documents. Use the  operation to track the status of a job.</p>

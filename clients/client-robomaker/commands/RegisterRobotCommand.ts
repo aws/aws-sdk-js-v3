@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterRobotCommandInput = RegisterRobotRequest;
-export type RegisterRobotCommandOutput = RegisterRobotResponse & __MetadataBearer;
+export interface RegisterRobotCommandInput extends RegisterRobotRequest {}
+export interface RegisterRobotCommandOutput extends RegisterRobotResponse, __MetadataBearer {}
 
 /**
  * <p>Registers a robot with a fleet.</p>

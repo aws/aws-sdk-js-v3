@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteComponentCommandInput = DeleteComponentRequest;
-export type DeleteComponentCommandOutput = DeleteComponentResponse & __MetadataBearer;
+export interface DeleteComponentCommandInput extends DeleteComponentRequest {}
+export interface DeleteComponentCommandOutput extends DeleteComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Ungroups a custom component. When you ungroup custom components, all applicable

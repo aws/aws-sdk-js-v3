@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetVoiceConnectorCommandInput = GetVoiceConnectorRequest;
-export type GetVoiceConnectorCommandOutput = GetVoiceConnectorResponse & __MetadataBearer;
+export interface GetVoiceConnectorCommandInput extends GetVoiceConnectorRequest {}
+export interface GetVoiceConnectorCommandOutput extends GetVoiceConnectorResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details for the specified Amazon Chime Voice Connector, such as timestamps,name, outbound host, and encryption requirements.</p>

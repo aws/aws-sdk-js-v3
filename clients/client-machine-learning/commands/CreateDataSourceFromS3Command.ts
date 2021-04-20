@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDataSourceFromS3CommandInput = CreateDataSourceFromS3Input;
-export type CreateDataSourceFromS3CommandOutput = CreateDataSourceFromS3Output & __MetadataBearer;
+export interface CreateDataSourceFromS3CommandInput extends CreateDataSourceFromS3Input {}
+export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFromS3Output, __MetadataBearer {}
 
 /**
  * <p>Creates a <code>DataSource</code> object. A <code>DataSource</code> references data that

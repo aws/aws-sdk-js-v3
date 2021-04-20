@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTokensCommandInput = ListTokensRequest;
-export type ListTokensCommandOutput = ListTokensResponse & __MetadataBearer;
+export interface ListTokensCommandInput extends ListTokensRequest {}
+export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataBearer {}
 
 /**
  * <p>Lists your tokens.</p>

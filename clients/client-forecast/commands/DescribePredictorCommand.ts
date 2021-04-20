@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePredictorCommandInput = DescribePredictorRequest;
-export type DescribePredictorCommandOutput = DescribePredictorResponse & __MetadataBearer;
+export interface DescribePredictorCommandInput extends DescribePredictorRequest {}
+export interface DescribePredictorCommandOutput extends DescribePredictorResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a predictor created using the <a>CreatePredictor</a>

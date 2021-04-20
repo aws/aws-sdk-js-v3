@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetExportCommandInput = GetExportRequest;
-export type GetExportCommandOutput = GetExportResponse & __MetadataBearer;
+export interface GetExportCommandInput extends GetExportRequest {}
+export interface GetExportCommandOutput extends GetExportResponse, __MetadataBearer {}
 
 /**
  * <p>Exports the contents of a Amazon Lex resource in a specified format.

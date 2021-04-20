@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchProfilesCommandInput = SearchProfilesRequest;
-export type SearchProfilesCommandOutput = SearchProfilesResponse & __MetadataBearer;
+export interface SearchProfilesCommandInput extends SearchProfilesRequest {}
+export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __MetadataBearer {}
 
 /**
  * <p>Searches for profiles within a specific domain name using name, phone number, email

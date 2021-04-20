@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetUserPasswordCommandInput = ResetUserPasswordRequest;
-export type ResetUserPasswordCommandOutput = ResetUserPasswordResult & __MetadataBearer;
+export interface ResetUserPasswordCommandInput extends ResetUserPasswordRequest {}
+export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult, __MetadataBearer {}
 
 /**
  * <p>Resets the password for any user in your AWS Managed Microsoft AD or Simple AD

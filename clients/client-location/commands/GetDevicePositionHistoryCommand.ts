@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDevicePositionHistoryCommandInput = GetDevicePositionHistoryRequest;
-export type GetDevicePositionHistoryCommandOutput = GetDevicePositionHistoryResponse & __MetadataBearer;
+export interface GetDevicePositionHistoryCommandInput extends GetDevicePositionHistoryRequest {}
+export interface GetDevicePositionHistoryCommandOutput extends GetDevicePositionHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the device position history from a tracker resource within a specified range

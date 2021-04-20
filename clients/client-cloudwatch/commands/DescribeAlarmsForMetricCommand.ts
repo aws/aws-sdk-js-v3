@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAlarmsForMetricCommandInput = DescribeAlarmsForMetricInput;
-export type DescribeAlarmsForMetricCommandOutput = DescribeAlarmsForMetricOutput & __MetadataBearer;
+export interface DescribeAlarmsForMetricCommandInput extends DescribeAlarmsForMetricInput {}
+export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForMetricOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the alarms for the specified metric. To

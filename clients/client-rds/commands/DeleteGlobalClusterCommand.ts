@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGlobalClusterCommandInput = DeleteGlobalClusterMessage;
-export type DeleteGlobalClusterCommandOutput = DeleteGlobalClusterResult & __MetadataBearer;
+export interface DeleteGlobalClusterCommandInput extends DeleteGlobalClusterMessage {}
+export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterResult, __MetadataBearer {}
 
 /**
  * <p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateWebACLCommandInput = AssociateWebACLRequest;
-export type AssociateWebACLCommandOutput = AssociateWebACLResponse & __MetadataBearer;
+export interface AssociateWebACLCommandInput extends AssociateWebACLRequest {}
+export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, __MetadataBearer {}
 
 /**
  * <note>

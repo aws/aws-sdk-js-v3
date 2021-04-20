@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateInstanceCustomHealthStatusCommandInput = UpdateInstanceCustomHealthStatusRequest;
-export type UpdateInstanceCustomHealthStatusCommandOutput = __MetadataBearer;
+export interface UpdateInstanceCustomHealthStatusCommandInput extends UpdateInstanceCustomHealthStatusRequest {}
+export interface UpdateInstanceCustomHealthStatusCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Submits a request to change the health status of a custom health check to healthy or unhealthy.</p>

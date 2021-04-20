@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReservedInstancesCommandInput = DescribeReservedInstancesRequest;
-export type DescribeReservedInstancesCommandOutput = DescribeReservedInstancesResult & __MetadataBearer;
+export interface DescribeReservedInstancesCommandInput extends DescribeReservedInstancesRequest {}
+export interface DescribeReservedInstancesCommandOutput extends DescribeReservedInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of the Reserved Instances that you purchased.</p>

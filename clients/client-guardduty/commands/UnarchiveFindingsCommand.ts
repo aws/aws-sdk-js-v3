@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UnarchiveFindingsCommandInput = UnarchiveFindingsRequest;
-export type UnarchiveFindingsCommandOutput = UnarchiveFindingsResponse & __MetadataBearer;
+export interface UnarchiveFindingsCommandInput extends UnarchiveFindingsRequest {}
+export interface UnarchiveFindingsCommandOutput extends UnarchiveFindingsResponse, __MetadataBearer {}
 
 /**
  * <p>Unarchives GuardDuty findings specified by the <code>findingIds</code>.</p>

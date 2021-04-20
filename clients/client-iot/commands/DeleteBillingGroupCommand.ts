@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBillingGroupCommandInput = DeleteBillingGroupRequest;
-export type DeleteBillingGroupCommandOutput = DeleteBillingGroupResponse & __MetadataBearer;
+export interface DeleteBillingGroupCommandInput extends DeleteBillingGroupRequest {}
+export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the billing group.</p>

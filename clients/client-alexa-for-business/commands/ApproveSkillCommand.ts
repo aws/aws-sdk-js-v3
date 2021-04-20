@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ApproveSkillCommandInput = ApproveSkillRequest;
-export type ApproveSkillCommandOutput = ApproveSkillResponse & __MetadataBearer;
+export interface ApproveSkillCommandInput extends ApproveSkillRequest {}
+export interface ApproveSkillCommandOutput extends ApproveSkillResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a skill with the organization under the customer's AWS account. If a skill

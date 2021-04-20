@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStackProvisioningParametersCommandInput = DescribeStackProvisioningParametersRequest;
-export type DescribeStackProvisioningParametersCommandOutput = DescribeStackProvisioningParametersResult &
-  __MetadataBearer;
+export interface DescribeStackProvisioningParametersCommandInput extends DescribeStackProvisioningParametersRequest {}
+export interface DescribeStackProvisioningParametersCommandOutput
+  extends DescribeStackProvisioningParametersResult,
+    __MetadataBearer {}
 
 /**
  * <p>Requests a description of a stack's provisioning parameters.</p>

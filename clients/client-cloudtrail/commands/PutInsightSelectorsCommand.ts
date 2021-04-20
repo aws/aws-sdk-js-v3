@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutInsightSelectorsCommandInput = PutInsightSelectorsRequest;
-export type PutInsightSelectorsCommandOutput = PutInsightSelectorsResponse & __MetadataBearer;
+export interface PutInsightSelectorsCommandInput extends PutInsightSelectorsRequest {}
+export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsResponse, __MetadataBearer {}
 
 /**
  * <p>Lets you enable Insights event logging by specifying the Insights

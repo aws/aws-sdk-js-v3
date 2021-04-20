@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDBClustersCommandInput = DescribeDBClustersMessage;
-export type DescribeDBClustersCommandOutput = DBClusterMessage & __MetadataBearer;
+export interface DescribeDBClustersCommandInput extends DescribeDBClustersMessage {}
+export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __MetadataBearer {}
 
 /**
  * <p>Returns information about provisioned Amazon DocumentDB clusters. This API

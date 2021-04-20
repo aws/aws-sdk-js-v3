@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAnomalyDetectorCommandInput = PutAnomalyDetectorInput;
-export type PutAnomalyDetectorCommandOutput = PutAnomalyDetectorOutput & __MetadataBearer;
+export interface PutAnomalyDetectorCommandInput extends PutAnomalyDetectorInput {}
+export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutput, __MetadataBearer {}
 
 /**
  * <p>Creates an anomaly detection model for a CloudWatch metric. You can use the model

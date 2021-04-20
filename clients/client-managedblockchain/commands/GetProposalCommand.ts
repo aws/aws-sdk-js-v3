@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetProposalCommandInput = GetProposalInput;
-export type GetProposalCommandOutput = GetProposalOutput & __MetadataBearer;
+export interface GetProposalCommandInput extends GetProposalInput {}
+export interface GetProposalCommandOutput extends GetProposalOutput, __MetadataBearer {}
 
 /**
  * <p>Returns detailed information about a proposal.</p>

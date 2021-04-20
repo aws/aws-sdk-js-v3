@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteManagedEndpointCommandInput = DeleteManagedEndpointRequest;
-export type DeleteManagedEndpointCommandOutput = DeleteManagedEndpointResponse & __MetadataBearer;
+export interface DeleteManagedEndpointCommandInput extends DeleteManagedEndpointRequest {}
+export interface DeleteManagedEndpointCommandOutput extends DeleteManagedEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a managed endpoint. A managed endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.</p>

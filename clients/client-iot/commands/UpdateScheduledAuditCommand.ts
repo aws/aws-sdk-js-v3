@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateScheduledAuditCommandInput = UpdateScheduledAuditRequest;
-export type UpdateScheduledAuditCommandOutput = UpdateScheduledAuditResponse & __MetadataBearer;
+export interface UpdateScheduledAuditCommandInput extends UpdateScheduledAuditRequest {}
+export interface UpdateScheduledAuditCommandOutput extends UpdateScheduledAuditResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a scheduled audit, including which checks are performed and

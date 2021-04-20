@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateConfigurationSetEventDestinationCommandInput = CreateConfigurationSetEventDestinationRequest;
-export type CreateConfigurationSetEventDestinationCommandOutput = CreateConfigurationSetEventDestinationResponse &
-  __MetadataBearer;
+export interface CreateConfigurationSetEventDestinationCommandInput
+  extends CreateConfigurationSetEventDestinationRequest {}
+export interface CreateConfigurationSetEventDestinationCommandOutput
+  extends CreateConfigurationSetEventDestinationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a configuration set event destination.</p>

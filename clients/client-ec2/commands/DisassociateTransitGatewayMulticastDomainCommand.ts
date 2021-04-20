@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateTransitGatewayMulticastDomainCommandInput = DisassociateTransitGatewayMulticastDomainRequest;
-export type DisassociateTransitGatewayMulticastDomainCommandOutput = DisassociateTransitGatewayMulticastDomainResult &
-  __MetadataBearer;
+export interface DisassociateTransitGatewayMulticastDomainCommandInput
+  extends DisassociateTransitGatewayMulticastDomainRequest {}
+export interface DisassociateTransitGatewayMulticastDomainCommandOutput
+  extends DisassociateTransitGatewayMulticastDomainResult,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified subnets from the transit gateway multicast domain. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type FailoverDBClusterCommandInput = FailoverDBClusterMessage;
-export type FailoverDBClusterCommandOutput = FailoverDBClusterResult & __MetadataBearer;
+export interface FailoverDBClusterCommandInput extends FailoverDBClusterMessage {}
+export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult, __MetadataBearer {}
 
 /**
  * <p>Forces a failover for a DB cluster.</p>

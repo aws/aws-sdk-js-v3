@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccountCommandInput = GetAccountRequest;
-export type GetAccountCommandOutput = GetAccountResponse & __MetadataBearer;
+export interface GetAccountCommandInput extends GetAccountRequest {}
+export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Obtain information about the email-sending status and capabilities of your Amazon SES

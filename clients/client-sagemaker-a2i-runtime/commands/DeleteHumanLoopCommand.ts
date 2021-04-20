@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteHumanLoopCommandInput = DeleteHumanLoopRequest;
-export type DeleteHumanLoopCommandOutput = DeleteHumanLoopResponse & __MetadataBearer;
+export interface DeleteHumanLoopCommandInput extends DeleteHumanLoopRequest {}
+export interface DeleteHumanLoopCommandOutput extends DeleteHumanLoopResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified human loop for a flow definition.</p>

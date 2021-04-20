@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRetentionPolicyCommandInput = DeleteRetentionPolicyRequest;
-export type DeleteRetentionPolicyCommandOutput = DeleteRetentionPolicyResponse & __MetadataBearer;
+export interface DeleteRetentionPolicyCommandInput extends DeleteRetentionPolicyRequest {}
+export interface DeleteRetentionPolicyCommandOutput extends DeleteRetentionPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified retention policy from the specified organization.</p>

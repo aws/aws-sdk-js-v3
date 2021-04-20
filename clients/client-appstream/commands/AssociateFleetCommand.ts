@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateFleetCommandInput = AssociateFleetRequest;
-export type AssociateFleetCommandOutput = AssociateFleetResult & __MetadataBearer;
+export interface AssociateFleetCommandInput extends AssociateFleetRequest {}
+export interface AssociateFleetCommandOutput extends AssociateFleetResult, __MetadataBearer {}
 
 /**
  * <p>Associates the specified fleet with the specified stack.</p>

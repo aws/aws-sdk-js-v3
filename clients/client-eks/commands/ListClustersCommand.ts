@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListClustersCommandInput = ListClustersRequest;
-export type ListClustersCommandOutput = ListClustersResponse & __MetadataBearer;
+export interface ListClustersCommandInput extends ListClustersRequest {}
+export interface ListClustersCommandOutput extends ListClustersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Amazon EKS clusters in your AWS account in the specified Region.</p>

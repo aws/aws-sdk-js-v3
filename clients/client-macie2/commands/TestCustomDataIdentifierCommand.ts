@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TestCustomDataIdentifierCommandInput = TestCustomDataIdentifierRequest;
-export type TestCustomDataIdentifierCommandOutput = TestCustomDataIdentifierResponse & __MetadataBearer;
+export interface TestCustomDataIdentifierCommandInput extends TestCustomDataIdentifierRequest {}
+export interface TestCustomDataIdentifierCommandOutput extends TestCustomDataIdentifierResponse, __MetadataBearer {}
 
 /**
  * <p>Tests a custom data identifier.</p>

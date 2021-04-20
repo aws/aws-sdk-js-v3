@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartRxNormInferenceJobCommandInput = StartRxNormInferenceJobRequest;
-export type StartRxNormInferenceJobCommandOutput = StartRxNormInferenceJobResponse & __MetadataBearer;
+export interface StartRxNormInferenceJobCommandInput extends StartRxNormInferenceJobRequest {}
+export interface StartRxNormInferenceJobCommandOutput extends StartRxNormInferenceJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous job to detect medication entities and link them to the RxNorm

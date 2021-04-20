@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendContactMethodVerificationCommandInput = SendContactMethodVerificationRequest;
-export type SendContactMethodVerificationCommandOutput = SendContactMethodVerificationResult & __MetadataBearer;
+export interface SendContactMethodVerificationCommandInput extends SendContactMethodVerificationRequest {}
+export interface SendContactMethodVerificationCommandOutput
+  extends SendContactMethodVerificationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Sends a verification request to an email contact method to ensure it's owned by the

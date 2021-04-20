@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCustomVerificationEmailTemplateCommandInput = UpdateCustomVerificationEmailTemplateRequest;
-export type UpdateCustomVerificationEmailTemplateCommandOutput = UpdateCustomVerificationEmailTemplateResponse &
-  __MetadataBearer;
+export interface UpdateCustomVerificationEmailTemplateCommandInput
+  extends UpdateCustomVerificationEmailTemplateRequest {}
+export interface UpdateCustomVerificationEmailTemplateCommandOutput
+  extends UpdateCustomVerificationEmailTemplateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates an existing custom verification email template.</p>

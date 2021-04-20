@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreDBInstanceFromS3CommandInput = RestoreDBInstanceFromS3Message;
-export type RestoreDBInstanceFromS3CommandOutput = RestoreDBInstanceFromS3Result & __MetadataBearer;
+export interface RestoreDBInstanceFromS3CommandInput extends RestoreDBInstanceFromS3Message {}
+export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceFromS3Result, __MetadataBearer {}
 
 /**
  * <p>Amazon Relational Database Service (Amazon RDS)

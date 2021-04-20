@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartJobCommandInput = StartJobRequest;
-export type StartJobCommandOutput = StartJobResult & __MetadataBearer;
+export interface StartJobCommandInput extends StartJobRequest {}
+export interface StartJobCommandOutput extends StartJobResult, __MetadataBearer {}
 
 /**
  * <p> Starts a new job for a branch of an Amplify app. </p>

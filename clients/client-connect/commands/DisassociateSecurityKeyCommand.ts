@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateSecurityKeyCommandInput = DisassociateSecurityKeyRequest;
-export type DisassociateSecurityKeyCommandOutput = __MetadataBearer;
+export interface DisassociateSecurityKeyCommandInput extends DisassociateSecurityKeyRequest {}
+export interface DisassociateSecurityKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

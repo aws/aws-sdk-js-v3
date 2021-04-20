@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetWorkflowRunPropertiesCommandInput = GetWorkflowRunPropertiesRequest;
-export type GetWorkflowRunPropertiesCommandOutput = GetWorkflowRunPropertiesResponse & __MetadataBearer;
+export interface GetWorkflowRunPropertiesCommandInput extends GetWorkflowRunPropertiesRequest {}
+export interface GetWorkflowRunPropertiesCommandOutput extends GetWorkflowRunPropertiesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the workflow run properties which were set during the run.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEntitiesDetectionJobsCommandInput = ListEntitiesDetectionJobsRequest;
-export type ListEntitiesDetectionJobsCommandOutput = ListEntitiesDetectionJobsResponse & __MetadataBearer;
+export interface ListEntitiesDetectionJobsCommandInput extends ListEntitiesDetectionJobsRequest {}
+export interface ListEntitiesDetectionJobsCommandOutput extends ListEntitiesDetectionJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the entity detection jobs that you have submitted.</p>

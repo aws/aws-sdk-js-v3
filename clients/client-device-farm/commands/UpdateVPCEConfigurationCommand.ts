@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateVPCEConfigurationCommandInput = UpdateVPCEConfigurationRequest;
-export type UpdateVPCEConfigurationCommandOutput = UpdateVPCEConfigurationResult & __MetadataBearer;
+export interface UpdateVPCEConfigurationCommandInput extends UpdateVPCEConfigurationRequest {}
+export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Updates information about an Amazon Virtual Private Cloud (VPC) endpoint configuration.</p>

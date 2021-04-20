@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RejectTransitGatewayPeeringAttachmentCommandInput = RejectTransitGatewayPeeringAttachmentRequest;
-export type RejectTransitGatewayPeeringAttachmentCommandOutput = RejectTransitGatewayPeeringAttachmentResult &
-  __MetadataBearer;
+export interface RejectTransitGatewayPeeringAttachmentCommandInput
+  extends RejectTransitGatewayPeeringAttachmentRequest {}
+export interface RejectTransitGatewayPeeringAttachmentCommandOutput
+  extends RejectTransitGatewayPeeringAttachmentResult,
+    __MetadataBearer {}
 
 /**
  * <p>Rejects a transit gateway peering attachment request.</p>

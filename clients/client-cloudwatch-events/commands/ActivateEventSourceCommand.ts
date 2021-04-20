@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ActivateEventSourceCommandInput = ActivateEventSourceRequest;
-export type ActivateEventSourceCommandOutput = __MetadataBearer;
+export interface ActivateEventSourceCommandInput extends ActivateEventSourceRequest {}
+export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Activates a partner event source that has been deactivated. Once activated, your matching

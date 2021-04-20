@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterUserCommandInput = RegisterUserRequest;
-export type RegisterUserCommandOutput = RegisterUserResponse & __MetadataBearer;
+export interface RegisterUserCommandInput extends RegisterUserRequest {}
+export interface RegisterUserCommandOutput extends RegisterUserResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon QuickSight user, whose identity is associated with the AWS Identity

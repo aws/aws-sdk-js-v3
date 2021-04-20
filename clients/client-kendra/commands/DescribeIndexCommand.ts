@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeIndexCommandInput = DescribeIndexRequest;
-export type DescribeIndexCommandOutput = DescribeIndexResponse & __MetadataBearer;
+export interface DescribeIndexCommandInput extends DescribeIndexRequest {}
+export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an existing Amazon Kendra index</p>

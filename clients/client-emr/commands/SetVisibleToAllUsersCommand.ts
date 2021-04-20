@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetVisibleToAllUsersCommandInput = SetVisibleToAllUsersInput;
-export type SetVisibleToAllUsersCommandOutput = __MetadataBearer;
+export interface SetVisibleToAllUsersCommandInput extends SetVisibleToAllUsersInput {}
+export interface SetVisibleToAllUsersCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the <a>Cluster$VisibleToAllUsers</a> value, which determines whether the

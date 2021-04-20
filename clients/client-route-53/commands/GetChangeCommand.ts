@@ -15,8 +15,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetChangeCommandInput = GetChangeRequest;
-export type GetChangeCommandOutput = GetChangeResponse & __MetadataBearer;
+export interface GetChangeCommandInput extends GetChangeRequest {}
+export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the current status of a change batch request. The status is one of the

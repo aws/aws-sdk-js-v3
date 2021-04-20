@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLocationObjectStorageCommandInput = CreateLocationObjectStorageRequest;
-export type CreateLocationObjectStorageCommandOutput = CreateLocationObjectStorageResponse & __MetadataBearer;
+export interface CreateLocationObjectStorageCommandInput extends CreateLocationObjectStorageRequest {}
+export interface CreateLocationObjectStorageCommandOutput
+  extends CreateLocationObjectStorageResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates an endpoint for a self-managed object storage bucket. For more information

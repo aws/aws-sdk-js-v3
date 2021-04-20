@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeJournalS3ExportCommandInput = DescribeJournalS3ExportRequest;
-export type DescribeJournalS3ExportCommandOutput = DescribeJournalS3ExportResponse & __MetadataBearer;
+export interface DescribeJournalS3ExportCommandInput extends DescribeJournalS3ExportRequest {}
+export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3ExportResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a journal export job, including the ledger name, export ID,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBackupPlanCommandInput = UpdateBackupPlanInput;
-export type UpdateBackupPlanCommandOutput = UpdateBackupPlanOutput & __MetadataBearer;
+export interface UpdateBackupPlanCommandInput extends UpdateBackupPlanInput {}
+export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, __MetadataBearer {}
 
 /**
  * <p>Updates an existing backup plan identified by its <code>backupPlanId</code> with the

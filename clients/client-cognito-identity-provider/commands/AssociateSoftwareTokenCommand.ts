@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateSoftwareTokenCommandInput = AssociateSoftwareTokenRequest;
-export type AssociateSoftwareTokenCommandOutput = AssociateSoftwareTokenResponse & __MetadataBearer;
+export interface AssociateSoftwareTokenCommandInput extends AssociateSoftwareTokenRequest {}
+export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a unique generated shared secret key code for the user account. The request

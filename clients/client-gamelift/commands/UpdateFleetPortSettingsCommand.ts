@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFleetPortSettingsCommandInput = UpdateFleetPortSettingsInput;
-export type UpdateFleetPortSettingsCommandOutput = UpdateFleetPortSettingsOutput & __MetadataBearer;
+export interface UpdateFleetPortSettingsCommandInput extends UpdateFleetPortSettingsInput {}
+export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSettingsOutput, __MetadataBearer {}
 
 /**
  * <p>Updates permissions that allow inbound traffic to connect to game sessions that are

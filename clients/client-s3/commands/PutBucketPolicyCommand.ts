@@ -19,8 +19,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBucketPolicyCommandInput = PutBucketPolicyRequest;
-export type PutBucketPolicyCommandOutput = __MetadataBearer;
+export interface PutBucketPolicyCommandInput extends PutBucketPolicyRequest {}
+export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are using an identity other than

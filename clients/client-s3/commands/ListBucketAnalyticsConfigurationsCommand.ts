@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBucketAnalyticsConfigurationsCommandInput = ListBucketAnalyticsConfigurationsRequest;
-export type ListBucketAnalyticsConfigurationsCommandOutput = ListBucketAnalyticsConfigurationsOutput & __MetadataBearer;
+export interface ListBucketAnalyticsConfigurationsCommandInput extends ListBucketAnalyticsConfigurationsRequest {}
+export interface ListBucketAnalyticsConfigurationsCommandOutput
+  extends ListBucketAnalyticsConfigurationsOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the analytics configurations for the bucket. You can have up to 1,000 analytics

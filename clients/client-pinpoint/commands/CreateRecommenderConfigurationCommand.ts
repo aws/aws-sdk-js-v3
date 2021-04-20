@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRecommenderConfigurationCommandInput = CreateRecommenderConfigurationRequest;
-export type CreateRecommenderConfigurationCommandOutput = CreateRecommenderConfigurationResponse & __MetadataBearer;
+export interface CreateRecommenderConfigurationCommandInput extends CreateRecommenderConfigurationRequest {}
+export interface CreateRecommenderConfigurationCommandOutput
+  extends CreateRecommenderConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Pinpoint configuration for a recommender model.</p>

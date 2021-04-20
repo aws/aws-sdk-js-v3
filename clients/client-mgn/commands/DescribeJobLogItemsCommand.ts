@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeJobLogItemsCommandInput = DescribeJobLogItemsRequest;
-export type DescribeJobLogItemsCommandOutput = DescribeJobLogItemsResponse & __MetadataBearer;
+export interface DescribeJobLogItemsCommandInput extends DescribeJobLogItemsRequest {}
+export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves detailed Job log with paging.</p>

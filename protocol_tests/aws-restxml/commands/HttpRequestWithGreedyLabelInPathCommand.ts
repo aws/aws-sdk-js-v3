@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type HttpRequestWithGreedyLabelInPathCommandInput = HttpRequestWithGreedyLabelInPathInput;
-export type HttpRequestWithGreedyLabelInPathCommandOutput = __MetadataBearer;
+export interface HttpRequestWithGreedyLabelInPathCommandInput extends HttpRequestWithGreedyLabelInPathInput {}
+export interface HttpRequestWithGreedyLabelInPathCommandOutput extends __MetadataBearer {}
 
 export class HttpRequestWithGreedyLabelInPathCommand extends $Command<
   HttpRequestWithGreedyLabelInPathCommandInput,

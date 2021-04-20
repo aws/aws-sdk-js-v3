@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetVaultNotificationsCommandInput = GetVaultNotificationsInput;
-export type GetVaultNotificationsCommandOutput = GetVaultNotificationsOutput & __MetadataBearer;
+export interface GetVaultNotificationsCommandInput extends GetVaultNotificationsInput {}
+export interface GetVaultNotificationsCommandOutput extends GetVaultNotificationsOutput, __MetadataBearer {}
 
 /**
  * <p>This operation retrieves the <code>notification-configuration</code> subresource of

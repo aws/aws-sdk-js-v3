@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateLicenseSpecificationsForResourceCommandInput = UpdateLicenseSpecificationsForResourceRequest;
-export type UpdateLicenseSpecificationsForResourceCommandOutput = UpdateLicenseSpecificationsForResourceResponse &
-  __MetadataBearer;
+export interface UpdateLicenseSpecificationsForResourceCommandInput
+  extends UpdateLicenseSpecificationsForResourceRequest {}
+export interface UpdateLicenseSpecificationsForResourceCommandOutput
+  extends UpdateLicenseSpecificationsForResourceResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Adds or removes the specified license configurations for the specified AWS resource.</p>

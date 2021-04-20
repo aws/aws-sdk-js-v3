@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBudgetPerformanceHistoryCommandInput = DescribeBudgetPerformanceHistoryRequest;
-export type DescribeBudgetPerformanceHistoryCommandOutput = DescribeBudgetPerformanceHistoryResponse & __MetadataBearer;
+export interface DescribeBudgetPerformanceHistoryCommandInput extends DescribeBudgetPerformanceHistoryRequest {}
+export interface DescribeBudgetPerformanceHistoryCommandOutput
+  extends DescribeBudgetPerformanceHistoryResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the history for <code>DAILY</code>, <code>MONTHLY</code>, and <code>QUARTERLY</code> budgets. Budget history isn't available for <code>ANNUAL</code> budgets.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AllocateTransitVirtualInterfaceCommandInput = AllocateTransitVirtualInterfaceRequest;
-export type AllocateTransitVirtualInterfaceCommandOutput = AllocateTransitVirtualInterfaceResult & __MetadataBearer;
+export interface AllocateTransitVirtualInterfaceCommandInput extends AllocateTransitVirtualInterfaceRequest {}
+export interface AllocateTransitVirtualInterfaceCommandOutput
+  extends AllocateTransitVirtualInterfaceResult,
+    __MetadataBearer {}
 
 /**
  * <p>Provisions a transit virtual interface to be owned by the specified AWS account. Use this type of interface to connect a transit gateway to your Direct Connect gateway.</p>

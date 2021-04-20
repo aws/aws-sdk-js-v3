@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSchemaCommandInput = DeleteSchemaRequest;
-export type DeleteSchemaCommandOutput = __MetadataBearer;
+export interface DeleteSchemaCommandInput extends DeleteSchemaRequest {}
+export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a schema. Before deleting a schema, you must delete all

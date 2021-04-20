@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RetireGrantCommandInput = RetireGrantRequest;
-export type RetireGrantCommandOutput = __MetadataBearer;
+export interface RetireGrantCommandInput extends RetireGrantRequest {}
+export interface RetireGrantCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Retires a grant. To clean up, you can retire a grant when you're done using it. You should

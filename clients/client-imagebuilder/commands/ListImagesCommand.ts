@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListImagesCommandInput = ListImagesRequest;
-export type ListImagesCommandOutput = ListImagesResponse & __MetadataBearer;
+export interface ListImagesCommandInput extends ListImagesRequest {}
+export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataBearer {}
 
 /**
  * <p> Returns the list of images that you have access to.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPublicKeyCommandInput = GetPublicKeyRequest;
-export type GetPublicKeyCommandOutput = GetPublicKeyResponse & __MetadataBearer;
+export interface GetPublicKeyCommandInput extends GetPublicKeyRequest {}
+export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the public key of an asymmetric CMK. Unlike the private key of a asymmetric CMK,

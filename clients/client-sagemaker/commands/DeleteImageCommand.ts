@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteImageCommandInput = DeleteImageRequest;
-export type DeleteImageCommandOutput = DeleteImageResponse & __MetadataBearer;
+export interface DeleteImageCommandInput extends DeleteImageRequest {}
+export interface DeleteImageCommandOutput extends DeleteImageResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a SageMaker image and all versions of the image. The container images aren't

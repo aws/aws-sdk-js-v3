@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCacheSubnetGroupCommandInput = CreateCacheSubnetGroupMessage;
-export type CreateCacheSubnetGroupCommandOutput = CreateCacheSubnetGroupResult & __MetadataBearer;
+export interface CreateCacheSubnetGroupCommandInput extends CreateCacheSubnetGroupMessage {}
+export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGroupResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new cache subnet group.</p>

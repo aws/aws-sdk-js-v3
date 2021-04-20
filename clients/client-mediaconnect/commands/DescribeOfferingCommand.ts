@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeOfferingCommandInput = DescribeOfferingRequest;
-export type DescribeOfferingCommandOutput = DescribeOfferingResponse & __MetadataBearer;
+export interface DescribeOfferingCommandInput extends DescribeOfferingRequest {}
+export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse, __MetadataBearer {}
 
 /**
  * Displays the details of an offering. The response includes the offering description, duration, outbound bandwidth, price, and Amazon Resource Name (ARN).

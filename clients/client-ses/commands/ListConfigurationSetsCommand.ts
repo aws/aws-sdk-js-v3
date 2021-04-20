@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListConfigurationSetsCommandInput = ListConfigurationSetsRequest;
-export type ListConfigurationSetsCommandOutput = ListConfigurationSetsResponse & __MetadataBearer;
+export interface ListConfigurationSetsCommandInput extends ListConfigurationSetsRequest {}
+export interface ListConfigurationSetsCommandOutput extends ListConfigurationSetsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a list of the configuration sets associated with your Amazon SES account in the

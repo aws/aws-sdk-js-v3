@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEntitiesDetectionJobCommandInput = DescribeEntitiesDetectionJobRequest;
-export type DescribeEntitiesDetectionJobCommandOutput = DescribeEntitiesDetectionJobResponse & __MetadataBearer;
+export interface DescribeEntitiesDetectionJobCommandInput extends DescribeEntitiesDetectionJobRequest {}
+export interface DescribeEntitiesDetectionJobCommandOutput
+  extends DescribeEntitiesDetectionJobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with an entities detection job. Use this operation to get

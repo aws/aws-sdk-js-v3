@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAppInstanceRetentionSettingsCommandInput = GetAppInstanceRetentionSettingsRequest;
-export type GetAppInstanceRetentionSettingsCommandOutput = GetAppInstanceRetentionSettingsResponse & __MetadataBearer;
+export interface GetAppInstanceRetentionSettingsCommandInput extends GetAppInstanceRetentionSettingsRequest {}
+export interface GetAppInstanceRetentionSettingsCommandOutput
+  extends GetAppInstanceRetentionSettingsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the retention settings for an <code>AppInstance</code>.</p>

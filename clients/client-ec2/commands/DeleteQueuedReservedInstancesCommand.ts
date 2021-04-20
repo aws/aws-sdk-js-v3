@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteQueuedReservedInstancesCommandInput = DeleteQueuedReservedInstancesRequest;
-export type DeleteQueuedReservedInstancesCommandOutput = DeleteQueuedReservedInstancesResult & __MetadataBearer;
+export interface DeleteQueuedReservedInstancesCommandInput extends DeleteQueuedReservedInstancesRequest {}
+export interface DeleteQueuedReservedInstancesCommandOutput
+  extends DeleteQueuedReservedInstancesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the queued purchases for the specified Reserved Instances.</p>

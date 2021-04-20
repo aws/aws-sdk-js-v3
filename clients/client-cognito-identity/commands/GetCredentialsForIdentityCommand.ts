@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCredentialsForIdentityCommandInput = GetCredentialsForIdentityInput;
-export type GetCredentialsForIdentityCommandOutput = GetCredentialsForIdentityResponse & __MetadataBearer;
+export interface GetCredentialsForIdentityCommandInput extends GetCredentialsForIdentityInput {}
+export interface GetCredentialsForIdentityCommandOutput extends GetCredentialsForIdentityResponse, __MetadataBearer {}
 
 /**
  * <p>Returns credentials for the provided identity ID. Any provided logins will be

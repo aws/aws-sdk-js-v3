@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartThingRegistrationTaskCommandInput = StartThingRegistrationTaskRequest;
-export type StartThingRegistrationTaskCommandOutput = StartThingRegistrationTaskResponse & __MetadataBearer;
+export interface StartThingRegistrationTaskCommandInput extends StartThingRegistrationTaskRequest {}
+export interface StartThingRegistrationTaskCommandOutput extends StartThingRegistrationTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a bulk thing provisioning task.</p>

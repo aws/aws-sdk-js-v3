@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBatchPredictionsCommandInput = DescribeBatchPredictionsInput;
-export type DescribeBatchPredictionsCommandOutput = DescribeBatchPredictionsOutput & __MetadataBearer;
+export interface DescribeBatchPredictionsCommandInput extends DescribeBatchPredictionsInput {}
+export interface DescribeBatchPredictionsCommandOutput extends DescribeBatchPredictionsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of <code>BatchPrediction</code> operations that match the search criteria in the request.</p>

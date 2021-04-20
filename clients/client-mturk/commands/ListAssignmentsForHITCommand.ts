@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAssignmentsForHITCommandInput = ListAssignmentsForHITRequest;
-export type ListAssignmentsForHITCommandOutput = ListAssignmentsForHITResponse & __MetadataBearer;
+export interface ListAssignmentsForHITCommandInput extends ListAssignmentsForHITRequest {}
+export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHITResponse, __MetadataBearer {}
 
 /**
  * <p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetDeploymentInstancesCommandInput = BatchGetDeploymentInstancesInput;
-export type BatchGetDeploymentInstancesCommandOutput = BatchGetDeploymentInstancesOutput & __MetadataBearer;
+export interface BatchGetDeploymentInstancesCommandInput extends BatchGetDeploymentInstancesInput {}
+export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploymentInstancesOutput, __MetadataBearer {}
 
 /**
  * @deprecated

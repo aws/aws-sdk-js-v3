@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSourceCredentialsCommandInput = ListSourceCredentialsInput;
-export type ListSourceCredentialsCommandOutput = ListSourceCredentialsOutput & __MetadataBearer;
+export interface ListSourceCredentialsCommandInput extends ListSourceCredentialsInput {}
+export interface ListSourceCredentialsCommandOutput extends ListSourceCredentialsOutput, __MetadataBearer {}
 
 /**
  * <p> Returns a list of <code>SourceCredentialsInfo</code> objects. </p>

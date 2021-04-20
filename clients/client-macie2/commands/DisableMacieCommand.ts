@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableMacieCommandInput = DisableMacieRequest;
-export type DisableMacieCommandOutput = DisableMacieResponse & __MetadataBearer;
+export interface DisableMacieCommandInput extends DisableMacieRequest {}
+export interface DisableMacieCommandOutput extends DisableMacieResponse, __MetadataBearer {}
 
 /**
  * <p>Disables an Amazon Macie account and deletes Macie resources for the account.</p>

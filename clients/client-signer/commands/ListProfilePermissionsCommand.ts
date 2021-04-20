@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProfilePermissionsCommandInput = ListProfilePermissionsRequest;
-export type ListProfilePermissionsCommandOutput = ListProfilePermissionsResponse & __MetadataBearer;
+export interface ListProfilePermissionsCommandInput extends ListProfilePermissionsRequest {}
+export interface ListProfilePermissionsCommandOutput extends ListProfilePermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the cross-account permissions associated with a signing profile.</p>

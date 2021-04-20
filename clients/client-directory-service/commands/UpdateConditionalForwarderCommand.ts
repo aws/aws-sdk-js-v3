@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateConditionalForwarderCommandInput = UpdateConditionalForwarderRequest;
-export type UpdateConditionalForwarderCommandOutput = UpdateConditionalForwarderResult & __MetadataBearer;
+export interface UpdateConditionalForwarderCommandInput extends UpdateConditionalForwarderRequest {}
+export interface UpdateConditionalForwarderCommandOutput extends UpdateConditionalForwarderResult, __MetadataBearer {}
 
 /**
  * <p>Updates a conditional forwarder that has been set up for your AWS directory.</p>

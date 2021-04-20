@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateImagePermissionsCommandInput = UpdateImagePermissionsRequest;
-export type UpdateImagePermissionsCommandOutput = UpdateImagePermissionsResult & __MetadataBearer;
+export interface UpdateImagePermissionsCommandInput extends UpdateImagePermissionsRequest {}
+export interface UpdateImagePermissionsCommandOutput extends UpdateImagePermissionsResult, __MetadataBearer {}
 
 /**
  * <p>Adds or updates permissions for the specified private image. </p>

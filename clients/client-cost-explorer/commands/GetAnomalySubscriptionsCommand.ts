@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAnomalySubscriptionsCommandInput = GetAnomalySubscriptionsRequest;
-export type GetAnomalySubscriptionsCommandOutput = GetAnomalySubscriptionsResponse & __MetadataBearer;
+export interface GetAnomalySubscriptionsCommandInput extends GetAnomalySubscriptionsRequest {}
+export interface GetAnomalySubscriptionsCommandOutput extends GetAnomalySubscriptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the cost anomaly subscription objects for your account. You can filter using a

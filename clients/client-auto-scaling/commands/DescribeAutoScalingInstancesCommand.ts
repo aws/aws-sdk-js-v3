@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAutoScalingInstancesCommandInput = DescribeAutoScalingInstancesType;
-export type DescribeAutoScalingInstancesCommandOutput = AutoScalingInstancesType & __MetadataBearer;
+export interface DescribeAutoScalingInstancesCommandInput extends DescribeAutoScalingInstancesType {}
+export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingInstancesType, __MetadataBearer {}
 
 /**
  * <p>Describes one or more Auto Scaling instances.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEntitiesCommandInput = GetEntitiesRequest;
-export type GetEntitiesCommandOutput = GetEntitiesResponse & __MetadataBearer;
+export interface GetEntitiesCommandInput extends GetEntitiesRequest {}
+export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets definitions of the specified entities. Uses the latest version of the user's namespace by default. This API returns the

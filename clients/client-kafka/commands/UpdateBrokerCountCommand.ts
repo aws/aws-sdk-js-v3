@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBrokerCountCommandInput = UpdateBrokerCountRequest;
-export type UpdateBrokerCountCommandOutput = UpdateBrokerCountResponse & __MetadataBearer;
+export interface UpdateBrokerCountCommandInput extends UpdateBrokerCountRequest {}
+export interface UpdateBrokerCountCommandOutput extends UpdateBrokerCountResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the number of broker nodes in the cluster.</p>

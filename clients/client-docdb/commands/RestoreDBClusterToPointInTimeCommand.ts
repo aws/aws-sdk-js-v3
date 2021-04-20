@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreDBClusterToPointInTimeCommandInput = RestoreDBClusterToPointInTimeMessage;
-export type RestoreDBClusterToPointInTimeCommandOutput = RestoreDBClusterToPointInTimeResult & __MetadataBearer;
+export interface RestoreDBClusterToPointInTimeCommandInput extends RestoreDBClusterToPointInTimeMessage {}
+export interface RestoreDBClusterToPointInTimeCommandOutput
+  extends RestoreDBClusterToPointInTimeResult,
+    __MetadataBearer {}
 
 /**
  * <p>Restores a cluster to an arbitrary point in time. Users can restore to any point in

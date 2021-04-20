@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDefaultPatchBaselineCommandInput = GetDefaultPatchBaselineRequest;
-export type GetDefaultPatchBaselineCommandOutput = GetDefaultPatchBaselineResult & __MetadataBearer;
+export interface GetDefaultPatchBaselineCommandInput extends GetDefaultPatchBaselineRequest {}
+export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBaselineResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the default patch baseline. Note that Systems Manager supports creating multiple default

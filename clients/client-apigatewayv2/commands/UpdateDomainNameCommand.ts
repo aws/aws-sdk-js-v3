@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDomainNameCommandInput = UpdateDomainNameRequest;
-export type UpdateDomainNameCommandOutput = UpdateDomainNameResponse & __MetadataBearer;
+export interface UpdateDomainNameCommandInput extends UpdateDomainNameRequest {}
+export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a domain name.</p>

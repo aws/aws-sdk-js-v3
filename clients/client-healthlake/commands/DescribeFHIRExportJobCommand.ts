@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFHIRExportJobCommandInput = DescribeFHIRExportJobRequest;
-export type DescribeFHIRExportJobCommandOutput = DescribeFHIRExportJobResponse & __MetadataBearer;
+export interface DescribeFHIRExportJobCommandInput extends DescribeFHIRExportJobRequest {}
+export interface DescribeFHIRExportJobCommandOutput extends DescribeFHIRExportJobResponse, __MetadataBearer {}
 
 /**
  * <p>Displays the properties of a FHIR export job, including the ID, ARN, name, and the status of the job.</p>

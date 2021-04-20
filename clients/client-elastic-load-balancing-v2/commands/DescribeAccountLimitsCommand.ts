@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAccountLimitsCommandInput = DescribeAccountLimitsInput;
-export type DescribeAccountLimitsCommandOutput = DescribeAccountLimitsOutput & __MetadataBearer;
+export interface DescribeAccountLimitsCommandInput extends DescribeAccountLimitsInput {}
+export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimitsOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the current Elastic Load Balancing resource limits for your AWS account.</p>

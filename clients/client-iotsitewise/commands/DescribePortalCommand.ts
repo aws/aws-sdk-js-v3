@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePortalCommandInput = DescribePortalRequest;
-export type DescribePortalCommandOutput = DescribePortalResponse & __MetadataBearer;
+export interface DescribePortalCommandInput extends DescribePortalRequest {}
+export interface DescribePortalCommandOutput extends DescribePortalResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a portal.</p>

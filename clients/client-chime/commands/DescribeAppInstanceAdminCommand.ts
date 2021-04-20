@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAppInstanceAdminCommandInput = DescribeAppInstanceAdminRequest;
-export type DescribeAppInstanceAdminCommandOutput = DescribeAppInstanceAdminResponse & __MetadataBearer;
+export interface DescribeAppInstanceAdminCommandInput extends DescribeAppInstanceAdminRequest {}
+export interface DescribeAppInstanceAdminCommandOutput extends DescribeAppInstanceAdminResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the full details of an <code>AppInstanceAdmin</code>.</p>

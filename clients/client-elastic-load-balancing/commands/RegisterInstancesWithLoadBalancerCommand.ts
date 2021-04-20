@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterInstancesWithLoadBalancerCommandInput = RegisterEndPointsInput;
-export type RegisterInstancesWithLoadBalancerCommandOutput = RegisterEndPointsOutput & __MetadataBearer;
+export interface RegisterInstancesWithLoadBalancerCommandInput extends RegisterEndPointsInput {}
+export interface RegisterInstancesWithLoadBalancerCommandOutput extends RegisterEndPointsOutput, __MetadataBearer {}
 
 /**
  * <p>Adds the specified instances to the specified load balancer.</p>

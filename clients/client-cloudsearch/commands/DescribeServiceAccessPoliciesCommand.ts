@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeServiceAccessPoliciesCommandInput = DescribeServiceAccessPoliciesRequest;
-export type DescribeServiceAccessPoliciesCommandOutput = DescribeServiceAccessPoliciesResponse & __MetadataBearer;
+export interface DescribeServiceAccessPoliciesCommandInput extends DescribeServiceAccessPoliciesRequest {}
+export interface DescribeServiceAccessPoliciesCommandOutput
+  extends DescribeServiceAccessPoliciesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets information about the access policies that control access to the domain's document and search endpoints. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information,

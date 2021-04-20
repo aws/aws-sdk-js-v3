@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDatasetCommandInput = DescribeDatasetRequest;
-export type DescribeDatasetCommandOutput = DescribeDatasetResponse & __MetadataBearer;
+export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
+export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an Amazon Forecast dataset created using the <a>CreateDataset</a>

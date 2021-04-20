@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTableCommandInput = DescribeTableInput;
-export type DescribeTableCommandOutput = DescribeTableOutput & __MetadataBearer;
+export interface DescribeTableCommandInput extends DescribeTableInput {}
+export interface DescribeTableCommandOutput extends DescribeTableOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the table, including the current status of the table, when it was created, the primary key schema, and any indexes on the table.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStandardsCommandInput = DescribeStandardsRequest;
-export type DescribeStandardsCommandOutput = DescribeStandardsResponse & __MetadataBearer;
+export interface DescribeStandardsCommandInput extends DescribeStandardsRequest {}
+export interface DescribeStandardsCommandOutput extends DescribeStandardsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the available standards in Security Hub.</p>

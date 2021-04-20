@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBatchPredictionCommandInput = GetBatchPredictionInput;
-export type GetBatchPredictionCommandOutput = GetBatchPredictionOutput & __MetadataBearer;
+export interface GetBatchPredictionCommandInput extends GetBatchPredictionInput {}
+export interface GetBatchPredictionCommandOutput extends GetBatchPredictionOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a <code>BatchPrediction</code> that includes detailed metadata, status, and data file information for a

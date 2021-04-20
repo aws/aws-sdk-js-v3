@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInstancePatchStatesCommandInput = DescribeInstancePatchStatesRequest;
-export type DescribeInstancePatchStatesCommandOutput = DescribeInstancePatchStatesResult & __MetadataBearer;
+export interface DescribeInstancePatchStatesCommandInput extends DescribeInstancePatchStatesRequest {}
+export interface DescribeInstancePatchStatesCommandOutput extends DescribeInstancePatchStatesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the high-level patch state of one or more instances.</p>

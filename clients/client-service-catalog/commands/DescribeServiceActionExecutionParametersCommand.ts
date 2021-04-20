@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeServiceActionExecutionParametersCommandInput = DescribeServiceActionExecutionParametersInput;
-export type DescribeServiceActionExecutionParametersCommandOutput = DescribeServiceActionExecutionParametersOutput &
-  __MetadataBearer;
+export interface DescribeServiceActionExecutionParametersCommandInput
+  extends DescribeServiceActionExecutionParametersInput {}
+export interface DescribeServiceActionExecutionParametersCommandOutput
+  extends DescribeServiceActionExecutionParametersOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Finds the default parameters for a specific self-service action on a specific provisioned product and returns a map of the results to the user.</p>

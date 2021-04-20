@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBackupPlanCommandInput = CreateBackupPlanInput;
-export type CreateBackupPlanCommandOutput = CreateBackupPlanOutput & __MetadataBearer;
+export interface CreateBackupPlanCommandInput extends CreateBackupPlanInput {}
+export interface CreateBackupPlanCommandOutput extends CreateBackupPlanOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a backup plan using a backup plan name and backup rules. A backup plan is a

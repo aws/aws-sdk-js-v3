@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchSystemTemplatesCommandInput = SearchSystemTemplatesRequest;
-export type SearchSystemTemplatesCommandOutput = SearchSystemTemplatesResponse & __MetadataBearer;
+export interface SearchSystemTemplatesCommandInput extends SearchSystemTemplatesRequest {}
+export interface SearchSystemTemplatesCommandOutput extends SearchSystemTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Searches for summary information about systems in the user's account. You can filter by the ID of a workflow to return only systems that use the specified workflow.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetVPCEConfigurationCommandInput = GetVPCEConfigurationRequest;
-export type GetVPCEConfigurationCommandOutput = GetVPCEConfigurationResult & __MetadataBearer;
+export interface GetVPCEConfigurationCommandInput extends GetVPCEConfigurationRequest {}
+export interface GetVPCEConfigurationCommandOutput extends GetVPCEConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about the configuration settings for your Amazon Virtual Private

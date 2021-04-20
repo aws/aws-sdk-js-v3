@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopDBInstanceAutomatedBackupsReplicationCommandInput = StopDBInstanceAutomatedBackupsReplicationMessage;
-export type StopDBInstanceAutomatedBackupsReplicationCommandOutput = StopDBInstanceAutomatedBackupsReplicationResult &
-  __MetadataBearer;
+export interface StopDBInstanceAutomatedBackupsReplicationCommandInput
+  extends StopDBInstanceAutomatedBackupsReplicationMessage {}
+export interface StopDBInstanceAutomatedBackupsReplicationCommandOutput
+  extends StopDBInstanceAutomatedBackupsReplicationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Stops automated backup replication for a DB instance.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateExternalConnectionCommandInput = DisassociateExternalConnectionRequest;
-export type DisassociateExternalConnectionCommandOutput = DisassociateExternalConnectionResult & __MetadataBearer;
+export interface DisassociateExternalConnectionCommandInput extends DisassociateExternalConnectionRequest {}
+export interface DisassociateExternalConnectionCommandOutput
+  extends DisassociateExternalConnectionResult,
+    __MetadataBearer {}
 
 /**
  * <p>

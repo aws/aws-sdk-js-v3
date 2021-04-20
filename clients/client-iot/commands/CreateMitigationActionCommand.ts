@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMitigationActionCommandInput = CreateMitigationActionRequest;
-export type CreateMitigationActionCommandOutput = CreateMitigationActionResponse & __MetadataBearer;
+export interface CreateMitigationActionCommandInput extends CreateMitigationActionRequest {}
+export interface CreateMitigationActionCommandOutput extends CreateMitigationActionResponse, __MetadataBearer {}
 
 /**
  * <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Only certain types of mitigation actions can be applied to specific check names. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html">Mitigation actions</a>. Each mitigation action can apply only one type of change.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConversionTasksCommandInput = DescribeConversionTasksRequest;
-export type DescribeConversionTasksCommandOutput = DescribeConversionTasksResult & __MetadataBearer;
+export interface DescribeConversionTasksCommandInput extends DescribeConversionTasksRequest {}
+export interface DescribeConversionTasksCommandOutput extends DescribeConversionTasksResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified conversion tasks or all your conversion tasks. For more information, see the

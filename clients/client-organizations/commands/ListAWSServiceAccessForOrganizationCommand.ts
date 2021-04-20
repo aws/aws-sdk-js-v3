@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAWSServiceAccessForOrganizationCommandInput = ListAWSServiceAccessForOrganizationRequest;
-export type ListAWSServiceAccessForOrganizationCommandOutput = ListAWSServiceAccessForOrganizationResponse &
-  __MetadataBearer;
+export interface ListAWSServiceAccessForOrganizationCommandInput extends ListAWSServiceAccessForOrganizationRequest {}
+export interface ListAWSServiceAccessForOrganizationCommandOutput
+  extends ListAWSServiceAccessForOrganizationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of the AWS services that you enabled to integrate with your

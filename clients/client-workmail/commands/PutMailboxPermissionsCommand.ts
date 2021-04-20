@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutMailboxPermissionsCommandInput = PutMailboxPermissionsRequest;
-export type PutMailboxPermissionsCommandOutput = PutMailboxPermissionsResponse & __MetadataBearer;
+export interface PutMailboxPermissionsCommandInput extends PutMailboxPermissionsRequest {}
+export interface PutMailboxPermissionsCommandOutput extends PutMailboxPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Sets permissions for a user, group, or resource. This replaces any pre-existing

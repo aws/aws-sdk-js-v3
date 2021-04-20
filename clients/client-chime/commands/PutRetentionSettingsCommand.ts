@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutRetentionSettingsCommandInput = PutRetentionSettingsRequest;
-export type PutRetentionSettingsCommandOutput = PutRetentionSettingsResponse & __MetadataBearer;
+export interface PutRetentionSettingsCommandInput extends PutRetentionSettingsRequest {}
+export interface PutRetentionSettingsCommandOutput extends PutRetentionSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>

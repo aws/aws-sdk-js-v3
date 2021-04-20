@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVodSourceCommandInput = DeleteVodSourceRequest;
-export type DeleteVodSourceCommandOutput = DeleteVodSourceResponse & __MetadataBearer;
+export interface DeleteVodSourceCommandInput extends DeleteVodSourceRequest {}
+export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a specific VOD source in a specific source location.</p>

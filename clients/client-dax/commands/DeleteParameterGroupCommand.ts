@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteParameterGroupCommandInput = DeleteParameterGroupRequest;
-export type DeleteParameterGroupCommandOutput = DeleteParameterGroupResponse & __MetadataBearer;
+export interface DeleteParameterGroupCommandInput extends DeleteParameterGroupRequest {}
+export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified parameter group. You cannot delete a parameter group if it is

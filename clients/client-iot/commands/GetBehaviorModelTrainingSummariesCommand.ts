@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBehaviorModelTrainingSummariesCommandInput = GetBehaviorModelTrainingSummariesRequest;
-export type GetBehaviorModelTrainingSummariesCommandOutput = GetBehaviorModelTrainingSummariesResponse &
-  __MetadataBearer;
+export interface GetBehaviorModelTrainingSummariesCommandInput extends GetBehaviorModelTrainingSummariesRequest {}
+export interface GetBehaviorModelTrainingSummariesCommandOutput
+  extends GetBehaviorModelTrainingSummariesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

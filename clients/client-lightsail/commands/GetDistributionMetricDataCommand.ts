@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDistributionMetricDataCommandInput = GetDistributionMetricDataRequest;
-export type GetDistributionMetricDataCommandOutput = GetDistributionMetricDataResult & __MetadataBearer;
+export interface GetDistributionMetricDataCommandInput extends GetDistributionMetricDataRequest {}
+export interface GetDistributionMetricDataCommandOutput extends GetDistributionMetricDataResult, __MetadataBearer {}
 
 /**
  * <p>Returns the data points of a specific metric for an Amazon Lightsail content delivery

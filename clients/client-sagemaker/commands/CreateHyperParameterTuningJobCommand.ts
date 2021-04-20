@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateHyperParameterTuningJobCommandInput = CreateHyperParameterTuningJobRequest;
-export type CreateHyperParameterTuningJobCommandOutput = CreateHyperParameterTuningJobResponse & __MetadataBearer;
+export interface CreateHyperParameterTuningJobCommandInput extends CreateHyperParameterTuningJobRequest {}
+export interface CreateHyperParameterTuningJobCommandOutput
+  extends CreateHyperParameterTuningJobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Starts a hyperparameter tuning job. A hyperparameter tuning job finds the best version

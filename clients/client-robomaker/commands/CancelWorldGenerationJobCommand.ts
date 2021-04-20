@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelWorldGenerationJobCommandInput = CancelWorldGenerationJobRequest;
-export type CancelWorldGenerationJobCommandOutput = CancelWorldGenerationJobResponse & __MetadataBearer;
+export interface CancelWorldGenerationJobCommandInput extends CancelWorldGenerationJobRequest {}
+export interface CancelWorldGenerationJobCommandOutput extends CancelWorldGenerationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels the specified world generator job.</p>

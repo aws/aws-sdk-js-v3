@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTrainingJobsForHyperParameterTuningJobCommandInput = ListTrainingJobsForHyperParameterTuningJobRequest;
-export type ListTrainingJobsForHyperParameterTuningJobCommandOutput = ListTrainingJobsForHyperParameterTuningJobResponse &
-  __MetadataBearer;
+export interface ListTrainingJobsForHyperParameterTuningJobCommandInput
+  extends ListTrainingJobsForHyperParameterTuningJobRequest {}
+export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
+  extends ListTrainingJobsForHyperParameterTuningJobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets a list of <a>TrainingJobSummary</a> objects that describe the training

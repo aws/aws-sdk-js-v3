@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableDomainTransferLockCommandInput = EnableDomainTransferLockRequest;
-export type EnableDomainTransferLockCommandOutput = EnableDomainTransferLockResponse & __MetadataBearer;
+export interface EnableDomainTransferLockCommandInput extends EnableDomainTransferLockRequest {}
+export interface EnableDomainTransferLockCommandOutput extends EnableDomainTransferLockResponse, __MetadataBearer {}
 
 /**
  * <p>This operation sets the transfer lock on the domain (specifically the <code>clientTransferProhibited</code> status)

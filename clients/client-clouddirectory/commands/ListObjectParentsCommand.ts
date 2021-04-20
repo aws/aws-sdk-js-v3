@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListObjectParentsCommandInput = ListObjectParentsRequest;
-export type ListObjectParentsCommandOutput = ListObjectParentsResponse & __MetadataBearer;
+export interface ListObjectParentsCommandInput extends ListObjectParentsRequest {}
+export interface ListObjectParentsCommandOutput extends ListObjectParentsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists parent objects that are associated with a given object in pagination

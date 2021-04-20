@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSnapshotSchedulesCommandInput = DescribeSnapshotSchedulesMessage;
-export type DescribeSnapshotSchedulesCommandOutput = DescribeSnapshotSchedulesOutputMessage & __MetadataBearer;
+export interface DescribeSnapshotSchedulesCommandInput extends DescribeSnapshotSchedulesMessage {}
+export interface DescribeSnapshotSchedulesCommandOutput
+  extends DescribeSnapshotSchedulesOutputMessage,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of snapshot schedules. </p>

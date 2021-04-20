@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBucketEncryptionCommandInput = PutBucketEncryptionRequest;
-export type PutBucketEncryptionCommandOutput = __MetadataBearer;
+export interface PutBucketEncryptionCommandInput extends PutBucketEncryptionRequest {}
+export interface PutBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This action uses the <code>encryption</code> subresource to configure default

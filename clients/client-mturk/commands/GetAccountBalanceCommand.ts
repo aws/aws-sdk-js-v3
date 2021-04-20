@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccountBalanceCommandInput = GetAccountBalanceRequest;
-export type GetAccountBalanceCommandOutput = GetAccountBalanceResponse & __MetadataBearer;
+export interface GetAccountBalanceCommandInput extends GetAccountBalanceRequest {}
+export interface GetAccountBalanceCommandOutput extends GetAccountBalanceResponse, __MetadataBearer {}
 
 /**
  * <p>The <code>GetAccountBalance</code> operation retrieves the amount of money in your Amazon Mechanical Turk account.</p>

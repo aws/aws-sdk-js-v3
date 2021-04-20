@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateContainerCommandInput = CreateContainerInput;
-export type CreateContainerCommandOutput = CreateContainerOutput & __MetadataBearer;
+export interface CreateContainerCommandInput extends CreateContainerInput {}
+export interface CreateContainerCommandOutput extends CreateContainerOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a storage container to hold objects. A container is similar to a bucket in

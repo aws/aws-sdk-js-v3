@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartResourceScanCommandInput = StartResourceScanRequest;
-export type StartResourceScanCommandOutput = __MetadataBearer;
+export interface StartResourceScanCommandInput extends StartResourceScanRequest {}
+export interface StartResourceScanCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Immediately starts a scan of the policies applied to the specified resource.</p>

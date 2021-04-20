@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExecuteSqlCommandInput = ExecuteSqlRequest;
-export type ExecuteSqlCommandOutput = ExecuteSqlResponse & __MetadataBearer;
+export interface ExecuteSqlCommandInput extends ExecuteSqlRequest {}
+export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataBearer {}
 
 /**
  * @deprecated

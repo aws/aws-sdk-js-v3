@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeScalingPlansCommandInput = DescribeScalingPlansRequest;
-export type DescribeScalingPlansCommandOutput = DescribeScalingPlansResponse & __MetadataBearer;
+export interface DescribeScalingPlansCommandInput extends DescribeScalingPlansRequest {}
+export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansResponse, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your scaling plans.</p>

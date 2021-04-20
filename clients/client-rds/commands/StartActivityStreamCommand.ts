@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartActivityStreamCommandInput = StartActivityStreamRequest;
-export type StartActivityStreamCommandOutput = StartActivityStreamResponse & __MetadataBearer;
+export interface StartActivityStreamCommandInput extends StartActivityStreamRequest {}
+export interface StartActivityStreamCommandOutput extends StartActivityStreamResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a database activity stream to monitor activity on the database.

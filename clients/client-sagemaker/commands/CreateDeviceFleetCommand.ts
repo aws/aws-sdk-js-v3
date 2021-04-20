@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDeviceFleetCommandInput = CreateDeviceFleetRequest;
-export type CreateDeviceFleetCommandOutput = __MetadataBearer;
+export interface CreateDeviceFleetCommandInput extends CreateDeviceFleetRequest {}
+export interface CreateDeviceFleetCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates a device fleet.</p>

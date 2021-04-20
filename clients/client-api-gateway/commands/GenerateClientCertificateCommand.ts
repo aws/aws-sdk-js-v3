@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GenerateClientCertificateCommandInput = GenerateClientCertificateRequest;
-export type GenerateClientCertificateCommandOutput = ClientCertificate & __MetadataBearer;
+export interface GenerateClientCertificateCommandInput extends GenerateClientCertificateRequest {}
+export interface GenerateClientCertificateCommandOutput extends ClientCertificate, __MetadataBearer {}
 
 /**
  * <p>Generates a <a>ClientCertificate</a> resource.</p>

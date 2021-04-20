@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProjectCommandInput = DeleteProjectInput;
-export type DeleteProjectCommandOutput = DeleteProjectOutput & __MetadataBearer;
+export interface DeleteProjectCommandInput extends DeleteProjectInput {}
+export interface DeleteProjectCommandOutput extends DeleteProjectOutput, __MetadataBearer {}
 
 /**
  * <p> Deletes a build project. When you delete a project, its builds are not deleted.

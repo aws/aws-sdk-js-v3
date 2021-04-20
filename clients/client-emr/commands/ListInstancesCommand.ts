@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInstancesCommandInput = ListInstancesInput;
-export type ListInstancesCommandOutput = ListInstancesOutput & __MetadataBearer;
+export interface ListInstancesCommandInput extends ListInstancesInput {}
+export interface ListInstancesCommandOutput extends ListInstancesOutput, __MetadataBearer {}
 
 /**
  * <p>Provides information for all active EC2 instances and EC2 instances terminated in the

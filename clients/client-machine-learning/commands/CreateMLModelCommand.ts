@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMLModelCommandInput = CreateMLModelInput;
-export type CreateMLModelCommandOutput = CreateMLModelOutput & __MetadataBearer;
+export interface CreateMLModelCommandInput extends CreateMLModelInput {}
+export interface CreateMLModelCommandOutput extends CreateMLModelOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new <code>MLModel</code> using the <code>DataSource</code> and the recipe as

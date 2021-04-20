@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartSigningJobCommandInput = StartSigningJobRequest;
-export type StartSigningJobCommandOutput = StartSigningJobResponse & __MetadataBearer;
+export interface StartSigningJobCommandInput extends StartSigningJobRequest {}
+export interface StartSigningJobCommandOutput extends StartSigningJobResponse, __MetadataBearer {}
 
 /**
  * <p>Initiates a signing job to be performed on the code provided. Signing jobs are

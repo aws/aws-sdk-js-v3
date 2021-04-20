@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UnlinkDeveloperIdentityCommandInput = UnlinkDeveloperIdentityInput;
-export type UnlinkDeveloperIdentityCommandOutput = __MetadataBearer;
+export interface UnlinkDeveloperIdentityCommandInput extends UnlinkDeveloperIdentityInput {}
+export interface UnlinkDeveloperIdentityCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Unlinks a <code>DeveloperUserIdentifier</code> from an existing identity. Unlinked

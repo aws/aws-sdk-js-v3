@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetOrganizationsAccessReportCommandInput = GetOrganizationsAccessReportRequest;
-export type GetOrganizationsAccessReportCommandOutput = GetOrganizationsAccessReportResponse & __MetadataBearer;
+export interface GetOrganizationsAccessReportCommandInput extends GetOrganizationsAccessReportRequest {}
+export interface GetOrganizationsAccessReportCommandOutput
+  extends GetOrganizationsAccessReportResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the service last accessed data report for AWS Organizations that was previously generated

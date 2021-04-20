@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReloadTablesCommandInput = ReloadTablesMessage;
-export type ReloadTablesCommandOutput = ReloadTablesResponse & __MetadataBearer;
+export interface ReloadTablesCommandInput extends ReloadTablesMessage {}
+export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __MetadataBearer {}
 
 /**
  * <p>Reloads the target database table with the source data. </p>

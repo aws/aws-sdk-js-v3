@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListHsmsCommandInput = ListHsmsRequest;
-export type ListHsmsCommandOutput = ListHsmsResponse & __MetadataBearer;
+export interface ListHsmsCommandInput extends ListHsmsRequest {}
+export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBearer {}
 
 /**
  * <p>This is documentation for <b>AWS CloudHSM Classic</b>. For

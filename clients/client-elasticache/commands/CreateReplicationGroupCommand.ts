@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateReplicationGroupCommandInput = CreateReplicationGroupMessage;
-export type CreateReplicationGroupCommandOutput = CreateReplicationGroupResult & __MetadataBearer;
+export interface CreateReplicationGroupCommandInput extends CreateReplicationGroupMessage {}
+export interface CreateReplicationGroupCommandOutput extends CreateReplicationGroupResult, __MetadataBearer {}
 
 /**
  * <p>Creates a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication group.</p>

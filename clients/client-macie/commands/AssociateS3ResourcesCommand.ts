@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateS3ResourcesCommandInput = AssociateS3ResourcesRequest;
-export type AssociateS3ResourcesCommandOutput = AssociateS3ResourcesResult & __MetadataBearer;
+export interface AssociateS3ResourcesCommandInput extends AssociateS3ResourcesRequest {}
+export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesResult, __MetadataBearer {}
 
 /**
  * <p>Associates specified S3 resources with Amazon Macie Classic for monitoring and data

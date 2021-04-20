@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVolumeCommandInput = DeleteVolumeRequest;
-export type DeleteVolumeCommandOutput = __MetadataBearer;
+export interface DeleteVolumeCommandInput extends DeleteVolumeRequest {}
+export interface DeleteVolumeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified EBS volume. The volume must be in the <code>available</code> state

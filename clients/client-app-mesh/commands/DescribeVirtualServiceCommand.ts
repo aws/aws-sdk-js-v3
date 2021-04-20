@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVirtualServiceCommandInput = DescribeVirtualServiceInput;
-export type DescribeVirtualServiceCommandOutput = DescribeVirtualServiceOutput & __MetadataBearer;
+export interface DescribeVirtualServiceCommandInput extends DescribeVirtualServiceInput {}
+export interface DescribeVirtualServiceCommandOutput extends DescribeVirtualServiceOutput, __MetadataBearer {}
 
 /**
  * <p>Describes an existing virtual service.</p>

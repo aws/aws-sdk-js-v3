@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateTargetsWithJobCommandInput = AssociateTargetsWithJobRequest;
-export type AssociateTargetsWithJobCommandOutput = AssociateTargetsWithJobResponse & __MetadataBearer;
+export interface AssociateTargetsWithJobCommandInput extends AssociateTargetsWithJobRequest {}
+export interface AssociateTargetsWithJobCommandOutput extends AssociateTargetsWithJobResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a group with a continuous job. The following criteria must be met: </p>

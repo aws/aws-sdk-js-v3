@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAssetCommandInput = DeleteAssetRequest;
-export type DeleteAssetCommandOutput = __MetadataBearer;
+export interface DeleteAssetCommandInput extends DeleteAssetRequest {}
+export interface DeleteAssetCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation deletes an asset.</p>

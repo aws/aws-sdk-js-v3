@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartMLLabelingSetGenerationTaskRunCommandInput = StartMLLabelingSetGenerationTaskRunRequest;
-export type StartMLLabelingSetGenerationTaskRunCommandOutput = StartMLLabelingSetGenerationTaskRunResponse &
-  __MetadataBearer;
+export interface StartMLLabelingSetGenerationTaskRunCommandInput extends StartMLLabelingSetGenerationTaskRunRequest {}
+export interface StartMLLabelingSetGenerationTaskRunCommandOutput
+  extends StartMLLabelingSetGenerationTaskRunResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Starts the active learning workflow for your machine learning transform to improve the

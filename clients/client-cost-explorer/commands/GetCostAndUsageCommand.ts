@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCostAndUsageCommandInput = GetCostAndUsageRequest;
-export type GetCostAndUsageCommandOutput = GetCostAndUsageResponse & __MetadataBearer;
+export interface GetCostAndUsageCommandInput extends GetCostAndUsageRequest {}
+export interface GetCostAndUsageCommandOutput extends GetCostAndUsageResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves cost and usage metrics for your account. You can specify which cost and usage-related metric, such as

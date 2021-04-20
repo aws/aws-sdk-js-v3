@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateExperimentCommandInput = CreateExperimentRequest;
-export type CreateExperimentCommandOutput = CreateExperimentResponse & __MetadataBearer;
+export interface CreateExperimentCommandInput extends CreateExperimentRequest {}
+export interface CreateExperimentCommandOutput extends CreateExperimentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an SageMaker <i>experiment</i>. An experiment is a collection of

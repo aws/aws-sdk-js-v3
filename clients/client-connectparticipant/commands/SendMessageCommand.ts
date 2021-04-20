@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendMessageCommandInput = SendMessageRequest;
-export type SendMessageCommandOutput = SendMessageResponse & __MetadataBearer;
+export interface SendMessageCommandInput extends SendMessageRequest {}
+export interface SendMessageCommandOutput extends SendMessageResponse, __MetadataBearer {}
 
 /**
  * <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of

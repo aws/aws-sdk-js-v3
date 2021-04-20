@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeContinuousExportsCommandInput = DescribeContinuousExportsRequest;
-export type DescribeContinuousExportsCommandOutput = DescribeContinuousExportsResponse & __MetadataBearer;
+export interface DescribeContinuousExportsCommandInput extends DescribeContinuousExportsRequest {}
+export interface DescribeContinuousExportsCommandOutput extends DescribeContinuousExportsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists exports as specified by ID. All continuous exports associated with your user

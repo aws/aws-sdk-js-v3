@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutExternalModelCommandInput = PutExternalModelRequest;
-export type PutExternalModelCommandOutput = PutExternalModelResult & __MetadataBearer;
+export interface PutExternalModelCommandInput extends PutExternalModelRequest {}
+export interface PutExternalModelCommandOutput extends PutExternalModelResult, __MetadataBearer {}
 
 /**
  * <p>Creates or updates an Amazon SageMaker model endpoint. You can also use this action to update the configuration of the model endpoint, including the IAM role and/or the mapped variables.  </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateNFSFileShareCommandInput = UpdateNFSFileShareInput;
-export type UpdateNFSFileShareCommandOutput = UpdateNFSFileShareOutput & __MetadataBearer;
+export interface UpdateNFSFileShareCommandInput extends UpdateNFSFileShareInput {}
+export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a Network File System (NFS) file share. This operation is only supported in the

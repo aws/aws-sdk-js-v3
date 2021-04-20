@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCodeReviewCommandInput = DescribeCodeReviewRequest;
-export type DescribeCodeReviewCommandOutput = DescribeCodeReviewResponse & __MetadataBearer;
+export interface DescribeCodeReviewCommandInput extends DescribeCodeReviewRequest {}
+export interface DescribeCodeReviewCommandOutput extends DescribeCodeReviewResponse, __MetadataBearer {}
 
 /**
  * <p> Returns the metadata associated with the code review along with its status.</p>

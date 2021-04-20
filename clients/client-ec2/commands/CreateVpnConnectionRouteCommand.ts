@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVpnConnectionRouteCommandInput = CreateVpnConnectionRouteRequest;
-export type CreateVpnConnectionRouteCommandOutput = __MetadataBearer;
+export interface CreateVpnConnectionRouteCommandInput extends CreateVpnConnectionRouteRequest {}
+export interface CreateVpnConnectionRouteCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates a static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.</p>

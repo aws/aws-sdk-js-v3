@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutPermissionCommandInput = PutPermissionRequest;
-export type PutPermissionCommandOutput = __MetadataBearer;
+export interface PutPermissionCommandInput extends PutPermissionRequest {}
+export interface PutPermissionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Running <code>PutPermission</code> permits the specified AWS account or AWS organization

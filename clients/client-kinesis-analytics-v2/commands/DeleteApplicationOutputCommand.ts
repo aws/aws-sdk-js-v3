@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteApplicationOutputCommandInput = DeleteApplicationOutputRequest;
-export type DeleteApplicationOutputCommandOutput = DeleteApplicationOutputResponse & __MetadataBearer;
+export interface DeleteApplicationOutputCommandInput extends DeleteApplicationOutputRequest {}
+export interface DeleteApplicationOutputCommandOutput extends DeleteApplicationOutputResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the output destination configuration from your SQL-based Kinesis Data Analytics application's configuration.

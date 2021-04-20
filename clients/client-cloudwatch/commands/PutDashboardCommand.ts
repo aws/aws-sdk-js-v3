@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutDashboardCommandInput = PutDashboardInput;
-export type PutDashboardCommandOutput = PutDashboardOutput & __MetadataBearer;
+export interface PutDashboardCommandInput extends PutDashboardInput {}
+export interface PutDashboardCommandOutput extends PutDashboardOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a dashboard if it does not already exist, or updates an existing dashboard. If you update a dashboard,

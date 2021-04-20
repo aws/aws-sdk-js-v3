@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyInstanceEventStartTimeCommandInput = ModifyInstanceEventStartTimeRequest;
-export type ModifyInstanceEventStartTimeCommandOutput = ModifyInstanceEventStartTimeResult & __MetadataBearer;
+export interface ModifyInstanceEventStartTimeCommandInput extends ModifyInstanceEventStartTimeRequest {}
+export interface ModifyInstanceEventStartTimeCommandOutput
+  extends ModifyInstanceEventStartTimeResult,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies the start time for a scheduled Amazon EC2 instance event.</p>

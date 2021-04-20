@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateItemCommandInput = UpdateItemInput;
-export type UpdateItemCommandOutput = UpdateItemOutput & __MetadataBearer;
+export interface UpdateItemCommandInput extends UpdateItemInput {}
+export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBearer {}
 
 /**
  * <p>Edits an existing item's attributes, or adds a new item to the table if it does not already exist. You can put, delete, or add attribute values. You can also perform a conditional update on an existing item (insert a new attribute name-value pair if it doesn't exist, or replace an existing name-value pair if it has certain expected attribute values).</p>

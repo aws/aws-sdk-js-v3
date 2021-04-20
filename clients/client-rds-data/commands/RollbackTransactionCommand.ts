@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RollbackTransactionCommandInput = RollbackTransactionRequest;
-export type RollbackTransactionCommandOutput = RollbackTransactionResponse & __MetadataBearer;
+export interface RollbackTransactionCommandInput extends RollbackTransactionRequest {}
+export interface RollbackTransactionCommandOutput extends RollbackTransactionResponse, __MetadataBearer {}
 
 /**
  * <p>Performs a rollback of a transaction. Rolling back a transaction cancels its changes.</p>

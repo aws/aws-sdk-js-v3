@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRecipeVersionsCommandInput = ListRecipeVersionsRequest;
-export type ListRecipeVersionsCommandOutput = ListRecipeVersionsResponse & __MetadataBearer;
+export interface ListRecipeVersionsCommandInput extends ListRecipeVersionsRequest {}
+export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the versions of a particular DataBrew recipe, except for

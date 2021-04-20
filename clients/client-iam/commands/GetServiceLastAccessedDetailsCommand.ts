@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetServiceLastAccessedDetailsCommandInput = GetServiceLastAccessedDetailsRequest;
-export type GetServiceLastAccessedDetailsCommandOutput = GetServiceLastAccessedDetailsResponse & __MetadataBearer;
+export interface GetServiceLastAccessedDetailsCommandInput extends GetServiceLastAccessedDetailsRequest {}
+export interface GetServiceLastAccessedDetailsCommandOutput
+  extends GetServiceLastAccessedDetailsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves a service last accessed report that was created using the

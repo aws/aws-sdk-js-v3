@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDBClusterParameterGroupCommandInput = CreateDBClusterParameterGroupMessage;
-export type CreateDBClusterParameterGroupCommandOutput = CreateDBClusterParameterGroupResult & __MetadataBearer;
+export interface CreateDBClusterParameterGroupCommandInput extends CreateDBClusterParameterGroupMessage {}
+export interface CreateDBClusterParameterGroupCommandOutput
+  extends CreateDBClusterParameterGroupResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a new DB cluster parameter group.</p>

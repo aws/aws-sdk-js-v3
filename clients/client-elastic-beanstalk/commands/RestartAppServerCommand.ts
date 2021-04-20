@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestartAppServerCommandInput = RestartAppServerMessage;
-export type RestartAppServerCommandOutput = __MetadataBearer;
+export interface RestartAppServerCommandInput extends RestartAppServerMessage {}
+export interface RestartAppServerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Causes the environment to restart the application container server running on each

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterCACertificateCommandInput = RegisterCACertificateRequest;
-export type RegisterCACertificateCommandOutput = RegisterCACertificateResponse & __MetadataBearer;
+export interface RegisterCACertificateCommandInput extends RegisterCACertificateRequest {}
+export interface RegisterCACertificateCommandOutput extends RegisterCACertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Registers a CA certificate with AWS IoT. This CA certificate can then be used to sign

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListComponentsCommandInput = ListComponentsRequest;
-export type ListComponentsCommandOutput = ListComponentsResponse & __MetadataBearer;
+export interface ListComponentsCommandInput extends ListComponentsRequest {}
+export interface ListComponentsCommandOutput extends ListComponentsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the auto-grouped, standalone, and custom components of the application.</p>

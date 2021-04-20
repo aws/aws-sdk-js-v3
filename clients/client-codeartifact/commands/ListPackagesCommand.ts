@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPackagesCommandInput = ListPackagesRequest;
-export type ListPackagesCommandOutput = ListPackagesResult & __MetadataBearer;
+export interface ListPackagesCommandInput extends ListPackagesRequest {}
+export interface ListPackagesCommandOutput extends ListPackagesResult, __MetadataBearer {}
 
 /**
  * <p>

@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeListenerCertificatesCommandInput = DescribeListenerCertificatesInput;
-export type DescribeListenerCertificatesCommandOutput = DescribeListenerCertificatesOutput & __MetadataBearer;
+export interface DescribeListenerCertificatesCommandInput extends DescribeListenerCertificatesInput {}
+export interface DescribeListenerCertificatesCommandOutput
+  extends DescribeListenerCertificatesOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the default certificate and the certificate list for the specified HTTPS or TLS

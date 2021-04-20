@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateStandardsControlCommandInput = UpdateStandardsControlRequest;
-export type UpdateStandardsControlCommandOutput = UpdateStandardsControlResponse & __MetadataBearer;
+export interface UpdateStandardsControlCommandInput extends UpdateStandardsControlRequest {}
+export interface UpdateStandardsControlCommandOutput extends UpdateStandardsControlResponse, __MetadataBearer {}
 
 /**
  * <p>Used to control whether an individual security standard control is enabled or

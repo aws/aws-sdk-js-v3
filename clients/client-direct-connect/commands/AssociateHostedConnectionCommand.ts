@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateHostedConnectionCommandInput = AssociateHostedConnectionRequest;
-export type AssociateHostedConnectionCommandOutput = Connection & __MetadataBearer;
+export interface AssociateHostedConnectionCommandInput extends AssociateHostedConnectionRequest {}
+export interface AssociateHostedConnectionCommandOutput extends Connection, __MetadataBearer {}
 
 /**
  * <p>Associates a hosted connection and its virtual interfaces with a link aggregation

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCodeSigningConfigsCommandInput = ListCodeSigningConfigsRequest;
-export type ListCodeSigningConfigsCommandOutput = ListCodeSigningConfigsResponse & __MetadataBearer;
+export interface ListCodeSigningConfigsCommandInput extends ListCodeSigningConfigsRequest {}
+export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConfigsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html">code

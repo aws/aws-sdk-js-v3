@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListUserPoolClientsCommandInput = ListUserPoolClientsRequest;
-export type ListUserPoolClientsCommandOutput = ListUserPoolClientsResponse & __MetadataBearer;
+export interface ListUserPoolClientsCommandInput extends ListUserPoolClientsRequest {}
+export interface ListUserPoolClientsCommandOutput extends ListUserPoolClientsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the clients that have been created for the specified user pool.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateConnectorDefinitionCommandInput = CreateConnectorDefinitionRequest;
-export type CreateConnectorDefinitionCommandOutput = CreateConnectorDefinitionResponse & __MetadataBearer;
+export interface CreateConnectorDefinitionCommandInput extends CreateConnectorDefinitionRequest {}
+export interface CreateConnectorDefinitionCommandOutput extends CreateConnectorDefinitionResponse, __MetadataBearer {}
 
 /**
  * Creates a connector definition. You may provide the initial version of the connector definition now or use ''CreateConnectorDefinitionVersion'' at a later time.

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableImportFindingsForProductCommandInput = DisableImportFindingsForProductRequest;
-export type DisableImportFindingsForProductCommandOutput = DisableImportFindingsForProductResponse & __MetadataBearer;
+export interface DisableImportFindingsForProductCommandInput extends DisableImportFindingsForProductRequest {}
+export interface DisableImportFindingsForProductCommandOutput
+  extends DisableImportFindingsForProductResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disables the integration of the specified product with Security Hub. After the integration is

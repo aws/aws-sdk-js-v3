@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableVpcClassicLinkDnsSupportCommandInput = EnableVpcClassicLinkDnsSupportRequest;
-export type EnableVpcClassicLinkDnsSupportCommandOutput = EnableVpcClassicLinkDnsSupportResult & __MetadataBearer;
+export interface EnableVpcClassicLinkDnsSupportCommandInput extends EnableVpcClassicLinkDnsSupportRequest {}
+export interface EnableVpcClassicLinkDnsSupportCommandOutput
+  extends EnableVpcClassicLinkDnsSupportResult,
+    __MetadataBearer {}
 
 /**
  * <p>Enables a VPC to support DNS hostname resolution for ClassicLink. If enabled, the DNS

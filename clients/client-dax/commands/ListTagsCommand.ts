@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsCommandInput = ListTagsRequest;
-export type ListTagsCommandOutput = ListTagsResponse & __MetadataBearer;
+export interface ListTagsCommandInput extends ListTagsRequest {}
+export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
  * <p>List all of the tags for a DAX cluster. You can call <code>ListTags</code> up to

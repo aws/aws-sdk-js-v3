@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableAWSServiceAccessCommandInput = DisableAWSServiceAccessRequest;
-export type DisableAWSServiceAccessCommandOutput = __MetadataBearer;
+export interface DisableAWSServiceAccessCommandInput extends DisableAWSServiceAccessRequest {}
+export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disables the integration of an AWS service (the service that is specified by

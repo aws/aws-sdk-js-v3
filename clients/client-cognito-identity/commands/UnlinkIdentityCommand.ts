@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UnlinkIdentityCommandInput = UnlinkIdentityInput;
-export type UnlinkIdentityCommandOutput = __MetadataBearer;
+export interface UnlinkIdentityCommandInput extends UnlinkIdentityInput {}
+export interface UnlinkIdentityCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Unlinks a federated identity from an existing account. Unlinked logins will be

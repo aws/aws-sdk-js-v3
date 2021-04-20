@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteInfrastructureConfigurationCommandInput = DeleteInfrastructureConfigurationRequest;
-export type DeleteInfrastructureConfigurationCommandOutput = DeleteInfrastructureConfigurationResponse &
-  __MetadataBearer;
+export interface DeleteInfrastructureConfigurationCommandInput extends DeleteInfrastructureConfigurationRequest {}
+export interface DeleteInfrastructureConfigurationCommandOutput
+  extends DeleteInfrastructureConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p> Deletes an infrastructure configuration.</p>

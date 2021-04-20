@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchLocalGatewayRoutesCommandInput = SearchLocalGatewayRoutesRequest;
-export type SearchLocalGatewayRoutesCommandOutput = SearchLocalGatewayRoutesResult & __MetadataBearer;
+export interface SearchLocalGatewayRoutesCommandInput extends SearchLocalGatewayRoutesRequest {}
+export interface SearchLocalGatewayRoutesCommandOutput extends SearchLocalGatewayRoutesResult, __MetadataBearer {}
 
 /**
  * <p>Searches for routes in the specified local gateway route table.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListStoredQueriesCommandInput = ListStoredQueriesRequest;
-export type ListStoredQueriesCommandOutput = ListStoredQueriesResponse & __MetadataBearer;
+export interface ListStoredQueriesCommandInput extends ListStoredQueriesRequest {}
+export interface ListStoredQueriesCommandOutput extends ListStoredQueriesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the stored queries for a single AWS account and a single AWS Region. The default is 100. </p>

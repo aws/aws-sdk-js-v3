@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteOrganizationConformancePackCommandInput = DeleteOrganizationConformancePackRequest;
-export type DeleteOrganizationConformancePackCommandOutput = __MetadataBearer;
+export interface DeleteOrganizationConformancePackCommandInput extends DeleteOrganizationConformancePackRequest {}
+export interface DeleteOrganizationConformancePackCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified organization conformance pack and all of the config rules and remediation actions from

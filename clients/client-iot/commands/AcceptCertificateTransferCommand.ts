@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptCertificateTransferCommandInput = AcceptCertificateTransferRequest;
-export type AcceptCertificateTransferCommandOutput = __MetadataBearer;
+export interface AcceptCertificateTransferCommandInput extends AcceptCertificateTransferRequest {}
+export interface AcceptCertificateTransferCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Accepts a pending certificate transfer. The default state of the certificate is

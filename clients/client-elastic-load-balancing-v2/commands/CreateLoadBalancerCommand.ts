@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLoadBalancerCommandInput = CreateLoadBalancerInput;
-export type CreateLoadBalancerCommandOutput = CreateLoadBalancerOutput & __MetadataBearer;
+export interface CreateLoadBalancerCommandInput extends CreateLoadBalancerInput {}
+export interface CreateLoadBalancerCommandOutput extends CreateLoadBalancerOutput, __MetadataBearer {}
 
 /**
  * <p>Creates an Application Load Balancer, Network Load Balancer, or Gateway Load

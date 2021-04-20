@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDeviceDefinitionVersionCommandInput = CreateDeviceDefinitionVersionRequest;
-export type CreateDeviceDefinitionVersionCommandOutput = CreateDeviceDefinitionVersionResponse & __MetadataBearer;
+export interface CreateDeviceDefinitionVersionCommandInput extends CreateDeviceDefinitionVersionRequest {}
+export interface CreateDeviceDefinitionVersionCommandOutput
+  extends CreateDeviceDefinitionVersionResponse,
+    __MetadataBearer {}
 
 /**
  * Creates a version of a device definition that has already been defined.

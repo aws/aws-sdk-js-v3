@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeGroupCommandInput = DescribeGroupRequest;
-export type DescribeGroupCommandOutput = DescribeGroupResponse & __MetadataBearer;
+export interface DescribeGroupCommandInput extends DescribeGroupRequest {}
+export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Returns an Amazon QuickSight group's description and Amazon Resource Name (ARN). </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetParametersByPathCommandInput = GetParametersByPathRequest;
-export type GetParametersByPathCommandOutput = GetParametersByPathResult & __MetadataBearer;
+export interface GetParametersByPathCommandInput extends GetParametersByPathRequest {}
+export interface GetParametersByPathCommandOutput extends GetParametersByPathResult, __MetadataBearer {}
 
 /**
  * <p>Retrieve information about one or more parameters in a specific hierarchy. </p>

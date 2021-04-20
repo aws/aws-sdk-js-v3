@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPermissionPolicyCommandInput = GetPermissionPolicyRequest;
-export type GetPermissionPolicyCommandOutput = GetPermissionPolicyResponse & __MetadataBearer;
+export interface GetPermissionPolicyCommandInput extends GetPermissionPolicyRequest {}
+export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the IAM policy that is attached to the specified rule group.</p>

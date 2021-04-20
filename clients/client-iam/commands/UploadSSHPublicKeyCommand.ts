@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UploadSSHPublicKeyCommandInput = UploadSSHPublicKeyRequest;
-export type UploadSSHPublicKeyCommandOutput = UploadSSHPublicKeyResponse & __MetadataBearer;
+export interface UploadSSHPublicKeyCommandInput extends UploadSSHPublicKeyRequest {}
+export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Uploads an SSH public key and associates it with the specified IAM user.</p>

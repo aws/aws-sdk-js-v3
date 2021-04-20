@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UnassignPrivateIpAddressesCommandInput = UnassignPrivateIpAddressesRequest;
-export type UnassignPrivateIpAddressesCommandOutput = __MetadataBearer;
+export interface UnassignPrivateIpAddressesCommandInput extends UnassignPrivateIpAddressesRequest {}
+export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Unassigns one or more secondary private IP addresses from a network interface.</p>

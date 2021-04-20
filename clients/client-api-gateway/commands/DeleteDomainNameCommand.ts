@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDomainNameCommandInput = DeleteDomainNameRequest;
-export type DeleteDomainNameCommandOutput = __MetadataBearer;
+export interface DeleteDomainNameCommandInput extends DeleteDomainNameRequest {}
+export interface DeleteDomainNameCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the <a>DomainName</a> resource.</p>

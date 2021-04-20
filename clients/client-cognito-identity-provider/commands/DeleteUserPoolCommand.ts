@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUserPoolCommandInput = DeleteUserPoolRequest;
-export type DeleteUserPoolCommandOutput = __MetadataBearer;
+export interface DeleteUserPoolCommandInput extends DeleteUserPoolRequest {}
+export interface DeleteUserPoolCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Amazon Cognito user pool.</p>

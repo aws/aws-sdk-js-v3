@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDetectorVersionMetadataCommandInput = UpdateDetectorVersionMetadataRequest;
-export type UpdateDetectorVersionMetadataCommandOutput = UpdateDetectorVersionMetadataResult & __MetadataBearer;
+export interface UpdateDetectorVersionMetadataCommandInput extends UpdateDetectorVersionMetadataRequest {}
+export interface UpdateDetectorVersionMetadataCommandOutput
+  extends UpdateDetectorVersionMetadataResult,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the detector version's description. You can update the metadata for any detector version (<code>DRAFT, ACTIVE,</code> or

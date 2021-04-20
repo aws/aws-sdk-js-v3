@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetObjectRetentionCommandInput = GetObjectRetentionRequest;
-export type GetObjectRetentionCommandOutput = GetObjectRetentionOutput & __MetadataBearer;
+export interface GetObjectRetentionCommandInput extends GetObjectRetentionRequest {}
+export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves an object's retention settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.</p>

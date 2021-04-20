@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNodeCommandInput = CreateNodeInput;
-export type CreateNodeCommandOutput = CreateNodeOutput & __MetadataBearer;
+export interface CreateNodeCommandInput extends CreateNodeInput {}
+export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a node on the specified blockchain network.</p>

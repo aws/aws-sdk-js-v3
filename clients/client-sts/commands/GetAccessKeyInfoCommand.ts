@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccessKeyInfoCommandInput = GetAccessKeyInfoRequest;
-export type GetAccessKeyInfoCommandOutput = GetAccessKeyInfoResponse & __MetadataBearer;
+export interface GetAccessKeyInfoCommandInput extends GetAccessKeyInfoRequest {}
+export interface GetAccessKeyInfoCommandOutput extends GetAccessKeyInfoResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the account identifier for the specified access key ID.</p>

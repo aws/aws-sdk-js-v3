@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetStackPolicyCommandInput = GetStackPolicyInput;
-export type GetStackPolicyCommandOutput = GetStackPolicyOutput & __MetadataBearer;
+export interface GetStackPolicyCommandInput extends GetStackPolicyInput {}
+export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the stack policy for a specified stack. If a stack doesn't have a policy, a

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetProtocolsListCommandInput = GetProtocolsListRequest;
-export type GetProtocolsListCommandOutput = GetProtocolsListResponse & __MetadataBearer;
+export interface GetProtocolsListCommandInput extends GetProtocolsListRequest {}
+export interface GetProtocolsListCommandOutput extends GetProtocolsListResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the specified AWS Firewall Manager protocols list.</p>

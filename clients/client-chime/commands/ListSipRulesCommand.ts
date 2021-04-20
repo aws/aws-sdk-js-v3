@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSipRulesCommandInput = ListSipRulesRequest;
-export type ListSipRulesCommandOutput = ListSipRulesResponse & __MetadataBearer;
+export interface ListSipRulesCommandInput extends ListSipRulesRequest {}
+export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the SIP rules under the administrator's AWS account.</p>

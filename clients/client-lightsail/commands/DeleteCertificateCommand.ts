@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCertificateCommandInput = DeleteCertificateRequest;
-export type DeleteCertificateCommandOutput = DeleteCertificateResult & __MetadataBearer;
+export interface DeleteCertificateCommandInput extends DeleteCertificateRequest {}
+export interface DeleteCertificateCommandOutput extends DeleteCertificateResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an SSL/TLS certificate for your Amazon Lightsail content delivery network (CDN)

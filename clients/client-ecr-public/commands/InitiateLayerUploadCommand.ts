@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InitiateLayerUploadCommandInput = InitiateLayerUploadRequest;
-export type InitiateLayerUploadCommandOutput = InitiateLayerUploadResponse & __MetadataBearer;
+export interface InitiateLayerUploadCommandInput extends InitiateLayerUploadRequest {}
+export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadResponse, __MetadataBearer {}
 
 /**
  * <p>Notifies Amazon ECR that you intend to upload an image layer.</p>

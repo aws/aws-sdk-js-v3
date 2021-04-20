@@ -39,6 +39,10 @@ import {
   HttpPayloadTraitsWithMediaTypeCommandOutput,
 } from "../commands/HttpPayloadTraitsWithMediaTypeCommand";
 import {
+  HttpPayloadWithMemberXmlNameCommandInput,
+  HttpPayloadWithMemberXmlNameCommandOutput,
+} from "../commands/HttpPayloadWithMemberXmlNameCommand";
+import {
   HttpPayloadWithStructureCommandInput,
   HttpPayloadWithStructureCommandOutput,
 } from "../commands/HttpPayloadWithStructureCommand";
@@ -553,6 +557,33 @@ export const serializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlHttpPayloadWithMemberXmlNameCommand = async (
+  input: HttpPayloadWithMemberXmlNameCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  let resolvedPath = "/HttpPayloadWithMemberXmlName";
+  let body: any;
+  let contents: any;
+  if (input.nested !== undefined) {
+    contents = serializeAws_restXmlPayloadWithXmlName(input.nested, context);
+    body = '<?xml version="1.0" encoding="UTF-8"?>';
+    body += contents.toString();
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -2572,6 +2603,51 @@ const deserializeAws_restXmlHttpPayloadTraitsWithMediaTypeCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpPayloadTraitsWithMediaTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlHttpPayloadWithMemberXmlNameCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpPayloadWithMemberXmlNameCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlHttpPayloadWithMemberXmlNameCommandError(output, context);
+  }
+  const contents: HttpPayloadWithMemberXmlNameCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nested: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  contents.nested = deserializeAws_restXmlPayloadWithXmlName(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlHttpPayloadWithMemberXmlNameCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpPayloadWithMemberXmlNameCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),

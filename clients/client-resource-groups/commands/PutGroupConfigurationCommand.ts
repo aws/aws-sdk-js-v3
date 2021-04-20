@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutGroupConfigurationCommandInput = PutGroupConfigurationInput;
-export type PutGroupConfigurationCommandOutput = PutGroupConfigurationOutput & __MetadataBearer;
+export interface PutGroupConfigurationCommandInput extends PutGroupConfigurationInput {}
+export interface PutGroupConfigurationCommandOutput extends PutGroupConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Attaches a service configuration to the specified group. This occurs asynchronously,

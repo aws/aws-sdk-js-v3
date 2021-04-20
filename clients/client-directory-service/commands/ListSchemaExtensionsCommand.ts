@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSchemaExtensionsCommandInput = ListSchemaExtensionsRequest;
-export type ListSchemaExtensionsCommandOutput = ListSchemaExtensionsResult & __MetadataBearer;
+export interface ListSchemaExtensionsCommandInput extends ListSchemaExtensionsRequest {}
+export interface ListSchemaExtensionsCommandOutput extends ListSchemaExtensionsResult, __MetadataBearer {}
 
 /**
  * <p>Lists all schema extensions applied to a Microsoft AD Directory.</p>

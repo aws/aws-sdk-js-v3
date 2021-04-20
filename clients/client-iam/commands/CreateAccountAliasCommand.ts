@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAccountAliasCommandInput = CreateAccountAliasRequest;
-export type CreateAccountAliasCommandOutput = __MetadataBearer;
+export interface CreateAccountAliasCommandInput extends CreateAccountAliasRequest {}
+export interface CreateAccountAliasCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates an alias for your AWS account. For information about using an AWS account

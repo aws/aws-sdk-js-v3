@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateInstanceProfileCommandInput = UpdateInstanceProfileRequest;
-export type UpdateInstanceProfileCommandOutput = UpdateInstanceProfileResult & __MetadataBearer;
+export interface UpdateInstanceProfileCommandInput extends UpdateInstanceProfileRequest {}
+export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfileResult, __MetadataBearer {}
 
 /**
  * <p>Updates information about an existing private device instance profile.</p>

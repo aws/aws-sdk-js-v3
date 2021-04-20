@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTaskCommandInput = CreateTaskRequest;
-export type CreateTaskCommandOutput = CreateTaskResponse & __MetadataBearer;
+export interface CreateTaskCommandInput extends CreateTaskRequest {}
+export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a task.</p>

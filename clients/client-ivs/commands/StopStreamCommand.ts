@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopStreamCommandInput = StopStreamRequest;
-export type StopStreamCommandOutput = StopStreamResponse & __MetadataBearer;
+export interface StopStreamCommandInput extends StopStreamRequest {}
+export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataBearer {}
 
 /**
  * <p>Disconnects the incoming RTMPS stream for the specified channel. Can be used in

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVoiceConnectorCommandInput = DeleteVoiceConnectorRequest;
-export type DeleteVoiceConnectorCommandOutput = __MetadataBearer;
+export interface DeleteVoiceConnectorCommandInput extends DeleteVoiceConnectorRequest {}
+export interface DeleteVoiceConnectorCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Amazon Chime Voice Connector. Any phone numbers associated with the

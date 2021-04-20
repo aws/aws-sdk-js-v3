@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateServiceQuotaTemplateCommandInput = DisassociateServiceQuotaTemplateRequest;
-export type DisassociateServiceQuotaTemplateCommandOutput = DisassociateServiceQuotaTemplateResponse & __MetadataBearer;
+export interface DisassociateServiceQuotaTemplateCommandInput extends DisassociateServiceQuotaTemplateRequest {}
+export interface DisassociateServiceQuotaTemplateCommandOutput
+  extends DisassociateServiceQuotaTemplateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disables your quota request template. After a template is disabled, the quota increase

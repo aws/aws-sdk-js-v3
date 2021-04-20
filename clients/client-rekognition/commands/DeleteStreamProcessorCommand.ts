@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteStreamProcessorCommandInput = DeleteStreamProcessorRequest;
-export type DeleteStreamProcessorCommandOutput = DeleteStreamProcessorResponse & __MetadataBearer;
+export interface DeleteStreamProcessorCommandInput extends DeleteStreamProcessorRequest {}
+export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcessorResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the stream processor identified by <code>Name</code>. You assign the value for <code>Name</code> when you create the stream processor with

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBrokerInstanceOptionsCommandInput = DescribeBrokerInstanceOptionsRequest;
-export type DescribeBrokerInstanceOptionsCommandOutput = DescribeBrokerInstanceOptionsResponse & __MetadataBearer;
+export interface DescribeBrokerInstanceOptionsCommandInput extends DescribeBrokerInstanceOptionsRequest {}
+export interface DescribeBrokerInstanceOptionsCommandOutput
+  extends DescribeBrokerInstanceOptionsResponse,
+    __MetadataBearer {}
 
 /**
  * Describe available broker instance options.

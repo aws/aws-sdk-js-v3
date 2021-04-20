@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartTaskExecutionCommandInput = StartTaskExecutionRequest;
-export type StartTaskExecutionCommandOutput = StartTaskExecutionResponse & __MetadataBearer;
+export interface StartTaskExecutionCommandInput extends StartTaskExecutionRequest {}
+export interface StartTaskExecutionCommandOutput extends StartTaskExecutionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a specific invocation of a task. A <code>TaskExecution</code> value represents

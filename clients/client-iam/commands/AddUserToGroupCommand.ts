@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddUserToGroupCommandInput = AddUserToGroupRequest;
-export type AddUserToGroupCommandOutput = __MetadataBearer;
+export interface AddUserToGroupCommandInput extends AddUserToGroupRequest {}
+export interface AddUserToGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds the specified user to the specified group.</p>

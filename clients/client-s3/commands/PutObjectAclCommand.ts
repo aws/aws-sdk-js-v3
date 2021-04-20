@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutObjectAclCommandInput = PutObjectAclRequest;
-export type PutObjectAclCommandOutput = PutObjectAclOutput & __MetadataBearer;
+export interface PutObjectAclCommandInput extends PutObjectAclRequest {}
+export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __MetadataBearer {}
 
 /**
  * <p>Uses the <code>acl</code> subresource to set the access control list (ACL) permissions

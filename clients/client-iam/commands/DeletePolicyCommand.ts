@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePolicyCommandInput = DeletePolicyRequest;
-export type DeletePolicyCommandOutput = __MetadataBearer;
+export interface DeletePolicyCommandInput extends DeletePolicyRequest {}
+export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified managed policy.</p>

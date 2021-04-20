@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetNetworkCommandInput = GetNetworkInput;
-export type GetNetworkCommandOutput = GetNetworkOutput & __MetadataBearer;
+export interface GetNetworkCommandInput extends GetNetworkInput {}
+export interface GetNetworkCommandOutput extends GetNetworkOutput, __MetadataBearer {}
 
 /**
  * <p>Returns detailed information about a network.</p>

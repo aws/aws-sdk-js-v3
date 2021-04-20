@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSolutionCommandInput = DeleteSolutionRequest;
-export type DeleteSolutionCommandOutput = __MetadataBearer;
+export interface DeleteSolutionCommandInput extends DeleteSolutionRequest {}
+export interface DeleteSolutionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes all versions of a solution and the <code>Solution</code> object itself.

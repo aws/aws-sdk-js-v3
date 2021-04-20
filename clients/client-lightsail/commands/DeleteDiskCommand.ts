@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDiskCommandInput = DeleteDiskRequest;
-export type DeleteDiskCommandOutput = DeleteDiskResult & __MetadataBearer;
+export interface DeleteDiskCommandInput extends DeleteDiskRequest {}
+export interface DeleteDiskCommandOutput extends DeleteDiskResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified block storage disk. The disk must be in the <code>available</code>

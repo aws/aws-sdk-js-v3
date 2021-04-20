@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutMetricDataCommandInput = PutMetricDataInput;
-export type PutMetricDataCommandOutput = __MetadataBearer;
+export interface PutMetricDataCommandInput extends PutMetricDataInput {}
+export interface PutMetricDataCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Publishes metric data points to Amazon CloudWatch. CloudWatch associates

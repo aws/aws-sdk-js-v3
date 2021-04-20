@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PurchaseOfferingCommandInput = PurchaseOfferingRequest;
-export type PurchaseOfferingCommandOutput = PurchaseOfferingResponse & __MetadataBearer;
+export interface PurchaseOfferingCommandInput extends PurchaseOfferingRequest {}
+export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse, __MetadataBearer {}
 
 /**
  * Submits a request to purchase an offering. If you already have an active reservation, you can't purchase another offering.

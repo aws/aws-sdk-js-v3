@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteResourceConfigCommandInput = DeleteResourceConfigRequest;
-export type DeleteResourceConfigCommandOutput = __MetadataBearer;
+export interface DeleteResourceConfigCommandInput extends DeleteResourceConfigRequest {}
+export interface DeleteResourceConfigCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Records the configuration state for a custom resource that has been deleted.  This API records a new ConfigurationItem with a ResourceDeleted status. You can retrieve the ConfigurationItems recorded for this resource in your AWS Config History.

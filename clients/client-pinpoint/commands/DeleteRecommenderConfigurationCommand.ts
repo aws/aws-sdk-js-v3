@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRecommenderConfigurationCommandInput = DeleteRecommenderConfigurationRequest;
-export type DeleteRecommenderConfigurationCommandOutput = DeleteRecommenderConfigurationResponse & __MetadataBearer;
+export interface DeleteRecommenderConfigurationCommandInput extends DeleteRecommenderConfigurationRequest {}
+export interface DeleteRecommenderConfigurationCommandOutput
+  extends DeleteRecommenderConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes an Amazon Pinpoint configuration for a recommender model.</p>

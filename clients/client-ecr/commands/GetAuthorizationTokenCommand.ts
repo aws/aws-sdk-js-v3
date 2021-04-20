@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAuthorizationTokenCommandInput = GetAuthorizationTokenRequest;
-export type GetAuthorizationTokenCommandOutput = GetAuthorizationTokenResponse & __MetadataBearer;
+export interface GetAuthorizationTokenCommandInput extends GetAuthorizationTokenRequest {}
+export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves an authorization token. An authorization token represents your IAM

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListIPSetsCommandInput = ListIPSetsRequest;
-export type ListIPSetsCommandOutput = ListIPSetsResponse & __MetadataBearer;
+export interface ListIPSetsCommandInput extends ListIPSetsRequest {}
+export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves an array of <a>IPSetSummary</a> objects for the IP sets that you manage.</p>

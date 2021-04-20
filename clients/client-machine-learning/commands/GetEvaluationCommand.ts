@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEvaluationCommandInput = GetEvaluationInput;
-export type GetEvaluationCommandOutput = GetEvaluationOutput & __MetadataBearer;
+export interface GetEvaluationCommandInput extends GetEvaluationInput {}
+export interface GetEvaluationCommandOutput extends GetEvaluationOutput, __MetadataBearer {}
 
 /**
  * <p>Returns an <code>Evaluation</code> that includes metadata as well as the current status of the <code>Evaluation</code>.</p>

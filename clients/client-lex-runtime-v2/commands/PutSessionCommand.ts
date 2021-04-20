@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutSessionCommandInput = PutSessionRequest;
-export type PutSessionCommandOutput = PutSessionResponse & __MetadataBearer;
+export interface PutSessionCommandInput extends PutSessionRequest {}
+export interface PutSessionCommandOutput extends PutSessionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new session or modifies an existing session with an Amazon Lex

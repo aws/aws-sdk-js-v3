@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateIpGroupsCommandInput = AssociateIpGroupsRequest;
-export type AssociateIpGroupsCommandOutput = AssociateIpGroupsResult & __MetadataBearer;
+export interface AssociateIpGroupsCommandInput extends AssociateIpGroupsRequest {}
+export interface AssociateIpGroupsCommandOutput extends AssociateIpGroupsResult, __MetadataBearer {}
 
 /**
  * <p>Associates the specified IP access control group with the specified directory.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReplaceRootVolumeTasksCommandInput = DescribeReplaceRootVolumeTasksRequest;
-export type DescribeReplaceRootVolumeTasksCommandOutput = DescribeReplaceRootVolumeTasksResult & __MetadataBearer;
+export interface DescribeReplaceRootVolumeTasksCommandInput extends DescribeReplaceRootVolumeTasksRequest {}
+export interface DescribeReplaceRootVolumeTasksCommandOutput
+  extends DescribeReplaceRootVolumeTasksResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes a root volume replacement task. For more information, see

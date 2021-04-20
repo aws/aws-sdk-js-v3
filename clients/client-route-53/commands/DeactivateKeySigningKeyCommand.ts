@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeactivateKeySigningKeyCommandInput = DeactivateKeySigningKeyRequest;
-export type DeactivateKeySigningKeyCommandOutput = DeactivateKeySigningKeyResponse & __MetadataBearer;
+export interface DeactivateKeySigningKeyCommandInput extends DeactivateKeySigningKeyRequest {}
+export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigningKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Deactivates a key-signing key (KSK) so that it will not be used for signing by DNSSEC. This operation changes the

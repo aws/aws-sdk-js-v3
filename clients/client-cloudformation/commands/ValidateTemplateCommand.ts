@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ValidateTemplateCommandInput = ValidateTemplateInput;
-export type ValidateTemplateCommandOutput = ValidateTemplateOutput & __MetadataBearer;
+export interface ValidateTemplateCommandInput extends ValidateTemplateInput {}
+export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, __MetadataBearer {}
 
 /**
  * <p>Validates a specified template. AWS CloudFormation first checks if the template is

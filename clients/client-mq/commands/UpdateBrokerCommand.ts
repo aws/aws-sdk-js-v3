@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBrokerCommandInput = UpdateBrokerRequest;
-export type UpdateBrokerCommandOutput = UpdateBrokerResponse & __MetadataBearer;
+export interface UpdateBrokerCommandInput extends UpdateBrokerRequest {}
+export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __MetadataBearer {}
 
 /**
  * Adds a pending configuration change to a broker.

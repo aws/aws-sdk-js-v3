@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeOutboundCrossClusterSearchConnectionsCommandInput = DescribeOutboundCrossClusterSearchConnectionsRequest;
-export type DescribeOutboundCrossClusterSearchConnectionsCommandOutput = DescribeOutboundCrossClusterSearchConnectionsResponse &
-  __MetadataBearer;
+export interface DescribeOutboundCrossClusterSearchConnectionsCommandInput
+  extends DescribeOutboundCrossClusterSearchConnectionsRequest {}
+export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
+  extends DescribeOutboundCrossClusterSearchConnectionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists all the outbound cross-cluster search connections for a source domain.</p>

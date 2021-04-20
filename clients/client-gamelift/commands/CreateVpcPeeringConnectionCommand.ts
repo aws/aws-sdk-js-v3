@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVpcPeeringConnectionCommandInput = CreateVpcPeeringConnectionInput;
-export type CreateVpcPeeringConnectionCommandOutput = CreateVpcPeeringConnectionOutput & __MetadataBearer;
+export interface CreateVpcPeeringConnectionCommandInput extends CreateVpcPeeringConnectionInput {}
+export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeeringConnectionOutput, __MetadataBearer {}
 
 /**
  * <p>Establishes a VPC peering connection between a virtual private cloud (VPC) in an AWS account with the VPC

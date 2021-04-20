@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRuleCommandInput = DeleteRuleRequest;
-export type DeleteRuleCommandOutput = DeleteRuleResult & __MetadataBearer;
+export interface DeleteRuleCommandInput extends DeleteRuleRequest {}
+export interface DeleteRuleCommandOutput extends DeleteRuleResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the rule. You cannot delete a rule if it is used by an <code>ACTIVE</code> or <code>INACTIVE</code> detector version.</p>

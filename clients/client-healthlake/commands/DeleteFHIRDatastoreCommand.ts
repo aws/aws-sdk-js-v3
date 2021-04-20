@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFHIRDatastoreCommandInput = DeleteFHIRDatastoreRequest;
-export type DeleteFHIRDatastoreCommandOutput = DeleteFHIRDatastoreResponse & __MetadataBearer;
+export interface DeleteFHIRDatastoreCommandInput extends DeleteFHIRDatastoreRequest {}
+export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a Data Store. </p>

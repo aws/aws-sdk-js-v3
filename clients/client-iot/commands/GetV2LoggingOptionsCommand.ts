@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetV2LoggingOptionsCommandInput = GetV2LoggingOptionsRequest;
-export type GetV2LoggingOptionsCommandOutput = GetV2LoggingOptionsResponse & __MetadataBearer;
+export interface GetV2LoggingOptionsCommandInput extends GetV2LoggingOptionsRequest {}
+export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the fine grained logging options.</p>

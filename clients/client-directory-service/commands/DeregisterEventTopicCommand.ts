@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterEventTopicCommandInput = DeregisterEventTopicRequest;
-export type DeregisterEventTopicCommandOutput = DeregisterEventTopicResult & __MetadataBearer;
+export interface DeregisterEventTopicCommandInput extends DeregisterEventTopicRequest {}
+export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicResult, __MetadataBearer {}
 
 /**
  * <p>Removes the specified directory as a publisher to the specified SNS topic.</p>

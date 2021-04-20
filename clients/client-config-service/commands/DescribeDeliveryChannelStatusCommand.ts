@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDeliveryChannelStatusCommandInput = DescribeDeliveryChannelStatusRequest;
-export type DescribeDeliveryChannelStatusCommandOutput = DescribeDeliveryChannelStatusResponse & __MetadataBearer;
+export interface DescribeDeliveryChannelStatusCommandInput extends DescribeDeliveryChannelStatusRequest {}
+export interface DescribeDeliveryChannelStatusCommandOutput
+  extends DescribeDeliveryChannelStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the current status of the specified delivery channel.

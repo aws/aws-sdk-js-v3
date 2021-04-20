@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDeletePhoneNumberCommandInput = BatchDeletePhoneNumberRequest;
-export type BatchDeletePhoneNumberCommandOutput = BatchDeletePhoneNumberResponse & __MetadataBearer;
+export interface BatchDeletePhoneNumberCommandInput extends BatchDeletePhoneNumberRequest {}
+export interface BatchDeletePhoneNumberCommandOutput extends BatchDeletePhoneNumberResponse, __MetadataBearer {}
 
 /**
  * <p>

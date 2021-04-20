@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInstanceGroupsCommandInput = ListInstanceGroupsInput;
-export type ListInstanceGroupsCommandOutput = ListInstanceGroupsOutput & __MetadataBearer;
+export interface ListInstanceGroupsCommandInput extends ListInstanceGroupsInput {}
+export interface ListInstanceGroupsCommandOutput extends ListInstanceGroupsOutput, __MetadataBearer {}
 
 /**
  * <p>Provides all available details about the instance groups in a cluster.</p>

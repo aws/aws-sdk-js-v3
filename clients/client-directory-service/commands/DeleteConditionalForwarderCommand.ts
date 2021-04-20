@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteConditionalForwarderCommandInput = DeleteConditionalForwarderRequest;
-export type DeleteConditionalForwarderCommandOutput = DeleteConditionalForwarderResult & __MetadataBearer;
+export interface DeleteConditionalForwarderCommandInput extends DeleteConditionalForwarderRequest {}
+export interface DeleteConditionalForwarderCommandOutput extends DeleteConditionalForwarderResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a conditional forwarder that has been set up for your AWS directory.</p>

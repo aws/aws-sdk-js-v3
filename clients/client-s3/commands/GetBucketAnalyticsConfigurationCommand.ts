@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketAnalyticsConfigurationCommandInput = GetBucketAnalyticsConfigurationRequest;
-export type GetBucketAnalyticsConfigurationCommandOutput = GetBucketAnalyticsConfigurationOutput & __MetadataBearer;
+export interface GetBucketAnalyticsConfigurationCommandInput extends GetBucketAnalyticsConfigurationRequest {}
+export interface GetBucketAnalyticsConfigurationCommandOutput
+  extends GetBucketAnalyticsConfigurationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>This implementation of the GET action returns an analytics configuration (identified

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAppInstanceCommandInput = CreateAppInstanceRequest;
-export type CreateAppInstanceCommandOutput = CreateAppInstanceResponse & __MetadataBearer;
+export interface CreateAppInstanceCommandInput extends CreateAppInstanceRequest {}
+export interface CreateAppInstanceCommandOutput extends CreateAppInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Chime SDK messaging <code>AppInstance</code> under an AWS account. Only SDK messaging customers use this API.

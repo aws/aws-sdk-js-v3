@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type MergeBranchesByFastForwardCommandInput = MergeBranchesByFastForwardInput;
-export type MergeBranchesByFastForwardCommandOutput = MergeBranchesByFastForwardOutput & __MetadataBearer;
+export interface MergeBranchesByFastForwardCommandInput extends MergeBranchesByFastForwardInput {}
+export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesByFastForwardOutput, __MetadataBearer {}
 
 /**
  * <p>Merges two branches using the fast-forward merge strategy.</p>

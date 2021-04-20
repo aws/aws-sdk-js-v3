@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeGatewayInformationCommandInput = DescribeGatewayInformationInput;
-export type DescribeGatewayInformationCommandOutput = DescribeGatewayInformationOutput & __MetadataBearer;
+export interface DescribeGatewayInformationCommandInput extends DescribeGatewayInformationInput {}
+export interface DescribeGatewayInformationCommandOutput extends DescribeGatewayInformationOutput, __MetadataBearer {}
 
 /**
  * <p>Returns metadata about a gateway such as its name, network interfaces, configured time

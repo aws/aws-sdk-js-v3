@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateWorkforceCommandInput = UpdateWorkforceRequest;
-export type UpdateWorkforceCommandOutput = UpdateWorkforceResponse & __MetadataBearer;
+export interface UpdateWorkforceCommandInput extends UpdateWorkforceRequest {}
+export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to update your workforce. You can use this operation to

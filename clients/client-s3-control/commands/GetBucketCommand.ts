@@ -15,8 +15,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketCommandInput = GetBucketRequest;
-export type GetBucketCommandOutput = GetBucketResult & __MetadataBearer;
+export interface GetBucketCommandInput extends GetBucketRequest {}
+export interface GetBucketCommandOutput extends GetBucketResult, __MetadataBearer {}
 
 /**
  * <p>Gets an Amazon S3 on Outposts bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">

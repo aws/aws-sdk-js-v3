@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAttachedGroupPoliciesCommandInput = ListAttachedGroupPoliciesRequest;
-export type ListAttachedGroupPoliciesCommandOutput = ListAttachedGroupPoliciesResponse & __MetadataBearer;
+export interface ListAttachedGroupPoliciesCommandInput extends ListAttachedGroupPoliciesRequest {}
+export interface ListAttachedGroupPoliciesCommandOutput extends ListAttachedGroupPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all managed policies that are attached to the specified IAM group.</p>

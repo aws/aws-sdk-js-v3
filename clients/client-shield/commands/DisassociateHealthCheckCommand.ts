@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateHealthCheckCommandInput = DisassociateHealthCheckRequest;
-export type DisassociateHealthCheckCommandOutput = DisassociateHealthCheckResponse & __MetadataBearer;
+export interface DisassociateHealthCheckCommandInput extends DisassociateHealthCheckRequest {}
+export interface DisassociateHealthCheckCommandOutput extends DisassociateHealthCheckResponse, __MetadataBearer {}
 
 /**
  * <p>Removes health-based detection from the Shield Advanced protection for a resource. Shield Advanced health-based detection uses the health of your AWS resource to improve responsiveness and accuracy in attack detection and mitigation. </p>

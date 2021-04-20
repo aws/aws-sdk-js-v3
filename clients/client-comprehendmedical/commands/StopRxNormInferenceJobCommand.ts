@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopRxNormInferenceJobCommandInput = StopRxNormInferenceJobRequest;
-export type StopRxNormInferenceJobCommandOutput = StopRxNormInferenceJobResponse & __MetadataBearer;
+export interface StopRxNormInferenceJobCommandInput extends StopRxNormInferenceJobRequest {}
+export interface StopRxNormInferenceJobCommandOutput extends StopRxNormInferenceJobResponse, __MetadataBearer {}
 
 /**
  * <p>Stops an InferRxNorm inference job in progress.</p>

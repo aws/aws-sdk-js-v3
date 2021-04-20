@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminDeleteUserCommandInput = AdminDeleteUserRequest;
-export type AdminDeleteUserCommandOutput = __MetadataBearer;
+export interface AdminDeleteUserCommandInput extends AdminDeleteUserRequest {}
+export interface AdminDeleteUserCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a user as an administrator. Works on any user.</p>

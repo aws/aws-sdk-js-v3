@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchResourcesCommandInput = SearchResourcesInput;
-export type SearchResourcesCommandOutput = SearchResourcesOutput & __MetadataBearer;
+export interface SearchResourcesCommandInput extends SearchResourcesInput {}
+export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of AWS resource identifiers that matches the specified query. The

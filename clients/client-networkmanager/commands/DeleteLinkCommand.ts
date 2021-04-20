@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLinkCommandInput = DeleteLinkRequest;
-export type DeleteLinkCommandOutput = DeleteLinkResponse & __MetadataBearer;
+export interface DeleteLinkCommandInput extends DeleteLinkRequest {}
+export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing link. You must first disassociate the link from any devices and

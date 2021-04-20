@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopLoggingCommandInput = StopLoggingRequest;
-export type StopLoggingCommandOutput = StopLoggingResponse & __MetadataBearer;
+export interface StopLoggingCommandInput extends StopLoggingRequest {}
+export interface StopLoggingCommandOutput extends StopLoggingResponse, __MetadataBearer {}
 
 /**
  * <p>Suspends the recording of AWS API calls and log file delivery for the specified trail.

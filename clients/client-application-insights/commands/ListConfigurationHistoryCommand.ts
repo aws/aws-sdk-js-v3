@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListConfigurationHistoryCommandInput = ListConfigurationHistoryRequest;
-export type ListConfigurationHistoryCommandOutput = ListConfigurationHistoryResponse & __MetadataBearer;
+export interface ListConfigurationHistoryCommandInput extends ListConfigurationHistoryRequest {}
+export interface ListConfigurationHistoryCommandOutput extends ListConfigurationHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>

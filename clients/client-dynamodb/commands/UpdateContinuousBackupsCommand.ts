@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateContinuousBackupsCommandInput = UpdateContinuousBackupsInput;
-export type UpdateContinuousBackupsCommandOutput = UpdateContinuousBackupsOutput & __MetadataBearer;
+export interface UpdateContinuousBackupsCommandInput extends UpdateContinuousBackupsInput {}
+export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBackupsOutput, __MetadataBearer {}
 
 /**
  * <p>

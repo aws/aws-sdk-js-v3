@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePhoneNumberOrderCommandInput = CreatePhoneNumberOrderRequest;
-export type CreatePhoneNumberOrderCommandOutput = CreatePhoneNumberOrderResponse & __MetadataBearer;
+export interface CreatePhoneNumberOrderCommandInput extends CreatePhoneNumberOrderRequest {}
+export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOrderResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an order for phone numbers to be provisioned. Choose from Amazon Chime Business Calling

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateServiceActionCommandInput = CreateServiceActionInput;
-export type CreateServiceActionCommandOutput = CreateServiceActionOutput & __MetadataBearer;
+export interface CreateServiceActionCommandInput extends CreateServiceActionInput {}
+export interface CreateServiceActionCommandOutput extends CreateServiceActionOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a self-service action.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeIAMPolicyAssignmentCommandInput = DescribeIAMPolicyAssignmentRequest;
-export type DescribeIAMPolicyAssignmentCommandOutput = DescribeIAMPolicyAssignmentResponse & __MetadataBearer;
+export interface DescribeIAMPolicyAssignmentCommandInput extends DescribeIAMPolicyAssignmentRequest {}
+export interface DescribeIAMPolicyAssignmentCommandOutput
+  extends DescribeIAMPolicyAssignmentResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes an existing IAM policy assignment, as specified by the assignment name.</p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateApplicationCommandInput = UpdateApplicationRequest;
-export type UpdateApplicationCommandOutput = UpdateApplicationResponse & __MetadataBearer;
+export interface UpdateApplicationCommandInput extends UpdateApplicationRequest {}
+export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing Kinesis Data Analytics application. Using this operation, you

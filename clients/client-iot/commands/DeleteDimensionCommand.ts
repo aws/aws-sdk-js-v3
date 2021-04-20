@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDimensionCommandInput = DeleteDimensionRequest;
-export type DeleteDimensionCommandOutput = DeleteDimensionResponse & __MetadataBearer;
+export interface DeleteDimensionCommandInput extends DeleteDimensionRequest {}
+export interface DeleteDimensionCommandOutput extends DeleteDimensionResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the specified dimension from your AWS account.</p>

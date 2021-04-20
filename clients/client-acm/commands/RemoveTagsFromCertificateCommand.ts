@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveTagsFromCertificateCommandInput = RemoveTagsFromCertificateRequest;
-export type RemoveTagsFromCertificateCommandOutput = __MetadataBearer;
+export interface RemoveTagsFromCertificateCommandInput extends RemoveTagsFromCertificateRequest {}
+export interface RemoveTagsFromCertificateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Remove one or more tags from an ACM certificate. A tag consists of a key-value pair. If

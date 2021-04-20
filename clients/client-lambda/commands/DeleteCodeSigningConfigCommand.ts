@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCodeSigningConfigCommandInput = DeleteCodeSigningConfigRequest;
-export type DeleteCodeSigningConfigCommandOutput = DeleteCodeSigningConfigResponse & __MetadataBearer;
+export interface DeleteCodeSigningConfigCommandInput extends DeleteCodeSigningConfigRequest {}
+export interface DeleteCodeSigningConfigCommandOutput extends DeleteCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the code signing configuration. You can delete the code signing configuration only if no function is

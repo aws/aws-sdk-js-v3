@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEventBusCommandInput = DescribeEventBusRequest;
-export type DescribeEventBusCommandOutput = DescribeEventBusResponse & __MetadataBearer;
+export interface DescribeEventBusCommandInput extends DescribeEventBusRequest {}
+export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse, __MetadataBearer {}
 
 /**
  * <p>Displays details about an event bus in your account. This can include the external AWS

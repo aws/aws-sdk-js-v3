@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateWebACLCommandInput = UpdateWebACLRequest;
-export type UpdateWebACLCommandOutput = UpdateWebACLResponse & __MetadataBearer;
+export interface UpdateWebACLCommandInput extends UpdateWebACLRequest {}
+export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified <a>WebACL</a>.</p>

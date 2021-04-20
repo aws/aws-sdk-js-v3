@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDataEndpointCommandInput = GetDataEndpointInput;
-export type GetDataEndpointCommandOutput = GetDataEndpointOutput & __MetadataBearer;
+export interface GetDataEndpointCommandInput extends GetDataEndpointInput {}
+export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __MetadataBearer {}
 
 /**
  * <p>Gets an endpoint for a specified stream for either reading or writing. Use this

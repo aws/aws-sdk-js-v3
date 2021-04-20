@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteOptionGroupCommandInput = DeleteOptionGroupMessage;
-export type DeleteOptionGroupCommandOutput = __MetadataBearer;
+export interface DeleteOptionGroupCommandInput extends DeleteOptionGroupMessage {}
+export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an existing option group.</p>

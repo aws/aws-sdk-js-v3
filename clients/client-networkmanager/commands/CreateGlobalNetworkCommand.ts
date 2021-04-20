@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGlobalNetworkCommandInput = CreateGlobalNetworkRequest;
-export type CreateGlobalNetworkCommandOutput = CreateGlobalNetworkResponse & __MetadataBearer;
+export interface CreateGlobalNetworkCommandInput extends CreateGlobalNetworkRequest {}
+export interface CreateGlobalNetworkCommandOutput extends CreateGlobalNetworkResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new, empty global network.</p>

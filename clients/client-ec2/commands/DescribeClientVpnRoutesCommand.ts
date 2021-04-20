@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeClientVpnRoutesCommandInput = DescribeClientVpnRoutesRequest;
-export type DescribeClientVpnRoutesCommandOutput = DescribeClientVpnRoutesResult & __MetadataBearer;
+export interface DescribeClientVpnRoutesCommandInput extends DescribeClientVpnRoutesRequest {}
+export interface DescribeClientVpnRoutesCommandOutput extends DescribeClientVpnRoutesResult, __MetadataBearer {}
 
 /**
  * <p>Describes the routes for the specified Client VPN endpoint.</p>

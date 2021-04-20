@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePackageVersionsCommandInput = DeletePackageVersionsRequest;
-export type DeletePackageVersionsCommandOutput = DeletePackageVersionsResult & __MetadataBearer;
+export interface DeletePackageVersionsCommandInput extends DeletePackageVersionsRequest {}
+export interface DeletePackageVersionsCommandOutput extends DeletePackageVersionsResult, __MetadataBearer {}
 
 /**
  * <p> Deletes one or more versions of a package. A deleted package version cannot be restored

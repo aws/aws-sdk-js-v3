@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEventDetailsForOrganizationCommandInput = DescribeEventDetailsForOrganizationRequest;
-export type DescribeEventDetailsForOrganizationCommandOutput = DescribeEventDetailsForOrganizationResponse &
-  __MetadataBearer;
+export interface DescribeEventDetailsForOrganizationCommandInput extends DescribeEventDetailsForOrganizationRequest {}
+export interface DescribeEventDetailsForOrganizationCommandOutput
+  extends DescribeEventDetailsForOrganizationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns detailed information about one or more specified events for one or more accounts

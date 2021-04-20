@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddRoleToDBInstanceCommandInput = AddRoleToDBInstanceMessage;
-export type AddRoleToDBInstanceCommandOutput = __MetadataBearer;
+export interface AddRoleToDBInstanceCommandInput extends AddRoleToDBInstanceMessage {}
+export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Associates an AWS Identity and Access Management (IAM) role with a DB instance.</p>

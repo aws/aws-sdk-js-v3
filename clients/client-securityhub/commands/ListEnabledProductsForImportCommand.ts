@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEnabledProductsForImportCommandInput = ListEnabledProductsForImportRequest;
-export type ListEnabledProductsForImportCommandOutput = ListEnabledProductsForImportResponse & __MetadataBearer;
+export interface ListEnabledProductsForImportCommandInput extends ListEnabledProductsForImportRequest {}
+export interface ListEnabledProductsForImportCommandOutput
+  extends ListEnabledProductsForImportResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists all findings-generating solutions (products) that you are subscribed to receive

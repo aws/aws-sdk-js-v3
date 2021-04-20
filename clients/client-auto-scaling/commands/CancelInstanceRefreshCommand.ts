@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelInstanceRefreshCommandInput = CancelInstanceRefreshType;
-export type CancelInstanceRefreshCommandOutput = CancelInstanceRefreshAnswer & __MetadataBearer;
+export interface CancelInstanceRefreshCommandInput extends CancelInstanceRefreshType {}
+export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefreshAnswer, __MetadataBearer {}
 
 /**
  * <p>Cancels an instance refresh operation in progress. Cancellation does not roll back any

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptReservedNodeExchangeCommandInput = AcceptReservedNodeExchangeInputMessage;
-export type AcceptReservedNodeExchangeCommandOutput = AcceptReservedNodeExchangeOutputMessage & __MetadataBearer;
+export interface AcceptReservedNodeExchangeCommandInput extends AcceptReservedNodeExchangeInputMessage {}
+export interface AcceptReservedNodeExchangeCommandOutput
+  extends AcceptReservedNodeExchangeOutputMessage,
+    __MetadataBearer {}
 
 /**
  * <p>Exchanges a DC1 Reserved Node for a DC2 Reserved Node with no changes to the

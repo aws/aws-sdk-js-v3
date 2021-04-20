@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisposePackageVersionsCommandInput = DisposePackageVersionsRequest;
-export type DisposePackageVersionsCommandOutput = DisposePackageVersionsResult & __MetadataBearer;
+export interface DisposePackageVersionsCommandInput extends DisposePackageVersionsRequest {}
+export interface DisposePackageVersionsCommandOutput extends DisposePackageVersionsResult, __MetadataBearer {}
 
 /**
  * <p>

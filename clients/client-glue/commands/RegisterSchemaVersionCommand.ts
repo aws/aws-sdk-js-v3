@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterSchemaVersionCommandInput = RegisterSchemaVersionInput;
-export type RegisterSchemaVersionCommandOutput = RegisterSchemaVersionResponse & __MetadataBearer;
+export interface RegisterSchemaVersionCommandInput extends RegisterSchemaVersionInput {}
+export interface RegisterSchemaVersionCommandOutput extends RegisterSchemaVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a new version to the existing schema. Returns an error if new version of schema does not meet the compatibility requirements of the schema set. This API will not create a new schema set and will return a 404 error if the schema set is not already present in the Schema Registry.</p>

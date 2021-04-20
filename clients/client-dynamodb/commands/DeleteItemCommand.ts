@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteItemCommandInput = DeleteItemInput;
-export type DeleteItemCommandOutput = DeleteItemOutput & __MetadataBearer;
+export interface DeleteItemCommandInput extends DeleteItemInput {}
+export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a single item in a table by primary key. You can perform a conditional delete operation that deletes the item if it exists, or if it has an expected attribute value.</p>

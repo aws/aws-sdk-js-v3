@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCertificateCommandInput = CreateCertificateRequest;
-export type CreateCertificateCommandOutput = CreateCertificateResult & __MetadataBearer;
+export interface CreateCertificateCommandInput extends CreateCertificateRequest {}
+export interface CreateCertificateCommandOutput extends CreateCertificateResult, __MetadataBearer {}
 
 /**
  * <p>Creates an SSL/TLS certificate for an Amazon Lightsail content delivery network (CDN)

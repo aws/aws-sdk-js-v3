@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateThesaurusCommandInput = CreateThesaurusRequest;
-export type CreateThesaurusCommandOutput = CreateThesaurusResponse & __MetadataBearer;
+export interface CreateThesaurusCommandInput extends CreateThesaurusRequest {}
+export interface CreateThesaurusCommandOutput extends CreateThesaurusResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a thesaurus for an index. The thesaurus

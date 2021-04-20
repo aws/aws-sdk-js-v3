@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProgressUpdateStreamCommandInput = DeleteProgressUpdateStreamRequest;
-export type DeleteProgressUpdateStreamCommandOutput = DeleteProgressUpdateStreamResult & __MetadataBearer;
+export interface DeleteProgressUpdateStreamCommandInput extends DeleteProgressUpdateStreamRequest {}
+export interface DeleteProgressUpdateStreamCommandOutput extends DeleteProgressUpdateStreamResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a progress update stream, including all of its tasks, which was previously

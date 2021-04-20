@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartFHIRImportJobCommandInput = StartFHIRImportJobRequest;
-export type StartFHIRImportJobCommandOutput = StartFHIRImportJobResponse & __MetadataBearer;
+export interface StartFHIRImportJobCommandInput extends StartFHIRImportJobRequest {}
+export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobResponse, __MetadataBearer {}
 
 /**
  * <p>Begins a FHIR Import job.</p>

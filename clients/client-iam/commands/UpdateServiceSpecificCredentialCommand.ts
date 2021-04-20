@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateServiceSpecificCredentialCommandInput = UpdateServiceSpecificCredentialRequest;
-export type UpdateServiceSpecificCredentialCommandOutput = __MetadataBearer;
+export interface UpdateServiceSpecificCredentialCommandInput extends UpdateServiceSpecificCredentialRequest {}
+export interface UpdateServiceSpecificCredentialCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the status of a service-specific credential to <code>Active</code> or

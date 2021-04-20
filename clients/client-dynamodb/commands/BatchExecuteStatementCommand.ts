@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchExecuteStatementCommandInput = BatchExecuteStatementInput;
-export type BatchExecuteStatementCommandOutput = BatchExecuteStatementOutput & __MetadataBearer;
+export interface BatchExecuteStatementCommandInput extends BatchExecuteStatementInput {}
+export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatementOutput, __MetadataBearer {}
 
 /**
  * <p>

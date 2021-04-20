@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResolverQueryLogConfigAssociationCommandInput = GetResolverQueryLogConfigAssociationRequest;
-export type GetResolverQueryLogConfigAssociationCommandOutput = GetResolverQueryLogConfigAssociationResponse &
-  __MetadataBearer;
+export interface GetResolverQueryLogConfigAssociationCommandInput extends GetResolverQueryLogConfigAssociationRequest {}
+export interface GetResolverQueryLogConfigAssociationCommandOutput
+  extends GetResolverQueryLogConfigAssociationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets information about a specified association between a Resolver query logging configuration and an Amazon VPC. When you associate a VPC

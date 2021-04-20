@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartNetworkInsightsAnalysisCommandInput = StartNetworkInsightsAnalysisRequest;
-export type StartNetworkInsightsAnalysisCommandOutput = StartNetworkInsightsAnalysisResult & __MetadataBearer;
+export interface StartNetworkInsightsAnalysisCommandInput extends StartNetworkInsightsAnalysisRequest {}
+export interface StartNetworkInsightsAnalysisCommandOutput
+  extends StartNetworkInsightsAnalysisResult,
+    __MetadataBearer {}
 
 /**
  * <p>Starts analyzing the specified path. If the path is reachable, the

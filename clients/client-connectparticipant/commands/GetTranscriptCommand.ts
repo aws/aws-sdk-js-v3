@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTranscriptCommandInput = GetTranscriptRequest;
-export type GetTranscriptCommandOutput = GetTranscriptResponse & __MetadataBearer;
+export interface GetTranscriptCommandInput extends GetTranscriptRequest {}
+export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a transcript of the session, including details about any attachments. Note

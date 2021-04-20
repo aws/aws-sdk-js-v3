@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateIntentCommandInput = UpdateIntentRequest;
-export type UpdateIntentCommandOutput = UpdateIntentResponse & __MetadataBearer;
+export interface UpdateIntentCommandInput extends UpdateIntentRequest {}
+export interface UpdateIntentCommandOutput extends UpdateIntentResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the settings for an intent.</p>

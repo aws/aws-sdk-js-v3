@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteConfigurationSetEventDestinationCommandInput = DeleteConfigurationSetEventDestinationRequest;
-export type DeleteConfigurationSetEventDestinationCommandOutput = DeleteConfigurationSetEventDestinationResponse &
-  __MetadataBearer;
+export interface DeleteConfigurationSetEventDestinationCommandInput
+  extends DeleteConfigurationSetEventDestinationRequest {}
+export interface DeleteConfigurationSetEventDestinationCommandOutput
+  extends DeleteConfigurationSetEventDestinationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes a configuration set event destination. Configuration set event destinations

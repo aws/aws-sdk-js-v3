@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RevokeGrantCommandInput = RevokeGrantRequest;
-export type RevokeGrantCommandOutput = __MetadataBearer;
+export interface RevokeGrantCommandInput extends RevokeGrantRequest {}
+export interface RevokeGrantCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Revokes the specified grant for the specified customer master key (CMK). You can revoke a

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeChannelModeratorCommandInput = DescribeChannelModeratorRequest;
-export type DescribeChannelModeratorCommandOutput = DescribeChannelModeratorResponse & __MetadataBearer;
+export interface DescribeChannelModeratorCommandInput extends DescribeChannelModeratorRequest {}
+export interface DescribeChannelModeratorCommandOutput extends DescribeChannelModeratorResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the full details of a single ChannelModerator.</p>

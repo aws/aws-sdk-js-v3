@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTargetsForPolicyCommandInput = ListTargetsForPolicyRequest;
-export type ListTargetsForPolicyCommandOutput = ListTargetsForPolicyResponse & __MetadataBearer;
+export interface ListTargetsForPolicyCommandInput extends ListTargetsForPolicyRequest {}
+export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the roots, organizational units (OUs), and accounts that the specified

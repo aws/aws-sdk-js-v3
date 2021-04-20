@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTableColumnsCommandInput = ListTableColumnsRequest;
-export type ListTableColumnsCommandOutput = ListTableColumnsResult & __MetadataBearer;
+export interface ListTableColumnsCommandInput extends ListTableColumnsRequest {}
+export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, __MetadataBearer {}
 
 /**
  * <p>

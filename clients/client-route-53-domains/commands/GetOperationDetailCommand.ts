@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetOperationDetailCommandInput = GetOperationDetailRequest;
-export type GetOperationDetailCommandOutput = GetOperationDetailResponse & __MetadataBearer;
+export interface GetOperationDetailCommandInput extends GetOperationDetailRequest {}
+export interface GetOperationDetailCommandOutput extends GetOperationDetailResponse, __MetadataBearer {}
 
 /**
  * <p>This operation returns the current status of an operation that is not completed.</p>

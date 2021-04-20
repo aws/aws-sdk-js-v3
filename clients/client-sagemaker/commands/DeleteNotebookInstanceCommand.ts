@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteNotebookInstanceCommandInput = DeleteNotebookInstanceInput;
-export type DeleteNotebookInstanceCommandOutput = __MetadataBearer;
+export interface DeleteNotebookInstanceCommandInput extends DeleteNotebookInstanceInput {}
+export interface DeleteNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p> Deletes an Amazon SageMaker notebook instance. Before you can delete a notebook instance, you

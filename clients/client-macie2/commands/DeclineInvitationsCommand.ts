@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeclineInvitationsCommandInput = DeclineInvitationsRequest;
-export type DeclineInvitationsCommandOutput = DeclineInvitationsResponse & __MetadataBearer;
+export interface DeclineInvitationsCommandInput extends DeclineInvitationsRequest {}
+export interface DeclineInvitationsCommandOutput extends DeclineInvitationsResponse, __MetadataBearer {}
 
 /**
  * <p>Declines Amazon Macie membership invitations that were received from specific accounts.</p>

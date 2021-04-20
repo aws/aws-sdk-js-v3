@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCampaignCommandInput = UpdateCampaignRequest;
-export type UpdateCampaignCommandOutput = UpdateCampaignResponse & __MetadataBearer;
+export interface UpdateCampaignCommandInput extends UpdateCampaignRequest {}
+export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the configuration and other settings for a campaign.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMacieSessionCommandInput = GetMacieSessionRequest;
-export type GetMacieSessionCommandOutput = GetMacieSessionResponse & __MetadataBearer;
+export interface GetMacieSessionCommandInput extends GetMacieSessionRequest {}
+export interface GetMacieSessionCommandOutput extends GetMacieSessionResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the current status and configuration settings for an Amazon Macie account.</p>

@@ -17,10 +17,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StreamingTraitsWithMediaTypeCommandInput = Omit<StreamingTraitsWithMediaTypeInputOutput, "blob"> & {
+type StreamingTraitsWithMediaTypeCommandInputType = Omit<StreamingTraitsWithMediaTypeInputOutput, "blob"> & {
+  /**
+   * For *`StreamingTraitsWithMediaTypeInputOutput["blob"]`*, see {@link StreamingTraitsWithMediaTypeInputOutput.blob}.
+   */
   blob?: StreamingTraitsWithMediaTypeInputOutput["blob"] | string | Uint8Array | Buffer;
 };
-export type StreamingTraitsWithMediaTypeCommandOutput = StreamingTraitsWithMediaTypeInputOutput & __MetadataBearer;
+/**
+ * This interface extends from `StreamingTraitsWithMediaTypeInputOutput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsWithMediaTypeInputOutput}
+ */
+export interface StreamingTraitsWithMediaTypeCommandInput extends StreamingTraitsWithMediaTypeCommandInputType {}
+export interface StreamingTraitsWithMediaTypeCommandOutput
+  extends StreamingTraitsWithMediaTypeInputOutput,
+    __MetadataBearer {}
 
 /**
  * This examples serializes a streaming media-typed blob shape in the request body.

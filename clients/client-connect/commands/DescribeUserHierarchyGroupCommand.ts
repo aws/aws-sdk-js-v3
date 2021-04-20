@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUserHierarchyGroupCommandInput = DescribeUserHierarchyGroupRequest;
-export type DescribeUserHierarchyGroupCommandOutput = DescribeUserHierarchyGroupResponse & __MetadataBearer;
+export interface DescribeUserHierarchyGroupCommandInput extends DescribeUserHierarchyGroupRequest {}
+export interface DescribeUserHierarchyGroupCommandOutput extends DescribeUserHierarchyGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the specified hierarchy group.</p>

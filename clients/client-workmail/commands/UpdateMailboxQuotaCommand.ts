@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMailboxQuotaCommandInput = UpdateMailboxQuotaRequest;
-export type UpdateMailboxQuotaCommandOutput = UpdateMailboxQuotaResponse & __MetadataBearer;
+export interface UpdateMailboxQuotaCommandInput extends UpdateMailboxQuotaRequest {}
+export interface UpdateMailboxQuotaCommandOutput extends UpdateMailboxQuotaResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a user's current mailbox quota for a specified organization and

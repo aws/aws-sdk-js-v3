@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTriggerCommandInput = UpdateTriggerRequest;
-export type UpdateTriggerCommandOutput = UpdateTriggerResponse & __MetadataBearer;
+export interface UpdateTriggerCommandInput extends UpdateTriggerRequest {}
+export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a trigger definition.</p>

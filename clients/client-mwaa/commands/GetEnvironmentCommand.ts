@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEnvironmentCommandInput = GetEnvironmentInput;
-export type GetEnvironmentCommandOutput = GetEnvironmentOutput & __MetadataBearer;
+export interface GetEnvironmentCommandInput extends GetEnvironmentInput {}
+export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __MetadataBearer {}
 
 /**
  * <p>Get details of an existing environment.</p>

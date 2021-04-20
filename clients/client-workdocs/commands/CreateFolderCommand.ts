@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFolderCommandInput = CreateFolderRequest;
-export type CreateFolderCommandOutput = CreateFolderResponse & __MetadataBearer;
+export interface CreateFolderCommandInput extends CreateFolderRequest {}
+export interface CreateFolderCommandOutput extends CreateFolderResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a folder with the specified name and parent folder.</p>

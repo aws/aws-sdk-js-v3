@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagResourcesCommandInput = UntagResourcesInput;
-export type UntagResourcesCommandOutput = UntagResourcesOutput & __MetadataBearer;
+export interface UntagResourcesCommandInput extends UntagResourcesInput {}
+export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>Removes the specified tags from the specified resources. When you specify a tag key,

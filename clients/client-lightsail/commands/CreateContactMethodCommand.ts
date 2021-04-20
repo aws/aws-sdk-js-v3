@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateContactMethodCommandInput = CreateContactMethodRequest;
-export type CreateContactMethodCommandOutput = CreateContactMethodResult & __MetadataBearer;
+export interface CreateContactMethodCommandInput extends CreateContactMethodRequest {}
+export interface CreateContactMethodCommandOutput extends CreateContactMethodResult, __MetadataBearer {}
 
 /**
  * <p>Creates an email or SMS text message contact method.</p>

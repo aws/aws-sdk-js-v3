@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateStackCommandInput = UpdateStackInput;
-export type UpdateStackCommandOutput = UpdateStackOutput & __MetadataBearer;
+export interface UpdateStackCommandInput extends UpdateStackInput {}
+export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a stack as specified in the template. After the call completes successfully,

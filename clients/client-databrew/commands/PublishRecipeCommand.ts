@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PublishRecipeCommandInput = PublishRecipeRequest;
-export type PublishRecipeCommandOutput = PublishRecipeResponse & __MetadataBearer;
+export interface PublishRecipeCommandInput extends PublishRecipeRequest {}
+export interface PublishRecipeCommandOutput extends PublishRecipeResponse, __MetadataBearer {}
 
 /**
  * <p>Publishes a new version of a DataBrew recipe.</p>

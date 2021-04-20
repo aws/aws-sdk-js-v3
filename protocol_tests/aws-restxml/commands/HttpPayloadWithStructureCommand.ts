@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type HttpPayloadWithStructureCommandInput = HttpPayloadWithStructureInputOutput;
-export type HttpPayloadWithStructureCommandOutput = HttpPayloadWithStructureInputOutput & __MetadataBearer;
+export interface HttpPayloadWithStructureCommandInput extends HttpPayloadWithStructureInputOutput {}
+export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithStructureInputOutput, __MetadataBearer {}
 
 /**
  * This examples serializes a structure in the payload.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMetricPolicyCommandInput = GetMetricPolicyInput;
-export type GetMetricPolicyCommandOutput = GetMetricPolicyOutput & __MetadataBearer;
+export interface GetMetricPolicyCommandInput extends GetMetricPolicyInput {}
+export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the metric policy for the specified container. </p>

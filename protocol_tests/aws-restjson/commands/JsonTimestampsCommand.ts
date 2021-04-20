@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type JsonTimestampsCommandInput = JsonTimestampsInputOutput;
-export type JsonTimestampsCommandOutput = JsonTimestampsInputOutput & __MetadataBearer;
+export interface JsonTimestampsCommandInput extends JsonTimestampsInputOutput {}
+export interface JsonTimestampsCommandOutput extends JsonTimestampsInputOutput, __MetadataBearer {}
 
 /**
  * This tests how timestamps are serialized, including using the

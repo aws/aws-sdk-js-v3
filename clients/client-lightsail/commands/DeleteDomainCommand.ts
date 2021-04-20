@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDomainCommandInput = DeleteDomainRequest;
-export type DeleteDomainCommandOutput = DeleteDomainResult & __MetadataBearer;
+export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
+export interface DeleteDomainCommandOutput extends DeleteDomainResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified domain recordset and all of its domain records.</p>

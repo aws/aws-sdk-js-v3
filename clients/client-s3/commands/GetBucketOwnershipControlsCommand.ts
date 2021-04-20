@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketOwnershipControlsCommandInput = GetBucketOwnershipControlsRequest;
-export type GetBucketOwnershipControlsCommandOutput = GetBucketOwnershipControlsOutput & __MetadataBearer;
+export interface GetBucketOwnershipControlsCommandInput extends GetBucketOwnershipControlsRequest {}
+export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwnershipControlsOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation, you

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDeployablePatchSnapshotForInstanceCommandInput = GetDeployablePatchSnapshotForInstanceRequest;
-export type GetDeployablePatchSnapshotForInstanceCommandOutput = GetDeployablePatchSnapshotForInstanceResult &
-  __MetadataBearer;
+export interface GetDeployablePatchSnapshotForInstanceCommandInput
+  extends GetDeployablePatchSnapshotForInstanceRequest {}
+export interface GetDeployablePatchSnapshotForInstanceCommandOutput
+  extends GetDeployablePatchSnapshotForInstanceResult,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the current snapshot for the patch baseline the instance uses. This API is

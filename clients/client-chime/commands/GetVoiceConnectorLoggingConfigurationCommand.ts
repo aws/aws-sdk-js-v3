@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetVoiceConnectorLoggingConfigurationCommandInput = GetVoiceConnectorLoggingConfigurationRequest;
-export type GetVoiceConnectorLoggingConfigurationCommandOutput = GetVoiceConnectorLoggingConfigurationResponse &
-  __MetadataBearer;
+export interface GetVoiceConnectorLoggingConfigurationCommandInput
+  extends GetVoiceConnectorLoggingConfigurationRequest {}
+export interface GetVoiceConnectorLoggingConfigurationCommandOutput
+  extends GetVoiceConnectorLoggingConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the logging configuration details for the specified Amazon Chime Voice Connector. Shows whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>

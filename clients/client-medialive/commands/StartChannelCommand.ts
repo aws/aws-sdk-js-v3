@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartChannelCommandInput = StartChannelRequest;
-export type StartChannelCommandOutput = StartChannelResponse & __MetadataBearer;
+export interface StartChannelCommandInput extends StartChannelRequest {}
+export interface StartChannelCommandOutput extends StartChannelResponse, __MetadataBearer {}
 
 /**
  * Starts an existing channel

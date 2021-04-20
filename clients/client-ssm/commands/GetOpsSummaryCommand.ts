@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetOpsSummaryCommandInput = GetOpsSummaryRequest;
-export type GetOpsSummaryCommandOutput = GetOpsSummaryResult & __MetadataBearer;
+export interface GetOpsSummaryCommandInput extends GetOpsSummaryRequest {}
+export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __MetadataBearer {}
 
 /**
  * <p>View a summary of OpsItems based on specified filters and aggregators.</p>

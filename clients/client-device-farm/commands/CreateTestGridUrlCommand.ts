@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTestGridUrlCommandInput = CreateTestGridUrlRequest;
-export type CreateTestGridUrlCommandOutput = CreateTestGridUrlResult & __MetadataBearer;
+export interface CreateTestGridUrlCommandInput extends CreateTestGridUrlRequest {}
+export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult, __MetadataBearer {}
 
 /**
  * <p>Creates a signed, short-term URL that can be passed to a Selenium <code>RemoteWebDriver</code>

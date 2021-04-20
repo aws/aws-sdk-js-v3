@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExportApiCommandInput = ExportApiRequest;
-export type ExportApiCommandOutput = ExportApiResponse & __MetadataBearer;
+export interface ExportApiCommandInput extends ExportApiRequest {}
+export interface ExportApiCommandOutput extends ExportApiResponse, __MetadataBearer {}
 
 export class ExportApiCommand extends $Command<
   ExportApiCommandInput,

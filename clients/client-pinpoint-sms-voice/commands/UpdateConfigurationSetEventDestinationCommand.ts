@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateConfigurationSetEventDestinationCommandInput = UpdateConfigurationSetEventDestinationRequest;
-export type UpdateConfigurationSetEventDestinationCommandOutput = UpdateConfigurationSetEventDestinationResponse &
-  __MetadataBearer;
+export interface UpdateConfigurationSetEventDestinationCommandInput
+  extends UpdateConfigurationSetEventDestinationRequest {}
+export interface UpdateConfigurationSetEventDestinationCommandOutput
+  extends UpdateConfigurationSetEventDestinationResponse,
+    __MetadataBearer {}
 
 /**
  * Update an event destination in a configuration set. An event destination is a location that you publish information about your voice calls to. For example, you can log an event to an Amazon CloudWatch destination when a call fails.

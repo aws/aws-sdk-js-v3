@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableAddOnCommandInput = EnableAddOnRequest;
-export type EnableAddOnCommandOutput = EnableAddOnResult & __MetadataBearer;
+export interface EnableAddOnCommandInput extends EnableAddOnRequest {}
+export interface EnableAddOnCommandOutput extends EnableAddOnResult, __MetadataBearer {}
 
 /**
  * <p>Enables or modifies an add-on for an Amazon Lightsail resource. For more information, see

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDeploymentConfigCommandInput = GetDeploymentConfigInput;
-export type GetDeploymentConfigCommandOutput = GetDeploymentConfigOutput & __MetadataBearer;
+export interface GetDeploymentConfigCommandInput extends GetDeploymentConfigInput {}
+export interface GetDeploymentConfigCommandOutput extends GetDeploymentConfigOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about a deployment configuration.</p>

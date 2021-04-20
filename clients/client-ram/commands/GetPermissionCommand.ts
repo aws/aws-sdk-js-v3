@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPermissionCommandInput = GetPermissionRequest;
-export type GetPermissionCommandOutput = GetPermissionResponse & __MetadataBearer;
+export interface GetPermissionCommandInput extends GetPermissionRequest {}
+export interface GetPermissionCommandOutput extends GetPermissionResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the contents of an AWS RAM permission in JSON format.</p>

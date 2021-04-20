@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVoiceConnectorGroupCommandInput = CreateVoiceConnectorGroupRequest;
-export type CreateVoiceConnectorGroupCommandOutput = CreateVoiceConnectorGroupResponse & __MetadataBearer;
+export interface CreateVoiceConnectorGroupCommandInput extends CreateVoiceConnectorGroupRequest {}
+export interface CreateVoiceConnectorGroupCommandOutput extends CreateVoiceConnectorGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Chime Voice Connector group under the administrator's AWS account. You can

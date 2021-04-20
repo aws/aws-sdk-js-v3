@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMatchmakingRuleSetCommandInput = CreateMatchmakingRuleSetInput;
-export type CreateMatchmakingRuleSetCommandOutput = CreateMatchmakingRuleSetOutput & __MetadataBearer;
+export interface CreateMatchmakingRuleSetCommandInput extends CreateMatchmakingRuleSetInput {}
+export interface CreateMatchmakingRuleSetCommandOutput extends CreateMatchmakingRuleSetOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new rule set for FlexMatch matchmaking. A rule set describes the type of match

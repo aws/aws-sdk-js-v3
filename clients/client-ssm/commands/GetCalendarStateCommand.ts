@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCalendarStateCommandInput = GetCalendarStateRequest;
-export type GetCalendarStateCommandOutput = GetCalendarStateResponse & __MetadataBearer;
+export interface GetCalendarStateCommandInput extends GetCalendarStateRequest {}
+export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the state of the AWS Systems Manager Change Calendar at an optional, specified time. If you

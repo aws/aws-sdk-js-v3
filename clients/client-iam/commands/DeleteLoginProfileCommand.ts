@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLoginProfileCommandInput = DeleteLoginProfileRequest;
-export type DeleteLoginProfileCommandOutput = __MetadataBearer;
+export interface DeleteLoginProfileCommandInput extends DeleteLoginProfileRequest {}
+export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the password for the specified IAM user, which terminates the user's ability

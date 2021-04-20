@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResourceDataSyncCommandInput = ListResourceDataSyncRequest;
-export type ListResourceDataSyncCommandOutput = ListResourceDataSyncResult & __MetadataBearer;
+export interface ListResourceDataSyncCommandInput extends ListResourceDataSyncRequest {}
+export interface ListResourceDataSyncCommandOutput extends ListResourceDataSyncResult, __MetadataBearer {}
 
 /**
  * <p>Lists your resource data sync configurations. Includes information about the last time a

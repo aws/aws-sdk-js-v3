@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRetirableGrantsCommandInput = ListRetirableGrantsRequest;
-export type ListRetirableGrantsCommandOutput = ListGrantsResponse & __MetadataBearer;
+export interface ListRetirableGrantsCommandInput extends ListRetirableGrantsRequest {}
+export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns all grants in which the specified principal is the <code>RetiringPrincipal</code>

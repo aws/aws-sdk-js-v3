@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteResourceCommandInput = DeleteResourceRequest;
-export type DeleteResourceCommandOutput = __MetadataBearer;
+export interface DeleteResourceCommandInput extends DeleteResourceRequest {}
+export interface DeleteResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a <a>Resource</a> resource.</p>

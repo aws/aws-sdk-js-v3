@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCacheParameterGroupCommandInput = CreateCacheParameterGroupMessage;
-export type CreateCacheParameterGroupCommandOutput = CreateCacheParameterGroupResult & __MetadataBearer;
+export interface CreateCacheParameterGroupCommandInput extends CreateCacheParameterGroupMessage {}
+export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParameterGroupResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new Amazon ElastiCache cache parameter group. An ElastiCache

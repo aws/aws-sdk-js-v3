@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetModelCommandInput = GetModelRequest;
-export type GetModelCommandOutput = Model & __MetadataBearer;
+export interface GetModelCommandInput extends GetModelRequest {}
+export interface GetModelCommandOutput extends Model, __MetadataBearer {}
 
 /**
  * <p>Describes an existing model defined for a <a>RestApi</a> resource.</p>

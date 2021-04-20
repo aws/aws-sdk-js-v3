@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReplicationTaskAssessmentResultsCommandInput = DescribeReplicationTaskAssessmentResultsMessage;
-export type DescribeReplicationTaskAssessmentResultsCommandOutput = DescribeReplicationTaskAssessmentResultsResponse &
-  __MetadataBearer;
+export interface DescribeReplicationTaskAssessmentResultsCommandInput
+  extends DescribeReplicationTaskAssessmentResultsMessage {}
+export interface DescribeReplicationTaskAssessmentResultsCommandOutput
+  extends DescribeReplicationTaskAssessmentResultsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the task assessment results from Amazon S3. This action always returns the

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCustomVerificationEmailTemplatesCommandInput = ListCustomVerificationEmailTemplatesRequest;
-export type ListCustomVerificationEmailTemplatesCommandOutput = ListCustomVerificationEmailTemplatesResponse &
-  __MetadataBearer;
+export interface ListCustomVerificationEmailTemplatesCommandInput extends ListCustomVerificationEmailTemplatesRequest {}
+export interface ListCustomVerificationEmailTemplatesCommandOutput
+  extends ListCustomVerificationEmailTemplatesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the existing custom verification email templates for your account in the current

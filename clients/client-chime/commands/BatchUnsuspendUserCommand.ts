@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchUnsuspendUserCommandInput = BatchUnsuspendUserRequest;
-export type BatchUnsuspendUserCommandOutput = BatchUnsuspendUserResponse & __MetadataBearer;
+export interface BatchUnsuspendUserCommandInput extends BatchUnsuspendUserRequest {}
+export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the suspension from up to 50 previously suspended users for the specified Amazon

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResourceRecordSetsCommandInput = ListResourceRecordSetsRequest;
-export type ListResourceRecordSetsCommandOutput = ListResourceRecordSetsResponse & __MetadataBearer;
+export interface ListResourceRecordSetsCommandInput extends ListResourceRecordSetsRequest {}
+export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordSetsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the resource record sets in a specified hosted zone.</p>

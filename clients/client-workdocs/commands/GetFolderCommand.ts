@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFolderCommandInput = GetFolderRequest;
-export type GetFolderCommandOutput = GetFolderResponse & __MetadataBearer;
+export interface GetFolderCommandInput extends GetFolderRequest {}
+export interface GetFolderCommandOutput extends GetFolderResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the metadata of the specified folder.</p>

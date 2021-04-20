@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeActivationsCommandInput = DescribeActivationsRequest;
-export type DescribeActivationsCommandOutput = DescribeActivationsResult & __MetadataBearer;
+export interface DescribeActivationsCommandInput extends DescribeActivationsRequest {}
+export interface DescribeActivationsCommandOutput extends DescribeActivationsResult, __MetadataBearer {}
 
 /**
  * <p>Describes details about the activation, such as the date and time the activation was

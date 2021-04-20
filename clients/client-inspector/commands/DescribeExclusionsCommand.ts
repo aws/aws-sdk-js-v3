@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeExclusionsCommandInput = DescribeExclusionsRequest;
-export type DescribeExclusionsCommandOutput = DescribeExclusionsResponse & __MetadataBearer;
+export interface DescribeExclusionsCommandInput extends DescribeExclusionsRequest {}
+export interface DescribeExclusionsCommandOutput extends DescribeExclusionsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the exclusions that are specified by the exclusions' ARNs.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteOriginRequestPolicyCommandInput = DeleteOriginRequestPolicyRequest;
-export type DeleteOriginRequestPolicyCommandOutput = __MetadataBearer;
+export interface DeleteOriginRequestPolicyCommandInput extends DeleteOriginRequestPolicyRequest {}
+export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an origin request policy.</p>

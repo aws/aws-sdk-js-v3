@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListModelExplainabilityJobDefinitionsCommandInput = ListModelExplainabilityJobDefinitionsRequest;
-export type ListModelExplainabilityJobDefinitionsCommandOutput = ListModelExplainabilityJobDefinitionsResponse &
-  __MetadataBearer;
+export interface ListModelExplainabilityJobDefinitionsCommandInput
+  extends ListModelExplainabilityJobDefinitionsRequest {}
+export interface ListModelExplainabilityJobDefinitionsCommandOutput
+  extends ListModelExplainabilityJobDefinitionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists model explainability job definitions that satisfy various filters.</p>

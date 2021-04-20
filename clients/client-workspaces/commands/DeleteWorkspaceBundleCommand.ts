@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteWorkspaceBundleCommandInput = DeleteWorkspaceBundleRequest;
-export type DeleteWorkspaceBundleCommandOutput = DeleteWorkspaceBundleResult & __MetadataBearer;
+export interface DeleteWorkspaceBundleCommandInput extends DeleteWorkspaceBundleRequest {}
+export interface DeleteWorkspaceBundleCommandOutput extends DeleteWorkspaceBundleResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified WorkSpace bundle. For more information about deleting WorkSpace bundles, see

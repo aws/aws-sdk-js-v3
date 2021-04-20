@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEntityAggregatesCommandInput = DescribeEntityAggregatesRequest;
-export type DescribeEntityAggregatesCommandOutput = DescribeEntityAggregatesResponse & __MetadataBearer;
+export interface DescribeEntityAggregatesCommandInput extends DescribeEntityAggregatesRequest {}
+export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAggregatesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the number of entities that are affected by each of the specified events. If no

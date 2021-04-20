@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportMigrationTaskCommandInput = ImportMigrationTaskRequest;
-export type ImportMigrationTaskCommandOutput = ImportMigrationTaskResult & __MetadataBearer;
+export interface ImportMigrationTaskCommandInput extends ImportMigrationTaskRequest {}
+export interface ImportMigrationTaskCommandOutput extends ImportMigrationTaskResult, __MetadataBearer {}
 
 /**
  * <p>Registers a new migration task which represents a server, database, etc., being migrated

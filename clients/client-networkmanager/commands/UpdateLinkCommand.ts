@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateLinkCommandInput = UpdateLinkRequest;
-export type UpdateLinkCommandOutput = UpdateLinkResponse & __MetadataBearer;
+export interface UpdateLinkCommandInput extends UpdateLinkRequest {}
+export interface UpdateLinkCommandOutput extends UpdateLinkResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the details for an existing link. To remove information for any of the

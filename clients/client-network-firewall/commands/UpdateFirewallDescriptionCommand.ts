@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFirewallDescriptionCommandInput = UpdateFirewallDescriptionRequest;
-export type UpdateFirewallDescriptionCommandOutput = UpdateFirewallDescriptionResponse & __MetadataBearer;
+export interface UpdateFirewallDescriptionCommandInput extends UpdateFirewallDescriptionRequest {}
+export interface UpdateFirewallDescriptionCommandOutput extends UpdateFirewallDescriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the description for the specified firewall. Use the description to help you

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetContentModerationCommandInput = GetContentModerationRequest;
-export type GetContentModerationCommandOutput = GetContentModerationResponse & __MetadataBearer;
+export interface GetContentModerationCommandInput extends GetContentModerationRequest {}
+export interface GetContentModerationCommandOutput extends GetContentModerationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the unsafe content analysis results for a Amazon Rekognition Video analysis started by

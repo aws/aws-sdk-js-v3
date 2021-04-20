@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResolverRuleAssociationsCommandInput = ListResolverRuleAssociationsRequest;
-export type ListResolverRuleAssociationsCommandOutput = ListResolverRuleAssociationsResponse & __MetadataBearer;
+export interface ListResolverRuleAssociationsCommandInput extends ListResolverRuleAssociationsRequest {}
+export interface ListResolverRuleAssociationsCommandOutput
+  extends ListResolverRuleAssociationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the associations that were created between Resolver rules and VPCs using the current AWS account.</p>

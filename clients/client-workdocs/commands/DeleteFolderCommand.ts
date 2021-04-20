@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFolderCommandInput = DeleteFolderRequest;
-export type DeleteFolderCommandOutput = __MetadataBearer;
+export interface DeleteFolderCommandInput extends DeleteFolderRequest {}
+export interface DeleteFolderCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Permanently deletes the specified folder and its contents.</p>

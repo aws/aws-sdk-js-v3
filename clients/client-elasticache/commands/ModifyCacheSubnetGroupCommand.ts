@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyCacheSubnetGroupCommandInput = ModifyCacheSubnetGroupMessage;
-export type ModifyCacheSubnetGroupCommandOutput = ModifyCacheSubnetGroupResult & __MetadataBearer;
+export interface ModifyCacheSubnetGroupCommandInput extends ModifyCacheSubnetGroupMessage {}
+export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGroupResult, __MetadataBearer {}
 
 /**
  * <p>Modifies an existing cache subnet group.</p>

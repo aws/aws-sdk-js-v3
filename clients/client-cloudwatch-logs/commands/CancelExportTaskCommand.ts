@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelExportTaskCommandInput = CancelExportTaskRequest;
-export type CancelExportTaskCommandOutput = __MetadataBearer;
+export interface CancelExportTaskCommandInput extends CancelExportTaskRequest {}
+export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Cancels the specified export task.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFindingsCommandInput = GetFindingsRequest;
-export type GetFindingsCommandOutput = GetFindingsResponse & __MetadataBearer;
+export interface GetFindingsCommandInput extends GetFindingsRequest {}
+export interface GetFindingsCommandOutput extends GetFindingsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes Amazon GuardDuty findings specified by finding IDs.</p>

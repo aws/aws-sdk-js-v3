@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEndpointCommandInput = DeleteEndpointRequest;
-export type DeleteEndpointCommandOutput = __MetadataBearer;
+export interface DeleteEndpointCommandInput extends DeleteEndpointRequest {}
+export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>S3 on Outposts access points simplify managing data access at scale for shared datasets

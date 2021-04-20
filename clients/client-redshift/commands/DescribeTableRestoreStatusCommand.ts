@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTableRestoreStatusCommandInput = DescribeTableRestoreStatusMessage;
-export type DescribeTableRestoreStatusCommandOutput = TableRestoreStatusMessage & __MetadataBearer;
+export interface DescribeTableRestoreStatusCommandInput extends DescribeTableRestoreStatusMessage {}
+export interface DescribeTableRestoreStatusCommandOutput extends TableRestoreStatusMessage, __MetadataBearer {}
 
 /**
  * <p>Lists the status of one or more table restore requests made using the <a>RestoreTableFromClusterSnapshot</a> API action. If you don't specify a value

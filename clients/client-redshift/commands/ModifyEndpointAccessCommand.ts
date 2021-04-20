@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyEndpointAccessCommandInput = ModifyEndpointAccessMessage;
-export type ModifyEndpointAccessCommandOutput = EndpointAccess & __MetadataBearer;
+export interface ModifyEndpointAccessCommandInput extends ModifyEndpointAccessMessage {}
+export interface ModifyEndpointAccessCommandOutput extends EndpointAccess, __MetadataBearer {}
 
 /**
  * <p>Modifies a Redshift-managed VPC endpoint.</p>

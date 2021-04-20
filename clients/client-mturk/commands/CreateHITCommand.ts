@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateHITCommandInput = CreateHITRequest;
-export type CreateHITCommandOutput = CreateHITResponse & __MetadataBearer;
+export interface CreateHITCommandInput extends CreateHITRequest {}
+export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBearer {}
 
 /**
  * <p>The <code>CreateHIT</code> operation creates a new Human Intelligence Task (HIT).

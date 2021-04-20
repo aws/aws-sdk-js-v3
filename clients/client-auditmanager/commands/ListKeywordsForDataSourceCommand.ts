@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListKeywordsForDataSourceCommandInput = ListKeywordsForDataSourceRequest;
-export type ListKeywordsForDataSourceCommandOutput = ListKeywordsForDataSourceResponse & __MetadataBearer;
+export interface ListKeywordsForDataSourceCommandInput extends ListKeywordsForDataSourceRequest {}
+export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForDataSourceResponse, __MetadataBearer {}
 
 /**
  * <p>

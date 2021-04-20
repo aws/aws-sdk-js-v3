@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type FinalizeDeviceClaimCommandInput = FinalizeDeviceClaimRequest;
-export type FinalizeDeviceClaimCommandOutput = FinalizeDeviceClaimResponse & __MetadataBearer;
+export interface FinalizeDeviceClaimCommandInput extends FinalizeDeviceClaimRequest {}
+export interface FinalizeDeviceClaimCommandOutput extends FinalizeDeviceClaimResponse, __MetadataBearer {}
 
 /**
  * <p>Given a device ID, finalizes the claim request for the associated device.</p><note>

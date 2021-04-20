@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReservedCacheNodesCommandInput = DescribeReservedCacheNodesMessage;
-export type DescribeReservedCacheNodesCommandOutput = ReservedCacheNodeMessage & __MetadataBearer;
+export interface DescribeReservedCacheNodesCommandInput extends DescribeReservedCacheNodesMessage {}
+export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNodeMessage, __MetadataBearer {}
 
 /**
  * <p>Returns information about reserved cache

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDeviceCommandInput = UpdateDeviceRequest;
-export type UpdateDeviceCommandOutput = UpdateDeviceResponse & __MetadataBearer;
+export interface UpdateDeviceCommandInput extends UpdateDeviceRequest {}
+export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the details for an existing device. To remove information for any of the

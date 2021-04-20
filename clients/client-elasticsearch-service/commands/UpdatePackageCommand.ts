@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePackageCommandInput = UpdatePackageRequest;
-export type UpdatePackageCommandOutput = UpdatePackageResponse & __MetadataBearer;
+export interface UpdatePackageCommandInput extends UpdatePackageRequest {}
+export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a package for use with Amazon ES domains.</p>

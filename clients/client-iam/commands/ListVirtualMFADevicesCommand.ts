@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVirtualMFADevicesCommandInput = ListVirtualMFADevicesRequest;
-export type ListVirtualMFADevicesCommandOutput = ListVirtualMFADevicesResponse & __MetadataBearer;
+export interface ListVirtualMFADevicesCommandInput extends ListVirtualMFADevicesRequest {}
+export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevicesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the virtual MFA devices defined in the AWS account by assignment status. If

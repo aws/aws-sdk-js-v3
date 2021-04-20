@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyManagedPrefixListCommandInput = ModifyManagedPrefixListRequest;
-export type ModifyManagedPrefixListCommandOutput = ModifyManagedPrefixListResult & __MetadataBearer;
+export interface ModifyManagedPrefixListCommandInput extends ModifyManagedPrefixListRequest {}
+export interface ModifyManagedPrefixListCommandOutput extends ModifyManagedPrefixListResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified managed prefix list.</p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketLoggingCommandInput = GetBucketLoggingRequest;
-export type GetBucketLoggingCommandOutput = GetBucketLoggingOutput & __MetadataBearer;
+export interface GetBucketLoggingCommandInput extends GetBucketLoggingRequest {}
+export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the logging status of a bucket and the permissions users have to view and modify

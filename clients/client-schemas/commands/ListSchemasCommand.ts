@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSchemasCommandInput = ListSchemasRequest;
-export type ListSchemasCommandOutput = ListSchemasResponse & __MetadataBearer;
+export interface ListSchemasCommandInput extends ListSchemasRequest {}
+export interface ListSchemasCommandOutput extends ListSchemasResponse, __MetadataBearer {}
 
 /**
  * <p>List the schemas.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMonitoringSubscriptionCommandInput = GetMonitoringSubscriptionRequest;
-export type GetMonitoringSubscriptionCommandOutput = GetMonitoringSubscriptionResult & __MetadataBearer;
+export interface GetMonitoringSubscriptionCommandInput extends GetMonitoringSubscriptionRequest {}
+export interface GetMonitoringSubscriptionCommandOutput extends GetMonitoringSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about whether additional CloudWatch metrics are enabled for the specified

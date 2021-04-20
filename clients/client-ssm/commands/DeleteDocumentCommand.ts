@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDocumentCommandInput = DeleteDocumentRequest;
-export type DeleteDocumentCommandOutput = DeleteDocumentResult & __MetadataBearer;
+export interface DeleteDocumentCommandInput extends DeleteDocumentRequest {}
+export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the Systems Manager document and all instance associations to the document.</p>

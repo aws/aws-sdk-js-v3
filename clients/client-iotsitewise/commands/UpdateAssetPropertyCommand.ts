@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAssetPropertyCommandInput = UpdateAssetPropertyRequest;
-export type UpdateAssetPropertyCommandOutput = __MetadataBearer;
+export interface UpdateAssetPropertyCommandInput extends UpdateAssetPropertyRequest {}
+export interface UpdateAssetPropertyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates an asset property's alias and notification state.</p>

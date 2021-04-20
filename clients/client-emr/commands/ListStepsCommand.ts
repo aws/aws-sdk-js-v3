@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListStepsCommandInput = ListStepsInput;
-export type ListStepsCommandOutput = ListStepsOutput & __MetadataBearer;
+export interface ListStepsCommandInput extends ListStepsInput {}
+export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBearer {}
 
 /**
  * <p>Provides a list of steps for the cluster in reverse order unless you specify

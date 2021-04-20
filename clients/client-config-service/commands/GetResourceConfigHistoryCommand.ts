@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResourceConfigHistoryCommandInput = GetResourceConfigHistoryRequest;
-export type GetResourceConfigHistoryCommandOutput = GetResourceConfigHistoryResponse & __MetadataBearer;
+export interface GetResourceConfigHistoryCommandInput extends GetResourceConfigHistoryRequest {}
+export interface GetResourceConfigHistoryCommandOutput extends GetResourceConfigHistoryResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of configuration items for the specified

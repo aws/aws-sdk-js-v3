@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetReservationUtilizationCommandInput = GetReservationUtilizationRequest;
-export type GetReservationUtilizationCommandOutput = GetReservationUtilizationResponse & __MetadataBearer;
+export interface GetReservationUtilizationCommandInput extends GetReservationUtilizationRequest {}
+export interface GetReservationUtilizationCommandOutput extends GetReservationUtilizationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the reservation utilization for your account. Management account in an organization have access to member accounts.

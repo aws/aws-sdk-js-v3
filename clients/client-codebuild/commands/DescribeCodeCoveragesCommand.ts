@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCodeCoveragesCommandInput = DescribeCodeCoveragesInput;
-export type DescribeCodeCoveragesCommandOutput = DescribeCodeCoveragesOutput & __MetadataBearer;
+export interface DescribeCodeCoveragesCommandInput extends DescribeCodeCoveragesInput {}
+export interface DescribeCodeCoveragesCommandOutput extends DescribeCodeCoveragesOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves one or more code coverage reports.</p>

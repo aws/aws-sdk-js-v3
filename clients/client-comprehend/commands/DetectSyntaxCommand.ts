@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetectSyntaxCommandInput = DetectSyntaxRequest;
-export type DetectSyntaxCommandOutput = DetectSyntaxResponse & __MetadataBearer;
+export interface DetectSyntaxCommandInput extends DetectSyntaxRequest {}
+export interface DetectSyntaxCommandOutput extends DetectSyntaxResponse, __MetadataBearer {}
 
 /**
  * <p>Inspects text for syntax and the part of speech of words in the document. For more

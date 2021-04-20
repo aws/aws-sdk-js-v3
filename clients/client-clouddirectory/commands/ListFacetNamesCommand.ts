@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFacetNamesCommandInput = ListFacetNamesRequest;
-export type ListFacetNamesCommandOutput = ListFacetNamesResponse & __MetadataBearer;
+export interface ListFacetNamesCommandInput extends ListFacetNamesRequest {}
+export interface ListFacetNamesCommandOutput extends ListFacetNamesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the names of facets that exist in a schema.</p>

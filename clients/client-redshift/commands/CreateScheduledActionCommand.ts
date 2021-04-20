@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateScheduledActionCommandInput = CreateScheduledActionMessage;
-export type CreateScheduledActionCommandOutput = ScheduledAction & __MetadataBearer;
+export interface CreateScheduledActionCommandInput extends CreateScheduledActionMessage {}
+export interface CreateScheduledActionCommandOutput extends ScheduledAction, __MetadataBearer {}
 
 /**
  * <p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action.

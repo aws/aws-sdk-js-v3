@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteStreamCommandInput = DeleteStreamInput;
-export type DeleteStreamCommandOutput = DeleteStreamOutput & __MetadataBearer;
+export interface DeleteStreamCommandInput extends DeleteStreamInput {}
+export interface DeleteStreamCommandOutput extends DeleteStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a Kinesis video stream and the data contained in the stream. </p>

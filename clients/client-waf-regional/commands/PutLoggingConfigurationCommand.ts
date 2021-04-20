@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutLoggingConfigurationCommandInput = PutLoggingConfigurationRequest;
-export type PutLoggingConfigurationCommandOutput = PutLoggingConfigurationResponse & __MetadataBearer;
+export interface PutLoggingConfigurationCommandInput extends PutLoggingConfigurationRequest {}
+export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
  * <note>

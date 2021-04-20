@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSchemaCommandInput = UpdateSchemaRequest;
-export type UpdateSchemaCommandOutput = UpdateSchemaResponse & __MetadataBearer;
+export interface UpdateSchemaCommandInput extends UpdateSchemaRequest {}
+export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the schema definition</p> <note><p>Inactive schemas will be deleted after two years.</p></note>

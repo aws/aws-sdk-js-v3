@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDBSubnetGroupsCommandInput = DescribeDBSubnetGroupsMessage;
-export type DescribeDBSubnetGroupsCommandOutput = DBSubnetGroupMessage & __MetadataBearer;
+export interface DescribeDBSubnetGroupsCommandInput extends DescribeDBSubnetGroupsMessage {}
+export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of <code>DBSubnetGroup</code> descriptions. If a

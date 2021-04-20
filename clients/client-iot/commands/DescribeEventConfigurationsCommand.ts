@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEventConfigurationsCommandInput = DescribeEventConfigurationsRequest;
-export type DescribeEventConfigurationsCommandOutput = DescribeEventConfigurationsResponse & __MetadataBearer;
+export interface DescribeEventConfigurationsCommandInput extends DescribeEventConfigurationsRequest {}
+export interface DescribeEventConfigurationsCommandOutput
+  extends DescribeEventConfigurationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes event configurations.</p>

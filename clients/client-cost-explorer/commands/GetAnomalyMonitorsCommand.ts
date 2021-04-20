@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAnomalyMonitorsCommandInput = GetAnomalyMonitorsRequest;
-export type GetAnomalyMonitorsCommandOutput = GetAnomalyMonitorsResponse & __MetadataBearer;
+export interface GetAnomalyMonitorsCommandInput extends GetAnomalyMonitorsRequest {}
+export interface GetAnomalyMonitorsCommandOutput extends GetAnomalyMonitorsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the cost anomaly monitor definitions for your account. You can filter using a

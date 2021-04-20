@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListGeoLocationsCommandInput = ListGeoLocationsRequest;
-export type ListGeoLocationsCommandOutput = ListGeoLocationsResponse & __MetadataBearer;
+export interface ListGeoLocationsCommandInput extends ListGeoLocationsRequest {}
+export interface ListGeoLocationsCommandOutput extends ListGeoLocationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of supported geographic locations.</p>

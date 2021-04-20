@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableAddOnCommandInput = DisableAddOnRequest;
-export type DisableAddOnCommandOutput = DisableAddOnResult & __MetadataBearer;
+export interface DisableAddOnCommandInput extends DisableAddOnRequest {}
+export interface DisableAddOnCommandOutput extends DisableAddOnResult, __MetadataBearer {}
 
 /**
  * <p>Disables an add-on for an Amazon Lightsail resource. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail Dev Guide</a>.</p>

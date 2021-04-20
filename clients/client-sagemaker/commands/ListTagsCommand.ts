@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsCommandInput = ListTagsInput;
-export type ListTagsCommandOutput = ListTagsOutput & __MetadataBearer;
+export interface ListTagsCommandInput extends ListTagsInput {}
+export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the tags for the specified Amazon SageMaker resource.</p>

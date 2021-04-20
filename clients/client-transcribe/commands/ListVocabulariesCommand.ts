@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVocabulariesCommandInput = ListVocabulariesRequest;
-export type ListVocabulariesCommandOutput = ListVocabulariesResponse & __MetadataBearer;
+export interface ListVocabulariesCommandInput extends ListVocabulariesRequest {}
+export interface ListVocabulariesCommandOutput extends ListVocabulariesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of vocabularies that match the specified criteria. If no criteria are

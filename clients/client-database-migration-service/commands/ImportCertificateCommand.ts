@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportCertificateCommandInput = ImportCertificateMessage;
-export type ImportCertificateCommandOutput = ImportCertificateResponse & __MetadataBearer;
+export interface ImportCertificateCommandInput extends ImportCertificateMessage {}
+export interface ImportCertificateCommandOutput extends ImportCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Uploads the specified certificate.</p>

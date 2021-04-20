@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDeploymentsCommandInput = GetDeploymentsRequest;
-export type GetDeploymentsCommandOutput = GetDeploymentsResponse & __MetadataBearer;
+export interface GetDeploymentsCommandInput extends GetDeploymentsRequest {}
+export interface GetDeploymentsCommandOutput extends GetDeploymentsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the Deployments for an API.</p>

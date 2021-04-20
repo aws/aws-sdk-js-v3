@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReadPipelineCommandInput = ReadPipelineRequest;
-export type ReadPipelineCommandOutput = ReadPipelineResponse & __MetadataBearer;
+export interface ReadPipelineCommandInput extends ReadPipelineRequest {}
+export interface ReadPipelineCommandOutput extends ReadPipelineResponse, __MetadataBearer {}
 
 /**
  * <p>The ReadPipeline operation gets detailed information about a pipeline.</p>

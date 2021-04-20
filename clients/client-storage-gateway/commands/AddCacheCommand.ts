@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddCacheCommandInput = AddCacheInput;
-export type AddCacheCommandOutput = AddCacheOutput & __MetadataBearer;
+export interface AddCacheCommandInput extends AddCacheInput {}
+export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer {}
 
 /**
  * <p>Configures one or more gateway local disks as cache for a gateway. This operation is

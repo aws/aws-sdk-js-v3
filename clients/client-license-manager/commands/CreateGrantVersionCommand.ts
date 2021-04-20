@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGrantVersionCommandInput = CreateGrantVersionRequest;
-export type CreateGrantVersionCommandOutput = CreateGrantVersionResponse & __MetadataBearer;
+export interface CreateGrantVersionCommandInput extends CreateGrantVersionRequest {}
+export interface CreateGrantVersionCommandOutput extends CreateGrantVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new version of the specified grant.</p>

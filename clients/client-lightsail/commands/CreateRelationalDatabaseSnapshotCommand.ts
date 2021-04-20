@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRelationalDatabaseSnapshotCommandInput = CreateRelationalDatabaseSnapshotRequest;
-export type CreateRelationalDatabaseSnapshotCommandOutput = CreateRelationalDatabaseSnapshotResult & __MetadataBearer;
+export interface CreateRelationalDatabaseSnapshotCommandInput extends CreateRelationalDatabaseSnapshotRequest {}
+export interface CreateRelationalDatabaseSnapshotCommandOutput
+  extends CreateRelationalDatabaseSnapshotResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a snapshot of your database in Amazon Lightsail. You can use snapshots for backups,

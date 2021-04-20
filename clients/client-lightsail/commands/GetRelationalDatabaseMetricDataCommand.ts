@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRelationalDatabaseMetricDataCommandInput = GetRelationalDatabaseMetricDataRequest;
-export type GetRelationalDatabaseMetricDataCommandOutput = GetRelationalDatabaseMetricDataResult & __MetadataBearer;
+export interface GetRelationalDatabaseMetricDataCommandInput extends GetRelationalDatabaseMetricDataRequest {}
+export interface GetRelationalDatabaseMetricDataCommandOutput
+  extends GetRelationalDatabaseMetricDataResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the data points of the specified metric for a database in Amazon Lightsail.</p>

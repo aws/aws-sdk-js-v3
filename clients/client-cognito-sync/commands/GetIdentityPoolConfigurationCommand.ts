@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetIdentityPoolConfigurationCommandInput = GetIdentityPoolConfigurationRequest;
-export type GetIdentityPoolConfigurationCommandOutput = GetIdentityPoolConfigurationResponse & __MetadataBearer;
+export interface GetIdentityPoolConfigurationCommandInput extends GetIdentityPoolConfigurationRequest {}
+export interface GetIdentityPoolConfigurationCommandOutput
+  extends GetIdentityPoolConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the configuration settings of an identity pool.</p><p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>

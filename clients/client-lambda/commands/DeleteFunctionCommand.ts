@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFunctionCommandInput = DeleteFunctionRequest;
-export type DeleteFunctionCommandOutput = __MetadataBearer;
+export interface DeleteFunctionCommandInput extends DeleteFunctionRequest {}
+export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code> parameter.

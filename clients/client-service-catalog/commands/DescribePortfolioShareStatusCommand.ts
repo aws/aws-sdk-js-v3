@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePortfolioShareStatusCommandInput = DescribePortfolioShareStatusInput;
-export type DescribePortfolioShareStatusCommandOutput = DescribePortfolioShareStatusOutput & __MetadataBearer;
+export interface DescribePortfolioShareStatusCommandInput extends DescribePortfolioShareStatusInput {}
+export interface DescribePortfolioShareStatusCommandOutput
+  extends DescribePortfolioShareStatusOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the status of the specified portfolio share operation. This API can only be called

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetContainerPolicyCommandInput = GetContainerPolicyInput;
-export type GetContainerPolicyCommandOutput = GetContainerPolicyOutput & __MetadataBearer;
+export interface GetContainerPolicyCommandInput extends GetContainerPolicyInput {}
+export interface GetContainerPolicyCommandOutput extends GetContainerPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the access policy for the specified container. For information about the

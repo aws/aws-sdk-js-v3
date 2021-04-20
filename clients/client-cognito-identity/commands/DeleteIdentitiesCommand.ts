@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteIdentitiesCommandInput = DeleteIdentitiesInput;
-export type DeleteIdentitiesCommandOutput = DeleteIdentitiesResponse & __MetadataBearer;
+export interface DeleteIdentitiesCommandInput extends DeleteIdentitiesInput {}
+export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes identities from an identity pool. You can specify a list of 1-60 identities

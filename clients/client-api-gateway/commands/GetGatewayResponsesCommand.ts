@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetGatewayResponsesCommandInput = GetGatewayResponsesRequest;
-export type GetGatewayResponsesCommandOutput = GatewayResponses & __MetadataBearer;
+export interface GetGatewayResponsesCommandInput extends GetGatewayResponsesRequest {}
+export interface GetGatewayResponsesCommandOutput extends GatewayResponses, __MetadataBearer {}
 
 /**
  * <p>Gets the <a>GatewayResponses</a> collection on the given <a>RestApi</a>. If an API developer has not added any definitions for gateway responses, the result will be the API Gateway-generated default <a>GatewayResponses</a> collection for the supported response types.</p>

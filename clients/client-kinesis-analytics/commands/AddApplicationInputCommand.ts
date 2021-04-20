@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddApplicationInputCommandInput = AddApplicationInputRequest;
-export type AddApplicationInputCommandOutput = AddApplicationInputResponse & __MetadataBearer;
+export interface AddApplicationInputCommandInput extends AddApplicationInputRequest {}
+export interface AddApplicationInputCommandOutput extends AddApplicationInputResponse, __MetadataBearer {}
 
 /**
  * <note>

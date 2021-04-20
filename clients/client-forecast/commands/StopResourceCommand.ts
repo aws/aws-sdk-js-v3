@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopResourceCommandInput = StopResourceRequest;
-export type StopResourceCommandOutput = __MetadataBearer;
+export interface StopResourceCommandInput extends StopResourceRequest {}
+export interface StopResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a resource.</p>

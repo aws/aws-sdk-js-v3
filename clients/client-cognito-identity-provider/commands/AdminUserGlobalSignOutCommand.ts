@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminUserGlobalSignOutCommandInput = AdminUserGlobalSignOutRequest;
-export type AdminUserGlobalSignOutCommandOutput = AdminUserGlobalSignOutResponse & __MetadataBearer;
+export interface AdminUserGlobalSignOutCommandInput extends AdminUserGlobalSignOutRequest {}
+export interface AdminUserGlobalSignOutCommandOutput extends AdminUserGlobalSignOutResponse, __MetadataBearer {}
 
 /**
  * <p>Signs out users from all devices, as an administrator. It also invalidates all refresh

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutRetentionPolicyCommandInput = PutRetentionPolicyRequest;
-export type PutRetentionPolicyCommandOutput = __MetadataBearer;
+export interface PutRetentionPolicyCommandInput extends PutRetentionPolicyRequest {}
+export interface PutRetentionPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the retention of the specified log group. A retention policy allows you to

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateApplicationVersionCommandInput = UpdateApplicationVersionMessage;
-export type UpdateApplicationVersionCommandOutput = ApplicationVersionDescriptionMessage & __MetadataBearer;
+export interface UpdateApplicationVersionCommandInput extends UpdateApplicationVersionMessage {}
+export interface UpdateApplicationVersionCommandOutput extends ApplicationVersionDescriptionMessage, __MetadataBearer {}
 
 /**
  * <p>Updates the specified application version to have the specified properties.</p>

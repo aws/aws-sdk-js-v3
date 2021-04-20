@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EndpointWithHostLabelHeaderOperationCommandInput = HostLabelHeaderInput;
-export type EndpointWithHostLabelHeaderOperationCommandOutput = __MetadataBearer;
+export interface EndpointWithHostLabelHeaderOperationCommandInput extends HostLabelHeaderInput {}
+export interface EndpointWithHostLabelHeaderOperationCommandOutput extends __MetadataBearer {}
 
 export class EndpointWithHostLabelHeaderOperationCommand extends $Command<
   EndpointWithHostLabelHeaderOperationCommandInput,

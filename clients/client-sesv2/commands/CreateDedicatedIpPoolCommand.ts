@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDedicatedIpPoolCommandInput = CreateDedicatedIpPoolRequest;
-export type CreateDedicatedIpPoolCommandOutput = CreateDedicatedIpPoolResponse & __MetadataBearer;
+export interface CreateDedicatedIpPoolCommandInput extends CreateDedicatedIpPoolRequest {}
+export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoolResponse, __MetadataBearer {}
 
 /**
  * <p>Create a new pool of dedicated IP addresses. A pool can include one or more dedicated

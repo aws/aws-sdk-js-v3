@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePipelineCommandInput = CreatePipelineRequest;
-export type CreatePipelineCommandOutput = CreatePipelineResponse & __MetadataBearer;
+export interface CreatePipelineCommandInput extends CreatePipelineRequest {}
+export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a pipeline using a JSON pipeline definition.</p>

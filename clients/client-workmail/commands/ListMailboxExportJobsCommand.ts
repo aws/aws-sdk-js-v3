@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMailboxExportJobsCommandInput = ListMailboxExportJobsRequest;
-export type ListMailboxExportJobsCommandOutput = ListMailboxExportJobsResponse & __MetadataBearer;
+export interface ListMailboxExportJobsCommandInput extends ListMailboxExportJobsRequest {}
+export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the mailbox export jobs started for the specified organization within the last

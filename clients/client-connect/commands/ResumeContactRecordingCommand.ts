@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResumeContactRecordingCommandInput = ResumeContactRecordingRequest;
-export type ResumeContactRecordingCommandOutput = ResumeContactRecordingResponse & __MetadataBearer;
+export interface ResumeContactRecordingCommandInput extends ResumeContactRecordingRequest {}
+export interface ResumeContactRecordingCommandOutput extends ResumeContactRecordingResponse, __MetadataBearer {}
 
 /**
  * <p>When a contact is being recorded, and the recording has been suspended using

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAnalysisCommandInput = DeleteAnalysisRequest;
-export type DeleteAnalysisCommandOutput = DeleteAnalysisResponse & __MetadataBearer;
+export interface DeleteAnalysisCommandInput extends DeleteAnalysisRequest {}
+export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an analysis from Amazon QuickSight. You can optionally include a recovery window during

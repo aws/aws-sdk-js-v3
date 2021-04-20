@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRecoveryPointCommandInput = DescribeRecoveryPointInput;
-export type DescribeRecoveryPointCommandOutput = DescribeRecoveryPointOutput & __MetadataBearer;
+export interface DescribeRecoveryPointCommandInput extends DescribeRecoveryPointInput {}
+export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPointOutput, __MetadataBearer {}
 
 /**
  * <p>Returns metadata associated with a recovery point, including ID, status, encryption, and

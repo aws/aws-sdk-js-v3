@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutEventStreamCommandInput = PutEventStreamRequest;
-export type PutEventStreamCommandOutput = PutEventStreamResponse & __MetadataBearer;
+export interface PutEventStreamCommandInput extends PutEventStreamRequest {}
+export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new event stream for an application or updates the settings of an existing event stream for an application.</p>

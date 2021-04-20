@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSessionCommandInput = DeleteSessionRequest;
-export type DeleteSessionCommandOutput = DeleteSessionResponse & __MetadataBearer;
+export interface DeleteSessionCommandInput extends DeleteSessionRequest {}
+export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __MetadataBearer {}
 
 /**
  * <p>Removes session information for a specified bot, alias, and user ID.

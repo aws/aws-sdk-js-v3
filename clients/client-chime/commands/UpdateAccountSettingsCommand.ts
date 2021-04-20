@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAccountSettingsCommandInput = UpdateAccountSettingsRequest;
-export type UpdateAccountSettingsCommandOutput = UpdateAccountSettingsResponse & __MetadataBearer;
+export interface UpdateAccountSettingsCommandInput extends UpdateAccountSettingsRequest {}
+export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the settings for the specified Amazon Chime account. You can update settings for

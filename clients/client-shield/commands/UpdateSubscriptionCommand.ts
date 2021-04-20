@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSubscriptionCommandInput = UpdateSubscriptionRequest;
-export type UpdateSubscriptionCommandOutput = UpdateSubscriptionResponse & __MetadataBearer;
+export interface UpdateSubscriptionCommandInput extends UpdateSubscriptionRequest {}
+export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.</p>

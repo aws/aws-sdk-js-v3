@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetectEntitiesV2CommandInput = DetectEntitiesV2Request;
-export type DetectEntitiesV2CommandOutput = DetectEntitiesV2Response & __MetadataBearer;
+export interface DetectEntitiesV2CommandInput extends DetectEntitiesV2Request {}
+export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response, __MetadataBearer {}
 
 /**
  * <p>Inspects the clinical text for a variety of medical entities and returns specific

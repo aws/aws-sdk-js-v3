@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAssessmentTemplateCommandInput = DeleteAssessmentTemplateRequest;
-export type DeleteAssessmentTemplateCommandOutput = __MetadataBearer;
+export interface DeleteAssessmentTemplateCommandInput extends DeleteAssessmentTemplateRequest {}
+export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the assessment template that is specified by the ARN of the assessment

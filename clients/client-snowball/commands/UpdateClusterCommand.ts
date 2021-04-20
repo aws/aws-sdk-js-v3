@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateClusterCommandInput = UpdateClusterRequest;
-export type UpdateClusterCommandOutput = UpdateClusterResult & __MetadataBearer;
+export interface UpdateClusterCommandInput extends UpdateClusterRequest {}
+export interface UpdateClusterCommandOutput extends UpdateClusterResult, __MetadataBearer {}
 
 /**
  * <p>While a cluster's <code>ClusterState</code> value is in the <code>AwaitingQuorum</code>

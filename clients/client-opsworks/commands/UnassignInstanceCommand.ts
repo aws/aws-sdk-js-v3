@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UnassignInstanceCommandInput = UnassignInstanceRequest;
-export type UnassignInstanceCommandOutput = __MetadataBearer;
+export interface UnassignInstanceCommandInput extends UnassignInstanceRequest {}
+export interface UnassignInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Unassigns a registered instance from all layers that are using the instance.

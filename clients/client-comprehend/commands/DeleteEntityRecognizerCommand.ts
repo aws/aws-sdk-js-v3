@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEntityRecognizerCommandInput = DeleteEntityRecognizerRequest;
-export type DeleteEntityRecognizerCommandOutput = DeleteEntityRecognizerResponse & __MetadataBearer;
+export interface DeleteEntityRecognizerCommandInput extends DeleteEntityRecognizerRequest {}
+export interface DeleteEntityRecognizerCommandOutput extends DeleteEntityRecognizerResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an entity recognizer.</p>

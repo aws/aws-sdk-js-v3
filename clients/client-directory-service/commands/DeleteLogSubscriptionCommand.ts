@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLogSubscriptionCommandInput = DeleteLogSubscriptionRequest;
-export type DeleteLogSubscriptionCommandOutput = DeleteLogSubscriptionResult & __MetadataBearer;
+export interface DeleteLogSubscriptionCommandInput extends DeleteLogSubscriptionRequest {}
+export interface DeleteLogSubscriptionCommandOutput extends DeleteLogSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified log subscription.</p>

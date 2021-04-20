@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCloudFrontOriginAccessIdentityCommandInput = UpdateCloudFrontOriginAccessIdentityRequest;
-export type UpdateCloudFrontOriginAccessIdentityCommandOutput = UpdateCloudFrontOriginAccessIdentityResult &
-  __MetadataBearer;
+export interface UpdateCloudFrontOriginAccessIdentityCommandInput extends UpdateCloudFrontOriginAccessIdentityRequest {}
+export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
+  extends UpdateCloudFrontOriginAccessIdentityResult,
+    __MetadataBearer {}
 
 /**
  * <p>Update an origin access identity. </p>

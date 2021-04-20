@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFunctionCommandInput = DeleteFunctionRequest;
-export type DeleteFunctionCommandOutput = DeleteFunctionResponse & __MetadataBearer;
+export interface DeleteFunctionCommandInput extends DeleteFunctionRequest {}
+export interface DeleteFunctionCommandOutput extends DeleteFunctionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a <code>Function</code>.</p>

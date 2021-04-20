@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetVaultAccessPolicyCommandInput = GetVaultAccessPolicyInput;
-export type GetVaultAccessPolicyCommandOutput = GetVaultAccessPolicyOutput & __MetadataBearer;
+export interface GetVaultAccessPolicyCommandInput extends GetVaultAccessPolicyInput {}
+export interface GetVaultAccessPolicyCommandOutput extends GetVaultAccessPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>This operation retrieves the <code>access-policy</code> subresource set on the vault;

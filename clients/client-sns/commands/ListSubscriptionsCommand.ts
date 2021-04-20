@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSubscriptionsCommandInput = ListSubscriptionsInput;
-export type ListSubscriptionsCommandOutput = ListSubscriptionsResponse & __MetadataBearer;
+export interface ListSubscriptionsCommandInput extends ListSubscriptionsInput {}
+export interface ListSubscriptionsCommandOutput extends ListSubscriptionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the requester's subscriptions. Each call returns a limited list of

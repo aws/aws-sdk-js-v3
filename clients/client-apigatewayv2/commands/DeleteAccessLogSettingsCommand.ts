@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAccessLogSettingsCommandInput = DeleteAccessLogSettingsRequest;
-export type DeleteAccessLogSettingsCommandOutput = __MetadataBearer;
+export interface DeleteAccessLogSettingsCommandInput extends DeleteAccessLogSettingsRequest {}
+export interface DeleteAccessLogSettingsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the AccessLogSettings for a Stage. To disable access logging for a Stage, delete its AccessLogSettings.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSubnetGroupCommandInput = UpdateSubnetGroupRequest;
-export type UpdateSubnetGroupCommandOutput = UpdateSubnetGroupResponse & __MetadataBearer;
+export interface UpdateSubnetGroupCommandInput extends UpdateSubnetGroupRequest {}
+export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies an existing subnet group.</p>

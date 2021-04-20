@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetComplianceSummaryCommandInput = GetComplianceSummaryInput;
-export type GetComplianceSummaryCommandOutput = GetComplianceSummaryOutput & __MetadataBearer;
+export interface GetComplianceSummaryCommandInput extends GetComplianceSummaryInput {}
+export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a table that shows counts of resources that are noncompliant with their tag

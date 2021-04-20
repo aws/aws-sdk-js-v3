@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ValidatePipelineDefinitionCommandInput = ValidatePipelineDefinitionInput;
-export type ValidatePipelineDefinitionCommandOutput = ValidatePipelineDefinitionOutput & __MetadataBearer;
+export interface ValidatePipelineDefinitionCommandInput extends ValidatePipelineDefinitionInput {}
+export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelineDefinitionOutput, __MetadataBearer {}
 
 /**
  * <p>Validates the specified pipeline definition to ensure that it is well formed and can be run without error.</p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCustomRoutingAcceleratorCommandInput = DeleteCustomRoutingAcceleratorRequest;
-export type DeleteCustomRoutingAcceleratorCommandOutput = __MetadataBearer;
+export interface DeleteCustomRoutingAcceleratorCommandInput extends DeleteCustomRoutingAcceleratorRequest {}
+export interface DeleteCustomRoutingAcceleratorCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete a custom routing accelerator. Before you can delete an accelerator, you must disable it and remove all dependent resources

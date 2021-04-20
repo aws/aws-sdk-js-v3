@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateChannelMembershipCommandInput = CreateChannelMembershipRequest;
-export type CreateChannelMembershipCommandOutput = CreateChannelMembershipResponse & __MetadataBearer;
+export interface CreateChannelMembershipCommandInput extends CreateChannelMembershipRequest {}
+export interface CreateChannelMembershipCommandOutput extends CreateChannelMembershipResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a user to a channel. The <code>InvitedBy</code> response field is derived from the

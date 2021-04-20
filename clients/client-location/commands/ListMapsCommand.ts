@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMapsCommandInput = ListMapsRequest;
-export type ListMapsCommandOutput = ListMapsResponse & __MetadataBearer;
+export interface ListMapsCommandInput extends ListMapsRequest {}
+export interface ListMapsCommandOutput extends ListMapsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists map resources in your AWS account.</p>

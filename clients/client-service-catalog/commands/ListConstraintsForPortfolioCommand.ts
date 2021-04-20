@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListConstraintsForPortfolioCommandInput = ListConstraintsForPortfolioInput;
-export type ListConstraintsForPortfolioCommandOutput = ListConstraintsForPortfolioOutput & __MetadataBearer;
+export interface ListConstraintsForPortfolioCommandInput extends ListConstraintsForPortfolioInput {}
+export interface ListConstraintsForPortfolioCommandOutput extends ListConstraintsForPortfolioOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the constraints for the specified portfolio and product.</p>

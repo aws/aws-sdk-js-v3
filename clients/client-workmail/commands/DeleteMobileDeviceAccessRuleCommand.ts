@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMobileDeviceAccessRuleCommandInput = DeleteMobileDeviceAccessRuleRequest;
-export type DeleteMobileDeviceAccessRuleCommandOutput = DeleteMobileDeviceAccessRuleResponse & __MetadataBearer;
+export interface DeleteMobileDeviceAccessRuleCommandInput extends DeleteMobileDeviceAccessRuleRequest {}
+export interface DeleteMobileDeviceAccessRuleCommandOutput
+  extends DeleteMobileDeviceAccessRuleResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes a mobile device access rule for the specified Amazon WorkMail organization.</p>

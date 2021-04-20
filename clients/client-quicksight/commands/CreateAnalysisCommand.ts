@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAnalysisCommandInput = CreateAnalysisRequest;
-export type CreateAnalysisCommandOutput = CreateAnalysisResponse & __MetadataBearer;
+export interface CreateAnalysisCommandInput extends CreateAnalysisRequest {}
+export interface CreateAnalysisCommandOutput extends CreateAnalysisResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an analysis in Amazon QuickSight.</p>

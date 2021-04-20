@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDeploymentConfigsCommandInput = ListDeploymentConfigsInput;
-export type ListDeploymentConfigsCommandOutput = ListDeploymentConfigsOutput & __MetadataBearer;
+export interface ListDeploymentConfigsCommandInput extends ListDeploymentConfigsInput {}
+export interface ListDeploymentConfigsCommandOutput extends ListDeploymentConfigsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the deployment configurations with the IAM user or AWS account.</p>

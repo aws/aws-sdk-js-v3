@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RunPipelineActivityCommandInput = RunPipelineActivityRequest;
-export type RunPipelineActivityCommandOutput = RunPipelineActivityResponse & __MetadataBearer;
+export interface RunPipelineActivityCommandInput extends RunPipelineActivityRequest {}
+export interface RunPipelineActivityCommandOutput extends RunPipelineActivityResponse, __MetadataBearer {}
 
 /**
  * <p>Simulates the results of running a pipeline activity on a message payload.</p>

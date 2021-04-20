@@ -21,9 +21,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteStorageLensConfigurationTaggingCommandInput = DeleteStorageLensConfigurationTaggingRequest;
-export type DeleteStorageLensConfigurationTaggingCommandOutput = DeleteStorageLensConfigurationTaggingResult &
-  __MetadataBearer;
+export interface DeleteStorageLensConfigurationTaggingCommandInput
+  extends DeleteStorageLensConfigurationTaggingRequest {}
+export interface DeleteStorageLensConfigurationTaggingCommandOutput
+  extends DeleteStorageLensConfigurationTaggingResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the Amazon S3 Storage Lens configuration tags. For more information about S3 Storage Lens, see

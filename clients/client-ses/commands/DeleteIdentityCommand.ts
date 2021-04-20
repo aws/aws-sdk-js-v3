@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteIdentityCommandInput = DeleteIdentityRequest;
-export type DeleteIdentityCommandOutput = DeleteIdentityResponse & __MetadataBearer;
+export interface DeleteIdentityCommandInput extends DeleteIdentityRequest {}
+export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified identity (an email address or a domain) from the list of

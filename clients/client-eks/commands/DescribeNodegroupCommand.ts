@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeNodegroupCommandInput = DescribeNodegroupRequest;
-export type DescribeNodegroupCommandOutput = DescribeNodegroupResponse & __MetadataBearer;
+export interface DescribeNodegroupCommandInput extends DescribeNodegroupRequest {}
+export interface DescribeNodegroupCommandOutput extends DescribeNodegroupResponse, __MetadataBearer {}
 
 /**
  * <p>Returns descriptive information about an Amazon EKS node group.</p>

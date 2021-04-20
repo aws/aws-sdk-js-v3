@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type NotifyApplicationStateCommandInput = NotifyApplicationStateRequest;
-export type NotifyApplicationStateCommandOutput = NotifyApplicationStateResult & __MetadataBearer;
+export interface NotifyApplicationStateCommandInput extends NotifyApplicationStateRequest {}
+export interface NotifyApplicationStateCommandOutput extends NotifyApplicationStateResult, __MetadataBearer {}
 
 /**
  * <p>Sets the migration state of an application. For a given application identified by the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeWorkforceCommandInput = DescribeWorkforceRequest;
-export type DescribeWorkforceCommandOutput = DescribeWorkforceResponse & __MetadataBearer;
+export interface DescribeWorkforceCommandInput extends DescribeWorkforceRequest {}
+export interface DescribeWorkforceCommandOutput extends DescribeWorkforceResponse, __MetadataBearer {}
 
 /**
  * <p>Lists private workforce information, including workforce name, Amazon Resource Name

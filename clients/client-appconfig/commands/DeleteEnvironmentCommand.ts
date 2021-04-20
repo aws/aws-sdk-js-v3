@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEnvironmentCommandInput = DeleteEnvironmentRequest;
-export type DeleteEnvironmentCommandOutput = __MetadataBearer;
+export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest {}
+export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete an environment. Deleting an environment does not delete a configuration from a

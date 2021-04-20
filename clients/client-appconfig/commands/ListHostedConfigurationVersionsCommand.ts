@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListHostedConfigurationVersionsCommandInput = ListHostedConfigurationVersionsRequest;
-export type ListHostedConfigurationVersionsCommandOutput = HostedConfigurationVersions & __MetadataBearer;
+export interface ListHostedConfigurationVersionsCommandInput extends ListHostedConfigurationVersionsRequest {}
+export interface ListHostedConfigurationVersionsCommandOutput extends HostedConfigurationVersions, __MetadataBearer {}
 
 /**
  * <p>View a list of configurations stored in the AppConfig configuration store by

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListUserGroupsCommandInput = ListUserGroupsRequest;
-export type ListUserGroupsCommandOutput = ListUserGroupsResponse & __MetadataBearer;
+export interface ListUserGroupsCommandInput extends ListUserGroupsRequest {}
+export interface ListUserGroupsCommandOutput extends ListUserGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of.</p>

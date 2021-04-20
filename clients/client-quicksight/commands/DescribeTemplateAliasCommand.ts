@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTemplateAliasCommandInput = DescribeTemplateAliasRequest;
-export type DescribeTemplateAliasCommandOutput = DescribeTemplateAliasResponse & __MetadataBearer;
+export interface DescribeTemplateAliasCommandInput extends DescribeTemplateAliasRequest {}
+export interface DescribeTemplateAliasCommandOutput extends DescribeTemplateAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the template alias for a template.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteIPSetCommandInput = DeleteIPSetRequest;
-export type DeleteIPSetCommandOutput = DeleteIPSetResponse & __MetadataBearer;
+export interface DeleteIPSetCommandInput extends DeleteIPSetRequest {}
+export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the IPSet specified by the <code>ipSetId</code>. IPSets are called trusted IP

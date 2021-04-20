@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSubscriptionDefinitionVersionsCommandInput = ListSubscriptionDefinitionVersionsRequest;
-export type ListSubscriptionDefinitionVersionsCommandOutput = ListSubscriptionDefinitionVersionsResponse &
-  __MetadataBearer;
+export interface ListSubscriptionDefinitionVersionsCommandInput extends ListSubscriptionDefinitionVersionsRequest {}
+export interface ListSubscriptionDefinitionVersionsCommandOutput
+  extends ListSubscriptionDefinitionVersionsResponse,
+    __MetadataBearer {}
 
 /**
  * Lists the versions of a subscription definition.

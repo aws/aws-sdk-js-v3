@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateWorkspaceBundleCommandInput = UpdateWorkspaceBundleRequest;
-export type UpdateWorkspaceBundleCommandOutput = UpdateWorkspaceBundleResult & __MetadataBearer;
+export interface UpdateWorkspaceBundleCommandInput extends UpdateWorkspaceBundleRequest {}
+export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundleResult, __MetadataBearer {}
 
 /**
  * <p>Updates a WorkSpace bundle with a new image. For more information about updating WorkSpace bundles, see

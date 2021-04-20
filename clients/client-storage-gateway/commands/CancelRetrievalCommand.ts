@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelRetrievalCommandInput = CancelRetrievalInput;
-export type CancelRetrievalCommandOutput = CancelRetrievalOutput & __MetadataBearer;
+export interface CancelRetrievalCommandInput extends CancelRetrievalInput {}
+export interface CancelRetrievalCommandOutput extends CancelRetrievalOutput, __MetadataBearer {}
 
 /**
  * <p>Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to a gateway after

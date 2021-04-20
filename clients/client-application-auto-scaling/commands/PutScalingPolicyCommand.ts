@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutScalingPolicyCommandInput = PutScalingPolicyRequest;
-export type PutScalingPolicyCommandOutput = PutScalingPolicyResponse & __MetadataBearer;
+export interface PutScalingPolicyCommandInput extends PutScalingPolicyRequest {}
+export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates a scaling policy for an Application Auto Scaling scalable target.</p>

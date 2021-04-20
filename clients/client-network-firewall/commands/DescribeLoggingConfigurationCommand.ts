@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLoggingConfigurationCommandInput = DescribeLoggingConfigurationRequest;
-export type DescribeLoggingConfigurationCommandOutput = DescribeLoggingConfigurationResponse & __MetadataBearer;
+export interface DescribeLoggingConfigurationCommandInput extends DescribeLoggingConfigurationRequest {}
+export interface DescribeLoggingConfigurationCommandOutput
+  extends DescribeLoggingConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the logging configuration for the specified firewall. </p>

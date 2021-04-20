@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateModelVersionStatusCommandInput = UpdateModelVersionStatusRequest;
-export type UpdateModelVersionStatusCommandOutput = UpdateModelVersionStatusResult & __MetadataBearer;
+export interface UpdateModelVersionStatusCommandInput extends UpdateModelVersionStatusRequest {}
+export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersionStatusResult, __MetadataBearer {}
 
 /**
  * <p>Updates the status of a model version.</p>

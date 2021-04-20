@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyInstanceFleetCommandInput = ModifyInstanceFleetInput;
-export type ModifyInstanceFleetCommandOutput = __MetadataBearer;
+export interface ModifyInstanceFleetCommandInput extends ModifyInstanceFleetInput {}
+export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Modifies the target On-Demand and target Spot capacities for the instance fleet with the

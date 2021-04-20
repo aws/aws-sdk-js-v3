@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartWorkspacesCommandInput = StartWorkspacesRequest;
-export type StartWorkspacesCommandOutput = StartWorkspacesResult & __MetadataBearer;
+export interface StartWorkspacesCommandInput extends StartWorkspacesRequest {}
+export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __MetadataBearer {}
 
 /**
  * <p>Starts the specified WorkSpaces.</p>

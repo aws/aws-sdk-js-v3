@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateSecurityKeyCommandInput = AssociateSecurityKeyRequest;
-export type AssociateSecurityKeyCommandOutput = AssociateSecurityKeyResponse & __MetadataBearer;
+export interface AssociateSecurityKeyCommandInput extends AssociateSecurityKeyRequest {}
+export interface AssociateSecurityKeyCommandOutput extends AssociateSecurityKeyResponse, __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

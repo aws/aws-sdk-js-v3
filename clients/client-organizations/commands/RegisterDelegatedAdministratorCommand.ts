@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterDelegatedAdministratorCommandInput = RegisterDelegatedAdministratorRequest;
-export type RegisterDelegatedAdministratorCommandOutput = __MetadataBearer;
+export interface RegisterDelegatedAdministratorCommandInput extends RegisterDelegatedAdministratorRequest {}
+export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables the specified member account to administer the Organizations features of the specified

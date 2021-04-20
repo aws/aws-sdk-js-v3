@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPipelineDefinitionCommandInput = GetPipelineDefinitionInput;
-export type GetPipelineDefinitionCommandOutput = GetPipelineDefinitionOutput & __MetadataBearer;
+export interface GetPipelineDefinitionCommandInput extends GetPipelineDefinitionInput {}
+export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitionOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the definition of the specified pipeline. You can call <code>GetPipelineDefinition</code> to retrieve

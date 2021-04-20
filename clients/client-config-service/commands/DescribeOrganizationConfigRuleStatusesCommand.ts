@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeOrganizationConfigRuleStatusesCommandInput = DescribeOrganizationConfigRuleStatusesRequest;
-export type DescribeOrganizationConfigRuleStatusesCommandOutput = DescribeOrganizationConfigRuleStatusesResponse &
-  __MetadataBearer;
+export interface DescribeOrganizationConfigRuleStatusesCommandInput
+  extends DescribeOrganizationConfigRuleStatusesRequest {}
+export interface DescribeOrganizationConfigRuleStatusesCommandOutput
+  extends DescribeOrganizationConfigRuleStatusesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Provides organization config rule deployment status for an organization.</p>

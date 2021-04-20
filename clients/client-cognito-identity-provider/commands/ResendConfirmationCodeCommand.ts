@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResendConfirmationCodeCommandInput = ResendConfirmationCodeRequest;
-export type ResendConfirmationCodeCommandOutput = ResendConfirmationCodeResponse & __MetadataBearer;
+export interface ResendConfirmationCodeCommandInput extends ResendConfirmationCodeRequest {}
+export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationCodeResponse, __MetadataBearer {}
 
 /**
  * <p>Resends the confirmation (for confirmation of registration) to a specific user in the

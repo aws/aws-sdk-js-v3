@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeIpv6PoolsCommandInput = DescribeIpv6PoolsRequest;
-export type DescribeIpv6PoolsCommandOutput = DescribeIpv6PoolsResult & __MetadataBearer;
+export interface DescribeIpv6PoolsCommandInput extends DescribeIpv6PoolsRequest {}
+export interface DescribeIpv6PoolsCommandOutput extends DescribeIpv6PoolsResult, __MetadataBearer {}
 
 /**
  * <p>Describes your IPv6 address pools.</p>

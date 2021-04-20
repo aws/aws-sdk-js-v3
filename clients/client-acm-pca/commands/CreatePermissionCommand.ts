@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePermissionCommandInput = CreatePermissionRequest;
-export type CreatePermissionCommandOutput = __MetadataBearer;
+export interface CreatePermissionCommandInput extends CreatePermissionRequest {}
+export interface CreatePermissionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Grants one or more permissions on a private CA to the AWS Certificate Manager (ACM) service

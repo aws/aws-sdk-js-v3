@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMembersCommandInput = ListMembersRequest;
-export type ListMembersCommandOutput = ListMembersResponse & __MetadataBearer;
+export interface ListMembersCommandInput extends ListMembersRequest {}
+export interface ListMembersCommandOutput extends ListMembersResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the list of member accounts for a behavior graph. Does not return member

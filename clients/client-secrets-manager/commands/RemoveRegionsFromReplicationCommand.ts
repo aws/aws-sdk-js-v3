@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveRegionsFromReplicationCommandInput = RemoveRegionsFromReplicationRequest;
-export type RemoveRegionsFromReplicationCommandOutput = RemoveRegionsFromReplicationResponse & __MetadataBearer;
+export interface RemoveRegionsFromReplicationCommandInput extends RemoveRegionsFromReplicationRequest {}
+export interface RemoveRegionsFromReplicationCommandOutput
+  extends RemoveRegionsFromReplicationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Remove regions from replication.</p>

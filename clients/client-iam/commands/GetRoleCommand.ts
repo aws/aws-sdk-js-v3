@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRoleCommandInput = GetRoleRequest;
-export type GetRoleCommandOutput = GetRoleResponse & __MetadataBearer;
+export interface GetRoleCommandInput extends GetRoleRequest {}
+export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the specified role, including the role's path, GUID, ARN,

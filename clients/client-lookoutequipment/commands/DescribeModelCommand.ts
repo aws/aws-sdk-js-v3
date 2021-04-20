@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeModelCommandInput = DescribeModelRequest;
-export type DescribeModelCommandOutput = DescribeModelResponse & __MetadataBearer;
+export interface DescribeModelCommandInput extends DescribeModelRequest {}
+export interface DescribeModelCommandOutput extends DescribeModelResponse, __MetadataBearer {}
 
 /**
  * <p>Provides overall information about a specific ML model, including model name and ARN,

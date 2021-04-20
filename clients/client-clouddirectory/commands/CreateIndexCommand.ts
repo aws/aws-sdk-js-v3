@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateIndexCommandInput = CreateIndexRequest;
-export type CreateIndexCommandOutput = CreateIndexResponse & __MetadataBearer;
+export interface CreateIndexCommandInput extends CreateIndexRequest {}
+export interface CreateIndexCommandOutput extends CreateIndexResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an index object. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.html">Indexing and search</a> for more information.</p>

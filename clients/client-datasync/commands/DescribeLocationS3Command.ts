@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLocationS3CommandInput = DescribeLocationS3Request;
-export type DescribeLocationS3CommandOutput = DescribeLocationS3Response & __MetadataBearer;
+export interface DescribeLocationS3CommandInput extends DescribeLocationS3Request {}
+export interface DescribeLocationS3CommandOutput extends DescribeLocationS3Response, __MetadataBearer {}
 
 /**
  * <p>Returns metadata, such as bucket name, about an Amazon S3 bucket location.</p>

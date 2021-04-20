@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSkillGroupCommandInput = GetSkillGroupRequest;
-export type GetSkillGroupCommandOutput = GetSkillGroupResponse & __MetadataBearer;
+export interface GetSkillGroupCommandInput extends GetSkillGroupRequest {}
+export interface GetSkillGroupCommandOutput extends GetSkillGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Gets skill group details by skill group ARN.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDetectorModelAnalysisCommandInput = DescribeDetectorModelAnalysisRequest;
-export type DescribeDetectorModelAnalysisCommandOutput = DescribeDetectorModelAnalysisResponse & __MetadataBearer;
+export interface DescribeDetectorModelAnalysisCommandInput extends DescribeDetectorModelAnalysisRequest {}
+export interface DescribeDetectorModelAnalysisCommandOutput
+  extends DescribeDetectorModelAnalysisResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves execution information about a detector model analysis</p>

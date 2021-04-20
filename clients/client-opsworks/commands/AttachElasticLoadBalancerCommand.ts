@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachElasticLoadBalancerCommandInput = AttachElasticLoadBalancerRequest;
-export type AttachElasticLoadBalancerCommandOutput = __MetadataBearer;
+export interface AttachElasticLoadBalancerCommandInput extends AttachElasticLoadBalancerRequest {}
+export interface AttachElasticLoadBalancerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attaches an Elastic Load Balancing load balancer to a specified layer. AWS OpsWorks Stacks does not support

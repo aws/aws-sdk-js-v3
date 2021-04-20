@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUserPoolCommandInput = CreateUserPoolRequest;
-export type CreateUserPoolCommandOutput = CreateUserPoolResponse & __MetadataBearer;
+export interface CreateUserPoolCommandInput extends CreateUserPoolRequest {}
+export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new Amazon Cognito user pool and sets the password policy for the

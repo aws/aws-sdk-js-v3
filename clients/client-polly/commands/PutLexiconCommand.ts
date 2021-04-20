@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutLexiconCommandInput = PutLexiconInput;
-export type PutLexiconCommandOutput = PutLexiconOutput & __MetadataBearer;
+export interface PutLexiconCommandInput extends PutLexiconInput {}
+export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBearer {}
 
 /**
  * <p>Stores a pronunciation lexicon in an AWS Region. If a lexicon with the same name

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBucketsCommandInput = {};
-export type ListBucketsCommandOutput = ListBucketsOutput & __MetadataBearer;
+export interface ListBucketsCommandInput {}
+export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of all buckets owned by the authenticated sender of the request.</p>

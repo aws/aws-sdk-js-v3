@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDetectorCommandInput = CreateDetectorRequest;
-export type CreateDetectorCommandOutput = CreateDetectorResponse & __MetadataBearer;
+export interface CreateDetectorCommandInput extends CreateDetectorRequest {}
+export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a single Amazon GuardDuty detector. A detector is a resource that represents the

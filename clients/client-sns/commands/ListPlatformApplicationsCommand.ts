@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPlatformApplicationsCommandInput = ListPlatformApplicationsInput;
-export type ListPlatformApplicationsCommandOutput = ListPlatformApplicationsResponse & __MetadataBearer;
+export interface ListPlatformApplicationsCommandInput extends ListPlatformApplicationsInput {}
+export interface ListPlatformApplicationsCommandOutput extends ListPlatformApplicationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the platform application objects for the supported push notification services,

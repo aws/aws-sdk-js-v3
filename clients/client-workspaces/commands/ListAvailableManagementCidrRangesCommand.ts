@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAvailableManagementCidrRangesCommandInput = ListAvailableManagementCidrRangesRequest;
-export type ListAvailableManagementCidrRangesCommandOutput = ListAvailableManagementCidrRangesResult & __MetadataBearer;
+export interface ListAvailableManagementCidrRangesCommandInput extends ListAvailableManagementCidrRangesRequest {}
+export interface ListAvailableManagementCidrRangesCommandOutput
+  extends ListAvailableManagementCidrRangesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you can use

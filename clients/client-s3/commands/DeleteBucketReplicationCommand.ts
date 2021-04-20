@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBucketReplicationCommandInput = DeleteBucketReplicationRequest;
-export type DeleteBucketReplicationCommandOutput = __MetadataBearer;
+export interface DeleteBucketReplicationCommandInput extends DeleteBucketReplicationRequest {}
+export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p> Deletes the replication configuration from the bucket.</p>

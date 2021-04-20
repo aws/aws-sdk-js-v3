@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutVoiceConnectorOriginationCommandInput = PutVoiceConnectorOriginationRequest;
-export type PutVoiceConnectorOriginationCommandOutput = PutVoiceConnectorOriginationResponse & __MetadataBearer;
+export interface PutVoiceConnectorOriginationCommandInput extends PutVoiceConnectorOriginationRequest {}
+export interface PutVoiceConnectorOriginationCommandOutput
+  extends PutVoiceConnectorOriginationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Adds origination settings for the specified Amazon Chime Voice Connector.</p>

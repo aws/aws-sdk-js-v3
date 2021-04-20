@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVirtualNodeCommandInput = DescribeVirtualNodeInput;
-export type DescribeVirtualNodeCommandOutput = DescribeVirtualNodeOutput & __MetadataBearer;
+export interface DescribeVirtualNodeCommandInput extends DescribeVirtualNodeInput {}
+export interface DescribeVirtualNodeCommandOutput extends DescribeVirtualNodeOutput, __MetadataBearer {}
 
 /**
  * <p>Describes an existing virtual node.</p>

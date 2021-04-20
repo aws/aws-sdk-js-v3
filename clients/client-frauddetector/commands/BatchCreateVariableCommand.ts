@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchCreateVariableCommandInput = BatchCreateVariableRequest;
-export type BatchCreateVariableCommandOutput = BatchCreateVariableResult & __MetadataBearer;
+export interface BatchCreateVariableCommandInput extends BatchCreateVariableRequest {}
+export interface BatchCreateVariableCommandOutput extends BatchCreateVariableResult, __MetadataBearer {}
 
 /**
  * <p>Creates a batch of variables.</p>

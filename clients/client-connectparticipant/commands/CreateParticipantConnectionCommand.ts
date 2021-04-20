@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateParticipantConnectionCommandInput = CreateParticipantConnectionRequest;
-export type CreateParticipantConnectionCommandOutput = CreateParticipantConnectionResponse & __MetadataBearer;
+export interface CreateParticipantConnectionCommandInput extends CreateParticipantConnectionRequest {}
+export interface CreateParticipantConnectionCommandOutput
+  extends CreateParticipantConnectionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates the participant's connection. Note that ParticipantToken is used for invoking

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPublishedSchemaArnsCommandInput = ListPublishedSchemaArnsRequest;
-export type ListPublishedSchemaArnsCommandOutput = ListPublishedSchemaArnsResponse & __MetadataBearer;
+export interface ListPublishedSchemaArnsCommandInput extends ListPublishedSchemaArnsRequest {}
+export interface ListPublishedSchemaArnsCommandOutput extends ListPublishedSchemaArnsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the major version families of each published schema. If a major version ARN is provided as <code>SchemaArn</code>, the minor version revisions in that family are listed instead.</p>

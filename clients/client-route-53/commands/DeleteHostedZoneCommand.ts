@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteHostedZoneCommandInput = DeleteHostedZoneRequest;
-export type DeleteHostedZoneCommandOutput = DeleteHostedZoneResponse & __MetadataBearer;
+export interface DeleteHostedZoneCommandInput extends DeleteHostedZoneRequest {}
+export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a hosted zone.</p>

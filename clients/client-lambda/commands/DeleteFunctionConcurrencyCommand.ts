@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFunctionConcurrencyCommandInput = DeleteFunctionConcurrencyRequest;
-export type DeleteFunctionConcurrencyCommandOutput = __MetadataBearer;
+export interface DeleteFunctionConcurrencyCommandInput extends DeleteFunctionConcurrencyRequest {}
+export interface DeleteFunctionConcurrencyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes a concurrent execution limit from a function.</p>

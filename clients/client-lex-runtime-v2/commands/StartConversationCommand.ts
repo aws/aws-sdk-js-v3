@@ -19,8 +19,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartConversationCommandInput = StartConversationRequest;
-export type StartConversationCommandOutput = StartConversationResponse & __MetadataBearer;
+export interface StartConversationCommandInput extends StartConversationRequest {}
+export interface StartConversationCommandOutput extends StartConversationResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an HTTP/2 bidirectional event stream that enables you to send

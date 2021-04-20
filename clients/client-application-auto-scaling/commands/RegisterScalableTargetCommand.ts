@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterScalableTargetCommandInput = RegisterScalableTargetRequest;
-export type RegisterScalableTargetCommandOutput = RegisterScalableTargetResponse & __MetadataBearer;
+export interface RegisterScalableTargetCommandInput extends RegisterScalableTargetRequest {}
+export interface RegisterScalableTargetCommandOutput extends RegisterScalableTargetResponse, __MetadataBearer {}
 
 /**
  * <p>Registers or updates a scalable target. </p>

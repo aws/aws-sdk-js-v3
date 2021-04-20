@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSuppressedDestinationCommandInput = DeleteSuppressedDestinationRequest;
-export type DeleteSuppressedDestinationCommandOutput = DeleteSuppressedDestinationResponse & __MetadataBearer;
+export interface DeleteSuppressedDestinationCommandInput extends DeleteSuppressedDestinationRequest {}
+export interface DeleteSuppressedDestinationCommandOutput
+  extends DeleteSuppressedDestinationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Removes an email address from the suppression list for your account.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveThingFromThingGroupCommandInput = RemoveThingFromThingGroupRequest;
-export type RemoveThingFromThingGroupCommandOutput = RemoveThingFromThingGroupResponse & __MetadataBearer;
+export interface RemoveThingFromThingGroupCommandInput extends RemoveThingFromThingGroupRequest {}
+export interface RemoveThingFromThingGroupCommandOutput extends RemoveThingFromThingGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Remove the specified thing from the specified group.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListModelQualityJobDefinitionsCommandInput = ListModelQualityJobDefinitionsRequest;
-export type ListModelQualityJobDefinitionsCommandOutput = ListModelQualityJobDefinitionsResponse & __MetadataBearer;
+export interface ListModelQualityJobDefinitionsCommandInput extends ListModelQualityJobDefinitionsRequest {}
+export interface ListModelQualityJobDefinitionsCommandOutput
+  extends ListModelQualityJobDefinitionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets a list of model quality monitoring job definitions in your account.</p>

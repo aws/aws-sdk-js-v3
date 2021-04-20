@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateVolumeCommandInput = UpdateVolumeRequest;
-export type UpdateVolumeCommandOutput = __MetadataBearer;
+export interface UpdateVolumeCommandInput extends UpdateVolumeRequest {}
+export interface UpdateVolumeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates an Amazon EBS volume's name or mount point. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>

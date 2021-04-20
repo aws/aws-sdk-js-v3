@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableAvailabilityZonesForLoadBalancerCommandInput = RemoveAvailabilityZonesInput;
-export type DisableAvailabilityZonesForLoadBalancerCommandOutput = RemoveAvailabilityZonesOutput & __MetadataBearer;
+export interface DisableAvailabilityZonesForLoadBalancerCommandInput extends RemoveAvailabilityZonesInput {}
+export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
+  extends RemoveAvailabilityZonesOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TestMetricFilterCommandInput = TestMetricFilterRequest;
-export type TestMetricFilterCommandOutput = TestMetricFilterResponse & __MetadataBearer;
+export interface TestMetricFilterCommandInput extends TestMetricFilterRequest {}
+export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse, __MetadataBearer {}
 
 /**
  * <p>Tests the filter pattern of a metric filter against a sample of log event messages. You

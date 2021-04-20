@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteActionTargetCommandInput = DeleteActionTargetRequest;
-export type DeleteActionTargetCommandOutput = DeleteActionTargetResponse & __MetadataBearer;
+export interface DeleteActionTargetCommandInput extends DeleteActionTargetRequest {}
+export interface DeleteActionTargetCommandOutput extends DeleteActionTargetResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a custom action target from Security Hub.</p>

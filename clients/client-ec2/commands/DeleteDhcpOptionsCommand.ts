@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDhcpOptionsCommandInput = DeleteDhcpOptionsRequest;
-export type DeleteDhcpOptionsCommandOutput = __MetadataBearer;
+export interface DeleteDhcpOptionsCommandInput extends DeleteDhcpOptionsRequest {}
+export interface DeleteDhcpOptionsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified set of DHCP options. You must disassociate the set of DHCP options before you can delete it. You can disassociate the set of DHCP options by associating either a new set of options or the default set of options with the VPC.</p>

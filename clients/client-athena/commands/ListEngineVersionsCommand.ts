@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEngineVersionsCommandInput = ListEngineVersionsInput;
-export type ListEngineVersionsCommandOutput = ListEngineVersionsOutput & __MetadataBearer;
+export interface ListEngineVersionsCommandInput extends ListEngineVersionsInput {}
+export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of engine versions that are available to choose from, including the

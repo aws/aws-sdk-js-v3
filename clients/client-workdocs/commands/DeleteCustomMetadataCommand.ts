@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCustomMetadataCommandInput = DeleteCustomMetadataRequest;
-export type DeleteCustomMetadataCommandOutput = DeleteCustomMetadataResponse & __MetadataBearer;
+export interface DeleteCustomMetadataCommandInput extends DeleteCustomMetadataRequest {}
+export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes custom metadata from the specified resource.</p>

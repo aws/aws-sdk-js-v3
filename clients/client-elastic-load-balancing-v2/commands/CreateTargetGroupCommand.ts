@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTargetGroupCommandInput = CreateTargetGroupInput;
-export type CreateTargetGroupCommandOutput = CreateTargetGroupOutput & __MetadataBearer;
+export interface CreateTargetGroupCommandInput extends CreateTargetGroupInput {}
+export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a target group.</p>

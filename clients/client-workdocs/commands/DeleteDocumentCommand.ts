@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDocumentCommandInput = DeleteDocumentRequest;
-export type DeleteDocumentCommandOutput = __MetadataBearer;
+export interface DeleteDocumentCommandInput extends DeleteDocumentRequest {}
+export interface DeleteDocumentCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Permanently deletes the specified document and its associated metadata.</p>

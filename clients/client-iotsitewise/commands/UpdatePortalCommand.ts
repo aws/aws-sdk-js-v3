@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePortalCommandInput = UpdatePortalRequest;
-export type UpdatePortalCommandOutput = UpdatePortalResponse & __MetadataBearer;
+export interface UpdatePortalCommandInput extends UpdatePortalRequest {}
+export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an AWS IoT SiteWise Monitor portal.</p>

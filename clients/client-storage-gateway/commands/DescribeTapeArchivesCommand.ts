@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTapeArchivesCommandInput = DescribeTapeArchivesInput;
-export type DescribeTapeArchivesCommandOutput = DescribeTapeArchivesOutput & __MetadataBearer;
+export interface DescribeTapeArchivesCommandInput extends DescribeTapeArchivesInput {}
+export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a description of specified virtual tapes in the virtual tape shelf (VTS). This

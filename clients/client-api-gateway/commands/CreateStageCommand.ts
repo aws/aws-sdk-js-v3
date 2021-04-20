@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStageCommandInput = CreateStageRequest;
-export type CreateStageCommandOutput = Stage & __MetadataBearer;
+export interface CreateStageCommandInput extends CreateStageRequest {}
+export interface CreateStageCommandOutput extends Stage, __MetadataBearer {}
 
 /**
  * <p>Creates a new <a>Stage</a> resource that references a pre-existing <a>Deployment</a> for the API. </p>

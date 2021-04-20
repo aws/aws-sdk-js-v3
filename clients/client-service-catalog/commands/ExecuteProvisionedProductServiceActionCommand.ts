@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExecuteProvisionedProductServiceActionCommandInput = ExecuteProvisionedProductServiceActionInput;
-export type ExecuteProvisionedProductServiceActionCommandOutput = ExecuteProvisionedProductServiceActionOutput &
-  __MetadataBearer;
+export interface ExecuteProvisionedProductServiceActionCommandInput
+  extends ExecuteProvisionedProductServiceActionInput {}
+export interface ExecuteProvisionedProductServiceActionCommandOutput
+  extends ExecuteProvisionedProductServiceActionOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Executes a self-service action against a provisioned product.</p>

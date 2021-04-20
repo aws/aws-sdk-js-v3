@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFileSystemCommandInput = CreateFileSystemRequest;
-export type CreateFileSystemCommandOutput = CreateFileSystemResponse & __MetadataBearer;
+export interface CreateFileSystemCommandInput extends CreateFileSystemRequest {}
+export interface CreateFileSystemCommandOutput extends CreateFileSystemResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new, empty Amazon FSx file system.</p>

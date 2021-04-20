@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTransitGatewayPrefixListReferencesCommandInput = GetTransitGatewayPrefixListReferencesRequest;
-export type GetTransitGatewayPrefixListReferencesCommandOutput = GetTransitGatewayPrefixListReferencesResult &
-  __MetadataBearer;
+export interface GetTransitGatewayPrefixListReferencesCommandInput
+  extends GetTransitGatewayPrefixListReferencesRequest {}
+export interface GetTransitGatewayPrefixListReferencesCommandOutput
+  extends GetTransitGatewayPrefixListReferencesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Gets information about the prefix list references in a specified transit gateway route table.</p>

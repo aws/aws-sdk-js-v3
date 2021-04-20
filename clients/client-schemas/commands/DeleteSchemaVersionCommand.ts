@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSchemaVersionCommandInput = DeleteSchemaVersionRequest;
-export type DeleteSchemaVersionCommandOutput = __MetadataBearer;
+export interface DeleteSchemaVersionCommandInput extends DeleteSchemaVersionRequest {}
+export interface DeleteSchemaVersionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete the schema version definition</p>

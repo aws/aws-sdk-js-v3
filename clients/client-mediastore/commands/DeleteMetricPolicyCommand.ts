@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMetricPolicyCommandInput = DeleteMetricPolicyInput;
-export type DeleteMetricPolicyCommandOutput = DeleteMetricPolicyOutput & __MetadataBearer;
+export interface DeleteMetricPolicyCommandInput extends DeleteMetricPolicyInput {}
+export interface DeleteMetricPolicyCommandOutput extends DeleteMetricPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the metric policy that is associated with the specified container. If there is no metric policy associated with the container, MediaStore doesn't send metrics to CloudWatch.</p>

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAccountAssignmentDeletionStatusCommandInput = ListAccountAssignmentDeletionStatusRequest;
-export type ListAccountAssignmentDeletionStatusCommandOutput = ListAccountAssignmentDeletionStatusResponse &
-  __MetadataBearer;
+export interface ListAccountAssignmentDeletionStatusCommandInput extends ListAccountAssignmentDeletionStatusRequest {}
+export interface ListAccountAssignmentDeletionStatusCommandOutput
+  extends ListAccountAssignmentDeletionStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the status of the AWS account assignment deletion requests for a specified SSO

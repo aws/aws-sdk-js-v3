@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PollForDecisionTaskCommandInput = PollForDecisionTaskInput;
-export type PollForDecisionTaskCommandOutput = DecisionTask & __MetadataBearer;
+export interface PollForDecisionTaskCommandInput extends PollForDecisionTaskInput {}
+export interface PollForDecisionTaskCommandOutput extends DecisionTask, __MetadataBearer {}
 
 /**
  * <p>Used by deciders to get a <a>DecisionTask</a> from the specified decision

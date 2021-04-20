@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutTelemetryRecordsCommandInput = PutTelemetryRecordsRequest;
-export type PutTelemetryRecordsCommandOutput = PutTelemetryRecordsResult & __MetadataBearer;
+export interface PutTelemetryRecordsCommandInput extends PutTelemetryRecordsRequest {}
+export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsResult, __MetadataBearer {}
 
 /**
  * <p>Used by the AWS X-Ray daemon to upload telemetry.</p>

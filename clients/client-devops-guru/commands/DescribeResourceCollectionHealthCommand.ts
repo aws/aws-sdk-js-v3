@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeResourceCollectionHealthCommandInput = DescribeResourceCollectionHealthRequest;
-export type DescribeResourceCollectionHealthCommandOutput = DescribeResourceCollectionHealthResponse & __MetadataBearer;
+export interface DescribeResourceCollectionHealthCommandInput extends DescribeResourceCollectionHealthRequest {}
+export interface DescribeResourceCollectionHealthCommandOutput
+  extends DescribeResourceCollectionHealthResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

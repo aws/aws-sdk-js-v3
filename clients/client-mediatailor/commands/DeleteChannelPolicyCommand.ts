@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteChannelPolicyCommandInput = DeleteChannelPolicyRequest;
-export type DeleteChannelPolicyCommandOutput = DeleteChannelPolicyResponse & __MetadataBearer;
+export interface DeleteChannelPolicyCommandInput extends DeleteChannelPolicyRequest {}
+export interface DeleteChannelPolicyCommandOutput extends DeleteChannelPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a channel's IAM policy.</p>

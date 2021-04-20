@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopDominantLanguageDetectionJobCommandInput = StopDominantLanguageDetectionJobRequest;
-export type StopDominantLanguageDetectionJobCommandOutput = StopDominantLanguageDetectionJobResponse & __MetadataBearer;
+export interface StopDominantLanguageDetectionJobCommandInput extends StopDominantLanguageDetectionJobRequest {}
+export interface StopDominantLanguageDetectionJobCommandOutput
+  extends StopDominantLanguageDetectionJobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Stops a dominant language detection job in progress.</p>

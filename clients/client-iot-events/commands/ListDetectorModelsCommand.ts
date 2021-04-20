@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDetectorModelsCommandInput = ListDetectorModelsRequest;
-export type ListDetectorModelsCommandOutput = ListDetectorModelsResponse & __MetadataBearer;
+export interface ListDetectorModelsCommandInput extends ListDetectorModelsRequest {}
+export interface ListDetectorModelsCommandOutput extends ListDetectorModelsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the detector models you have created. Only the metadata associated with each

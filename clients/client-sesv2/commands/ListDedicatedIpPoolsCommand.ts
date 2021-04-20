@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDedicatedIpPoolsCommandInput = ListDedicatedIpPoolsRequest;
-export type ListDedicatedIpPoolsCommandOutput = ListDedicatedIpPoolsResponse & __MetadataBearer;
+export interface ListDedicatedIpPoolsCommandInput extends ListDedicatedIpPoolsRequest {}
+export interface ListDedicatedIpPoolsCommandOutput extends ListDedicatedIpPoolsResponse, __MetadataBearer {}
 
 /**
  * <p>List all of the dedicated IP pools that exist in your AWS account in the current

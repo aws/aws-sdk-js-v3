@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListOrganizationAdminAccountsCommandInput = ListOrganizationAdminAccountsRequest;
-export type ListOrganizationAdminAccountsCommandOutput = ListOrganizationAdminAccountsResponse & __MetadataBearer;
+export interface ListOrganizationAdminAccountsCommandInput extends ListOrganizationAdminAccountsRequest {}
+export interface ListOrganizationAdminAccountsCommandOutput
+  extends ListOrganizationAdminAccountsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the Security Hub administrator accounts. Can only be called by the organization

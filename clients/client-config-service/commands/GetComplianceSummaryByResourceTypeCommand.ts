@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetComplianceSummaryByResourceTypeCommandInput = GetComplianceSummaryByResourceTypeRequest;
-export type GetComplianceSummaryByResourceTypeCommandOutput = GetComplianceSummaryByResourceTypeResponse &
-  __MetadataBearer;
+export interface GetComplianceSummaryByResourceTypeCommandInput extends GetComplianceSummaryByResourceTypeRequest {}
+export interface GetComplianceSummaryByResourceTypeCommandOutput
+  extends GetComplianceSummaryByResourceTypeResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the number of resources that are compliant and the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateResourceCommandInput = UpdateResourceRequest;
-export type UpdateResourceCommandOutput = UpdateResourceResponse & __MetadataBearer;
+export interface UpdateResourceCommandInput extends UpdateResourceRequest {}
+export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Updates data for the resource. To have the latest information, it must be preceded by

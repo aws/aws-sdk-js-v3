@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateProductCommandInput = CreateProductInput;
-export type CreateProductCommandOutput = CreateProductOutput & __MetadataBearer;
+export interface CreateProductCommandInput extends CreateProductInput {}
+export interface CreateProductCommandOutput extends CreateProductOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a product.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDeploymentStatusCommandInput = GetDeploymentStatusRequest;
-export type GetDeploymentStatusCommandOutput = GetDeploymentStatusResponse & __MetadataBearer;
+export interface GetDeploymentStatusCommandInput extends GetDeploymentStatusRequest {}
+export interface GetDeploymentStatusCommandOutput extends GetDeploymentStatusResponse, __MetadataBearer {}
 
 /**
  * Returns the status of a deployment.

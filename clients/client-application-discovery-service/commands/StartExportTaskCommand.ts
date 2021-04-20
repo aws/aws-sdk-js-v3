@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartExportTaskCommandInput = StartExportTaskRequest;
-export type StartExportTaskCommandOutput = StartExportTaskResponse & __MetadataBearer;
+export interface StartExportTaskCommandInput extends StartExportTaskRequest {}
+export interface StartExportTaskCommandOutput extends StartExportTaskResponse, __MetadataBearer {}
 
 /**
  * <p> Begins the export of discovered data to an S3 bucket.</p>

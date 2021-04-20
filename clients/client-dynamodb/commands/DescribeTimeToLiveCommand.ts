@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTimeToLiveCommandInput = DescribeTimeToLiveInput;
-export type DescribeTimeToLiveCommandOutput = DescribeTimeToLiveOutput & __MetadataBearer;
+export interface DescribeTimeToLiveCommandInput extends DescribeTimeToLiveInput {}
+export interface DescribeTimeToLiveCommandOutput extends DescribeTimeToLiveOutput, __MetadataBearer {}
 
 /**
  * <p>Gives a description of the Time to Live (TTL) status on the specified table. </p>

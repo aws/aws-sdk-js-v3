@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAppsListCommandInput = DeleteAppsListRequest;
-export type DeleteAppsListCommandOutput = __MetadataBearer;
+export interface DeleteAppsListCommandInput extends DeleteAppsListRequest {}
+export interface DeleteAppsListCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Permanently deletes an AWS Firewall Manager applications list.</p>

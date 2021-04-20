@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeApplicationStateCommandInput = DescribeApplicationStateRequest;
-export type DescribeApplicationStateCommandOutput = DescribeApplicationStateResult & __MetadataBearer;
+export interface DescribeApplicationStateCommandInput extends DescribeApplicationStateRequest {}
+export interface DescribeApplicationStateCommandOutput extends DescribeApplicationStateResult, __MetadataBearer {}
 
 /**
  * <p>Gets the migration status of an application.</p>

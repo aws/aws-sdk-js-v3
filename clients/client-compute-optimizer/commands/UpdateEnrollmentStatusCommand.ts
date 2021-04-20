@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateEnrollmentStatusCommandInput = UpdateEnrollmentStatusRequest;
-export type UpdateEnrollmentStatusCommandOutput = UpdateEnrollmentStatusResponse & __MetadataBearer;
+export interface UpdateEnrollmentStatusCommandInput extends UpdateEnrollmentStatusRequest {}
+export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the enrollment (opt in and opt out) status of an account to the AWS Compute Optimizer

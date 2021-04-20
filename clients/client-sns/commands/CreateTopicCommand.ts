@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTopicCommandInput = CreateTopicInput;
-export type CreateTopicCommandOutput = CreateTopicResponse & __MetadataBearer;
+export interface CreateTopicCommandInput extends CreateTopicInput {}
+export interface CreateTopicCommandOutput extends CreateTopicResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a topic to which notifications can be published. Users can create at most

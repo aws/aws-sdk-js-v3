@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutExternalEvaluationCommandInput = PutExternalEvaluationRequest;
-export type PutExternalEvaluationCommandOutput = PutExternalEvaluationResponse & __MetadataBearer;
+export interface PutExternalEvaluationCommandInput extends PutExternalEvaluationRequest {}
+export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluationResponse, __MetadataBearer {}
 
 /**
  * <p>Add or updates the evaluations for process checks.

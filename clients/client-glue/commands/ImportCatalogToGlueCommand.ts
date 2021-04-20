@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportCatalogToGlueCommandInput = ImportCatalogToGlueRequest;
-export type ImportCatalogToGlueCommandOutput = ImportCatalogToGlueResponse & __MetadataBearer;
+export interface ImportCatalogToGlueCommandInput extends ImportCatalogToGlueRequest {}
+export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueResponse, __MetadataBearer {}
 
 /**
  * <p>Imports an existing Amazon Athena Data Catalog to AWS Glue</p>

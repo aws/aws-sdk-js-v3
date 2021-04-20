@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyVpcEndpointCommandInput = ModifyVpcEndpointRequest;
-export type ModifyVpcEndpointCommandOutput = ModifyVpcEndpointResult & __MetadataBearer;
+export interface ModifyVpcEndpointCommandInput extends ModifyVpcEndpointRequest {}
+export interface ModifyVpcEndpointCommandOutput extends ModifyVpcEndpointResult, __MetadataBearer {}
 
 /**
  * <p>Modifies attributes of a specified VPC endpoint. The attributes that you can modify

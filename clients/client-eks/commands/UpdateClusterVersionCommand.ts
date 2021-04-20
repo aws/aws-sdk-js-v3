@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateClusterVersionCommandInput = UpdateClusterVersionRequest;
-export type UpdateClusterVersionCommandOutput = UpdateClusterVersionResponse & __MetadataBearer;
+export interface UpdateClusterVersionCommandInput extends UpdateClusterVersionRequest {}
+export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an Amazon EKS cluster to the specified Kubernetes version. Your cluster continues

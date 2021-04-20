@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBundleCommandInput = DescribeBundleRequest;
-export type DescribeBundleCommandOutput = DescribeBundleResult & __MetadataBearer;
+export interface DescribeBundleCommandInput extends DescribeBundleRequest {}
+export interface DescribeBundleCommandOutput extends DescribeBundleResult, __MetadataBearer {}
 
 /**
  * <p>

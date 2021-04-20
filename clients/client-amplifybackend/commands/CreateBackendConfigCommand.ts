@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBackendConfigCommandInput = CreateBackendConfigRequest;
-export type CreateBackendConfigCommandOutput = CreateBackendConfigResponse & __MetadataBearer;
+export interface CreateBackendConfigCommandInput extends CreateBackendConfigRequest {}
+export interface CreateBackendConfigCommandOutput extends CreateBackendConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a config object for a backend.</p>

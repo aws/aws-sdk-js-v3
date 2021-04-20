@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAccountSettingsCommandInput = DescribeAccountSettingsRequest;
-export type DescribeAccountSettingsCommandOutput = DescribeAccountSettingsResponse & __MetadataBearer;
+export interface DescribeAccountSettingsCommandInput extends DescribeAccountSettingsRequest {}
+export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the settings that were used when your QuickSight subscription was first

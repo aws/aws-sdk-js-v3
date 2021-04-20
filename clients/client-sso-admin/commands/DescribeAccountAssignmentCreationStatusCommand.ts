@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAccountAssignmentCreationStatusCommandInput = DescribeAccountAssignmentCreationStatusRequest;
-export type DescribeAccountAssignmentCreationStatusCommandOutput = DescribeAccountAssignmentCreationStatusResponse &
-  __MetadataBearer;
+export interface DescribeAccountAssignmentCreationStatusCommandInput
+  extends DescribeAccountAssignmentCreationStatusRequest {}
+export interface DescribeAccountAssignmentCreationStatusCommandOutput
+  extends DescribeAccountAssignmentCreationStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the status of the assignment creation request.</p>

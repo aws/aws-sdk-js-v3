@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEndpointConfigCommandInput = DescribeEndpointConfigInput;
-export type DescribeEndpointConfigCommandOutput = DescribeEndpointConfigOutput & __MetadataBearer;
+export interface DescribeEndpointConfigCommandInput extends DescribeEndpointConfigInput {}
+export interface DescribeEndpointConfigCommandOutput extends DescribeEndpointConfigOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the description of an endpoint configuration created using the

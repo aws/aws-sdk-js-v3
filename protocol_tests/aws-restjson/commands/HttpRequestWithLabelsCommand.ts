@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type HttpRequestWithLabelsCommandInput = HttpRequestWithLabelsInput;
-export type HttpRequestWithLabelsCommandOutput = __MetadataBearer;
+export interface HttpRequestWithLabelsCommandInput extends HttpRequestWithLabelsInput {}
+export interface HttpRequestWithLabelsCommandOutput extends __MetadataBearer {}
 
 /**
  * The example tests how requests are serialized when there's no input

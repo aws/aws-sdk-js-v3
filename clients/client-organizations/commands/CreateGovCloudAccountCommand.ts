@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGovCloudAccountCommandInput = CreateGovCloudAccountRequest;
-export type CreateGovCloudAccountCommandOutput = CreateGovCloudAccountResponse & __MetadataBearer;
+export interface CreateGovCloudAccountCommandInput extends CreateGovCloudAccountRequest {}
+export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccountResponse, __MetadataBearer {}
 
 /**
  * <p>This action is available if all of the following are true:</p>

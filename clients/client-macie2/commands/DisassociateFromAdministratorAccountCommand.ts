@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateFromAdministratorAccountCommandInput = DisassociateFromAdministratorAccountRequest;
-export type DisassociateFromAdministratorAccountCommandOutput = DisassociateFromAdministratorAccountResponse &
-  __MetadataBearer;
+export interface DisassociateFromAdministratorAccountCommandInput extends DisassociateFromAdministratorAccountRequest {}
+export interface DisassociateFromAdministratorAccountCommandOutput
+  extends DisassociateFromAdministratorAccountResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates a member account from its Amazon Macie administrator account.</p>

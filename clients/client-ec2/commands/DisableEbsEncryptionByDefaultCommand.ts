@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableEbsEncryptionByDefaultCommandInput = DisableEbsEncryptionByDefaultRequest;
-export type DisableEbsEncryptionByDefaultCommandOutput = DisableEbsEncryptionByDefaultResult & __MetadataBearer;
+export interface DisableEbsEncryptionByDefaultCommandInput extends DisableEbsEncryptionByDefaultRequest {}
+export interface DisableEbsEncryptionByDefaultCommandOutput
+  extends DisableEbsEncryptionByDefaultResult,
+    __MetadataBearer {}
 
 /**
  * <p>Disables EBS encryption by default for your account in the current Region.</p>

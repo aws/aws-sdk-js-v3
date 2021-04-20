@@ -17,9 +17,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type HttpPayloadWithXmlNamespaceAndPrefixCommandInput = HttpPayloadWithXmlNamespaceAndPrefixInputOutput;
-export type HttpPayloadWithXmlNamespaceAndPrefixCommandOutput = HttpPayloadWithXmlNamespaceAndPrefixInputOutput &
-  __MetadataBearer;
+export interface HttpPayloadWithXmlNamespaceAndPrefixCommandInput
+  extends HttpPayloadWithXmlNamespaceAndPrefixInputOutput {}
+export interface HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
+  extends HttpPayloadWithXmlNamespaceAndPrefixInputOutput,
+    __MetadataBearer {}
 
 /**
  * The following example serializes a payload that uses an XML namespace.

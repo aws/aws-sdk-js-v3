@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateHomeRegionControlCommandInput = CreateHomeRegionControlRequest;
-export type CreateHomeRegionControlCommandOutput = CreateHomeRegionControlResult & __MetadataBearer;
+export interface CreateHomeRegionControlCommandInput extends CreateHomeRegionControlRequest {}
+export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionControlResult, __MetadataBearer {}
 
 /**
  * <p>This API sets up the home region for the calling account only.</p>

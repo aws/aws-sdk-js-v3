@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartQueryExecutionCommandInput = StartQueryExecutionInput;
-export type StartQueryExecutionCommandOutput = StartQueryExecutionOutput & __MetadataBearer;
+export interface StartQueryExecutionCommandInput extends StartQueryExecutionInput {}
+export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOutput, __MetadataBearer {}
 
 /**
  * <p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAccountSuppressionAttributesCommandInput = PutAccountSuppressionAttributesRequest;
-export type PutAccountSuppressionAttributesCommandOutput = PutAccountSuppressionAttributesResponse & __MetadataBearer;
+export interface PutAccountSuppressionAttributesCommandInput extends PutAccountSuppressionAttributesRequest {}
+export interface PutAccountSuppressionAttributesCommandOutput
+  extends PutAccountSuppressionAttributesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Change the settings for the account-level suppression list.</p>

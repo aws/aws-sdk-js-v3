@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVoiceConnectorGroupCommandInput = DeleteVoiceConnectorGroupRequest;
-export type DeleteVoiceConnectorGroupCommandOutput = __MetadataBearer;
+export interface DeleteVoiceConnectorGroupCommandInput extends DeleteVoiceConnectorGroupRequest {}
+export interface DeleteVoiceConnectorGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>

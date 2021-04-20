@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDomainsCommandInput = ListDomainsRequest;
-export type ListDomainsCommandOutput = ListDomainsResponse & __MetadataBearer;
+export interface ListDomainsCommandInput extends ListDomainsRequest {}
+export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
  * <p>This operation returns all the domain names registered with Amazon Route 53 for the current AWS account.</p>

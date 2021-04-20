@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateJobPriorityCommandInput = UpdateJobPriorityRequest;
-export type UpdateJobPriorityCommandOutput = UpdateJobPriorityResult & __MetadataBearer;
+export interface UpdateJobPriorityCommandInput extends UpdateJobPriorityRequest {}
+export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult, __MetadataBearer {}
 
 /**
  * <p>Updates an existing S3 Batch Operations job's priority. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-basics.html">S3 Batch Operations</a> in the

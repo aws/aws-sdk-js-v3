@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestorePhoneNumberCommandInput = RestorePhoneNumberRequest;
-export type RestorePhoneNumberCommandOutput = RestorePhoneNumberResponse & __MetadataBearer;
+export interface RestorePhoneNumberCommandInput extends RestorePhoneNumberRequest {}
+export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberResponse, __MetadataBearer {}
 
 /**
  * <p>Moves a phone number from the <b>Deletion queue</b> back into the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyClusterSubnetGroupCommandInput = ModifyClusterSubnetGroupMessage;
-export type ModifyClusterSubnetGroupCommandOutput = ModifyClusterSubnetGroupResult & __MetadataBearer;
+export interface ModifyClusterSubnetGroupCommandInput extends ModifyClusterSubnetGroupMessage {}
+export interface ModifyClusterSubnetGroupCommandOutput extends ModifyClusterSubnetGroupResult, __MetadataBearer {}
 
 /**
  * <p>Modifies a cluster subnet group to include the specified list of VPC subnets. The

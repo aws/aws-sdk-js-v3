@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBucketInventoryConfigurationCommandInput = DeleteBucketInventoryConfigurationRequest;
-export type DeleteBucketInventoryConfigurationCommandOutput = __MetadataBearer;
+export interface DeleteBucketInventoryConfigurationCommandInput extends DeleteBucketInventoryConfigurationRequest {}
+export interface DeleteBucketInventoryConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an inventory configuration (identified by the inventory ID) from the

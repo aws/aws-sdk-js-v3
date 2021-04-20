@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFileSystemAliasesCommandInput = DescribeFileSystemAliasesRequest;
-export type DescribeFileSystemAliasesCommandOutput = DescribeFileSystemAliasesResponse & __MetadataBearer;
+export interface DescribeFileSystemAliasesCommandInput extends DescribeFileSystemAliasesRequest {}
+export interface DescribeFileSystemAliasesCommandOutput extends DescribeFileSystemAliasesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the DNS aliases that are associated with the specified Amazon FSx for Windows File Server file system. A history of

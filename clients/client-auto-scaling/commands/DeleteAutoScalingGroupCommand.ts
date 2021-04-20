@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAutoScalingGroupCommandInput = DeleteAutoScalingGroupType;
-export type DeleteAutoScalingGroupCommandOutput = __MetadataBearer;
+export interface DeleteAutoScalingGroupCommandInput extends DeleteAutoScalingGroupType {}
+export interface DeleteAutoScalingGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Auto Scaling group.</p>

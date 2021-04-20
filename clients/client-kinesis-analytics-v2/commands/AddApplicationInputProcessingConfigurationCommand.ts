@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddApplicationInputProcessingConfigurationCommandInput = AddApplicationInputProcessingConfigurationRequest;
-export type AddApplicationInputProcessingConfigurationCommandOutput = AddApplicationInputProcessingConfigurationResponse &
-  __MetadataBearer;
+export interface AddApplicationInputProcessingConfigurationCommandInput
+  extends AddApplicationInputProcessingConfigurationRequest {}
+export interface AddApplicationInputProcessingConfigurationCommandOutput
+  extends AddApplicationInputProcessingConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Adds an <a>InputProcessingConfiguration</a> to a SQL-based Kinesis Data Analytics application. An input processor pre-processes records

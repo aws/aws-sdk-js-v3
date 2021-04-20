@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPartnerAccountCommandInput = GetPartnerAccountRequest;
-export type GetPartnerAccountCommandOutput = GetPartnerAccountResponse & __MetadataBearer;
+export interface GetPartnerAccountCommandInput extends GetPartnerAccountRequest {}
+export interface GetPartnerAccountCommandOutput extends GetPartnerAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a partner account. If <code>PartnerAccountId</code> and <code>PartnerType</code> are <code>null</code>, returns all partner accounts.</p>

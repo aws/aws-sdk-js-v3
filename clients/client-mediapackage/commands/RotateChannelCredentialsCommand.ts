@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RotateChannelCredentialsCommandInput = RotateChannelCredentialsRequest;
-export type RotateChannelCredentialsCommandOutput = RotateChannelCredentialsResponse & __MetadataBearer;
+export interface RotateChannelCredentialsCommandInput extends RotateChannelCredentialsRequest {}
+export interface RotateChannelCredentialsCommandOutput extends RotateChannelCredentialsResponse, __MetadataBearer {}
 
 /**
  * @deprecated

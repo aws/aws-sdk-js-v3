@@ -19,8 +19,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteObjectsCommandInput = DeleteObjectsRequest;
-export type DeleteObjectsCommandOutput = DeleteObjectsOutput & __MetadataBearer;
+export interface DeleteObjectsCommandInput extends DeleteObjectsRequest {}
+export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __MetadataBearer {}
 
 /**
  * <p>This action enables you to delete multiple objects from a bucket using a single HTTP

@@ -13,6 +13,7 @@ export * from "./commands/FlattenedXmlMapWithXmlNamespaceCommand";
 export * from "./commands/GreetingWithErrorsCommand";
 export * from "./commands/HttpPayloadTraitsCommand";
 export * from "./commands/HttpPayloadTraitsWithMediaTypeCommand";
+export * from "./commands/HttpPayloadWithMemberXmlNameCommand";
 export * from "./commands/HttpPayloadWithStructureCommand";
 export * from "./commands/HttpPayloadWithXmlNameCommand";
 export * from "./commands/HttpPayloadWithXmlNamespaceCommand";

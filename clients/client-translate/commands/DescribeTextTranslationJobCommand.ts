@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTextTranslationJobCommandInput = DescribeTextTranslationJobRequest;
-export type DescribeTextTranslationJobCommandOutput = DescribeTextTranslationJobResponse & __MetadataBearer;
+export interface DescribeTextTranslationJobCommandInput extends DescribeTextTranslationJobRequest {}
+export interface DescribeTextTranslationJobCommandOutput extends DescribeTextTranslationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with an asycnhronous batch translation job including name,

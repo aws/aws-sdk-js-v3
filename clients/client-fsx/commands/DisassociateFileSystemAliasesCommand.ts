@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateFileSystemAliasesCommandInput = DisassociateFileSystemAliasesRequest;
-export type DisassociateFileSystemAliasesCommandOutput = DisassociateFileSystemAliasesResponse & __MetadataBearer;
+export interface DisassociateFileSystemAliasesCommandInput extends DisassociateFileSystemAliasesRequest {}
+export interface DisassociateFileSystemAliasesCommandOutput
+  extends DisassociateFileSystemAliasesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Use this action to disassociate, or remove, one or more Domain Name Service (DNS) aliases

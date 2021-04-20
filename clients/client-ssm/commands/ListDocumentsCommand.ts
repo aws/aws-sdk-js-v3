@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDocumentsCommandInput = ListDocumentsRequest;
-export type ListDocumentsCommandOutput = ListDocumentsResult & __MetadataBearer;
+export interface ListDocumentsCommandInput extends ListDocumentsRequest {}
+export interface ListDocumentsCommandOutput extends ListDocumentsResult, __MetadataBearer {}
 
 /**
  * <p>Returns all Systems Manager (SSM) documents in the current AWS account and Region. You can limit the

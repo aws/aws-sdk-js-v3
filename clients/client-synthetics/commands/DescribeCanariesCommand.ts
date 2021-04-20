@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCanariesCommandInput = DescribeCanariesRequest;
-export type DescribeCanariesCommandOutput = DescribeCanariesResponse & __MetadataBearer;
+export interface DescribeCanariesCommandInput extends DescribeCanariesRequest {}
+export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse, __MetadataBearer {}
 
 /**
  * <p>This operation returns a list of the canaries in your account, along with full details

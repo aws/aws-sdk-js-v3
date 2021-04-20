@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVirtualGatewayCommandInput = CreateVirtualGatewayInput;
-export type CreateVirtualGatewayCommandOutput = CreateVirtualGatewayOutput & __MetadataBearer;
+export interface CreateVirtualGatewayCommandInput extends CreateVirtualGatewayInput {}
+export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a virtual gateway.</p>

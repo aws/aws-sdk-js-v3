@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteExperimentCommandInput = DeleteExperimentRequest;
-export type DeleteExperimentCommandOutput = DeleteExperimentResponse & __MetadataBearer;
+export interface DeleteExperimentCommandInput extends DeleteExperimentRequest {}
+export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an Amazon SageMaker experiment. All trials associated with the experiment must be deleted

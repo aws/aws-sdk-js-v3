@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLocationSmbCommandInput = CreateLocationSmbRequest;
-export type CreateLocationSmbCommandOutput = CreateLocationSmbResponse & __MetadataBearer;
+export interface CreateLocationSmbCommandInput extends CreateLocationSmbRequest {}
+export interface CreateLocationSmbCommandOutput extends CreateLocationSmbResponse, __MetadataBearer {}
 
 /**
  * <p>Defines a file system on a Server Message Block (SMB) server that can be read from or

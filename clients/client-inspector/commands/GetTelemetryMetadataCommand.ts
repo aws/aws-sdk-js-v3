@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTelemetryMetadataCommandInput = GetTelemetryMetadataRequest;
-export type GetTelemetryMetadataCommandOutput = GetTelemetryMetadataResponse & __MetadataBearer;
+export interface GetTelemetryMetadataCommandInput extends GetTelemetryMetadataRequest {}
+export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Information about the data that is collected for the specified assessment

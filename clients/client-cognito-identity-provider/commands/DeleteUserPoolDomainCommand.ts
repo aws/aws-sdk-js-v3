@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUserPoolDomainCommandInput = DeleteUserPoolDomainRequest;
-export type DeleteUserPoolDomainCommandOutput = DeleteUserPoolDomainResponse & __MetadataBearer;
+export interface DeleteUserPoolDomainCommandInput extends DeleteUserPoolDomainRequest {}
+export interface DeleteUserPoolDomainCommandOutput extends DeleteUserPoolDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a domain for a user pool.</p>

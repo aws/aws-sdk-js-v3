@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetJobOutputCommandInput = GetJobOutputInput;
-export type GetJobOutputCommandOutput = GetJobOutputOutput & __MetadataBearer;
+export interface GetJobOutputCommandInput extends GetJobOutputInput {}
+export interface GetJobOutputCommandOutput extends GetJobOutputOutput, __MetadataBearer {}
 
 /**
  * <p>This operation downloads the output of the job you initiated using <a>InitiateJob</a>. Depending on the job type you specified when you initiated the

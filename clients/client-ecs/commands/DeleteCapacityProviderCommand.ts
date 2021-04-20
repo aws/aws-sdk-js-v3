@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCapacityProviderCommandInput = DeleteCapacityProviderRequest;
-export type DeleteCapacityProviderCommandOutput = DeleteCapacityProviderResponse & __MetadataBearer;
+export interface DeleteCapacityProviderCommandInput extends DeleteCapacityProviderRequest {}
+export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified capacity provider.</p>

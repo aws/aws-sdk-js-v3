@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFindingsPublicationConfigurationCommandInput = GetFindingsPublicationConfigurationRequest;
-export type GetFindingsPublicationConfigurationCommandOutput = GetFindingsPublicationConfigurationResponse &
-  __MetadataBearer;
+export interface GetFindingsPublicationConfigurationCommandInput extends GetFindingsPublicationConfigurationRequest {}
+export interface GetFindingsPublicationConfigurationCommandOutput
+  extends GetFindingsPublicationConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the configuration settings for publishing findings to AWS Security Hub.</p>

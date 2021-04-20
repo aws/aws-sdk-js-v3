@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSigningJobsCommandInput = ListSigningJobsRequest;
-export type ListSigningJobsCommandOutput = ListSigningJobsResponse & __MetadataBearer;
+export interface ListSigningJobsCommandInput extends ListSigningJobsRequest {}
+export interface ListSigningJobsCommandOutput extends ListSigningJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all your signing jobs. You can use the <code>maxResults</code> parameter to

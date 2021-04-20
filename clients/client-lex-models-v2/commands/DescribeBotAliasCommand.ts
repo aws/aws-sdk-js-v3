@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBotAliasCommandInput = DescribeBotAliasRequest;
-export type DescribeBotAliasCommandOutput = DescribeBotAliasResponse & __MetadataBearer;
+export interface DescribeBotAliasCommandInput extends DescribeBotAliasRequest {}
+export interface DescribeBotAliasCommandOutput extends DescribeBotAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Get information about a specific bot alias.</p>

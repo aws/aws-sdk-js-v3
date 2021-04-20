@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetSnapshotAttributeCommandInput = ResetSnapshotAttributeRequest;
-export type ResetSnapshotAttributeCommandOutput = __MetadataBearer;
+export interface ResetSnapshotAttributeCommandInput extends ResetSnapshotAttributeRequest {}
+export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Resets permission settings for the specified snapshot.</p>

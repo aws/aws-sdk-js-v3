@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSchemaCommandInput = CreateSchemaRequest;
-export type CreateSchemaCommandOutput = CreateSchemaResponse & __MetadataBearer;
+export interface CreateSchemaCommandInput extends CreateSchemaRequest {}
+export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Personalize schema from the specified schema string. The schema you create

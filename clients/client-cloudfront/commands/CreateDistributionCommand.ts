@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDistributionCommandInput = CreateDistributionRequest;
-export type CreateDistributionCommandOutput = CreateDistributionResult & __MetadataBearer;
+export interface CreateDistributionCommandInput extends CreateDistributionRequest {}
+export interface CreateDistributionCommandOutput extends CreateDistributionResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new web distribution. You create a CloudFront distribution to tell CloudFront where you

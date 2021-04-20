@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCapacityProviderCommandInput = CreateCapacityProviderRequest;
-export type CreateCapacityProviderCommandOutput = CreateCapacityProviderResponse & __MetadataBearer;
+export interface CreateCapacityProviderCommandInput extends CreateCapacityProviderRequest {}
+export interface CreateCapacityProviderCommandOutput extends CreateCapacityProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new capacity provider. Capacity providers are associated with an Amazon ECS

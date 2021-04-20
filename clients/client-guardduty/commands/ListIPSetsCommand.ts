@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListIPSetsCommandInput = ListIPSetsRequest;
-export type ListIPSetsCommandOutput = ListIPSetsResponse & __MetadataBearer;
+export interface ListIPSetsCommandInput extends ListIPSetsRequest {}
+export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the IPSets of the GuardDuty service specified by the detector ID. If you use this

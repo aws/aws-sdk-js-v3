@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PostCommentForPullRequestCommandInput = PostCommentForPullRequestInput;
-export type PostCommentForPullRequestCommandOutput = PostCommentForPullRequestOutput & __MetadataBearer;
+export interface PostCommentForPullRequestCommandInput extends PostCommentForPullRequestInput {}
+export interface PostCommentForPullRequestCommandOutput extends PostCommentForPullRequestOutput, __MetadataBearer {}
 
 /**
  * <p>Posts a comment on a pull request.</p>

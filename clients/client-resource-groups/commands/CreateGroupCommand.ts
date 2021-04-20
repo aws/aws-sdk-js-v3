@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGroupCommandInput = CreateGroupInput;
-export type CreateGroupCommandOutput = CreateGroupOutput & __MetadataBearer;
+export interface CreateGroupCommandInput extends CreateGroupInput {}
+export interface CreateGroupCommandOutput extends CreateGroupOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a resource group with the specified name and description. You can optionally

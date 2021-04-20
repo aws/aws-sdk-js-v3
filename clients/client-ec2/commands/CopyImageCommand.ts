@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CopyImageCommandInput = CopyImageRequest;
-export type CopyImageCommandOutput = CopyImageResult & __MetadataBearer;
+export interface CopyImageCommandInput extends CopyImageRequest {}
+export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBearer {}
 
 /**
  * <p>Initiates the copy of an AMI. You can copy an AMI from one Region to another, or from a

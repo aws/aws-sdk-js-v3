@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLanguageModelCommandInput = DeleteLanguageModelRequest;
-export type DeleteLanguageModelCommandOutput = __MetadataBearer;
+export interface DeleteLanguageModelCommandInput extends DeleteLanguageModelRequest {}
+export interface DeleteLanguageModelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a custom language model using its name.</p>

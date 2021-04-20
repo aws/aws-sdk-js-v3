@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateLocationSmbCommandInput = UpdateLocationSmbRequest;
-export type UpdateLocationSmbCommandOutput = UpdateLocationSmbResponse & __MetadataBearer;
+export interface UpdateLocationSmbCommandInput extends UpdateLocationSmbRequest {}
+export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbResponse, __MetadataBearer {}
 
 /**
  * <p>Updates some of the parameters of a previously created location for Server Message Block

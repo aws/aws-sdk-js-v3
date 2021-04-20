@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConnectionsCommandInput = DescribeConnectionsRequest;
-export type DescribeConnectionsCommandOutput = Connections & __MetadataBearer;
+export interface DescribeConnectionsCommandInput extends DescribeConnectionsRequest {}
+export interface DescribeConnectionsCommandOutput extends Connections, __MetadataBearer {}
 
 /**
  * <p>Displays the specified connection or all connections in this Region.</p>

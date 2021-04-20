@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTaskDefinitionCommandInput = DescribeTaskDefinitionRequest;
-export type DescribeTaskDefinitionCommandOutput = DescribeTaskDefinitionResponse & __MetadataBearer;
+export interface DescribeTaskDefinitionCommandInput extends DescribeTaskDefinitionRequest {}
+export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Describes a task definition. You can specify a <code>family</code> and

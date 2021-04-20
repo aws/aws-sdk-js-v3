@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchMeterUsageCommandInput = BatchMeterUsageRequest;
-export type BatchMeterUsageCommandOutput = BatchMeterUsageResult & __MetadataBearer;
+export interface BatchMeterUsageCommandInput extends BatchMeterUsageRequest {}
+export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __MetadataBearer {}
 
 /**
  * <p>BatchMeterUsage is called from a SaaS application listed on the AWS Marketplace to

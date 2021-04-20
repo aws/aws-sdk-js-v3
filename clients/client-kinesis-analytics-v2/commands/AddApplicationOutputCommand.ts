@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddApplicationOutputCommandInput = AddApplicationOutputRequest;
-export type AddApplicationOutputCommandOutput = AddApplicationOutputResponse & __MetadataBearer;
+export interface AddApplicationOutputCommandInput extends AddApplicationOutputRequest {}
+export interface AddApplicationOutputCommandOutput extends AddApplicationOutputResponse, __MetadataBearer {}
 
 /**
  * <p>Adds an external destination to your SQL-based Kinesis Data Analytics application.</p>

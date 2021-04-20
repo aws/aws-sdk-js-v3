@@ -16,8 +16,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableHealthServiceAccessForOrganizationCommandInput = {};
-export type DisableHealthServiceAccessForOrganizationCommandOutput = __MetadataBearer;
+export interface DisableHealthServiceAccessForOrganizationCommandInput {}
+export interface DisableHealthServiceAccessForOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disables AWS Health from working with AWS Organizations. To call this operation, you must sign

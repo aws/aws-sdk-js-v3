@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateHsmClientCertificateCommandInput = CreateHsmClientCertificateMessage;
-export type CreateHsmClientCertificateCommandOutput = CreateHsmClientCertificateResult & __MetadataBearer;
+export interface CreateHsmClientCertificateCommandInput extends CreateHsmClientCertificateMessage {}
+export interface CreateHsmClientCertificateCommandOutput extends CreateHsmClientCertificateResult, __MetadataBearer {}
 
 /**
  * <p>Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to

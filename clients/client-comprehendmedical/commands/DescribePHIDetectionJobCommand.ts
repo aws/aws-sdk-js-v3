@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePHIDetectionJobCommandInput = DescribePHIDetectionJobRequest;
-export type DescribePHIDetectionJobCommandOutput = DescribePHIDetectionJobResponse & __MetadataBearer;
+export interface DescribePHIDetectionJobCommandInput extends DescribePHIDetectionJobRequest {}
+export interface DescribePHIDetectionJobCommandOutput extends DescribePHIDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a protected health information (PHI) detection job.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeNFSFileSharesCommandInput = DescribeNFSFileSharesInput;
-export type DescribeNFSFileSharesCommandOutput = DescribeNFSFileSharesOutput & __MetadataBearer;
+export interface DescribeNFSFileSharesCommandInput extends DescribeNFSFileSharesInput {}
+export interface DescribeNFSFileSharesCommandOutput extends DescribeNFSFileSharesOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a description for one or more Network File System (NFS) file shares from a file

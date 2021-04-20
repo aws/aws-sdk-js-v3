@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVpcEndpointsCommandInput = DeleteVpcEndpointsRequest;
-export type DeleteVpcEndpointsCommandOutput = DeleteVpcEndpointsResult & __MetadataBearer;
+export interface DeleteVpcEndpointsCommandInput extends DeleteVpcEndpointsRequest {}
+export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResult, __MetadataBearer {}
 
 /**
  * <p>Deletes one or more specified VPC endpoints. You can delete any of the following types of VPC endpoints.  </p>

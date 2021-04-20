@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAnomalyGroupCommandInput = GetAnomalyGroupRequest;
-export type GetAnomalyGroupCommandOutput = GetAnomalyGroupResponse & __MetadataBearer;
+export interface GetAnomalyGroupCommandInput extends GetAnomalyGroupRequest {}
+export interface GetAnomalyGroupCommandOutput extends GetAnomalyGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Returns details about a group of anomalous metrics.</p>

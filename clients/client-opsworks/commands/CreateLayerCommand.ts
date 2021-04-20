@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLayerCommandInput = CreateLayerRequest;
-export type CreateLayerCommandOutput = CreateLayerResult & __MetadataBearer;
+export interface CreateLayerCommandInput extends CreateLayerRequest {}
+export interface CreateLayerCommandOutput extends CreateLayerResult, __MetadataBearer {}
 
 /**
  * <p>Creates a layer. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html">How to

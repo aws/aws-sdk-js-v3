@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateSubnetsCommandInput = AssociateSubnetsRequest;
-export type AssociateSubnetsCommandOutput = AssociateSubnetsResponse & __MetadataBearer;
+export interface AssociateSubnetsCommandInput extends AssociateSubnetsRequest {}
+export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse, __MetadataBearer {}
 
 /**
  * <p>Associates the specified subnets in the Amazon VPC to the firewall. You can specify one

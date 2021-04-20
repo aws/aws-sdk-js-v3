@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRecommendationsCommandInput = GetRecommendationsRequest;
-export type GetRecommendationsCommandOutput = GetRecommendationsResponse & __MetadataBearer;
+export interface GetRecommendationsCommandInput extends GetRecommendationsRequest {}
+export interface GetRecommendationsCommandOutput extends GetRecommendationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of recommended items. The required input depends on the recipe type used to

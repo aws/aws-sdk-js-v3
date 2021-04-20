@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCompanyNetworkConfigurationCommandInput = UpdateCompanyNetworkConfigurationRequest;
-export type UpdateCompanyNetworkConfigurationCommandOutput = UpdateCompanyNetworkConfigurationResponse &
-  __MetadataBearer;
+export interface UpdateCompanyNetworkConfigurationCommandInput extends UpdateCompanyNetworkConfigurationRequest {}
+export interface UpdateCompanyNetworkConfigurationCommandOutput
+  extends UpdateCompanyNetworkConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the company network configuration for the fleet.</p>

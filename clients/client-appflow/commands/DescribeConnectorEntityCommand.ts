@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConnectorEntityCommandInput = DescribeConnectorEntityRequest;
-export type DescribeConnectorEntityCommandOutput = DescribeConnectorEntityResponse & __MetadataBearer;
+export interface DescribeConnectorEntityCommandInput extends DescribeConnectorEntityRequest {}
+export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorEntityResponse, __MetadataBearer {}
 
 /**
  * <p>

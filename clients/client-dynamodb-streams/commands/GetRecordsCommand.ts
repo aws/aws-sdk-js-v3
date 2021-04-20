@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRecordsCommandInput = GetRecordsInput;
-export type GetRecordsCommandOutput = GetRecordsOutput & __MetadataBearer;
+export interface GetRecordsCommandInput extends GetRecordsInput {}
+export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the stream records from a given shard.</p>

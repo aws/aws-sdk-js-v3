@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVariableCommandInput = CreateVariableRequest;
-export type CreateVariableCommandOutput = CreateVariableResult & __MetadataBearer;
+export interface CreateVariableCommandInput extends CreateVariableRequest {}
+export interface CreateVariableCommandOutput extends CreateVariableResult, __MetadataBearer {}
 
 /**
  * <p>Creates a variable.</p>

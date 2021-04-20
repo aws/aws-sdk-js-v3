@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateContactFlowCommandInput = CreateContactFlowRequest;
-export type CreateContactFlowCommandOutput = CreateContactFlowResponse & __MetadataBearer;
+export interface CreateContactFlowCommandInput extends CreateContactFlowRequest {}
+export interface CreateContactFlowCommandOutput extends CreateContactFlowResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a contact flow for the specified Amazon Connect instance.</p>

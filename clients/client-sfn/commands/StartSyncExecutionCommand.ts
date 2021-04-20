@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartSyncExecutionCommandInput = StartSyncExecutionInput;
-export type StartSyncExecutionCommandOutput = StartSyncExecutionOutput & __MetadataBearer;
+export interface StartSyncExecutionCommandInput extends StartSyncExecutionInput {}
+export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutput, __MetadataBearer {}
 
 /**
  * <p>Starts a Synchronous Express state machine execution.</p>

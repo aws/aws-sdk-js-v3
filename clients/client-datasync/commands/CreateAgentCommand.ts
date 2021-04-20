@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAgentCommandInput = CreateAgentRequest;
-export type CreateAgentCommandOutput = CreateAgentResponse & __MetadataBearer;
+export interface CreateAgentCommandInput extends CreateAgentRequest {}
+export interface CreateAgentCommandOutput extends CreateAgentResponse, __MetadataBearer {}
 
 /**
  * <p>Activates an AWS DataSync agent that you have deployed on your host. The activation

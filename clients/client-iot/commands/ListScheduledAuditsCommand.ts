@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListScheduledAuditsCommandInput = ListScheduledAuditsRequest;
-export type ListScheduledAuditsCommandOutput = ListScheduledAuditsResponse & __MetadataBearer;
+export interface ListScheduledAuditsCommandInput extends ListScheduledAuditsRequest {}
+export interface ListScheduledAuditsCommandOutput extends ListScheduledAuditsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of your scheduled audits.</p>

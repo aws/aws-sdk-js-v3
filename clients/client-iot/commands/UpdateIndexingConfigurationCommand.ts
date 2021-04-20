@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateIndexingConfigurationCommandInput = UpdateIndexingConfigurationRequest;
-export type UpdateIndexingConfigurationCommandOutput = UpdateIndexingConfigurationResponse & __MetadataBearer;
+export interface UpdateIndexingConfigurationCommandInput extends UpdateIndexingConfigurationRequest {}
+export interface UpdateIndexingConfigurationCommandOutput
+  extends UpdateIndexingConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the search configuration.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSuiteDefinitionCommandInput = CreateSuiteDefinitionRequest;
-export type CreateSuiteDefinitionCommandOutput = CreateSuiteDefinitionResponse & __MetadataBearer;
+export interface CreateSuiteDefinitionCommandInput extends CreateSuiteDefinitionRequest {}
+export interface CreateSuiteDefinitionCommandOutput extends CreateSuiteDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a Device Advisor test suite.</p>

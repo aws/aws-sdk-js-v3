@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAssociatedRoleCommandInput = GetAssociatedRoleRequest;
-export type GetAssociatedRoleCommandOutput = GetAssociatedRoleResponse & __MetadataBearer;
+export interface GetAssociatedRoleCommandInput extends GetAssociatedRoleRequest {}
+export interface GetAssociatedRoleCommandOutput extends GetAssociatedRoleResponse, __MetadataBearer {}
 
 /**
  * Retrieves the role associated with a particular group.

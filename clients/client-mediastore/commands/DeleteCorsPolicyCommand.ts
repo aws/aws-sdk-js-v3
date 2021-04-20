@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCorsPolicyCommandInput = DeleteCorsPolicyInput;
-export type DeleteCorsPolicyCommandOutput = DeleteCorsPolicyOutput & __MetadataBearer;
+export interface DeleteCorsPolicyCommandInput extends DeleteCorsPolicyInput {}
+export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the cross-origin resource sharing (CORS) configuration information that is

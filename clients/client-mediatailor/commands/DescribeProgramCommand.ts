@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeProgramCommandInput = DescribeProgramRequest;
-export type DescribeProgramCommandOutput = DescribeProgramResponse & __MetadataBearer;
+export interface DescribeProgramCommandInput extends DescribeProgramRequest {}
+export interface DescribeProgramCommandOutput extends DescribeProgramResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the properties of the requested program.</p>

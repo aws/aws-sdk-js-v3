@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEgressOnlyInternetGatewaysCommandInput = DescribeEgressOnlyInternetGatewaysRequest;
-export type DescribeEgressOnlyInternetGatewaysCommandOutput = DescribeEgressOnlyInternetGatewaysResult &
-  __MetadataBearer;
+export interface DescribeEgressOnlyInternetGatewaysCommandInput extends DescribeEgressOnlyInternetGatewaysRequest {}
+export interface DescribeEgressOnlyInternetGatewaysCommandOutput
+  extends DescribeEgressOnlyInternetGatewaysResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your egress-only internet gateways.</p>

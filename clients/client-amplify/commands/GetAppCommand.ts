@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAppCommandInput = GetAppRequest;
-export type GetAppCommandOutput = GetAppResult & __MetadataBearer;
+export interface GetAppCommandInput extends GetAppRequest {}
+export interface GetAppCommandOutput extends GetAppResult, __MetadataBearer {}
 
 /**
  * <p> Returns an existing Amplify app by appID. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetectKeyPhrasesCommandInput = DetectKeyPhrasesRequest;
-export type DetectKeyPhrasesCommandOutput = DetectKeyPhrasesResponse & __MetadataBearer;
+export interface DetectKeyPhrasesCommandInput extends DetectKeyPhrasesRequest {}
+export interface DetectKeyPhrasesCommandOutput extends DetectKeyPhrasesResponse, __MetadataBearer {}
 
 /**
  * <p>Detects the key noun phrases found in the text. </p>

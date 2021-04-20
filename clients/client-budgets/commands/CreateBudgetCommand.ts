@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBudgetCommandInput = CreateBudgetRequest;
-export type CreateBudgetCommandOutput = CreateBudgetResponse & __MetadataBearer;
+export interface CreateBudgetCommandInput extends CreateBudgetRequest {}
+export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a budget and, if included, notifications and subscribers. </p>

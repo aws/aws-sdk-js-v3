@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteThingCommandInput = DeleteThingRequest;
-export type DeleteThingCommandOutput = DeleteThingResponse & __MetadataBearer;
+export interface DeleteThingCommandInput extends DeleteThingRequest {}
+export interface DeleteThingCommandOutput extends DeleteThingResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified thing. Returns successfully with no error if the deletion is

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAccessPolicyCommandInput = DeleteAccessPolicyRequest;
-export type DeleteAccessPolicyCommandOutput = DeleteAccessPolicyResponse & __MetadataBearer;
+export interface DeleteAccessPolicyCommandInput extends DeleteAccessPolicyRequest {}
+export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an access policy that grants the specified identity access to the specified

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteConfigurationRecorderCommandInput = DeleteConfigurationRecorderRequest;
-export type DeleteConfigurationRecorderCommandOutput = __MetadataBearer;
+export interface DeleteConfigurationRecorderCommandInput extends DeleteConfigurationRecorderRequest {}
+export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the configuration recorder.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteImageRecipeCommandInput = DeleteImageRecipeRequest;
-export type DeleteImageRecipeCommandOutput = DeleteImageRecipeResponse & __MetadataBearer;
+export interface DeleteImageRecipeCommandInput extends DeleteImageRecipeRequest {}
+export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeResponse, __MetadataBearer {}
 
 /**
  * <p> Deletes an image recipe.</p>

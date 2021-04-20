@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListContainerRecipesCommandInput = ListContainerRecipesRequest;
-export type ListContainerRecipesCommandOutput = ListContainerRecipesResponse & __MetadataBearer;
+export interface ListContainerRecipesCommandInput extends ListContainerRecipesRequest {}
+export interface ListContainerRecipesCommandOutput extends ListContainerRecipesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of container recipes.</p>

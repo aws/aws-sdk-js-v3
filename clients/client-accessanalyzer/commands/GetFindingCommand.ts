@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFindingCommandInput = GetFindingRequest;
-export type GetFindingCommandOutput = GetFindingResponse & __MetadataBearer;
+export interface GetFindingCommandInput extends GetFindingRequest {}
+export interface GetFindingCommandOutput extends GetFindingResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the specified finding.</p>

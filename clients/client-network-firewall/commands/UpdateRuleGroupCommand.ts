@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRuleGroupCommandInput = UpdateRuleGroupRequest;
-export type UpdateRuleGroupCommandOutput = UpdateRuleGroupResponse & __MetadataBearer;
+export interface UpdateRuleGroupCommandInput extends UpdateRuleGroupRequest {}
+export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the rule settings for the specified rule group. You use a rule group by

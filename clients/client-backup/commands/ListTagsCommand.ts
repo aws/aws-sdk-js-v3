@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsCommandInput = ListTagsInput;
-export type ListTagsCommandOutput = ListTagsOutput & __MetadataBearer;
+export interface ListTagsCommandInput extends ListTagsInput {}
+export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of key-value pairs assigned to a target recovery point, backup plan, or

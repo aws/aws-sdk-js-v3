@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GreetingWithErrorsCommandInput = {};
-export type GreetingWithErrorsCommandOutput = GreetingWithErrorsOutput & __MetadataBearer;
+export interface GreetingWithErrorsCommandInput {}
+export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutput, __MetadataBearer {}
 
 /**
  * This operation has four possible return values:

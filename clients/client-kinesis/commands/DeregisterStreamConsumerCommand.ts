@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterStreamConsumerCommandInput = DeregisterStreamConsumerInput;
-export type DeregisterStreamConsumerCommandOutput = __MetadataBearer;
+export interface DeregisterStreamConsumerCommandInput extends DeregisterStreamConsumerInput {}
+export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>To deregister a consumer, provide its ARN. Alternatively, you can provide the ARN of

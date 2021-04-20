@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetLoadBalancerPoliciesForBackendServerCommandInput = SetLoadBalancerPoliciesForBackendServerInput;
-export type SetLoadBalancerPoliciesForBackendServerCommandOutput = SetLoadBalancerPoliciesForBackendServerOutput &
-  __MetadataBearer;
+export interface SetLoadBalancerPoliciesForBackendServerCommandInput
+  extends SetLoadBalancerPoliciesForBackendServerInput {}
+export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
+  extends SetLoadBalancerPoliciesForBackendServerOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Replaces the set of policies associated with the specified port on which the EC2 instance is listening with a new set of policies.

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterScalableTargetCommandInput = DeregisterScalableTargetRequest;
-export type DeregisterScalableTargetCommandOutput = DeregisterScalableTargetResponse & __MetadataBearer;
+export interface DeregisterScalableTargetCommandInput extends DeregisterScalableTargetRequest {}
+export interface DeregisterScalableTargetCommandOutput extends DeregisterScalableTargetResponse, __MetadataBearer {}
 
 /**
  * <p>Deregisters an Application Auto Scaling scalable target when you have finished using it. To see which

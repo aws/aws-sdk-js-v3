@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStackInstancesCommandInput = CreateStackInstancesInput;
-export type CreateStackInstancesCommandOutput = CreateStackInstancesOutput & __MetadataBearer;
+export interface CreateStackInstancesCommandInput extends CreateStackInstancesInput {}
+export interface CreateStackInstancesCommandOutput extends CreateStackInstancesOutput, __MetadataBearer {}
 
 /**
  * <p>Creates stack instances for the specified accounts, within the specified Regions. A

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetSecurityTokenServicePreferencesCommandInput = SetSecurityTokenServicePreferencesRequest;
-export type SetSecurityTokenServicePreferencesCommandOutput = __MetadataBearer;
+export interface SetSecurityTokenServicePreferencesCommandInput extends SetSecurityTokenServicePreferencesRequest {}
+export interface SetSecurityTokenServicePreferencesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the specified version of the global endpoint token as the token version used for

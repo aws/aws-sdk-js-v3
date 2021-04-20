@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemovePermissionCommandInput = RemovePermissionInput;
-export type RemovePermissionCommandOutput = __MetadataBearer;
+export interface RemovePermissionCommandInput extends RemovePermissionInput {}
+export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes a statement from a topic's access control policy.</p>

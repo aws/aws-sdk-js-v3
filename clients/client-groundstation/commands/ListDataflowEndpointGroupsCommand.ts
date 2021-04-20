@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDataflowEndpointGroupsCommandInput = ListDataflowEndpointGroupsRequest;
-export type ListDataflowEndpointGroupsCommandOutput = ListDataflowEndpointGroupsResponse & __MetadataBearer;
+export interface ListDataflowEndpointGroupsCommandInput extends ListDataflowEndpointGroupsRequest {}
+export interface ListDataflowEndpointGroupsCommandOutput extends ListDataflowEndpointGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of <code>DataflowEndpoint</code> groups.</p>

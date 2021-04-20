@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateProvisioningTemplateCommandInput = UpdateProvisioningTemplateRequest;
-export type UpdateProvisioningTemplateCommandOutput = UpdateProvisioningTemplateResponse & __MetadataBearer;
+export interface UpdateProvisioningTemplateCommandInput extends UpdateProvisioningTemplateRequest {}
+export interface UpdateProvisioningTemplateCommandOutput extends UpdateProvisioningTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a fleet provisioning template.</p>

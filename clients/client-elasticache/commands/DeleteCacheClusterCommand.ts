@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCacheClusterCommandInput = DeleteCacheClusterMessage;
-export type DeleteCacheClusterCommandOutput = DeleteCacheClusterResult & __MetadataBearer;
+export interface DeleteCacheClusterCommandInput extends DeleteCacheClusterMessage {}
+export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a previously provisioned cluster.

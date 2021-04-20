@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPrincipalTagAttributeMapCommandInput = GetPrincipalTagAttributeMapInput;
-export type GetPrincipalTagAttributeMapCommandOutput = GetPrincipalTagAttributeMapResponse & __MetadataBearer;
+export interface GetPrincipalTagAttributeMapCommandInput extends GetPrincipalTagAttributeMapInput {}
+export interface GetPrincipalTagAttributeMapCommandOutput
+  extends GetPrincipalTagAttributeMapResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Use <code>GetPrincipalTagAttributeMap</code> to list all mappings between <code>PrincipalTags</code> and user attributes.</p>

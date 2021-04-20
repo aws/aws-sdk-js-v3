@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteModelCommandInput = DeleteModelRequest;
-export type DeleteModelCommandOutput = __MetadataBearer;
+export interface DeleteModelCommandInput extends DeleteModelRequest {}
+export interface DeleteModelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an ML model currently available for Amazon Lookout for Equipment. This will prevent it from

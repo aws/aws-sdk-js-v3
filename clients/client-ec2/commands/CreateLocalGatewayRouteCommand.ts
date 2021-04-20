@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLocalGatewayRouteCommandInput = CreateLocalGatewayRouteRequest;
-export type CreateLocalGatewayRouteCommandOutput = CreateLocalGatewayRouteResult & __MetadataBearer;
+export interface CreateLocalGatewayRouteCommandInput extends CreateLocalGatewayRouteRequest {}
+export interface CreateLocalGatewayRouteCommandOutput extends CreateLocalGatewayRouteResult, __MetadataBearer {}
 
 /**
  * <p>Creates a static route for the specified local gateway route table.</p>

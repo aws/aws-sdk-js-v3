@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGatewayCommandInput = CreateGatewayRequest;
-export type CreateGatewayCommandOutput = CreateGatewayResponse & __MetadataBearer;
+export interface CreateGatewayCommandInput extends CreateGatewayRequest {}
+export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a gateway, which is a virtual or edge device that delivers industrial data streams

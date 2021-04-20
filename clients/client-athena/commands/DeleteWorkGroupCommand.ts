@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteWorkGroupCommandInput = DeleteWorkGroupInput;
-export type DeleteWorkGroupCommandOutput = DeleteWorkGroupOutput & __MetadataBearer;
+export interface DeleteWorkGroupCommandInput extends DeleteWorkGroupInput {}
+export interface DeleteWorkGroupCommandOutput extends DeleteWorkGroupOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the workgroup with the specified name. The primary workgroup cannot be

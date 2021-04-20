@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMatchmakingConfigurationCommandInput = DeleteMatchmakingConfigurationInput;
-export type DeleteMatchmakingConfigurationCommandOutput = DeleteMatchmakingConfigurationOutput & __MetadataBearer;
+export interface DeleteMatchmakingConfigurationCommandInput extends DeleteMatchmakingConfigurationInput {}
+export interface DeleteMatchmakingConfigurationCommandOutput
+  extends DeleteMatchmakingConfigurationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Permanently removes a FlexMatch matchmaking configuration. To delete, specify the

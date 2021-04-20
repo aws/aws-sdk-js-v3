@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAliasesCommandInput = ListAliasesInput;
-export type ListAliasesCommandOutput = ListAliasesOutput & __MetadataBearer;
+export interface ListAliasesCommandInput extends ListAliasesInput {}
+export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves all aliases for this AWS account. You can filter the result set by

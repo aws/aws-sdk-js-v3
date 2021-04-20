@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateOTAUpdateCommandInput = CreateOTAUpdateRequest;
-export type CreateOTAUpdateCommandOutput = CreateOTAUpdateResponse & __MetadataBearer;
+export interface CreateOTAUpdateCommandInput extends CreateOTAUpdateRequest {}
+export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS IoT OTAUpdate on a target group of things or groups.</p>

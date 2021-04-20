@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInvalidationsCommandInput = ListInvalidationsRequest;
-export type ListInvalidationsCommandOutput = ListInvalidationsResult & __MetadataBearer;
+export interface ListInvalidationsCommandInput extends ListInvalidationsRequest {}
+export interface ListInvalidationsCommandOutput extends ListInvalidationsResult, __MetadataBearer {}
 
 /**
  * <p>Lists invalidation batches. </p>

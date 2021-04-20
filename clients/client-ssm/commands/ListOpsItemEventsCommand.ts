@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListOpsItemEventsCommandInput = ListOpsItemEventsRequest;
-export type ListOpsItemEventsCommandOutput = ListOpsItemEventsResponse & __MetadataBearer;
+export interface ListOpsItemEventsCommandInput extends ListOpsItemEventsRequest {}
+export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of all OpsItem events in the current AWS account and Region. You can limit

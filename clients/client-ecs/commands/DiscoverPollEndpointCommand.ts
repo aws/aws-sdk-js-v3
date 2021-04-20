@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DiscoverPollEndpointCommandInput = DiscoverPollEndpointRequest;
-export type DiscoverPollEndpointCommandOutput = DiscoverPollEndpointResponse & __MetadataBearer;
+export interface DiscoverPollEndpointCommandInput extends DiscoverPollEndpointRequest {}
+export interface DiscoverPollEndpointCommandOutput extends DiscoverPollEndpointResponse, __MetadataBearer {}
 
 /**
  * <note>

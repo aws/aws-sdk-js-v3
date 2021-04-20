@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagMFADeviceCommandInput = UntagMFADeviceRequest;
-export type UntagMFADeviceCommandOutput = __MetadataBearer;
+export interface UntagMFADeviceCommandInput extends UntagMFADeviceRequest {}
+export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified tags from the IAM virtual multi-factor authentication (MFA)

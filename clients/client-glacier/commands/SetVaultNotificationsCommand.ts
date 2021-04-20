@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetVaultNotificationsCommandInput = SetVaultNotificationsInput;
-export type SetVaultNotificationsCommandOutput = __MetadataBearer;
+export interface SetVaultNotificationsCommandInput extends SetVaultNotificationsInput {}
+export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation configures notifications that will be sent when specific events happen

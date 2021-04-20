@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteNetworkAclEntryCommandInput = DeleteNetworkAclEntryRequest;
-export type DeleteNetworkAclEntryCommandOutput = __MetadataBearer;
+export interface DeleteNetworkAclEntryCommandInput extends DeleteNetworkAclEntryRequest {}
+export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified ingress or egress entry (rule) from the specified network ACL.</p>

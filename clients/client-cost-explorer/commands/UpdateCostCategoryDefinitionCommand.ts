@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCostCategoryDefinitionCommandInput = UpdateCostCategoryDefinitionRequest;
-export type UpdateCostCategoryDefinitionCommandOutput = UpdateCostCategoryDefinitionResponse & __MetadataBearer;
+export interface UpdateCostCategoryDefinitionCommandInput extends UpdateCostCategoryDefinitionRequest {}
+export interface UpdateCostCategoryDefinitionCommandOutput
+  extends UpdateCostCategoryDefinitionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates an existing Cost Category. Changes made to the Cost Category rules will be used to categorize the current month’s expenses and future expenses. This won’t change categorization for the previous months.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDetectorVersionCommandInput = CreateDetectorVersionRequest;
-export type CreateDetectorVersionCommandOutput = CreateDetectorVersionResult & __MetadataBearer;
+export interface CreateDetectorVersionCommandInput extends CreateDetectorVersionRequest {}
+export interface CreateDetectorVersionCommandOutput extends CreateDetectorVersionResult, __MetadataBearer {}
 
 /**
  * <p>Creates a detector version. The detector version starts in a <code>DRAFT</code> status.</p>

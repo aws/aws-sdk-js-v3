@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListContextsCommandInput = ListContextsRequest;
-export type ListContextsCommandOutput = ListContextsResponse & __MetadataBearer;
+export interface ListContextsCommandInput extends ListContextsRequest {}
+export interface ListContextsCommandOutput extends ListContextsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the contexts in your account and their properties.</p>

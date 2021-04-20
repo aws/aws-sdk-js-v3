@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUserStackAssociationsCommandInput = DescribeUserStackAssociationsRequest;
-export type DescribeUserStackAssociationsCommandOutput = DescribeUserStackAssociationsResult & __MetadataBearer;
+export interface DescribeUserStackAssociationsCommandInput extends DescribeUserStackAssociationsRequest {}
+export interface DescribeUserStackAssociationsCommandOutput
+  extends DescribeUserStackAssociationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes the UserStackAssociation objects. You must specify either or both of the following:</p>

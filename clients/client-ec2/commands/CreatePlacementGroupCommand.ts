@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePlacementGroupCommandInput = CreatePlacementGroupRequest;
-export type CreatePlacementGroupCommandOutput = CreatePlacementGroupResult & __MetadataBearer;
+export interface CreatePlacementGroupCommandInput extends CreatePlacementGroupRequest {}
+export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupResult, __MetadataBearer {}
 
 /**
  * <p>Creates a placement group in which to launch instances. The strategy of the placement

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEmailChannelCommandInput = DeleteEmailChannelRequest;
-export type DeleteEmailChannelCommandOutput = DeleteEmailChannelResponse & __MetadataBearer;
+export interface DeleteEmailChannelCommandInput extends DeleteEmailChannelRequest {}
+export interface DeleteEmailChannelCommandOutput extends DeleteEmailChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Disables the email channel for an application and deletes any existing settings for the channel.</p>

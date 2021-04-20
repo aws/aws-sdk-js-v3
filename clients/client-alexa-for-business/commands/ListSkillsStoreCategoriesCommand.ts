@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSkillsStoreCategoriesCommandInput = ListSkillsStoreCategoriesRequest;
-export type ListSkillsStoreCategoriesCommandOutput = ListSkillsStoreCategoriesResponse & __MetadataBearer;
+export interface ListSkillsStoreCategoriesCommandInput extends ListSkillsStoreCategoriesRequest {}
+export interface ListSkillsStoreCategoriesCommandOutput extends ListSkillsStoreCategoriesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all categories in the Alexa skill store.</p>

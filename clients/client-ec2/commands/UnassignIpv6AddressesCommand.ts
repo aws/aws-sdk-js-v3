@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UnassignIpv6AddressesCommandInput = UnassignIpv6AddressesRequest;
-export type UnassignIpv6AddressesCommandOutput = UnassignIpv6AddressesResult & __MetadataBearer;
+export interface UnassignIpv6AddressesCommandInput extends UnassignIpv6AddressesRequest {}
+export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6AddressesResult, __MetadataBearer {}
 
 /**
  * <p>Unassigns one or more IPv6 addresses from a network interface.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVpcClassicLinkCommandInput = DescribeVpcClassicLinkRequest;
-export type DescribeVpcClassicLinkCommandOutput = DescribeVpcClassicLinkResult & __MetadataBearer;
+export interface DescribeVpcClassicLinkCommandInput extends DescribeVpcClassicLinkRequest {}
+export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicLinkResult, __MetadataBearer {}
 
 /**
  * <p>Describes the ClassicLink status of one or more VPCs.</p>

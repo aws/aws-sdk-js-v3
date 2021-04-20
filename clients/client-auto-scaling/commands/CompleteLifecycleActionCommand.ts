@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CompleteLifecycleActionCommandInput = CompleteLifecycleActionType;
-export type CompleteLifecycleActionCommandOutput = CompleteLifecycleActionAnswer & __MetadataBearer;
+export interface CompleteLifecycleActionCommandInput extends CompleteLifecycleActionType {}
+export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleActionAnswer, __MetadataBearer {}
 
 /**
  * <p>Completes the lifecycle action for the specified token or instance with the specified

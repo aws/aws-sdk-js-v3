@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetObjectInformationCommandInput = GetObjectInformationRequest;
-export type GetObjectInformationCommandOutput = GetObjectInformationResponse & __MetadataBearer;
+export interface GetObjectInformationCommandInput extends GetObjectInformationRequest {}
+export interface GetObjectInformationCommandOutput extends GetObjectInformationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves metadata about an object.</p>

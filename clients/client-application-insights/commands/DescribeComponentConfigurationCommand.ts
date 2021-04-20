@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeComponentConfigurationCommandInput = DescribeComponentConfigurationRequest;
-export type DescribeComponentConfigurationCommandOutput = DescribeComponentConfigurationResponse & __MetadataBearer;
+export interface DescribeComponentConfigurationCommandInput extends DescribeComponentConfigurationRequest {}
+export interface DescribeComponentConfigurationCommandOutput
+  extends DescribeComponentConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the monitoring configuration of the component.</p>

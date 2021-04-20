@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAssetCommandInput = DeleteAssetRequest;
-export type DeleteAssetCommandOutput = DeleteAssetResponse & __MetadataBearer;
+export interface DeleteAssetCommandInput extends DeleteAssetRequest {}
+export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __MetadataBearer {}
 
 /**
  * Deletes an existing MediaPackage VOD Asset resource.

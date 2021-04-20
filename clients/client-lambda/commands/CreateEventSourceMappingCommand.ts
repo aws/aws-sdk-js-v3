@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEventSourceMappingCommandInput = CreateEventSourceMappingRequest;
-export type CreateEventSourceMappingCommandOutput = EventSourceMappingConfiguration & __MetadataBearer;
+export interface CreateEventSourceMappingCommandInput extends CreateEventSourceMappingRequest {}
+export interface CreateEventSourceMappingCommandOutput extends EventSourceMappingConfiguration, __MetadataBearer {}
 
 /**
  * <p>Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source

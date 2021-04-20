@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeNetworkInterfaceAttributeCommandInput = DescribeNetworkInterfaceAttributeRequest;
-export type DescribeNetworkInterfaceAttributeCommandOutput = DescribeNetworkInterfaceAttributeResult & __MetadataBearer;
+export interface DescribeNetworkInterfaceAttributeCommandInput extends DescribeNetworkInterfaceAttributeRequest {}
+export interface DescribeNetworkInterfaceAttributeCommandOutput
+  extends DescribeNetworkInterfaceAttributeResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes a network interface attribute. You can specify only one attribute at a time.</p>

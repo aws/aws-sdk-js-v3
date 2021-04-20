@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GroupResourcesCommandInput = GroupResourcesInput;
-export type GroupResourcesCommandOutput = GroupResourcesOutput & __MetadataBearer;
+export interface GroupResourcesCommandInput extends GroupResourcesInput {}
+export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>Adds the specified resources to the specified group.</p>

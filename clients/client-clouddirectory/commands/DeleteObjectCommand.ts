@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteObjectCommandInput = DeleteObjectRequest;
-export type DeleteObjectCommandOutput = DeleteObjectResponse & __MetadataBearer;
+export interface DeleteObjectCommandInput extends DeleteObjectRequest {}
+export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an object and its associated attributes. Only objects with no children and no

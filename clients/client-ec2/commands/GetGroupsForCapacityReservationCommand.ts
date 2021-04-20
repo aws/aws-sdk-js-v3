@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetGroupsForCapacityReservationCommandInput = GetGroupsForCapacityReservationRequest;
-export type GetGroupsForCapacityReservationCommandOutput = GetGroupsForCapacityReservationResult & __MetadataBearer;
+export interface GetGroupsForCapacityReservationCommandInput extends GetGroupsForCapacityReservationRequest {}
+export interface GetGroupsForCapacityReservationCommandOutput
+  extends GetGroupsForCapacityReservationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the resource groups to which a Capacity Reservation has been added.</p>

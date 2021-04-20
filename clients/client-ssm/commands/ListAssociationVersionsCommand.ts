@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAssociationVersionsCommandInput = ListAssociationVersionsRequest;
-export type ListAssociationVersionsCommandOutput = ListAssociationVersionsResult & __MetadataBearer;
+export interface ListAssociationVersionsCommandInput extends ListAssociationVersionsRequest {}
+export interface ListAssociationVersionsCommandOutput extends ListAssociationVersionsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves all versions of an association for a specific association ID.</p>

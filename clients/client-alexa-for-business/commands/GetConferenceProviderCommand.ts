@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConferenceProviderCommandInput = GetConferenceProviderRequest;
-export type GetConferenceProviderCommandOutput = GetConferenceProviderResponse & __MetadataBearer;
+export interface GetConferenceProviderCommandInput extends GetConferenceProviderRequest {}
+export interface GetConferenceProviderCommandOutput extends GetConferenceProviderResponse, __MetadataBearer {}
 
 /**
  * <p>Gets details about a specific conference provider.</p>

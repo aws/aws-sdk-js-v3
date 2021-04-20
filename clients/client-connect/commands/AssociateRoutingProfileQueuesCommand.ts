@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateRoutingProfileQueuesCommandInput = AssociateRoutingProfileQueuesRequest;
-export type AssociateRoutingProfileQueuesCommandOutput = __MetadataBearer;
+export interface AssociateRoutingProfileQueuesCommandInput extends AssociateRoutingProfileQueuesRequest {}
+export interface AssociateRoutingProfileQueuesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Associates a set of queues with a routing profile.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachVpnGatewayCommandInput = AttachVpnGatewayRequest;
-export type AttachVpnGatewayCommandOutput = AttachVpnGatewayResult & __MetadataBearer;
+export interface AttachVpnGatewayCommandInput extends AttachVpnGatewayRequest {}
+export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, __MetadataBearer {}
 
 /**
  * <p>Attaches a virtual private gateway to a VPC. You can attach one virtual private

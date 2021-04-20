@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type MeterUsageCommandInput = MeterUsageRequest;
-export type MeterUsageCommandOutput = MeterUsageResult & __MetadataBearer;
+export interface MeterUsageCommandInput extends MeterUsageRequest {}
+export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBearer {}
 
 /**
  * <p>API to emit metering records. For identical requests, the API is idempotent. It

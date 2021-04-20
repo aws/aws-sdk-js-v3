@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteChapCredentialsCommandInput = DeleteChapCredentialsInput;
-export type DeleteChapCredentialsCommandOutput = DeleteChapCredentialsOutput & __MetadataBearer;
+export interface DeleteChapCredentialsCommandInput extends DeleteChapCredentialsInput {}
+export interface DeleteChapCredentialsCommandOutput extends DeleteChapCredentialsOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified

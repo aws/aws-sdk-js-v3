@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetIdentityDkimEnabledCommandInput = SetIdentityDkimEnabledRequest;
-export type SetIdentityDkimEnabledCommandOutput = SetIdentityDkimEnabledResponse & __MetadataBearer;
+export interface SetIdentityDkimEnabledCommandInput extends SetIdentityDkimEnabledRequest {}
+export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnabledResponse, __MetadataBearer {}
 
 /**
  * <p>Enables or disables Easy DKIM signing of email sent from an identity. If Easy DKIM

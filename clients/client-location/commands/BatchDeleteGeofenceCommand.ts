@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDeleteGeofenceCommandInput = BatchDeleteGeofenceRequest;
-export type BatchDeleteGeofenceCommandOutput = BatchDeleteGeofenceResponse & __MetadataBearer;
+export interface BatchDeleteGeofenceCommandInput extends BatchDeleteGeofenceRequest {}
+export interface BatchDeleteGeofenceCommandOutput extends BatchDeleteGeofenceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a batch of geofences from a geofence collection.</p>

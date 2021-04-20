@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetHostedZoneLimitCommandInput = GetHostedZoneLimitRequest;
-export type GetHostedZoneLimitCommandOutput = GetHostedZoneLimitResponse & __MetadataBearer;
+export interface GetHostedZoneLimitCommandInput extends GetHostedZoneLimitRequest {}
+export interface GetHostedZoneLimitCommandOutput extends GetHostedZoneLimitResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the specified limit for a specified hosted zone, for example, the maximum number of records that you

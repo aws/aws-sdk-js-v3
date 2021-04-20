@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyDBClusterParameterGroupCommandInput = ModifyDBClusterParameterGroupMessage;
-export type ModifyDBClusterParameterGroupCommandOutput = DBClusterParameterGroupNameMessage & __MetadataBearer;
+export interface ModifyDBClusterParameterGroupCommandInput extends ModifyDBClusterParameterGroupMessage {}
+export interface ModifyDBClusterParameterGroupCommandOutput
+  extends DBClusterParameterGroupNameMessage,
+    __MetadataBearer {}
 
 /**
  * <p> Modifies the parameters of a cluster parameter group. To modify more than one

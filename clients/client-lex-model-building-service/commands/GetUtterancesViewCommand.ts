@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUtterancesViewCommandInput = GetUtterancesViewRequest;
-export type GetUtterancesViewCommandOutput = GetUtterancesViewResponse & __MetadataBearer;
+export interface GetUtterancesViewCommandInput extends GetUtterancesViewRequest {}
+export interface GetUtterancesViewCommandOutput extends GetUtterancesViewResponse, __MetadataBearer {}
 
 /**
  * <p>Use the <code>GetUtterancesView</code> operation to get information

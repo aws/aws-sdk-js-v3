@@ -17,9 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateEndpointWeightsAndCapacitiesCommandInput = UpdateEndpointWeightsAndCapacitiesInput;
-export type UpdateEndpointWeightsAndCapacitiesCommandOutput = UpdateEndpointWeightsAndCapacitiesOutput &
-  __MetadataBearer;
+export interface UpdateEndpointWeightsAndCapacitiesCommandInput extends UpdateEndpointWeightsAndCapacitiesInput {}
+export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
+  extends UpdateEndpointWeightsAndCapacitiesOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Updates variant weight of one or more variants associated with an existing

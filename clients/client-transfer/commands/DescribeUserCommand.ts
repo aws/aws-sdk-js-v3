@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeUserCommandInput = DescribeUserRequest;
-export type DescribeUserCommandOutput = DescribeUserResponse & __MetadataBearer;
+export interface DescribeUserCommandInput extends DescribeUserRequest {}
+export interface DescribeUserCommandOutput extends DescribeUserResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the user assigned to the specific file transfer protocol-enabled server, as

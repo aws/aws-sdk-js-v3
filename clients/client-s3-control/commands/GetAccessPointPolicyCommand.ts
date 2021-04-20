@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccessPointPolicyCommandInput = GetAccessPointPolicyRequest;
-export type GetAccessPointPolicyCommandOutput = GetAccessPointPolicyResult & __MetadataBearer;
+export interface GetAccessPointPolicyCommandInput extends GetAccessPointPolicyRequest {}
+export interface GetAccessPointPolicyCommandOutput extends GetAccessPointPolicyResult, __MetadataBearer {}
 
 /**
  * <p>Returns the access point policy associated with the specified access point.</p>

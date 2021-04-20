@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEventTopicsCommandInput = DescribeEventTopicsRequest;
-export type DescribeEventTopicsCommandOutput = DescribeEventTopicsResult & __MetadataBearer;
+export interface DescribeEventTopicsCommandInput extends DescribeEventTopicsRequest {}
+export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsResult, __MetadataBearer {}
 
 /**
  * <p>Obtains information about which SNS topics receive status messages from the specified directory.</p>

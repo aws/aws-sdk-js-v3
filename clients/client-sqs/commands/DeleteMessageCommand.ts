@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMessageCommandInput = DeleteMessageRequest;
-export type DeleteMessageCommandOutput = __MetadataBearer;
+export interface DeleteMessageCommandInput extends DeleteMessageRequest {}
+export interface DeleteMessageCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified message from the specified queue. To select the message to

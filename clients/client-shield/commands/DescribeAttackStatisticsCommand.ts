@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAttackStatisticsCommandInput = DescribeAttackStatisticsRequest;
-export type DescribeAttackStatisticsCommandOutput = DescribeAttackStatisticsResponse & __MetadataBearer;
+export interface DescribeAttackStatisticsCommandInput extends DescribeAttackStatisticsRequest {}
+export interface DescribeAttackStatisticsCommandOutput extends DescribeAttackStatisticsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides information about the number and type of attacks AWS Shield has detected in the last year for all resources that belong to your account, regardless of whether you've defined Shield protections for them. This operation is available to Shield customers as well as to Shield Advanced customers.</p>

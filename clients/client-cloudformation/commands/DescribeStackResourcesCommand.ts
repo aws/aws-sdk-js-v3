@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStackResourcesCommandInput = DescribeStackResourcesInput;
-export type DescribeStackResourcesCommandOutput = DescribeStackResourcesOutput & __MetadataBearer;
+export interface DescribeStackResourcesCommandInput extends DescribeStackResourcesInput {}
+export interface DescribeStackResourcesCommandOutput extends DescribeStackResourcesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns AWS resource descriptions for running and deleted stacks. If

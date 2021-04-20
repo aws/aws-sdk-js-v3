@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutObjectRetentionCommandInput = PutObjectRetentionRequest;
-export type PutObjectRetentionCommandOutput = PutObjectRetentionOutput & __MetadataBearer;
+export interface PutObjectRetentionCommandInput extends PutObjectRetentionRequest {}
+export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutput, __MetadataBearer {}
 
 /**
  * <p>Places an Object Retention configuration on an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.

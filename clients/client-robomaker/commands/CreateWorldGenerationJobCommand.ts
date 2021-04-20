@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateWorldGenerationJobCommandInput = CreateWorldGenerationJobRequest;
-export type CreateWorldGenerationJobCommandOutput = CreateWorldGenerationJobResponse & __MetadataBearer;
+export interface CreateWorldGenerationJobCommandInput extends CreateWorldGenerationJobRequest {}
+export interface CreateWorldGenerationJobCommandOutput extends CreateWorldGenerationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Creates worlds using the specified template.</p>

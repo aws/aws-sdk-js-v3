@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RenewDomainCommandInput = RenewDomainRequest;
-export type RenewDomainCommandOutput = RenewDomainResponse & __MetadataBearer;
+export interface RenewDomainCommandInput extends RenewDomainRequest {}
+export interface RenewDomainCommandOutput extends RenewDomainResponse, __MetadataBearer {}
 
 /**
  * <p>This operation renews a domain for the specified number of years. The cost of renewing your domain is billed to your AWS account.</p>

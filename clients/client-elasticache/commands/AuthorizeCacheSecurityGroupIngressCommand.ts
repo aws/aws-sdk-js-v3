@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AuthorizeCacheSecurityGroupIngressCommandInput = AuthorizeCacheSecurityGroupIngressMessage;
-export type AuthorizeCacheSecurityGroupIngressCommandOutput = AuthorizeCacheSecurityGroupIngressResult &
-  __MetadataBearer;
+export interface AuthorizeCacheSecurityGroupIngressCommandInput extends AuthorizeCacheSecurityGroupIngressMessage {}
+export interface AuthorizeCacheSecurityGroupIngressCommandOutput
+  extends AuthorizeCacheSecurityGroupIngressResult,
+    __MetadataBearer {}
 
 /**
  * <p>Allows network ingress to a cache

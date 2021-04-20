@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RetrieveEnvironmentInfoCommandInput = RetrieveEnvironmentInfoMessage;
-export type RetrieveEnvironmentInfoCommandOutput = RetrieveEnvironmentInfoResultMessage & __MetadataBearer;
+export interface RetrieveEnvironmentInfoCommandInput extends RetrieveEnvironmentInfoMessage {}
+export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmentInfoResultMessage, __MetadataBearer {}
 
 /**
  * <p>Retrieves the compiled information from a <a>RequestEnvironmentInfo</a>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInventoryCommandInput = GetInventoryRequest;
-export type GetInventoryCommandOutput = GetInventoryResult & __MetadataBearer;
+export interface GetInventoryCommandInput extends GetInventoryRequest {}
+export interface GetInventoryCommandOutput extends GetInventoryResult, __MetadataBearer {}
 
 /**
  * <p>Query inventory information.</p>

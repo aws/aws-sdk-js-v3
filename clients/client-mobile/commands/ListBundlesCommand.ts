@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBundlesCommandInput = ListBundlesRequest;
-export type ListBundlesCommandOutput = ListBundlesResult & __MetadataBearer;
+export interface ListBundlesCommandInput extends ListBundlesRequest {}
+export interface ListBundlesCommandOutput extends ListBundlesResult, __MetadataBearer {}
 
 /**
  * <p>

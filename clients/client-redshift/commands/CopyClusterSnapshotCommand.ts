@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CopyClusterSnapshotCommandInput = CopyClusterSnapshotMessage;
-export type CopyClusterSnapshotCommandOutput = CopyClusterSnapshotResult & __MetadataBearer;
+export interface CopyClusterSnapshotCommandInput extends CopyClusterSnapshotMessage {}
+export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Copies the specified automated cluster snapshot to a new manual cluster snapshot.

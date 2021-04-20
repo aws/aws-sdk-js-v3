@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutNotificationChannelCommandInput = PutNotificationChannelRequest;
-export type PutNotificationChannelCommandOutput = __MetadataBearer;
+export interface PutNotificationChannelCommandInput extends PutNotificationChannelRequest {}
+export interface PutNotificationChannelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS

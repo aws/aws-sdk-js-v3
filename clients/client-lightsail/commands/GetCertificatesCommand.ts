@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCertificatesCommandInput = GetCertificatesRequest;
-export type GetCertificatesCommandOutput = GetCertificatesResult & __MetadataBearer;
+export interface GetCertificatesCommandInput extends GetCertificatesRequest {}
+export interface GetCertificatesCommandOutput extends GetCertificatesResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about one or more Amazon Lightsail SSL/TLS certificates.</p>

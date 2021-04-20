@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAgentCommandInput = DeleteAgentRequest;
-export type DeleteAgentCommandOutput = DeleteAgentResponse & __MetadataBearer;
+export interface DeleteAgentCommandInput extends DeleteAgentRequest {}
+export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an agent. To specify which agent to delete, use the Amazon Resource Name (ARN)

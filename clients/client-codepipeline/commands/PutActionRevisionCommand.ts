@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutActionRevisionCommandInput = PutActionRevisionInput;
-export type PutActionRevisionCommandOutput = PutActionRevisionOutput & __MetadataBearer;
+export interface PutActionRevisionCommandInput extends PutActionRevisionInput {}
+export interface PutActionRevisionCommandOutput extends PutActionRevisionOutput, __MetadataBearer {}
 
 /**
  * <p>Provides information to AWS CodePipeline about new revisions to a source.</p>

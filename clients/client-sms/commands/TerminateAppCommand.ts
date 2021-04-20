@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TerminateAppCommandInput = TerminateAppRequest;
-export type TerminateAppCommandOutput = TerminateAppResponse & __MetadataBearer;
+export interface TerminateAppCommandInput extends TerminateAppRequest {}
+export interface TerminateAppCommandOutput extends TerminateAppResponse, __MetadataBearer {}
 
 /**
  * <p>Terminates the stack for the specified application.</p>

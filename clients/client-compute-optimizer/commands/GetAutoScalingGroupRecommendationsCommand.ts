@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAutoScalingGroupRecommendationsCommandInput = GetAutoScalingGroupRecommendationsRequest;
-export type GetAutoScalingGroupRecommendationsCommandOutput = GetAutoScalingGroupRecommendationsResponse &
-  __MetadataBearer;
+export interface GetAutoScalingGroupRecommendationsCommandInput extends GetAutoScalingGroupRecommendationsRequest {}
+export interface GetAutoScalingGroupRecommendationsCommandOutput
+  extends GetAutoScalingGroupRecommendationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns Auto Scaling group recommendations.</p>

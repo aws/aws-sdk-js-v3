@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDBSecurityGroupCommandInput = DeleteDBSecurityGroupMessage;
-export type DeleteDBSecurityGroupCommandOutput = __MetadataBearer;
+export interface DeleteDBSecurityGroupCommandInput extends DeleteDBSecurityGroupMessage {}
+export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a DB security group.</p>

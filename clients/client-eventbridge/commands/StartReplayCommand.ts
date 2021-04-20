@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartReplayCommandInput = StartReplayRequest;
-export type StartReplayCommandOutput = StartReplayResponse & __MetadataBearer;
+export interface StartReplayCommandInput extends StartReplayRequest {}
+export interface StartReplayCommandOutput extends StartReplayResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the specified replay. Events are not necessarily replayed in the exact same order

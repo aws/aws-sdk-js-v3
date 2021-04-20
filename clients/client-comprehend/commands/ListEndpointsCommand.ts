@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEndpointsCommandInput = ListEndpointsRequest;
-export type ListEndpointsCommandOutput = ListEndpointsResponse & __MetadataBearer;
+export interface ListEndpointsCommandInput extends ListEndpointsRequest {}
+export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of all existing endpoints that you've created.</p>

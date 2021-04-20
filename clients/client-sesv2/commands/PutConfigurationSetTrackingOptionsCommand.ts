@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutConfigurationSetTrackingOptionsCommandInput = PutConfigurationSetTrackingOptionsRequest;
-export type PutConfigurationSetTrackingOptionsCommandOutput = PutConfigurationSetTrackingOptionsResponse &
-  __MetadataBearer;
+export interface PutConfigurationSetTrackingOptionsCommandInput extends PutConfigurationSetTrackingOptionsRequest {}
+export interface PutConfigurationSetTrackingOptionsCommandOutput
+  extends PutConfigurationSetTrackingOptionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Specify a custom domain to use for open and click tracking elements in email that you

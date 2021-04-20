@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVPCEConfigurationCommandInput = DeleteVPCEConfigurationRequest;
-export type DeleteVPCEConfigurationCommandOutput = DeleteVPCEConfigurationResult & __MetadataBearer;
+export interface DeleteVPCEConfigurationCommandInput extends DeleteVPCEConfigurationRequest {}
+export interface DeleteVPCEConfigurationCommandOutput extends DeleteVPCEConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a configuration for your Amazon Virtual Private Cloud (VPC) endpoint.</p>

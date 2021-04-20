@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVolumeInitiatorsCommandInput = ListVolumeInitiatorsInput;
-export type ListVolumeInitiatorsCommandOutput = ListVolumeInitiatorsOutput & __MetadataBearer;
+export interface ListVolumeInitiatorsCommandInput extends ListVolumeInitiatorsInput {}
+export interface ListVolumeInitiatorsCommandOutput extends ListVolumeInitiatorsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists iSCSI initiators that are connected to a volume. You can use this operation to

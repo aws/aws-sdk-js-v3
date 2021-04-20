@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateResourceShareCommandInput = CreateResourceShareRequest;
-export type CreateResourceShareCommandOutput = CreateResourceShareResponse & __MetadataBearer;
+export interface CreateResourceShareCommandInput extends CreateResourceShareRequest {}
+export interface CreateResourceShareCommandOutput extends CreateResourceShareResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a resource share.</p>

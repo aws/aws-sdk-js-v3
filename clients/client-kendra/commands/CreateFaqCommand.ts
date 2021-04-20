@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFaqCommandInput = CreateFaqRequest;
-export type CreateFaqCommandOutput = CreateFaqResponse & __MetadataBearer;
+export interface CreateFaqCommandInput extends CreateFaqRequest {}
+export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>

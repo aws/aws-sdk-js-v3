@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePolicyCommandInput = UpdatePolicyRequest;
-export type UpdatePolicyCommandOutput = UpdatePolicyResponse & __MetadataBearer;
+export interface UpdatePolicyCommandInput extends UpdatePolicyRequest {}
+export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing policy with a new name, description, or content. If you don't

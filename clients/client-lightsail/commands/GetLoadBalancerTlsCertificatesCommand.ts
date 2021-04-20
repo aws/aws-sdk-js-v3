@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLoadBalancerTlsCertificatesCommandInput = GetLoadBalancerTlsCertificatesRequest;
-export type GetLoadBalancerTlsCertificatesCommandOutput = GetLoadBalancerTlsCertificatesResult & __MetadataBearer;
+export interface GetLoadBalancerTlsCertificatesCommandInput extends GetLoadBalancerTlsCertificatesRequest {}
+export interface GetLoadBalancerTlsCertificatesCommandOutput
+  extends GetLoadBalancerTlsCertificatesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about the TLS certificates that are associated with the specified

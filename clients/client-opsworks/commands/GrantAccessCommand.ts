@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GrantAccessCommandInput = GrantAccessRequest;
-export type GrantAccessCommandOutput = GrantAccessResult & __MetadataBearer;
+export interface GrantAccessCommandInput extends GrantAccessRequest {}
+export interface GrantAccessCommandOutput extends GrantAccessResult, __MetadataBearer {}
 
 /**
  * <note>

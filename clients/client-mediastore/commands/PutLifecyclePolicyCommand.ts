@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutLifecyclePolicyCommandInput = PutLifecyclePolicyInput;
-export type PutLifecyclePolicyCommandOutput = PutLifecyclePolicyOutput & __MetadataBearer;
+export interface PutLifecyclePolicyCommandInput extends PutLifecyclePolicyInput {}
+export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Writes an object lifecycle policy to a container. If the container already has an object lifecycle policy, the service replaces the existing policy with the new policy. It takes up to 20 minutes for the change to take effect.</p>

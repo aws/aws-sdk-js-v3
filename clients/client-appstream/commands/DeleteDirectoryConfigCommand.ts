@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDirectoryConfigCommandInput = DeleteDirectoryConfigRequest;
-export type DeleteDirectoryConfigCommandOutput = DeleteDirectoryConfigResult & __MetadataBearer;
+export interface DeleteDirectoryConfigCommandInput extends DeleteDirectoryConfigRequest {}
+export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfigResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Directory Config object from AppStream 2.0. This object includes the information required to join streaming instances to an Active Directory domain.</p>

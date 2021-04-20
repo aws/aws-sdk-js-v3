@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeKinesisStreamingDestinationCommandInput = DescribeKinesisStreamingDestinationInput;
-export type DescribeKinesisStreamingDestinationCommandOutput = DescribeKinesisStreamingDestinationOutput &
-  __MetadataBearer;
+export interface DescribeKinesisStreamingDestinationCommandInput extends DescribeKinesisStreamingDestinationInput {}
+export interface DescribeKinesisStreamingDestinationCommandOutput
+  extends DescribeKinesisStreamingDestinationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about the status of Kinesis streaming.</p>

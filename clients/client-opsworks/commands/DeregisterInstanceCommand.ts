@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterInstanceCommandInput = DeregisterInstanceRequest;
-export type DeregisterInstanceCommandOutput = __MetadataBearer;
+export interface DeregisterInstanceCommandInput extends DeregisterInstanceRequest {}
+export interface DeregisterInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deregister a registered Amazon EC2 or on-premises instance. This action removes the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateOpsMetadataCommandInput = CreateOpsMetadataRequest;
-export type CreateOpsMetadataCommandOutput = CreateOpsMetadataResult & __MetadataBearer;
+export interface CreateOpsMetadataCommandInput extends CreateOpsMetadataRequest {}
+export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult, __MetadataBearer {}
 
 /**
  * <p>If you create a new application in Application Manager, Systems Manager calls this API action to specify

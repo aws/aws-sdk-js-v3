@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateNotebookInstanceCommandInput = UpdateNotebookInstanceInput;
-export type UpdateNotebookInstanceCommandOutput = UpdateNotebookInstanceOutput & __MetadataBearer;
+export interface UpdateNotebookInstanceCommandInput extends UpdateNotebookInstanceInput {}
+export interface UpdateNotebookInstanceCommandOutput extends UpdateNotebookInstanceOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a notebook instance. NotebookInstance updates include upgrading or

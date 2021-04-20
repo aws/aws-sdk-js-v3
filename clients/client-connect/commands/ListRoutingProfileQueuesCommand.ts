@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRoutingProfileQueuesCommandInput = ListRoutingProfileQueuesRequest;
-export type ListRoutingProfileQueuesCommandOutput = ListRoutingProfileQueuesResponse & __MetadataBearer;
+export interface ListRoutingProfileQueuesCommandInput extends ListRoutingProfileQueuesRequest {}
+export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfileQueuesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the queues associated with a routing profile.</p>

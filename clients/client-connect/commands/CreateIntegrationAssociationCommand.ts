@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateIntegrationAssociationCommandInput = CreateIntegrationAssociationRequest;
-export type CreateIntegrationAssociationCommandOutput = CreateIntegrationAssociationResponse & __MetadataBearer;
+export interface CreateIntegrationAssociationCommandInput extends CreateIntegrationAssociationRequest {}
+export interface CreateIntegrationAssociationCommandOutput
+  extends CreateIntegrationAssociationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

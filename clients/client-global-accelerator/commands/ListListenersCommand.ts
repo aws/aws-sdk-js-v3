@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListListenersCommandInput = ListListenersRequest;
-export type ListListenersCommandOutput = ListListenersResponse & __MetadataBearer;
+export interface ListListenersCommandInput extends ListListenersRequest {}
+export interface ListListenersCommandOutput extends ListListenersResponse, __MetadataBearer {}
 
 /**
  * <p>List the listeners for an accelerator. </p>

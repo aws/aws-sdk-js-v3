@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBackupVaultCommandInput = DeleteBackupVaultInput;
-export type DeleteBackupVaultCommandOutput = __MetadataBearer;
+export interface DeleteBackupVaultCommandInput extends DeleteBackupVaultInput {}
+export interface DeleteBackupVaultCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the backup vault identified by its name. A vault can be deleted only if it is

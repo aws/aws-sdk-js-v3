@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopRelationalDatabaseCommandInput = StopRelationalDatabaseRequest;
-export type StopRelationalDatabaseCommandOutput = StopRelationalDatabaseResult & __MetadataBearer;
+export interface StopRelationalDatabaseCommandInput extends StopRelationalDatabaseRequest {}
+export interface StopRelationalDatabaseCommandOutput extends StopRelationalDatabaseResult, __MetadataBearer {}
 
 /**
  * <p>Stops a specific database that is currently running in Amazon Lightsail.</p>

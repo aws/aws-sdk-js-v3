@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAnomalyDetectorsCommandInput = ListAnomalyDetectorsRequest;
-export type ListAnomalyDetectorsCommandOutput = ListAnomalyDetectorsResponse & __MetadataBearer;
+export interface ListAnomalyDetectorsCommandInput extends ListAnomalyDetectorsRequest {}
+export interface ListAnomalyDetectorsCommandOutput extends ListAnomalyDetectorsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the detectors in the current AWS Region.</p>

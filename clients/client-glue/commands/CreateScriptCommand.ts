@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateScriptCommandInput = CreateScriptRequest;
-export type CreateScriptCommandOutput = CreateScriptResponse & __MetadataBearer;
+export interface CreateScriptCommandInput extends CreateScriptRequest {}
+export interface CreateScriptCommandOutput extends CreateScriptResponse, __MetadataBearer {}
 
 /**
  * <p>Transforms a directed acyclic graph (DAG) into code.</p>

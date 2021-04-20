@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInsightSelectorsCommandInput = GetInsightSelectorsRequest;
-export type GetInsightSelectorsCommandOutput = GetInsightSelectorsResponse & __MetadataBearer;
+export interface GetInsightSelectorsCommandInput extends GetInsightSelectorsRequest {}
+export interface GetInsightSelectorsCommandOutput extends GetInsightSelectorsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the settings for the Insights event selectors that you configured for your trail. <code>GetInsightSelectors</code> shows

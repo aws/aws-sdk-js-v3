@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePipelineDefinitionForExecutionCommandInput = DescribePipelineDefinitionForExecutionRequest;
-export type DescribePipelineDefinitionForExecutionCommandOutput = DescribePipelineDefinitionForExecutionResponse &
-  __MetadataBearer;
+export interface DescribePipelineDefinitionForExecutionCommandInput
+  extends DescribePipelineDefinitionForExecutionRequest {}
+export interface DescribePipelineDefinitionForExecutionCommandOutput
+  extends DescribePipelineDefinitionForExecutionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the details of an execution's pipeline definition.</p>

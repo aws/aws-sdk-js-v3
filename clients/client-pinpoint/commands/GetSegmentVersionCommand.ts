@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSegmentVersionCommandInput = GetSegmentVersionRequest;
-export type GetSegmentVersionCommandOutput = GetSegmentVersionResponse & __MetadataBearer;
+export interface GetSegmentVersionCommandInput extends GetSegmentVersionRequest {}
+export interface GetSegmentVersionCommandOutput extends GetSegmentVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the configuration, dimension, and other settings for a specific version of a segment that's associated with an application.</p>

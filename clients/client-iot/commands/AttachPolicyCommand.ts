@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachPolicyCommandInput = AttachPolicyRequest;
-export type AttachPolicyCommandOutput = __MetadataBearer;
+export interface AttachPolicyCommandInput extends AttachPolicyRequest {}
+export interface AttachPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attaches a policy to the specified target.</p>

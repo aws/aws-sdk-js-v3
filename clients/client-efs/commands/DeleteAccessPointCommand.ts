@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAccessPointCommandInput = DeleteAccessPointRequest;
-export type DeleteAccessPointCommandOutput = __MetadataBearer;
+export interface DeleteAccessPointCommandInput extends DeleteAccessPointRequest {}
+export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified access point. After deletion is complete, new clients can no

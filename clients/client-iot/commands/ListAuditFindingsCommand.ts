@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAuditFindingsCommandInput = ListAuditFindingsRequest;
-export type ListAuditFindingsCommandOutput = ListAuditFindingsResponse & __MetadataBearer;
+export interface ListAuditFindingsCommandInput extends ListAuditFindingsRequest {}
+export interface ListAuditFindingsCommandOutput extends ListAuditFindingsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the findings (results) of a Device Defender audit or of the audits

@@ -17,8 +17,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateEnvironmentOperationsRoleCommandInput = DisassociateEnvironmentOperationsRoleMessage;
-export type DisassociateEnvironmentOperationsRoleCommandOutput = __MetadataBearer;
+export interface DisassociateEnvironmentOperationsRoleCommandInput
+  extends DisassociateEnvironmentOperationsRoleMessage {}
+export interface DisassociateEnvironmentOperationsRoleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disassociate the operations role from an environment. After this call is made, Elastic Beanstalk uses

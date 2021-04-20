@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAttacksCommandInput = ListAttacksRequest;
-export type ListAttacksCommandOutput = ListAttacksResponse & __MetadataBearer;
+export interface ListAttacksCommandInput extends ListAttacksRequest {}
+export interface ListAttacksCommandOutput extends ListAttacksResponse, __MetadataBearer {}
 
 /**
  * <p>Returns all ongoing DDoS attacks or all DDoS attacks during a specified time

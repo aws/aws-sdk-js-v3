@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCommandInvocationsCommandInput = ListCommandInvocationsRequest;
-export type ListCommandInvocationsCommandOutput = ListCommandInvocationsResult & __MetadataBearer;
+export interface ListCommandInvocationsCommandInput extends ListCommandInvocationsRequest {}
+export interface ListCommandInvocationsCommandOutput extends ListCommandInvocationsResult, __MetadataBearer {}
 
 /**
  * <p>An invocation is copy of a command sent to a specific instance. A command can apply to one

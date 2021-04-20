@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSchemasCommandInput = ListSchemasInput;
-export type ListSchemasCommandOutput = ListSchemasResponse & __MetadataBearer;
+export interface ListSchemasCommandInput extends ListSchemasInput {}
+export interface ListSchemasCommandOutput extends ListSchemasResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of schemas with minimal details. Schemas in Deleting status will not be included in the results. Empty results will be returned if there are no schemas available.</p>

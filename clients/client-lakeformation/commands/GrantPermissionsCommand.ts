@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GrantPermissionsCommandInput = GrantPermissionsRequest;
-export type GrantPermissionsCommandOutput = GrantPermissionsResponse & __MetadataBearer;
+export interface GrantPermissionsCommandInput extends GrantPermissionsRequest {}
+export interface GrantPermissionsCommandOutput extends GrantPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartSessionCommandInput = StartSessionRequest;
-export type StartSessionCommandOutput = StartSessionResponse & __MetadataBearer;
+export interface StartSessionCommandInput extends StartSessionRequest {}
+export interface StartSessionCommandOutput extends StartSessionResponse, __MetadataBearer {}
 
 /**
  * <p>Initiates a connection to a target (for example, an instance) for a Session Manager session. Returns a

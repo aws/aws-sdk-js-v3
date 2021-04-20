@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLoginProfileCommandInput = GetLoginProfileRequest;
-export type GetLoginProfileCommandOutput = GetLoginProfileResponse & __MetadataBearer;
+export interface GetLoginProfileCommandInput extends GetLoginProfileRequest {}
+export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the user name and password creation date for the specified IAM user. If

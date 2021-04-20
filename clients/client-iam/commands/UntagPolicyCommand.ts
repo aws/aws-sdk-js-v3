@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagPolicyCommandInput = UntagPolicyRequest;
-export type UntagPolicyCommandOutput = __MetadataBearer;
+export interface UntagPolicyCommandInput extends UntagPolicyRequest {}
+export interface UntagPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified tags from the customer managed policy. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the

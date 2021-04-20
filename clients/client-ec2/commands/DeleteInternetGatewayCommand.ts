@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteInternetGatewayCommandInput = DeleteInternetGatewayRequest;
-export type DeleteInternetGatewayCommandOutput = __MetadataBearer;
+export interface DeleteInternetGatewayCommandInput extends DeleteInternetGatewayRequest {}
+export interface DeleteInternetGatewayCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified internet gateway. You must detach the internet gateway from the

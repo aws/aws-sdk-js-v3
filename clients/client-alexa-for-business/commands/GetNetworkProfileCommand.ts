@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetNetworkProfileCommandInput = GetNetworkProfileRequest;
-export type GetNetworkProfileCommandOutput = GetNetworkProfileResponse & __MetadataBearer;
+export interface GetNetworkProfileCommandInput extends GetNetworkProfileRequest {}
+export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the network profile details by the network profile ARN.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLexiconCommandInput = DeleteLexiconInput;
-export type DeleteLexiconCommandOutput = DeleteLexiconOutput & __MetadataBearer;
+export interface DeleteLexiconCommandInput extends DeleteLexiconInput {}
+export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified pronunciation lexicon stored in an AWS Region. A lexicon which

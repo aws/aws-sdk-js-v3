@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSlotCommandInput = DeleteSlotRequest;
-export type DeleteSlotCommandOutput = __MetadataBearer;
+export interface DeleteSlotCommandInput extends DeleteSlotRequest {}
+export interface DeleteSlotCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified slot from an intent.</p>

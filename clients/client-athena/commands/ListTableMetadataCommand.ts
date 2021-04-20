@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTableMetadataCommandInput = ListTableMetadataInput;
-export type ListTableMetadataCommandOutput = ListTableMetadataOutput & __MetadataBearer;
+export interface ListTableMetadataCommandInput extends ListTableMetadataInput {}
+export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the metadata for the tables in the specified data catalog database.</p>

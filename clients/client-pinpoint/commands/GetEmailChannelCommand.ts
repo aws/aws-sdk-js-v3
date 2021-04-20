@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEmailChannelCommandInput = GetEmailChannelRequest;
-export type GetEmailChannelCommandOutput = GetEmailChannelResponse & __MetadataBearer;
+export interface GetEmailChannelCommandInput extends GetEmailChannelRequest {}
+export interface GetEmailChannelCommandOutput extends GetEmailChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the status and settings of the email channel for an application.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type WriteRecordsCommandInput = WriteRecordsRequest;
-export type WriteRecordsCommandOutput = __MetadataBearer;
+export interface WriteRecordsCommandInput extends WriteRecordsRequest {}
+export interface WriteRecordsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>The WriteRecords operation enables you to write your time series

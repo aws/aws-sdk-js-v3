@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListJobsCommandInput = ListJobsRequest;
-export type ListJobsCommandOutput = ListJobsResponse & __MetadataBearer;
+export interface ListJobsCommandInput extends ListJobsRequest {}
+export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBearer {}
 
 /**
  * <p>This operation lists your jobs sorted by CreatedAt in descending order.</p>

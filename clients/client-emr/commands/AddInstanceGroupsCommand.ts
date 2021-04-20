@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddInstanceGroupsCommandInput = AddInstanceGroupsInput;
-export type AddInstanceGroupsCommandOutput = AddInstanceGroupsOutput & __MetadataBearer;
+export interface AddInstanceGroupsCommandInput extends AddInstanceGroupsInput {}
+export interface AddInstanceGroupsCommandOutput extends AddInstanceGroupsOutput, __MetadataBearer {}
 
 /**
  * <p>Adds one or more instance groups to a running cluster.</p>

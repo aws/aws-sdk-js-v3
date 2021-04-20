@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteApiKeyCommandInput = DeleteApiKeyRequest;
-export type DeleteApiKeyCommandOutput = __MetadataBearer;
+export interface DeleteApiKeyCommandInput extends DeleteApiKeyRequest {}
+export interface DeleteApiKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the <a>ApiKey</a> resource.</p>

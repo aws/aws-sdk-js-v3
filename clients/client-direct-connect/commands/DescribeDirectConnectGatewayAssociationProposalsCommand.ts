@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDirectConnectGatewayAssociationProposalsCommandInput = DescribeDirectConnectGatewayAssociationProposalsRequest;
-export type DescribeDirectConnectGatewayAssociationProposalsCommandOutput = DescribeDirectConnectGatewayAssociationProposalsResult &
-  __MetadataBearer;
+export interface DescribeDirectConnectGatewayAssociationProposalsCommandInput
+  extends DescribeDirectConnectGatewayAssociationProposalsRequest {}
+export interface DescribeDirectConnectGatewayAssociationProposalsCommandOutput
+  extends DescribeDirectConnectGatewayAssociationProposalsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes one or more association proposals for connection between a virtual private gateway or transit gateway and a Direct Connect gateway. </p>

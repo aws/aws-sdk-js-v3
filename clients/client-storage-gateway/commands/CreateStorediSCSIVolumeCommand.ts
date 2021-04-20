@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStorediSCSIVolumeCommandInput = CreateStorediSCSIVolumeInput;
-export type CreateStorediSCSIVolumeCommandOutput = CreateStorediSCSIVolumeOutput & __MetadataBearer;
+export interface CreateStorediSCSIVolumeCommandInput extends CreateStorediSCSIVolumeInput {}
+export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIVolumeOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a volume on a specified gateway. This operation is only supported in the stored

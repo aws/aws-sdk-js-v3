@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetContextKeysForPrincipalPolicyCommandInput = GetContextKeysForPrincipalPolicyRequest;
-export type GetContextKeysForPrincipalPolicyCommandOutput = GetContextKeysForPolicyResponse & __MetadataBearer;
+export interface GetContextKeysForPrincipalPolicyCommandInput extends GetContextKeysForPrincipalPolicyRequest {}
+export interface GetContextKeysForPrincipalPolicyCommandOutput
+  extends GetContextKeysForPolicyResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets a list of all of the context keys referenced in all the IAM policies that are

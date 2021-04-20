@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateProvisionedProductCommandInput = UpdateProvisionedProductInput;
-export type UpdateProvisionedProductCommandOutput = UpdateProvisionedProductOutput & __MetadataBearer;
+export interface UpdateProvisionedProductCommandInput extends UpdateProvisionedProductInput {}
+export interface UpdateProvisionedProductCommandOutput extends UpdateProvisionedProductOutput, __MetadataBearer {}
 
 /**
  * <p>Requests updates to the configuration of the specified provisioned product.</p>

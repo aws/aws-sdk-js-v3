@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUserByPrincipalIdCommandInput = DeleteUserByPrincipalIdRequest;
-export type DeleteUserByPrincipalIdCommandOutput = DeleteUserByPrincipalIdResponse & __MetadataBearer;
+export interface DeleteUserByPrincipalIdCommandInput extends DeleteUserByPrincipalIdRequest {}
+export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrincipalIdResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a user identified by its principal ID. </p>

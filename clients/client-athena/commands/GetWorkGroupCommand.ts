@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetWorkGroupCommandInput = GetWorkGroupInput;
-export type GetWorkGroupCommandOutput = GetWorkGroupOutput & __MetadataBearer;
+export interface GetWorkGroupCommandInput extends GetWorkGroupInput {}
+export interface GetWorkGroupCommandOutput extends GetWorkGroupOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the workgroup with the specified name.</p>

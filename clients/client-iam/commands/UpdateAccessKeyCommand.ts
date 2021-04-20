@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAccessKeyCommandInput = UpdateAccessKeyRequest;
-export type UpdateAccessKeyCommandOutput = __MetadataBearer;
+export interface UpdateAccessKeyCommandInput extends UpdateAccessKeyRequest {}
+export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Changes the status of the specified access key from Active to Inactive, or vice versa.

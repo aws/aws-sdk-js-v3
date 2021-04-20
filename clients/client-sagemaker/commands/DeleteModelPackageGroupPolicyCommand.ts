@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteModelPackageGroupPolicyCommandInput = DeleteModelPackageGroupPolicyInput;
-export type DeleteModelPackageGroupPolicyCommandOutput = __MetadataBearer;
+export interface DeleteModelPackageGroupPolicyCommandInput extends DeleteModelPackageGroupPolicyInput {}
+export interface DeleteModelPackageGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a model group resource policy.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetJobManifestCommandInput = GetJobManifestRequest;
-export type GetJobManifestCommandOutput = GetJobManifestResult & __MetadataBearer;
+export interface GetJobManifestCommandInput extends GetJobManifestRequest {}
+export interface GetJobManifestCommandOutput extends GetJobManifestResult, __MetadataBearer {}
 
 /**
  * <p>Returns a link to an Amazon S3 presigned URL for the manifest file associated with the

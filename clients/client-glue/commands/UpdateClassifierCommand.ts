@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateClassifierCommandInput = UpdateClassifierRequest;
-export type UpdateClassifierCommandOutput = UpdateClassifierResponse & __MetadataBearer;
+export interface UpdateClassifierCommandInput extends UpdateClassifierRequest {}
+export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies an existing classifier (a <code>GrokClassifier</code>,

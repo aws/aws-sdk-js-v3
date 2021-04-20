@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTrafficMirrorFilterRuleCommandInput = DeleteTrafficMirrorFilterRuleRequest;
-export type DeleteTrafficMirrorFilterRuleCommandOutput = DeleteTrafficMirrorFilterRuleResult & __MetadataBearer;
+export interface DeleteTrafficMirrorFilterRuleCommandInput extends DeleteTrafficMirrorFilterRuleRequest {}
+export interface DeleteTrafficMirrorFilterRuleCommandOutput
+  extends DeleteTrafficMirrorFilterRuleResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Traffic Mirror rule.</p>

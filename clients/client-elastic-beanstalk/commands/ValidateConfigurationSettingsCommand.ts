@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ValidateConfigurationSettingsCommandInput = ValidateConfigurationSettingsMessage;
-export type ValidateConfigurationSettingsCommandOutput = ConfigurationSettingsValidationMessages & __MetadataBearer;
+export interface ValidateConfigurationSettingsCommandInput extends ValidateConfigurationSettingsMessage {}
+export interface ValidateConfigurationSettingsCommandOutput
+  extends ConfigurationSettingsValidationMessages,
+    __MetadataBearer {}
 
 /**
  * <p>Takes a set of configuration settings and either a configuration template or

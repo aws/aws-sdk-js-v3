@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisablePolicyTypeCommandInput = DisablePolicyTypeRequest;
-export type DisablePolicyTypeCommandOutput = DisablePolicyTypeResponse & __MetadataBearer;
+export interface DisablePolicyTypeCommandInput extends DisablePolicyTypeRequest {}
+export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeResponse, __MetadataBearer {}
 
 /**
  * <p>Disables an organizational policy type in a root. A policy of a certain type can be

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPolicyTagsCommandInput = ListPolicyTagsRequest;
-export type ListPolicyTagsCommandOutput = ListPolicyTagsResponse & __MetadataBearer;
+export interface ListPolicyTagsCommandInput extends ListPolicyTagsRequest {}
+export interface ListPolicyTagsCommandOutput extends ListPolicyTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the tags that are attached to the specified IAM customer managed policy.

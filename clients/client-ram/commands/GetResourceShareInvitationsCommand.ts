@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResourceShareInvitationsCommandInput = GetResourceShareInvitationsRequest;
-export type GetResourceShareInvitationsCommandOutput = GetResourceShareInvitationsResponse & __MetadataBearer;
+export interface GetResourceShareInvitationsCommandInput extends GetResourceShareInvitationsRequest {}
+export interface GetResourceShareInvitationsCommandOutput
+  extends GetResourceShareInvitationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the invitations for resource sharing that you've received.</p>

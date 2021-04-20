@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchCreateAttendeeCommandInput = BatchCreateAttendeeRequest;
-export type BatchCreateAttendeeCommandOutput = BatchCreateAttendeeResponse & __MetadataBearer;
+export interface BatchCreateAttendeeCommandInput extends BatchCreateAttendeeRequest {}
+export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeResponse, __MetadataBearer {}
 
 /**
  * <p>

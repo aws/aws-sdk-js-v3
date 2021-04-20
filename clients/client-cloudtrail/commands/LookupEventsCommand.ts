@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type LookupEventsCommandInput = LookupEventsRequest;
-export type LookupEventsCommandOutput = LookupEventsResponse & __MetadataBearer;
+export interface LookupEventsCommandInput extends LookupEventsRequest {}
+export interface LookupEventsCommandOutput extends LookupEventsResponse, __MetadataBearer {}
 
 /**
  * <p>Looks up <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-management-events">management events</a> or

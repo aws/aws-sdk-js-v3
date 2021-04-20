@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutComponentPolicyCommandInput = PutComponentPolicyRequest;
-export type PutComponentPolicyCommandOutput = PutComponentPolicyResponse & __MetadataBearer;
+export interface PutComponentPolicyCommandInput extends PutComponentPolicyRequest {}
+export interface PutComponentPolicyCommandOutput extends PutComponentPolicyResponse, __MetadataBearer {}
 
 /**
  * <p> Applies a policy to a component. We recommend that you call the RAM API <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_CreateResourceShare.html">CreateResourceShare</a> to share resources. If you call the Image Builder API

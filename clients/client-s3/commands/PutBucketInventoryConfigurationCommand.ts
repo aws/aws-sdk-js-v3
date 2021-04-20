@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBucketInventoryConfigurationCommandInput = PutBucketInventoryConfigurationRequest;
-export type PutBucketInventoryConfigurationCommandOutput = __MetadataBearer;
+export interface PutBucketInventoryConfigurationCommandInput extends PutBucketInventoryConfigurationRequest {}
+export interface PutBucketInventoryConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This implementation of the <code>PUT</code> action adds an inventory configuration

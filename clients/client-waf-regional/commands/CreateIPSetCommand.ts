@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateIPSetCommandInput = CreateIPSetRequest;
-export type CreateIPSetCommandOutput = CreateIPSetResponse & __MetadataBearer;
+export interface CreateIPSetCommandInput extends CreateIPSetRequest {}
+export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __MetadataBearer {}
 
 /**
  * <note>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBandwidthRateLimitCommandInput = DescribeBandwidthRateLimitInput;
-export type DescribeBandwidthRateLimitCommandOutput = DescribeBandwidthRateLimitOutput & __MetadataBearer;
+export interface DescribeBandwidthRateLimitCommandInput extends DescribeBandwidthRateLimitInput {}
+export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwidthRateLimitOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the bandwidth rate limits of a gateway. By default, these limits are not set,

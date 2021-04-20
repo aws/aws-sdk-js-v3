@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteArchiveRuleCommandInput = DeleteArchiveRuleRequest;
-export type DeleteArchiveRuleCommandOutput = __MetadataBearer;
+export interface DeleteArchiveRuleCommandInput extends DeleteArchiveRuleRequest {}
+export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified archive rule.</p>

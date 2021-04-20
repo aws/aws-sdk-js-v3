@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterDelegatedAdministratorCommandInput = DeregisterDelegatedAdministratorRequest;
-export type DeregisterDelegatedAdministratorCommandOutput = __MetadataBearer;
+export interface DeregisterDelegatedAdministratorCommandInput extends DeregisterDelegatedAdministratorRequest {}
+export interface DeregisterDelegatedAdministratorCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified member AWS account as a delegated administrator for the

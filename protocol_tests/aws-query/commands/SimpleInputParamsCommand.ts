@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SimpleInputParamsCommandInput = SimpleInputParamsInput;
-export type SimpleInputParamsCommandOutput = __MetadataBearer;
+export interface SimpleInputParamsCommandInput extends SimpleInputParamsInput {}
+export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
 
 /**
  * This test serializes strings, numbers, and boolean values.

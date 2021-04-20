@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStreamingDistributionWithTagsCommandInput = CreateStreamingDistributionWithTagsRequest;
-export type CreateStreamingDistributionWithTagsCommandOutput = CreateStreamingDistributionWithTagsResult &
-  __MetadataBearer;
+export interface CreateStreamingDistributionWithTagsCommandInput extends CreateStreamingDistributionWithTagsRequest {}
+export interface CreateStreamingDistributionWithTagsCommandOutput
+  extends CreateStreamingDistributionWithTagsResult,
+    __MetadataBearer {}
 
 /**
  * <p>This API is deprecated.

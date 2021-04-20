@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDataCatalogCommandInput = DeleteDataCatalogInput;
-export type DeleteDataCatalogCommandOutput = DeleteDataCatalogOutput & __MetadataBearer;
+export interface DeleteDataCatalogCommandInput extends DeleteDataCatalogInput {}
+export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a data catalog.</p>

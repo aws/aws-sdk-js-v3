@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteIAMPolicyAssignmentCommandInput = DeleteIAMPolicyAssignmentRequest;
-export type DeleteIAMPolicyAssignmentCommandOutput = DeleteIAMPolicyAssignmentResponse & __MetadataBearer;
+export interface DeleteIAMPolicyAssignmentCommandInput extends DeleteIAMPolicyAssignmentRequest {}
+export interface DeleteIAMPolicyAssignmentCommandOutput extends DeleteIAMPolicyAssignmentResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing IAM policy assignment.</p>

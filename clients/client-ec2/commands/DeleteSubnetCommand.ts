@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSubnetCommandInput = DeleteSubnetRequest;
-export type DeleteSubnetCommandOutput = __MetadataBearer;
+export interface DeleteSubnetCommandInput extends DeleteSubnetRequest {}
+export interface DeleteSubnetCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified subnet. You must terminate all running instances in the subnet before you can delete the subnet.</p>

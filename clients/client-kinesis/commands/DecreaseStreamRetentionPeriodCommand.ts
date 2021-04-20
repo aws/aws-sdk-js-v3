@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DecreaseStreamRetentionPeriodCommandInput = DecreaseStreamRetentionPeriodInput;
-export type DecreaseStreamRetentionPeriodCommandOutput = __MetadataBearer;
+export interface DecreaseStreamRetentionPeriodCommandInput extends DecreaseStreamRetentionPeriodInput {}
+export interface DecreaseStreamRetentionPeriodCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Decreases the Kinesis data stream's retention period, which is the length of time

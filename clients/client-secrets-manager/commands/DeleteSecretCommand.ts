@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSecretCommandInput = DeleteSecretRequest;
-export type DeleteSecretCommandOutput = DeleteSecretResponse & __MetadataBearer;
+export interface DeleteSecretCommandInput extends DeleteSecretRequest {}
+export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an entire secret and all of the versions. You can optionally include a recovery

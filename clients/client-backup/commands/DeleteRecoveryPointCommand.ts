@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRecoveryPointCommandInput = DeleteRecoveryPointInput;
-export type DeleteRecoveryPointCommandOutput = __MetadataBearer;
+export interface DeleteRecoveryPointCommandInput extends DeleteRecoveryPointInput {}
+export interface DeleteRecoveryPointCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the recovery point specified by a recovery point ID.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTerminationPolicyTypesCommandInput = {};
-export type DescribeTerminationPolicyTypesCommandOutput = DescribeTerminationPolicyTypesAnswer & __MetadataBearer;
+export interface DescribeTerminationPolicyTypesCommandInput {}
+export interface DescribeTerminationPolicyTypesCommandOutput
+  extends DescribeTerminationPolicyTypesAnswer,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p>

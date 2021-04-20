@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLayerVersionPolicyCommandInput = GetLayerVersionPolicyRequest;
-export type GetLayerVersionPolicyCommandOutput = GetLayerVersionPolicyResponse & __MetadataBearer;
+export interface GetLayerVersionPolicyCommandInput extends GetLayerVersionPolicyRequest {}
+export interface GetLayerVersionPolicyCommandOutput extends GetLayerVersionPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda

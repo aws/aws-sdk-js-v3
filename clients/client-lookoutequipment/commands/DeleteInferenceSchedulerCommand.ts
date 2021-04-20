@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteInferenceSchedulerCommandInput = DeleteInferenceSchedulerRequest;
-export type DeleteInferenceSchedulerCommandOutput = __MetadataBearer;
+export interface DeleteInferenceSchedulerCommandInput extends DeleteInferenceSchedulerRequest {}
+export interface DeleteInferenceSchedulerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an inference scheduler that has been set up. Already processed output results

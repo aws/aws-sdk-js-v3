@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateContainerInstancesStateCommandInput = UpdateContainerInstancesStateRequest;
-export type UpdateContainerInstancesStateCommandOutput = UpdateContainerInstancesStateResponse & __MetadataBearer;
+export interface UpdateContainerInstancesStateCommandInput extends UpdateContainerInstancesStateRequest {}
+export interface UpdateContainerInstancesStateCommandOutput
+  extends UpdateContainerInstancesStateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies the status of an Amazon ECS container instance.</p>

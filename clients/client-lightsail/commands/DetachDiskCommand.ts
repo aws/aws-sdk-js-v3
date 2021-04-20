@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachDiskCommandInput = DetachDiskRequest;
-export type DetachDiskCommandOutput = DetachDiskResult & __MetadataBearer;
+export interface DetachDiskCommandInput extends DetachDiskRequest {}
+export interface DetachDiskCommandOutput extends DetachDiskResult, __MetadataBearer {}
 
 /**
  * <p>Detaches a stopped block storage disk from a Lightsail instance. Make sure to unmount

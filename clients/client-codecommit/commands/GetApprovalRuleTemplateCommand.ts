@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetApprovalRuleTemplateCommandInput = GetApprovalRuleTemplateInput;
-export type GetApprovalRuleTemplateCommandOutput = GetApprovalRuleTemplateOutput & __MetadataBearer;
+export interface GetApprovalRuleTemplateCommandInput extends GetApprovalRuleTemplateInput {}
+export interface GetApprovalRuleTemplateCommandOutput extends GetApprovalRuleTemplateOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about a specified approval rule template.</p>

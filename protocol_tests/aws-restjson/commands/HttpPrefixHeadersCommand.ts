@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type HttpPrefixHeadersCommandInput = HttpPrefixHeadersInputOutput;
-export type HttpPrefixHeadersCommandOutput = HttpPrefixHeadersInputOutput & __MetadataBearer;
+export interface HttpPrefixHeadersCommandInput extends HttpPrefixHeadersInputOutput {}
+export interface HttpPrefixHeadersCommandOutput extends HttpPrefixHeadersInputOutput, __MetadataBearer {}
 
 /**
  * This examples adds headers to the input of a request and response by prefix.

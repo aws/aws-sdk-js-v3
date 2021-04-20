@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetExportCommandInput = GetExportRequest;
-export type GetExportCommandOutput = ExportResponse & __MetadataBearer;
+export interface GetExportCommandInput extends GetExportRequest {}
+export interface GetExportCommandOutput extends ExportResponse, __MetadataBearer {}
 
 /**
  * <p>Exports a deployed version of a <a>RestApi</a> in a specified format.</p>

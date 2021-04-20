@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePhoneNumberSettingsCommandInput = UpdatePhoneNumberSettingsRequest;
-export type UpdatePhoneNumberSettingsCommandOutput = __MetadataBearer;
+export interface UpdatePhoneNumberSettingsCommandInput extends UpdatePhoneNumberSettingsRequest {}
+export interface UpdatePhoneNumberSettingsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the phone number settings for the administrator's AWS account, such as the default

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFleetCommandInput = CreateFleetRequest;
-export type CreateFleetCommandOutput = CreateFleetResponse & __MetadataBearer;
+export interface CreateFleetCommandInput extends CreateFleetRequest {}
+export interface CreateFleetCommandOutput extends CreateFleetResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a fleet, a logical group of robots running the same robot application.</p>

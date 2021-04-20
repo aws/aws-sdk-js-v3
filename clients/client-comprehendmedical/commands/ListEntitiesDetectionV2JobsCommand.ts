@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEntitiesDetectionV2JobsCommandInput = ListEntitiesDetectionV2JobsRequest;
-export type ListEntitiesDetectionV2JobsCommandOutput = ListEntitiesDetectionV2JobsResponse & __MetadataBearer;
+export interface ListEntitiesDetectionV2JobsCommandInput extends ListEntitiesDetectionV2JobsRequest {}
+export interface ListEntitiesDetectionV2JobsCommandOutput
+  extends ListEntitiesDetectionV2JobsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets a list of medical entity detection jobs that you have submitted.</p>

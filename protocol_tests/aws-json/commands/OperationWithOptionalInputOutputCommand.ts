@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type OperationWithOptionalInputOutputCommandInput = SimpleStruct;
-export type OperationWithOptionalInputOutputCommandOutput = SimpleStruct & __MetadataBearer;
+export interface OperationWithOptionalInputOutputCommandInput extends SimpleStruct {}
+export interface OperationWithOptionalInputOutputCommandOutput extends SimpleStruct, __MetadataBearer {}
 
 export class OperationWithOptionalInputOutputCommand extends $Command<
   OperationWithOptionalInputOutputCommandInput,

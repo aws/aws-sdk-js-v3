@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListNotificationsCommandInput = ListNotificationsRequest;
-export type ListNotificationsCommandOutput = ListNotificationsResponse & __MetadataBearer;
+export interface ListNotificationsCommandInput extends ListNotificationsRequest {}
+export interface ListNotificationsCommandOutput extends ListNotificationsResponse, __MetadataBearer {}
 
 /**
  * <p>

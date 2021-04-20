@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDiskFromSnapshotCommandInput = CreateDiskFromSnapshotRequest;
-export type CreateDiskFromSnapshotCommandOutput = CreateDiskFromSnapshotResult & __MetadataBearer;
+export interface CreateDiskFromSnapshotCommandInput extends CreateDiskFromSnapshotRequest {}
+export interface CreateDiskFromSnapshotCommandOutput extends CreateDiskFromSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a block storage disk from a manual or automatic snapshot of a disk. The resulting

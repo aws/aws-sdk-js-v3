@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDetectorModelCommandInput = UpdateDetectorModelRequest;
-export type UpdateDetectorModelCommandOutput = UpdateDetectorModelResponse & __MetadataBearer;
+export interface UpdateDetectorModelCommandInput extends UpdateDetectorModelRequest {}
+export interface UpdateDetectorModelCommandOutput extends UpdateDetectorModelResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a detector model. Detectors (instances) spawned by the previous version are

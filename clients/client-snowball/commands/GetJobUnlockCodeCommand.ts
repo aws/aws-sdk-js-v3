@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetJobUnlockCodeCommandInput = GetJobUnlockCodeRequest;
-export type GetJobUnlockCodeCommandOutput = GetJobUnlockCodeResult & __MetadataBearer;
+export interface GetJobUnlockCodeCommandInput extends GetJobUnlockCodeRequest {}
+export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, __MetadataBearer {}
 
 /**
  * <p>Returns the <code>UnlockCode</code> code value for the specified job. A particular

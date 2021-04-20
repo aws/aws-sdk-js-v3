@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateContributorInsightsCommandInput = UpdateContributorInsightsInput;
-export type UpdateContributorInsightsCommandOutput = UpdateContributorInsightsOutput & __MetadataBearer;
+export interface UpdateContributorInsightsCommandInput extends UpdateContributorInsightsInput {}
+export interface UpdateContributorInsightsCommandOutput extends UpdateContributorInsightsOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the status for contributor insights for a specific table or index.</p>

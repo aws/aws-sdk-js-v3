@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateUserPoolDomainCommandInput = UpdateUserPoolDomainRequest;
-export type UpdateUserPoolDomainCommandOutput = UpdateUserPoolDomainResponse & __MetadataBearer;
+export interface UpdateUserPoolDomainCommandInput extends UpdateUserPoolDomainRequest {}
+export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the Secure Sockets Layer (SSL) certificate for the custom domain for your user

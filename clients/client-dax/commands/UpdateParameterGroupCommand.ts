@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateParameterGroupCommandInput = UpdateParameterGroupRequest;
-export type UpdateParameterGroupCommandOutput = UpdateParameterGroupResponse & __MetadataBearer;
+export interface UpdateParameterGroupCommandInput extends UpdateParameterGroupRequest {}
+export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the parameters of a parameter group. You can modify up to 20

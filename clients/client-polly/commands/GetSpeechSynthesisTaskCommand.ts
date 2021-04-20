@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSpeechSynthesisTaskCommandInput = GetSpeechSynthesisTaskInput;
-export type GetSpeechSynthesisTaskCommandOutput = GetSpeechSynthesisTaskOutput & __MetadataBearer;
+export interface GetSpeechSynthesisTaskCommandInput extends GetSpeechSynthesisTaskInput {}
+export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisTaskOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object contains

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetTagsForResourceCommandInput = SetTagsForResourceRequest;
-export type SetTagsForResourceCommandOutput = __MetadataBearer;
+export interface SetTagsForResourceCommandInput extends SetTagsForResourceRequest {}
+export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets tags (key and value pairs) to the assessment template that is specified by the

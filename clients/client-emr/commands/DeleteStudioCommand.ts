@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteStudioCommandInput = DeleteStudioInput;
-export type DeleteStudioCommandOutput = __MetadataBearer;
+export interface DeleteStudioCommandInput extends DeleteStudioInput {}
+export interface DeleteStudioCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes an Amazon EMR Studio from the Studio metadata store.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SyncDeploymentJobCommandInput = SyncDeploymentJobRequest;
-export type SyncDeploymentJobCommandOutput = SyncDeploymentJobResponse & __MetadataBearer;
+export interface SyncDeploymentJobCommandInput extends SyncDeploymentJobRequest {}
+export interface SyncDeploymentJobCommandOutput extends SyncDeploymentJobResponse, __MetadataBearer {}
 
 /**
  * <p>Syncrhonizes robots in a fleet to the latest deployment. This is helpful if robots were

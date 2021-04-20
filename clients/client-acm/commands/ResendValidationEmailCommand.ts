@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResendValidationEmailCommandInput = ResendValidationEmailRequest;
-export type ResendValidationEmailCommandOutput = __MetadataBearer;
+export interface ResendValidationEmailCommandInput extends ResendValidationEmailRequest {}
+export interface ResendValidationEmailCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Resends the email that requests domain ownership validation. The domain owner or an

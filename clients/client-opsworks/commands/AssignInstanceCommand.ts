@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssignInstanceCommandInput = AssignInstanceRequest;
-export type AssignInstanceCommandOutput = __MetadataBearer;
+export interface AssignInstanceCommandInput extends AssignInstanceRequest {}
+export interface AssignInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Assign a registered instance to a layer.</p>

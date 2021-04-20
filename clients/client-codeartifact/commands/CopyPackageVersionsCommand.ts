@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CopyPackageVersionsCommandInput = CopyPackageVersionsRequest;
-export type CopyPackageVersionsCommandOutput = CopyPackageVersionsResult & __MetadataBearer;
+export interface CopyPackageVersionsCommandInput extends CopyPackageVersionsRequest {}
+export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsResult, __MetadataBearer {}
 
 /**
  * <p>

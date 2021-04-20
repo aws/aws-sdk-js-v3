@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRemediationExceptionsCommandInput = DeleteRemediationExceptionsRequest;
-export type DeleteRemediationExceptionsCommandOutput = DeleteRemediationExceptionsResponse & __MetadataBearer;
+export interface DeleteRemediationExceptionsCommandInput extends DeleteRemediationExceptionsRequest {}
+export interface DeleteRemediationExceptionsCommandOutput
+  extends DeleteRemediationExceptionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes one or more remediation exceptions mentioned in the resource keys.</p>

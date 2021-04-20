@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUsagePlanKeyCommandInput = DeleteUsagePlanKeyRequest;
-export type DeleteUsagePlanKeyCommandOutput = __MetadataBearer;
+export interface DeleteUsagePlanKeyCommandInput extends DeleteUsagePlanKeyRequest {}
+export interface DeleteUsagePlanKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a usage plan key  and remove the underlying API key from the associated usage plan.</p>

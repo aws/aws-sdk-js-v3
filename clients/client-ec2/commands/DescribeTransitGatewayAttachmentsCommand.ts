@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTransitGatewayAttachmentsCommandInput = DescribeTransitGatewayAttachmentsRequest;
-export type DescribeTransitGatewayAttachmentsCommandOutput = DescribeTransitGatewayAttachmentsResult & __MetadataBearer;
+export interface DescribeTransitGatewayAttachmentsCommandInput extends DescribeTransitGatewayAttachmentsRequest {}
+export interface DescribeTransitGatewayAttachmentsCommandOutput
+  extends DescribeTransitGatewayAttachmentsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes one or more attachments between resources and transit gateways. By default, all attachments are described.

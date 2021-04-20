@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDigestCommandInput = GetDigestRequest;
-export type GetDigestCommandOutput = GetDigestResponse & __MetadataBearer;
+export interface GetDigestCommandInput extends GetDigestRequest {}
+export interface GetDigestCommandOutput extends GetDigestResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the digest of a ledger at the latest committed block in the journal. The

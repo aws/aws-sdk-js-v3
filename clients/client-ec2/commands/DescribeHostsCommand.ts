@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeHostsCommandInput = DescribeHostsRequest;
-export type DescribeHostsCommandOutput = DescribeHostsResult & __MetadataBearer;
+export interface DescribeHostsCommandInput extends DescribeHostsRequest {}
+export interface DescribeHostsCommandOutput extends DescribeHostsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified Dedicated Hosts or all your Dedicated Hosts.</p>

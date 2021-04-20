@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateGatewayGroupCommandInput = UpdateGatewayGroupRequest;
-export type UpdateGatewayGroupCommandOutput = UpdateGatewayGroupResponse & __MetadataBearer;
+export interface UpdateGatewayGroupCommandInput extends UpdateGatewayGroupRequest {}
+export interface UpdateGatewayGroupCommandOutput extends UpdateGatewayGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the details of a gateway group. If any optional field is not provided, the

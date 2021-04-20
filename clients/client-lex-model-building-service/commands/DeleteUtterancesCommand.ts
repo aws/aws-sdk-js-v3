@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUtterancesCommandInput = DeleteUtterancesRequest;
-export type DeleteUtterancesCommandOutput = __MetadataBearer;
+export interface DeleteUtterancesCommandInput extends DeleteUtterancesRequest {}
+export interface DeleteUtterancesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes stored utterances.</p>

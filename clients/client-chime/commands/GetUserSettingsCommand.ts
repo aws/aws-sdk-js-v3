@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUserSettingsCommandInput = GetUserSettingsRequest;
-export type GetUserSettingsCommandOutput = GetUserSettingsResponse & __MetadataBearer;
+export interface GetUserSettingsCommandInput extends GetUserSettingsRequest {}
+export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves settings for the specified user ID, such as any associated phone number settings.</p>

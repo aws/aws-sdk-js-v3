@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTagsCommandInput = DescribeTagsRequest;
-export type DescribeTagsCommandOutput = DescribeTagsResult & __MetadataBearer;
+export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
+export interface DescribeTagsCommandOutput extends DescribeTagsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified tags for your EC2 resources.</p>

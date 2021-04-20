@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociatePhoneNumbersFromVoiceConnectorCommandInput = DisassociatePhoneNumbersFromVoiceConnectorRequest;
-export type DisassociatePhoneNumbersFromVoiceConnectorCommandOutput = DisassociatePhoneNumbersFromVoiceConnectorResponse &
-  __MetadataBearer;
+export interface DisassociatePhoneNumbersFromVoiceConnectorCommandInput
+  extends DisassociatePhoneNumbersFromVoiceConnectorRequest {}
+export interface DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
+  extends DisassociatePhoneNumbersFromVoiceConnectorResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector.</p>

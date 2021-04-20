@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeActivityTypeCommandInput = DescribeActivityTypeInput;
-export type DescribeActivityTypeCommandOutput = ActivityTypeDetail & __MetadataBearer;
+export interface DescribeActivityTypeCommandInput extends DescribeActivityTypeInput {}
+export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, __MetadataBearer {}
 
 /**
  * <p>Returns information about the specified activity type. This includes configuration

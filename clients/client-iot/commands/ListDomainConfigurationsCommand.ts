@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDomainConfigurationsCommandInput = ListDomainConfigurationsRequest;
-export type ListDomainConfigurationsCommandOutput = ListDomainConfigurationsResponse & __MetadataBearer;
+export interface ListDomainConfigurationsCommandInput extends ListDomainConfigurationsRequest {}
+export interface ListDomainConfigurationsCommandOutput extends ListDomainConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p>

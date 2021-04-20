@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePermissionSetCommandInput = CreatePermissionSetRequest;
-export type CreatePermissionSetCommandOutput = CreatePermissionSetResponse & __MetadataBearer;
+export interface CreatePermissionSetCommandInput extends CreatePermissionSetRequest {}
+export interface CreatePermissionSetCommandOutput extends CreatePermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a permission set within a specified SSO instance.</p>

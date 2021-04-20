@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSourceServerCommandInput = DeleteSourceServerRequest;
-export type DeleteSourceServerCommandOutput = DeleteSourceServerResponse & __MetadataBearer;
+export interface DeleteSourceServerCommandInput extends DeleteSourceServerRequest {}
+export interface DeleteSourceServerCommandOutput extends DeleteSourceServerResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a single source server by ID.</p>

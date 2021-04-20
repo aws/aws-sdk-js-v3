@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDashboardCommandInput = GetDashboardInput;
-export type GetDashboardCommandOutput = GetDashboardOutput & __MetadataBearer;
+export interface GetDashboardCommandInput extends GetDashboardInput {}
+export interface GetDashboardCommandOutput extends GetDashboardOutput, __MetadataBearer {}
 
 /**
  * <p>Displays the details of the dashboard that you specify.</p>

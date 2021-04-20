@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePackageVersionsStatusCommandInput = UpdatePackageVersionsStatusRequest;
-export type UpdatePackageVersionsStatusCommandOutput = UpdatePackageVersionsStatusResult & __MetadataBearer;
+export interface UpdatePackageVersionsStatusCommandInput extends UpdatePackageVersionsStatusRequest {}
+export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageVersionsStatusResult, __MetadataBearer {}
 
 /**
  * <p>

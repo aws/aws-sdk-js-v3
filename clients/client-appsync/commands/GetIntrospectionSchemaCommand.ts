@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetIntrospectionSchemaCommandInput = GetIntrospectionSchemaRequest;
-export type GetIntrospectionSchemaCommandOutput = GetIntrospectionSchemaResponse & __MetadataBearer;
+export interface GetIntrospectionSchemaCommandInput extends GetIntrospectionSchemaRequest {}
+export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSchemaResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the introspection schema for a GraphQL API.</p>

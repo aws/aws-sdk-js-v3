@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartElasticsearchServiceSoftwareUpdateCommandInput = StartElasticsearchServiceSoftwareUpdateRequest;
-export type StartElasticsearchServiceSoftwareUpdateCommandOutput = StartElasticsearchServiceSoftwareUpdateResponse &
-  __MetadataBearer;
+export interface StartElasticsearchServiceSoftwareUpdateCommandInput
+  extends StartElasticsearchServiceSoftwareUpdateRequest {}
+export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
+  extends StartElasticsearchServiceSoftwareUpdateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Schedules a service software update for an Amazon ES domain.</p>

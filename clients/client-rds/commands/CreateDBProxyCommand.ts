@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDBProxyCommandInput = CreateDBProxyRequest;
-export type CreateDBProxyCommandOutput = CreateDBProxyResponse & __MetadataBearer;
+export interface CreateDBProxyCommandInput extends CreateDBProxyRequest {}
+export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new DB proxy.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSMBFileSharesCommandInput = DescribeSMBFileSharesInput;
-export type DescribeSMBFileSharesCommandOutput = DescribeSMBFileSharesOutput & __MetadataBearer;
+export interface DescribeSMBFileSharesCommandInput extends DescribeSMBFileSharesInput {}
+export interface DescribeSMBFileSharesCommandOutput extends DescribeSMBFileSharesOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a description for one or more Server Message Block (SMB) file shares from a file

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCustomMetricCommandInput = DeleteCustomMetricRequest;
-export type DeleteCustomMetricCommandOutput = DeleteCustomMetricResponse & __MetadataBearer;
+export interface DeleteCustomMetricCommandInput extends DeleteCustomMetricRequest {}
+export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricResponse, __MetadataBearer {}
 
 /**
  * <note>

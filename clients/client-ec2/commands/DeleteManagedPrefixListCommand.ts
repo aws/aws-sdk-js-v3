@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteManagedPrefixListCommandInput = DeleteManagedPrefixListRequest;
-export type DeleteManagedPrefixListCommandOutput = DeleteManagedPrefixListResult & __MetadataBearer;
+export interface DeleteManagedPrefixListCommandInput extends DeleteManagedPrefixListRequest {}
+export interface DeleteManagedPrefixListCommandOutput extends DeleteManagedPrefixListResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified managed prefix list. You must first remove all references to the prefix list in your resources.</p>

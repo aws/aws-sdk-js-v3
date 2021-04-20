@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReimportApiCommandInput = ReimportApiRequest;
-export type ReimportApiCommandOutput = ReimportApiResponse & __MetadataBearer;
+export interface ReimportApiCommandInput extends ReimportApiRequest {}
+export interface ReimportApiCommandOutput extends ReimportApiResponse, __MetadataBearer {}
 
 /**
  * <p>Puts an Api resource.</p>

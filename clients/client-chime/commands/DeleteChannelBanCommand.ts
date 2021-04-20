@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteChannelBanCommandInput = DeleteChannelBanRequest;
-export type DeleteChannelBanCommandOutput = __MetadataBearer;
+export interface DeleteChannelBanCommandInput extends DeleteChannelBanRequest {}
+export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes a user from a channel's ban list.</p>

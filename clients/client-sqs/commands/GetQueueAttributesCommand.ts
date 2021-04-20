@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetQueueAttributesCommandInput = GetQueueAttributesRequest;
-export type GetQueueAttributesCommandOutput = GetQueueAttributesResult & __MetadataBearer;
+export interface GetQueueAttributesCommandInput extends GetQueueAttributesRequest {}
+export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResult, __MetadataBearer {}
 
 /**
  * <p>Gets attributes for the specified queue.</p>

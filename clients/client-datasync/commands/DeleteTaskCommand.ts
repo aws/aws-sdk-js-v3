@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTaskCommandInput = DeleteTaskRequest;
-export type DeleteTaskCommandOutput = DeleteTaskResponse & __MetadataBearer;
+export interface DeleteTaskCommandInput extends DeleteTaskRequest {}
+export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a task.</p>

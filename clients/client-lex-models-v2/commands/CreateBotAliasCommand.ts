@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBotAliasCommandInput = CreateBotAliasRequest;
-export type CreateBotAliasCommandOutput = CreateBotAliasResponse & __MetadataBearer;
+export interface CreateBotAliasCommandInput extends CreateBotAliasRequest {}
+export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an alias for the specified version of a bot. Use an alias to

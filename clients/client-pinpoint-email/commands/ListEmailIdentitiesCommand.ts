@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEmailIdentitiesCommandInput = ListEmailIdentitiesRequest;
-export type ListEmailIdentitiesCommandOutput = ListEmailIdentitiesResponse & __MetadataBearer;
+export interface ListEmailIdentitiesCommandInput extends ListEmailIdentitiesRequest {}
+export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of all of the email identities that are associated with your Amazon Pinpoint

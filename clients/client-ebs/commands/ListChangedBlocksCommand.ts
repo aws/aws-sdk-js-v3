@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListChangedBlocksCommandInput = ListChangedBlocksRequest;
-export type ListChangedBlocksCommandOutput = ListChangedBlocksResponse & __MetadataBearer;
+export interface ListChangedBlocksCommandInput extends ListChangedBlocksRequest {}
+export interface ListChangedBlocksCommandOutput extends ListChangedBlocksResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the blocks that are different between two

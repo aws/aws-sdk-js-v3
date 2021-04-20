@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeModelPackageGroupCommandInput = DescribeModelPackageGroupInput;
-export type DescribeModelPackageGroupCommandOutput = DescribeModelPackageGroupOutput & __MetadataBearer;
+export interface DescribeModelPackageGroupCommandInput extends DescribeModelPackageGroupInput {}
+export interface DescribeModelPackageGroupCommandOutput extends DescribeModelPackageGroupOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a description for the specified model group.</p>

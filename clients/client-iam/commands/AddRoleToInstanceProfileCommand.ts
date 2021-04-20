@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddRoleToInstanceProfileCommandInput = AddRoleToInstanceProfileRequest;
-export type AddRoleToInstanceProfileCommandOutput = __MetadataBearer;
+export interface AddRoleToInstanceProfileCommandInput extends AddRoleToInstanceProfileRequest {}
+export interface AddRoleToInstanceProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds the specified IAM role to the specified instance profile. An instance profile

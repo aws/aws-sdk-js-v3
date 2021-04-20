@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAssessmentTemplatesCommandInput = ListAssessmentTemplatesRequest;
-export type ListAssessmentTemplatesCommandOutput = ListAssessmentTemplatesResponse & __MetadataBearer;
+export interface ListAssessmentTemplatesCommandInput extends ListAssessmentTemplatesRequest {}
+export interface ListAssessmentTemplatesCommandOutput extends ListAssessmentTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the assessment templates that correspond to the assessment targets that are

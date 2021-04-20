@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDatasetEntriesCommandInput = UpdateDatasetEntriesRequest;
-export type UpdateDatasetEntriesCommandOutput = UpdateDatasetEntriesResponse & __MetadataBearer;
+export interface UpdateDatasetEntriesCommandInput extends UpdateDatasetEntriesRequest {}
+export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesResponse, __MetadataBearer {}
 
 /**
  * <p>Adds one or more JSON Line entries to a dataset. A JSON Line includes information about an image

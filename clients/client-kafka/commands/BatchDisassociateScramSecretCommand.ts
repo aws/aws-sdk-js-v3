@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDisassociateScramSecretCommandInput = BatchDisassociateScramSecretRequest;
-export type BatchDisassociateScramSecretCommandOutput = BatchDisassociateScramSecretResponse & __MetadataBearer;
+export interface BatchDisassociateScramSecretCommandInput extends BatchDisassociateScramSecretRequest {}
+export interface BatchDisassociateScramSecretCommandOutput
+  extends BatchDisassociateScramSecretResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates one or more Scram Secrets from an Amazon MSK cluster.</p>

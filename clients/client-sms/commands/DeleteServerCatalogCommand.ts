@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteServerCatalogCommandInput = DeleteServerCatalogRequest;
-export type DeleteServerCatalogCommandOutput = DeleteServerCatalogResponse & __MetadataBearer;
+export interface DeleteServerCatalogCommandInput extends DeleteServerCatalogRequest {}
+export interface DeleteServerCatalogCommandOutput extends DeleteServerCatalogResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes all servers from your server catalog.</p>

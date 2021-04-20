@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInstancesHealthCommandInput = DescribeInstancesHealthRequest;
-export type DescribeInstancesHealthCommandOutput = DescribeInstancesHealthResult & __MetadataBearer;
+export interface DescribeInstancesHealthCommandInput extends DescribeInstancesHealthRequest {}
+export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesHealthResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves detailed information about the health of instances in your AWS Elastic

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEventTypesCommandInput = DescribeEventTypesRequest;
-export type DescribeEventTypesCommandOutput = DescribeEventTypesResponse & __MetadataBearer;
+export interface DescribeEventTypesCommandInput extends DescribeEventTypesRequest {}
+export interface DescribeEventTypesCommandOutput extends DescribeEventTypesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the event types that meet the specified filter criteria. You can use this API

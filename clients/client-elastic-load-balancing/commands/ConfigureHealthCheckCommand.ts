@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ConfigureHealthCheckCommandInput = ConfigureHealthCheckInput;
-export type ConfigureHealthCheckCommandOutput = ConfigureHealthCheckOutput & __MetadataBearer;
+export interface ConfigureHealthCheckCommandInput extends ConfigureHealthCheckInput {}
+export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckOutput, __MetadataBearer {}
 
 /**
  * <p>Specifies the health check settings to use when evaluating the health state of your EC2 instances.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetContactMethodsCommandInput = GetContactMethodsRequest;
-export type GetContactMethodsCommandOutput = GetContactMethodsResult & __MetadataBearer;
+export interface GetContactMethodsCommandInput extends GetContactMethodsRequest {}
+export interface GetContactMethodsCommandOutput extends GetContactMethodsResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about the configured contact methods. Specify a protocol in your

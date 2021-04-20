@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableKinesisStreamingDestinationCommandInput = KinesisStreamingDestinationInput;
-export type EnableKinesisStreamingDestinationCommandOutput = KinesisStreamingDestinationOutput & __MetadataBearer;
+export interface EnableKinesisStreamingDestinationCommandInput extends KinesisStreamingDestinationInput {}
+export interface EnableKinesisStreamingDestinationCommandOutput
+  extends KinesisStreamingDestinationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Starts table data replication to the specified Kinesis data stream at a timestamp chosen

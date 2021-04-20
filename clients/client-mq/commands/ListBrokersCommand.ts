@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBrokersCommandInput = ListBrokersRequest;
-export type ListBrokersCommandOutput = ListBrokersResponse & __MetadataBearer;
+export interface ListBrokersCommandInput extends ListBrokersRequest {}
+export interface ListBrokersCommandOutput extends ListBrokersResponse, __MetadataBearer {}
 
 /**
  * Returns a list of all brokers.

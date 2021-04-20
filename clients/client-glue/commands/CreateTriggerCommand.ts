@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTriggerCommandInput = CreateTriggerRequest;
-export type CreateTriggerCommandOutput = CreateTriggerResponse & __MetadataBearer;
+export interface CreateTriggerCommandInput extends CreateTriggerRequest {}
+export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new trigger.</p>

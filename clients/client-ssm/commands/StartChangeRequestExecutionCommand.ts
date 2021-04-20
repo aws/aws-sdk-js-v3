@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartChangeRequestExecutionCommandInput = StartChangeRequestExecutionRequest;
-export type StartChangeRequestExecutionCommandOutput = StartChangeRequestExecutionResult & __MetadataBearer;
+export interface StartChangeRequestExecutionCommandInput extends StartChangeRequestExecutionRequest {}
+export interface StartChangeRequestExecutionCommandOutput extends StartChangeRequestExecutionResult, __MetadataBearer {}
 
 /**
  * <p>Creates a change request for Change Manager. The runbooks (Automation documents) specified in the

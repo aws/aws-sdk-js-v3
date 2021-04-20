@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFileSystemPolicyCommandInput = DescribeFileSystemPolicyRequest;
-export type DescribeFileSystemPolicyCommandOutput = FileSystemPolicyDescription & __MetadataBearer;
+export interface DescribeFileSystemPolicyCommandInput extends DescribeFileSystemPolicyRequest {}
+export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyDescription, __MetadataBearer {}
 
 /**
  * <p>Returns the <code>FileSystemPolicy</code> for the specified EFS file system.</p>

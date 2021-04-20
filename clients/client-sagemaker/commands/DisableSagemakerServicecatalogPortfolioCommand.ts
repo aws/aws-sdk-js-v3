@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableSagemakerServicecatalogPortfolioCommandInput = DisableSagemakerServicecatalogPortfolioInput;
-export type DisableSagemakerServicecatalogPortfolioCommandOutput = DisableSagemakerServicecatalogPortfolioOutput &
-  __MetadataBearer;
+export interface DisableSagemakerServicecatalogPortfolioCommandInput
+  extends DisableSagemakerServicecatalogPortfolioInput {}
+export interface DisableSagemakerServicecatalogPortfolioCommandOutput
+  extends DisableSagemakerServicecatalogPortfolioOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Disables using Service Catalog in SageMaker. Service Catalog is used to create

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVersionsByFunctionCommandInput = ListVersionsByFunctionRequest;
-export type ListVersionsByFunctionCommandOutput = ListVersionsByFunctionResponse & __MetadataBearer;
+export interface ListVersionsByFunctionCommandInput extends ListVersionsByFunctionRequest {}
+export interface ListVersionsByFunctionCommandOutput extends ListVersionsByFunctionResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">versions</a>,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateActivationCommandInput = CreateActivationRequest;
-export type CreateActivationCommandOutput = CreateActivationResult & __MetadataBearer;
+export interface CreateActivationCommandInput extends CreateActivationRequest {}
+export interface CreateActivationCommandOutput extends CreateActivationResult, __MetadataBearer {}
 
 /**
  * <p>Generates an activation code and activation ID you can use to register your on-premises

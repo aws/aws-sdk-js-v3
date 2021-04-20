@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProjectCommandInput = DeleteProjectInput;
-export type DeleteProjectCommandOutput = __MetadataBearer;
+export interface DeleteProjectCommandInput extends DeleteProjectInput {}
+export interface DeleteProjectCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete the specified project.</p>

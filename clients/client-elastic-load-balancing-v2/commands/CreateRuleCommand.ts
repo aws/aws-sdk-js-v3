@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRuleCommandInput = CreateRuleInput;
-export type CreateRuleCommandOutput = CreateRuleOutput & __MetadataBearer;
+export interface CreateRuleCommandInput extends CreateRuleInput {}
+export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a rule for the specified listener. The listener must be associated with an

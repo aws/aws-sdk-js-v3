@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchSuspendUserCommandInput = BatchSuspendUserRequest;
-export type BatchSuspendUserCommandOutput = BatchSuspendUserResponse & __MetadataBearer;
+export interface BatchSuspendUserCommandInput extends BatchSuspendUserRequest {}
+export interface BatchSuspendUserCommandOutput extends BatchSuspendUserResponse, __MetadataBearer {}
 
 /**
  * <p>Suspends up to 50 users from a <code>Team</code> or <code>EnterpriseLWA</code> Amazon Chime

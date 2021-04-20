@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteNotebookInstanceLifecycleConfigCommandInput = DeleteNotebookInstanceLifecycleConfigInput;
-export type DeleteNotebookInstanceLifecycleConfigCommandOutput = __MetadataBearer;
+export interface DeleteNotebookInstanceLifecycleConfigCommandInput extends DeleteNotebookInstanceLifecycleConfigInput {}
+export interface DeleteNotebookInstanceLifecycleConfigCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a notebook instance lifecycle configuration.</p>

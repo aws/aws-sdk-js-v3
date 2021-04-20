@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTargetHealthCommandInput = DescribeTargetHealthInput;
-export type DescribeTargetHealthCommandOutput = DescribeTargetHealthOutput & __MetadataBearer;
+export interface DescribeTargetHealthCommandInput extends DescribeTargetHealthInput {}
+export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the health of the specified targets or all of your targets.</p>

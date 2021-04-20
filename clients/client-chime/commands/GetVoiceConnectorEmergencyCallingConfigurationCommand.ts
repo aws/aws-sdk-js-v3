@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetVoiceConnectorEmergencyCallingConfigurationCommandInput = GetVoiceConnectorEmergencyCallingConfigurationRequest;
-export type GetVoiceConnectorEmergencyCallingConfigurationCommandOutput = GetVoiceConnectorEmergencyCallingConfigurationResponse &
-  __MetadataBearer;
+export interface GetVoiceConnectorEmergencyCallingConfigurationCommandInput
+  extends GetVoiceConnectorEmergencyCallingConfigurationRequest {}
+export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
+  extends GetVoiceConnectorEmergencyCallingConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the emergency calling configuration details for the specified Amazon Chime Voice Connector.</p>

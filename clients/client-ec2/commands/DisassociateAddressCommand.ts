@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateAddressCommandInput = DisassociateAddressRequest;
-export type DisassociateAddressCommandOutput = __MetadataBearer;
+export interface DisassociateAddressCommandInput extends DisassociateAddressRequest {}
+export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disassociates an Elastic IP address from the instance or network interface it's associated with.</p>

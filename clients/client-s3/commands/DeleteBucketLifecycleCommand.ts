@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBucketLifecycleCommandInput = DeleteBucketLifecycleRequest;
-export type DeleteBucketLifecycleCommandOutput = __MetadataBearer;
+export interface DeleteBucketLifecycleCommandInput extends DeleteBucketLifecycleRequest {}
+export interface DeleteBucketLifecycleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the lifecycle configuration from the specified bucket. Amazon S3 removes all the

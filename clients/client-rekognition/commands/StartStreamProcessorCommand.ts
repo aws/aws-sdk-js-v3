@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartStreamProcessorCommandInput = StartStreamProcessorRequest;
-export type StartStreamProcessorCommandOutput = StartStreamProcessorResponse & __MetadataBearer;
+export interface StartStreamProcessorCommandInput extends StartStreamProcessorRequest {}
+export interface StartStreamProcessorCommandOutput extends StartStreamProcessorResponse, __MetadataBearer {}
 
 /**
  * <p>Starts processing a stream processor. You create a stream processor by calling <a>CreateStreamProcessor</a>.

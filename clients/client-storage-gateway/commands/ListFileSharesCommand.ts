@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFileSharesCommandInput = ListFileSharesInput;
-export type ListFileSharesCommandOutput = ListFileSharesOutput & __MetadataBearer;
+export interface ListFileSharesCommandInput extends ListFileSharesInput {}
+export interface ListFileSharesCommandOutput extends ListFileSharesOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the file shares for a specific file gateway, or the list of file shares

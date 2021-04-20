@@ -17,10 +17,17 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StreamingTraitsCommandInput = Omit<StreamingTraitsInputOutput, "blob"> & {
+type StreamingTraitsCommandInputType = Omit<StreamingTraitsInputOutput, "blob"> & {
+  /**
+   * For *`StreamingTraitsInputOutput["blob"]`*, see {@link StreamingTraitsInputOutput.blob}.
+   */
   blob?: StreamingTraitsInputOutput["blob"] | string | Uint8Array | Buffer;
 };
-export type StreamingTraitsCommandOutput = StreamingTraitsInputOutput & __MetadataBearer;
+/**
+ * This interface extends from `StreamingTraitsInputOutput` interface. There are more parameters than `blob` defined in {@link StreamingTraitsInputOutput}
+ */
+export interface StreamingTraitsCommandInput extends StreamingTraitsCommandInputType {}
+export interface StreamingTraitsCommandOutput extends StreamingTraitsInputOutput, __MetadataBearer {}
 
 /**
  * This examples serializes a streaming blob shape in the request body.

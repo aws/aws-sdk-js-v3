@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportVolumeCommandInput = ImportVolumeRequest;
-export type ImportVolumeCommandOutput = ImportVolumeResult & __MetadataBearer;
+export interface ImportVolumeCommandInput extends ImportVolumeRequest {}
+export interface ImportVolumeCommandOutput extends ImportVolumeResult, __MetadataBearer {}
 
 /**
  * <p>Creates an import volume task using metadata from the specified disk image.</p>

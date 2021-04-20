@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListJobsCommandInput = ListJobsRequest;
-export type ListJobsCommandOutput = ListJobsResponse & __MetadataBearer;
+export interface ListJobsCommandInput extends ListJobsRequest {}
+export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the names of all job resources in this AWS account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>

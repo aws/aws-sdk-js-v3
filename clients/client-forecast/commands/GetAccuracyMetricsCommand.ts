@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccuracyMetricsCommandInput = GetAccuracyMetricsRequest;
-export type GetAccuracyMetricsCommandOutput = GetAccuracyMetricsResponse & __MetadataBearer;
+export interface GetAccuracyMetricsCommandInput extends GetAccuracyMetricsRequest {}
+export interface GetAccuracyMetricsCommandOutput extends GetAccuracyMetricsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides metrics on the accuracy of the models that were trained by the <a>CreatePredictor</a> operation. Use metrics to see how well the model performed and

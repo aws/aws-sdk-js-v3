@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBackendAPICommandInput = GetBackendAPIRequest;
-export type GetBackendAPICommandOutput = GetBackendAPIResponse & __MetadataBearer;
+export interface GetBackendAPICommandInput extends GetBackendAPIRequest {}
+export interface GetBackendAPICommandOutput extends GetBackendAPIResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the details for a backend API.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSessionEmbedUrlCommandInput = GetSessionEmbedUrlRequest;
-export type GetSessionEmbedUrlCommandOutput = GetSessionEmbedUrlResponse & __MetadataBearer;
+export interface GetSessionEmbedUrlCommandInput extends GetSessionEmbedUrlRequest {}
+export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a session URL and authorization code that you can use to embed the Amazon

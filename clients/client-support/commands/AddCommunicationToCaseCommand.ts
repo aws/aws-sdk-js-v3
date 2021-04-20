@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddCommunicationToCaseCommandInput = AddCommunicationToCaseRequest;
-export type AddCommunicationToCaseCommandOutput = AddCommunicationToCaseResponse & __MetadataBearer;
+export interface AddCommunicationToCaseCommandInput extends AddCommunicationToCaseRequest {}
+export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToCaseResponse, __MetadataBearer {}
 
 /**
  * <p>Adds additional customer communication to an AWS Support case. Use the <code>caseId</code>

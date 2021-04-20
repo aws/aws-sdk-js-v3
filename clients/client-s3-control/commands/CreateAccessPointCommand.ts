@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAccessPointCommandInput = CreateAccessPointRequest;
-export type CreateAccessPointCommandOutput = CreateAccessPointResult & __MetadataBearer;
+export interface CreateAccessPointCommandInput extends CreateAccessPointRequest {}
+export interface CreateAccessPointCommandOutput extends CreateAccessPointResult, __MetadataBearer {}
 
 /**
  * <p>Creates an access point and associates it with the specified bucket. For more information, see

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCertificateAuthorityAuditReportCommandInput = DescribeCertificateAuthorityAuditReportRequest;
-export type DescribeCertificateAuthorityAuditReportCommandOutput = DescribeCertificateAuthorityAuditReportResponse &
-  __MetadataBearer;
+export interface DescribeCertificateAuthorityAuditReportCommandInput
+  extends DescribeCertificateAuthorityAuditReportRequest {}
+export interface DescribeCertificateAuthorityAuditReportCommandOutput
+  extends DescribeCertificateAuthorityAuditReportResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists information about a specific audit report created by calling the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthorityAuditReport.html">CreateCertificateAuthorityAuditReport</a> action. Audit information is created

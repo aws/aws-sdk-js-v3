@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeGameSessionQueuesCommandInput = DescribeGameSessionQueuesInput;
-export type DescribeGameSessionQueuesCommandOutput = DescribeGameSessionQueuesOutput & __MetadataBearer;
+export interface DescribeGameSessionQueuesCommandInput extends DescribeGameSessionQueuesInput {}
+export interface DescribeGameSessionQueuesCommandOutput extends DescribeGameSessionQueuesOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the properties for one or more game session queues. When requesting

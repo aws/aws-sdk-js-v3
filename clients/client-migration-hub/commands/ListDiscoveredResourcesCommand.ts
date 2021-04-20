@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDiscoveredResourcesCommandInput = ListDiscoveredResourcesRequest;
-export type ListDiscoveredResourcesCommandOutput = ListDiscoveredResourcesResult & __MetadataBearer;
+export interface ListDiscoveredResourcesCommandInput extends ListDiscoveredResourcesRequest {}
+export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredResourcesResult, __MetadataBearer {}
 
 /**
  * <p>Lists discovered resources associated with the given <code>MigrationTask</code>.</p>

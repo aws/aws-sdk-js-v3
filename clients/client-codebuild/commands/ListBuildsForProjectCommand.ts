@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBuildsForProjectCommandInput = ListBuildsForProjectInput;
-export type ListBuildsForProjectCommandOutput = ListBuildsForProjectOutput & __MetadataBearer;
+export interface ListBuildsForProjectCommandInput extends ListBuildsForProjectInput {}
+export interface ListBuildsForProjectCommandOutput extends ListBuildsForProjectOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a list of build identifiers for the specified build project, with each build

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ShareDirectoryCommandInput = ShareDirectoryRequest;
-export type ShareDirectoryCommandOutput = ShareDirectoryResult & __MetadataBearer;
+export interface ShareDirectoryCommandInput extends ShareDirectoryRequest {}
+export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __MetadataBearer {}
 
 /**
  * <p>Shares a specified directory (<code>DirectoryId</code>) in your AWS account (directory

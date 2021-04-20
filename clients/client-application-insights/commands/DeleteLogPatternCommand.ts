@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLogPatternCommandInput = DeleteLogPatternRequest;
-export type DeleteLogPatternCommandOutput = DeleteLogPatternResponse & __MetadataBearer;
+export interface DeleteLogPatternCommandInput extends DeleteLogPatternRequest {}
+export interface DeleteLogPatternCommandOutput extends DeleteLogPatternResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the specified log pattern from a <code>LogPatternSet</code>.</p>

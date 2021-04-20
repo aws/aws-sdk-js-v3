@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResourceTypesCommandInput = ListResourceTypesRequest;
-export type ListResourceTypesCommandOutput = ListResourceTypesResponse & __MetadataBearer;
+export interface ListResourceTypesCommandInput extends ListResourceTypesRequest {}
+export interface ListResourceTypesCommandOutput extends ListResourceTypesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the shareable resource types supported by AWS RAM.</p>

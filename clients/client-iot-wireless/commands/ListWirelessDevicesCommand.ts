@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListWirelessDevicesCommandInput = ListWirelessDevicesRequest;
-export type ListWirelessDevicesCommandOutput = ListWirelessDevicesResponse & __MetadataBearer;
+export interface ListWirelessDevicesCommandInput extends ListWirelessDevicesRequest {}
+export interface ListWirelessDevicesCommandOutput extends ListWirelessDevicesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the wireless devices registered to your AWS account.</p>

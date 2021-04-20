@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateServiceActionCommandInput = UpdateServiceActionInput;
-export type UpdateServiceActionCommandOutput = UpdateServiceActionOutput & __MetadataBearer;
+export interface UpdateServiceActionCommandInput extends UpdateServiceActionInput {}
+export interface UpdateServiceActionCommandOutput extends UpdateServiceActionOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a self-service action.</p>

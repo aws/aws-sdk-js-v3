@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLaunchTemplateVersionsCommandInput = DeleteLaunchTemplateVersionsRequest;
-export type DeleteLaunchTemplateVersionsCommandOutput = DeleteLaunchTemplateVersionsResult & __MetadataBearer;
+export interface DeleteLaunchTemplateVersionsCommandInput extends DeleteLaunchTemplateVersionsRequest {}
+export interface DeleteLaunchTemplateVersionsCommandOutput
+  extends DeleteLaunchTemplateVersionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes one or more versions of a launch template. You cannot delete the default

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFunctionDefinitionVersionsCommandInput = ListFunctionDefinitionVersionsRequest;
-export type ListFunctionDefinitionVersionsCommandOutput = ListFunctionDefinitionVersionsResponse & __MetadataBearer;
+export interface ListFunctionDefinitionVersionsCommandInput extends ListFunctionDefinitionVersionsRequest {}
+export interface ListFunctionDefinitionVersionsCommandOutput
+  extends ListFunctionDefinitionVersionsResponse,
+    __MetadataBearer {}
 
 /**
  * Lists the versions of a Lambda function definition.

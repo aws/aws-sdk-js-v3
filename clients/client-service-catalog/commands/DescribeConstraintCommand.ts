@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConstraintCommandInput = DescribeConstraintInput;
-export type DescribeConstraintCommandOutput = DescribeConstraintOutput & __MetadataBearer;
+export interface DescribeConstraintCommandInput extends DescribeConstraintInput {}
+export interface DescribeConstraintCommandOutput extends DescribeConstraintOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about the specified constraint.</p>

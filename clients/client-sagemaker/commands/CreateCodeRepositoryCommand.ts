@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCodeRepositoryCommandInput = CreateCodeRepositoryInput;
-export type CreateCodeRepositoryCommandOutput = CreateCodeRepositoryOutput & __MetadataBearer;
+export interface CreateCodeRepositoryCommandInput extends CreateCodeRepositoryInput {}
+export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a Git repository as a resource in your Amazon SageMaker account. You can associate the

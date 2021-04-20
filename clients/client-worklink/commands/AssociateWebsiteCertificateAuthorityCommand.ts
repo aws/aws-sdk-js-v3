@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateWebsiteCertificateAuthorityCommandInput = AssociateWebsiteCertificateAuthorityRequest;
-export type AssociateWebsiteCertificateAuthorityCommandOutput = AssociateWebsiteCertificateAuthorityResponse &
-  __MetadataBearer;
+export interface AssociateWebsiteCertificateAuthorityCommandInput extends AssociateWebsiteCertificateAuthorityRequest {}
+export interface AssociateWebsiteCertificateAuthorityCommandOutput
+  extends AssociateWebsiteCertificateAuthorityResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Imports the root certificate of a certificate authority (CA) used to obtain TLS

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDeploymentStrategyCommandInput = CreateDeploymentStrategyRequest;
-export type CreateDeploymentStrategyCommandOutput = DeploymentStrategy & __MetadataBearer;
+export interface CreateDeploymentStrategyCommandInput extends CreateDeploymentStrategyRequest {}
+export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrategy, __MetadataBearer {}
 
 /**
  * <p>A deployment strategy defines important criteria for rolling out your configuration to

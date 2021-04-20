@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyClusterDbRevisionCommandInput = ModifyClusterDbRevisionMessage;
-export type ModifyClusterDbRevisionCommandOutput = ModifyClusterDbRevisionResult & __MetadataBearer;
+export interface ModifyClusterDbRevisionCommandInput extends ModifyClusterDbRevisionMessage {}
+export interface ModifyClusterDbRevisionCommandOutput extends ModifyClusterDbRevisionResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the database revision of a cluster. The database revision is a unique

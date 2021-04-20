@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetVoiceTemplateCommandInput = GetVoiceTemplateRequest;
-export type GetVoiceTemplateCommandOutput = GetVoiceTemplateResponse & __MetadataBearer;
+export interface GetVoiceTemplateCommandInput extends GetVoiceTemplateRequest {}
+export interface GetVoiceTemplateCommandOutput extends GetVoiceTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the content and settings of a message template for messages that are sent through the voice channel.</p>

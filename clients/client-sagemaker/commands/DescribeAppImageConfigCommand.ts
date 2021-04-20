@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAppImageConfigCommandInput = DescribeAppImageConfigRequest;
-export type DescribeAppImageConfigCommandOutput = DescribeAppImageConfigResponse & __MetadataBearer;
+export interface DescribeAppImageConfigCommandInput extends DescribeAppImageConfigRequest {}
+export interface DescribeAppImageConfigCommandOutput extends DescribeAppImageConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an AppImageConfig.</p>

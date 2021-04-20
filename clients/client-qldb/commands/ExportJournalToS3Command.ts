@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExportJournalToS3CommandInput = ExportJournalToS3Request;
-export type ExportJournalToS3CommandOutput = ExportJournalToS3Response & __MetadataBearer;
+export interface ExportJournalToS3CommandInput extends ExportJournalToS3Request {}
+export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Response, __MetadataBearer {}
 
 /**
  * <p>Exports journal contents within a date and time range from a ledger into a specified

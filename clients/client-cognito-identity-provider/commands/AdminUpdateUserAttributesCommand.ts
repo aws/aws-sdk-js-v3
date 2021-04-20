@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminUpdateUserAttributesCommandInput = AdminUpdateUserAttributesRequest;
-export type AdminUpdateUserAttributesCommandOutput = AdminUpdateUserAttributesResponse & __MetadataBearer;
+export interface AdminUpdateUserAttributesCommandInput extends AdminUpdateUserAttributesRequest {}
+export interface AdminUpdateUserAttributesCommandOutput extends AdminUpdateUserAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified user's attributes, including developer attributes, as an

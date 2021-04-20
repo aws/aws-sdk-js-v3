@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TerminateInstancesCommandInput = TerminateInstancesRequest;
-export type TerminateInstancesCommandOutput = TerminateInstancesResult & __MetadataBearer;
+export interface TerminateInstancesCommandInput extends TerminateInstancesRequest {}
+export interface TerminateInstancesCommandOutput extends TerminateInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Shuts down the specified instances. This operation is idempotent; if you terminate an

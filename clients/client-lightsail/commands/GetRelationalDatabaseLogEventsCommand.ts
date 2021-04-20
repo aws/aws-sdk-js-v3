@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRelationalDatabaseLogEventsCommandInput = GetRelationalDatabaseLogEventsRequest;
-export type GetRelationalDatabaseLogEventsCommandOutput = GetRelationalDatabaseLogEventsResult & __MetadataBearer;
+export interface GetRelationalDatabaseLogEventsCommandInput extends GetRelationalDatabaseLogEventsRequest {}
+export interface GetRelationalDatabaseLogEventsCommandOutput
+  extends GetRelationalDatabaseLogEventsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of log events for a database in Amazon Lightsail.</p>

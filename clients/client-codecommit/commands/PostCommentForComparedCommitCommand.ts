@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PostCommentForComparedCommitCommandInput = PostCommentForComparedCommitInput;
-export type PostCommentForComparedCommitCommandOutput = PostCommentForComparedCommitOutput & __MetadataBearer;
+export interface PostCommentForComparedCommitCommandInput extends PostCommentForComparedCommitInput {}
+export interface PostCommentForComparedCommitCommandOutput
+  extends PostCommentForComparedCommitOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Posts a comment on the comparison between two commits.</p>

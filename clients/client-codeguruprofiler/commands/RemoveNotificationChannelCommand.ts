@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveNotificationChannelCommandInput = RemoveNotificationChannelRequest;
-export type RemoveNotificationChannelCommandOutput = RemoveNotificationChannelResponse & __MetadataBearer;
+export interface RemoveNotificationChannelCommandInput extends RemoveNotificationChannelRequest {}
+export interface RemoveNotificationChannelCommandOutput extends RemoveNotificationChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Remove one anomaly notifications channel for a profiling group.</p>

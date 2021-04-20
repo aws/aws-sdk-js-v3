@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportImageCommandInput = ImportImageRequest;
-export type ImportImageCommandOutput = ImportImageResult & __MetadataBearer;
+export interface ImportImageCommandInput extends ImportImageRequest {}
+export interface ImportImageCommandOutput extends ImportImageResult, __MetadataBearer {}
 
 /**
  * <p>Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI).</p>

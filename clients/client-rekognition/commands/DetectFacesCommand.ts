@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetectFacesCommandInput = DetectFacesRequest;
-export type DetectFacesCommandOutput = DetectFacesResponse & __MetadataBearer;
+export interface DetectFacesCommandInput extends DetectFacesRequest {}
+export interface DetectFacesCommandOutput extends DetectFacesResponse, __MetadataBearer {}
 
 /**
  * <p>Detects faces within an image that is provided as input.</p>

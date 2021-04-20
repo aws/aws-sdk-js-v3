@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateQuantumTaskCommandInput = CreateQuantumTaskRequest;
-export type CreateQuantumTaskCommandOutput = CreateQuantumTaskResponse & __MetadataBearer;
+export interface CreateQuantumTaskCommandInput extends CreateQuantumTaskRequest {}
+export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a quantum task.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSecurityProfilesCommandInput = ListSecurityProfilesRequest;
-export type ListSecurityProfilesCommandOutput = ListSecurityProfilesResponse & __MetadataBearer;
+export interface ListSecurityProfilesCommandInput extends ListSecurityProfilesRequest {}
+export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesResponse, __MetadataBearer {}
 
 /**
  * <p>Provides summary information about the security profiles for the specified Amazon Connect

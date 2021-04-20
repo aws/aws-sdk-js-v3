@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteChannelModeratorCommandInput = DeleteChannelModeratorRequest;
-export type DeleteChannelModeratorCommandOutput = __MetadataBearer;
+export interface DeleteChannelModeratorCommandInput extends DeleteChannelModeratorRequest {}
+export interface DeleteChannelModeratorCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a channel moderator.</p>

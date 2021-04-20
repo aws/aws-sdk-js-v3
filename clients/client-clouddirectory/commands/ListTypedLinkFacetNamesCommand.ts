@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTypedLinkFacetNamesCommandInput = ListTypedLinkFacetNamesRequest;
-export type ListTypedLinkFacetNamesCommandOutput = ListTypedLinkFacetNamesResponse & __MetadataBearer;
+export interface ListTypedLinkFacetNamesCommandInput extends ListTypedLinkFacetNamesRequest {}
+export interface ListTypedLinkFacetNamesCommandOutput extends ListTypedLinkFacetNamesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a paginated list of <code>TypedLink</code> facet names for a particular schema.

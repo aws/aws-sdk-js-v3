@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMaintenanceStartTimeCommandInput = UpdateMaintenanceStartTimeInput;
-export type UpdateMaintenanceStartTimeCommandOutput = UpdateMaintenanceStartTimeOutput & __MetadataBearer;
+export interface UpdateMaintenanceStartTimeCommandInput extends UpdateMaintenanceStartTimeInput {}
+export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenanceStartTimeOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a gateway's weekly maintenance start time information, including day and

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateSkillFromSkillGroupCommandInput = DisassociateSkillFromSkillGroupRequest;
-export type DisassociateSkillFromSkillGroupCommandOutput = DisassociateSkillFromSkillGroupResponse & __MetadataBearer;
+export interface DisassociateSkillFromSkillGroupCommandInput extends DisassociateSkillFromSkillGroupRequest {}
+export interface DisassociateSkillFromSkillGroupCommandOutput
+  extends DisassociateSkillFromSkillGroupResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates a skill from a skill group.</p>

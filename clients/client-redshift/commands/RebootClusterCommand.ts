@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RebootClusterCommandInput = RebootClusterMessage;
-export type RebootClusterCommandOutput = RebootClusterResult & __MetadataBearer;
+export interface RebootClusterCommandInput extends RebootClusterMessage {}
+export interface RebootClusterCommandOutput extends RebootClusterResult, __MetadataBearer {}
 
 /**
  * <p>Reboots a cluster. This action is taken as soon as possible. It results in a

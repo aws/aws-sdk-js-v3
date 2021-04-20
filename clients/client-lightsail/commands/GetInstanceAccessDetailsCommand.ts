@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInstanceAccessDetailsCommandInput = GetInstanceAccessDetailsRequest;
-export type GetInstanceAccessDetailsCommandOutput = GetInstanceAccessDetailsResult & __MetadataBearer;
+export interface GetInstanceAccessDetailsCommandInput extends GetInstanceAccessDetailsRequest {}
+export interface GetInstanceAccessDetailsCommandOutput extends GetInstanceAccessDetailsResult, __MetadataBearer {}
 
 /**
  * <p>Returns temporary SSH keys you can use to connect to a specific virtual private server, or

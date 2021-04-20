@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateInstanceAccessControlAttributeConfigurationCommandInput = UpdateInstanceAccessControlAttributeConfigurationRequest;
-export type UpdateInstanceAccessControlAttributeConfigurationCommandOutput = UpdateInstanceAccessControlAttributeConfigurationResponse &
-  __MetadataBearer;
+export interface UpdateInstanceAccessControlAttributeConfigurationCommandInput
+  extends UpdateInstanceAccessControlAttributeConfigurationRequest {}
+export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput
+  extends UpdateInstanceAccessControlAttributeConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the AWS SSO identity store attributes to use with the AWS SSO instance for attributes-based access control (ABAC). When using an external identity provider as an identity source, you can pass attributes through the SAML assertion as an alternative to configuring attributes from the AWS SSO identity store. If a SAML assertion passes any of these attributes, AWS SSO will replace the attribute value with the value from the AWS SSO identity store. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>AWS SSO User Guide</i>.</p>

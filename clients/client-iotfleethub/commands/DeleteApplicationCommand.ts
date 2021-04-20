@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteApplicationCommandInput = DeleteApplicationRequest;
-export type DeleteApplicationCommandOutput = DeleteApplicationResponse & __MetadataBearer;
+export interface DeleteApplicationCommandInput extends DeleteApplicationRequest {}
+export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a Fleet Hub for AWS IoT Device Management web application.</p>

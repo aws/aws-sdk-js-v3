@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyIdentityIdFormatCommandInput = ModifyIdentityIdFormatRequest;
-export type ModifyIdentityIdFormatCommandOutput = __MetadataBearer;
+export interface ModifyIdentityIdFormatCommandInput extends ModifyIdentityIdFormatRequest {}
+export interface ModifyIdentityIdFormatCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Modifies the ID format of a resource for a specified IAM user, IAM role, or the root

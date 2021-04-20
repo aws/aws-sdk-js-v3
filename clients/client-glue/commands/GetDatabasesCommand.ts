@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDatabasesCommandInput = GetDatabasesRequest;
-export type GetDatabasesCommandOutput = GetDatabasesResponse & __MetadataBearer;
+export interface GetDatabasesCommandInput extends GetDatabasesRequest {}
+export interface GetDatabasesCommandOutput extends GetDatabasesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves all databases defined in a given Data Catalog.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEventSourcesCommandInput = ListEventSourcesRequest;
-export type ListEventSourcesCommandOutput = ListEventSourcesResponse & __MetadataBearer;
+export interface ListEventSourcesCommandInput extends ListEventSourcesRequest {}
+export interface ListEventSourcesCommandOutput extends ListEventSourcesResponse, __MetadataBearer {}
 
 /**
  * <p>You can use this to see all the partner event sources that have been shared with your AWS

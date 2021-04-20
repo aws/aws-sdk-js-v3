@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBackendAuthCommandInput = DeleteBackendAuthRequest;
-export type DeleteBackendAuthCommandOutput = DeleteBackendAuthResponse & __MetadataBearer;
+export interface DeleteBackendAuthCommandInput extends DeleteBackendAuthRequest {}
+export interface DeleteBackendAuthCommandOutput extends DeleteBackendAuthResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing backend authentication resource.</p>

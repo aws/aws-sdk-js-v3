@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveTagsFromResourceCommandInput = RemoveTagsFromResourceInput;
-export type RemoveTagsFromResourceCommandOutput = RemoveTagsFromResourceOutput & __MetadataBearer;
+export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResourceInput {}
+export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Removes one or more tags from the specified resource. This operation is supported in

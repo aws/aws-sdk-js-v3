@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteActivationCommandInput = DeleteActivationRequest;
-export type DeleteActivationCommandOutput = DeleteActivationResult & __MetadataBearer;
+export interface DeleteActivationCommandInput extends DeleteActivationRequest {}
+export interface DeleteActivationCommandOutput extends DeleteActivationResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an activation. You are not required to delete an activation. If you delete an

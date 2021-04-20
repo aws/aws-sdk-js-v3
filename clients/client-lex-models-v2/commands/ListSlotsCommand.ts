@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSlotsCommandInput = ListSlotsRequest;
-export type ListSlotsCommandOutput = ListSlotsResponse & __MetadataBearer;
+export interface ListSlotsCommandInput extends ListSlotsRequest {}
+export interface ListSlotsCommandOutput extends ListSlotsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of slots that match the specified criteria.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAccountAssignmentsCommandInput = ListAccountAssignmentsRequest;
-export type ListAccountAssignmentsCommandOutput = ListAccountAssignmentsResponse & __MetadataBearer;
+export interface ListAccountAssignmentsCommandInput extends ListAccountAssignmentsRequest {}
+export interface ListAccountAssignmentsCommandOutput extends ListAccountAssignmentsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the assignee of the specified AWS account with the specified permission

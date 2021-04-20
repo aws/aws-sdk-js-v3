@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePrefixListsCommandInput = DescribePrefixListsRequest;
-export type DescribePrefixListsCommandOutput = DescribePrefixListsResult & __MetadataBearer;
+export interface DescribePrefixListsCommandInput extends DescribePrefixListsRequest {}
+export interface DescribePrefixListsCommandOutput extends DescribePrefixListsResult, __MetadataBearer {}
 
 /**
  * <p>Describes available AWS services in a prefix list format, which includes the prefix list

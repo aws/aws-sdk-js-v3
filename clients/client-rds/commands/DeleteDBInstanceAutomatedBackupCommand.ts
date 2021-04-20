@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDBInstanceAutomatedBackupCommandInput = DeleteDBInstanceAutomatedBackupMessage;
-export type DeleteDBInstanceAutomatedBackupCommandOutput = DeleteDBInstanceAutomatedBackupResult & __MetadataBearer;
+export interface DeleteDBInstanceAutomatedBackupCommandInput extends DeleteDBInstanceAutomatedBackupMessage {}
+export interface DeleteDBInstanceAutomatedBackupCommandOutput
+  extends DeleteDBInstanceAutomatedBackupResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes automated backups using the <code>DbiResourceId</code> value of the source DB instance or the Amazon Resource Name (ARN) of the automated backups.</p>

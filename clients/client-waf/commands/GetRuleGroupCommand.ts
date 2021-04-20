@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRuleGroupCommandInput = GetRuleGroupRequest;
-export type GetRuleGroupCommandOutput = GetRuleGroupResponse & __MetadataBearer;
+export interface GetRuleGroupCommandInput extends GetRuleGroupRequest {}
+export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __MetadataBearer {}
 
 /**
  * <note>

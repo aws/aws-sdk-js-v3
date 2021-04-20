@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListByoipCidrsCommandInput = ListByoipCidrsRequest;
-export type ListByoipCidrsCommandOutput = ListByoipCidrsResponse & __MetadataBearer;
+export interface ListByoipCidrsCommandInput extends ListByoipCidrsRequest {}
+export interface ListByoipCidrsCommandOutput extends ListByoipCidrsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the IP address ranges that were specified in calls to <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/ProvisionByoipCidr.html">ProvisionByoipCidr</a>, including

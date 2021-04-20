@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBandwidthRateLimitCommandInput = UpdateBandwidthRateLimitInput;
-export type UpdateBandwidthRateLimitCommandOutput = UpdateBandwidthRateLimitOutput & __MetadataBearer;
+export interface UpdateBandwidthRateLimitCommandInput extends UpdateBandwidthRateLimitInput {}
+export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRateLimitOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the bandwidth rate limits of a gateway. You can update both the upload and

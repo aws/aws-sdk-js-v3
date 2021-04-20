@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAnomalyDetectorsCommandInput = DescribeAnomalyDetectorsInput;
-export type DescribeAnomalyDetectorsCommandOutput = DescribeAnomalyDetectorsOutput & __MetadataBearer;
+export interface DescribeAnomalyDetectorsCommandInput extends DescribeAnomalyDetectorsInput {}
+export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDetectorsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the anomaly detection models that you have created in your account. You can list all

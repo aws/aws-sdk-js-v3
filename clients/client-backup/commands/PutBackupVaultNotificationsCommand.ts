@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBackupVaultNotificationsCommandInput = PutBackupVaultNotificationsInput;
-export type PutBackupVaultNotificationsCommandOutput = __MetadataBearer;
+export interface PutBackupVaultNotificationsCommandInput extends PutBackupVaultNotificationsInput {}
+export interface PutBackupVaultNotificationsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Turns on notifications on a backup vault for the specified topic and events.</p>

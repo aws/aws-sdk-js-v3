@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteKeyPairCommandInput = DeleteKeyPairRequest;
-export type DeleteKeyPairCommandOutput = DeleteKeyPairResult & __MetadataBearer;
+export interface DeleteKeyPairCommandInput extends DeleteKeyPairRequest {}
+export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a specific SSH key pair.</p>

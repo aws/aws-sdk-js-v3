@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptInboundCrossClusterSearchConnectionCommandInput = AcceptInboundCrossClusterSearchConnectionRequest;
-export type AcceptInboundCrossClusterSearchConnectionCommandOutput = AcceptInboundCrossClusterSearchConnectionResponse &
-  __MetadataBearer;
+export interface AcceptInboundCrossClusterSearchConnectionCommandInput
+  extends AcceptInboundCrossClusterSearchConnectionRequest {}
+export interface AcceptInboundCrossClusterSearchConnectionCommandOutput
+  extends AcceptInboundCrossClusterSearchConnectionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Allows the destination domain owner to accept an inbound cross-cluster search connection request.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBotLocaleCommandInput = CreateBotLocaleRequest;
-export type CreateBotLocaleCommandOutput = CreateBotLocaleResponse & __MetadataBearer;
+export interface CreateBotLocaleCommandInput extends CreateBotLocaleRequest {}
+export interface CreateBotLocaleCommandOutput extends CreateBotLocaleResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a locale in the bot. The locale contains the intents and

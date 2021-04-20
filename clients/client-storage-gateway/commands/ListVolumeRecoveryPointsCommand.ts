@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListVolumeRecoveryPointsCommandInput = ListVolumeRecoveryPointsInput;
-export type ListVolumeRecoveryPointsCommandOutput = ListVolumeRecoveryPointsOutput & __MetadataBearer;
+export interface ListVolumeRecoveryPointsCommandInput extends ListVolumeRecoveryPointsInput {}
+export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecoveryPointsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the recovery points for a specified gateway. This operation is only supported in

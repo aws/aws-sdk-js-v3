@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccountSettingsCommandInput = GetAccountSettingsRequest;
-export type GetAccountSettingsCommandOutput = GetAccountSettingsResult & __MetadataBearer;
+export interface GetAccountSettingsCommandInput extends GetAccountSettingsRequest {}
+export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResult, __MetadataBearer {}
 
 /**
  * <p>Returns the number of unmetered iOS or unmetered Android devices that have been purchased by the

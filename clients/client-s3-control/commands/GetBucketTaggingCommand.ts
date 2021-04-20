@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketTaggingCommandInput = GetBucketTaggingRequest;
-export type GetBucketTaggingCommandOutput = GetBucketTaggingResult & __MetadataBearer;
+export interface GetBucketTaggingCommandInput extends GetBucketTaggingRequest {}
+export interface GetBucketTaggingCommandOutput extends GetBucketTaggingResult, __MetadataBearer {}
 
 /**
  * <note>

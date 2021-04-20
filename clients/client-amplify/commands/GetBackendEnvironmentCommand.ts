@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBackendEnvironmentCommandInput = GetBackendEnvironmentRequest;
-export type GetBackendEnvironmentCommandOutput = GetBackendEnvironmentResult & __MetadataBearer;
+export interface GetBackendEnvironmentCommandInput extends GetBackendEnvironmentRequest {}
+export interface GetBackendEnvironmentCommandOutput extends GetBackendEnvironmentResult, __MetadataBearer {}
 
 /**
  * <p> Returns a backend environment for an Amplify app. </p>

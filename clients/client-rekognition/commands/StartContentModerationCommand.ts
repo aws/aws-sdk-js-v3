@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartContentModerationCommandInput = StartContentModerationRequest;
-export type StartContentModerationCommandOutput = StartContentModerationResponse & __MetadataBearer;
+export interface StartContentModerationCommandInput extends StartContentModerationRequest {}
+export interface StartContentModerationCommandOutput extends StartContentModerationResponse, __MetadataBearer {}
 
 /**
  * <p> Starts asynchronous detection of unsafe content in a stored video.</p>

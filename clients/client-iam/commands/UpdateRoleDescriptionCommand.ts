@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRoleDescriptionCommandInput = UpdateRoleDescriptionRequest;
-export type UpdateRoleDescriptionCommandOutput = UpdateRoleDescriptionResponse & __MetadataBearer;
+export interface UpdateRoleDescriptionCommandInput extends UpdateRoleDescriptionRequest {}
+export interface UpdateRoleDescriptionCommandOutput extends UpdateRoleDescriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Use <a>UpdateRole</a> instead.</p>

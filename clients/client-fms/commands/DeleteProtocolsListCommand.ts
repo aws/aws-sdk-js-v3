@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProtocolsListCommandInput = DeleteProtocolsListRequest;
-export type DeleteProtocolsListCommandOutput = __MetadataBearer;
+export interface DeleteProtocolsListCommandInput extends DeleteProtocolsListRequest {}
+export interface DeleteProtocolsListCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Permanently deletes an AWS Firewall Manager protocols list.</p>

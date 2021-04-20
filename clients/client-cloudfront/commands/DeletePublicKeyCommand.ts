@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePublicKeyCommandInput = DeletePublicKeyRequest;
-export type DeletePublicKeyCommandOutput = __MetadataBearer;
+export interface DeletePublicKeyCommandInput extends DeletePublicKeyRequest {}
+export interface DeletePublicKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Remove a public key you previously added to CloudFront.</p>

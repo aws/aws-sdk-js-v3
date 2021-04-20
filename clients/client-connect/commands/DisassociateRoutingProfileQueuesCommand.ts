@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateRoutingProfileQueuesCommandInput = DisassociateRoutingProfileQueuesRequest;
-export type DisassociateRoutingProfileQueuesCommandOutput = __MetadataBearer;
+export interface DisassociateRoutingProfileQueuesCommandInput extends DisassociateRoutingProfileQueuesRequest {}
+export interface DisassociateRoutingProfileQueuesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disassociates a set of queues from a routing profile.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListArchivesCommandInput = ListArchivesRequest;
-export type ListArchivesCommandOutput = ListArchivesResponse & __MetadataBearer;
+export interface ListArchivesCommandInput extends ListArchivesRequest {}
+export interface ListArchivesCommandOutput extends ListArchivesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists your archives. You can either list all the archives or you can provide a prefix to

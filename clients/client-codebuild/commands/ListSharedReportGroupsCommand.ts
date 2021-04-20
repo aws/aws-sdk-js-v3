@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSharedReportGroupsCommandInput = ListSharedReportGroupsInput;
-export type ListSharedReportGroupsCommandOutput = ListSharedReportGroupsOutput & __MetadataBearer;
+export interface ListSharedReportGroupsCommandInput extends ListSharedReportGroupsInput {}
+export interface ListSharedReportGroupsCommandOutput extends ListSharedReportGroupsOutput, __MetadataBearer {}
 
 /**
  * <p> Gets a list of report groups that are shared with other AWS accounts or users.

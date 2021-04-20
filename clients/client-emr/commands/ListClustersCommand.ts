@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListClustersCommandInput = ListClustersInput;
-export type ListClustersCommandOutput = ListClustersOutput & __MetadataBearer;
+export interface ListClustersCommandInput extends ListClustersInput {}
+export interface ListClustersCommandOutput extends ListClustersOutput, __MetadataBearer {}
 
 /**
  * <p>Provides the status of all clusters visible to this AWS account. Allows you to filter

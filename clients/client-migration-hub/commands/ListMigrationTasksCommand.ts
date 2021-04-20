@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMigrationTasksCommandInput = ListMigrationTasksRequest;
-export type ListMigrationTasksCommandOutput = ListMigrationTasksResult & __MetadataBearer;
+export interface ListMigrationTasksCommandInput extends ListMigrationTasksRequest {}
+export interface ListMigrationTasksCommandOutput extends ListMigrationTasksResult, __MetadataBearer {}
 
 /**
  * <p>Lists all, or filtered by resource name, migration tasks associated with the user

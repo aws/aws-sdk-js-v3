@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeJobCommandInput = DescribeJobInput;
-export type DescribeJobCommandOutput = GlacierJobDescription & __MetadataBearer;
+export interface DescribeJobCommandInput extends DescribeJobInput {}
+export interface DescribeJobCommandOutput extends GlacierJobDescription, __MetadataBearer {}
 
 /**
  * <p>This operation returns information about a job you previously initiated, including

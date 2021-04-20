@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConnectionStatusCommandInput = GetConnectionStatusRequest;
-export type GetConnectionStatusCommandOutput = GetConnectionStatusResponse & __MetadataBearer;
+export interface GetConnectionStatusCommandInput extends GetConnectionStatusRequest {}
+export interface GetConnectionStatusCommandOutput extends GetConnectionStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the Session Manager connection status for an instance to determine whether it is running and

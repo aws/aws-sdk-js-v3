@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAuthorizerCommandInput = CreateAuthorizerRequest;
-export type CreateAuthorizerCommandOutput = Authorizer & __MetadataBearer;
+export interface CreateAuthorizerCommandInput extends CreateAuthorizerRequest {}
+export interface CreateAuthorizerCommandOutput extends Authorizer, __MetadataBearer {}
 
 /**
  * <p>Adds a new <a>Authorizer</a> resource to an existing <a>RestApi</a> resource.</p>

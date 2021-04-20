@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeKeyPairsCommandInput = DescribeKeyPairsRequest;
-export type DescribeKeyPairsCommandOutput = DescribeKeyPairsResult & __MetadataBearer;
+export interface DescribeKeyPairsCommandInput extends DescribeKeyPairsRequest {}
+export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified key pairs or all of your key pairs.</p>

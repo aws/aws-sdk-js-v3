@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRoleAliasesCommandInput = ListRoleAliasesRequest;
-export type ListRoleAliasesCommandOutput = ListRoleAliasesResponse & __MetadataBearer;
+export interface ListRoleAliasesCommandInput extends ListRoleAliasesRequest {}
+export interface ListRoleAliasesCommandOutput extends ListRoleAliasesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the role aliases registered in your account.</p>

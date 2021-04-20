@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccessTokenCommandInput = GetAccessTokenRequest;
-export type GetAccessTokenCommandOutput = GetAccessTokenResponse & __MetadataBearer;
+export interface GetAccessTokenCommandInput extends GetAccessTokenRequest {}
+export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a temporary access token to use with AssumeRoleWithWebIdentity. Access tokens

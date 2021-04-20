@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListObjectAttributesCommandInput = ListObjectAttributesRequest;
-export type ListObjectAttributesCommandOutput = ListObjectAttributesResponse & __MetadataBearer;
+export interface ListObjectAttributesCommandInput extends ListObjectAttributesRequest {}
+export interface ListObjectAttributesCommandOutput extends ListObjectAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all attributes that are associated with an object.

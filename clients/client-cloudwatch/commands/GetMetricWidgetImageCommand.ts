@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMetricWidgetImageCommandInput = GetMetricWidgetImageInput;
-export type GetMetricWidgetImageCommandOutput = GetMetricWidgetImageOutput & __MetadataBearer;
+export interface GetMetricWidgetImageCommandInput extends GetMetricWidgetImageInput {}
+export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageOutput, __MetadataBearer {}
 
 /**
  * <p>You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph of

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDeletePartitionCommandInput = BatchDeletePartitionRequest;
-export type BatchDeletePartitionCommandOutput = BatchDeletePartitionResponse & __MetadataBearer;
+export interface BatchDeletePartitionCommandInput extends BatchDeletePartitionRequest {}
+export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes one or more partitions in a batch operation.</p>

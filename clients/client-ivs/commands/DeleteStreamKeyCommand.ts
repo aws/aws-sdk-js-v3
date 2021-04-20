@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteStreamKeyCommandInput = DeleteStreamKeyRequest;
-export type DeleteStreamKeyCommandOutput = __MetadataBearer;
+export interface DeleteStreamKeyCommandInput extends DeleteStreamKeyRequest {}
+export interface DeleteStreamKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the stream key for the specified ARN, so it can no longer be used to

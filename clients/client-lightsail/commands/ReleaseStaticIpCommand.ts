@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReleaseStaticIpCommandInput = ReleaseStaticIpRequest;
-export type ReleaseStaticIpCommandOutput = ReleaseStaticIpResult & __MetadataBearer;
+export interface ReleaseStaticIpCommandInput extends ReleaseStaticIpRequest {}
+export interface ReleaseStaticIpCommandOutput extends ReleaseStaticIpResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a specific static IP from your account.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchDashboardsCommandInput = SearchDashboardsRequest;
-export type SearchDashboardsCommandOutput = SearchDashboardsResponse & __MetadataBearer;
+export interface SearchDashboardsCommandInput extends SearchDashboardsRequest {}
+export interface SearchDashboardsCommandOutput extends SearchDashboardsResponse, __MetadataBearer {}
 
 /**
  * <p>Searches for dashboards that belong to a user. </p>

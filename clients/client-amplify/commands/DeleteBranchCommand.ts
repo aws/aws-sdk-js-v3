@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBranchCommandInput = DeleteBranchRequest;
-export type DeleteBranchCommandOutput = DeleteBranchResult & __MetadataBearer;
+export interface DeleteBranchCommandInput extends DeleteBranchRequest {}
+export interface DeleteBranchCommandOutput extends DeleteBranchResult, __MetadataBearer {}
 
 /**
  * <p> Deletes a branch for an Amplify app. </p>

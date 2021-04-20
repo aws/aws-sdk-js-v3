@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAccessPolicyCommandInput = UpdateAccessPolicyRequest;
-export type UpdateAccessPolicyCommandOutput = UpdateAccessPolicyResponse & __MetadataBearer;
+export interface UpdateAccessPolicyCommandInput extends UpdateAccessPolicyRequest {}
+export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing access policy that specifies an identity's access to an AWS IoT SiteWise Monitor

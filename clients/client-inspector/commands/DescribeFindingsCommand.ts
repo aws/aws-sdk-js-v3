@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFindingsCommandInput = DescribeFindingsRequest;
-export type DescribeFindingsCommandOutput = DescribeFindingsResponse & __MetadataBearer;
+export interface DescribeFindingsCommandInput extends DescribeFindingsRequest {}
+export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the findings that are specified by the ARNs of the findings.</p>

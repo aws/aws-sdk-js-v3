@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SubmitAttachmentStateChangesCommandInput = SubmitAttachmentStateChangesRequest;
-export type SubmitAttachmentStateChangesCommandOutput = SubmitAttachmentStateChangesResponse & __MetadataBearer;
+export interface SubmitAttachmentStateChangesCommandInput extends SubmitAttachmentStateChangesRequest {}
+export interface SubmitAttachmentStateChangesCommandOutput
+  extends SubmitAttachmentStateChangesResponse,
+    __MetadataBearer {}
 
 /**
  * <note>

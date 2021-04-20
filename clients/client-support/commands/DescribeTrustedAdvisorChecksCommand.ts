@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTrustedAdvisorChecksCommandInput = DescribeTrustedAdvisorChecksRequest;
-export type DescribeTrustedAdvisorChecksCommandOutput = DescribeTrustedAdvisorChecksResponse & __MetadataBearer;
+export interface DescribeTrustedAdvisorChecksCommandInput extends DescribeTrustedAdvisorChecksRequest {}
+export interface DescribeTrustedAdvisorChecksCommandOutput
+  extends DescribeTrustedAdvisorChecksResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about all available AWS Trusted Advisor checks, including the name, ID,

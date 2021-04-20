@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteApnsChannelCommandInput = DeleteApnsChannelRequest;
-export type DeleteApnsChannelCommandOutput = DeleteApnsChannelResponse & __MetadataBearer;
+export interface DeleteApnsChannelCommandInput extends DeleteApnsChannelRequest {}
+export interface DeleteApnsChannelCommandOutput extends DeleteApnsChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Disables the APNs channel for an application and deletes any existing settings for the channel.</p>

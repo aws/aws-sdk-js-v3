@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutVoiceConnectorEmergencyCallingConfigurationCommandInput = PutVoiceConnectorEmergencyCallingConfigurationRequest;
-export type PutVoiceConnectorEmergencyCallingConfigurationCommandOutput = PutVoiceConnectorEmergencyCallingConfigurationResponse &
-  __MetadataBearer;
+export interface PutVoiceConnectorEmergencyCallingConfigurationCommandInput
+  extends PutVoiceConnectorEmergencyCallingConfigurationRequest {}
+export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput
+  extends PutVoiceConnectorEmergencyCallingConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Puts emergency calling configuration details to the specified Amazon Chime Voice Connector, such as emergency phone numbers and calling countries. Origination and termination settings must be enabled for the Amazon Chime Voice Connector before emergency calling can be configured.</p>

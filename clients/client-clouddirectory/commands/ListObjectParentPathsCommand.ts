@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListObjectParentPathsCommandInput = ListObjectParentPathsRequest;
-export type ListObjectParentPathsCommandOutput = ListObjectParentPathsResponse & __MetadataBearer;
+export interface ListObjectParentPathsCommandInput extends ListObjectParentPathsRequest {}
+export interface ListObjectParentPathsCommandOutput extends ListObjectParentPathsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves all available parent paths for any object type such as node, leaf node,

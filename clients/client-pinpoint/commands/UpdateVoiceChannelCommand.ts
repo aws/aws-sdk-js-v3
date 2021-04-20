@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateVoiceChannelCommandInput = UpdateVoiceChannelRequest;
-export type UpdateVoiceChannelCommandOutput = UpdateVoiceChannelResponse & __MetadataBearer;
+export interface UpdateVoiceChannelCommandInput extends UpdateVoiceChannelRequest {}
+export interface UpdateVoiceChannelCommandOutput extends UpdateVoiceChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the voice channel for an application or updates the status and settings of the voice channel for an application.</p>

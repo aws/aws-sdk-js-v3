@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetUICustomizationCommandInput = SetUICustomizationRequest;
-export type SetUICustomizationCommandOutput = SetUICustomizationResponse & __MetadataBearer;
+export interface SetUICustomizationCommandInput extends SetUICustomizationRequest {}
+export interface SetUICustomizationCommandOutput extends SetUICustomizationResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the UI customization information for a user pool's built-in app UI.</p>

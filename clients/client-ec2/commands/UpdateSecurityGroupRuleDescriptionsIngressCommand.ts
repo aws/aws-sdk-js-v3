@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSecurityGroupRuleDescriptionsIngressCommandInput = UpdateSecurityGroupRuleDescriptionsIngressRequest;
-export type UpdateSecurityGroupRuleDescriptionsIngressCommandOutput = UpdateSecurityGroupRuleDescriptionsIngressResult &
-  __MetadataBearer;
+export interface UpdateSecurityGroupRuleDescriptionsIngressCommandInput
+  extends UpdateSecurityGroupRuleDescriptionsIngressRequest {}
+export interface UpdateSecurityGroupRuleDescriptionsIngressCommandOutput
+  extends UpdateSecurityGroupRuleDescriptionsIngressResult,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the description of an ingress (inbound) security group rule. You can replace an

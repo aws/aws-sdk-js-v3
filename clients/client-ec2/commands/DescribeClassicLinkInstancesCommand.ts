@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeClassicLinkInstancesCommandInput = DescribeClassicLinkInstancesRequest;
-export type DescribeClassicLinkInstancesCommandOutput = DescribeClassicLinkInstancesResult & __MetadataBearer;
+export interface DescribeClassicLinkInstancesCommandInput extends DescribeClassicLinkInstancesRequest {}
+export interface DescribeClassicLinkInstancesCommandOutput
+  extends DescribeClassicLinkInstancesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your linked EC2-Classic instances. This request only returns

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateDRTLogBucketCommandInput = DisassociateDRTLogBucketRequest;
-export type DisassociateDRTLogBucketCommandOutput = DisassociateDRTLogBucketResponse & __MetadataBearer;
+export interface DisassociateDRTLogBucketCommandInput extends DisassociateDRTLogBucketRequest {}
+export interface DisassociateDRTLogBucketCommandOutput extends DisassociateDRTLogBucketResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the DDoS Response Team's (DRT) access to the specified Amazon S3 bucket containing your AWS WAF logs.</p>

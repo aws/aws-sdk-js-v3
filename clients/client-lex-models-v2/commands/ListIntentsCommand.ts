@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListIntentsCommandInput = ListIntentsRequest;
-export type ListIntentsCommandOutput = ListIntentsResponse & __MetadataBearer;
+export interface ListIntentsCommandInput extends ListIntentsRequest {}
+export interface ListIntentsCommandOutput extends ListIntentsResponse, __MetadataBearer {}
 
 /**
  * <p>Get a list of intents that meet the specified criteria.</p>

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePendingAggregationRequestsCommandInput = DescribePendingAggregationRequestsRequest;
-export type DescribePendingAggregationRequestsCommandOutput = DescribePendingAggregationRequestsResponse &
-  __MetadataBearer;
+export interface DescribePendingAggregationRequestsCommandInput extends DescribePendingAggregationRequestsRequest {}
+export interface DescribePendingAggregationRequestsCommandOutput
+  extends DescribePendingAggregationRequestsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of all pending aggregation requests.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAffectedEntitiesCommandInput = DescribeAffectedEntitiesRequest;
-export type DescribeAffectedEntitiesCommandOutput = DescribeAffectedEntitiesResponse & __MetadataBearer;
+export interface DescribeAffectedEntitiesCommandInput extends DescribeAffectedEntitiesRequest {}
+export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedEntitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of entities that have been affected by the specified events, based on the

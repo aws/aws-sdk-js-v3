@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTrackerCommandInput = DeleteTrackerRequest;
-export type DeleteTrackerCommandOutput = DeleteTrackerResponse & __MetadataBearer;
+export interface DeleteTrackerCommandInput extends DeleteTrackerRequest {}
+export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a tracker resource from your AWS account.</p>

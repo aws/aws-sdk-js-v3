@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTagsCommandInput = DescribeTagsInput;
-export type DescribeTagsCommandOutput = DescribeTagsOutput & __MetadataBearer;
+export interface DescribeTagsCommandInput extends DescribeTagsInput {}
+export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of the tags for your Amazon ML object.</p>

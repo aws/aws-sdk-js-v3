@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSpotDatafeedSubscriptionCommandInput = DescribeSpotDatafeedSubscriptionRequest;
-export type DescribeSpotDatafeedSubscriptionCommandOutput = DescribeSpotDatafeedSubscriptionResult & __MetadataBearer;
+export interface DescribeSpotDatafeedSubscriptionCommandInput extends DescribeSpotDatafeedSubscriptionRequest {}
+export interface DescribeSpotDatafeedSubscriptionCommandOutput
+  extends DescribeSpotDatafeedSubscriptionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the data feed for Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot

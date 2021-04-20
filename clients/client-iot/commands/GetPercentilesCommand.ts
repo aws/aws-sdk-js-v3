@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPercentilesCommandInput = GetPercentilesRequest;
-export type GetPercentilesCommandOutput = GetPercentilesResponse & __MetadataBearer;
+export interface GetPercentilesCommandInput extends GetPercentilesRequest {}
+export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __MetadataBearer {}
 
 /**
  * <p>Groups the aggregated values that match the query into percentile groupings. The default

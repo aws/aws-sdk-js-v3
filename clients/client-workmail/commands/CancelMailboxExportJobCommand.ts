@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelMailboxExportJobCommandInput = CancelMailboxExportJobRequest;
-export type CancelMailboxExportJobCommandOutput = CancelMailboxExportJobResponse & __MetadataBearer;
+export interface CancelMailboxExportJobCommandInput extends CancelMailboxExportJobRequest {}
+export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExportJobResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a mailbox export job.</p>

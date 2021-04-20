@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateModelCommandInput = CreateModelRequest;
-export type CreateModelCommandOutput = Model & __MetadataBearer;
+export interface CreateModelCommandInput extends CreateModelRequest {}
+export interface CreateModelCommandOutput extends Model, __MetadataBearer {}
 
 /**
  * <p>Adds a new <a>Model</a> resource to an existing <a>RestApi</a> resource.</p>

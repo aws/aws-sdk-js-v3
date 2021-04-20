@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateNotificationCommandInput = UpdateNotificationRequest;
-export type UpdateNotificationCommandOutput = UpdateNotificationResponse & __MetadataBearer;
+export interface UpdateNotificationCommandInput extends UpdateNotificationRequest {}
+export interface UpdateNotificationCommandOutput extends UpdateNotificationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a notification.</p>

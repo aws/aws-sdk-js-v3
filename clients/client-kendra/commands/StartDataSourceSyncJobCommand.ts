@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartDataSourceSyncJobCommandInput = StartDataSourceSyncJobRequest;
-export type StartDataSourceSyncJobCommandOutput = StartDataSourceSyncJobResponse & __MetadataBearer;
+export interface StartDataSourceSyncJobCommandInput extends StartDataSourceSyncJobRequest {}
+export interface StartDataSourceSyncJobCommandOutput extends StartDataSourceSyncJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a synchronization job for a data source. If a synchronization

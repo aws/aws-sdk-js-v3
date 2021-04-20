@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopReplicationToReplicaCommandInput = StopReplicationToReplicaRequest;
-export type StopReplicationToReplicaCommandOutput = StopReplicationToReplicaResponse & __MetadataBearer;
+export interface StopReplicationToReplicaCommandInput extends StopReplicationToReplicaRequest {}
+export interface StopReplicationToReplicaCommandOutput extends StopReplicationToReplicaResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the secret from replication and promotes the secret to a regional secret in the replica Region.</p>

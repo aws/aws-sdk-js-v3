@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConfigRulesCommandInput = DescribeConfigRulesRequest;
-export type DescribeConfigRulesCommandOutput = DescribeConfigRulesResponse & __MetadataBearer;
+export interface DescribeConfigRulesCommandInput extends DescribeConfigRulesRequest {}
+export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns details about your AWS Config rules.</p>

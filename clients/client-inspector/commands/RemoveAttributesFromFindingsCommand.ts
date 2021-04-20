@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveAttributesFromFindingsCommandInput = RemoveAttributesFromFindingsRequest;
-export type RemoveAttributesFromFindingsCommandOutput = RemoveAttributesFromFindingsResponse & __MetadataBearer;
+export interface RemoveAttributesFromFindingsCommandInput extends RemoveAttributesFromFindingsRequest {}
+export interface RemoveAttributesFromFindingsCommandOutput
+  extends RemoveAttributesFromFindingsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Removes entire attributes (key and value pairs) from the findings that are specified

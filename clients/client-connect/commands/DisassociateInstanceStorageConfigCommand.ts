@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateInstanceStorageConfigCommandInput = DisassociateInstanceStorageConfigRequest;
-export type DisassociateInstanceStorageConfigCommandOutput = __MetadataBearer;
+export interface DisassociateInstanceStorageConfigCommandInput extends DisassociateInstanceStorageConfigRequest {}
+export interface DisassociateInstanceStorageConfigCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

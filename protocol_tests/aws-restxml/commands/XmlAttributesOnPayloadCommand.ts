@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type XmlAttributesOnPayloadCommandInput = XmlAttributesOnPayloadInputOutput;
-export type XmlAttributesOnPayloadCommandOutput = XmlAttributesOnPayloadInputOutput & __MetadataBearer;
+export interface XmlAttributesOnPayloadCommandInput extends XmlAttributesOnPayloadInputOutput {}
+export interface XmlAttributesOnPayloadCommandOutput extends XmlAttributesOnPayloadInputOutput, __MetadataBearer {}
 
 /**
  * This example serializes an XML attributes on a document targeted by httpPayload.

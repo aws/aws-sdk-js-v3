@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAssetModelCommandInput = CreateAssetModelRequest;
-export type CreateAssetModelCommandOutput = CreateAssetModelResponse & __MetadataBearer;
+export interface CreateAssetModelCommandInput extends CreateAssetModelRequest {}
+export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an asset model from specified property and hierarchy definitions. You create

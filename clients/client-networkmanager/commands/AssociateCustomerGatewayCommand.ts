@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateCustomerGatewayCommandInput = AssociateCustomerGatewayRequest;
-export type AssociateCustomerGatewayCommandOutput = AssociateCustomerGatewayResponse & __MetadataBearer;
+export interface AssociateCustomerGatewayCommandInput extends AssociateCustomerGatewayRequest {}
+export interface AssociateCustomerGatewayCommandOutput extends AssociateCustomerGatewayResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a customer gateway with a device and optionally, with a link. If you

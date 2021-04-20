@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateResourceCommandInput = CreateResourceRequest;
-export type CreateResourceCommandOutput = CreateResourceResponse & __MetadataBearer;
+export interface CreateResourceCommandInput extends CreateResourceRequest {}
+export interface CreateResourceCommandOutput extends CreateResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new Amazon WorkMail resource. </p>

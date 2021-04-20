@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetManagedPrefixListAssociationsCommandInput = GetManagedPrefixListAssociationsRequest;
-export type GetManagedPrefixListAssociationsCommandOutput = GetManagedPrefixListAssociationsResult & __MetadataBearer;
+export interface GetManagedPrefixListAssociationsCommandInput extends GetManagedPrefixListAssociationsRequest {}
+export interface GetManagedPrefixListAssociationsCommandOutput
+  extends GetManagedPrefixListAssociationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Gets information about the resources that are associated with the specified managed prefix list.</p>

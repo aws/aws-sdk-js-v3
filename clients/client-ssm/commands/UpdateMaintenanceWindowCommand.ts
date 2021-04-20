@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMaintenanceWindowCommandInput = UpdateMaintenanceWindowRequest;
-export type UpdateMaintenanceWindowCommandOutput = UpdateMaintenanceWindowResult & __MetadataBearer;
+export interface UpdateMaintenanceWindowCommandInput extends UpdateMaintenanceWindowRequest {}
+export interface UpdateMaintenanceWindowCommandOutput extends UpdateMaintenanceWindowResult, __MetadataBearer {}
 
 /**
  * <p>Updates an existing maintenance window. Only specified parameters are modified.</p>

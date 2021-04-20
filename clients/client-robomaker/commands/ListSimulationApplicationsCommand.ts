@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSimulationApplicationsCommandInput = ListSimulationApplicationsRequest;
-export type ListSimulationApplicationsCommandOutput = ListSimulationApplicationsResponse & __MetadataBearer;
+export interface ListSimulationApplicationsCommandInput extends ListSimulationApplicationsRequest {}
+export interface ListSimulationApplicationsCommandOutput extends ListSimulationApplicationsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of simulation applications. You can optionally provide filters to

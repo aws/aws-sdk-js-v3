@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFargateProfilesCommandInput = ListFargateProfilesRequest;
-export type ListFargateProfilesCommandOutput = ListFargateProfilesResponse & __MetadataBearer;
+export interface ListFargateProfilesCommandInput extends ListFargateProfilesRequest {}
+export interface ListFargateProfilesCommandOutput extends ListFargateProfilesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the AWS Fargate profiles associated with the specified cluster in your AWS

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SubscribeToDatasetCommandInput = SubscribeToDatasetRequest;
-export type SubscribeToDatasetCommandOutput = SubscribeToDatasetResponse & __MetadataBearer;
+export interface SubscribeToDatasetCommandInput extends SubscribeToDatasetRequest {}
+export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetResponse, __MetadataBearer {}
 
 /**
  * <p>Subscribes to receive notifications when a dataset is modified by another device.</p><p>This API can only be called with temporary credentials provided by Cognito Identity. You cannot call this API with developer credentials.</p>

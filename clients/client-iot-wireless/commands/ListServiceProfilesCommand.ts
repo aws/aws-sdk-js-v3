@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListServiceProfilesCommandInput = ListServiceProfilesRequest;
-export type ListServiceProfilesCommandOutput = ListServiceProfilesResponse & __MetadataBearer;
+export interface ListServiceProfilesCommandInput extends ListServiceProfilesRequest {}
+export interface ListServiceProfilesCommandOutput extends ListServiceProfilesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the service profiles registered to your AWS account.</p>

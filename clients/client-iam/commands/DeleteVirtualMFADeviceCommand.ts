@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVirtualMFADeviceCommandInput = DeleteVirtualMFADeviceRequest;
-export type DeleteVirtualMFADeviceCommandOutput = __MetadataBearer;
+export interface DeleteVirtualMFADeviceCommandInput extends DeleteVirtualMFADeviceRequest {}
+export interface DeleteVirtualMFADeviceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a virtual MFA device.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateActionCommandInput = CreateActionRequest;
-export type CreateActionCommandOutput = CreateActionResponse & __MetadataBearer;
+export interface CreateActionCommandInput extends CreateActionRequest {}
+export interface CreateActionCommandOutput extends CreateActionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an <i>action</i>. An action is a lineage tracking entity that

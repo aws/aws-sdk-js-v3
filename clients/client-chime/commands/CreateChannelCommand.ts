@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateChannelCommandInput = CreateChannelRequest;
-export type CreateChannelCommandOutput = CreateChannelResponse & __MetadataBearer;
+export interface CreateChannelCommandInput extends CreateChannelRequest {}
+export interface CreateChannelCommandOutput extends CreateChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a channel to which you can add users and send messages.</p>

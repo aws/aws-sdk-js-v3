@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SubscribeToEventCommandInput = SubscribeToEventRequest;
-export type SubscribeToEventCommandOutput = __MetadataBearer;
+export interface SubscribeToEventCommandInput extends SubscribeToEventRequest {}
+export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables the process of sending Amazon Simple Notification Service (SNS) notifications

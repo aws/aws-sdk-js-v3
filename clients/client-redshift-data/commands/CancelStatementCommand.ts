@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelStatementCommandInput = CancelStatementRequest;
-export type CancelStatementCommandOutput = CancelStatementResponse & __MetadataBearer;
+export interface CancelStatementCommandInput extends CancelStatementRequest {}
+export interface CancelStatementCommandOutput extends CancelStatementResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a running query. To be canceled, a query must be running. </p>

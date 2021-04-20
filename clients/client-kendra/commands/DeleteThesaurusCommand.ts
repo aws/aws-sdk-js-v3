@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteThesaurusCommandInput = DeleteThesaurusRequest;
-export type DeleteThesaurusCommandOutput = __MetadataBearer;
+export interface DeleteThesaurusCommandInput extends DeleteThesaurusRequest {}
+export interface DeleteThesaurusCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an existing Amazon Kendra thesaurus.

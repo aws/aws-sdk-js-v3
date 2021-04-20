@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListImageVersionsCommandInput = ListImageVersionsRequest;
-export type ListImageVersionsCommandOutput = ListImageVersionsResponse & __MetadataBearer;
+export interface ListImageVersionsCommandInput extends ListImageVersionsRequest {}
+export interface ListImageVersionsCommandOutput extends ListImageVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the versions of a specified image and their properties. The list can be filtered

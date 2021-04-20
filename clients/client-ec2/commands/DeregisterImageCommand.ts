@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterImageCommandInput = DeregisterImageRequest;
-export type DeregisterImageCommandOutput = __MetadataBearer;
+export interface DeregisterImageCommandInput extends DeregisterImageRequest {}
+export interface DeregisterImageCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch

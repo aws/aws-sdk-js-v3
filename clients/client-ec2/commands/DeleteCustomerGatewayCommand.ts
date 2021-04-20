@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCustomerGatewayCommandInput = DeleteCustomerGatewayRequest;
-export type DeleteCustomerGatewayCommandOutput = __MetadataBearer;
+export interface DeleteCustomerGatewayCommandInput extends DeleteCustomerGatewayRequest {}
+export interface DeleteCustomerGatewayCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified customer gateway. You must delete the VPN connection before you can delete the customer gateway.</p>

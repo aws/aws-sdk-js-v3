@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableMacieCommandInput = EnableMacieRequest;
-export type EnableMacieCommandOutput = EnableMacieResponse & __MetadataBearer;
+export interface EnableMacieCommandInput extends EnableMacieRequest {}
+export interface EnableMacieCommandOutput extends EnableMacieResponse, __MetadataBearer {}
 
 /**
  * <p>Enables Amazon Macie and specifies the configuration settings for a Macie account.</p>

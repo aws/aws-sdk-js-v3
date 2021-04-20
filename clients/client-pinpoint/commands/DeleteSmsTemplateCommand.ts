@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSmsTemplateCommandInput = DeleteSmsTemplateRequest;
-export type DeleteSmsTemplateCommandOutput = DeleteSmsTemplateResponse & __MetadataBearer;
+export interface DeleteSmsTemplateCommandInput extends DeleteSmsTemplateRequest {}
+export interface DeleteSmsTemplateCommandOutput extends DeleteSmsTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a message template for messages that were sent through the SMS channel.</p>

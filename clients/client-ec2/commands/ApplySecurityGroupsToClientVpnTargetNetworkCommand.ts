@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ApplySecurityGroupsToClientVpnTargetNetworkCommandInput = ApplySecurityGroupsToClientVpnTargetNetworkRequest;
-export type ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput = ApplySecurityGroupsToClientVpnTargetNetworkResult &
-  __MetadataBearer;
+export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandInput
+  extends ApplySecurityGroupsToClientVpnTargetNetworkRequest {}
+export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
+  extends ApplySecurityGroupsToClientVpnTargetNetworkResult,
+    __MetadataBearer {}
 
 /**
  * <p>Applies a security group to the association between the target network and the Client VPN endpoint. This action replaces the existing

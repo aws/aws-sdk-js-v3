@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateThingRuntimeConfigurationCommandInput = UpdateThingRuntimeConfigurationRequest;
-export type UpdateThingRuntimeConfigurationCommandOutput = UpdateThingRuntimeConfigurationResponse & __MetadataBearer;
+export interface UpdateThingRuntimeConfigurationCommandInput extends UpdateThingRuntimeConfigurationRequest {}
+export interface UpdateThingRuntimeConfigurationCommandOutput
+  extends UpdateThingRuntimeConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * Updates the runtime configuration of a thing.

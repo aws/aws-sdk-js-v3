@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSnapshotFromVolumeRecoveryPointCommandInput = CreateSnapshotFromVolumeRecoveryPointInput;
-export type CreateSnapshotFromVolumeRecoveryPointCommandOutput = CreateSnapshotFromVolumeRecoveryPointOutput &
-  __MetadataBearer;
+export interface CreateSnapshotFromVolumeRecoveryPointCommandInput extends CreateSnapshotFromVolumeRecoveryPointInput {}
+export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
+  extends CreateSnapshotFromVolumeRecoveryPointOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Initiates a snapshot of a gateway from a volume recovery point. This operation is only

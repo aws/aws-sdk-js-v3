@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCrawlersCommandInput = ListCrawlersRequest;
-export type ListCrawlersCommandOutput = ListCrawlersResponse & __MetadataBearer;
+export interface ListCrawlersCommandInput extends ListCrawlersRequest {}
+export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the names of all crawler resources in this AWS account, or the

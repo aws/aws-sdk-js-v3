@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreTableFromBackupCommandInput = RestoreTableFromBackupInput;
-export type RestoreTableFromBackupCommandOutput = RestoreTableFromBackupOutput & __MetadataBearer;
+export interface RestoreTableFromBackupCommandInput extends RestoreTableFromBackupInput {}
+export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBackupOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new table from an existing backup. Any number of users can execute up to 4 concurrent restores

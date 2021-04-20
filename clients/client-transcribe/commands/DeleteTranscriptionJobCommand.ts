@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTranscriptionJobCommandInput = DeleteTranscriptionJobRequest;
-export type DeleteTranscriptionJobCommandOutput = __MetadataBearer;
+export interface DeleteTranscriptionJobCommandInput extends DeleteTranscriptionJobRequest {}
+export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a previously submitted transcription job along with any other generated

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPlaybackKeyPairCommandInput = GetPlaybackKeyPairRequest;
-export type GetPlaybackKeyPairCommandOutput = GetPlaybackKeyPairResponse & __MetadataBearer;
+export interface GetPlaybackKeyPairCommandInput extends GetPlaybackKeyPairRequest {}
+export interface GetPlaybackKeyPairCommandOutput extends GetPlaybackKeyPairResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a specified playback authorization key pair and returns the <code>arn</code> and

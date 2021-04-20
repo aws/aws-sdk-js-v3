@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterDomainCommandInput = RegisterDomainRequest;
-export type RegisterDomainCommandOutput = RegisterDomainResponse & __MetadataBearer;
+export interface RegisterDomainCommandInput extends RegisterDomainRequest {}
+export interface RegisterDomainCommandOutput extends RegisterDomainResponse, __MetadataBearer {}
 
 /**
  * <p>This operation registers a domain. Domains are registered either by Amazon Registrar (for .com, .net, and .org domains) or by

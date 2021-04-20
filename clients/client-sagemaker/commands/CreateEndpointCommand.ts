@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEndpointCommandInput = CreateEndpointInput;
-export type CreateEndpointCommandOutput = CreateEndpointOutput & __MetadataBearer;
+export interface CreateEndpointCommandInput extends CreateEndpointInput {}
+export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __MetadataBearer {}
 
 /**
  * <p>Creates an endpoint using the endpoint configuration specified in the request. Amazon SageMaker

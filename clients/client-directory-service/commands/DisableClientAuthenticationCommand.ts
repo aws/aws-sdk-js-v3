@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableClientAuthenticationCommandInput = DisableClientAuthenticationRequest;
-export type DisableClientAuthenticationCommandOutput = DisableClientAuthenticationResult & __MetadataBearer;
+export interface DisableClientAuthenticationCommandInput extends DisableClientAuthenticationRequest {}
+export interface DisableClientAuthenticationCommandOutput extends DisableClientAuthenticationResult, __MetadataBearer {}
 
 /**
  * <p>Disables alternative client authentication methods for the specified directory. </p>

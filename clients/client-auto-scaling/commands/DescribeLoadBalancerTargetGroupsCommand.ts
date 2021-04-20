@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLoadBalancerTargetGroupsCommandInput = DescribeLoadBalancerTargetGroupsRequest;
-export type DescribeLoadBalancerTargetGroupsCommandOutput = DescribeLoadBalancerTargetGroupsResponse & __MetadataBearer;
+export interface DescribeLoadBalancerTargetGroupsCommandInput extends DescribeLoadBalancerTargetGroupsRequest {}
+export interface DescribeLoadBalancerTargetGroupsCommandOutput
+  extends DescribeLoadBalancerTargetGroupsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the target groups for the specified Auto Scaling group.</p>

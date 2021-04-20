@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCacheClusterCommandInput = CreateCacheClusterMessage;
-export type CreateCacheClusterCommandOutput = CreateCacheClusterResult & __MetadataBearer;
+export interface CreateCacheClusterCommandInput extends CreateCacheClusterMessage {}
+export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResult, __MetadataBearer {}
 
 /**
  * <p>Creates a cluster. All nodes in the

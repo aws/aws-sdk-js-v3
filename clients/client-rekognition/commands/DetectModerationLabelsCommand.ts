@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetectModerationLabelsCommandInput = DetectModerationLabelsRequest;
-export type DetectModerationLabelsCommandOutput = DetectModerationLabelsResponse & __MetadataBearer;
+export interface DetectModerationLabelsCommandInput extends DetectModerationLabelsRequest {}
+export interface DetectModerationLabelsCommandOutput extends DetectModerationLabelsResponse, __MetadataBearer {}
 
 /**
  * <p>Detects unsafe content in a specified JPEG or PNG format image.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyMountTargetSecurityGroupsCommandInput = ModifyMountTargetSecurityGroupsRequest;
-export type ModifyMountTargetSecurityGroupsCommandOutput = __MetadataBearer;
+export interface ModifyMountTargetSecurityGroupsCommandInput extends ModifyMountTargetSecurityGroupsRequest {}
+export interface ModifyMountTargetSecurityGroupsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Modifies the set of security groups in effect for a mount target.</p>

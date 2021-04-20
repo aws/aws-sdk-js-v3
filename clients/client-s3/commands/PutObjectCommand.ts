@@ -16,10 +16,17 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutObjectCommandInput = Omit<PutObjectRequest, "Body"> & {
+type PutObjectCommandInputType = Omit<PutObjectRequest, "Body"> & {
+  /**
+   * For *`PutObjectRequest["Body"]`*, see {@link PutObjectRequest.Body}.
+   */
   Body?: PutObjectRequest["Body"] | string | Uint8Array | Buffer;
 };
-export type PutObjectCommandOutput = PutObjectOutput & __MetadataBearer;
+/**
+ * This interface extends from `PutObjectRequest` interface. There are more parameters than `Body` defined in {@link PutObjectRequest}
+ */
+export interface PutObjectCommandInput extends PutObjectCommandInputType {}
+export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBearer {}
 
 /**
  * <p>Adds an object to a bucket. You must have WRITE permissions on a bucket to add an object

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTunnelCommandInput = DescribeTunnelRequest;
-export type DescribeTunnelCommandOutput = DescribeTunnelResponse & __MetadataBearer;
+export interface DescribeTunnelCommandInput extends DescribeTunnelRequest {}
+export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a tunnel identified by the unique tunnel id.</p>

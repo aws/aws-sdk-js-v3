@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateTrackerConsumerCommandInput = DisassociateTrackerConsumerRequest;
-export type DisassociateTrackerConsumerCommandOutput = DisassociateTrackerConsumerResponse & __MetadataBearer;
+export interface DisassociateTrackerConsumerCommandInput extends DisassociateTrackerConsumerRequest {}
+export interface DisassociateTrackerConsumerCommandOutput
+  extends DisassociateTrackerConsumerResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Removes the association between a tracker resource and a geofence collection.</p>

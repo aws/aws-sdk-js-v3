@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterFromWorkMailCommandInput = DeregisterFromWorkMailRequest;
-export type DeregisterFromWorkMailCommandOutput = DeregisterFromWorkMailResponse & __MetadataBearer;
+export interface DeregisterFromWorkMailCommandInput extends DeregisterFromWorkMailRequest {}
+export interface DeregisterFromWorkMailCommandOutput extends DeregisterFromWorkMailResponse, __MetadataBearer {}
 
 /**
  * <p>Mark a user, group, or resource as no longer used in Amazon WorkMail. This action

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type MergeDeveloperIdentitiesCommandInput = MergeDeveloperIdentitiesInput;
-export type MergeDeveloperIdentitiesCommandOutput = MergeDeveloperIdentitiesResponse & __MetadataBearer;
+export interface MergeDeveloperIdentitiesCommandInput extends MergeDeveloperIdentitiesInput {}
+export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIdentitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Merges two users having different <code>IdentityId</code>s, existing in the same

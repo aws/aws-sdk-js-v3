@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCampaignCommandInput = DeleteCampaignRequest;
-export type DeleteCampaignCommandOutput = DeleteCampaignResponse & __MetadataBearer;
+export interface DeleteCampaignCommandInput extends DeleteCampaignRequest {}
+export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a campaign from an application.</p>

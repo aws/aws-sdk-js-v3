@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCacheSubnetGroupsCommandInput = DescribeCacheSubnetGroupsMessage;
-export type DescribeCacheSubnetGroupsCommandOutput = CacheSubnetGroupMessage & __MetadataBearer;
+export interface DescribeCacheSubnetGroupsCommandInput extends DescribeCacheSubnetGroupsMessage {}
+export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroupMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of cache subnet group

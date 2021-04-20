@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReplaceRouteCommandInput = ReplaceRouteRequest;
-export type ReplaceRouteCommandOutput = __MetadataBearer;
+export interface ReplaceRouteCommandInput extends ReplaceRouteRequest {}
+export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Replaces an existing route within a route table in a VPC. You must provide only one of

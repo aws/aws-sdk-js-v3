@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeHostedConnectionsCommandInput = DescribeHostedConnectionsRequest;
-export type DescribeHostedConnectionsCommandOutput = Connections & __MetadataBearer;
+export interface DescribeHostedConnectionsCommandInput extends DescribeHostedConnectionsRequest {}
+export interface DescribeHostedConnectionsCommandOutput extends Connections, __MetadataBearer {}
 
 /**
  * <p>Lists the hosted connections that have been provisioned on the specified

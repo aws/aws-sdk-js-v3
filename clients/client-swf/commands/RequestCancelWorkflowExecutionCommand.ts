@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RequestCancelWorkflowExecutionCommandInput = RequestCancelWorkflowExecutionInput;
-export type RequestCancelWorkflowExecutionCommandOutput = __MetadataBearer;
+export interface RequestCancelWorkflowExecutionCommandInput extends RequestCancelWorkflowExecutionInput {}
+export interface RequestCancelWorkflowExecutionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Records a <code>WorkflowExecutionCancelRequested</code> event in the currently running

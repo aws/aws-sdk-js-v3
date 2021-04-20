@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCapacityReservationUsageCommandInput = GetCapacityReservationUsageRequest;
-export type GetCapacityReservationUsageCommandOutput = GetCapacityReservationUsageResult & __MetadataBearer;
+export interface GetCapacityReservationUsageCommandInput extends GetCapacityReservationUsageRequest {}
+export interface GetCapacityReservationUsageCommandOutput extends GetCapacityReservationUsageResult, __MetadataBearer {}
 
 /**
  * <p>Gets usage information about a Capacity Reservation. If the Capacity Reservation is shared, it shows usage information for the Capacity Reservation owner

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateFromMasterAccountCommandInput = DisassociateFromMasterAccountRequest;
-export type DisassociateFromMasterAccountCommandOutput = DisassociateFromMasterAccountResponse & __MetadataBearer;
+export interface DisassociateFromMasterAccountCommandInput extends DisassociateFromMasterAccountRequest {}
+export interface DisassociateFromMasterAccountCommandOutput
+  extends DisassociateFromMasterAccountResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates the current Security Hub member account from the associated master

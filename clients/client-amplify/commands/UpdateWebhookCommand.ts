@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateWebhookCommandInput = UpdateWebhookRequest;
-export type UpdateWebhookCommandOutput = UpdateWebhookResult & __MetadataBearer;
+export interface UpdateWebhookCommandInput extends UpdateWebhookRequest {}
+export interface UpdateWebhookCommandOutput extends UpdateWebhookResult, __MetadataBearer {}
 
 /**
  * <p> Updates a webhook. </p>

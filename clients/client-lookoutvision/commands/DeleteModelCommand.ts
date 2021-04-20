@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteModelCommandInput = DeleteModelRequest;
-export type DeleteModelCommandOutput = DeleteModelResponse & __MetadataBearer;
+export interface DeleteModelCommandInput extends DeleteModelRequest {}
+export interface DeleteModelCommandOutput extends DeleteModelResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an Amazon Lookout for Vision model. You can't delete a running model. To stop a running model,

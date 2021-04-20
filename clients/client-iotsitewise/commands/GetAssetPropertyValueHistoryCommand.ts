@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAssetPropertyValueHistoryCommandInput = GetAssetPropertyValueHistoryRequest;
-export type GetAssetPropertyValueHistoryCommandOutput = GetAssetPropertyValueHistoryResponse & __MetadataBearer;
+export interface GetAssetPropertyValueHistoryCommandInput extends GetAssetPropertyValueHistoryRequest {}
+export interface GetAssetPropertyValueHistoryCommandOutput
+  extends GetAssetPropertyValueHistoryResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the history of an asset property's values. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#historical-values">Querying

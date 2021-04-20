@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendDataToWirelessDeviceCommandInput = SendDataToWirelessDeviceRequest;
-export type SendDataToWirelessDeviceCommandOutput = SendDataToWirelessDeviceResponse & __MetadataBearer;
+export interface SendDataToWirelessDeviceCommandInput extends SendDataToWirelessDeviceRequest {}
+export interface SendDataToWirelessDeviceCommandOutput extends SendDataToWirelessDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Sends a decrypted application data frame to a device.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeScheduledActionsCommandInput = DescribeScheduledActionsMessage;
-export type DescribeScheduledActionsCommandOutput = ScheduledActionsMessage & __MetadataBearer;
+export interface DescribeScheduledActionsCommandInput extends DescribeScheduledActionsMessage {}
+export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsMessage, __MetadataBearer {}
 
 /**
  * <p>Describes properties of scheduled actions.

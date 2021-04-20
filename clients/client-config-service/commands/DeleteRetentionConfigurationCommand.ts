@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRetentionConfigurationCommandInput = DeleteRetentionConfigurationRequest;
-export type DeleteRetentionConfigurationCommandOutput = __MetadataBearer;
+export interface DeleteRetentionConfigurationCommandInput extends DeleteRetentionConfigurationRequest {}
+export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the retention configuration.</p>

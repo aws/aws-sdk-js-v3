@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateOrganizationalUnitCommandInput = CreateOrganizationalUnitRequest;
-export type CreateOrganizationalUnitCommandOutput = CreateOrganizationalUnitResponse & __MetadataBearer;
+export interface CreateOrganizationalUnitCommandInput extends CreateOrganizationalUnitRequest {}
+export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizationalUnitResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an organizational unit (OU) within a root or parent OU. An OU is a container

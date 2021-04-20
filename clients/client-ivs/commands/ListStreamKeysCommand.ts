@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListStreamKeysCommandInput = ListStreamKeysRequest;
-export type ListStreamKeysCommandOutput = ListStreamKeysResponse & __MetadataBearer;
+export interface ListStreamKeysCommandInput extends ListStreamKeysRequest {}
+export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __MetadataBearer {}
 
 /**
  * <p>Gets summary information about stream keys for the specified channel.</p>

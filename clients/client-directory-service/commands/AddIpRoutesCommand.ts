@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddIpRoutesCommandInput = AddIpRoutesRequest;
-export type AddIpRoutesCommandOutput = AddIpRoutesResult & __MetadataBearer;
+export interface AddIpRoutesCommandInput extends AddIpRoutesRequest {}
+export interface AddIpRoutesCommandOutput extends AddIpRoutesResult, __MetadataBearer {}
 
 /**
  * <p>If the DNS server for your on-premises domain uses a publicly addressable IP address, you must add a CIDR address block to correctly route traffic to and from your Microsoft AD on Amazon Web Services. <i>AddIpRoutes</i> adds this address block. You can also use <i>AddIpRoutes</i> to facilitate routing traffic that uses public IP ranges from your Microsoft AD on AWS to a peer VPC. </p>

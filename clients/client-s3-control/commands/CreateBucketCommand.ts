@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBucketCommandInput = CreateBucketRequest;
-export type CreateBucketCommandOutput = CreateBucketResult & __MetadataBearer;
+export interface CreateBucketCommandInput extends CreateBucketRequest {}
+export interface CreateBucketCommandOutput extends CreateBucketResult, __MetadataBearer {}
 
 /**
  * <note>

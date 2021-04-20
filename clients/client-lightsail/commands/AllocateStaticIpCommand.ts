@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AllocateStaticIpCommandInput = AllocateStaticIpRequest;
-export type AllocateStaticIpCommandOutput = AllocateStaticIpResult & __MetadataBearer;
+export interface AllocateStaticIpCommandInput extends AllocateStaticIpRequest {}
+export interface AllocateStaticIpCommandOutput extends AllocateStaticIpResult, __MetadataBearer {}
 
 /**
  * <p>Allocates a static IP address.</p>

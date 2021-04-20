@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListExecutionsCommandInput = ListExecutionsInput;
-export type ListExecutionsCommandOutput = ListExecutionsOutput & __MetadataBearer;
+export interface ListExecutionsCommandInput extends ListExecutionsInput {}
+export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the executions of a state machine that meet the filtering criteria. Results are

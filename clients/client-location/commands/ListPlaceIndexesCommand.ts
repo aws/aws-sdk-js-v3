@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPlaceIndexesCommandInput = ListPlaceIndexesRequest;
-export type ListPlaceIndexesCommandOutput = ListPlaceIndexesResponse & __MetadataBearer;
+export interface ListPlaceIndexesCommandInput extends ListPlaceIndexesRequest {}
+export interface ListPlaceIndexesCommandOutput extends ListPlaceIndexesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists Place index resources in your AWS account.</p>

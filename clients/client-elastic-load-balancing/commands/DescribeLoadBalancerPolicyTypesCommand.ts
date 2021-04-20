@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLoadBalancerPolicyTypesCommandInput = DescribeLoadBalancerPolicyTypesInput;
-export type DescribeLoadBalancerPolicyTypesCommandOutput = DescribeLoadBalancerPolicyTypesOutput & __MetadataBearer;
+export interface DescribeLoadBalancerPolicyTypesCommandInput extends DescribeLoadBalancerPolicyTypesInput {}
+export interface DescribeLoadBalancerPolicyTypesCommandOutput
+  extends DescribeLoadBalancerPolicyTypesOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the specified load balancer policy types or all load balancer policy types.</p>

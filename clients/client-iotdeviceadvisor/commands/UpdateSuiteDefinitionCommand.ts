@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSuiteDefinitionCommandInput = UpdateSuiteDefinitionRequest;
-export type UpdateSuiteDefinitionCommandOutput = UpdateSuiteDefinitionResponse & __MetadataBearer;
+export interface UpdateSuiteDefinitionCommandInput extends UpdateSuiteDefinitionRequest {}
+export interface UpdateSuiteDefinitionCommandOutput extends UpdateSuiteDefinitionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a Device Advisor test suite.</p>

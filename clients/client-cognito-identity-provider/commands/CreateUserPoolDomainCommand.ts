@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUserPoolDomainCommandInput = CreateUserPoolDomainRequest;
-export type CreateUserPoolDomainCommandOutput = CreateUserPoolDomainResponse & __MetadataBearer;
+export interface CreateUserPoolDomainCommandInput extends CreateUserPoolDomainRequest {}
+export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new domain for a user pool.</p>

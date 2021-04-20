@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSlotCommandInput = CreateSlotRequest;
-export type CreateSlotCommandOutput = CreateSlotResponse & __MetadataBearer;
+export interface CreateSlotCommandInput extends CreateSlotRequest {}
+export interface CreateSlotCommandOutput extends CreateSlotResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a slot in an intent. A slot is a variable needed to fulfill

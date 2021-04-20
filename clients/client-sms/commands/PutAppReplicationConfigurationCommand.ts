@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAppReplicationConfigurationCommandInput = PutAppReplicationConfigurationRequest;
-export type PutAppReplicationConfigurationCommandOutput = PutAppReplicationConfigurationResponse & __MetadataBearer;
+export interface PutAppReplicationConfigurationCommandInput extends PutAppReplicationConfigurationRequest {}
+export interface PutAppReplicationConfigurationCommandOutput
+  extends PutAppReplicationConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates or updates the replication configuration for the specified application.</p>

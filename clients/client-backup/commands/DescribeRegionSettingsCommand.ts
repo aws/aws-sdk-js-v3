@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRegionSettingsCommandInput = DescribeRegionSettingsInput;
-export type DescribeRegionSettingsCommandOutput = DescribeRegionSettingsOutput & __MetadataBearer;
+export interface DescribeRegionSettingsCommandInput extends DescribeRegionSettingsInput {}
+export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSettingsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the current service opt-in settings for the Region. If service-opt-in is enabled

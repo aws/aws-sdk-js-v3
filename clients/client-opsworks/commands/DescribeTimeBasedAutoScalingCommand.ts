@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTimeBasedAutoScalingCommandInput = DescribeTimeBasedAutoScalingRequest;
-export type DescribeTimeBasedAutoScalingCommandOutput = DescribeTimeBasedAutoScalingResult & __MetadataBearer;
+export interface DescribeTimeBasedAutoScalingCommandInput extends DescribeTimeBasedAutoScalingRequest {}
+export interface DescribeTimeBasedAutoScalingCommandOutput
+  extends DescribeTimeBasedAutoScalingResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes time-based auto scaling configurations for specified instances.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMapTileCommandInput = GetMapTileRequest;
-export type GetMapTileCommandOutput = GetMapTileResponse & __MetadataBearer;
+export interface GetMapTileCommandInput extends GetMapTileRequest {}
+export interface GetMapTileCommandOutput extends GetMapTileResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a vector data tile from the map resource. Map tiles are used by clients to

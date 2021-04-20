@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePullRequestCommandInput = CreatePullRequestInput;
-export type CreatePullRequestCommandOutput = CreatePullRequestOutput & __MetadataBearer;
+export interface CreatePullRequestCommandInput extends CreatePullRequestInput {}
+export interface CreatePullRequestCommandOutput extends CreatePullRequestOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a pull request in the specified repository.</p>

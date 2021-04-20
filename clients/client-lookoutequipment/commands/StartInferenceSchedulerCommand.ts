@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartInferenceSchedulerCommandInput = StartInferenceSchedulerRequest;
-export type StartInferenceSchedulerCommandOutput = StartInferenceSchedulerResponse & __MetadataBearer;
+export interface StartInferenceSchedulerCommandInput extends StartInferenceSchedulerRequest {}
+export interface StartInferenceSchedulerCommandOutput extends StartInferenceSchedulerResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an inference scheduler. </p>

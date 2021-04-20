@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListObjectVersionsCommandInput = ListObjectVersionsRequest;
-export type ListObjectVersionsCommandOutput = ListObjectVersionsOutput & __MetadataBearer;
+export interface ListObjectVersionsCommandInput extends ListObjectVersionsRequest {}
+export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns metadata about all versions of the objects in a bucket. You can also use request

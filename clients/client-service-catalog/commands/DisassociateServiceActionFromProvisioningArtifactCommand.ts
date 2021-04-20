@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateServiceActionFromProvisioningArtifactCommandInput = DisassociateServiceActionFromProvisioningArtifactInput;
-export type DisassociateServiceActionFromProvisioningArtifactCommandOutput = DisassociateServiceActionFromProvisioningArtifactOutput &
-  __MetadataBearer;
+export interface DisassociateServiceActionFromProvisioningArtifactCommandInput
+  extends DisassociateServiceActionFromProvisioningArtifactInput {}
+export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
+  extends DisassociateServiceActionFromProvisioningArtifactOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified self-service action association from the specified provisioning artifact.</p>

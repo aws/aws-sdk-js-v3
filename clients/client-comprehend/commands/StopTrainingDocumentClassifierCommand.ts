@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopTrainingDocumentClassifierCommandInput = StopTrainingDocumentClassifierRequest;
-export type StopTrainingDocumentClassifierCommandOutput = StopTrainingDocumentClassifierResponse & __MetadataBearer;
+export interface StopTrainingDocumentClassifierCommandInput extends StopTrainingDocumentClassifierRequest {}
+export interface StopTrainingDocumentClassifierCommandOutput
+  extends StopTrainingDocumentClassifierResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Stops a document classifier training job while in progress.</p>

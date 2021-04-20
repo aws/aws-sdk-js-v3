@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateKeysAndCertificateCommandInput = CreateKeysAndCertificateRequest;
-export type CreateKeysAndCertificateCommandOutput = CreateKeysAndCertificateResponse & __MetadataBearer;
+export interface CreateKeysAndCertificateCommandInput extends CreateKeysAndCertificateRequest {}
+export interface CreateKeysAndCertificateCommandOutput extends CreateKeysAndCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued

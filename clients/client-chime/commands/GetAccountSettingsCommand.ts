@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccountSettingsCommandInput = GetAccountSettingsRequest;
-export type GetAccountSettingsCommandOutput = GetAccountSettingsResponse & __MetadataBearer;
+export interface GetAccountSettingsCommandInput extends GetAccountSettingsRequest {}
+export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves account settings for the specified Amazon Chime account ID, such as remote control

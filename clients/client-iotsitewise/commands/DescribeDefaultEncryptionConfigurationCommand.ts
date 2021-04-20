@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDefaultEncryptionConfigurationCommandInput = DescribeDefaultEncryptionConfigurationRequest;
-export type DescribeDefaultEncryptionConfigurationCommandOutput = DescribeDefaultEncryptionConfigurationResponse &
-  __MetadataBearer;
+export interface DescribeDefaultEncryptionConfigurationCommandInput
+  extends DescribeDefaultEncryptionConfigurationRequest {}
+export interface DescribeDefaultEncryptionConfigurationCommandOutput
+  extends DescribeDefaultEncryptionConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the default encryption configuration for the

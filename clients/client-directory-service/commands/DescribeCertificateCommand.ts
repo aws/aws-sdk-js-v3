@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCertificateCommandInput = DescribeCertificateRequest;
-export type DescribeCertificateCommandOutput = DescribeCertificateResult & __MetadataBearer;
+export interface DescribeCertificateCommandInput extends DescribeCertificateRequest {}
+export interface DescribeCertificateCommandOutput extends DescribeCertificateResult, __MetadataBearer {}
 
 /**
  * <p>Displays information about the certificate registered for secure LDAP or client certificate authentication.</p>

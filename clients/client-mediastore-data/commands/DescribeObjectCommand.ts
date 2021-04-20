@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeObjectCommandInput = DescribeObjectRequest;
-export type DescribeObjectCommandOutput = DescribeObjectResponse & __MetadataBearer;
+export interface DescribeObjectCommandInput extends DescribeObjectRequest {}
+export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the headers for an object at the specified path.</p>

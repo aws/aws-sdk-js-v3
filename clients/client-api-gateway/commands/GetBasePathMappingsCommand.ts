@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBasePathMappingsCommandInput = GetBasePathMappingsRequest;
-export type GetBasePathMappingsCommandOutput = BasePathMappings & __MetadataBearer;
+export interface GetBasePathMappingsCommandInput extends GetBasePathMappingsRequest {}
+export interface GetBasePathMappingsCommandOutput extends BasePathMappings, __MetadataBearer {}
 
 /**
  * <p>Represents a collection of <a>BasePathMapping</a> resources.</p>

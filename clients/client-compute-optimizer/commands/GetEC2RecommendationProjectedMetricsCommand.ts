@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEC2RecommendationProjectedMetricsCommandInput = GetEC2RecommendationProjectedMetricsRequest;
-export type GetEC2RecommendationProjectedMetricsCommandOutput = GetEC2RecommendationProjectedMetricsResponse &
-  __MetadataBearer;
+export interface GetEC2RecommendationProjectedMetricsCommandInput extends GetEC2RecommendationProjectedMetricsRequest {}
+export interface GetEC2RecommendationProjectedMetricsCommandOutput
+  extends GetEC2RecommendationProjectedMetricsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the projected utilization metrics of Amazon EC2 instance recommendations.</p>

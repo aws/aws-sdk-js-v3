@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBackupSelectionCommandInput = GetBackupSelectionInput;
-export type GetBackupSelectionCommandOutput = GetBackupSelectionOutput & __MetadataBearer;
+export interface GetBackupSelectionCommandInput extends GetBackupSelectionInput {}
+export interface GetBackupSelectionCommandOutput extends GetBackupSelectionOutput, __MetadataBearer {}
 
 /**
  * <p>Returns selection metadata and a document in JSON format that specifies a list of

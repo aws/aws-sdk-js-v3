@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSMBFileShareCommandInput = CreateSMBFileShareInput;
-export type CreateSMBFileShareCommandOutput = CreateSMBFileShareOutput & __MetadataBearer;
+export interface CreateSMBFileShareCommandInput extends CreateSMBFileShareInput {}
+export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a Server Message Block (SMB) file share on an existing file gateway. In Storage

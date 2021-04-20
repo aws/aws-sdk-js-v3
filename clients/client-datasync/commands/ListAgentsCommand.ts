@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAgentsCommandInput = ListAgentsRequest;
-export type ListAgentsCommandOutput = ListAgentsResponse & __MetadataBearer;
+export interface ListAgentsCommandInput extends ListAgentsRequest {}
+export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of agents owned by an AWS account in the AWS Region specified in the

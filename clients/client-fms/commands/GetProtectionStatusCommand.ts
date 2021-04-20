@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetProtectionStatusCommandInput = GetProtectionStatusRequest;
-export type GetProtectionStatusCommandOutput = GetProtectionStatusResponse & __MetadataBearer;
+export interface GetProtectionStatusCommandInput extends GetProtectionStatusRequest {}
+export interface GetProtectionStatusCommandOutput extends GetProtectionStatusResponse, __MetadataBearer {}
 
 /**
  * <p>If you created a Shield Advanced policy, returns policy-level attack summary information

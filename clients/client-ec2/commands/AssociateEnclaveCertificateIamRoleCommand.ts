@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateEnclaveCertificateIamRoleCommandInput = AssociateEnclaveCertificateIamRoleRequest;
-export type AssociateEnclaveCertificateIamRoleCommandOutput = AssociateEnclaveCertificateIamRoleResult &
-  __MetadataBearer;
+export interface AssociateEnclaveCertificateIamRoleCommandInput extends AssociateEnclaveCertificateIamRoleRequest {}
+export interface AssociateEnclaveCertificateIamRoleCommandOutput
+  extends AssociateEnclaveCertificateIamRoleResult,
+    __MetadataBearer {}
 
 /**
  * <p>Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate.

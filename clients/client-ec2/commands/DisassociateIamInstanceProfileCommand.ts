@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateIamInstanceProfileCommandInput = DisassociateIamInstanceProfileRequest;
-export type DisassociateIamInstanceProfileCommandOutput = DisassociateIamInstanceProfileResult & __MetadataBearer;
+export interface DisassociateIamInstanceProfileCommandInput extends DisassociateIamInstanceProfileRequest {}
+export interface DisassociateIamInstanceProfileCommandOutput
+  extends DisassociateIamInstanceProfileResult,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates an IAM instance profile from a running or stopped instance.</p>

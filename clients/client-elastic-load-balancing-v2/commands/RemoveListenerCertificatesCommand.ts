@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveListenerCertificatesCommandInput = RemoveListenerCertificatesInput;
-export type RemoveListenerCertificatesCommandOutput = RemoveListenerCertificatesOutput & __MetadataBearer;
+export interface RemoveListenerCertificatesCommandInput extends RemoveListenerCertificatesInput {}
+export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerCertificatesOutput, __MetadataBearer {}
 
 /**
  * <p>Removes the specified certificate from the certificate list for the specified HTTPS or TLS

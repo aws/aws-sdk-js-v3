@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEvidenceByEvidenceFolderCommandInput = GetEvidenceByEvidenceFolderRequest;
-export type GetEvidenceByEvidenceFolderCommandOutput = GetEvidenceByEvidenceFolderResponse & __MetadataBearer;
+export interface GetEvidenceByEvidenceFolderCommandInput extends GetEvidenceByEvidenceFolderRequest {}
+export interface GetEvidenceByEvidenceFolderCommandOutput
+  extends GetEvidenceByEvidenceFolderResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendDiagnosticInterruptCommandInput = SendDiagnosticInterruptRequest;
-export type SendDiagnosticInterruptCommandOutput = __MetadataBearer;
+export interface SendDiagnosticInterruptCommandInput extends SendDiagnosticInterruptRequest {}
+export interface SendDiagnosticInterruptCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sends a diagnostic interrupt to the specified Amazon EC2 instance to trigger a

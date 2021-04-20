@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNodegroupCommandInput = CreateNodegroupRequest;
-export type CreateNodegroupCommandOutput = CreateNodegroupResponse & __MetadataBearer;
+export interface CreateNodegroupCommandInput extends CreateNodegroupRequest {}
+export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a managed node group for an Amazon EKS cluster. You can only create a node group

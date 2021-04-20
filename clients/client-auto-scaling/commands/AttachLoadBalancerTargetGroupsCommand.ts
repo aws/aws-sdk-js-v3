@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachLoadBalancerTargetGroupsCommandInput = AttachLoadBalancerTargetGroupsType;
-export type AttachLoadBalancerTargetGroupsCommandOutput = AttachLoadBalancerTargetGroupsResultType & __MetadataBearer;
+export interface AttachLoadBalancerTargetGroupsCommandInput extends AttachLoadBalancerTargetGroupsType {}
+export interface AttachLoadBalancerTargetGroupsCommandOutput
+  extends AttachLoadBalancerTargetGroupsResultType,
+    __MetadataBearer {}
 
 /**
  * <p>Attaches one or more target groups to the specified Auto Scaling group.</p>

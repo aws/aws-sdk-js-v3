@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFragmentsCommandInput = ListFragmentsInput;
-export type ListFragmentsCommandOutput = ListFragmentsOutput & __MetadataBearer;
+export interface ListFragmentsCommandInput extends ListFragmentsInput {}
+export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of <a>Fragment</a> objects from the specified stream and

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterTaskFromMaintenanceWindowCommandInput = DeregisterTaskFromMaintenanceWindowRequest;
-export type DeregisterTaskFromMaintenanceWindowCommandOutput = DeregisterTaskFromMaintenanceWindowResult &
-  __MetadataBearer;
+export interface DeregisterTaskFromMaintenanceWindowCommandInput extends DeregisterTaskFromMaintenanceWindowRequest {}
+export interface DeregisterTaskFromMaintenanceWindowCommandOutput
+  extends DeregisterTaskFromMaintenanceWindowResult,
+    __MetadataBearer {}
 
 /**
  * <p>Removes a task from a maintenance window.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableOrganizationAdminAccountCommandInput = DisableOrganizationAdminAccountRequest;
-export type DisableOrganizationAdminAccountCommandOutput = DisableOrganizationAdminAccountResponse & __MetadataBearer;
+export interface DisableOrganizationAdminAccountCommandInput extends DisableOrganizationAdminAccountRequest {}
+export interface DisableOrganizationAdminAccountCommandOutput
+  extends DisableOrganizationAdminAccountResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disables a Security Hub administrator account. Can only be called by the organization

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UndeprecateWorkflowTypeCommandInput = UndeprecateWorkflowTypeInput;
-export type UndeprecateWorkflowTypeCommandOutput = __MetadataBearer;
+export interface UndeprecateWorkflowTypeCommandInput extends UndeprecateWorkflowTypeInput {}
+export interface UndeprecateWorkflowTypeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Undeprecates a previously deprecated <i>workflow type</i>. After a workflow type has

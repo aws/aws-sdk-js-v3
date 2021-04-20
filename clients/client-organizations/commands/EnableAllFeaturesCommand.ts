@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableAllFeaturesCommandInput = EnableAllFeaturesRequest;
-export type EnableAllFeaturesCommandOutput = EnableAllFeaturesResponse & __MetadataBearer;
+export interface EnableAllFeaturesCommandInput extends EnableAllFeaturesRequest {}
+export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesResponse, __MetadataBearer {}
 
 /**
  * <p>Enables all features in an organization. This enables the use of organization policies

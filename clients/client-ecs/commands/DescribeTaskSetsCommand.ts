@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTaskSetsCommandInput = DescribeTaskSetsRequest;
-export type DescribeTaskSetsCommandOutput = DescribeTaskSetsResponse & __MetadataBearer;
+export interface DescribeTaskSetsCommandInput extends DescribeTaskSetsRequest {}
+export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the task sets in the specified cluster and service. This is used when a

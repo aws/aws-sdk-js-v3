@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchStopJobRunCommandInput = BatchStopJobRunRequest;
-export type BatchStopJobRunCommandOutput = BatchStopJobRunResponse & __MetadataBearer;
+export interface BatchStopJobRunCommandInput extends BatchStopJobRunRequest {}
+export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, __MetadataBearer {}
 
 /**
  * <p>Stops one or more job runs for a specified job definition.</p>

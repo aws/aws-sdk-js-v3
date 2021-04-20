@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRegexMatchSetCommandInput = CreateRegexMatchSetRequest;
-export type CreateRegexMatchSetCommandOutput = CreateRegexMatchSetResponse & __MetadataBearer;
+export interface CreateRegexMatchSetCommandInput extends CreateRegexMatchSetRequest {}
+export interface CreateRegexMatchSetCommandOutput extends CreateRegexMatchSetResponse, __MetadataBearer {}
 
 /**
  * <note>

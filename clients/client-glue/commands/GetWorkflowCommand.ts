@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetWorkflowCommandInput = GetWorkflowRequest;
-export type GetWorkflowCommandOutput = GetWorkflowResponse & __MetadataBearer;
+export interface GetWorkflowCommandInput extends GetWorkflowRequest {}
+export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves resource metadata for a workflow.</p>

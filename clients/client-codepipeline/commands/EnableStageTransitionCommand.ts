@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableStageTransitionCommandInput = EnableStageTransitionInput;
-export type EnableStageTransitionCommandOutput = __MetadataBearer;
+export interface EnableStageTransitionCommandInput extends EnableStageTransitionInput {}
+export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables artifacts in a pipeline to transition to a stage in a pipeline.</p>

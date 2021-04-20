@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateKeyCommandInput = CreateKeyRequest;
-export type CreateKeyCommandOutput = CreateKeyResponse & __MetadataBearer;
+export interface CreateKeyCommandInput extends CreateKeyRequest {}
+export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master-keys">customer master key</a> (CMK) in your AWS

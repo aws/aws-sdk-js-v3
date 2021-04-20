@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type MonitorInstancesCommandInput = MonitorInstancesRequest;
-export type MonitorInstancesCommandOutput = MonitorInstancesResult & __MetadataBearer;
+export interface MonitorInstancesCommandInput extends MonitorInstancesRequest {}
+export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Enables detailed monitoring for a running instance. Otherwise, basic monitoring is

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUserProfileCommandInput = CreateUserProfileRequest;
-export type CreateUserProfileCommandOutput = CreateUserProfileResponse & __MetadataBearer;
+export interface CreateUserProfileCommandInput extends CreateUserProfileRequest {}
+export interface CreateUserProfileCommandOutput extends CreateUserProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a user profile. A user profile represents a single user within a domain, and is

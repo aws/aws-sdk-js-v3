@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachInstancesToLoadBalancerCommandInput = AttachInstancesToLoadBalancerRequest;
-export type AttachInstancesToLoadBalancerCommandOutput = AttachInstancesToLoadBalancerResult & __MetadataBearer;
+export interface AttachInstancesToLoadBalancerCommandInput extends AttachInstancesToLoadBalancerRequest {}
+export interface AttachInstancesToLoadBalancerCommandOutput
+  extends AttachInstancesToLoadBalancerResult,
+    __MetadataBearer {}
 
 /**
  * <p>Attaches one or more Lightsail instances to a load balancer.</p>

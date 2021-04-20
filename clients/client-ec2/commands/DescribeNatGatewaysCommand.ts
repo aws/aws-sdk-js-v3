@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeNatGatewaysCommandInput = DescribeNatGatewaysRequest;
-export type DescribeNatGatewaysCommandOutput = DescribeNatGatewaysResult & __MetadataBearer;
+export interface DescribeNatGatewaysCommandInput extends DescribeNatGatewaysRequest {}
+export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your NAT gateways.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDashboardsCommandInput = ListDashboardsRequest;
-export type ListDashboardsCommandOutput = ListDashboardsResponse & __MetadataBearer;
+export interface ListDashboardsCommandInput extends ListDashboardsRequest {}
+export interface ListDashboardsCommandOutput extends ListDashboardsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists dashboards in an AWS account.</p>

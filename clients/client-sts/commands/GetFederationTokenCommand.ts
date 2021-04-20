@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFederationTokenCommandInput = GetFederationTokenRequest;
-export type GetFederationTokenCommandOutput = GetFederationTokenResponse & __MetadataBearer;
+export interface GetFederationTokenCommandInput extends GetFederationTokenRequest {}
+export interface GetFederationTokenCommandOutput extends GetFederationTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a set of temporary security credentials (consisting of an access key ID, a

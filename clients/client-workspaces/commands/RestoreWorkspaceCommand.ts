@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreWorkspaceCommandInput = RestoreWorkspaceRequest;
-export type RestoreWorkspaceCommandOutput = RestoreWorkspaceResult & __MetadataBearer;
+export interface RestoreWorkspaceCommandInput extends RestoreWorkspaceRequest {}
+export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, __MetadataBearer {}
 
 /**
  * <p>Restores the specified WorkSpace to its last known healthy state.</p>

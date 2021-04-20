@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptGrantCommandInput = AcceptGrantRequest;
-export type AcceptGrantCommandOutput = AcceptGrantResponse & __MetadataBearer;
+export interface AcceptGrantCommandInput extends AcceptGrantRequest {}
+export interface AcceptGrantCommandOutput extends AcceptGrantResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts the specified grant.</p>

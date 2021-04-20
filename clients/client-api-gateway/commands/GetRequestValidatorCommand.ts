@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRequestValidatorCommandInput = GetRequestValidatorRequest;
-export type GetRequestValidatorCommandOutput = RequestValidator & __MetadataBearer;
+export interface GetRequestValidatorCommandInput extends GetRequestValidatorRequest {}
+export interface GetRequestValidatorCommandOutput extends RequestValidator, __MetadataBearer {}
 
 /**
  * <p>Gets a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>

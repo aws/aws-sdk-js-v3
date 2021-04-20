@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCommentsForPullRequestCommandInput = GetCommentsForPullRequestInput;
-export type GetCommentsForPullRequestCommandOutput = GetCommentsForPullRequestOutput & __MetadataBearer;
+export interface GetCommentsForPullRequestCommandInput extends GetCommentsForPullRequestInput {}
+export interface GetCommentsForPullRequestCommandOutput extends GetCommentsForPullRequestOutput, __MetadataBearer {}
 
 /**
  * <p>Returns comments made on a pull request.</p>

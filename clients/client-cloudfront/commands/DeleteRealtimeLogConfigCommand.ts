@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRealtimeLogConfigCommandInput = DeleteRealtimeLogConfigRequest;
-export type DeleteRealtimeLogConfigCommandOutput = __MetadataBearer;
+export interface DeleteRealtimeLogConfigCommandInput extends DeleteRealtimeLogConfigRequest {}
+export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a real-time log configuration.</p>

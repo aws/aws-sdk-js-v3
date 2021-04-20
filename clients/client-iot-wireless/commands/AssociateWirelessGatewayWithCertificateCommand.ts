@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateWirelessGatewayWithCertificateCommandInput = AssociateWirelessGatewayWithCertificateRequest;
-export type AssociateWirelessGatewayWithCertificateCommandOutput = AssociateWirelessGatewayWithCertificateResponse &
-  __MetadataBearer;
+export interface AssociateWirelessGatewayWithCertificateCommandInput
+  extends AssociateWirelessGatewayWithCertificateRequest {}
+export interface AssociateWirelessGatewayWithCertificateCommandOutput
+  extends AssociateWirelessGatewayWithCertificateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates a wireless gateway with a certificate.</p>

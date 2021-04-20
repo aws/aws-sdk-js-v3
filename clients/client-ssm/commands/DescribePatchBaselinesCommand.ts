@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePatchBaselinesCommandInput = DescribePatchBaselinesRequest;
-export type DescribePatchBaselinesCommandOutput = DescribePatchBaselinesResult & __MetadataBearer;
+export interface DescribePatchBaselinesCommandInput extends DescribePatchBaselinesRequest {}
+export interface DescribePatchBaselinesCommandOutput extends DescribePatchBaselinesResult, __MetadataBearer {}
 
 /**
  * <p>Lists the patch baselines in your AWS account.</p>

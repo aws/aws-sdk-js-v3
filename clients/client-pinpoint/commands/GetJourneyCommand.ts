@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetJourneyCommandInput = GetJourneyRequest;
-export type GetJourneyCommandOutput = GetJourneyResponse & __MetadataBearer;
+export interface GetJourneyCommandInput extends GetJourneyRequest {}
+export interface GetJourneyCommandOutput extends GetJourneyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the status, configuration, and other settings for a journey.</p>

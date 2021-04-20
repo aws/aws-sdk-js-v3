@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUpdatedImageCommandInput = CreateUpdatedImageRequest;
-export type CreateUpdatedImageCommandOutput = CreateUpdatedImageResult & __MetadataBearer;
+export interface CreateUpdatedImageCommandInput extends CreateUpdatedImageRequest {}
+export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new image with the latest Windows operating system updates, driver updates, and AppStream 2.0 agent software.</p>

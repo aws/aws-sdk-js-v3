@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAcceleratorCommandInput = DescribeAcceleratorRequest;
-export type DescribeAcceleratorCommandOutput = DescribeAcceleratorResponse & __MetadataBearer;
+export interface DescribeAcceleratorCommandInput extends DescribeAcceleratorRequest {}
+export interface DescribeAcceleratorCommandOutput extends DescribeAcceleratorResponse, __MetadataBearer {}
 
 /**
  * <p>Describe an accelerator. </p>

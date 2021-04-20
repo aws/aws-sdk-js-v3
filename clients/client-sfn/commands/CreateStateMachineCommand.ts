@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStateMachineCommandInput = CreateStateMachineInput;
-export type CreateStateMachineCommandOutput = CreateStateMachineOutput & __MetadataBearer;
+export interface CreateStateMachineCommandInput extends CreateStateMachineInput {}
+export interface CreateStateMachineCommandOutput extends CreateStateMachineOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a state machine. A state machine consists of a collection of states that can do

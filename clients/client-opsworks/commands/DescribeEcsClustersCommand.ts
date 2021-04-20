@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEcsClustersCommandInput = DescribeEcsClustersRequest;
-export type DescribeEcsClustersCommandOutput = DescribeEcsClustersResult & __MetadataBearer;
+export interface DescribeEcsClustersCommandInput extends DescribeEcsClustersRequest {}
+export interface DescribeEcsClustersCommandOutput extends DescribeEcsClustersResult, __MetadataBearer {}
 
 /**
  * <p>Describes Amazon ECS clusters that are registered with a stack. If you specify only a stack ID,

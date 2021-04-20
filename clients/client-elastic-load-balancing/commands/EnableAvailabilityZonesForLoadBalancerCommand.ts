@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableAvailabilityZonesForLoadBalancerCommandInput = AddAvailabilityZonesInput;
-export type EnableAvailabilityZonesForLoadBalancerCommandOutput = AddAvailabilityZonesOutput & __MetadataBearer;
+export interface EnableAvailabilityZonesForLoadBalancerCommandInput extends AddAvailabilityZonesInput {}
+export interface EnableAvailabilityZonesForLoadBalancerCommandOutput
+  extends AddAvailabilityZonesOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer

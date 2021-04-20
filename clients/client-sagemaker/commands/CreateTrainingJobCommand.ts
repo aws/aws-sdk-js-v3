@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTrainingJobCommandInput = CreateTrainingJobRequest;
-export type CreateTrainingJobCommandOutput = CreateTrainingJobResponse & __MetadataBearer;
+export interface CreateTrainingJobCommandInput extends CreateTrainingJobRequest {}
+export interface CreateTrainingJobCommandOutput extends CreateTrainingJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a model training job. After training completes, Amazon SageMaker saves the resulting

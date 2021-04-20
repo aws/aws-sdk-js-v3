@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetGeneratedPolicyCommandInput = GetGeneratedPolicyRequest;
-export type GetGeneratedPolicyCommandOutput = GetGeneratedPolicyResponse & __MetadataBearer;
+export interface GetGeneratedPolicyCommandInput extends GetGeneratedPolicyRequest {}
+export interface GetGeneratedPolicyCommandOutput extends GetGeneratedPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the policy that was generated using <code>StartPolicyGeneration</code>.

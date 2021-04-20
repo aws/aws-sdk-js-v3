@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopBuildBatchCommandInput = StopBuildBatchInput;
-export type StopBuildBatchCommandOutput = StopBuildBatchOutput & __MetadataBearer;
+export interface StopBuildBatchCommandInput extends StopBuildBatchInput {}
+export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __MetadataBearer {}
 
 /**
  * <p>Stops a running batch build.</p>

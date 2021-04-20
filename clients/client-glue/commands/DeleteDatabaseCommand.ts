@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDatabaseCommandInput = DeleteDatabaseRequest;
-export type DeleteDatabaseCommandOutput = DeleteDatabaseResponse & __MetadataBearer;
+export interface DeleteDatabaseCommandInput extends DeleteDatabaseRequest {}
+export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a specified database from a Data Catalog.</p>

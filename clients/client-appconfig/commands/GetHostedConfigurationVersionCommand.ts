@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetHostedConfigurationVersionCommandInput = GetHostedConfigurationVersionRequest;
-export type GetHostedConfigurationVersionCommandOutput = HostedConfigurationVersion & __MetadataBearer;
+export interface GetHostedConfigurationVersionCommandInput extends GetHostedConfigurationVersionRequest {}
+export interface GetHostedConfigurationVersionCommandOutput extends HostedConfigurationVersion, __MetadataBearer {}
 
 /**
  * <p>Get information about a specific configuration version.</p>

@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCloudFormationChangeSetCommandInput = CreateCloudFormationChangeSetRequest;
-export type CreateCloudFormationChangeSetCommandOutput = CreateCloudFormationChangeSetResponse & __MetadataBearer;
+export interface CreateCloudFormationChangeSetCommandInput extends CreateCloudFormationChangeSetRequest {}
+export interface CreateCloudFormationChangeSetCommandOutput
+  extends CreateCloudFormationChangeSetResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates an AWS CloudFormation change set for the given application.</p>

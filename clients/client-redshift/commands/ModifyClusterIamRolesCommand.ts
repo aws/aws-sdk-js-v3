@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyClusterIamRolesCommandInput = ModifyClusterIamRolesMessage;
-export type ModifyClusterIamRolesCommandOutput = ModifyClusterIamRolesResult & __MetadataBearer;
+export interface ModifyClusterIamRolesCommandInput extends ModifyClusterIamRolesMessage {}
+export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRolesResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the list of AWS Identity and Access Management (IAM) roles that can be

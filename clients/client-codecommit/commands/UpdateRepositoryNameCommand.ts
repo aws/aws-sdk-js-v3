@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRepositoryNameCommandInput = UpdateRepositoryNameInput;
-export type UpdateRepositoryNameCommandOutput = __MetadataBearer;
+export interface UpdateRepositoryNameCommandInput extends UpdateRepositoryNameInput {}
+export interface UpdateRepositoryNameCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Renames a repository. The repository name must be unique across the calling AWS

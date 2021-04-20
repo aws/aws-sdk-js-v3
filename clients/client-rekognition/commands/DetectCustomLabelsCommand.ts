@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetectCustomLabelsCommandInput = DetectCustomLabelsRequest;
-export type DetectCustomLabelsCommandOutput = DetectCustomLabelsResponse & __MetadataBearer;
+export interface DetectCustomLabelsCommandInput extends DetectCustomLabelsRequest {}
+export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsResponse, __MetadataBearer {}
 
 /**
  * <p>Detects custom labels in a supplied image by using an Amazon Rekognition Custom Labels model. </p>

@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateConfigurationItemsFromApplicationCommandInput = DisassociateConfigurationItemsFromApplicationRequest;
-export type DisassociateConfigurationItemsFromApplicationCommandOutput = DisassociateConfigurationItemsFromApplicationResponse &
-  __MetadataBearer;
+export interface DisassociateConfigurationItemsFromApplicationCommandInput
+  extends DisassociateConfigurationItemsFromApplicationRequest {}
+export interface DisassociateConfigurationItemsFromApplicationCommandOutput
+  extends DisassociateConfigurationItemsFromApplicationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates one or more configuration items from an application.</p>

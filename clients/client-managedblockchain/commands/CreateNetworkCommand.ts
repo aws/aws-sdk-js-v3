@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNetworkCommandInput = CreateNetworkInput;
-export type CreateNetworkCommandOutput = CreateNetworkOutput & __MetadataBearer;
+export interface CreateNetworkCommandInput extends CreateNetworkInput {}
+export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new blockchain network using Amazon Managed Blockchain.</p>

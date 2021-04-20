@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDownloadUrlForLayerCommandInput = GetDownloadUrlForLayerRequest;
-export type GetDownloadUrlForLayerCommandOutput = GetDownloadUrlForLayerResponse & __MetadataBearer;
+export interface GetDownloadUrlForLayerCommandInput extends GetDownloadUrlForLayerRequest {}
+export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLayerResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer. You

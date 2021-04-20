@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type KitchenSinkOperationCommandInput = KitchenSink;
-export type KitchenSinkOperationCommandOutput = KitchenSink & __MetadataBearer;
+export interface KitchenSinkOperationCommandInput extends KitchenSink {}
+export interface KitchenSinkOperationCommandOutput extends KitchenSink, __MetadataBearer {}
 
 export class KitchenSinkOperationCommand extends $Command<
   KitchenSinkOperationCommandInput,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type JsonMapsCommandInput = JsonMapsInputOutput;
-export type JsonMapsCommandOutput = JsonMapsInputOutput & __MetadataBearer;
+export interface JsonMapsCommandInput extends JsonMapsInputOutput {}
+export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBearer {}
 
 /**
  * The example tests basic map serialization.

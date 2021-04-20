@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InstallToRemoteAccessSessionCommandInput = InstallToRemoteAccessSessionRequest;
-export type InstallToRemoteAccessSessionCommandOutput = InstallToRemoteAccessSessionResult & __MetadataBearer;
+export interface InstallToRemoteAccessSessionCommandInput extends InstallToRemoteAccessSessionRequest {}
+export interface InstallToRemoteAccessSessionCommandOutput
+  extends InstallToRemoteAccessSessionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Installs an application to the device in a remote access session. For Android

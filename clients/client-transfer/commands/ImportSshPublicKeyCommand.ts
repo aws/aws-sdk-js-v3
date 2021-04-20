@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportSshPublicKeyCommandInput = ImportSshPublicKeyRequest;
-export type ImportSshPublicKeyCommandOutput = ImportSshPublicKeyResponse & __MetadataBearer;
+export interface ImportSshPublicKeyCommandInput extends ImportSshPublicKeyRequest {}
+export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Adds a Secure Shell (SSH) public key to a user account identified by a

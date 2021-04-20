@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBotCommandInput = CreateBotRequest;
-export type CreateBotCommandOutput = CreateBotResponse & __MetadataBearer;
+export interface CreateBotCommandInput extends CreateBotRequest {}
+export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a bot for an Amazon Chime Enterprise account.</p>

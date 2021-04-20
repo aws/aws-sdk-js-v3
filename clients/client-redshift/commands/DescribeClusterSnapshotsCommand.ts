@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeClusterSnapshotsCommandInput = DescribeClusterSnapshotsMessage;
-export type DescribeClusterSnapshotsCommandOutput = SnapshotMessage & __MetadataBearer;
+export interface DescribeClusterSnapshotsCommandInput extends DescribeClusterSnapshotsMessage {}
+export interface DescribeClusterSnapshotsCommandOutput extends SnapshotMessage, __MetadataBearer {}
 
 /**
  * <p>Returns one or more snapshot objects, which contain metadata about your cluster

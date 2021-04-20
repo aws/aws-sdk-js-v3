@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAuditStreamConfigurationCommandInput = UpdateAuditStreamConfigurationRequest;
-export type UpdateAuditStreamConfigurationCommandOutput = UpdateAuditStreamConfigurationResponse & __MetadataBearer;
+export interface UpdateAuditStreamConfigurationCommandInput extends UpdateAuditStreamConfigurationRequest {}
+export interface UpdateAuditStreamConfigurationCommandOutput
+  extends UpdateAuditStreamConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the audit stream configuration for the fleet.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFleetUtilizationCommandInput = DescribeFleetUtilizationInput;
-export type DescribeFleetUtilizationCommandOutput = DescribeFleetUtilizationOutput & __MetadataBearer;
+export interface DescribeFleetUtilizationCommandInput extends DescribeFleetUtilizationInput {}
+export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtilizationOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves utilization statistics for one or more fleets. Utilization data provides a

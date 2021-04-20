@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableVolumeIOCommandInput = EnableVolumeIORequest;
-export type EnableVolumeIOCommandOutput = __MetadataBearer;
+export interface EnableVolumeIOCommandInput extends EnableVolumeIORequest {}
+export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables I/O operations for a volume that had I/O operations disabled because the data on

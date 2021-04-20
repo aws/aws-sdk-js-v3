@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLayersCommandInput = DescribeLayersRequest;
-export type DescribeLayersCommandOutput = DescribeLayersResult & __MetadataBearer;
+export interface DescribeLayersCommandInput extends DescribeLayersRequest {}
+export interface DescribeLayersCommandOutput extends DescribeLayersResult, __MetadataBearer {}
 
 /**
  * <p>Requests a description of one or more layers in a specified stack.</p>

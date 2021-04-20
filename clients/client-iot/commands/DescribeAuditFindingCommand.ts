@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAuditFindingCommandInput = DescribeAuditFindingRequest;
-export type DescribeAuditFindingCommandOutput = DescribeAuditFindingResponse & __MetadataBearer;
+export interface DescribeAuditFindingCommandInput extends DescribeAuditFindingRequest {}
+export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a single audit finding. Properties include the reason for

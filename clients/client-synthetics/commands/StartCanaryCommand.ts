@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartCanaryCommandInput = StartCanaryRequest;
-export type StartCanaryCommandOutput = StartCanaryResponse & __MetadataBearer;
+export interface StartCanaryCommandInput extends StartCanaryRequest {}
+export interface StartCanaryCommandOutput extends StartCanaryResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to run a canary that has already been created.

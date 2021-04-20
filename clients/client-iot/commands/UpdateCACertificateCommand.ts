@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCACertificateCommandInput = UpdateCACertificateRequest;
-export type UpdateCACertificateCommandOutput = __MetadataBearer;
+export interface UpdateCACertificateCommandInput extends UpdateCACertificateRequest {}
+export interface UpdateCACertificateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates a registered CA certificate.</p>

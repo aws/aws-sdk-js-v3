@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableTransitGatewayRouteTablePropagationCommandInput = DisableTransitGatewayRouteTablePropagationRequest;
-export type DisableTransitGatewayRouteTablePropagationCommandOutput = DisableTransitGatewayRouteTablePropagationResult &
-  __MetadataBearer;
+export interface DisableTransitGatewayRouteTablePropagationCommandInput
+  extends DisableTransitGatewayRouteTablePropagationRequest {}
+export interface DisableTransitGatewayRouteTablePropagationCommandOutput
+  extends DisableTransitGatewayRouteTablePropagationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Disables the specified resource attachment from propagating routes to the specified

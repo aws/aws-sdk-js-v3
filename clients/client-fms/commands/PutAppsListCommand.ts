@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAppsListCommandInput = PutAppsListRequest;
-export type PutAppsListCommandOutput = PutAppsListResponse & __MetadataBearer;
+export interface PutAppsListCommandInput extends PutAppsListRequest {}
+export interface PutAppsListCommandOutput extends PutAppsListResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS Firewall Manager applications list.</p>

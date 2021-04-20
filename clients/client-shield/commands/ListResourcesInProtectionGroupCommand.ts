@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResourcesInProtectionGroupCommandInput = ListResourcesInProtectionGroupRequest;
-export type ListResourcesInProtectionGroupCommandOutput = ListResourcesInProtectionGroupResponse & __MetadataBearer;
+export interface ListResourcesInProtectionGroupCommandInput extends ListResourcesInProtectionGroupRequest {}
+export interface ListResourcesInProtectionGroupCommandOutput
+  extends ListResourcesInProtectionGroupResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the resources that are included in the protection group. </p>

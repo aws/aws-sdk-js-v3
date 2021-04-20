@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartMailboxExportJobCommandInput = StartMailboxExportJobRequest;
-export type StartMailboxExportJobCommandOutput = StartMailboxExportJobResponse & __MetadataBearer;
+export interface StartMailboxExportJobCommandInput extends StartMailboxExportJobRequest {}
+export interface StartMailboxExportJobCommandOutput extends StartMailboxExportJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a mailbox export job to export MIME-format email messages and calendar items

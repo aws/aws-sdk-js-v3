@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartWorkflowRunCommandInput = StartWorkflowRunRequest;
-export type StartWorkflowRunCommandOutput = StartWorkflowRunResponse & __MetadataBearer;
+export interface StartWorkflowRunCommandInput extends StartWorkflowRunRequest {}
+export interface StartWorkflowRunCommandOutput extends StartWorkflowRunResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a new run of the specified workflow.</p>

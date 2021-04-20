@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetSecurityGroupsCommandInput = SetSecurityGroupsInput;
-export type SetSecurityGroupsCommandOutput = SetSecurityGroupsOutput & __MetadataBearer;
+export interface SetSecurityGroupsCommandInput extends SetSecurityGroupsInput {}
+export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput, __MetadataBearer {}
 
 /**
  * <p>Associates the specified security groups with the specified Application Load Balancer. The

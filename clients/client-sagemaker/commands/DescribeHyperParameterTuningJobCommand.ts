@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeHyperParameterTuningJobCommandInput = DescribeHyperParameterTuningJobRequest;
-export type DescribeHyperParameterTuningJobCommandOutput = DescribeHyperParameterTuningJobResponse & __MetadataBearer;
+export interface DescribeHyperParameterTuningJobCommandInput extends DescribeHyperParameterTuningJobRequest {}
+export interface DescribeHyperParameterTuningJobCommandOutput
+  extends DescribeHyperParameterTuningJobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets

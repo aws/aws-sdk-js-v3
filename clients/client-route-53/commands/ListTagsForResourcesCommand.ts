@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsForResourcesCommandInput = ListTagsForResourcesRequest;
-export type ListTagsForResourcesCommandOutput = ListTagsForResourcesResponse & __MetadataBearer;
+export interface ListTagsForResourcesCommandInput extends ListTagsForResourcesRequest {}
+export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists tags for up to 10 health checks or hosted zones.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListContainersCommandInput = ListContainersInput;
-export type ListContainersCommandOutput = ListContainersOutput & __MetadataBearer;
+export interface ListContainersCommandInput extends ListContainersInput {}
+export interface ListContainersCommandOutput extends ListContainersOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the properties of all containers in AWS Elemental MediaStore. </p>

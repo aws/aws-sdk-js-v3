@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAppCommandInput = CreateAppRequest;
-export type CreateAppCommandOutput = CreateAppResponse & __MetadataBearer;
+export interface CreateAppCommandInput extends CreateAppRequest {}
+export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an application. An application consists of one or more server groups. Each

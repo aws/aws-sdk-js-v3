@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PreviewAgentsCommandInput = PreviewAgentsRequest;
-export type PreviewAgentsCommandOutput = PreviewAgentsResponse & __MetadataBearer;
+export interface PreviewAgentsCommandInput extends PreviewAgentsRequest {}
+export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __MetadataBearer {}
 
 /**
  * <p>Previews the agents installed on the EC2 instances that are part of the specified

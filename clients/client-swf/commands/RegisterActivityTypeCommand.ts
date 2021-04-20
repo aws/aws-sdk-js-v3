@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterActivityTypeCommandInput = RegisterActivityTypeInput;
-export type RegisterActivityTypeCommandOutput = __MetadataBearer;
+export interface RegisterActivityTypeCommandInput extends RegisterActivityTypeInput {}
+export interface RegisterActivityTypeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Registers a new <i>activity type</i> along with its configuration

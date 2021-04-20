@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDashboardPermissionsCommandInput = UpdateDashboardPermissionsRequest;
-export type UpdateDashboardPermissionsCommandOutput = UpdateDashboardPermissionsResponse & __MetadataBearer;
+export interface UpdateDashboardPermissionsCommandInput extends UpdateDashboardPermissionsRequest {}
+export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboardPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates read and write permissions on a dashboard.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCustomAvailabilityZonesCommandInput = DescribeCustomAvailabilityZonesMessage;
-export type DescribeCustomAvailabilityZonesCommandOutput = CustomAvailabilityZoneMessage & __MetadataBearer;
+export interface DescribeCustomAvailabilityZonesCommandInput extends DescribeCustomAvailabilityZonesMessage {}
+export interface DescribeCustomAvailabilityZonesCommandOutput extends CustomAvailabilityZoneMessage, __MetadataBearer {}
 
 /**
  * <p>Returns information about custom Availability Zones (AZs).</p>

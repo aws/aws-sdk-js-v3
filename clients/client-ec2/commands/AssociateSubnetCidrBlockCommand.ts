@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateSubnetCidrBlockCommandInput = AssociateSubnetCidrBlockRequest;
-export type AssociateSubnetCidrBlockCommandOutput = AssociateSubnetCidrBlockResult & __MetadataBearer;
+export interface AssociateSubnetCidrBlockCommandInput extends AssociateSubnetCidrBlockRequest {}
+export interface AssociateSubnetCidrBlockCommandOutput extends AssociateSubnetCidrBlockResult, __MetadataBearer {}
 
 /**
  * <p>Associates a CIDR block with your subnet. You can only associate a single IPv6 CIDR

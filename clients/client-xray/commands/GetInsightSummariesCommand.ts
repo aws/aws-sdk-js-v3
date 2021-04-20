@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInsightSummariesCommandInput = GetInsightSummariesRequest;
-export type GetInsightSummariesCommandOutput = GetInsightSummariesResult & __MetadataBearer;
+export interface GetInsightSummariesCommandInput extends GetInsightSummariesRequest {}
+export interface GetInsightSummariesCommandOutput extends GetInsightSummariesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves the summaries of all insights in the specified group matching the provided filter values.</p>

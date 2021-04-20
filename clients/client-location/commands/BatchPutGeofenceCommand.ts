@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchPutGeofenceCommandInput = BatchPutGeofenceRequest;
-export type BatchPutGeofenceCommandOutput = BatchPutGeofenceResponse & __MetadataBearer;
+export interface BatchPutGeofenceCommandInput extends BatchPutGeofenceRequest {}
+export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse, __MetadataBearer {}
 
 /**
  * <p>A batch request for storing geofence geometries into a given geofence

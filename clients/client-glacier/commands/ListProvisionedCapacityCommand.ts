@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProvisionedCapacityCommandInput = ListProvisionedCapacityInput;
-export type ListProvisionedCapacityCommandOutput = ListProvisionedCapacityOutput & __MetadataBearer;
+export interface ListProvisionedCapacityCommandInput extends ListProvisionedCapacityInput {}
+export interface ListProvisionedCapacityCommandOutput extends ListProvisionedCapacityOutput, __MetadataBearer {}
 
 /**
  * <p>This operation lists the provisioned capacity units for the specified AWS

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccountStatusCommandInput = GetAccountStatusRequest;
-export type GetAccountStatusCommandOutput = GetAccountStatusResponse & __MetadataBearer;
+export interface GetAccountStatusCommandInput extends GetAccountStatusRequest {}
+export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse, __MetadataBearer {}
 
 /**
  * <p>

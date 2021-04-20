@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartRemediationExecutionCommandInput = StartRemediationExecutionRequest;
-export type StartRemediationExecutionCommandOutput = StartRemediationExecutionResponse & __MetadataBearer;
+export interface StartRemediationExecutionCommandInput extends StartRemediationExecutionRequest {}
+export interface StartRemediationExecutionCommandOutput extends StartRemediationExecutionResponse, __MetadataBearer {}
 
 /**
  * <p>Runs an on-demand remediation for the specified AWS Config rules against the last known remediation configuration. It runs an execution against the current state of your resources. Remediation execution is asynchronous.</p>

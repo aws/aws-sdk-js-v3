@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSubscriptionDefinitionCommandInput = GetSubscriptionDefinitionRequest;
-export type GetSubscriptionDefinitionCommandOutput = GetSubscriptionDefinitionResponse & __MetadataBearer;
+export interface GetSubscriptionDefinitionCommandInput extends GetSubscriptionDefinitionRequest {}
+export interface GetSubscriptionDefinitionCommandOutput extends GetSubscriptionDefinitionResponse, __MetadataBearer {}
 
 /**
  * Retrieves information about a subscription definition.

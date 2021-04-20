@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBucketPolicyCommandInput = DeleteBucketPolicyRequest;
-export type DeleteBucketPolicyCommandOutput = __MetadataBearer;
+export interface DeleteBucketPolicyCommandInput extends DeleteBucketPolicyRequest {}
+export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This implementation of the DELETE action uses the policy subresource to delete the

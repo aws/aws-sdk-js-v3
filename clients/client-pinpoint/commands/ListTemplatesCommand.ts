@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTemplatesCommandInput = ListTemplatesRequest;
-export type ListTemplatesCommandOutput = ListTemplatesResponse & __MetadataBearer;
+export interface ListTemplatesCommandInput extends ListTemplatesRequest {}
+export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about all the message templates that are associated with your Amazon Pinpoint account.</p>

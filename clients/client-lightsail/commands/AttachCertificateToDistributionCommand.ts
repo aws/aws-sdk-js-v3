@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachCertificateToDistributionCommandInput = AttachCertificateToDistributionRequest;
-export type AttachCertificateToDistributionCommandOutput = AttachCertificateToDistributionResult & __MetadataBearer;
+export interface AttachCertificateToDistributionCommandInput extends AttachCertificateToDistributionRequest {}
+export interface AttachCertificateToDistributionCommandOutput
+  extends AttachCertificateToDistributionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Attaches an SSL/TLS certificate to your Amazon Lightsail content delivery network (CDN)

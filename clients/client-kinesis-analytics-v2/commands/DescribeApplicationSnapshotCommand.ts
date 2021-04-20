@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeApplicationSnapshotCommandInput = DescribeApplicationSnapshotRequest;
-export type DescribeApplicationSnapshotCommandOutput = DescribeApplicationSnapshotResponse & __MetadataBearer;
+export interface DescribeApplicationSnapshotCommandInput extends DescribeApplicationSnapshotRequest {}
+export interface DescribeApplicationSnapshotCommandOutput
+  extends DescribeApplicationSnapshotResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about a snapshot of application state data.</p>

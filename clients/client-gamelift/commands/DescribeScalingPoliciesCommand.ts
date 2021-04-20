@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeScalingPoliciesCommandInput = DescribeScalingPoliciesInput;
-export type DescribeScalingPoliciesCommandOutput = DescribeScalingPoliciesOutput & __MetadataBearer;
+export interface DescribeScalingPoliciesCommandInput extends DescribeScalingPoliciesInput {}
+export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPoliciesOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves all scaling policies applied to a fleet.</p>

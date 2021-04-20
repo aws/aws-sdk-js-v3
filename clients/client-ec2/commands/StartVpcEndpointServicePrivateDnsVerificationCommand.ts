@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartVpcEndpointServicePrivateDnsVerificationCommandInput = StartVpcEndpointServicePrivateDnsVerificationRequest;
-export type StartVpcEndpointServicePrivateDnsVerificationCommandOutput = StartVpcEndpointServicePrivateDnsVerificationResult &
-  __MetadataBearer;
+export interface StartVpcEndpointServicePrivateDnsVerificationCommandInput
+  extends StartVpcEndpointServicePrivateDnsVerificationRequest {}
+export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
+  extends StartVpcEndpointServicePrivateDnsVerificationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Initiates the verification process to prove that the service provider owns the private

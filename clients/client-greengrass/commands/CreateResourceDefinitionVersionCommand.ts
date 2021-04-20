@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateResourceDefinitionVersionCommandInput = CreateResourceDefinitionVersionRequest;
-export type CreateResourceDefinitionVersionCommandOutput = CreateResourceDefinitionVersionResponse & __MetadataBearer;
+export interface CreateResourceDefinitionVersionCommandInput extends CreateResourceDefinitionVersionRequest {}
+export interface CreateResourceDefinitionVersionCommandOutput
+  extends CreateResourceDefinitionVersionResponse,
+    __MetadataBearer {}
 
 /**
  * Creates a version of a resource definition that has already been defined.

@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCustomRoutingPortMappingsByDestinationCommandInput = ListCustomRoutingPortMappingsByDestinationRequest;
-export type ListCustomRoutingPortMappingsByDestinationCommandOutput = ListCustomRoutingPortMappingsByDestinationResponse &
-  __MetadataBearer;
+export interface ListCustomRoutingPortMappingsByDestinationCommandInput
+  extends ListCustomRoutingPortMappingsByDestinationRequest {}
+export interface ListCustomRoutingPortMappingsByDestinationCommandOutput
+  extends ListCustomRoutingPortMappingsByDestinationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>List the port mappings for a specific EC2 instance (destination) in a VPC subnet endpoint. The

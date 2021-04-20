@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendAlexaOfferToMasterCommandInput = SendAlexaOfferToMasterRequest;
-export type SendAlexaOfferToMasterCommandOutput = SendAlexaOfferToMasterResponse & __MetadataBearer;
+export interface SendAlexaOfferToMasterCommandInput extends SendAlexaOfferToMasterRequest {}
+export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMasterResponse, __MetadataBearer {}
 
 /**
  * <p>This API allows you to connect WebRTC-enabled devices with Alexa display devices. When

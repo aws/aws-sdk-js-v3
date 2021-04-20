@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelQuantumTaskCommandInput = CancelQuantumTaskRequest;
-export type CancelQuantumTaskCommandOutput = CancelQuantumTaskResponse & __MetadataBearer;
+export interface CancelQuantumTaskCommandInput extends CancelQuantumTaskRequest {}
+export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels the specified task.</p>

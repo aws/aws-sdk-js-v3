@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVpcAttributeCommandInput = DescribeVpcAttributeRequest;
-export type DescribeVpcAttributeCommandOutput = DescribeVpcAttributeResult & __MetadataBearer;
+export interface DescribeVpcAttributeCommandInput extends DescribeVpcAttributeRequest {}
+export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified attribute of the specified VPC. You can specify only one attribute at a time.</p>

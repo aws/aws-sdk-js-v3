@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveUserFromGroupCommandInput = RemoveUserFromGroupRequest;
-export type RemoveUserFromGroupCommandOutput = __MetadataBearer;
+export interface RemoveUserFromGroupCommandInput extends RemoveUserFromGroupRequest {}
+export interface RemoveUserFromGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified user from the specified group.</p>

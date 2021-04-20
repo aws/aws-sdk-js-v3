@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TestFailoverCommandInput = TestFailoverMessage;
-export type TestFailoverCommandOutput = TestFailoverResult & __MetadataBearer;
+export interface TestFailoverCommandInput extends TestFailoverMessage {}
+export interface TestFailoverCommandOutput extends TestFailoverResult, __MetadataBearer {}
 
 /**
  * <p>Represents the input of a <code>TestFailover</code> operation which test automatic failover on

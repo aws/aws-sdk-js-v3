@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type MoveAddressToVpcCommandInput = MoveAddressToVpcRequest;
-export type MoveAddressToVpcCommandOutput = MoveAddressToVpcResult & __MetadataBearer;
+export interface MoveAddressToVpcCommandInput extends MoveAddressToVpcRequest {}
+export interface MoveAddressToVpcCommandOutput extends MoveAddressToVpcResult, __MetadataBearer {}
 
 /**
  * <p>Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC platform. The

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PostCommentReplyCommandInput = PostCommentReplyInput;
-export type PostCommentReplyCommandOutput = PostCommentReplyOutput & __MetadataBearer;
+export interface PostCommentReplyCommandInput extends PostCommentReplyInput {}
+export interface PostCommentReplyCommandOutput extends PostCommentReplyOutput, __MetadataBearer {}
 
 /**
  * <p>Posts a comment in reply to an existing comment on a comparison between commits or a pull request.</p>

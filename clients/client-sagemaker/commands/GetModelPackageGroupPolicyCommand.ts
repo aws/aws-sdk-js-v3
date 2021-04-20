@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetModelPackageGroupPolicyCommandInput = GetModelPackageGroupPolicyInput;
-export type GetModelPackageGroupPolicyCommandOutput = GetModelPackageGroupPolicyOutput & __MetadataBearer;
+export interface GetModelPackageGroupPolicyCommandInput extends GetModelPackageGroupPolicyInput {}
+export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackageGroupPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a resource policy that manages access for a model group. For information about

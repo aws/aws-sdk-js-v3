@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TerminateWorkspacesCommandInput = TerminateWorkspacesRequest;
-export type TerminateWorkspacesCommandOutput = TerminateWorkspacesResult & __MetadataBearer;
+export interface TerminateWorkspacesCommandInput extends TerminateWorkspacesRequest {}
+export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesResult, __MetadataBearer {}
 
 /**
  * <p>Terminates the specified WorkSpaces.</p>

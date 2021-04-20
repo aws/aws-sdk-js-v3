@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartMatchmakingCommandInput = StartMatchmakingInput;
-export type StartMatchmakingCommandOutput = StartMatchmakingOutput & __MetadataBearer;
+export interface StartMatchmakingCommandInput extends StartMatchmakingInput {}
+export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, __MetadataBearer {}
 
 /**
  * <p>Uses FlexMatch to create a game match for a group of players based on custom matchmaking

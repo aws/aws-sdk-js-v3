@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeClusterDbRevisionsCommandInput = DescribeClusterDbRevisionsMessage;
-export type DescribeClusterDbRevisionsCommandOutput = ClusterDbRevisionsMessage & __MetadataBearer;
+export interface DescribeClusterDbRevisionsCommandInput extends DescribeClusterDbRevisionsMessage {}
+export interface DescribeClusterDbRevisionsCommandOutput extends ClusterDbRevisionsMessage, __MetadataBearer {}
 
 /**
  * <p>Returns an array of <code>ClusterDbRevision</code> objects.</p>

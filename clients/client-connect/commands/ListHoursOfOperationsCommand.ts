@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListHoursOfOperationsCommandInput = ListHoursOfOperationsRequest;
-export type ListHoursOfOperationsCommandOutput = ListHoursOfOperationsResponse & __MetadataBearer;
+export interface ListHoursOfOperationsCommandInput extends ListHoursOfOperationsRequest {}
+export interface ListHoursOfOperationsCommandOutput extends ListHoursOfOperationsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides information about the hours of operation for the specified Amazon Connect instance.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteParametersCommandInput = DeleteParametersRequest;
-export type DeleteParametersCommandOutput = DeleteParametersResult & __MetadataBearer;
+export interface DeleteParametersCommandInput extends DeleteParametersRequest {}
+export interface DeleteParametersCommandOutput extends DeleteParametersResult, __MetadataBearer {}
 
 /**
  * <p>Delete a list of parameters.</p>

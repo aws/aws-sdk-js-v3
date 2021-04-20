@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRateBasedRuleManagedKeysCommandInput = GetRateBasedRuleManagedKeysRequest;
-export type GetRateBasedRuleManagedKeysCommandOutput = GetRateBasedRuleManagedKeysResponse & __MetadataBearer;
+export interface GetRateBasedRuleManagedKeysCommandInput extends GetRateBasedRuleManagedKeysRequest {}
+export interface GetRateBasedRuleManagedKeysCommandOutput
+  extends GetRateBasedRuleManagedKeysResponse,
+    __MetadataBearer {}
 
 /**
  * <note>

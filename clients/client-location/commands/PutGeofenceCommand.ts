@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutGeofenceCommandInput = PutGeofenceRequest;
-export type PutGeofenceCommandOutput = PutGeofenceResponse & __MetadataBearer;
+export interface PutGeofenceCommandInput extends PutGeofenceRequest {}
+export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __MetadataBearer {}
 
 /**
  * <p>Stores a geofence geometry in a given geofence collection, or updates the geometry of

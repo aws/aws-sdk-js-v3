@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePartitionCommandInput = CreatePartitionRequest;
-export type CreatePartitionCommandOutput = CreatePartitionResponse & __MetadataBearer;
+export interface CreatePartitionCommandInput extends CreatePartitionRequest {}
+export interface CreatePartitionCommandOutput extends CreatePartitionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new partition.</p>

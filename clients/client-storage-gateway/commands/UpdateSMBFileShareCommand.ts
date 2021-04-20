@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSMBFileShareCommandInput = UpdateSMBFileShareInput;
-export type UpdateSMBFileShareCommandOutput = UpdateSMBFileShareOutput & __MetadataBearer;
+export interface UpdateSMBFileShareCommandInput extends UpdateSMBFileShareInput {}
+export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a Server Message Block (SMB) file share. This operation is only supported for

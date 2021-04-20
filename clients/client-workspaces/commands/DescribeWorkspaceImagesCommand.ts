@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeWorkspaceImagesCommandInput = DescribeWorkspaceImagesRequest;
-export type DescribeWorkspaceImagesCommandOutput = DescribeWorkspaceImagesResult & __MetadataBearer;
+export interface DescribeWorkspaceImagesCommandInput extends DescribeWorkspaceImagesRequest {}
+export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceImagesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes one or more specified images, if the image identifiers

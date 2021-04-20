@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDeviceStateCommandInput = UpdateDeviceStateRequest;
-export type UpdateDeviceStateCommandOutput = UpdateDeviceStateResponse & __MetadataBearer;
+export interface UpdateDeviceStateCommandInput extends UpdateDeviceStateRequest {}
+export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateResponse, __MetadataBearer {}
 
 /**
  * <p>Using a Boolean value (true or false), this operation

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteV2LoggingLevelCommandInput = DeleteV2LoggingLevelRequest;
-export type DeleteV2LoggingLevelCommandOutput = __MetadataBearer;
+export interface DeleteV2LoggingLevelCommandInput extends DeleteV2LoggingLevelRequest {}
+export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a logging level.</p>

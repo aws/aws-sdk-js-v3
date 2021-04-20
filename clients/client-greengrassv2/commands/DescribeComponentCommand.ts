@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeComponentCommandInput = DescribeComponentRequest;
-export type DescribeComponentCommandOutput = DescribeComponentResponse & __MetadataBearer;
+export interface DescribeComponentCommandInput extends DescribeComponentRequest {}
+export interface DescribeComponentCommandOutput extends DescribeComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves metadata for a version of a component.</p>

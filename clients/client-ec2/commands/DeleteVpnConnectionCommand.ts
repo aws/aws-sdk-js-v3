@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVpnConnectionCommandInput = DeleteVpnConnectionRequest;
-export type DeleteVpnConnectionCommandOutput = __MetadataBearer;
+export interface DeleteVpnConnectionCommandInput extends DeleteVpnConnectionRequest {}
+export interface DeleteVpnConnectionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified VPN connection.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCopyProductStatusCommandInput = DescribeCopyProductStatusInput;
-export type DescribeCopyProductStatusCommandOutput = DescribeCopyProductStatusOutput & __MetadataBearer;
+export interface DescribeCopyProductStatusCommandInput extends DescribeCopyProductStatusInput {}
+export interface DescribeCopyProductStatusCommandOutput extends DescribeCopyProductStatusOutput, __MetadataBearer {}
 
 /**
  * <p>Gets the status of the specified copy product operation.</p>

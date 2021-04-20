@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateModelCommandInput = CreateModelRequest;
-export type CreateModelCommandOutput = CreateModelResult & __MetadataBearer;
+export interface CreateModelCommandInput extends CreateModelRequest {}
+export interface CreateModelCommandOutput extends CreateModelResult, __MetadataBearer {}
 
 /**
  * <p>Creates a model using the specified model type.</p>

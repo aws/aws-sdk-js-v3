@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetHostCommandInput = GetHostInput;
-export type GetHostCommandOutput = GetHostOutput & __MetadataBearer;
+export interface GetHostCommandInput extends GetHostInput {}
+export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the host ARN and details such as status, provider type, endpoint, and, if

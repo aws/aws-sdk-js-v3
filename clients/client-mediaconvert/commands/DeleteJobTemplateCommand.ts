@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteJobTemplateCommandInput = DeleteJobTemplateRequest;
-export type DeleteJobTemplateCommandOutput = DeleteJobTemplateResponse & __MetadataBearer;
+export interface DeleteJobTemplateCommandInput extends DeleteJobTemplateRequest {}
+export interface DeleteJobTemplateCommandOutput extends DeleteJobTemplateResponse, __MetadataBearer {}
 
 /**
  * Permanently delete a job template you have created.

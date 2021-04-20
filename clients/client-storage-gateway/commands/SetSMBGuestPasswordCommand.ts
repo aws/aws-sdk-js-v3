@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetSMBGuestPasswordCommandInput = SetSMBGuestPasswordInput;
-export type SetSMBGuestPasswordCommandOutput = SetSMBGuestPasswordOutput & __MetadataBearer;
+export interface SetSMBGuestPasswordCommandInput extends SetSMBGuestPasswordInput {}
+export interface SetSMBGuestPasswordCommandOutput extends SetSMBGuestPasswordOutput, __MetadataBearer {}
 
 /**
  * <p>Sets the password for the guest user <code>smbguest</code>. The <code>smbguest</code>

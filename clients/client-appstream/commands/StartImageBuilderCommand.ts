@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartImageBuilderCommandInput = StartImageBuilderRequest;
-export type StartImageBuilderCommandOutput = StartImageBuilderResult & __MetadataBearer;
+export interface StartImageBuilderCommandInput extends StartImageBuilderRequest {}
+export interface StartImageBuilderCommandOutput extends StartImageBuilderResult, __MetadataBearer {}
 
 /**
  * <p>Starts the specified image builder.</p>

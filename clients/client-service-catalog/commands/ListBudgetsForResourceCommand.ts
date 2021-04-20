@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBudgetsForResourceCommandInput = ListBudgetsForResourceInput;
-export type ListBudgetsForResourceCommandOutput = ListBudgetsForResourceOutput & __MetadataBearer;
+export interface ListBudgetsForResourceCommandInput extends ListBudgetsForResourceInput {}
+export interface ListBudgetsForResourceCommandOutput extends ListBudgetsForResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all the budgets associated to the specified resource.</p>

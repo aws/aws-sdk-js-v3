@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopThingRegistrationTaskCommandInput = StopThingRegistrationTaskRequest;
-export type StopThingRegistrationTaskCommandOutput = StopThingRegistrationTaskResponse & __MetadataBearer;
+export interface StopThingRegistrationTaskCommandInput extends StopThingRegistrationTaskRequest {}
+export interface StopThingRegistrationTaskCommandOutput extends StopThingRegistrationTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels a bulk thing provisioning task.</p>

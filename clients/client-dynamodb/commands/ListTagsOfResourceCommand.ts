@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsOfResourceCommandInput = ListTagsOfResourceInput;
-export type ListTagsOfResourceCommandOutput = ListTagsOfResourceOutput & __MetadataBearer;
+export interface ListTagsOfResourceCommandInput extends ListTagsOfResourceInput {}
+export interface ListTagsOfResourceCommandOutput extends ListTagsOfResourceOutput, __MetadataBearer {}
 
 /**
  * <p>List all tags on an Amazon DynamoDB resource. You can call ListTagsOfResource up to 10 times per second, per account.</p>

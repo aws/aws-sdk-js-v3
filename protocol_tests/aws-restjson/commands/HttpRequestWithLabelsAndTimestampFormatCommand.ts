@@ -17,8 +17,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type HttpRequestWithLabelsAndTimestampFormatCommandInput = HttpRequestWithLabelsAndTimestampFormatInput;
-export type HttpRequestWithLabelsAndTimestampFormatCommandOutput = __MetadataBearer;
+export interface HttpRequestWithLabelsAndTimestampFormatCommandInput
+  extends HttpRequestWithLabelsAndTimestampFormatInput {}
+export interface HttpRequestWithLabelsAndTimestampFormatCommandOutput extends __MetadataBearer {}
 
 /**
  * The example tests how requests serialize different timestamp formats in the

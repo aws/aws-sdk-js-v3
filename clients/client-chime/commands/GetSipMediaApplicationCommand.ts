@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSipMediaApplicationCommandInput = GetSipMediaApplicationRequest;
-export type GetSipMediaApplicationCommandOutput = GetSipMediaApplicationResponse & __MetadataBearer;
+export interface GetSipMediaApplicationCommandInput extends GetSipMediaApplicationRequest {}
+export interface GetSipMediaApplicationCommandOutput extends GetSipMediaApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the information for a SIP media application, including name, AWS Region, and endpoints.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateChannelCommandInput = UpdateChannelRequest;
-export type UpdateChannelCommandOutput = __MetadataBearer;
+export interface UpdateChannelCommandInput extends UpdateChannelRequest {}
+export interface UpdateChannelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the settings of a channel.</p>

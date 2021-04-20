@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRegistryPolicyCommandInput = GetRegistryPolicyRequest;
-export type GetRegistryPolicyCommandOutput = GetRegistryPolicyResponse & __MetadataBearer;
+export interface GetRegistryPolicyCommandInput extends GetRegistryPolicyRequest {}
+export interface GetRegistryPolicyCommandOutput extends GetRegistryPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the permissions policy for a registry.</p>

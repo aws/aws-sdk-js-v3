@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPlatformBranchesCommandInput = ListPlatformBranchesRequest;
-export type ListPlatformBranchesCommandOutput = ListPlatformBranchesResult & __MetadataBearer;
+export interface ListPlatformBranchesCommandInput extends ListPlatformBranchesRequest {}
+export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesResult, __MetadataBearer {}
 
 /**
  * <p>Lists the platform branches available for your account in an AWS Region. Provides

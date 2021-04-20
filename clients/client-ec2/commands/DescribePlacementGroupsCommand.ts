@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePlacementGroupsCommandInput = DescribePlacementGroupsRequest;
-export type DescribePlacementGroupsCommandOutput = DescribePlacementGroupsResult & __MetadataBearer;
+export interface DescribePlacementGroupsCommandInput extends DescribePlacementGroupsRequest {}
+export interface DescribePlacementGroupsCommandOutput extends DescribePlacementGroupsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified placement groups or all of your placement groups. For more

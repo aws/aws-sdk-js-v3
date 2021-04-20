@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListHumanLoopsCommandInput = ListHumanLoopsRequest;
-export type ListHumanLoopsCommandOutput = ListHumanLoopsResponse & __MetadataBearer;
+export interface ListHumanLoopsCommandInput extends ListHumanLoopsRequest {}
+export interface ListHumanLoopsCommandOutput extends ListHumanLoopsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about human loops, given the specified parameters. If a human loop was deleted, it will not be included.</p>

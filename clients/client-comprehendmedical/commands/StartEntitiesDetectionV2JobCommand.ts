@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartEntitiesDetectionV2JobCommandInput = StartEntitiesDetectionV2JobRequest;
-export type StartEntitiesDetectionV2JobCommandOutput = StartEntitiesDetectionV2JobResponse & __MetadataBearer;
+export interface StartEntitiesDetectionV2JobCommandInput extends StartEntitiesDetectionV2JobRequest {}
+export interface StartEntitiesDetectionV2JobCommandOutput
+  extends StartEntitiesDetectionV2JobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous medical entity detection job for a collection of documents. Use the

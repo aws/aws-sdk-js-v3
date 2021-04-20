@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSecretsCommandInput = ListSecretsRequest;
-export type ListSecretsCommandOutput = ListSecretsResponse & __MetadataBearer;
+export interface ListSecretsCommandInput extends ListSecretsRequest {}
+export interface ListSecretsCommandOutput extends ListSecretsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of the secrets that are stored by Secrets Manager in the AWS account. To list the

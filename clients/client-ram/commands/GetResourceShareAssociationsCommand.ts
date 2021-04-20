@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResourceShareAssociationsCommandInput = GetResourceShareAssociationsRequest;
-export type GetResourceShareAssociationsCommandOutput = GetResourceShareAssociationsResponse & __MetadataBearer;
+export interface GetResourceShareAssociationsCommandInput extends GetResourceShareAssociationsRequest {}
+export interface GetResourceShareAssociationsCommandOutput
+  extends GetResourceShareAssociationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the resources or principals for the resource shares that you own.</p>

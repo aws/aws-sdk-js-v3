@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePermissionCommandInput = DeletePermissionRequest;
-export type DeletePermissionCommandOutput = __MetadataBearer;
+export interface DeletePermissionCommandInput extends DeletePermissionRequest {}
+export interface DeletePermissionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Revokes permissions on a private CA granted to the AWS Certificate Manager (ACM) service principal

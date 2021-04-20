@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateLexBotCommandInput = DisassociateLexBotRequest;
-export type DisassociateLexBotCommandOutput = __MetadataBearer;
+export interface DisassociateLexBotCommandInput extends DisassociateLexBotRequest {}
+export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

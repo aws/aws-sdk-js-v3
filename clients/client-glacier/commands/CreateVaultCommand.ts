@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVaultCommandInput = CreateVaultInput;
-export type CreateVaultCommandOutput = CreateVaultOutput & __MetadataBearer;
+export interface CreateVaultCommandInput extends CreateVaultInput {}
+export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataBearer {}
 
 /**
  * <p>This operation creates a new vault with the specified name. The name of the vault

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFleetAttributesCommandInput = DescribeFleetAttributesInput;
-export type DescribeFleetAttributesCommandOutput = DescribeFleetAttributesOutput & __MetadataBearer;
+export interface DescribeFleetAttributesCommandInput extends DescribeFleetAttributesInput {}
+export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttributesOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves core fleet-wide properties, including the computing hardware and deployment

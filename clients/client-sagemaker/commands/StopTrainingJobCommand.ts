@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopTrainingJobCommandInput = StopTrainingJobRequest;
-export type StopTrainingJobCommandOutput = __MetadataBearer;
+export interface StopTrainingJobCommandInput extends StopTrainingJobRequest {}
+export interface StopTrainingJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a training job. To stop a job, Amazon SageMaker sends the algorithm the

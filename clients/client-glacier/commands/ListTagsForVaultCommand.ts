@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsForVaultCommandInput = ListTagsForVaultInput;
-export type ListTagsForVaultCommandOutput = ListTagsForVaultOutput & __MetadataBearer;
+export interface ListTagsForVaultCommandInput extends ListTagsForVaultInput {}
+export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, __MetadataBearer {}
 
 /**
  * <p>This operation lists all the tags attached to a vault. The operation returns an empty

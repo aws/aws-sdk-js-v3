@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTrialsCommandInput = ListTrialsRequest;
-export type ListTrialsCommandOutput = ListTrialsResponse & __MetadataBearer;
+export interface ListTrialsCommandInput extends ListTrialsRequest {}
+export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the trials in your account. Specify an experiment name to limit the list to the

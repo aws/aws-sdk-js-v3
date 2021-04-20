@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutRecordsCommandInput = PutRecordsInput;
-export type PutRecordsCommandOutput = PutRecordsOutput & __MetadataBearer;
+export interface PutRecordsCommandInput extends PutRecordsInput {}
+export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBearer {}
 
 /**
  * <p>Writes multiple data records into a Kinesis data stream in a single call (also

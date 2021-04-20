@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartInstanceCommandInput = StartInstanceRequest;
-export type StartInstanceCommandOutput = StartInstanceResult & __MetadataBearer;
+export interface StartInstanceCommandInput extends StartInstanceRequest {}
+export interface StartInstanceCommandOutput extends StartInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Starts a specific Amazon Lightsail instance from a stopped state. To restart an instance,

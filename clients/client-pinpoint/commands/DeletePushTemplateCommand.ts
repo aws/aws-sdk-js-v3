@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePushTemplateCommandInput = DeletePushTemplateRequest;
-export type DeletePushTemplateCommandOutput = DeletePushTemplateResponse & __MetadataBearer;
+export interface DeletePushTemplateCommandInput extends DeletePushTemplateRequest {}
+export interface DeletePushTemplateCommandOutput extends DeletePushTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a message template for messages that were sent through a push notification channel.</p>

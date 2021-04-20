@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateEmergencyContactSettingsCommandInput = UpdateEmergencyContactSettingsRequest;
-export type UpdateEmergencyContactSettingsCommandOutput = UpdateEmergencyContactSettingsResponse & __MetadataBearer;
+export interface UpdateEmergencyContactSettingsCommandInput extends UpdateEmergencyContactSettingsRequest {}
+export interface UpdateEmergencyContactSettingsCommandOutput
+  extends UpdateEmergencyContactSettingsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the details of the list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateJobStatusCommandInput = UpdateJobStatusRequest;
-export type UpdateJobStatusCommandOutput = UpdateJobStatusResult & __MetadataBearer;
+export interface UpdateJobStatusCommandInput extends UpdateJobStatusRequest {}
+export interface UpdateJobStatusCommandOutput extends UpdateJobStatusResult, __MetadataBearer {}
 
 /**
  * <p>Updates the status for the specified job. Use this action to confirm that you want to

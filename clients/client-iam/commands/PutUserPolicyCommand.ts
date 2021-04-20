@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutUserPolicyCommandInput = PutUserPolicyRequest;
-export type PutUserPolicyCommandOutput = __MetadataBearer;
+export interface PutUserPolicyCommandInput extends PutUserPolicyRequest {}
+export interface PutUserPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds or updates an inline policy document that is embedded in the specified IAM

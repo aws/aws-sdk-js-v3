@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBotChannelAssociationCommandInput = GetBotChannelAssociationRequest;
-export type GetBotChannelAssociationCommandOutput = GetBotChannelAssociationResponse & __MetadataBearer;
+export interface GetBotChannelAssociationCommandInput extends GetBotChannelAssociationRequest {}
+export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAssociationResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the association between an Amazon Lex bot and

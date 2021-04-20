@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchUpdatePartitionCommandInput = BatchUpdatePartitionRequest;
-export type BatchUpdatePartitionCommandOutput = BatchUpdatePartitionResponse & __MetadataBearer;
+export interface BatchUpdatePartitionCommandInput extends BatchUpdatePartitionRequest {}
+export interface BatchUpdatePartitionCommandOutput extends BatchUpdatePartitionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates one or more partitions in a batch operation.</p>

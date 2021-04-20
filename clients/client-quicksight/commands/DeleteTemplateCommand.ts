@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTemplateCommandInput = DeleteTemplateRequest;
-export type DeleteTemplateCommandOutput = DeleteTemplateResponse & __MetadataBearer;
+export interface DeleteTemplateCommandInput extends DeleteTemplateRequest {}
+export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a template.</p>

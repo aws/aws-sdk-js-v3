@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLocalGatewayRouteTableVpcAssociationCommandInput = CreateLocalGatewayRouteTableVpcAssociationRequest;
-export type CreateLocalGatewayRouteTableVpcAssociationCommandOutput = CreateLocalGatewayRouteTableVpcAssociationResult &
-  __MetadataBearer;
+export interface CreateLocalGatewayRouteTableVpcAssociationCommandInput
+  extends CreateLocalGatewayRouteTableVpcAssociationRequest {}
+export interface CreateLocalGatewayRouteTableVpcAssociationCommandOutput
+  extends CreateLocalGatewayRouteTableVpcAssociationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Associates the specified VPC with the specified local gateway route table.</p>

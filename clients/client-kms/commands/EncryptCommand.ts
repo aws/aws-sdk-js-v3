@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EncryptCommandInput = EncryptRequest;
-export type EncryptCommandOutput = EncryptResponse & __MetadataBearer;
+export interface EncryptCommandInput extends EncryptRequest {}
+export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer {}
 
 /**
  * <p>Encrypts plaintext into ciphertext by using a customer master key (CMK). The

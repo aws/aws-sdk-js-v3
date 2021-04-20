@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDBClusterBacktracksCommandInput = DescribeDBClusterBacktracksMessage;
-export type DescribeDBClusterBacktracksCommandOutput = DBClusterBacktrackMessage & __MetadataBearer;
+export interface DescribeDBClusterBacktracksCommandInput extends DescribeDBClusterBacktracksMessage {}
+export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBacktrackMessage, __MetadataBearer {}
 
 /**
  * <p>Returns information about backtracks for a DB cluster.</p>

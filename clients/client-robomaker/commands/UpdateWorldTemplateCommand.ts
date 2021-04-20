@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateWorldTemplateCommandInput = UpdateWorldTemplateRequest;
-export type UpdateWorldTemplateCommandOutput = UpdateWorldTemplateResponse & __MetadataBearer;
+export interface UpdateWorldTemplateCommandInput extends UpdateWorldTemplateRequest {}
+export interface UpdateWorldTemplateCommandOutput extends UpdateWorldTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a world template.</p>

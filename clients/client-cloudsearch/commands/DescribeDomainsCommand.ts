@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDomainsCommandInput = DescribeDomainsRequest;
-export type DescribeDomainsCommandOutput = DescribeDomainsResponse & __MetadataBearer;
+export interface DescribeDomainsCommandInput extends DescribeDomainsRequest {}
+export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the search domains owned by this account. Can be limited to specific domains. Shows

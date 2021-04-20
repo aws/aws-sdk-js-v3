@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateReturnShippingLabelCommandInput = CreateReturnShippingLabelRequest;
-export type CreateReturnShippingLabelCommandOutput = CreateReturnShippingLabelResult & __MetadataBearer;
+export interface CreateReturnShippingLabelCommandInput extends CreateReturnShippingLabelRequest {}
+export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShippingLabelResult, __MetadataBearer {}
 
 /**
  * <p>Creates a shipping label that will be used to return the Snow device to AWS.</p>

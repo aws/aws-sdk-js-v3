@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBackupVaultCommandInput = CreateBackupVaultInput;
-export type CreateBackupVaultCommandOutput = CreateBackupVaultOutput & __MetadataBearer;
+export interface CreateBackupVaultCommandInput extends CreateBackupVaultInput {}
+export interface CreateBackupVaultCommandOutput extends CreateBackupVaultOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a logical container where backups are stored. A <code>CreateBackupVault</code>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSpeechSynthesisTasksCommandInput = ListSpeechSynthesisTasksInput;
-export type ListSpeechSynthesisTasksCommandOutput = ListSpeechSynthesisTasksOutput & __MetadataBearer;
+export interface ListSpeechSynthesisTasksCommandInput extends ListSpeechSynthesisTasksInput {}
+export interface ListSpeechSynthesisTasksCommandOutput extends ListSpeechSynthesisTasksOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This

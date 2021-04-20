@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type MergeShardsCommandInput = MergeShardsInput;
-export type MergeShardsCommandOutput = __MetadataBearer;
+export interface MergeShardsCommandInput extends MergeShardsInput {}
+export interface MergeShardsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Merges two adjacent shards in a Kinesis data stream and combines them into a single

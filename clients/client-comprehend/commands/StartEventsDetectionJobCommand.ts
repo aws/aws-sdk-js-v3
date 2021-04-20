@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartEventsDetectionJobCommandInput = StartEventsDetectionJobRequest;
-export type StartEventsDetectionJobCommandOutput = StartEventsDetectionJobResponse & __MetadataBearer;
+export interface StartEventsDetectionJobCommandInput extends StartEventsDetectionJobRequest {}
+export interface StartEventsDetectionJobCommandOutput extends StartEventsDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous event detection job for a collection of documents.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePolicyVersionCommandInput = CreatePolicyVersionRequest;
-export type CreatePolicyVersionCommandOutput = CreatePolicyVersionResponse & __MetadataBearer;
+export interface CreatePolicyVersionCommandInput extends CreatePolicyVersionRequest {}
+export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new version of the specified managed policy. To update a managed policy, you

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLogStreamCommandInput = DeleteLogStreamRequest;
-export type DeleteLogStreamCommandOutput = __MetadataBearer;
+export interface DeleteLogStreamCommandInput extends DeleteLogStreamRequest {}
+export interface DeleteLogStreamCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified log stream and permanently deletes all the archived log events associated

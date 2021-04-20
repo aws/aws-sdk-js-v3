@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRolePolicyCommandInput = DeleteRolePolicyRequest;
-export type DeleteRolePolicyCommandOutput = __MetadataBearer;
+export interface DeleteRolePolicyCommandInput extends DeleteRolePolicyRequest {}
+export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified inline policy that is embedded in the specified IAM

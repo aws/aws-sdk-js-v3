@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNFSFileShareCommandInput = CreateNFSFileShareInput;
-export type CreateNFSFileShareCommandOutput = CreateNFSFileShareOutput & __MetadataBearer;
+export interface CreateNFSFileShareCommandInput extends CreateNFSFileShareInput {}
+export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a Network File System (NFS) file share on an existing file gateway. In Storage

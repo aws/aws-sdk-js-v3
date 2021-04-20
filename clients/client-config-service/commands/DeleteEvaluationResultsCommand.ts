@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEvaluationResultsCommandInput = DeleteEvaluationResultsRequest;
-export type DeleteEvaluationResultsCommandOutput = DeleteEvaluationResultsResponse & __MetadataBearer;
+export interface DeleteEvaluationResultsCommandInput extends DeleteEvaluationResultsRequest {}
+export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationResultsResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the evaluation results for the specified AWS Config

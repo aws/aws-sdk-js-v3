@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAddressCommandInput = CreateAddressRequest;
-export type CreateAddressCommandOutput = CreateAddressResult & __MetadataBearer;
+export interface CreateAddressCommandInput extends CreateAddressRequest {}
+export interface CreateAddressCommandOutput extends CreateAddressResult, __MetadataBearer {}
 
 /**
  * <p>Creates an address for a Snow device to be shipped to. In most regions,

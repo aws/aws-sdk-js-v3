@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListNamedQueriesCommandInput = ListNamedQueriesInput;
-export type ListNamedQueriesCommandOutput = ListNamedQueriesOutput & __MetadataBearer;
+export interface ListNamedQueriesCommandInput extends ListNamedQueriesInput {}
+export interface ListNamedQueriesCommandOutput extends ListNamedQueriesOutput, __MetadataBearer {}
 
 /**
  * <p>Provides a list of available query IDs only for queries saved in the specified

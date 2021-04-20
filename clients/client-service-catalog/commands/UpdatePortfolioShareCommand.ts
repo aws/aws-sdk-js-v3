@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePortfolioShareCommandInput = UpdatePortfolioShareInput;
-export type UpdatePortfolioShareCommandOutput = UpdatePortfolioShareOutput & __MetadataBearer;
+export interface UpdatePortfolioShareCommandInput extends UpdatePortfolioShareInput {}
+export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the specified portfolio share. You can use this API to enable or disable TagOptions sharing for an existing portfolio share. </p>

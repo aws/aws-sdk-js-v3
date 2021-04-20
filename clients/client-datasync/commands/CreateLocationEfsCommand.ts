@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLocationEfsCommandInput = CreateLocationEfsRequest;
-export type CreateLocationEfsCommandOutput = CreateLocationEfsResponse & __MetadataBearer;
+export interface CreateLocationEfsCommandInput extends CreateLocationEfsRequest {}
+export interface CreateLocationEfsCommandOutput extends CreateLocationEfsResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an endpoint for an Amazon EFS file system.</p>

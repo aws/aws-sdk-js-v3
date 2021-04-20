@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResolveRoomCommandInput = ResolveRoomRequest;
-export type ResolveRoomCommandOutput = ResolveRoomResponse & __MetadataBearer;
+export interface ResolveRoomCommandInput extends ResolveRoomRequest {}
+export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __MetadataBearer {}
 
 /**
  * <p>Determines the details for the room from which a skill request was invoked. This

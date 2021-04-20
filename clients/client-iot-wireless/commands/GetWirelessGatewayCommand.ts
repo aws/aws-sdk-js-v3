@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetWirelessGatewayCommandInput = GetWirelessGatewayRequest;
-export type GetWirelessGatewayCommandOutput = GetWirelessGatewayResponse & __MetadataBearer;
+export interface GetWirelessGatewayCommandInput extends GetWirelessGatewayRequest {}
+export interface GetWirelessGatewayCommandOutput extends GetWirelessGatewayResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a wireless gateway.</p>

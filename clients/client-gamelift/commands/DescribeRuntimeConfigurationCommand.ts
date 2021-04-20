@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRuntimeConfigurationCommandInput = DescribeRuntimeConfigurationInput;
-export type DescribeRuntimeConfigurationCommandOutput = DescribeRuntimeConfigurationOutput & __MetadataBearer;
+export interface DescribeRuntimeConfigurationCommandInput extends DescribeRuntimeConfigurationInput {}
+export interface DescribeRuntimeConfigurationCommandOutput
+  extends DescribeRuntimeConfigurationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves a fleet's runtime configuration settings. The runtime configuration tells

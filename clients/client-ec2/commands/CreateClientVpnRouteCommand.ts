@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateClientVpnRouteCommandInput = CreateClientVpnRouteRequest;
-export type CreateClientVpnRouteCommandOutput = CreateClientVpnRouteResult & __MetadataBearer;
+export interface CreateClientVpnRouteCommandInput extends CreateClientVpnRouteRequest {}
+export interface CreateClientVpnRouteCommandOutput extends CreateClientVpnRouteResult, __MetadataBearer {}
 
 /**
  * <p>Adds a route to a network to a Client VPN endpoint. Each Client VPN endpoint has a route table that describes the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetObjectAttributesCommandInput = GetObjectAttributesRequest;
-export type GetObjectAttributesCommandOutput = GetObjectAttributesResponse & __MetadataBearer;
+export interface GetObjectAttributesCommandInput extends GetObjectAttributesRequest {}
+export interface GetObjectAttributesCommandOutput extends GetObjectAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves attributes within a facet that are associated with an object.</p>

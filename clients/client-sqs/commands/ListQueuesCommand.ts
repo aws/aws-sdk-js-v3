@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListQueuesCommandInput = ListQueuesRequest;
-export type ListQueuesCommandOutput = ListQueuesResult & __MetadataBearer;
+export interface ListQueuesCommandInput extends ListQueuesRequest {}
+export interface ListQueuesCommandOutput extends ListQueuesResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of your queues in the current region. The response includes a maximum of 1,000 results. If you specify a value for the optional

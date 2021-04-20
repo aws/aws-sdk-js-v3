@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutWarmPoolCommandInput = PutWarmPoolType;
-export type PutWarmPoolCommandOutput = PutWarmPoolAnswer & __MetadataBearer;
+export interface PutWarmPoolCommandInput extends PutWarmPoolType {}
+export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataBearer {}
 
 /**
  * <p>Adds a warm pool to the specified Auto Scaling group. A warm pool is a pool of pre-initialized

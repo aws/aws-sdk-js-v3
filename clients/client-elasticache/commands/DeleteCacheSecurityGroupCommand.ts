@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCacheSecurityGroupCommandInput = DeleteCacheSecurityGroupMessage;
-export type DeleteCacheSecurityGroupCommandOutput = __MetadataBearer;
+export interface DeleteCacheSecurityGroupCommandInput extends DeleteCacheSecurityGroupMessage {}
+export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a cache security group.</p>

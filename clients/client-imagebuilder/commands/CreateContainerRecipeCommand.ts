@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateContainerRecipeCommandInput = CreateContainerRecipeRequest;
-export type CreateContainerRecipeCommandOutput = CreateContainerRecipeResponse & __MetadataBearer;
+export interface CreateContainerRecipeCommandInput extends CreateContainerRecipeRequest {}
+export interface CreateContainerRecipeCommandOutput extends CreateContainerRecipeResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new container recipe. Container recipes define how images are configured, tested, and assessed.</p>

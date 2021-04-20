@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListApiKeysCommandInput = ListApiKeysRequest;
-export type ListApiKeysCommandOutput = ListApiKeysResponse & __MetadataBearer;
+export interface ListApiKeysCommandInput extends ListApiKeysRequest {}
+export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the API keys for a given API.</p>

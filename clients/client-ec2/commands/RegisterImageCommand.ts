@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterImageCommandInput = RegisterImageRequest;
-export type RegisterImageCommandOutput = RegisterImageResult & __MetadataBearer;
+export interface RegisterImageCommandInput extends RegisterImageRequest {}
+export interface RegisterImageCommandOutput extends RegisterImageResult, __MetadataBearer {}
 
 /**
  * <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateUserHierarchyStructureCommandInput = UpdateUserHierarchyStructureRequest;
-export type UpdateUserHierarchyStructureCommandOutput = __MetadataBearer;
+export interface UpdateUserHierarchyStructureCommandInput extends UpdateUserHierarchyStructureRequest {}
+export interface UpdateUserHierarchyStructureCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the user hierarchy structure: add, remove, and rename user hierarchy levels.</p>

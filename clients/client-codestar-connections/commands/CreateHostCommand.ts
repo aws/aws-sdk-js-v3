@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateHostCommandInput = CreateHostInput;
-export type CreateHostCommandOutput = CreateHostOutput & __MetadataBearer;
+export interface CreateHostCommandInput extends CreateHostInput {}
+export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a resource that represents the infrastructure where a third-party provider is

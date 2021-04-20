@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateServerEngineAttributesCommandInput = UpdateServerEngineAttributesRequest;
-export type UpdateServerEngineAttributesCommandOutput = UpdateServerEngineAttributesResponse & __MetadataBearer;
+export interface UpdateServerEngineAttributesCommandInput extends UpdateServerEngineAttributesRequest {}
+export interface UpdateServerEngineAttributesCommandOutput
+  extends UpdateServerEngineAttributesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

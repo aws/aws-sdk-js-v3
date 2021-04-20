@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePlacementGroupCommandInput = DeletePlacementGroupRequest;
-export type DeletePlacementGroupCommandOutput = __MetadataBearer;
+export interface DeletePlacementGroupCommandInput extends DeletePlacementGroupRequest {}
+export interface DeletePlacementGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified placement group. You must terminate all instances in the

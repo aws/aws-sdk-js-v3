@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAccountSendingEnabledCommandInput = UpdateAccountSendingEnabledRequest;
-export type UpdateAccountSendingEnabledCommandOutput = __MetadataBearer;
+export interface UpdateAccountSendingEnabledCommandInput extends UpdateAccountSendingEnabledRequest {}
+export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables or disables email sending across your entire Amazon SES account in the current

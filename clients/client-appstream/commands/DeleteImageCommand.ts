@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteImageCommandInput = DeleteImageRequest;
-export type DeleteImageCommandOutput = DeleteImageResult & __MetadataBearer;
+export interface DeleteImageCommandInput extends DeleteImageRequest {}
+export interface DeleteImageCommandOutput extends DeleteImageResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified image. You cannot delete an image when it is in use.

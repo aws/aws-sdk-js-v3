@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAssetPropertyValueCommandInput = GetAssetPropertyValueRequest;
-export type GetAssetPropertyValueCommandOutput = GetAssetPropertyValueResponse & __MetadataBearer;
+export interface GetAssetPropertyValueCommandInput extends GetAssetPropertyValueRequest {}
+export interface GetAssetPropertyValueCommandOutput extends GetAssetPropertyValueResponse, __MetadataBearer {}
 
 /**
  * <p>Gets an asset property's current value. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/query-industrial-data.html#current-values">Querying

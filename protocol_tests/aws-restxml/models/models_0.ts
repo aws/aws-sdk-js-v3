@@ -198,6 +198,26 @@ export namespace HttpPayloadTraitsWithMediaTypeInputOutput {
   });
 }
 
+export interface PayloadWithXmlName {
+  name?: string;
+}
+
+export namespace PayloadWithXmlName {
+  export const filterSensitiveLog = (obj: PayloadWithXmlName): any => ({
+    ...obj,
+  });
+}
+
+export interface HttpPayloadWithMemberXmlNameInputOutput {
+  nested?: PayloadWithXmlName;
+}
+
+export namespace HttpPayloadWithMemberXmlNameInputOutput {
+  export const filterSensitiveLog = (obj: HttpPayloadWithMemberXmlNameInputOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface NestedPayload {
   greeting?: string;
   name?: string;
@@ -215,16 +235,6 @@ export interface HttpPayloadWithStructureInputOutput {
 
 export namespace HttpPayloadWithStructureInputOutput {
   export const filterSensitiveLog = (obj: HttpPayloadWithStructureInputOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface PayloadWithXmlName {
-  name?: string;
-}
-
-export namespace PayloadWithXmlName {
-  export const filterSensitiveLog = (obj: PayloadWithXmlName): any => ({
     ...obj,
   });
 }

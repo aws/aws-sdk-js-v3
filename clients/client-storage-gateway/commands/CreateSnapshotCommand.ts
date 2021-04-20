@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSnapshotCommandInput = CreateSnapshotInput;
-export type CreateSnapshotCommandOutput = CreateSnapshotOutput & __MetadataBearer;
+export interface CreateSnapshotCommandInput extends CreateSnapshotInput {}
+export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __MetadataBearer {}
 
 /**
  * <p>Initiates a snapshot of a volume.</p>

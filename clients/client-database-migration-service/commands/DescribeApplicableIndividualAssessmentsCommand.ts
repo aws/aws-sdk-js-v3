@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeApplicableIndividualAssessmentsCommandInput = DescribeApplicableIndividualAssessmentsMessage;
-export type DescribeApplicableIndividualAssessmentsCommandOutput = DescribeApplicableIndividualAssessmentsResponse &
-  __MetadataBearer;
+export interface DescribeApplicableIndividualAssessmentsCommandInput
+  extends DescribeApplicableIndividualAssessmentsMessage {}
+export interface DescribeApplicableIndividualAssessmentsCommandOutput
+  extends DescribeApplicableIndividualAssessmentsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Provides a list of individual assessments that you can specify for a new premigration

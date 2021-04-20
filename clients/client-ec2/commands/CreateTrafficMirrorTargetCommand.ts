@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTrafficMirrorTargetCommandInput = CreateTrafficMirrorTargetRequest;
-export type CreateTrafficMirrorTargetCommandOutput = CreateTrafficMirrorTargetResult & __MetadataBearer;
+export interface CreateTrafficMirrorTargetCommandInput extends CreateTrafficMirrorTargetRequest {}
+export interface CreateTrafficMirrorTargetCommandOutput extends CreateTrafficMirrorTargetResult, __MetadataBearer {}
 
 /**
  * <p>Creates a target for your Traffic Mirror session.</p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type OpenTunnelCommandInput = OpenTunnelRequest;
-export type OpenTunnelCommandOutput = OpenTunnelResponse & __MetadataBearer;
+export interface OpenTunnelCommandInput extends OpenTunnelRequest {}
+export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new tunnel, and returns two client access tokens for clients to use to

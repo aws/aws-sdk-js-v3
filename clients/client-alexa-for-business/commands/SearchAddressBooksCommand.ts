@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchAddressBooksCommandInput = SearchAddressBooksRequest;
-export type SearchAddressBooksCommandOutput = SearchAddressBooksResponse & __MetadataBearer;
+export interface SearchAddressBooksCommandInput extends SearchAddressBooksRequest {}
+export interface SearchAddressBooksCommandOutput extends SearchAddressBooksResponse, __MetadataBearer {}
 
 /**
  * <p>Searches address books and lists the ones that meet a set of filter and sort

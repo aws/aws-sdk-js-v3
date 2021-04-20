@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveFlowSourceCommandInput = RemoveFlowSourceRequest;
-export type RemoveFlowSourceCommandOutput = RemoveFlowSourceResponse & __MetadataBearer;
+export interface RemoveFlowSourceCommandInput extends RemoveFlowSourceRequest {}
+export interface RemoveFlowSourceCommandOutput extends RemoveFlowSourceResponse, __MetadataBearer {}
 
 /**
  * Removes a source from an existing flow. This request can be made only if there is more than one source on the flow.

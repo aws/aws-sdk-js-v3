@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLedgerCommandInput = DeleteLedgerRequest;
-export type DeleteLedgerCommandOutput = __MetadataBearer;
+export interface DeleteLedgerCommandInput extends DeleteLedgerRequest {}
+export interface DeleteLedgerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a ledger and all of its contents. This action is irreversible.</p>

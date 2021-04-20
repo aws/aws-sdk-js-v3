@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetArtifactUrlCommandInput = GetArtifactUrlRequest;
-export type GetArtifactUrlCommandOutput = GetArtifactUrlResult & __MetadataBearer;
+export interface GetArtifactUrlCommandInput extends GetArtifactUrlRequest {}
+export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __MetadataBearer {}
 
 /**
  * <p> Returns the artifact info that corresponds to an artifact id. </p>

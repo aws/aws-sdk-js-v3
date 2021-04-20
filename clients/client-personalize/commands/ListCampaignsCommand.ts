@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCampaignsCommandInput = ListCampaignsRequest;
-export type ListCampaignsCommandOutput = ListCampaignsResponse & __MetadataBearer;
+export interface ListCampaignsCommandInput extends ListCampaignsRequest {}
+export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of campaigns that use the given solution.

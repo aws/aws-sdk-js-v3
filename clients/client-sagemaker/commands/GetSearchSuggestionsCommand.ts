@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSearchSuggestionsCommandInput = GetSearchSuggestionsRequest;
-export type GetSearchSuggestionsCommandOutput = GetSearchSuggestionsResponse & __MetadataBearer;
+export interface GetSearchSuggestionsCommandInput extends GetSearchSuggestionsRequest {}
+export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsResponse, __MetadataBearer {}
 
 /**
  * <p>An auto-complete API for the search functionality in the Amazon SageMaker console. It returns

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRevisionAssetsCommandInput = ListRevisionAssetsRequest;
-export type ListRevisionAssetsCommandOutput = ListRevisionAssetsResponse & __MetadataBearer;
+export interface ListRevisionAssetsCommandInput extends ListRevisionAssetsRequest {}
+export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsResponse, __MetadataBearer {}
 
 /**
  * <p>This operation lists a revision's assets sorted alphabetically in descending order.</p>

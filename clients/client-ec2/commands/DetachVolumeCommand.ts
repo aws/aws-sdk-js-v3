@@ -15,8 +15,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachVolumeCommandInput = DetachVolumeRequest;
-export type DetachVolumeCommandOutput = VolumeAttachment & __MetadataBearer;
+export interface DetachVolumeCommandInput extends DetachVolumeRequest {}
+export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataBearer {}
 
 /**
  * <p>Detaches an EBS volume from an instance. Make sure to unmount any file systems on the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProfileTimesCommandInput = ListProfileTimesRequest;
-export type ListProfileTimesCommandOutput = ListProfileTimesResponse & __MetadataBearer;
+export interface ListProfileTimesCommandInput extends ListProfileTimesRequest {}
+export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the start times of the available aggregated profiles of a profiling group

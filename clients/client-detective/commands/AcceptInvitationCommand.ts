@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptInvitationCommandInput = AcceptInvitationRequest;
-export type AcceptInvitationCommandOutput = __MetadataBearer;
+export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
+export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Accepts an invitation for the member account to contribute data to a behavior graph.

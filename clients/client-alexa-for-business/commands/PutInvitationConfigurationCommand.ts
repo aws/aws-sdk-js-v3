@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutInvitationConfigurationCommandInput = PutInvitationConfigurationRequest;
-export type PutInvitationConfigurationCommandOutput = PutInvitationConfigurationResponse & __MetadataBearer;
+export interface PutInvitationConfigurationCommandInput extends PutInvitationConfigurationRequest {}
+export interface PutInvitationConfigurationCommandOutput extends PutInvitationConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Configures the email template for the user enrollment invitation with the specified

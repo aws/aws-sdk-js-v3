@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStatementCommandInput = DescribeStatementRequest;
-export type DescribeStatementCommandOutput = DescribeStatementResponse & __MetadataBearer;
+export interface DescribeStatementCommandInput extends DescribeStatementRequest {}
+export interface DescribeStatementCommandOutput extends DescribeStatementResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the details about a specific instance when a query was run by the Amazon Redshift Data API. The information

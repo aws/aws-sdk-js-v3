@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTestGridProjectCommandInput = DeleteTestGridProjectRequest;
-export type DeleteTestGridProjectCommandOutput = DeleteTestGridProjectResult & __MetadataBearer;
+export interface DeleteTestGridProjectCommandInput extends DeleteTestGridProjectRequest {}
+export interface DeleteTestGridProjectCommandOutput extends DeleteTestGridProjectResult, __MetadataBearer {}
 
 /**
  * <p> Deletes a Selenium testing project and all content generated under it. </p>

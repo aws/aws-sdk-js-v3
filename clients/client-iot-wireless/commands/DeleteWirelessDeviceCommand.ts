@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteWirelessDeviceCommandInput = DeleteWirelessDeviceRequest;
-export type DeleteWirelessDeviceCommandOutput = DeleteWirelessDeviceResponse & __MetadataBearer;
+export interface DeleteWirelessDeviceCommandInput extends DeleteWirelessDeviceRequest {}
+export interface DeleteWirelessDeviceCommandOutput extends DeleteWirelessDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a wireless device.</p>

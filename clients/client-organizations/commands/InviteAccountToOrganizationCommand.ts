@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InviteAccountToOrganizationCommandInput = InviteAccountToOrganizationRequest;
-export type InviteAccountToOrganizationCommandOutput = InviteAccountToOrganizationResponse & __MetadataBearer;
+export interface InviteAccountToOrganizationCommandInput extends InviteAccountToOrganizationRequest {}
+export interface InviteAccountToOrganizationCommandOutput
+  extends InviteAccountToOrganizationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Sends an invitation to another account to join your organization as a member account.

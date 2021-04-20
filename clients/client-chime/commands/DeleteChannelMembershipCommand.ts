@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteChannelMembershipCommandInput = DeleteChannelMembershipRequest;
-export type DeleteChannelMembershipCommandOutput = __MetadataBearer;
+export interface DeleteChannelMembershipCommandInput extends DeleteChannelMembershipRequest {}
+export interface DeleteChannelMembershipCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes a member from a channel.</p>

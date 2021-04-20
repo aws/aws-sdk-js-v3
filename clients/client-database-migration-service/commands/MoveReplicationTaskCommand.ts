@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type MoveReplicationTaskCommandInput = MoveReplicationTaskMessage;
-export type MoveReplicationTaskCommandOutput = MoveReplicationTaskResponse & __MetadataBearer;
+export interface MoveReplicationTaskCommandInput extends MoveReplicationTaskMessage {}
+export interface MoveReplicationTaskCommandOutput extends MoveReplicationTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Moves a replication task from its current replication instance to a different target

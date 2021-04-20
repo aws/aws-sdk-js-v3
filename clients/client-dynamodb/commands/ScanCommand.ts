@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ScanCommandInput = ScanInput;
-export type ScanCommandOutput = ScanOutput & __MetadataBearer;
+export interface ScanCommandInput extends ScanInput {}
+export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
 
 /**
  * <p>The <code>Scan</code> operation returns one or more items and item attributes by accessing every

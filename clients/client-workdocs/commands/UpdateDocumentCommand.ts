@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDocumentCommandInput = UpdateDocumentRequest;
-export type UpdateDocumentCommandOutput = __MetadataBearer;
+export interface UpdateDocumentCommandInput extends UpdateDocumentRequest {}
+export interface UpdateDocumentCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the specified attributes of a document. The user must have access to both

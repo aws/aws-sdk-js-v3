@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRepositoriesForApprovalRuleTemplateCommandInput = ListRepositoriesForApprovalRuleTemplateInput;
-export type ListRepositoriesForApprovalRuleTemplateCommandOutput = ListRepositoriesForApprovalRuleTemplateOutput &
-  __MetadataBearer;
+export interface ListRepositoriesForApprovalRuleTemplateCommandInput
+  extends ListRepositoriesForApprovalRuleTemplateInput {}
+export interface ListRepositoriesForApprovalRuleTemplateCommandOutput
+  extends ListRepositoriesForApprovalRuleTemplateOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Lists all repositories associated with the specified approval rule template.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMatchmakingCommandInput = DescribeMatchmakingInput;
-export type DescribeMatchmakingCommandOutput = DescribeMatchmakingOutput & __MetadataBearer;
+export interface DescribeMatchmakingCommandInput extends DescribeMatchmakingInput {}
+export interface DescribeMatchmakingCommandOutput extends DescribeMatchmakingOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves one or more matchmaking tickets. Use this operation to retrieve ticket

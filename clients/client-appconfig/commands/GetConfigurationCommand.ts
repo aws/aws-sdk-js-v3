@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConfigurationCommandInput = GetConfigurationRequest;
-export type GetConfigurationCommandOutput = Configuration & __MetadataBearer;
+export interface GetConfigurationCommandInput extends GetConfigurationRequest {}
+export interface GetConfigurationCommandOutput extends Configuration, __MetadataBearer {}
 
 /**
  * <p>Receive information about a configuration.</p>

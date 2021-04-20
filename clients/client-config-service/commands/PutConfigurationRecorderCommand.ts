@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutConfigurationRecorderCommandInput = PutConfigurationRecorderRequest;
-export type PutConfigurationRecorderCommandOutput = __MetadataBearer;
+export interface PutConfigurationRecorderCommandInput extends PutConfigurationRecorderRequest {}
+export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates a new configuration recorder to record the selected

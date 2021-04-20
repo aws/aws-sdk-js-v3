@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListServiceQuotaIncreaseRequestsInTemplateCommandInput = ListServiceQuotaIncreaseRequestsInTemplateRequest;
-export type ListServiceQuotaIncreaseRequestsInTemplateCommandOutput = ListServiceQuotaIncreaseRequestsInTemplateResponse &
-  __MetadataBearer;
+export interface ListServiceQuotaIncreaseRequestsInTemplateCommandInput
+  extends ListServiceQuotaIncreaseRequestsInTemplateRequest {}
+export interface ListServiceQuotaIncreaseRequestsInTemplateCommandOutput
+  extends ListServiceQuotaIncreaseRequestsInTemplateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the quota increase requests in the specified quota request template.</p>

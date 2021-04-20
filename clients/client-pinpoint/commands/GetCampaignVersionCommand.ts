@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCampaignVersionCommandInput = GetCampaignVersionRequest;
-export type GetCampaignVersionCommandOutput = GetCampaignVersionResponse & __MetadataBearer;
+export interface GetCampaignVersionCommandInput extends GetCampaignVersionRequest {}
+export interface GetCampaignVersionCommandOutput extends GetCampaignVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the status, configuration, and other settings for a specific version of a campaign.</p>

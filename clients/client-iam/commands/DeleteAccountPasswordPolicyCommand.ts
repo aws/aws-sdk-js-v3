@@ -16,8 +16,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAccountPasswordPolicyCommandInput = {};
-export type DeleteAccountPasswordPolicyCommandOutput = __MetadataBearer;
+export interface DeleteAccountPasswordPolicyCommandInput {}
+export interface DeleteAccountPasswordPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the password policy for the AWS account. There are no parameters.</p>

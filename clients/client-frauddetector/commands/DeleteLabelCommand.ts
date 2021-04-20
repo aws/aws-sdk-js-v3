@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLabelCommandInput = DeleteLabelRequest;
-export type DeleteLabelCommandOutput = DeleteLabelResult & __MetadataBearer;
+export interface DeleteLabelCommandInput extends DeleteLabelRequest {}
+export interface DeleteLabelCommandOutput extends DeleteLabelResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a label.</p>

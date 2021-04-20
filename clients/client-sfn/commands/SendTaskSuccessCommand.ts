@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendTaskSuccessCommandInput = SendTaskSuccessInput;
-export type SendTaskSuccessCommandOutput = SendTaskSuccessOutput & __MetadataBearer;
+export interface SendTaskSuccessCommandInput extends SendTaskSuccessInput {}
+export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __MetadataBearer {}
 
 /**
  * <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>

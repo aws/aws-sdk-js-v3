@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBatchPredictionCommandInput = DeleteBatchPredictionInput;
-export type DeleteBatchPredictionCommandOutput = DeleteBatchPredictionOutput & __MetadataBearer;
+export interface DeleteBatchPredictionCommandInput extends DeleteBatchPredictionInput {}
+export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictionOutput, __MetadataBearer {}
 
 /**
  * <p>Assigns the DELETED status to a <code>BatchPrediction</code>, rendering it unusable.</p>

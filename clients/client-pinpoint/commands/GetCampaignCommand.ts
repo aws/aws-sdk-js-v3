@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCampaignCommandInput = GetCampaignRequest;
-export type GetCampaignCommandOutput = GetCampaignResponse & __MetadataBearer;
+export interface GetCampaignCommandInput extends GetCampaignRequest {}
+export interface GetCampaignCommandOutput extends GetCampaignResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the status, configuration, and other settings for a campaign.</p>

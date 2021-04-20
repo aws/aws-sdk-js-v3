@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListGatewaysCommandInput = ListGatewaysRequest;
-export type ListGatewaysCommandOutput = ListGatewaysResponse & __MetadataBearer;
+export interface ListGatewaysCommandInput extends ListGatewaysRequest {}
+export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of gateways.</p>

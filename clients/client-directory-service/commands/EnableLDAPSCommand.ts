@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableLDAPSCommandInput = EnableLDAPSRequest;
-export type EnableLDAPSCommandOutput = EnableLDAPSResult & __MetadataBearer;
+export interface EnableLDAPSCommandInput extends EnableLDAPSRequest {}
+export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataBearer {}
 
 /**
  * <p>Activates the switch for the specific directory to always use LDAP secure calls.</p>

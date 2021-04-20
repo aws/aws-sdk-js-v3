@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEntityRecognizerCommandInput = DescribeEntityRecognizerRequest;
-export type DescribeEntityRecognizerCommandOutput = DescribeEntityRecognizerResponse & __MetadataBearer;
+export interface DescribeEntityRecognizerCommandInput extends DescribeEntityRecognizerRequest {}
+export interface DescribeEntityRecognizerCommandOutput extends DescribeEntityRecognizerResponse, __MetadataBearer {}
 
 /**
  * <p>Provides details about an entity recognizer including status, S3 buckets containing

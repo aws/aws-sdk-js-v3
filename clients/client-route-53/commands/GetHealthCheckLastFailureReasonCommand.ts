@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetHealthCheckLastFailureReasonCommandInput = GetHealthCheckLastFailureReasonRequest;
-export type GetHealthCheckLastFailureReasonCommandOutput = GetHealthCheckLastFailureReasonResponse & __MetadataBearer;
+export interface GetHealthCheckLastFailureReasonCommandInput extends GetHealthCheckLastFailureReasonRequest {}
+export interface GetHealthCheckLastFailureReasonCommandOutput
+  extends GetHealthCheckLastFailureReasonResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the reason that a specified health check failed most recently.</p>

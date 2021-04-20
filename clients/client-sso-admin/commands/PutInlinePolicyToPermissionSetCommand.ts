@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutInlinePolicyToPermissionSetCommandInput = PutInlinePolicyToPermissionSetRequest;
-export type PutInlinePolicyToPermissionSetCommandOutput = PutInlinePolicyToPermissionSetResponse & __MetadataBearer;
+export interface PutInlinePolicyToPermissionSetCommandInput extends PutInlinePolicyToPermissionSetRequest {}
+export interface PutInlinePolicyToPermissionSetCommandOutput
+  extends PutInlinePolicyToPermissionSetResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Attaches an IAM inline policy to a permission set.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResolversByFunctionCommandInput = ListResolversByFunctionRequest;
-export type ListResolversByFunctionCommandOutput = ListResolversByFunctionResponse & __MetadataBearer;
+export interface ListResolversByFunctionCommandInput extends ListResolversByFunctionRequest {}
+export interface ListResolversByFunctionCommandOutput extends ListResolversByFunctionResponse, __MetadataBearer {}
 
 /**
  * <p>List the resolvers that are associated with a specific function.</p>

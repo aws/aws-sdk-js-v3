@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListConfigurationSetsCommandInput = ListConfigurationSetsRequest;
-export type ListConfigurationSetsCommandOutput = ListConfigurationSetsResponse & __MetadataBearer;
+export interface ListConfigurationSetsCommandInput extends ListConfigurationSetsRequest {}
+export interface ListConfigurationSetsCommandOutput extends ListConfigurationSetsResponse, __MetadataBearer {}
 
 /**
  * List all of the configuration sets associated with your Amazon Pinpoint account in the current region.

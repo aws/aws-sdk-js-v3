@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAppInstancesCommandInput = ListAppInstancesRequest;
-export type ListAppInstancesCommandOutput = ListAppInstancesResponse & __MetadataBearer;
+export interface ListAppInstancesCommandInput extends ListAppInstancesRequest {}
+export interface ListAppInstancesCommandOutput extends ListAppInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all Amazon Chime <code>AppInstance</code>s created under a single AWS account.</p>

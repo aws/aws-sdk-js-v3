@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDocumentPermissionCommandInput = DescribeDocumentPermissionRequest;
-export type DescribeDocumentPermissionCommandOutput = DescribeDocumentPermissionResponse & __MetadataBearer;
+export interface DescribeDocumentPermissionCommandInput extends DescribeDocumentPermissionRequest {}
+export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumentPermissionResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the permissions for a Systems Manager document. If you created the document, you are the

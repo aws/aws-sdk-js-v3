@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateJourneyStateCommandInput = UpdateJourneyStateRequest;
-export type UpdateJourneyStateCommandOutput = UpdateJourneyStateResponse & __MetadataBearer;
+export interface UpdateJourneyStateCommandInput extends UpdateJourneyStateRequest {}
+export interface UpdateJourneyStateCommandOutput extends UpdateJourneyStateResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels (stops) an active journey.</p>

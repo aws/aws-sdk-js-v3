@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResourceInventoryCommandInput = ListResourceInventoryRequest;
-export type ListResourceInventoryCommandOutput = ListResourceInventoryResponse & __MetadataBearer;
+export interface ListResourceInventoryCommandInput extends ListResourceInventoryRequest {}
+export interface ListResourceInventoryCommandOutput extends ListResourceInventoryResponse, __MetadataBearer {}
 
 /**
  * <p>Lists resources managed using Systems Manager inventory.</p>

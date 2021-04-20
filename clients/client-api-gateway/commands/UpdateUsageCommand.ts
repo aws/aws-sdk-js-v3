@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateUsageCommandInput = UpdateUsageRequest;
-export type UpdateUsageCommandOutput = Usage & __MetadataBearer;
+export interface UpdateUsageCommandInput extends UpdateUsageRequest {}
+export interface UpdateUsageCommandOutput extends Usage, __MetadataBearer {}
 
 /**
  * <p>Grants a temporary extension to the remaining quota of a usage plan associated with a specified API key.</p>

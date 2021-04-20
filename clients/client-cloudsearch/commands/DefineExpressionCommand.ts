@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DefineExpressionCommandInput = DefineExpressionRequest;
-export type DefineExpressionCommandOutput = DefineExpressionResponse & __MetadataBearer;
+export interface DefineExpressionCommandInput extends DefineExpressionRequest {}
+export interface DefineExpressionCommandOutput extends DefineExpressionResponse, __MetadataBearer {}
 
 /**
  * <p>Configures an <code><a>Expression</a></code> for the search domain. Used to create new expressions and modify existing ones.  If the expression exists, the new configuration replaces the old one. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html" target="_blank">Configuring Expressions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>

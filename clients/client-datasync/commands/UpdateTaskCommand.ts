@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTaskCommandInput = UpdateTaskRequest;
-export type UpdateTaskCommandOutput = UpdateTaskResponse & __MetadataBearer;
+export interface UpdateTaskCommandInput extends UpdateTaskRequest {}
+export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the metadata associated with a task.</p>

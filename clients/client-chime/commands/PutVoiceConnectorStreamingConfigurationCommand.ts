@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutVoiceConnectorStreamingConfigurationCommandInput = PutVoiceConnectorStreamingConfigurationRequest;
-export type PutVoiceConnectorStreamingConfigurationCommandOutput = PutVoiceConnectorStreamingConfigurationResponse &
-  __MetadataBearer;
+export interface PutVoiceConnectorStreamingConfigurationCommandInput
+  extends PutVoiceConnectorStreamingConfigurationRequest {}
+export interface PutVoiceConnectorStreamingConfigurationCommandOutput
+  extends PutVoiceConnectorStreamingConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming

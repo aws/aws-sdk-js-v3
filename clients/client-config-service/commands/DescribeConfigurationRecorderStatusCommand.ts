@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConfigurationRecorderStatusCommandInput = DescribeConfigurationRecorderStatusRequest;
-export type DescribeConfigurationRecorderStatusCommandOutput = DescribeConfigurationRecorderStatusResponse &
-  __MetadataBearer;
+export interface DescribeConfigurationRecorderStatusCommandInput extends DescribeConfigurationRecorderStatusRequest {}
+export interface DescribeConfigurationRecorderStatusCommandOutput
+  extends DescribeConfigurationRecorderStatusResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the current status of the specified configuration

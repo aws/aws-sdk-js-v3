@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListContactFlowsCommandInput = ListContactFlowsRequest;
-export type ListContactFlowsCommandOutput = ListContactFlowsResponse & __MetadataBearer;
+export interface ListContactFlowsCommandInput extends ListContactFlowsRequest {}
+export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides information about the contact flows for the specified Amazon Connect instance.</p>

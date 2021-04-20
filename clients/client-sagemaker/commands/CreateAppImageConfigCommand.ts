@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAppImageConfigCommandInput = CreateAppImageConfigRequest;
-export type CreateAppImageConfigCommandOutput = CreateAppImageConfigResponse & __MetadataBearer;
+export interface CreateAppImageConfigCommandInput extends CreateAppImageConfigRequest {}
+export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a configuration for running a SageMaker image as a KernelGateway app. The

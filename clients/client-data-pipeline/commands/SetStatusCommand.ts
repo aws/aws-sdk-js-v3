@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetStatusCommandInput = SetStatusInput;
-export type SetStatusCommandOutput = __MetadataBearer;
+export interface SetStatusCommandInput extends SetStatusInput {}
+export interface SetStatusCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline.

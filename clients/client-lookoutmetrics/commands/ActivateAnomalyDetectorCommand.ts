@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ActivateAnomalyDetectorCommandInput = ActivateAnomalyDetectorRequest;
-export type ActivateAnomalyDetectorCommandOutput = ActivateAnomalyDetectorResponse & __MetadataBearer;
+export interface ActivateAnomalyDetectorCommandInput extends ActivateAnomalyDetectorRequest {}
+export interface ActivateAnomalyDetectorCommandOutput extends ActivateAnomalyDetectorResponse, __MetadataBearer {}
 
 /**
  * <p>Activates an anomaly detector.</p>

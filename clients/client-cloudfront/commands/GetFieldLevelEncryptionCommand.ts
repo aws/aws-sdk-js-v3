@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFieldLevelEncryptionCommandInput = GetFieldLevelEncryptionRequest;
-export type GetFieldLevelEncryptionCommandOutput = GetFieldLevelEncryptionResult & __MetadataBearer;
+export interface GetFieldLevelEncryptionCommandInput extends GetFieldLevelEncryptionRequest {}
+export interface GetFieldLevelEncryptionCommandOutput extends GetFieldLevelEncryptionResult, __MetadataBearer {}
 
 /**
  * <p>Get the field-level encryption configuration information.</p>

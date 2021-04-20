@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExtendLicenseConsumptionCommandInput = ExtendLicenseConsumptionRequest;
-export type ExtendLicenseConsumptionCommandOutput = ExtendLicenseConsumptionResponse & __MetadataBearer;
+export interface ExtendLicenseConsumptionCommandInput extends ExtendLicenseConsumptionRequest {}
+export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseConsumptionResponse, __MetadataBearer {}
 
 /**
  * <p>Extends the expiration date for license consumption.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AuthorizeSecurityGroupIngressCommandInput = AuthorizeSecurityGroupIngressRequest;
-export type AuthorizeSecurityGroupIngressCommandOutput = __MetadataBearer;
+export interface AuthorizeSecurityGroupIngressCommandInput extends AuthorizeSecurityGroupIngressRequest {}
+export interface AuthorizeSecurityGroupIngressCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds the specified ingress rules to a security group.</p>

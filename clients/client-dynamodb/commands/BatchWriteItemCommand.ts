@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchWriteItemCommandInput = BatchWriteItemInput;
-export type BatchWriteItemCommandOutput = BatchWriteItemOutput & __MetadataBearer;
+export interface BatchWriteItemCommandInput extends BatchWriteItemInput {}
+export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __MetadataBearer {}
 
 /**
  * <p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or more

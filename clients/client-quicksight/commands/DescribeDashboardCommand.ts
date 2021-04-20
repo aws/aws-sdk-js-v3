@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDashboardCommandInput = DescribeDashboardRequest;
-export type DescribeDashboardCommandOutput = DescribeDashboardResponse & __MetadataBearer;
+export interface DescribeDashboardCommandInput extends DescribeDashboardRequest {}
+export interface DescribeDashboardCommandOutput extends DescribeDashboardResponse, __MetadataBearer {}
 
 /**
  * <p>Provides a summary for a dashboard.</p>

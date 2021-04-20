@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePortalCommandInput = DeletePortalRequest;
-export type DeletePortalCommandOutput = DeletePortalResponse & __MetadataBearer;
+export interface DeletePortalCommandInput extends DeletePortalRequest {}
+export interface DeletePortalCommandOutput extends DeletePortalResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a portal from AWS IoT SiteWise Monitor.</p>

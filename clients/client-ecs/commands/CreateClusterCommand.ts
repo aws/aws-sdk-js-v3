@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateClusterCommandInput = CreateClusterRequest;
-export type CreateClusterCommandOutput = CreateClusterResponse & __MetadataBearer;
+export interface CreateClusterCommandInput extends CreateClusterRequest {}
+export interface CreateClusterCommandOutput extends CreateClusterResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new Amazon ECS cluster. By default, your account receives a <code>default</code>

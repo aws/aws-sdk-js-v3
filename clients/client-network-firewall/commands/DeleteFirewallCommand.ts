@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFirewallCommandInput = DeleteFirewallRequest;
-export type DeleteFirewallCommandOutput = DeleteFirewallResponse & __MetadataBearer;
+export interface DeleteFirewallCommandInput extends DeleteFirewallRequest {}
+export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified <a>Firewall</a> and its <a>FirewallStatus</a>. This operation requires the firewall's <code>DeleteProtection</code> flag to be

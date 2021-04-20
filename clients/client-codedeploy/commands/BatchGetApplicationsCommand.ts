@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetApplicationsCommandInput = BatchGetApplicationsInput;
-export type BatchGetApplicationsCommandOutput = BatchGetApplicationsOutput & __MetadataBearer;
+export interface BatchGetApplicationsCommandInput extends BatchGetApplicationsInput {}
+export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about one or more applications. The maximum number of applications

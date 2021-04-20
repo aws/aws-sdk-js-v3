@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddListenerCertificatesCommandInput = AddListenerCertificatesInput;
-export type AddListenerCertificatesCommandOutput = AddListenerCertificatesOutput & __MetadataBearer;
+export interface AddListenerCertificatesCommandInput extends AddListenerCertificatesInput {}
+export interface AddListenerCertificatesCommandOutput extends AddListenerCertificatesOutput, __MetadataBearer {}
 
 /**
  * <p>Adds the specified SSL server certificate to the certificate list for the specified HTTPS

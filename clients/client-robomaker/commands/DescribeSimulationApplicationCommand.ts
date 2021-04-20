@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSimulationApplicationCommandInput = DescribeSimulationApplicationRequest;
-export type DescribeSimulationApplicationCommandOutput = DescribeSimulationApplicationResponse & __MetadataBearer;
+export interface DescribeSimulationApplicationCommandInput extends DescribeSimulationApplicationRequest {}
+export interface DescribeSimulationApplicationCommandOutput
+  extends DescribeSimulationApplicationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes a simulation application.</p>

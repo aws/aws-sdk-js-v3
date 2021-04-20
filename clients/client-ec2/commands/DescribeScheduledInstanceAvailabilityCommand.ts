@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeScheduledInstanceAvailabilityCommandInput = DescribeScheduledInstanceAvailabilityRequest;
-export type DescribeScheduledInstanceAvailabilityCommandOutput = DescribeScheduledInstanceAvailabilityResult &
-  __MetadataBearer;
+export interface DescribeScheduledInstanceAvailabilityCommandInput
+  extends DescribeScheduledInstanceAvailabilityRequest {}
+export interface DescribeScheduledInstanceAvailabilityCommandOutput
+  extends DescribeScheduledInstanceAvailabilityResult,
+    __MetadataBearer {}
 
 /**
  * <p>Finds available schedules that meet the specified criteria.</p>

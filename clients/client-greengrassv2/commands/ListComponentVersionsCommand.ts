@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListComponentVersionsCommandInput = ListComponentVersionsRequest;
-export type ListComponentVersionsCommandOutput = ListComponentVersionsResponse & __MetadataBearer;
+export interface ListComponentVersionsCommandInput extends ListComponentVersionsRequest {}
+export interface ListComponentVersionsCommandOutput extends ListComponentVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of all versions for a component.</p>

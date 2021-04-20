@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTrustCommandInput = DeleteTrustRequest;
-export type DeleteTrustCommandOutput = DeleteTrustResult & __MetadataBearer;
+export interface DeleteTrustCommandInput extends DeleteTrustRequest {}
+export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing trust relationship between your AWS Managed Microsoft AD directory and an external domain.</p>

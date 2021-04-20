@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachPrincipalPolicyCommandInput = DetachPrincipalPolicyRequest;
-export type DetachPrincipalPolicyCommandOutput = __MetadataBearer;
+export interface DetachPrincipalPolicyCommandInput extends DetachPrincipalPolicyRequest {}
+export interface DetachPrincipalPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * @deprecated

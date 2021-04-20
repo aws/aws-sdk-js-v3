@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRightsizingRecommendationCommandInput = GetRightsizingRecommendationRequest;
-export type GetRightsizingRecommendationCommandOutput = GetRightsizingRecommendationResponse & __MetadataBearer;
+export interface GetRightsizingRecommendationCommandInput extends GetRightsizingRecommendationRequest {}
+export interface GetRightsizingRecommendationCommandOutput
+  extends GetRightsizingRecommendationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates recommendations that

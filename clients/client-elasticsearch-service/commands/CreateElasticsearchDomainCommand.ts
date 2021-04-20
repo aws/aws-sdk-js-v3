@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateElasticsearchDomainCommandInput = CreateElasticsearchDomainRequest;
-export type CreateElasticsearchDomainCommandOutput = CreateElasticsearchDomainResponse & __MetadataBearer;
+export interface CreateElasticsearchDomainCommandInput extends CreateElasticsearchDomainRequest {}
+export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsearchDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new Elasticsearch domain. For more information,

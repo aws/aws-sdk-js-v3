@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopModelCommandInput = StopModelRequest;
-export type StopModelCommandOutput = StopModelResponse & __MetadataBearer;
+export interface StopModelCommandInput extends StopModelRequest {}
+export interface StopModelCommandOutput extends StopModelResponse, __MetadataBearer {}
 
 /**
  * <p>Stops the hosting of a running model. The operation might take a while to complete. To

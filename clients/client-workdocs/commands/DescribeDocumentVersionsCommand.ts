@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDocumentVersionsCommandInput = DescribeDocumentVersionsRequest;
-export type DescribeDocumentVersionsCommandOutput = DescribeDocumentVersionsResponse & __MetadataBearer;
+export interface DescribeDocumentVersionsCommandInput extends DescribeDocumentVersionsRequest {}
+export interface DescribeDocumentVersionsCommandOutput extends DescribeDocumentVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the document versions for the specified document.</p>

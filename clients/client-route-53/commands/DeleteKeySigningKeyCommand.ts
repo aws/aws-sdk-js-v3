@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteKeySigningKeyCommandInput = DeleteKeySigningKeyRequest;
-export type DeleteKeySigningKeyCommandOutput = DeleteKeySigningKeyResponse & __MetadataBearer;
+export interface DeleteKeySigningKeyCommandInput extends DeleteKeySigningKeyRequest {}
+export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a key-signing key (KSK). Before you can delete a KSK, you must deactivate it. The KSK must be

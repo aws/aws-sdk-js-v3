@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBundlesCommandInput = GetBundlesRequest;
-export type GetBundlesCommandOutput = GetBundlesResult & __MetadataBearer;
+export interface GetBundlesCommandInput extends GetBundlesRequest {}
+export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBearer {}
 
 /**
  * <p>Returns the list of bundles that are available for purchase. A bundle describes the specs

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSpotInstanceRequestsCommandInput = DescribeSpotInstanceRequestsRequest;
-export type DescribeSpotInstanceRequestsCommandOutput = DescribeSpotInstanceRequestsResult & __MetadataBearer;
+export interface DescribeSpotInstanceRequestsCommandInput extends DescribeSpotInstanceRequestsRequest {}
+export interface DescribeSpotInstanceRequestsCommandOutput
+  extends DescribeSpotInstanceRequestsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the specified Spot Instance requests.</p>

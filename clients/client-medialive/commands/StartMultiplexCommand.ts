@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartMultiplexCommandInput = StartMultiplexRequest;
-export type StartMultiplexCommandOutput = StartMultiplexResponse & __MetadataBearer;
+export interface StartMultiplexCommandInput extends StartMultiplexRequest {}
+export interface StartMultiplexCommandOutput extends StartMultiplexResponse, __MetadataBearer {}
 
 /**
  * Start (run) the multiplex. Starting the multiplex does not start the channels. You must explicitly start each channel.

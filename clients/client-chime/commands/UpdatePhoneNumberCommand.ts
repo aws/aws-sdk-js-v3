@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePhoneNumberCommandInput = UpdatePhoneNumberRequest;
-export type UpdatePhoneNumberCommandOutput = UpdatePhoneNumberResponse & __MetadataBearer;
+export interface UpdatePhoneNumberCommandInput extends UpdatePhoneNumberRequest {}
+export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberResponse, __MetadataBearer {}
 
 /**
  * <p>Updates phone number details, such as product type or calling name, for the specified phone number ID. You can update one phone number detail at a time. For example, you can update either the product type or the calling name in one action.</p>

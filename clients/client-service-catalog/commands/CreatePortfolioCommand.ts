@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePortfolioCommandInput = CreatePortfolioInput;
-export type CreatePortfolioCommandOutput = CreatePortfolioOutput & __MetadataBearer;
+export interface CreatePortfolioCommandInput extends CreatePortfolioInput {}
+export interface CreatePortfolioCommandOutput extends CreatePortfolioOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a portfolio.</p>

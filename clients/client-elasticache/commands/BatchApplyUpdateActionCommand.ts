@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchApplyUpdateActionCommandInput = BatchApplyUpdateActionMessage;
-export type BatchApplyUpdateActionCommandOutput = UpdateActionResultsMessage & __MetadataBearer;
+export interface BatchApplyUpdateActionCommandInput extends BatchApplyUpdateActionMessage {}
+export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResultsMessage, __MetadataBearer {}
 
 /**
  * <p>Apply the service update. For more information on service updates and applying them, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/applying-updates.html">Applying Service Updates</a>.</p>

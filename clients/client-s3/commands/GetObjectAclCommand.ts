@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetObjectAclCommandInput = GetObjectAclRequest;
-export type GetObjectAclCommandOutput = GetObjectAclOutput & __MetadataBearer;
+export interface GetObjectAclCommandInput extends GetObjectAclRequest {}
+export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the access control list (ACL) of an object. To use this operation, you must have

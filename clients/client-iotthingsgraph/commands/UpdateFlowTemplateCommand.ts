@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFlowTemplateCommandInput = UpdateFlowTemplateRequest;
-export type UpdateFlowTemplateCommandOutput = UpdateFlowTemplateResponse & __MetadataBearer;
+export interface UpdateFlowTemplateCommandInput extends UpdateFlowTemplateRequest {}
+export interface UpdateFlowTemplateCommandOutput extends UpdateFlowTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified workflow. All deployed systems and system instances that use the workflow will see the changes in the flow when it is redeployed. If you don't want this

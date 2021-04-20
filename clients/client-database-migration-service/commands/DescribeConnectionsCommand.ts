@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConnectionsCommandInput = DescribeConnectionsMessage;
-export type DescribeConnectionsCommandOutput = DescribeConnectionsResponse & __MetadataBearer;
+export interface DescribeConnectionsCommandInput extends DescribeConnectionsMessage {}
+export interface DescribeConnectionsCommandOutput extends DescribeConnectionsResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the status of the connections that have been made between the replication

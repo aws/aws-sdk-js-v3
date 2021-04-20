@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRecoveryPointsByResourceCommandInput = ListRecoveryPointsByResourceInput;
-export type ListRecoveryPointsByResourceCommandOutput = ListRecoveryPointsByResourceOutput & __MetadataBearer;
+export interface ListRecoveryPointsByResourceCommandInput extends ListRecoveryPointsByResourceInput {}
+export interface ListRecoveryPointsByResourceCommandOutput
+  extends ListRecoveryPointsByResourceOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Returns detailed information about recovery points of the type specified by a resource

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterTransitGatewayCommandInput = RegisterTransitGatewayRequest;
-export type RegisterTransitGatewayCommandOutput = RegisterTransitGatewayResponse & __MetadataBearer;
+export interface RegisterTransitGatewayCommandInput extends RegisterTransitGatewayRequest {}
+export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGatewayResponse, __MetadataBearer {}
 
 /**
  * <p>Registers a transit gateway in your global network. The transit gateway can be in any

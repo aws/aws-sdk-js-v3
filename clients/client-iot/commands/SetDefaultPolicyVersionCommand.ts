@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetDefaultPolicyVersionCommandInput = SetDefaultPolicyVersionRequest;
-export type SetDefaultPolicyVersionCommandOutput = __MetadataBearer;
+export interface SetDefaultPolicyVersionCommandInput extends SetDefaultPolicyVersionRequest {}
+export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the specified version of the specified policy as the policy's default

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type FlushStageCacheCommandInput = FlushStageCacheRequest;
-export type FlushStageCacheCommandOutput = __MetadataBearer;
+export interface FlushStageCacheCommandInput extends FlushStageCacheRequest {}
+export interface FlushStageCacheCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Flushes a stage's cache.</p>

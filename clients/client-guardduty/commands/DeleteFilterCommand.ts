@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFilterCommandInput = DeleteFilterRequest;
-export type DeleteFilterCommandOutput = DeleteFilterResponse & __MetadataBearer;
+export interface DeleteFilterCommandInput extends DeleteFilterRequest {}
+export interface DeleteFilterCommandOutput extends DeleteFilterResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the filter specified by the filter name.</p>

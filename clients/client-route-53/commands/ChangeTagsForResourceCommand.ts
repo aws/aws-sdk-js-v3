@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ChangeTagsForResourceCommandInput = ChangeTagsForResourceRequest;
-export type ChangeTagsForResourceCommandOutput = ChangeTagsForResourceResponse & __MetadataBearer;
+export interface ChangeTagsForResourceCommandInput extends ChangeTagsForResourceRequest {}
+export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Adds, edits, or deletes tags for a health check or a hosted zone.</p>

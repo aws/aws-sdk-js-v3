@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RespondActivityTaskCanceledCommandInput = RespondActivityTaskCanceledInput;
-export type RespondActivityTaskCanceledCommandOutput = __MetadataBearer;
+export interface RespondActivityTaskCanceledCommandInput extends RespondActivityTaskCanceledInput {}
+export interface RespondActivityTaskCanceledCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Used by workers to tell the service that the <a>ActivityTask</a> identified

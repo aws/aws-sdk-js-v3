@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteServiceCommandInput = DeleteServiceRequest;
-export type DeleteServiceCommandOutput = DeleteServiceResponse & __MetadataBearer;
+export interface DeleteServiceCommandInput extends DeleteServiceRequest {}
+export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a specified service within a cluster. You can delete a service if you have no

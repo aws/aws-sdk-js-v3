@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RunScheduledInstancesCommandInput = RunScheduledInstancesRequest;
-export type RunScheduledInstancesCommandOutput = RunScheduledInstancesResult & __MetadataBearer;
+export interface RunScheduledInstancesCommandInput extends RunScheduledInstancesRequest {}
+export interface RunScheduledInstancesCommandOutput extends RunScheduledInstancesResult, __MetadataBearer {}
 
 /**
  * <p>Launches the specified Scheduled Instances.</p>

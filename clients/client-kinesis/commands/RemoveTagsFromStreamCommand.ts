@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveTagsFromStreamCommandInput = RemoveTagsFromStreamInput;
-export type RemoveTagsFromStreamCommandOutput = __MetadataBearer;
+export interface RemoveTagsFromStreamCommandInput extends RemoveTagsFromStreamInput {}
+export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes tags from the specified Kinesis data stream. Removed tags are deleted and

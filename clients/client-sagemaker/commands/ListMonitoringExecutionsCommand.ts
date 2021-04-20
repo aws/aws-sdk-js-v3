@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMonitoringExecutionsCommandInput = ListMonitoringExecutionsRequest;
-export type ListMonitoringExecutionsCommandOutput = ListMonitoringExecutionsResponse & __MetadataBearer;
+export interface ListMonitoringExecutionsCommandInput extends ListMonitoringExecutionsRequest {}
+export interface ListMonitoringExecutionsCommandOutput extends ListMonitoringExecutionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns list of all monitoring job executions.</p>

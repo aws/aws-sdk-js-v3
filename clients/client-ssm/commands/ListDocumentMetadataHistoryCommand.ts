@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDocumentMetadataHistoryCommandInput = ListDocumentMetadataHistoryRequest;
-export type ListDocumentMetadataHistoryCommandOutput = ListDocumentMetadataHistoryResponse & __MetadataBearer;
+export interface ListDocumentMetadataHistoryCommandInput extends ListDocumentMetadataHistoryRequest {}
+export interface ListDocumentMetadataHistoryCommandOutput
+  extends ListDocumentMetadataHistoryResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Information about approval reviews for a version of an SSM document.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInferenceSchedulersCommandInput = ListInferenceSchedulersRequest;
-export type ListInferenceSchedulersCommandOutput = ListInferenceSchedulersResponse & __MetadataBearer;
+export interface ListInferenceSchedulersCommandInput extends ListInferenceSchedulersRequest {}
+export interface ListInferenceSchedulersCommandOutput extends ListInferenceSchedulersResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of all inference schedulers currently available for your account.

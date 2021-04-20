@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAccessPointPolicyForObjectLambdaCommandInput = PutAccessPointPolicyForObjectLambdaRequest;
-export type PutAccessPointPolicyForObjectLambdaCommandOutput = __MetadataBearer;
+export interface PutAccessPointPolicyForObjectLambdaCommandInput extends PutAccessPointPolicyForObjectLambdaRequest {}
+export interface PutAccessPointPolicyForObjectLambdaCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates or replaces resource policy for an Object Lambda Access Point. For an example policy, see

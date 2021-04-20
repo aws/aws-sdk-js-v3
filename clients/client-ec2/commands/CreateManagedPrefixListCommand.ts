@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateManagedPrefixListCommandInput = CreateManagedPrefixListRequest;
-export type CreateManagedPrefixListCommandOutput = CreateManagedPrefixListResult & __MetadataBearer;
+export interface CreateManagedPrefixListCommandInput extends CreateManagedPrefixListRequest {}
+export interface CreateManagedPrefixListCommandOutput extends CreateManagedPrefixListResult, __MetadataBearer {}
 
 /**
  * <p>Creates a managed prefix list. You can specify one or more entries for the prefix list. Each entry consists of a CIDR block and an optional description.</p>

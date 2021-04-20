@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetDeploymentsCommandInput = ResetDeploymentsRequest;
-export type ResetDeploymentsCommandOutput = ResetDeploymentsResponse & __MetadataBearer;
+export interface ResetDeploymentsCommandInput extends ResetDeploymentsRequest {}
+export interface ResetDeploymentsCommandOutput extends ResetDeploymentsResponse, __MetadataBearer {}
 
 /**
  * Resets a group's deployments.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFirewallDomainListsCommandInput = ListFirewallDomainListsRequest;
-export type ListFirewallDomainListsCommandOutput = ListFirewallDomainListsResponse & __MetadataBearer;
+export interface ListFirewallDomainListsCommandInput extends ListFirewallDomainListsRequest {}
+export interface ListFirewallDomainListsCommandOutput extends ListFirewallDomainListsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the firewall domain lists that you have defined. For each firewall domain list, you can retrieve the domains that are defined for a list by calling <a>ListFirewallDomains</a>. </p>

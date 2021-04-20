@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TerminateSessionCommandInput = TerminateSessionRequest;
-export type TerminateSessionCommandOutput = TerminateSessionResponse & __MetadataBearer;
+export interface TerminateSessionCommandInput extends TerminateSessionRequest {}
+export interface TerminateSessionCommandOutput extends TerminateSessionResponse, __MetadataBearer {}
 
 /**
  * <p>Permanently ends a session and closes the data connection between the Session Manager client and

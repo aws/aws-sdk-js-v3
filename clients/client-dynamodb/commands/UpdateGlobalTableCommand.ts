@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateGlobalTableCommandInput = UpdateGlobalTableInput;
-export type UpdateGlobalTableCommandOutput = UpdateGlobalTableOutput & __MetadataBearer;
+export interface UpdateGlobalTableCommandInput extends UpdateGlobalTableInput {}
+export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput, __MetadataBearer {}
 
 /**
  * <p>Adds or removes replicas in the specified global table. The global table must already

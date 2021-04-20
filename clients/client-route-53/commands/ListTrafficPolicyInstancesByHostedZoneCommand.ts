@@ -21,9 +21,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTrafficPolicyInstancesByHostedZoneCommandInput = ListTrafficPolicyInstancesByHostedZoneRequest;
-export type ListTrafficPolicyInstancesByHostedZoneCommandOutput = ListTrafficPolicyInstancesByHostedZoneResponse &
-  __MetadataBearer;
+export interface ListTrafficPolicyInstancesByHostedZoneCommandInput
+  extends ListTrafficPolicyInstancesByHostedZoneRequest {}
+export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput
+  extends ListTrafficPolicyInstancesByHostedZoneResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets information about the traffic policy instances that you created in a specified hosted zone.</p>

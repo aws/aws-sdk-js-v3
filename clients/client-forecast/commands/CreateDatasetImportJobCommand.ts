@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDatasetImportJobCommandInput = CreateDatasetImportJobRequest;
-export type CreateDatasetImportJobCommandOutput = CreateDatasetImportJobResponse & __MetadataBearer;
+export interface CreateDatasetImportJobCommandInput extends CreateDatasetImportJobRequest {}
+export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImportJobResponse, __MetadataBearer {}
 
 /**
  * <p>Imports your training data to an Amazon Forecast dataset. You provide the location of your

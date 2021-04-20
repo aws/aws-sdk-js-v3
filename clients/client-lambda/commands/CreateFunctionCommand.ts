@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFunctionCommandInput = CreateFunctionRequest;
-export type CreateFunctionCommandOutput = FunctionConfiguration & __MetadataBearer;
+export interface CreateFunctionCommandInput extends CreateFunctionRequest {}
+export interface CreateFunctionCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
  * <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The

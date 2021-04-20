@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListReplaysCommandInput = ListReplaysRequest;
-export type ListReplaysCommandOutput = ListReplaysResponse & __MetadataBearer;
+export interface ListReplaysCommandInput extends ListReplaysRequest {}
+export interface ListReplaysCommandOutput extends ListReplaysResponse, __MetadataBearer {}
 
 /**
  * <p>Lists your replays. You can either list all the replays or you can provide a prefix to

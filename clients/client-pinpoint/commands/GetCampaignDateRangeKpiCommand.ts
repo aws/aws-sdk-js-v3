@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCampaignDateRangeKpiCommandInput = GetCampaignDateRangeKpiRequest;
-export type GetCampaignDateRangeKpiCommandOutput = GetCampaignDateRangeKpiResponse & __MetadataBearer;
+export interface GetCampaignDateRangeKpiCommandInput extends GetCampaignDateRangeKpiRequest {}
+export interface GetCampaignDateRangeKpiCommandOutput extends GetCampaignDateRangeKpiResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to a campaign.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFleetHistoryCommandInput = DescribeFleetHistoryRequest;
-export type DescribeFleetHistoryCommandOutput = DescribeFleetHistoryResult & __MetadataBearer;
+export interface DescribeFleetHistoryCommandInput extends DescribeFleetHistoryRequest {}
+export interface DescribeFleetHistoryCommandOutput extends DescribeFleetHistoryResult, __MetadataBearer {}
 
 /**
  * <p>Describes the events for the specified EC2 Fleet during the specified time.</p>

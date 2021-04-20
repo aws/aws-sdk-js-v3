@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInstancesCommandInput = ListInstancesRequest;
-export type ListInstancesCommandOutput = ListInstancesResponse & __MetadataBearer;
+export interface ListInstancesCommandInput extends ListInstancesRequest {}
+export interface ListInstancesCommandOutput extends ListInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists summary information about the instances that you registered by using a specified service.</p>

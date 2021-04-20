@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSecurityPoliciesCommandInput = ListSecurityPoliciesRequest;
-export type ListSecurityPoliciesCommandOutput = ListSecurityPoliciesResponse & __MetadataBearer;
+export interface ListSecurityPoliciesCommandInput extends ListSecurityPoliciesRequest {}
+export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the security policies that are attached to your file transfer protocol-enabled

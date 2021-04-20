@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCostCategoryDefinitionCommandInput = CreateCostCategoryDefinitionRequest;
-export type CreateCostCategoryDefinitionCommandOutput = CreateCostCategoryDefinitionResponse & __MetadataBearer;
+export interface CreateCostCategoryDefinitionCommandInput extends CreateCostCategoryDefinitionRequest {}
+export interface CreateCostCategoryDefinitionCommandOutput
+  extends CreateCostCategoryDefinitionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a new Cost Category with the requested name and rules.</p>

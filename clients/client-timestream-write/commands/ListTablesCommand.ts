@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTablesCommandInput = ListTablesRequest;
-export type ListTablesCommandOutput = ListTablesResponse & __MetadataBearer;
+export interface ListTablesCommandInput extends ListTablesRequest {}
+export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataBearer {}
 
 /**
  * <p>A list of tables, along with the name, status and retention properties of each table.

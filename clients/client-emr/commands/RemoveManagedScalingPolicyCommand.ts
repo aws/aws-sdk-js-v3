@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveManagedScalingPolicyCommandInput = RemoveManagedScalingPolicyInput;
-export type RemoveManagedScalingPolicyCommandOutput = RemoveManagedScalingPolicyOutput & __MetadataBearer;
+export interface RemoveManagedScalingPolicyCommandInput extends RemoveManagedScalingPolicyInput {}
+export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedScalingPolicyOutput, __MetadataBearer {}
 
 /**
  * <p> Removes a managed scaling policy from a specified EMR cluster. </p>

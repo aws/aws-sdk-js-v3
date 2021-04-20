@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCodeSigningConfigCommandInput = CreateCodeSigningConfigRequest;
-export type CreateCodeSigningConfigCommandOutput = CreateCodeSigningConfigResponse & __MetadataBearer;
+export interface CreateCodeSigningConfigCommandInput extends CreateCodeSigningConfigRequest {}
+export interface CreateCodeSigningConfigCommandOutput extends CreateCodeSigningConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a code signing configuration. A <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html">code signing configuration</a> defines a list of

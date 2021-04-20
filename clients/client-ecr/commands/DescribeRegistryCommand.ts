@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRegistryCommandInput = DescribeRegistryRequest;
-export type DescribeRegistryCommandOutput = DescribeRegistryResponse & __MetadataBearer;
+export interface DescribeRegistryCommandInput extends DescribeRegistryRequest {}
+export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the settings for a registry. The replication configuration for a repository

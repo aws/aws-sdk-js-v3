@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTagsCommandInput = DescribeTagsMessage;
-export type DescribeTagsCommandOutput = TaggedResourceListMessage & __MetadataBearer;
+export interface DescribeTagsCommandInput extends DescribeTagsMessage {}
+export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of tags. You can return tags from a specific resource by specifying

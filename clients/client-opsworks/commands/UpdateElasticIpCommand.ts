@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateElasticIpCommandInput = UpdateElasticIpRequest;
-export type UpdateElasticIpCommandOutput = __MetadataBearer;
+export interface UpdateElasticIpCommandInput extends UpdateElasticIpRequest {}
+export interface UpdateElasticIpCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates a registered Elastic IP address's name. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/resources.html">Resource Management</a>.</p>

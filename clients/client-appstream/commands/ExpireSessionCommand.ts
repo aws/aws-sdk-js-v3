@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExpireSessionCommandInput = ExpireSessionRequest;
-export type ExpireSessionCommandOutput = ExpireSessionResult & __MetadataBearer;
+export interface ExpireSessionCommandInput extends ExpireSessionRequest {}
+export interface ExpireSessionCommandOutput extends ExpireSessionResult, __MetadataBearer {}
 
 /**
  * <p>Immediately stops the specified streaming session.</p>

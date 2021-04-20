@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBackupVaultAccessPolicyCommandInput = PutBackupVaultAccessPolicyInput;
-export type PutBackupVaultAccessPolicyCommandOutput = __MetadataBearer;
+export interface PutBackupVaultAccessPolicyCommandInput extends PutBackupVaultAccessPolicyInput {}
+export interface PutBackupVaultAccessPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets a resource-based policy that is used to manage access permissions on the target

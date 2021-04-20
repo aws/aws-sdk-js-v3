@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableRuleCommandInput = EnableRuleRequest;
-export type EnableRuleCommandOutput = __MetadataBearer;
+export interface EnableRuleCommandInput extends EnableRuleRequest {}
+export interface EnableRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables the specified rule. If the rule does not exist, the operation fails.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteNetworkInsightsPathCommandInput = DeleteNetworkInsightsPathRequest;
-export type DeleteNetworkInsightsPathCommandOutput = DeleteNetworkInsightsPathResult & __MetadataBearer;
+export interface DeleteNetworkInsightsPathCommandInput extends DeleteNetworkInsightsPathRequest {}
+export interface DeleteNetworkInsightsPathCommandOutput extends DeleteNetworkInsightsPathResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified path.</p>

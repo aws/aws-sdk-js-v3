@@ -24,9 +24,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeElasticsearchDomainConfigCommandInput = DescribeElasticsearchDomainConfigRequest;
-export type DescribeElasticsearchDomainConfigCommandOutput = DescribeElasticsearchDomainConfigResponse &
-  __MetadataBearer;
+export interface DescribeElasticsearchDomainConfigCommandInput extends DescribeElasticsearchDomainConfigRequest {}
+export interface DescribeElasticsearchDomainConfigCommandOutput
+  extends DescribeElasticsearchDomainConfigResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.</p>

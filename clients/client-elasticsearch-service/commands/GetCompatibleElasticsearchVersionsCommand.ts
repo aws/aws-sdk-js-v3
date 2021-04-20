@@ -24,9 +24,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCompatibleElasticsearchVersionsCommandInput = GetCompatibleElasticsearchVersionsRequest;
-export type GetCompatibleElasticsearchVersionsCommandOutput = GetCompatibleElasticsearchVersionsResponse &
-  __MetadataBearer;
+export interface GetCompatibleElasticsearchVersionsCommandInput extends GetCompatibleElasticsearchVersionsRequest {}
+export interface GetCompatibleElasticsearchVersionsCommandOutput
+  extends GetCompatibleElasticsearchVersionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

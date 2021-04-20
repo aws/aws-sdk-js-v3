@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveTagsCommandInput = RemoveTagsRequest;
-export type RemoveTagsCommandOutput = RemoveTagsResponse & __MetadataBearer;
+export interface RemoveTagsCommandInput extends RemoveTagsRequest {}
+export interface RemoveTagsCommandOutput extends RemoveTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Removes the specified tags from a trail.</p>

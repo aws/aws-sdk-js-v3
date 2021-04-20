@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSnapshotAttributeCommandInput = DescribeSnapshotAttributeRequest;
-export type DescribeSnapshotAttributeCommandOutput = DescribeSnapshotAttributeResult & __MetadataBearer;
+export interface DescribeSnapshotAttributeCommandInput extends DescribeSnapshotAttributeRequest {}
+export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshotAttributeResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified attribute of the specified snapshot. You can specify only one

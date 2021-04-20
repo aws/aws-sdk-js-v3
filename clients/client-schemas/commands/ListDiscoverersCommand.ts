@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDiscoverersCommandInput = ListDiscoverersRequest;
-export type ListDiscoverersCommandOutput = ListDiscoverersResponse & __MetadataBearer;
+export interface ListDiscoverersCommandInput extends ListDiscoverersRequest {}
+export interface ListDiscoverersCommandOutput extends ListDiscoverersResponse, __MetadataBearer {}
 
 /**
  * <p>List the discoverers.</p>

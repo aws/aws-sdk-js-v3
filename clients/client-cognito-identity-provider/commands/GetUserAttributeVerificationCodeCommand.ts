@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUserAttributeVerificationCodeCommandInput = GetUserAttributeVerificationCodeRequest;
-export type GetUserAttributeVerificationCodeCommandOutput = GetUserAttributeVerificationCodeResponse & __MetadataBearer;
+export interface GetUserAttributeVerificationCodeCommandInput extends GetUserAttributeVerificationCodeRequest {}
+export interface GetUserAttributeVerificationCodeCommandOutput
+  extends GetUserAttributeVerificationCodeResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the user attribute verification code for the specified attribute name.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EvaluatePullRequestApprovalRulesCommandInput = EvaluatePullRequestApprovalRulesInput;
-export type EvaluatePullRequestApprovalRulesCommandOutput = EvaluatePullRequestApprovalRulesOutput & __MetadataBearer;
+export interface EvaluatePullRequestApprovalRulesCommandInput extends EvaluatePullRequestApprovalRulesInput {}
+export interface EvaluatePullRequestApprovalRulesCommandOutput
+  extends EvaluatePullRequestApprovalRulesOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Evaluates whether a pull request has met all the conditions specified in its associated approval rules.</p>

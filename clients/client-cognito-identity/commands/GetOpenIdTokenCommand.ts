@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetOpenIdTokenCommandInput = GetOpenIdTokenInput;
-export type GetOpenIdTokenCommandOutput = GetOpenIdTokenResponse & __MetadataBearer;
+export interface GetOpenIdTokenCommandInput extends GetOpenIdTokenInput {}
+export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by

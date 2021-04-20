@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RejectSharedDirectoryCommandInput = RejectSharedDirectoryRequest;
-export type RejectSharedDirectoryCommandOutput = RejectSharedDirectoryResult & __MetadataBearer;
+export interface RejectSharedDirectoryCommandInput extends RejectSharedDirectoryRequest {}
+export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirectoryResult, __MetadataBearer {}
 
 /**
  * <p>Rejects a directory sharing request that was sent from the directory owner account.</p>

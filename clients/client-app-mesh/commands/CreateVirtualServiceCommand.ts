@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVirtualServiceCommandInput = CreateVirtualServiceInput;
-export type CreateVirtualServiceCommandOutput = CreateVirtualServiceOutput & __MetadataBearer;
+export interface CreateVirtualServiceCommandInput extends CreateVirtualServiceInput {}
+export interface CreateVirtualServiceCommandOutput extends CreateVirtualServiceOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a virtual service within a service mesh.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetComplianceDetailCommandInput = GetComplianceDetailRequest;
-export type GetComplianceDetailCommandOutput = GetComplianceDetailResponse & __MetadataBearer;
+export interface GetComplianceDetailCommandInput extends GetComplianceDetailRequest {}
+export interface GetComplianceDetailCommandOutput extends GetComplianceDetailResponse, __MetadataBearer {}
 
 /**
  * <p>Returns detailed compliance information about the specified member account. Details

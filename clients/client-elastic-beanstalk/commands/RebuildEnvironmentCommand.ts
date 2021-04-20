@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RebuildEnvironmentCommandInput = RebuildEnvironmentMessage;
-export type RebuildEnvironmentCommandOutput = __MetadataBearer;
+export interface RebuildEnvironmentCommandInput extends RebuildEnvironmentMessage {}
+export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes and recreates all of the AWS resources (for example: the Auto Scaling group,

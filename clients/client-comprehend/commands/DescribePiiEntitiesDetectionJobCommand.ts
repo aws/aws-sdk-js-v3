@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePiiEntitiesDetectionJobCommandInput = DescribePiiEntitiesDetectionJobRequest;
-export type DescribePiiEntitiesDetectionJobCommandOutput = DescribePiiEntitiesDetectionJobResponse & __MetadataBearer;
+export interface DescribePiiEntitiesDetectionJobCommandInput extends DescribePiiEntitiesDetectionJobRequest {}
+export interface DescribePiiEntitiesDetectionJobCommandOutput
+  extends DescribePiiEntitiesDetectionJobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a PII entities detection job. For example, you can use

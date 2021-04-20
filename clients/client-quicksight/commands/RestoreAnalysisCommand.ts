@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreAnalysisCommandInput = RestoreAnalysisRequest;
-export type RestoreAnalysisCommandOutput = RestoreAnalysisResponse & __MetadataBearer;
+export interface RestoreAnalysisCommandInput extends RestoreAnalysisRequest {}
+export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, __MetadataBearer {}
 
 /**
  * <p>Restores an analysis.</p>

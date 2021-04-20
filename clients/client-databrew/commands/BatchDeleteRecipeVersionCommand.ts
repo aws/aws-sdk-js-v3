@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDeleteRecipeVersionCommandInput = BatchDeleteRecipeVersionRequest;
-export type BatchDeleteRecipeVersionCommandOutput = BatchDeleteRecipeVersionResponse & __MetadataBearer;
+export interface BatchDeleteRecipeVersionCommandInput extends BatchDeleteRecipeVersionRequest {}
+export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipeVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes one or more versions of a recipe at a time.</p>

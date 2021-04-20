@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketLifecycleConfigurationCommandInput = GetBucketLifecycleConfigurationRequest;
-export type GetBucketLifecycleConfigurationCommandOutput = GetBucketLifecycleConfigurationResult & __MetadataBearer;
+export interface GetBucketLifecycleConfigurationCommandInput extends GetBucketLifecycleConfigurationRequest {}
+export interface GetBucketLifecycleConfigurationCommandOutput
+  extends GetBucketLifecycleConfigurationResult,
+    __MetadataBearer {}
 
 /**
  * <note>

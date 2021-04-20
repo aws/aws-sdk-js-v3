@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateIntegrationCommandInput = UpdateIntegrationRequest;
-export type UpdateIntegrationCommandOutput = UpdateIntegrationResult & __MetadataBearer;
+export interface UpdateIntegrationCommandInput extends UpdateIntegrationRequest {}
+export interface UpdateIntegrationCommandOutput extends UpdateIntegrationResult, __MetadataBearer {}
 
 /**
  * <p>Updates an Integration.</p>

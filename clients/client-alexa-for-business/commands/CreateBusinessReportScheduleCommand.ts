@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBusinessReportScheduleCommandInput = CreateBusinessReportScheduleRequest;
-export type CreateBusinessReportScheduleCommandOutput = CreateBusinessReportScheduleResponse & __MetadataBearer;
+export interface CreateBusinessReportScheduleCommandInput extends CreateBusinessReportScheduleRequest {}
+export interface CreateBusinessReportScheduleCommandOutput
+  extends CreateBusinessReportScheduleResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a recurring schedule for usage reports to deliver to the specified S3

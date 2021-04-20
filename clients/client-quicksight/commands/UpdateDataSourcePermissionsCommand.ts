@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDataSourcePermissionsCommandInput = UpdateDataSourcePermissionsRequest;
-export type UpdateDataSourcePermissionsCommandOutput = UpdateDataSourcePermissionsResponse & __MetadataBearer;
+export interface UpdateDataSourcePermissionsCommandInput extends UpdateDataSourcePermissionsRequest {}
+export interface UpdateDataSourcePermissionsCommandOutput
+  extends UpdateDataSourcePermissionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the permissions to a data source.</p>

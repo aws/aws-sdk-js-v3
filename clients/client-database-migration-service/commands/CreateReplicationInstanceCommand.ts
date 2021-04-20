@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateReplicationInstanceCommandInput = CreateReplicationInstanceMessage;
-export type CreateReplicationInstanceCommandOutput = CreateReplicationInstanceResponse & __MetadataBearer;
+export interface CreateReplicationInstanceCommandInput extends CreateReplicationInstanceMessage {}
+export interface CreateReplicationInstanceCommandOutput extends CreateReplicationInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Creates the replication instance using the specified parameters.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetIPSetCommandInput = GetIPSetRequest;
-export type GetIPSetCommandOutput = GetIPSetResponse & __MetadataBearer;
+export interface GetIPSetCommandInput extends GetIPSetRequest {}
+export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the IPSet specified by the <code>ipSetId</code>.</p>

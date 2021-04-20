@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVaultAccessPolicyCommandInput = DeleteVaultAccessPolicyInput;
-export type DeleteVaultAccessPolicyCommandOutput = __MetadataBearer;
+export interface DeleteVaultAccessPolicyCommandInput extends DeleteVaultAccessPolicyInput {}
+export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This operation deletes the access policy associated with the specified vault. The

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDirectConnectGatewayAssociationProposalCommandInput = DeleteDirectConnectGatewayAssociationProposalRequest;
-export type DeleteDirectConnectGatewayAssociationProposalCommandOutput = DeleteDirectConnectGatewayAssociationProposalResult &
-  __MetadataBearer;
+export interface DeleteDirectConnectGatewayAssociationProposalCommandInput
+  extends DeleteDirectConnectGatewayAssociationProposalRequest {}
+export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
+  extends DeleteDirectConnectGatewayAssociationProposalResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the association proposal request between the specified Direct Connect gateway and virtual private gateway or transit gateway.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachInstancesCommandInput = AttachInstancesQuery;
-export type AttachInstancesCommandOutput = __MetadataBearer;
+export interface AttachInstancesCommandInput extends AttachInstancesQuery {}
+export interface AttachInstancesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attaches one or more EC2 instances to the specified Auto Scaling group.</p>

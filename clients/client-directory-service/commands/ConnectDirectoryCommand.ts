@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ConnectDirectoryCommandInput = ConnectDirectoryRequest;
-export type ConnectDirectoryCommandOutput = ConnectDirectoryResult & __MetadataBearer;
+export interface ConnectDirectoryCommandInput extends ConnectDirectoryRequest {}
+export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, __MetadataBearer {}
 
 /**
  * <p>Creates an AD Connector to connect to an on-premises directory.</p>

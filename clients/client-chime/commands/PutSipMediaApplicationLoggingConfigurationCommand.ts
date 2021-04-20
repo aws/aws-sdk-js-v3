@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutSipMediaApplicationLoggingConfigurationCommandInput = PutSipMediaApplicationLoggingConfigurationRequest;
-export type PutSipMediaApplicationLoggingConfigurationCommandOutput = PutSipMediaApplicationLoggingConfigurationResponse &
-  __MetadataBearer;
+export interface PutSipMediaApplicationLoggingConfigurationCommandInput
+  extends PutSipMediaApplicationLoggingConfigurationRequest {}
+export interface PutSipMediaApplicationLoggingConfigurationCommandOutput
+  extends PutSipMediaApplicationLoggingConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the logging configuration for the specified SIP media application.</p>

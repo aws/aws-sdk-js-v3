@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopICD10CMInferenceJobCommandInput = StopICD10CMInferenceJobRequest;
-export type StopICD10CMInferenceJobCommandOutput = StopICD10CMInferenceJobResponse & __MetadataBearer;
+export interface StopICD10CMInferenceJobCommandInput extends StopICD10CMInferenceJobRequest {}
+export interface StopICD10CMInferenceJobCommandOutput extends StopICD10CMInferenceJobResponse, __MetadataBearer {}
 
 /**
  * <p>Stops an InferICD10CM inference job in progress.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterInstanceCommandInput = DeregisterInstanceRequest;
-export type DeregisterInstanceCommandOutput = DeregisterInstanceResponse & __MetadataBearer;
+export interface DeregisterInstanceCommandInput extends DeregisterInstanceRequest {}
+export interface DeregisterInstanceCommandOutput extends DeregisterInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map created for the specified

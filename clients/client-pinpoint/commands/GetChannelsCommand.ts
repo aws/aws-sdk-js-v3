@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetChannelsCommandInput = GetChannelsRequest;
-export type GetChannelsCommandOutput = GetChannelsResponse & __MetadataBearer;
+export interface GetChannelsCommandInput extends GetChannelsRequest {}
+export interface GetChannelsCommandOutput extends GetChannelsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the history and status of each channel for an application.</p>

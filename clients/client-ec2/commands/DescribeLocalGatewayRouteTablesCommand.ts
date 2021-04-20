@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLocalGatewayRouteTablesCommandInput = DescribeLocalGatewayRouteTablesRequest;
-export type DescribeLocalGatewayRouteTablesCommandOutput = DescribeLocalGatewayRouteTablesResult & __MetadataBearer;
+export interface DescribeLocalGatewayRouteTablesCommandInput extends DescribeLocalGatewayRouteTablesRequest {}
+export interface DescribeLocalGatewayRouteTablesCommandOutput
+  extends DescribeLocalGatewayRouteTablesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes one or more local gateway route tables. By default, all local gateway route tables are described.

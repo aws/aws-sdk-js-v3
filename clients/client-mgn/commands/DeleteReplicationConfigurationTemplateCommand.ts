@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteReplicationConfigurationTemplateCommandInput = DeleteReplicationConfigurationTemplateRequest;
-export type DeleteReplicationConfigurationTemplateCommandOutput = DeleteReplicationConfigurationTemplateResponse &
-  __MetadataBearer;
+export interface DeleteReplicationConfigurationTemplateCommandInput
+  extends DeleteReplicationConfigurationTemplateRequest {}
+export interface DeleteReplicationConfigurationTemplateCommandOutput
+  extends DeleteReplicationConfigurationTemplateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes a single Replication Configuration Template by ID</p>

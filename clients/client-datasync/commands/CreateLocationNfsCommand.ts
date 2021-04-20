@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLocationNfsCommandInput = CreateLocationNfsRequest;
-export type CreateLocationNfsCommandOutput = CreateLocationNfsResponse & __MetadataBearer;
+export interface CreateLocationNfsCommandInput extends CreateLocationNfsRequest {}
+export interface CreateLocationNfsCommandOutput extends CreateLocationNfsResponse, __MetadataBearer {}
 
 /**
  * <p>Defines a file system on a Network File System (NFS) server that can be read from or

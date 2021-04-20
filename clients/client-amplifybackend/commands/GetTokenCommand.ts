@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTokenCommandInput = GetTokenRequest;
-export type GetTokenCommandOutput = GetTokenResponse & __MetadataBearer;
+export interface GetTokenCommandInput extends GetTokenRequest {}
+export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the challenge token based on the given appId and sessionId.</p>

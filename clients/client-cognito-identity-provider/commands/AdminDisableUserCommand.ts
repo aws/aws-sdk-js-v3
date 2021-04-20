@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminDisableUserCommandInput = AdminDisableUserRequest;
-export type AdminDisableUserCommandOutput = AdminDisableUserResponse & __MetadataBearer;
+export interface AdminDisableUserCommandInput extends AdminDisableUserRequest {}
+export interface AdminDisableUserCommandOutput extends AdminDisableUserResponse, __MetadataBearer {}
 
 /**
  * <p>Disables the specified user.</p>

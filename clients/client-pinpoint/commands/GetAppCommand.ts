@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAppCommandInput = GetAppRequest;
-export type GetAppCommandOutput = GetAppResponse & __MetadataBearer;
+export interface GetAppCommandInput extends GetAppRequest {}
+export interface GetAppCommandOutput extends GetAppResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about an application.</p>

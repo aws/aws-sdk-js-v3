@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPartnerEventSourcesCommandInput = ListPartnerEventSourcesRequest;
-export type ListPartnerEventSourcesCommandOutput = ListPartnerEventSourcesResponse & __MetadataBearer;
+export interface ListPartnerEventSourcesCommandInput extends ListPartnerEventSourcesRequest {}
+export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSourcesResponse, __MetadataBearer {}
 
 /**
  * <p>An SaaS partner can use this operation to list all the partner event source names that

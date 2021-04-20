@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAlgorithmCommandInput = CreateAlgorithmInput;
-export type CreateAlgorithmCommandOutput = CreateAlgorithmOutput & __MetadataBearer;
+export interface CreateAlgorithmCommandInput extends CreateAlgorithmInput {}
+export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __MetadataBearer {}
 
 /**
  * <p>Create a machine learning algorithm that you can use in Amazon SageMaker and list in the AWS

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ConfirmConnectionCommandInput = ConfirmConnectionRequest;
-export type ConfirmConnectionCommandOutput = ConfirmConnectionResponse & __MetadataBearer;
+export interface ConfirmConnectionCommandInput extends ConfirmConnectionRequest {}
+export interface ConfirmConnectionCommandOutput extends ConfirmConnectionResponse, __MetadataBearer {}
 
 /**
  * <p>Confirms the creation of the specified hosted connection on an interconnect.</p>

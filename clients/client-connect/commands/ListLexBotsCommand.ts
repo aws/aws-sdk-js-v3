@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListLexBotsCommandInput = ListLexBotsRequest;
-export type ListLexBotsCommandOutput = ListLexBotsResponse & __MetadataBearer;
+export interface ListLexBotsCommandInput extends ListLexBotsRequest {}
+export interface ListLexBotsCommandOutput extends ListLexBotsResponse, __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

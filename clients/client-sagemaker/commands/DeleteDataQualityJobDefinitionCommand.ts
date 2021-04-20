@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDataQualityJobDefinitionCommandInput = DeleteDataQualityJobDefinitionRequest;
-export type DeleteDataQualityJobDefinitionCommandOutput = __MetadataBearer;
+export interface DeleteDataQualityJobDefinitionCommandInput extends DeleteDataQualityJobDefinitionRequest {}
+export interface DeleteDataQualityJobDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a data quality monitoring job definition.</p>

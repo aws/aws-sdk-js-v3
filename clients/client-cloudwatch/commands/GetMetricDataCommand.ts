@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMetricDataCommandInput = GetMetricDataInput;
-export type GetMetricDataCommandOutput = GetMetricDataOutput & __MetadataBearer;
+export interface GetMetricDataCommandInput extends GetMetricDataInput {}
+export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __MetadataBearer {}
 
 /**
  * <p>You can use the <code>GetMetricData</code> API to retrieve as many as 500 different

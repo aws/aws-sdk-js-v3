@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RebootWorkspacesCommandInput = RebootWorkspacesRequest;
-export type RebootWorkspacesCommandOutput = RebootWorkspacesResult & __MetadataBearer;
+export interface RebootWorkspacesCommandInput extends RebootWorkspacesRequest {}
+export interface RebootWorkspacesCommandOutput extends RebootWorkspacesResult, __MetadataBearer {}
 
 /**
  * <p>Reboots the specified WorkSpaces.</p>

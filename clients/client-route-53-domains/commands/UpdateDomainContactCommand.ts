@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDomainContactCommandInput = UpdateDomainContactRequest;
-export type UpdateDomainContactCommandOutput = UpdateDomainContactResponse & __MetadataBearer;
+export interface UpdateDomainContactCommandInput extends UpdateDomainContactRequest {}
+export interface UpdateDomainContactCommandOutput extends UpdateDomainContactResponse, __MetadataBearer {}
 
 /**
  * <p>This operation updates the contact information for a particular domain. You must specify information for at least one contact:

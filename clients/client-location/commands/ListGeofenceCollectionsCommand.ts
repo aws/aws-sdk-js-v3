@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListGeofenceCollectionsCommandInput = ListGeofenceCollectionsRequest;
-export type ListGeofenceCollectionsCommandOutput = ListGeofenceCollectionsResponse & __MetadataBearer;
+export interface ListGeofenceCollectionsCommandInput extends ListGeofenceCollectionsRequest {}
+export interface ListGeofenceCollectionsCommandOutput extends ListGeofenceCollectionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists geofence collections in your AWS account.</p>

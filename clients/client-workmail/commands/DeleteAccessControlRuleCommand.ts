@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAccessControlRuleCommandInput = DeleteAccessControlRuleRequest;
-export type DeleteAccessControlRuleCommandOutput = DeleteAccessControlRuleResponse & __MetadataBearer;
+export interface DeleteAccessControlRuleCommandInput extends DeleteAccessControlRuleRequest {}
+export interface DeleteAccessControlRuleCommandOutput extends DeleteAccessControlRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an access control rule for the specified WorkMail organization.</p>

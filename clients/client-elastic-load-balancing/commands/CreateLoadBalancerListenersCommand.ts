@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLoadBalancerListenersCommandInput = CreateLoadBalancerListenerInput;
-export type CreateLoadBalancerListenersCommandOutput = CreateLoadBalancerListenerOutput & __MetadataBearer;
+export interface CreateLoadBalancerListenersCommandInput extends CreateLoadBalancerListenerInput {}
+export interface CreateLoadBalancerListenersCommandOutput extends CreateLoadBalancerListenerOutput, __MetadataBearer {}
 
 /**
  * <p>Creates one or more listeners for the specified load balancer. If a listener with the specified port does not already exist, it is created; otherwise, the properties of the new listener must match the properties of the existing listener.</p>

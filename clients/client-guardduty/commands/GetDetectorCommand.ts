@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDetectorCommandInput = GetDetectorRequest;
-export type GetDetectorCommandOutput = GetDetectorResponse & __MetadataBearer;
+export interface GetDetectorCommandInput extends GetDetectorRequest {}
+export interface GetDetectorCommandOutput extends GetDetectorResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves an Amazon GuardDuty detector specified by the detectorId.</p>

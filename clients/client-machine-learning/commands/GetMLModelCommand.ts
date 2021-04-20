@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMLModelCommandInput = GetMLModelInput;
-export type GetMLModelCommandOutput = GetMLModelOutput & __MetadataBearer;
+export interface GetMLModelCommandInput extends GetMLModelInput {}
+export interface GetMLModelCommandOutput extends GetMLModelOutput, __MetadataBearer {}
 
 /**
  * <p>Returns an <code>MLModel</code> that includes detailed metadata, data source information, and the current status of the <code>MLModel</code>.</p>

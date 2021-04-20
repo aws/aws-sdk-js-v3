@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSessionsCommandInput = DescribeSessionsRequest;
-export type DescribeSessionsCommandOutput = DescribeSessionsResponse & __MetadataBearer;
+export interface DescribeSessionsCommandInput extends DescribeSessionsRequest {}
+export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of all active sessions (both connected and disconnected) or terminated

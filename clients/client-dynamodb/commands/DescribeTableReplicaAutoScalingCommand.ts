@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTableReplicaAutoScalingCommandInput = DescribeTableReplicaAutoScalingInput;
-export type DescribeTableReplicaAutoScalingCommandOutput = DescribeTableReplicaAutoScalingOutput & __MetadataBearer;
+export interface DescribeTableReplicaAutoScalingCommandInput extends DescribeTableReplicaAutoScalingInput {}
+export interface DescribeTableReplicaAutoScalingCommandOutput
+  extends DescribeTableReplicaAutoScalingOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Describes auto scaling settings across replicas of the global table at once.</p>

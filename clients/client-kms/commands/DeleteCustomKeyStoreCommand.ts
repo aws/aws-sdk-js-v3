@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteCustomKeyStoreCommandInput = DeleteCustomKeyStoreRequest;
-export type DeleteCustomKeyStoreCommandOutput = DeleteCustomKeyStoreResponse & __MetadataBearer;
+export interface DeleteCustomKeyStoreCommandInput extends DeleteCustomKeyStoreRequest {}
+export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. This operation does not delete the AWS CloudHSM cluster that is

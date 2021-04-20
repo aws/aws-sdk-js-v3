@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableDirectoryCommandInput = DisableDirectoryRequest;
-export type DisableDirectoryCommandOutput = DisableDirectoryResponse & __MetadataBearer;
+export interface DisableDirectoryCommandInput extends DisableDirectoryRequest {}
+export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse, __MetadataBearer {}
 
 /**
  * <p>Disables the specified directory. Disabled directories cannot be read or written to.

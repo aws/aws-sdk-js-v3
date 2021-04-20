@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCollectionsCommandInput = ListCollectionsRequest;
-export type ListCollectionsCommandOutput = ListCollectionsResponse & __MetadataBearer;
+export interface ListCollectionsCommandInput extends ListCollectionsRequest {}
+export interface ListCollectionsCommandOutput extends ListCollectionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns list of collection IDs in your account.

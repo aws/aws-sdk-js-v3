@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RetryBuildBatchCommandInput = RetryBuildBatchInput;
-export type RetryBuildBatchCommandOutput = RetryBuildBatchOutput & __MetadataBearer;
+export interface RetryBuildBatchCommandInput extends RetryBuildBatchInput {}
+export interface RetryBuildBatchCommandOutput extends RetryBuildBatchOutput, __MetadataBearer {}
 
 /**
  * <p>Restarts a failed batch build. Only batch builds that have failed can be retried.</p>

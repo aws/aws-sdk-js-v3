@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeThemeAliasCommandInput = DescribeThemeAliasRequest;
-export type DescribeThemeAliasCommandOutput = DescribeThemeAliasResponse & __MetadataBearer;
+export interface DescribeThemeAliasCommandInput extends DescribeThemeAliasRequest {}
+export interface DescribeThemeAliasCommandOutput extends DescribeThemeAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the alias for a theme.</p>

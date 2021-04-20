@@ -17,9 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeNotificationConfigurationsCommandInput = DescribeNotificationConfigurationsType;
-export type DescribeNotificationConfigurationsCommandOutput = DescribeNotificationConfigurationsAnswer &
-  __MetadataBearer;
+export interface DescribeNotificationConfigurationsCommandInput extends DescribeNotificationConfigurationsType {}
+export interface DescribeNotificationConfigurationsCommandOutput
+  extends DescribeNotificationConfigurationsAnswer,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the notification actions associated with the specified Auto Scaling group.</p>

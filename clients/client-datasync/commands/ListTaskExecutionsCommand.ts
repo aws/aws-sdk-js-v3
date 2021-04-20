@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTaskExecutionsCommandInput = ListTaskExecutionsRequest;
-export type ListTaskExecutionsCommandOutput = ListTaskExecutionsResponse & __MetadataBearer;
+export interface ListTaskExecutionsCommandInput extends ListTaskExecutionsRequest {}
+export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of executed tasks.</p>

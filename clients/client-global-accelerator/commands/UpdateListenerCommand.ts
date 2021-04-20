@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateListenerCommandInput = UpdateListenerRequest;
-export type UpdateListenerCommandOutput = UpdateListenerResponse & __MetadataBearer;
+export interface UpdateListenerCommandInput extends UpdateListenerRequest {}
+export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __MetadataBearer {}
 
 /**
  * <p>Update a listener. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeImportImageTasksCommandInput = DescribeImportImageTasksRequest;
-export type DescribeImportImageTasksCommandOutput = DescribeImportImageTasksResult & __MetadataBearer;
+export interface DescribeImportImageTasksCommandInput extends DescribeImportImageTasksRequest {}
+export interface DescribeImportImageTasksCommandOutput extends DescribeImportImageTasksResult, __MetadataBearer {}
 
 /**
  * <p>Displays details about an import virtual machine or import snapshot tasks that are already created.</p>

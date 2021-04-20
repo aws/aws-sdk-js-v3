@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUserGroupCommandInput = DeleteUserGroupMessage;
-export type DeleteUserGroupCommandOutput = UserGroup & __MetadataBearer;
+export interface DeleteUserGroupCommandInput extends DeleteUserGroupMessage {}
+export interface DeleteUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**
  * <p>For Redis engine version 6.x onwards: Deletes a user group. The user group must first be disassociated from the replication group before it can be deleted. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePresignedDomainUrlCommandInput = CreatePresignedDomainUrlRequest;
-export type CreatePresignedDomainUrlCommandOutput = CreatePresignedDomainUrlResponse & __MetadataBearer;
+export interface CreatePresignedDomainUrlCommandInput extends CreatePresignedDomainUrlRequest {}
+export interface CreatePresignedDomainUrlCommandOutput extends CreatePresignedDomainUrlResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a URL for a specified UserProfile in a Domain.  When accessed in a web browser,

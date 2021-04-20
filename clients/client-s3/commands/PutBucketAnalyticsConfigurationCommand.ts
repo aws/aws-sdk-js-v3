@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBucketAnalyticsConfigurationCommandInput = PutBucketAnalyticsConfigurationRequest;
-export type PutBucketAnalyticsConfigurationCommandOutput = __MetadataBearer;
+export interface PutBucketAnalyticsConfigurationCommandInput extends PutBucketAnalyticsConfigurationRequest {}
+export interface PutBucketAnalyticsConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets an analytics configuration for the bucket (specified by the analytics configuration

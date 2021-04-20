@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetHostedZoneCommandInput = GetHostedZoneRequest;
-export type GetHostedZoneCommandOutput = GetHostedZoneResponse & __MetadataBearer;
+export interface GetHostedZoneCommandInput extends GetHostedZoneRequest {}
+export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a specified hosted zone including the four name servers assigned to the hosted zone.</p>

@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteReplicationSubnetGroupCommandInput = DeleteReplicationSubnetGroupMessage;
-export type DeleteReplicationSubnetGroupCommandOutput = DeleteReplicationSubnetGroupResponse & __MetadataBearer;
+export interface DeleteReplicationSubnetGroupCommandInput extends DeleteReplicationSubnetGroupMessage {}
+export interface DeleteReplicationSubnetGroupCommandOutput
+  extends DeleteReplicationSubnetGroupResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes a subnet group.</p>

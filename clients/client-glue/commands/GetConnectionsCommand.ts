@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConnectionsCommandInput = GetConnectionsRequest;
-export type GetConnectionsCommandOutput = GetConnectionsResponse & __MetadataBearer;
+export interface GetConnectionsCommandInput extends GetConnectionsRequest {}
+export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of connection definitions from the Data Catalog.</p>

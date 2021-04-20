@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBucketEncryptionCommandInput = DeleteBucketEncryptionRequest;
-export type DeleteBucketEncryptionCommandOutput = __MetadataBearer;
+export interface DeleteBucketEncryptionCommandInput extends DeleteBucketEncryptionRequest {}
+export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This implementation of the DELETE action removes default encryption from the bucket.

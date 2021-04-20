@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateIpGroupCommandInput = CreateIpGroupRequest;
-export type CreateIpGroupCommandOutput = CreateIpGroupResult & __MetadataBearer;
+export interface CreateIpGroupCommandInput extends CreateIpGroupRequest {}
+export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __MetadataBearer {}
 
 /**
  * <p>Creates an IP access control group.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTapePoolCommandInput = CreateTapePoolInput;
-export type CreateTapePoolCommandOutput = CreateTapePoolOutput & __MetadataBearer;
+export interface CreateTapePoolCommandInput extends CreateTapePoolInput {}
+export interface CreateTapePoolCommandOutput extends CreateTapePoolOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new custom tape pool. You can use custom tape pool to enable tape retention

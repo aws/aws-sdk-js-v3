@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableDomainAutoRenewCommandInput = EnableDomainAutoRenewRequest;
-export type EnableDomainAutoRenewCommandOutput = EnableDomainAutoRenewResponse & __MetadataBearer;
+export interface EnableDomainAutoRenewCommandInput extends EnableDomainAutoRenewRequest {}
+export interface EnableDomainAutoRenewCommandOutput extends EnableDomainAutoRenewResponse, __MetadataBearer {}
 
 /**
  * <p>This operation configures Amazon Route 53 to automatically renew the specified domain before the domain registration expires.

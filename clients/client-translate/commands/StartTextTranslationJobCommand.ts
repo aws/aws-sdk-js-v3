@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartTextTranslationJobCommandInput = StartTextTranslationJobRequest;
-export type StartTextTranslationJobCommandOutput = StartTextTranslationJobResponse & __MetadataBearer;
+export interface StartTextTranslationJobCommandInput extends StartTextTranslationJobRequest {}
+export interface StartTextTranslationJobCommandOutput extends StartTextTranslationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous batch translation job. Batch translation jobs can be used to

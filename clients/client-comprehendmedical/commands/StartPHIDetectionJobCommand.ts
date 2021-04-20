@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartPHIDetectionJobCommandInput = StartPHIDetectionJobRequest;
-export type StartPHIDetectionJobCommandOutput = StartPHIDetectionJobResponse & __MetadataBearer;
+export interface StartPHIDetectionJobCommandInput extends StartPHIDetectionJobRequest {}
+export interface StartPHIDetectionJobCommandOutput extends StartPHIDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous job to detect protected health information (PHI). Use the

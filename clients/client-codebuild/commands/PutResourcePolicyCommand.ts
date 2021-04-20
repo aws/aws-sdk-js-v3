@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutResourcePolicyCommandInput = PutResourcePolicyInput;
-export type PutResourcePolicyCommandOutput = PutResourcePolicyOutput & __MetadataBearer;
+export interface PutResourcePolicyCommandInput extends PutResourcePolicyInput {}
+export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput, __MetadataBearer {}
 
 /**
  * <p> Stores a resource policy for the ARN of a <code>Project</code> or

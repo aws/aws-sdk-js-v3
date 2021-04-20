@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTerminologyCommandInput = DeleteTerminologyRequest;
-export type DeleteTerminologyCommandOutput = __MetadataBearer;
+export interface DeleteTerminologyCommandInput extends DeleteTerminologyRequest {}
+export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>A synchronous action that deletes a custom terminology.</p>

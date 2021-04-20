@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RebootDBInstanceCommandInput = RebootDBInstanceMessage;
-export type RebootDBInstanceCommandOutput = RebootDBInstanceResult & __MetadataBearer;
+export interface RebootDBInstanceCommandInput extends RebootDBInstanceMessage {}
+export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, __MetadataBearer {}
 
 /**
  * <p>You might need to reboot your DB instance, usually for maintenance reasons. For example,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResourceTagsCommandInput = ListResourceTagsRequest;
-export type ListResourceTagsCommandOutput = ListResourceTagsResponse & __MetadataBearer;
+export interface ListResourceTagsCommandInput extends ListResourceTagsRequest {}
+export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns all tags on the specified customer master key (CMK).</p>

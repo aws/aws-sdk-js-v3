@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListJobRunsCommandInput = ListJobRunsRequest;
-export type ListJobRunsCommandOutput = ListJobRunsResponse & __MetadataBearer;
+export interface ListJobRunsCommandInput extends ListJobRunsRequest {}
+export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of the previous runs of a particular DataBrew job.</p>

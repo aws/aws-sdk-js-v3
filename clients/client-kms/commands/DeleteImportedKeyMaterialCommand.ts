@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteImportedKeyMaterialCommandInput = DeleteImportedKeyMaterialRequest;
-export type DeleteImportedKeyMaterialCommandOutput = __MetadataBearer;
+export interface DeleteImportedKeyMaterialCommandInput extends DeleteImportedKeyMaterialRequest {}
+export interface DeleteImportedKeyMaterialCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes key material that you previously imported. This operation makes the specified

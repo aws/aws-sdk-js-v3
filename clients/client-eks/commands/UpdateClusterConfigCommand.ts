@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateClusterConfigCommandInput = UpdateClusterConfigRequest;
-export type UpdateClusterConfigCommandOutput = UpdateClusterConfigResponse & __MetadataBearer;
+export interface UpdateClusterConfigCommandInput extends UpdateClusterConfigRequest {}
+export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an Amazon EKS cluster configuration. Your cluster continues to function during the

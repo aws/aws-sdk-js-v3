@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetSubscriptionAttributesCommandInput = SetSubscriptionAttributesInput;
-export type SetSubscriptionAttributesCommandOutput = __MetadataBearer;
+export interface SetSubscriptionAttributesCommandInput extends SetSubscriptionAttributesInput {}
+export interface SetSubscriptionAttributesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Allows a subscription owner to set an attribute of the subscription to a new

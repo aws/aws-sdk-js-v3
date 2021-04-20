@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportAsProvisionedProductCommandInput = ImportAsProvisionedProductInput;
-export type ImportAsProvisionedProductCommandOutput = ImportAsProvisionedProductOutput & __MetadataBearer;
+export interface ImportAsProvisionedProductCommandInput extends ImportAsProvisionedProductInput {}
+export interface ImportAsProvisionedProductCommandOutput extends ImportAsProvisionedProductOutput, __MetadataBearer {}
 
 /**
  * <p>Requests the import of a resource as a Service Catalog provisioned product that is

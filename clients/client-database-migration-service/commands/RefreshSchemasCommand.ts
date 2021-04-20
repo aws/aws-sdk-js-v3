@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RefreshSchemasCommandInput = RefreshSchemasMessage;
-export type RefreshSchemasCommandOutput = RefreshSchemasResponse & __MetadataBearer;
+export interface RefreshSchemasCommandInput extends RefreshSchemasMessage {}
+export interface RefreshSchemasCommandOutput extends RefreshSchemasResponse, __MetadataBearer {}
 
 /**
  * <p>Populates the schema for the specified endpoint. This is an asynchronous operation and

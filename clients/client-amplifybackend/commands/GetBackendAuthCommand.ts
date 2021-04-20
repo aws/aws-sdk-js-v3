@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBackendAuthCommandInput = GetBackendAuthRequest;
-export type GetBackendAuthCommandOutput = GetBackendAuthResponse & __MetadataBearer;
+export interface GetBackendAuthCommandInput extends GetBackendAuthRequest {}
+export interface GetBackendAuthCommandOutput extends GetBackendAuthResponse, __MetadataBearer {}
 
 /**
  * <p>Gets backend auth details.</p>

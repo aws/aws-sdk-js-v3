@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyReplicationSubnetGroupCommandInput = ModifyReplicationSubnetGroupMessage;
-export type ModifyReplicationSubnetGroupCommandOutput = ModifyReplicationSubnetGroupResponse & __MetadataBearer;
+export interface ModifyReplicationSubnetGroupCommandInput extends ModifyReplicationSubnetGroupMessage {}
+export interface ModifyReplicationSubnetGroupCommandOutput
+  extends ModifyReplicationSubnetGroupResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies the settings for the specified replication subnet group.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCollectionCommandInput = CreateCollectionRequest;
-export type CreateCollectionCommandOutput = CreateCollectionResponse & __MetadataBearer;
+export interface CreateCollectionCommandInput extends CreateCollectionRequest {}
+export interface CreateCollectionCommandOutput extends CreateCollectionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a collection in an AWS Region. You can add faces to the collection using the

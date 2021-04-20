@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutReplicationConfigurationCommandInput = PutReplicationConfigurationRequest;
-export type PutReplicationConfigurationCommandOutput = PutReplicationConfigurationResponse & __MetadataBearer;
+export interface PutReplicationConfigurationCommandInput extends PutReplicationConfigurationRequest {}
+export interface PutReplicationConfigurationCommandOutput
+  extends PutReplicationConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates or updates the replication configuration for a registry. The existing

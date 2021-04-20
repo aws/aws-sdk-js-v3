@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetContainerServiceDeploymentsCommandInput = GetContainerServiceDeploymentsRequest;
-export type GetContainerServiceDeploymentsCommandOutput = GetContainerServiceDeploymentsResult & __MetadataBearer;
+export interface GetContainerServiceDeploymentsCommandInput extends GetContainerServiceDeploymentsRequest {}
+export interface GetContainerServiceDeploymentsCommandOutput
+  extends GetContainerServiceDeploymentsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the deployments for your Amazon Lightsail container service</p>

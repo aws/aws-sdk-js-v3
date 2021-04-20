@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAccessPolicyCommandInput = CreateAccessPolicyRequest;
-export type CreateAccessPolicyCommandOutput = CreateAccessPolicyResponse & __MetadataBearer;
+export interface CreateAccessPolicyCommandInput extends CreateAccessPolicyRequest {}
+export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an access policy that grants the specified identity (AWS SSO user, AWS SSO group, or

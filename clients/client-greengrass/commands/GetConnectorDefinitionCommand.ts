@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConnectorDefinitionCommandInput = GetConnectorDefinitionRequest;
-export type GetConnectorDefinitionCommandOutput = GetConnectorDefinitionResponse & __MetadataBearer;
+export interface GetConnectorDefinitionCommandInput extends GetConnectorDefinitionRequest {}
+export interface GetConnectorDefinitionCommandOutput extends GetConnectorDefinitionResponse, __MetadataBearer {}
 
 /**
  * Retrieves information about a connector definition.

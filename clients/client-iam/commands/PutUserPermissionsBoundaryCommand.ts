@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutUserPermissionsBoundaryCommandInput = PutUserPermissionsBoundaryRequest;
-export type PutUserPermissionsBoundaryCommandOutput = __MetadataBearer;
+export interface PutUserPermissionsBoundaryCommandInput extends PutUserPermissionsBoundaryRequest {}
+export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds or updates the policy that is specified as the IAM user's permissions boundary.

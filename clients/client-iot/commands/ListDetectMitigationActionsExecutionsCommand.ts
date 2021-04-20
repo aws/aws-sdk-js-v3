@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDetectMitigationActionsExecutionsCommandInput = ListDetectMitigationActionsExecutionsRequest;
-export type ListDetectMitigationActionsExecutionsCommandOutput = ListDetectMitigationActionsExecutionsResponse &
-  __MetadataBearer;
+export interface ListDetectMitigationActionsExecutionsCommandInput
+  extends ListDetectMitigationActionsExecutionsRequest {}
+export interface ListDetectMitigationActionsExecutionsCommandOutput
+  extends ListDetectMitigationActionsExecutionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

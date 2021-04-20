@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetDesiredCapacityCommandInput = SetDesiredCapacityType;
-export type SetDesiredCapacityCommandOutput = __MetadataBearer;
+export interface SetDesiredCapacityCommandInput extends SetDesiredCapacityType {}
+export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the size of the specified Auto Scaling group.</p>

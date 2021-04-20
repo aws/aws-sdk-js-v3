@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetectPHICommandInput = DetectPHIRequest;
-export type DetectPHICommandOutput = DetectPHIResponse & __MetadataBearer;
+export interface DetectPHICommandInput extends DetectPHIRequest {}
+export interface DetectPHICommandOutput extends DetectPHIResponse, __MetadataBearer {}
 
 /**
  * <p> Inspects the clinical text for protected health information (PHI) entities and returns

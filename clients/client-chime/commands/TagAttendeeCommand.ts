@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TagAttendeeCommandInput = TagAttendeeRequest;
-export type TagAttendeeCommandOutput = __MetadataBearer;
+export interface TagAttendeeCommandInput extends TagAttendeeRequest {}
+export interface TagAttendeeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Applies the specified tags to the specified Amazon Chime SDK attendee.</p>

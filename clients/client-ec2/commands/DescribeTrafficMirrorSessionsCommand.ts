@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTrafficMirrorSessionsCommandInput = DescribeTrafficMirrorSessionsRequest;
-export type DescribeTrafficMirrorSessionsCommandOutput = DescribeTrafficMirrorSessionsResult & __MetadataBearer;
+export interface DescribeTrafficMirrorSessionsCommandInput extends DescribeTrafficMirrorSessionsRequest {}
+export interface DescribeTrafficMirrorSessionsCommandOutput
+  extends DescribeTrafficMirrorSessionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>

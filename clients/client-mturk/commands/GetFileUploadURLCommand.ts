@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFileUploadURLCommandInput = GetFileUploadURLRequest;
-export type GetFileUploadURLCommandOutput = GetFileUploadURLResponse & __MetadataBearer;
+export interface GetFileUploadURLCommandInput extends GetFileUploadURLRequest {}
+export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse, __MetadataBearer {}
 
 /**
  * <p>

@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAcceleratorAttributesCommandInput = UpdateAcceleratorAttributesRequest;
-export type UpdateAcceleratorAttributesCommandOutput = UpdateAcceleratorAttributesResponse & __MetadataBearer;
+export interface UpdateAcceleratorAttributesCommandInput extends UpdateAcceleratorAttributesRequest {}
+export interface UpdateAcceleratorAttributesCommandOutput
+  extends UpdateAcceleratorAttributesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Update the attributes for an accelerator. </p>

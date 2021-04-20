@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFacetCommandInput = GetFacetRequest;
-export type GetFacetCommandOutput = GetFacetResponse & __MetadataBearer;
+export interface GetFacetCommandInput extends GetFacetRequest {}
+export interface GetFacetCommandOutput extends GetFacetResponse, __MetadataBearer {}
 
 /**
  * <p>Gets details of the <a>Facet</a>, such as facet name, attributes, <a>Rule</a>s, or <code>ObjectType</code>. You can call this on all kinds of schema

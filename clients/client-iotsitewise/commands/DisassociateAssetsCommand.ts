@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateAssetsCommandInput = DisassociateAssetsRequest;
-export type DisassociateAssetsCommandOutput = __MetadataBearer;
+export interface DisassociateAssetsCommandInput extends DisassociateAssetsRequest {}
+export interface DisassociateAssetsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disassociates a child asset from the given parent asset through a hierarchy defined in the

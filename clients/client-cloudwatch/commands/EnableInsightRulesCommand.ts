@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableInsightRulesCommandInput = EnableInsightRulesInput;
-export type EnableInsightRulesCommandOutput = EnableInsightRulesOutput & __MetadataBearer;
+export interface EnableInsightRulesCommandInput extends EnableInsightRulesInput {}
+export interface EnableInsightRulesCommandOutput extends EnableInsightRulesOutput, __MetadataBearer {}
 
 /**
  * <p>Enables the specified Contributor Insights rules. When rules are enabled, they immediately begin analyzing log data.</p>

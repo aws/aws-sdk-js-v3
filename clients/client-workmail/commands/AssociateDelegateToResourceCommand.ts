@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateDelegateToResourceCommandInput = AssociateDelegateToResourceRequest;
-export type AssociateDelegateToResourceCommandOutput = AssociateDelegateToResourceResponse & __MetadataBearer;
+export interface AssociateDelegateToResourceCommandInput extends AssociateDelegateToResourceRequest {}
+export interface AssociateDelegateToResourceCommandOutput
+  extends AssociateDelegateToResourceResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Adds a member (user or group) to the resource's set of delegates.</p>

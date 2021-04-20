@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReplaceNetworkAclAssociationCommandInput = ReplaceNetworkAclAssociationRequest;
-export type ReplaceNetworkAclAssociationCommandOutput = ReplaceNetworkAclAssociationResult & __MetadataBearer;
+export interface ReplaceNetworkAclAssociationCommandInput extends ReplaceNetworkAclAssociationRequest {}
+export interface ReplaceNetworkAclAssociationCommandOutput
+  extends ReplaceNetworkAclAssociationResult,
+    __MetadataBearer {}
 
 /**
  * <p>Changes which network ACL a subnet is associated with. By default when you create a

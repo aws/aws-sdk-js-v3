@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateKeyDescriptionCommandInput = UpdateKeyDescriptionRequest;
-export type UpdateKeyDescriptionCommandOutput = __MetadataBearer;
+export interface UpdateKeyDescriptionCommandInput extends UpdateKeyDescriptionRequest {}
+export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the description of a customer master key (CMK). To see the description of a CMK,

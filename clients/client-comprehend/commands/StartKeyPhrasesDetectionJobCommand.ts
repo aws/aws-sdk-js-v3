@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartKeyPhrasesDetectionJobCommandInput = StartKeyPhrasesDetectionJobRequest;
-export type StartKeyPhrasesDetectionJobCommandOutput = StartKeyPhrasesDetectionJobResponse & __MetadataBearer;
+export interface StartKeyPhrasesDetectionJobCommandInput extends StartKeyPhrasesDetectionJobRequest {}
+export interface StartKeyPhrasesDetectionJobCommandOutput
+  extends StartKeyPhrasesDetectionJobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous key phrase detection job for a collection of documents. Use the

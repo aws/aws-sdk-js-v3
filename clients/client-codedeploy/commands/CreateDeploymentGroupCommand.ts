@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDeploymentGroupCommandInput = CreateDeploymentGroupInput;
-export type CreateDeploymentGroupCommandOutput = CreateDeploymentGroupOutput & __MetadataBearer;
+export interface CreateDeploymentGroupCommandInput extends CreateDeploymentGroupInput {}
+export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGroupOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a deployment group to which application revisions are deployed.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFaqCommandInput = DescribeFaqRequest;
-export type DescribeFaqCommandOutput = DescribeFaqResponse & __MetadataBearer;
+export interface DescribeFaqCommandInput extends DescribeFaqRequest {}
+export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about an FAQ list.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTableCommandInput = DeleteTableRequest;
-export type DeleteTableCommandOutput = DeleteTableResponse & __MetadataBearer;
+export interface DeleteTableCommandInput extends DeleteTableRequest {}
+export interface DeleteTableCommandOutput extends DeleteTableResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a table definition from the Data Catalog.</p>

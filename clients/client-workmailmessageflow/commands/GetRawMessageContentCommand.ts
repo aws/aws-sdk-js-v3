@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRawMessageContentCommandInput = GetRawMessageContentRequest;
-export type GetRawMessageContentCommandOutput = GetRawMessageContentResponse & __MetadataBearer;
+export interface GetRawMessageContentCommandInput extends GetRawMessageContentRequest {}
+export interface GetRawMessageContentCommandOutput extends GetRawMessageContentResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the raw content of an in-transit email message, in MIME format.</p>

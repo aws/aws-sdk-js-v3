@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteIdentityPoolCommandInput = DeleteIdentityPoolInput;
-export type DeleteIdentityPoolCommandOutput = __MetadataBearer;
+export interface DeleteIdentityPoolCommandInput extends DeleteIdentityPoolInput {}
+export interface DeleteIdentityPoolCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an identity pool. Once a pool is deleted, users will not be able to

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDomainAutoTunesCommandInput = DescribeDomainAutoTunesRequest;
-export type DescribeDomainAutoTunesCommandOutput = DescribeDomainAutoTunesResponse & __MetadataBearer;
+export interface DescribeDomainAutoTunesCommandInput extends DescribeDomainAutoTunesRequest {}
+export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAutoTunesResponse, __MetadataBearer {}
 
 /**
  * <p>Provides scheduled Auto-Tune action details for the Elasticsearch domain, such as Auto-Tune action type, description, severity, and scheduled date.</p>

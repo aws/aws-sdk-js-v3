@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterTargetsCommandInput = DeregisterTargetsInput;
-export type DeregisterTargetsCommandOutput = DeregisterTargetsOutput & __MetadataBearer;
+export interface DeregisterTargetsCommandInput extends DeregisterTargetsInput {}
+export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput, __MetadataBearer {}
 
 /**
  * <p>Deregisters the specified targets from the specified target group. After the targets are

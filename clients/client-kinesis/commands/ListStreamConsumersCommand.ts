@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListStreamConsumersCommandInput = ListStreamConsumersInput;
-export type ListStreamConsumersCommandOutput = ListStreamConsumersOutput & __MetadataBearer;
+export interface ListStreamConsumersCommandInput extends ListStreamConsumersInput {}
+export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the consumers registered to receive data from a stream using enhanced fan-out,

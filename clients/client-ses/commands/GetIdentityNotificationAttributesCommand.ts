@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetIdentityNotificationAttributesCommandInput = GetIdentityNotificationAttributesRequest;
-export type GetIdentityNotificationAttributesCommandOutput = GetIdentityNotificationAttributesResponse &
-  __MetadataBearer;
+export interface GetIdentityNotificationAttributesCommandInput extends GetIdentityNotificationAttributesRequest {}
+export interface GetIdentityNotificationAttributesCommandOutput
+  extends GetIdentityNotificationAttributesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Given a list of verified identities (email addresses and/or domains), returns a

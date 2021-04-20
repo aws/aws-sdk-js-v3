@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ChangeMessageVisibilityBatchCommandInput = ChangeMessageVisibilityBatchRequest;
-export type ChangeMessageVisibilityBatchCommandOutput = ChangeMessageVisibilityBatchResult & __MetadataBearer;
+export interface ChangeMessageVisibilityBatchCommandInput extends ChangeMessageVisibilityBatchRequest {}
+export interface ChangeMessageVisibilityBatchCommandOutput
+  extends ChangeMessageVisibilityBatchResult,
+    __MetadataBearer {}
 
 /**
  * <p>Changes the visibility timeout of multiple messages. This is a batch version of <code>

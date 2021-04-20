@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyInstanceMetadataOptionsCommandInput = ModifyInstanceMetadataOptionsRequest;
-export type ModifyInstanceMetadataOptionsCommandOutput = ModifyInstanceMetadataOptionsResult & __MetadataBearer;
+export interface ModifyInstanceMetadataOptionsCommandInput extends ModifyInstanceMetadataOptionsRequest {}
+export interface ModifyInstanceMetadataOptionsCommandOutput
+  extends ModifyInstanceMetadataOptionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Modify the instance metadata parameters on a running or stopped instance. When you

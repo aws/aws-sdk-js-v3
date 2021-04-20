@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PublishVersionCommandInput = PublishVersionRequest;
-export type PublishVersionCommandOutput = FunctionConfiguration & __MetadataBearer;
+export interface PublishVersionCommandInput extends PublishVersionRequest {}
+export interface PublishVersionCommandOutput extends FunctionConfiguration, __MetadataBearer {}
 
 /**
  * <p>Creates a <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">version</a> from the

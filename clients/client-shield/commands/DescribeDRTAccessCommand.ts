@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDRTAccessCommandInput = DescribeDRTAccessRequest;
-export type DescribeDRTAccessCommandOutput = DescribeDRTAccessResponse & __MetadataBearer;
+export interface DescribeDRTAccessCommandInput extends DescribeDRTAccessRequest {}
+export interface DescribeDRTAccessCommandOutput extends DescribeDRTAccessResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the current role and list of Amazon S3 log buckets used by the DDoS Response Team (DRT) to access your AWS account while assisting with attack mitigation.</p>

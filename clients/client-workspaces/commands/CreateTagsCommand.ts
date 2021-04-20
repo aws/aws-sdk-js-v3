@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTagsCommandInput = CreateTagsRequest;
-export type CreateTagsCommandOutput = CreateTagsResult & __MetadataBearer;
+export interface CreateTagsCommandInput extends CreateTagsRequest {}
+export interface CreateTagsCommandOutput extends CreateTagsResult, __MetadataBearer {}
 
 /**
  * <p>Creates the specified tags for the specified WorkSpaces resource.</p>

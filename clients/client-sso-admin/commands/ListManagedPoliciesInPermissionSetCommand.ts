@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListManagedPoliciesInPermissionSetCommandInput = ListManagedPoliciesInPermissionSetRequest;
-export type ListManagedPoliciesInPermissionSetCommandOutput = ListManagedPoliciesInPermissionSetResponse &
-  __MetadataBearer;
+export interface ListManagedPoliciesInPermissionSetCommandInput extends ListManagedPoliciesInPermissionSetRequest {}
+export interface ListManagedPoliciesInPermissionSetCommandOutput
+  extends ListManagedPoliciesInPermissionSetResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the IAM managed policy that is attached to a specified permission set.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDomainAssociationCommandInput = CreateDomainAssociationRequest;
-export type CreateDomainAssociationCommandOutput = CreateDomainAssociationResult & __MetadataBearer;
+export interface CreateDomainAssociationCommandInput extends CreateDomainAssociationRequest {}
+export interface CreateDomainAssociationCommandOutput extends CreateDomainAssociationResult, __MetadataBearer {}
 
 /**
  * <p> Creates a new domain association for an Amplify app. This action associates a custom

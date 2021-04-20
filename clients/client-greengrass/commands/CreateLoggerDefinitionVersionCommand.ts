@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateLoggerDefinitionVersionCommandInput = CreateLoggerDefinitionVersionRequest;
-export type CreateLoggerDefinitionVersionCommandOutput = CreateLoggerDefinitionVersionResponse & __MetadataBearer;
+export interface CreateLoggerDefinitionVersionCommandInput extends CreateLoggerDefinitionVersionRequest {}
+export interface CreateLoggerDefinitionVersionCommandOutput
+  extends CreateLoggerDefinitionVersionResponse,
+    __MetadataBearer {}
 
 /**
  * Creates a version of a logger definition that has already been defined.

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMemberCommandInput = GetMemberInput;
-export type GetMemberCommandOutput = GetMemberOutput & __MetadataBearer;
+export interface GetMemberCommandInput extends GetMemberInput {}
+export interface GetMemberCommandOutput extends GetMemberOutput, __MetadataBearer {}
 
 /**
  * <p>Returns detailed information about a member.</p>

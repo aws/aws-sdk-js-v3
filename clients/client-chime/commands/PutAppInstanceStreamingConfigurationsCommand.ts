@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAppInstanceStreamingConfigurationsCommandInput = PutAppInstanceStreamingConfigurationsRequest;
-export type PutAppInstanceStreamingConfigurationsCommandOutput = PutAppInstanceStreamingConfigurationsResponse &
-  __MetadataBearer;
+export interface PutAppInstanceStreamingConfigurationsCommandInput
+  extends PutAppInstanceStreamingConfigurationsRequest {}
+export interface PutAppInstanceStreamingConfigurationsCommandOutput
+  extends PutAppInstanceStreamingConfigurationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>The data streaming configurations of an <code>AppInstance</code>.</p>

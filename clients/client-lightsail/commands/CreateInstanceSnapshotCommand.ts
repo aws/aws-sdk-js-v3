@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateInstanceSnapshotCommandInput = CreateInstanceSnapshotRequest;
-export type CreateInstanceSnapshotCommandOutput = CreateInstanceSnapshotResult & __MetadataBearer;
+export interface CreateInstanceSnapshotCommandInput extends CreateInstanceSnapshotRequest {}
+export interface CreateInstanceSnapshotCommandOutput extends CreateInstanceSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a snapshot of a specific virtual private server, or <i>instance</i>.

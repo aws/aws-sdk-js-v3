@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateClientVpnEndpointCommandInput = CreateClientVpnEndpointRequest;
-export type CreateClientVpnEndpointCommandOutput = CreateClientVpnEndpointResult & __MetadataBearer;
+export interface CreateClientVpnEndpointCommandInput extends CreateClientVpnEndpointRequest {}
+export interface CreateClientVpnEndpointCommandOutput extends CreateClientVpnEndpointResult, __MetadataBearer {}
 
 /**
  * <p>Creates a Client VPN endpoint. A Client VPN endpoint is the resource you create and configure to

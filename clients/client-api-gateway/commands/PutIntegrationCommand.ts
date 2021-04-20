@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutIntegrationCommandInput = PutIntegrationRequest;
-export type PutIntegrationCommandOutput = Integration & __MetadataBearer;
+export interface PutIntegrationCommandInput extends PutIntegrationRequest {}
+export interface PutIntegrationCommandOutput extends Integration, __MetadataBearer {}
 
 /**
  * <p>Sets up a method's integration.</p>

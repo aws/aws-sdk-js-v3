@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateProcessingJobCommandInput = CreateProcessingJobRequest;
-export type CreateProcessingJobCommandOutput = CreateProcessingJobResponse & __MetadataBearer;
+export interface CreateProcessingJobCommandInput extends CreateProcessingJobRequest {}
+export interface CreateProcessingJobCommandOutput extends CreateProcessingJobResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a processing job.</p>

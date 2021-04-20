@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBackupPolicyCommandInput = PutBackupPolicyRequest;
-export type PutBackupPolicyCommandOutput = BackupPolicyDescription & __MetadataBearer;
+export interface PutBackupPolicyCommandInput extends PutBackupPolicyRequest {}
+export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, __MetadataBearer {}
 
 /**
  * <p>Updates the file system's backup policy. Use this action to start or stop automatic backups of the file system. </p>

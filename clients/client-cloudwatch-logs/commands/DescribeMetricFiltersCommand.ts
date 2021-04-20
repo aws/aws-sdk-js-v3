@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMetricFiltersCommandInput = DescribeMetricFiltersRequest;
-export type DescribeMetricFiltersCommandOutput = DescribeMetricFiltersResponse & __MetadataBearer;
+export interface DescribeMetricFiltersCommandInput extends DescribeMetricFiltersRequest {}
+export interface DescribeMetricFiltersCommandOutput extends DescribeMetricFiltersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the specified metric filters. You can list all of the metric filters or filter

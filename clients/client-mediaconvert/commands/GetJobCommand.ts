@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetJobCommandInput = GetJobRequest;
-export type GetJobCommandOutput = GetJobResponse & __MetadataBearer;
+export interface GetJobCommandInput extends GetJobRequest {}
+export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
 
 /**
  * Retrieve the JSON for a specific completed transcoding job.

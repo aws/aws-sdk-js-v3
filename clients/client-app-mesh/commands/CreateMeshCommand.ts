@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMeshCommandInput = CreateMeshInput;
-export type CreateMeshCommandOutput = CreateMeshOutput & __MetadataBearer;
+export interface CreateMeshCommandInput extends CreateMeshInput {}
+export interface CreateMeshCommandOutput extends CreateMeshOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a service mesh.</p>

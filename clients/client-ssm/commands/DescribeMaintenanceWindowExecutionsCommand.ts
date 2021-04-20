@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMaintenanceWindowExecutionsCommandInput = DescribeMaintenanceWindowExecutionsRequest;
-export type DescribeMaintenanceWindowExecutionsCommandOutput = DescribeMaintenanceWindowExecutionsResult &
-  __MetadataBearer;
+export interface DescribeMaintenanceWindowExecutionsCommandInput extends DescribeMaintenanceWindowExecutionsRequest {}
+export interface DescribeMaintenanceWindowExecutionsCommandOutput
+  extends DescribeMaintenanceWindowExecutionsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the executions of a maintenance window. This includes information about when the

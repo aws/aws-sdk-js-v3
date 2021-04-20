@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetReusableDelegationSetCommandInput = GetReusableDelegationSetRequest;
-export type GetReusableDelegationSetCommandOutput = GetReusableDelegationSetResponse & __MetadataBearer;
+export interface GetReusableDelegationSetCommandInput extends GetReusableDelegationSetRequest {}
+export interface GetReusableDelegationSetCommandOutput extends GetReusableDelegationSetResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a specified reusable delegation set, including the four name servers that are assigned

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCommentCommandInput = GetCommentInput;
-export type GetCommentCommandOutput = GetCommentOutput & __MetadataBearer;
+export interface GetCommentCommandInput extends GetCommentInput {}
+export interface GetCommentCommandOutput extends GetCommentOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the content of a comment made on a change, file, or commit in a repository. </p>

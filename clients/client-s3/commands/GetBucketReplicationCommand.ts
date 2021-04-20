@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketReplicationCommandInput = GetBucketReplicationRequest;
-export type GetBucketReplicationCommandOutput = GetBucketReplicationOutput & __MetadataBearer;
+export interface GetBucketReplicationCommandInput extends GetBucketReplicationRequest {}
+export interface GetBucketReplicationCommandOutput extends GetBucketReplicationOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the replication configuration of a bucket.</p>

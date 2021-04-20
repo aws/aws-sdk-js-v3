@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableVpcClassicLinkCommandInput = DisableVpcClassicLinkRequest;
-export type DisableVpcClassicLinkCommandOutput = DisableVpcClassicLinkResult & __MetadataBearer;
+export interface DisableVpcClassicLinkCommandInput extends DisableVpcClassicLinkRequest {}
+export interface DisableVpcClassicLinkCommandOutput extends DisableVpcClassicLinkResult, __MetadataBearer {}
 
 /**
  * <p>Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC that has EC2-Classic instances linked to it.</p>

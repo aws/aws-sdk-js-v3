@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListLicenseConfigurationsCommandInput = ListLicenseConfigurationsRequest;
-export type ListLicenseConfigurationsCommandOutput = ListLicenseConfigurationsResponse & __MetadataBearer;
+export interface ListLicenseConfigurationsCommandInput extends ListLicenseConfigurationsRequest {}
+export interface ListLicenseConfigurationsCommandOutput extends ListLicenseConfigurationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the license configurations for your account.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAliasCommandInput = UpdateAliasInput;
-export type UpdateAliasCommandOutput = UpdateAliasOutput & __MetadataBearer;
+export interface UpdateAliasCommandInput extends UpdateAliasInput {}
+export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataBearer {}
 
 /**
  * <p>Updates properties for an alias. To update properties, specify the alias ID to be

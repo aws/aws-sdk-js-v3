@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListUploadsCommandInput = ListUploadsRequest;
-export type ListUploadsCommandOutput = ListUploadsResult & __MetadataBearer;
+export interface ListUploadsCommandInput extends ListUploadsRequest {}
+export interface ListUploadsCommandOutput extends ListUploadsResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about uploads, given an AWS Device Farm project ARN.</p>

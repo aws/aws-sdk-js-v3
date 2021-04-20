@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PollForThirdPartyJobsCommandInput = PollForThirdPartyJobsInput;
-export type PollForThirdPartyJobsCommandOutput = PollForThirdPartyJobsOutput & __MetadataBearer;
+export interface PollForThirdPartyJobsCommandInput extends PollForThirdPartyJobsInput {}
+export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJobsOutput, __MetadataBearer {}
 
 /**
  * <p>Determines whether there are any third party jobs for a job worker to act on. Used

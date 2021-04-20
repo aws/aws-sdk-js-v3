@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSourceLocationsCommandInput = ListSourceLocationsRequest;
-export type ListSourceLocationsCommandOutput = ListSourceLocationsResponse & __MetadataBearer;
+export interface ListSourceLocationsCommandInput extends ListSourceLocationsRequest {}
+export interface ListSourceLocationsCommandOutput extends ListSourceLocationsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of source locations.</p>

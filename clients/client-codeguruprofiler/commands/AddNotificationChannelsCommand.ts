@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddNotificationChannelsCommandInput = AddNotificationChannelsRequest;
-export type AddNotificationChannelsCommandOutput = AddNotificationChannelsResponse & __MetadataBearer;
+export interface AddNotificationChannelsCommandInput extends AddNotificationChannelsRequest {}
+export interface AddNotificationChannelsCommandOutput extends AddNotificationChannelsResponse, __MetadataBearer {}
 
 /**
  * <p>Add up to 2 anomaly notifications channels for a profiling group.</p>

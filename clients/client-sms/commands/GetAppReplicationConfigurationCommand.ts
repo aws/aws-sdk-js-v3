@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAppReplicationConfigurationCommandInput = GetAppReplicationConfigurationRequest;
-export type GetAppReplicationConfigurationCommandOutput = GetAppReplicationConfigurationResponse & __MetadataBearer;
+export interface GetAppReplicationConfigurationCommandInput extends GetAppReplicationConfigurationRequest {}
+export interface GetAppReplicationConfigurationCommandOutput
+  extends GetAppReplicationConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the application replication configuration associated with the specified

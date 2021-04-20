@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPhoneNumbersOptedOutCommandInput = ListPhoneNumbersOptedOutInput;
-export type ListPhoneNumbersOptedOutCommandOutput = ListPhoneNumbersOptedOutResponse & __MetadataBearer;
+export interface ListPhoneNumbersOptedOutCommandInput extends ListPhoneNumbersOptedOutInput {}
+export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersOptedOutResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS

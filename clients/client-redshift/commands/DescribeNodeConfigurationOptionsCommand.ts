@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeNodeConfigurationOptionsCommandInput = DescribeNodeConfigurationOptionsMessage;
-export type DescribeNodeConfigurationOptionsCommandOutput = NodeConfigurationOptionsMessage & __MetadataBearer;
+export interface DescribeNodeConfigurationOptionsCommandInput extends DescribeNodeConfigurationOptionsMessage {}
+export interface DescribeNodeConfigurationOptionsCommandOutput
+  extends NodeConfigurationOptionsMessage,
+    __MetadataBearer {}
 
 /**
  * <p>Returns properties of possible node configurations such as node type, number of nodes, and

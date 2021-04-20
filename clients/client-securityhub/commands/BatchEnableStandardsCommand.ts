@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchEnableStandardsCommandInput = BatchEnableStandardsRequest;
-export type BatchEnableStandardsCommandOutput = BatchEnableStandardsResponse & __MetadataBearer;
+export interface BatchEnableStandardsCommandInput extends BatchEnableStandardsRequest {}
+export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsResponse, __MetadataBearer {}
 
 /**
  * <p>Enables the standards specified by the provided <code>StandardsArn</code>. To obtain the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDirectoryConfigCommandInput = UpdateDirectoryConfigRequest;
-export type UpdateDirectoryConfigCommandOutput = UpdateDirectoryConfigResult & __MetadataBearer;
+export interface UpdateDirectoryConfigCommandInput extends UpdateDirectoryConfigRequest {}
+export interface UpdateDirectoryConfigCommandOutput extends UpdateDirectoryConfigResult, __MetadataBearer {}
 
 /**
  * <p>Updates the specified Directory Config object in AppStream 2.0. This object includes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.</p>

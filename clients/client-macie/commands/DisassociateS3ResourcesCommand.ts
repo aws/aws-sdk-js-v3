@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateS3ResourcesCommandInput = DisassociateS3ResourcesRequest;
-export type DisassociateS3ResourcesCommandOutput = DisassociateS3ResourcesResult & __MetadataBearer;
+export interface DisassociateS3ResourcesCommandInput extends DisassociateS3ResourcesRequest {}
+export interface DisassociateS3ResourcesCommandOutput extends DisassociateS3ResourcesResult, __MetadataBearer {}
 
 /**
  * <p>Removes specified S3 resources from being monitored by Amazon Macie Classic. If

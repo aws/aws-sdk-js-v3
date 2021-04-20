@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSourceLocationCommandInput = DeleteSourceLocationRequest;
-export type DeleteSourceLocationCommandOutput = DeleteSourceLocationResponse & __MetadataBearer;
+export interface DeleteSourceLocationCommandInput extends DeleteSourceLocationRequest {}
+export interface DeleteSourceLocationCommandOutput extends DeleteSourceLocationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a source location on a specific channel.</p>

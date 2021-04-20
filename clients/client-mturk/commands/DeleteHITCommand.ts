@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteHITCommandInput = DeleteHITRequest;
-export type DeleteHITCommandOutput = DeleteHITResponse & __MetadataBearer;
+export interface DeleteHITCommandInput extends DeleteHITRequest {}
+export interface DeleteHITCommandOutput extends DeleteHITResponse, __MetadataBearer {}
 
 /**
  * <p>

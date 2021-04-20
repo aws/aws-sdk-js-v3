@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDescribeSimulationJobCommandInput = BatchDescribeSimulationJobRequest;
-export type BatchDescribeSimulationJobCommandOutput = BatchDescribeSimulationJobResponse & __MetadataBearer;
+export interface BatchDescribeSimulationJobCommandInput extends BatchDescribeSimulationJobRequest {}
+export interface BatchDescribeSimulationJobCommandOutput extends BatchDescribeSimulationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Describes one or more simulation jobs.</p>

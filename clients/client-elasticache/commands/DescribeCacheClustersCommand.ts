@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCacheClustersCommandInput = DescribeCacheClustersMessage;
-export type DescribeCacheClustersCommandOutput = CacheClusterMessage & __MetadataBearer;
+export interface DescribeCacheClustersCommandInput extends DescribeCacheClustersMessage {}
+export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage, __MetadataBearer {}
 
 /**
  * <p>Returns information about all provisioned

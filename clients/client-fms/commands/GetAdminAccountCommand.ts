@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAdminAccountCommandInput = GetAdminAccountRequest;
-export type GetAdminAccountCommandOutput = GetAdminAccountResponse & __MetadataBearer;
+export interface GetAdminAccountCommandInput extends GetAdminAccountRequest {}
+export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the AWS Organizations master account that is associated with AWS Firewall Manager

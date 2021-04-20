@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type MoveAccountCommandInput = MoveAccountRequest;
-export type MoveAccountCommandOutput = __MetadataBearer;
+export interface MoveAccountCommandInput extends MoveAccountRequest {}
+export interface MoveAccountCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Moves an account from its current source parent root or organizational unit (OU) to

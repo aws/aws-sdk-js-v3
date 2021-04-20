@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAppInstanceAdminCommandInput = CreateAppInstanceAdminRequest;
-export type CreateAppInstanceAdminCommandOutput = CreateAppInstanceAdminResponse & __MetadataBearer;
+export interface CreateAppInstanceAdminCommandInput extends CreateAppInstanceAdminRequest {}
+export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAdminResponse, __MetadataBearer {}
 
 /**
  * <p>Promotes an <code>AppInstanceUser</code> to an <code>AppInstanceAdmin</code>. The promoted user can perform the following actions.

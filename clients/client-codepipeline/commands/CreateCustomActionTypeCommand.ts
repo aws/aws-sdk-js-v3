@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCustomActionTypeCommandInput = CreateCustomActionTypeInput;
-export type CreateCustomActionTypeCommandOutput = CreateCustomActionTypeOutput & __MetadataBearer;
+export interface CreateCustomActionTypeCommandInput extends CreateCustomActionTypeInput {}
+export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionTypeOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new custom action that can be used in all pipelines associated with the

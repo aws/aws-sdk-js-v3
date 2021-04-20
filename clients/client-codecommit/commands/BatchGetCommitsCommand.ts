@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetCommitsCommandInput = BatchGetCommitsInput;
-export type BatchGetCommitsCommandOutput = BatchGetCommitsOutput & __MetadataBearer;
+export interface BatchGetCommitsCommandInput extends BatchGetCommitsInput {}
+export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about the contents of one or more commits in a repository.</p>

@@ -20,8 +20,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SelectObjectContentCommandInput = SelectObjectContentRequest;
-export type SelectObjectContentCommandOutput = SelectObjectContentOutput & __MetadataBearer;
+export interface SelectObjectContentCommandInput extends SelectObjectContentRequest {}
+export interface SelectObjectContentCommandOutput extends SelectObjectContentOutput, __MetadataBearer {}
 
 /**
  * <p>This action filters the contents of an Amazon S3 object based on a simple structured query

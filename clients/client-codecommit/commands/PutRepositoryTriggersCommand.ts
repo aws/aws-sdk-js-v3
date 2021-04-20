@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutRepositoryTriggersCommandInput = PutRepositoryTriggersInput;
-export type PutRepositoryTriggersCommandOutput = PutRepositoryTriggersOutput & __MetadataBearer;
+export interface PutRepositoryTriggersCommandInput extends PutRepositoryTriggersInput {}
+export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTriggersOutput, __MetadataBearer {}
 
 /**
  * <p>Replaces all triggers for a repository. Used to create or delete triggers.</p>

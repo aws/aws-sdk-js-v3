@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchSchemasCommandInput = SearchSchemasRequest;
-export type SearchSchemasCommandOutput = SearchSchemasResponse & __MetadataBearer;
+export interface SearchSchemasCommandInput extends SearchSchemasRequest {}
+export interface SearchSchemasCommandOutput extends SearchSchemasResponse, __MetadataBearer {}
 
 /**
  * <p>Search the schemas</p>

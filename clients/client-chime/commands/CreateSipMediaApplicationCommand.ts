@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSipMediaApplicationCommandInput = CreateSipMediaApplicationRequest;
-export type CreateSipMediaApplicationCommandOutput = CreateSipMediaApplicationResponse & __MetadataBearer;
+export interface CreateSipMediaApplicationCommandInput extends CreateSipMediaApplicationRequest {}
+export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a SIP media application.</p>

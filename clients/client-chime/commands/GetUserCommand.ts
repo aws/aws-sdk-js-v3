@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUserCommandInput = GetUserRequest;
-export type GetUserCommandOutput = GetUserResponse & __MetadataBearer;
+export interface GetUserCommandInput extends GetUserRequest {}
+export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details for the specified user ID, such as primary email address, license type,and personal meeting PIN.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateApnsVoipSandboxChannelCommandInput = UpdateApnsVoipSandboxChannelRequest;
-export type UpdateApnsVoipSandboxChannelCommandOutput = UpdateApnsVoipSandboxChannelResponse & __MetadataBearer;
+export interface UpdateApnsVoipSandboxChannelCommandInput extends UpdateApnsVoipSandboxChannelRequest {}
+export interface UpdateApnsVoipSandboxChannelCommandOutput
+  extends UpdateApnsVoipSandboxChannelResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Enables the APNs VoIP sandbox channel for an application or updates the status and settings of the APNs VoIP sandbox channel for an application.</p>

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetIdentityFeedbackForwardingEnabledCommandInput = SetIdentityFeedbackForwardingEnabledRequest;
-export type SetIdentityFeedbackForwardingEnabledCommandOutput = SetIdentityFeedbackForwardingEnabledResponse &
-  __MetadataBearer;
+export interface SetIdentityFeedbackForwardingEnabledCommandInput extends SetIdentityFeedbackForwardingEnabledRequest {}
+export interface SetIdentityFeedbackForwardingEnabledCommandOutput
+  extends SetIdentityFeedbackForwardingEnabledResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Given an identity (an email address or a domain), enables or disables whether Amazon SES

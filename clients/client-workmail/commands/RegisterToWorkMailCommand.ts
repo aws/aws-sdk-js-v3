@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterToWorkMailCommandInput = RegisterToWorkMailRequest;
-export type RegisterToWorkMailCommandOutput = RegisterToWorkMailResponse & __MetadataBearer;
+export interface RegisterToWorkMailCommandInput extends RegisterToWorkMailRequest {}
+export interface RegisterToWorkMailCommandOutput extends RegisterToWorkMailResponse, __MetadataBearer {}
 
 /**
  * <p>Registers an existing and disabled user, group, or resource for Amazon WorkMail use by

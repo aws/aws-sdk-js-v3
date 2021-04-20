@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBackupsCommandInput = ListBackupsInput;
-export type ListBackupsCommandOutput = ListBackupsOutput & __MetadataBearer;
+export interface ListBackupsCommandInput extends ListBackupsInput {}
+export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataBearer {}
 
 /**
  * <p>List backups associated with an AWS account. To list backups for a given table, specify

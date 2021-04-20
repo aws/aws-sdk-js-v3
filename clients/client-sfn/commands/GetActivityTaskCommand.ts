@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetActivityTaskCommandInput = GetActivityTaskInput;
-export type GetActivityTaskCommandOutput = GetActivityTaskOutput & __MetadataBearer;
+export interface GetActivityTaskCommandInput extends GetActivityTaskInput {}
+export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __MetadataBearer {}
 
 /**
  * <p>Used by workers to retrieve a task (with the specified activity ARN) which has been

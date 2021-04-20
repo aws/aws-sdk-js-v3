@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTransitGatewayPeeringAttachmentsCommandInput = DescribeTransitGatewayPeeringAttachmentsRequest;
-export type DescribeTransitGatewayPeeringAttachmentsCommandOutput = DescribeTransitGatewayPeeringAttachmentsResult &
-  __MetadataBearer;
+export interface DescribeTransitGatewayPeeringAttachmentsCommandInput
+  extends DescribeTransitGatewayPeeringAttachmentsRequest {}
+export interface DescribeTransitGatewayPeeringAttachmentsCommandOutput
+  extends DescribeTransitGatewayPeeringAttachmentsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes your transit gateway peering attachments.</p>

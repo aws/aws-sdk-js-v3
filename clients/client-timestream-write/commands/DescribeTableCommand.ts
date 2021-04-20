@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTableCommandInput = DescribeTableRequest;
-export type DescribeTableCommandOutput = DescribeTableResponse & __MetadataBearer;
+export interface DescribeTableCommandInput extends DescribeTableRequest {}
+export interface DescribeTableCommandOutput extends DescribeTableResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the table, including the table name, database name,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateNatGatewayCommandInput = CreateNatGatewayRequest;
-export type CreateNatGatewayCommandOutput = CreateNatGatewayResult & __MetadataBearer;
+export interface CreateNatGatewayCommandInput extends CreateNatGatewayRequest {}
+export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, __MetadataBearer {}
 
 /**
  * <p>Creates a NAT gateway in the specified public subnet. This action creates a network

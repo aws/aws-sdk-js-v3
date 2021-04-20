@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDomainEntryCommandInput = UpdateDomainEntryRequest;
-export type UpdateDomainEntryCommandOutput = UpdateDomainEntryResult & __MetadataBearer;
+export interface UpdateDomainEntryCommandInput extends UpdateDomainEntryRequest {}
+export interface UpdateDomainEntryCommandOutput extends UpdateDomainEntryResult, __MetadataBearer {}
 
 /**
  * <p>Updates a domain recordset after it is created.</p>

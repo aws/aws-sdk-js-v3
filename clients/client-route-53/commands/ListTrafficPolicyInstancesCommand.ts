@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTrafficPolicyInstancesCommandInput = ListTrafficPolicyInstancesRequest;
-export type ListTrafficPolicyInstancesCommandOutput = ListTrafficPolicyInstancesResponse & __MetadataBearer;
+export interface ListTrafficPolicyInstancesCommandInput extends ListTrafficPolicyInstancesRequest {}
+export interface ListTrafficPolicyInstancesCommandOutput extends ListTrafficPolicyInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the traffic policy instances that you created by using the current AWS account.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateAdminAccountCommandInput = DisassociateAdminAccountRequest;
-export type DisassociateAdminAccountCommandOutput = __MetadataBearer;
+export interface DisassociateAdminAccountCommandInput extends DisassociateAdminAccountRequest {}
+export interface DisassociateAdminAccountCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Disassociates the account that has been set as the AWS Firewall Manager administrator

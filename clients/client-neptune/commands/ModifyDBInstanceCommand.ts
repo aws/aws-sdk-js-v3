@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyDBInstanceCommandInput = ModifyDBInstanceMessage;
-export type ModifyDBInstanceCommandOutput = ModifyDBInstanceResult & __MetadataBearer;
+export interface ModifyDBInstanceCommandInput extends ModifyDBInstanceMessage {}
+export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Modifies settings for a DB instance. You can change one or more database configuration

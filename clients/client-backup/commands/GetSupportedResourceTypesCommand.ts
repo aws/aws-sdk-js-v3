@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSupportedResourceTypesCommandInput = {};
-export type GetSupportedResourceTypesCommandOutput = GetSupportedResourceTypesOutput & __MetadataBearer;
+export interface GetSupportedResourceTypesCommandInput {}
+export interface GetSupportedResourceTypesCommandOutput extends GetSupportedResourceTypesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the AWS resource types supported by AWS Backup.</p>

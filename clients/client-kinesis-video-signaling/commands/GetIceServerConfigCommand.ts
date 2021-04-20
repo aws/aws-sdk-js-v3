@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetIceServerConfigCommandInput = GetIceServerConfigRequest;
-export type GetIceServerConfigCommandOutput = GetIceServerConfigResponse & __MetadataBearer;
+export interface GetIceServerConfigCommandInput extends GetIceServerConfigRequest {}
+export interface GetIceServerConfigCommandOutput extends GetIceServerConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the Interactive Connectivity Establishment (ICE) server configuration

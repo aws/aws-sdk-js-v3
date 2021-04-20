@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartSegmentDetectionCommandInput = StartSegmentDetectionRequest;
-export type StartSegmentDetectionCommandOutput = StartSegmentDetectionResponse & __MetadataBearer;
+export interface StartSegmentDetectionCommandInput extends StartSegmentDetectionRequest {}
+export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts asynchronous detection of segment detection in a stored video.</p>

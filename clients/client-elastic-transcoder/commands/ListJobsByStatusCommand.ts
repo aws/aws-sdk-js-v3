@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListJobsByStatusCommandInput = ListJobsByStatusRequest;
-export type ListJobsByStatusCommandOutput = ListJobsByStatusResponse & __MetadataBearer;
+export interface ListJobsByStatusCommandInput extends ListJobsByStatusRequest {}
+export interface ListJobsByStatusCommandOutput extends ListJobsByStatusResponse, __MetadataBearer {}
 
 /**
  * <p>The ListJobsByStatus operation gets a list of jobs that have a specified status. The response

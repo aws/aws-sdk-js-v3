@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ConfirmProductInstanceCommandInput = ConfirmProductInstanceRequest;
-export type ConfirmProductInstanceCommandOutput = ConfirmProductInstanceResult & __MetadataBearer;
+export interface ConfirmProductInstanceCommandInput extends ConfirmProductInstanceRequest {}
+export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Determines whether a product code is associated with an instance. This action can only

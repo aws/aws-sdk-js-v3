@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTaskDefinitionFamiliesCommandInput = ListTaskDefinitionFamiliesRequest;
-export type ListTaskDefinitionFamiliesCommandOutput = ListTaskDefinitionFamiliesResponse & __MetadataBearer;
+export interface ListTaskDefinitionFamiliesCommandInput extends ListTaskDefinitionFamiliesRequest {}
+export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinitionFamiliesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of task definition families that are registered to your account (which

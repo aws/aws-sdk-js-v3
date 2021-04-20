@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendSerialConsoleSSHPublicKeyCommandInput = SendSerialConsoleSSHPublicKeyRequest;
-export type SendSerialConsoleSSHPublicKeyCommandOutput = SendSerialConsoleSSHPublicKeyResponse & __MetadataBearer;
+export interface SendSerialConsoleSSHPublicKeyCommandInput extends SendSerialConsoleSSHPublicKeyRequest {}
+export interface SendSerialConsoleSSHPublicKeyCommandOutput
+  extends SendSerialConsoleSSHPublicKeyResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Pushes an SSH public key to the specified EC2 instance. The key remains for 60

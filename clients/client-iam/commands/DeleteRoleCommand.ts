@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRoleCommandInput = DeleteRoleRequest;
-export type DeleteRoleCommandOutput = __MetadataBearer;
+export interface DeleteRoleCommandInput extends DeleteRoleRequest {}
+export interface DeleteRoleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified role. The role must not have any policies attached. For more

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConnectionCommandInput = GetConnectionInput;
-export type GetConnectionCommandOutput = GetConnectionOutput & __MetadataBearer;
+export interface GetConnectionCommandInput extends GetConnectionInput {}
+export interface GetConnectionCommandOutput extends GetConnectionOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the connection ARN and details such as status, owner, and provider type.</p>

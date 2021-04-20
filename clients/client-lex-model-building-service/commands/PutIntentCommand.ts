@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutIntentCommandInput = PutIntentRequest;
-export type PutIntentCommandOutput = PutIntentResponse & __MetadataBearer;
+export interface PutIntentCommandInput extends PutIntentRequest {}
+export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an intent or replaces an existing intent.</p>

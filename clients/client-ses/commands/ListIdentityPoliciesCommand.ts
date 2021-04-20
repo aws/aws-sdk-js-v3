@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListIdentityPoliciesCommandInput = ListIdentityPoliciesRequest;
-export type ListIdentityPoliciesCommandOutput = ListIdentityPoliciesResponse & __MetadataBearer;
+export interface ListIdentityPoliciesCommandInput extends ListIdentityPoliciesRequest {}
+export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of sending authorization policies that are attached to the given

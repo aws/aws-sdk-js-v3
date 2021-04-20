@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDeploymentGroupCommandInput = DeleteDeploymentGroupInput;
-export type DeleteDeploymentGroupCommandOutput = DeleteDeploymentGroupOutput & __MetadataBearer;
+export interface DeleteDeploymentGroupCommandInput extends DeleteDeploymentGroupInput {}
+export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGroupOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a deployment group.</p>

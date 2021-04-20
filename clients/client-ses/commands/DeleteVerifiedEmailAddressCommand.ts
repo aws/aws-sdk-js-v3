@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVerifiedEmailAddressCommandInput = DeleteVerifiedEmailAddressRequest;
-export type DeleteVerifiedEmailAddressCommandOutput = __MetadataBearer;
+export interface DeleteVerifiedEmailAddressCommandInput extends DeleteVerifiedEmailAddressRequest {}
+export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deprecated. Use the <code>DeleteIdentity</code> operation to delete email addresses

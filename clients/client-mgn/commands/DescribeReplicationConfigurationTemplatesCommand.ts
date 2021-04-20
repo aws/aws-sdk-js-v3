@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReplicationConfigurationTemplatesCommandInput = DescribeReplicationConfigurationTemplatesRequest;
-export type DescribeReplicationConfigurationTemplatesCommandOutput = DescribeReplicationConfigurationTemplatesResponse &
-  __MetadataBearer;
+export interface DescribeReplicationConfigurationTemplatesCommandInput
+  extends DescribeReplicationConfigurationTemplatesRequest {}
+export interface DescribeReplicationConfigurationTemplatesCommandOutput
+  extends DescribeReplicationConfigurationTemplatesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists all ReplicationConfigurationTemplates, filtered by Source Server IDs.</p>

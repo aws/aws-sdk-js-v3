@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTagOptionCommandInput = CreateTagOptionInput;
-export type CreateTagOptionCommandOutput = CreateTagOptionOutput & __MetadataBearer;
+export interface CreateTagOptionCommandInput extends CreateTagOptionInput {}
+export interface CreateTagOptionCommandOutput extends CreateTagOptionOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a TagOption.</p>

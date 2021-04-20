@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAutoSnapshotsCommandInput = GetAutoSnapshotsRequest;
-export type GetAutoSnapshotsCommandOutput = GetAutoSnapshotsResult & __MetadataBearer;
+export interface GetAutoSnapshotsCommandInput extends GetAutoSnapshotsRequest {}
+export interface GetAutoSnapshotsCommandOutput extends GetAutoSnapshotsResult, __MetadataBearer {}
 
 /**
  * <p>Returns the available automatic snapshots for an instance or disk. For more information,

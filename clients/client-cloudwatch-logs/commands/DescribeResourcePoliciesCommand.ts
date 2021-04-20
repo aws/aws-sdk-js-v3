@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeResourcePoliciesCommandInput = DescribeResourcePoliciesRequest;
-export type DescribeResourcePoliciesCommandOutput = DescribeResourcePoliciesResponse & __MetadataBearer;
+export interface DescribeResourcePoliciesCommandInput extends DescribeResourcePoliciesRequest {}
+export interface DescribeResourcePoliciesCommandOutput extends DescribeResourcePoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the resource policies in this account.</p>

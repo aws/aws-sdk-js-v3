@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteModelVersionCommandInput = DeleteModelVersionRequest;
-export type DeleteModelVersionCommandOutput = DeleteModelVersionResult & __MetadataBearer;
+export interface DeleteModelVersionCommandInput extends DeleteModelVersionRequest {}
+export interface DeleteModelVersionCommandOutput extends DeleteModelVersionResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a model version.</p>

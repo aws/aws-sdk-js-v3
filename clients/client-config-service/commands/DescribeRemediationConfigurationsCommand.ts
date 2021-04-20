@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRemediationConfigurationsCommandInput = DescribeRemediationConfigurationsRequest;
-export type DescribeRemediationConfigurationsCommandOutput = DescribeRemediationConfigurationsResponse &
-  __MetadataBearer;
+export interface DescribeRemediationConfigurationsCommandInput extends DescribeRemediationConfigurationsRequest {}
+export interface DescribeRemediationConfigurationsCommandOutput
+  extends DescribeRemediationConfigurationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the details of one or more remediation configurations.</p>

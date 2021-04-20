@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportSourceCredentialsCommandInput = ImportSourceCredentialsInput;
-export type ImportSourceCredentialsCommandOutput = ImportSourceCredentialsOutput & __MetadataBearer;
+export interface ImportSourceCredentialsCommandInput extends ImportSourceCredentialsInput {}
+export interface ImportSourceCredentialsCommandOutput extends ImportSourceCredentialsOutput, __MetadataBearer {}
 
 /**
  * <p> Imports the source repository credentials for an AWS CodeBuild project that has its

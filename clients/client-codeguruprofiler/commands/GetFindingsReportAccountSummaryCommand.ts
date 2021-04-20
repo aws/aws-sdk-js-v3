@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFindingsReportAccountSummaryCommandInput = GetFindingsReportAccountSummaryRequest;
-export type GetFindingsReportAccountSummaryCommandOutput = GetFindingsReportAccountSummaryResponse & __MetadataBearer;
+export interface GetFindingsReportAccountSummaryCommandInput extends GetFindingsReportAccountSummaryRequest {}
+export interface GetFindingsReportAccountSummaryCommandOutput
+  extends GetFindingsReportAccountSummaryResponse,
+    __MetadataBearer {}
 
 /**
  * <p>

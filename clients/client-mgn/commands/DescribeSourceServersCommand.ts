@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSourceServersCommandInput = DescribeSourceServersRequest;
-export type DescribeSourceServersCommandOutput = DescribeSourceServersResponse & __MetadataBearer;
+export interface DescribeSourceServersCommandInput extends DescribeSourceServersRequest {}
+export interface DescribeSourceServersCommandOutput extends DescribeSourceServersResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves all SourceServers or multiple SourceServers by ID.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEnvironmentsCommandInput = ListEnvironmentsRequest;
-export type ListEnvironmentsCommandOutput = ListEnvironmentsResult & __MetadataBearer;
+export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
+export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResult, __MetadataBearer {}
 
 /**
  * <p>Gets a list of AWS Cloud9 development environment identifiers.</p>

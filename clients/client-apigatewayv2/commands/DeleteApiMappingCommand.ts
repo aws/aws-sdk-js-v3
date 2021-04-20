@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteApiMappingCommandInput = DeleteApiMappingRequest;
-export type DeleteApiMappingCommandOutput = __MetadataBearer;
+export interface DeleteApiMappingCommandInput extends DeleteApiMappingRequest {}
+export interface DeleteApiMappingCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an API mapping.</p>

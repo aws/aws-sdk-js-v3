@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRoleAliasCommandInput = UpdateRoleAliasRequest;
-export type UpdateRoleAliasCommandOutput = UpdateRoleAliasResponse & __MetadataBearer;
+export interface UpdateRoleAliasCommandInput extends UpdateRoleAliasRequest {}
+export interface UpdateRoleAliasCommandOutput extends UpdateRoleAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a role alias.</p>

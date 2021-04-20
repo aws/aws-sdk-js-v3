@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRunCommandInput = GetRunRequest;
-export type GetRunCommandOutput = GetRunResult & __MetadataBearer;
+export interface GetRunCommandInput extends GetRunRequest {}
+export interface GetRunCommandOutput extends GetRunResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about a run.</p>

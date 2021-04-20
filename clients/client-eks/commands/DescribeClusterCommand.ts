@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeClusterCommandInput = DescribeClusterRequest;
-export type DescribeClusterCommandOutput = DescribeClusterResponse & __MetadataBearer;
+export interface DescribeClusterCommandInput extends DescribeClusterRequest {}
+export interface DescribeClusterCommandOutput extends DescribeClusterResponse, __MetadataBearer {}
 
 /**
  * <p>Returns descriptive information about an Amazon EKS cluster.</p>

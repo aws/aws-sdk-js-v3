@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSubscribedWorkteamCommandInput = DescribeSubscribedWorkteamRequest;
-export type DescribeSubscribedWorkteamCommandOutput = DescribeSubscribedWorkteamResponse & __MetadataBearer;
+export interface DescribeSubscribedWorkteamCommandInput extends DescribeSubscribedWorkteamRequest {}
+export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscribedWorkteamResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a work team provided by a vendor. It returns details about the

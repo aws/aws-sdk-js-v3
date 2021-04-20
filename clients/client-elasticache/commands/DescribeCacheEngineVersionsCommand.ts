@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCacheEngineVersionsCommandInput = DescribeCacheEngineVersionsMessage;
-export type DescribeCacheEngineVersionsCommandOutput = CacheEngineVersionMessage & __MetadataBearer;
+export interface DescribeCacheEngineVersionsCommandInput extends DescribeCacheEngineVersionsMessage {}
+export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVersionMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the available cache

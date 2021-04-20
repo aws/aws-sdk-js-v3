@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListOrganizationalUnitsForParentCommandInput = ListOrganizationalUnitsForParentRequest;
-export type ListOrganizationalUnitsForParentCommandOutput = ListOrganizationalUnitsForParentResponse & __MetadataBearer;
+export interface ListOrganizationalUnitsForParentCommandInput extends ListOrganizationalUnitsForParentRequest {}
+export interface ListOrganizationalUnitsForParentCommandOutput
+  extends ListOrganizationalUnitsForParentResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the organizational units (OUs) in a parent organizational unit or root.</p>

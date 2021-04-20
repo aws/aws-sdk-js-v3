@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInstanceProfilesCommandInput = ListInstanceProfilesRequest;
-export type ListInstanceProfilesCommandOutput = ListInstanceProfilesResponse & __MetadataBearer;
+export interface ListInstanceProfilesCommandInput extends ListInstanceProfilesRequest {}
+export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the instance profiles that have the specified path prefix. If there are none,

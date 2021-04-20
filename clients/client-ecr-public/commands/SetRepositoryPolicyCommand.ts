@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetRepositoryPolicyCommandInput = SetRepositoryPolicyRequest;
-export type SetRepositoryPolicyCommandOutput = SetRepositoryPolicyResponse & __MetadataBearer;
+export interface SetRepositoryPolicyCommandInput extends SetRepositoryPolicyRequest {}
+export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Applies a repository policy to the specified public repository to control access

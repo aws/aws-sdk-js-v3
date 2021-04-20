@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SignalResourceCommandInput = SignalResourceInput;
-export type SignalResourceCommandOutput = __MetadataBearer;
+export interface SignalResourceCommandInput extends SignalResourceInput {}
+export interface SignalResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sends a signal to the specified resource with a success or failure status. You can

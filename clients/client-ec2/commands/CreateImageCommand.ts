@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateImageCommandInput = CreateImageRequest;
-export type CreateImageCommandOutput = CreateImageResult & __MetadataBearer;
+export interface CreateImageCommandInput extends CreateImageRequest {}
+export interface CreateImageCommandOutput extends CreateImageResult, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance

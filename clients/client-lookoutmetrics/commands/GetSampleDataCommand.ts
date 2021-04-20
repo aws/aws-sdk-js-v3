@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSampleDataCommandInput = GetSampleDataRequest;
-export type GetSampleDataCommandOutput = GetSampleDataResponse & __MetadataBearer;
+export interface GetSampleDataCommandInput extends GetSampleDataRequest {}
+export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a selection of sample records from an Amazon S3 datasource.</p>

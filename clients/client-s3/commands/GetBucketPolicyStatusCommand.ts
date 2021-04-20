@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketPolicyStatusCommandInput = GetBucketPolicyStatusRequest;
-export type GetBucketPolicyStatusCommandOutput = GetBucketPolicyStatusOutput & __MetadataBearer;
+export interface GetBucketPolicyStatusCommandInput extends GetBucketPolicyStatusRequest {}
+export interface GetBucketPolicyStatusCommandOutput extends GetBucketPolicyStatusOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves the policy status for an Amazon S3 bucket, indicating whether the bucket is public.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDatastoreCommandInput = DeleteDatastoreRequest;
-export type DeleteDatastoreCommandOutput = __MetadataBearer;
+export interface DeleteDatastoreCommandInput extends DeleteDatastoreRequest {}
+export interface DeleteDatastoreCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified data store.</p>

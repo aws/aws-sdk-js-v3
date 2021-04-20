@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMacieSessionCommandInput = UpdateMacieSessionRequest;
-export type UpdateMacieSessionCommandOutput = UpdateMacieSessionResponse & __MetadataBearer;
+export interface UpdateMacieSessionCommandInput extends UpdateMacieSessionRequest {}
+export interface UpdateMacieSessionCommandOutput extends UpdateMacieSessionResponse, __MetadataBearer {}
 
 /**
  * <p>Suspends or re-enables an Amazon Macie account, or updates the configuration settings for a Macie account.</p>

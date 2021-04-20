@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResizeClusterCommandInput = ResizeClusterMessage;
-export type ResizeClusterCommandOutput = ResizeClusterResult & __MetadataBearer;
+export interface ResizeClusterCommandInput extends ResizeClusterMessage {}
+export interface ResizeClusterCommandOutput extends ResizeClusterResult, __MetadataBearer {}
 
 /**
  * <p>Changes the size of the cluster. You can change the cluster's type, or change the

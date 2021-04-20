@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAppInstanceCommandInput = DeleteAppInstanceRequest;
-export type DeleteAppInstanceCommandOutput = __MetadataBearer;
+export interface DeleteAppInstanceCommandInput extends DeleteAppInstanceRequest {}
+export interface DeleteAppInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an <code>AppInstance</code> and all associated data asynchronously.</p>

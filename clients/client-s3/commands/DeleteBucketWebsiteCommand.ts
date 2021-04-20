@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBucketWebsiteCommandInput = DeleteBucketWebsiteRequest;
-export type DeleteBucketWebsiteCommandOutput = __MetadataBearer;
+export interface DeleteBucketWebsiteCommandInput extends DeleteBucketWebsiteRequest {}
+export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This action removes the website configuration for a bucket. Amazon S3 returns a <code>200

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTopicRuleDestinationsCommandInput = ListTopicRuleDestinationsRequest;
-export type ListTopicRuleDestinationsCommandOutput = ListTopicRuleDestinationsResponse & __MetadataBearer;
+export interface ListTopicRuleDestinationsCommandInput extends ListTopicRuleDestinationsRequest {}
+export interface ListTopicRuleDestinationsCommandOutput extends ListTopicRuleDestinationsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the topic rule destinations in your AWS account.</p>

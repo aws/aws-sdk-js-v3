@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutFileCommandInput = PutFileInput;
-export type PutFileCommandOutput = PutFileOutput & __MetadataBearer;
+export interface PutFileCommandInput extends PutFileInput {}
+export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
 
 /**
  * <p>Adds or updates a file in a branch in an AWS CodeCommit repository, and generates a commit for the addition in the specified branch.</p>

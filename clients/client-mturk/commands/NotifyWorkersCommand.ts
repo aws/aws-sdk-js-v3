@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type NotifyWorkersCommandInput = NotifyWorkersRequest;
-export type NotifyWorkersCommandOutput = NotifyWorkersResponse & __MetadataBearer;
+export interface NotifyWorkersCommandInput extends NotifyWorkersRequest {}
+export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __MetadataBearer {}
 
 /**
  * <p>

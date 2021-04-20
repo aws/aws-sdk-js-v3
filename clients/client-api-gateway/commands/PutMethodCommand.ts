@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutMethodCommandInput = PutMethodRequest;
-export type PutMethodCommandOutput = Method & __MetadataBearer;
+export interface PutMethodCommandInput extends PutMethodRequest {}
+export interface PutMethodCommandOutput extends Method, __MetadataBearer {}
 
 /**
  * <p>Add a method to an existing <a>Resource</a> resource.</p>

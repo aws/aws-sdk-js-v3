@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListOutgoingCertificatesCommandInput = ListOutgoingCertificatesRequest;
-export type ListOutgoingCertificatesCommandOutput = ListOutgoingCertificatesResponse & __MetadataBearer;
+export interface ListOutgoingCertificatesCommandInput extends ListOutgoingCertificatesRequest {}
+export interface ListOutgoingCertificatesCommandOutput extends ListOutgoingCertificatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists certificates that are being transferred but not yet accepted.</p>

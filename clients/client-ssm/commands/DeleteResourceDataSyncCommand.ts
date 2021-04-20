@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteResourceDataSyncCommandInput = DeleteResourceDataSyncRequest;
-export type DeleteResourceDataSyncCommandOutput = DeleteResourceDataSyncResult & __MetadataBearer;
+export interface DeleteResourceDataSyncCommandInput extends DeleteResourceDataSyncRequest {}
+export interface DeleteResourceDataSyncCommandOutput extends DeleteResourceDataSyncResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a Resource Data Sync configuration. After the configuration is deleted, changes to

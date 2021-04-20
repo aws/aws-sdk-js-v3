@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDomainCommandInput = UpdateDomainRequest;
-export type UpdateDomainCommandOutput = UpdateDomainResponse & __MetadataBearer;
+export interface UpdateDomainCommandInput extends UpdateDomainRequest {}
+export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the properties of a domain, including creating or selecting a dead letter queue

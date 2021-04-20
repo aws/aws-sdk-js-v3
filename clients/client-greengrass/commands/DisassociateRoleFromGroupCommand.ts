@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateRoleFromGroupCommandInput = DisassociateRoleFromGroupRequest;
-export type DisassociateRoleFromGroupCommandOutput = DisassociateRoleFromGroupResponse & __MetadataBearer;
+export interface DisassociateRoleFromGroupCommandInput extends DisassociateRoleFromGroupRequest {}
+export interface DisassociateRoleFromGroupCommandOutput extends DisassociateRoleFromGroupResponse, __MetadataBearer {}
 
 /**
  * Disassociates the role from a group.

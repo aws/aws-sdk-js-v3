@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SkipWaitTimeForInstanceTerminationCommandInput = SkipWaitTimeForInstanceTerminationInput;
-export type SkipWaitTimeForInstanceTerminationCommandOutput = __MetadataBearer;
+export interface SkipWaitTimeForInstanceTerminationCommandInput extends SkipWaitTimeForInstanceTerminationInput {}
+export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __MetadataBearer {}
 
 /**
  * @deprecated

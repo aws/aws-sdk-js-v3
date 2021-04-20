@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateFileSystemCommandInput = UpdateFileSystemRequest;
-export type UpdateFileSystemCommandOutput = UpdateFileSystemResponse & __MetadataBearer;
+export interface UpdateFileSystemCommandInput extends UpdateFileSystemRequest {}
+export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to update the configuration of an existing Amazon FSx file system.

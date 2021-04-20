@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAccountSettingCommandInput = PutAccountSettingRequest;
-export type PutAccountSettingCommandOutput = PutAccountSettingResponse & __MetadataBearer;
+export interface PutAccountSettingCommandInput extends PutAccountSettingRequest {}
+export interface PutAccountSettingCommandOutput extends PutAccountSettingResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies an account setting. Account settings are set on a per-Region basis.</p>

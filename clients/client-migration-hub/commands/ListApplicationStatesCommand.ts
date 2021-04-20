@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListApplicationStatesCommandInput = ListApplicationStatesRequest;
-export type ListApplicationStatesCommandOutput = ListApplicationStatesResult & __MetadataBearer;
+export interface ListApplicationStatesCommandInput extends ListApplicationStatesRequest {}
+export interface ListApplicationStatesCommandOutput extends ListApplicationStatesResult, __MetadataBearer {}
 
 /**
  * <p>Lists all the migration statuses for your applications. If you use the optional

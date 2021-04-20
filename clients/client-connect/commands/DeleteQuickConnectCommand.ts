@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteQuickConnectCommandInput = DeleteQuickConnectRequest;
-export type DeleteQuickConnectCommandOutput = __MetadataBearer;
+export interface DeleteQuickConnectCommandInput extends DeleteQuickConnectRequest {}
+export interface DeleteQuickConnectCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

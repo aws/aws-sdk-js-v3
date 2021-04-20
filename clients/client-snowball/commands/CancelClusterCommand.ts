@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelClusterCommandInput = CancelClusterRequest;
-export type CancelClusterCommandOutput = CancelClusterResult & __MetadataBearer;
+export interface CancelClusterCommandInput extends CancelClusterRequest {}
+export interface CancelClusterCommandOutput extends CancelClusterResult, __MetadataBearer {}
 
 /**
  * <p>Cancels a cluster job. You can only cancel a cluster job while it's in the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTransformJobCommandInput = CreateTransformJobRequest;
-export type CreateTransformJobCommandOutput = CreateTransformJobResponse & __MetadataBearer;
+export interface CreateTransformJobCommandInput extends CreateTransformJobRequest {}
+export interface CreateTransformJobCommandOutput extends CreateTransformJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a transform job. A transform job uses a trained model to get inferences on a

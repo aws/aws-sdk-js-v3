@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListJobsCommandInput = ListJobsInput;
-export type ListJobsCommandOutput = ListJobsOutput & __MetadataBearer;
+export interface ListJobsCommandInput extends ListJobsInput {}
+export interface ListJobsCommandOutput extends ListJobsOutput, __MetadataBearer {}
 
 /**
  * <p>This operation lists jobs for a vault, including jobs that are in-progress and jobs

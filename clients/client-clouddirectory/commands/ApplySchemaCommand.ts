@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ApplySchemaCommandInput = ApplySchemaRequest;
-export type ApplySchemaCommandOutput = ApplySchemaResponse & __MetadataBearer;
+export interface ApplySchemaCommandInput extends ApplySchemaRequest {}
+export interface ApplySchemaCommandOutput extends ApplySchemaResponse, __MetadataBearer {}
 
 /**
  * <p>Copies the input published schema, at the specified version, into the <a>Directory</a> with the same

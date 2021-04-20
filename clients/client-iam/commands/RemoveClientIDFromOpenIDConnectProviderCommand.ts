@@ -17,8 +17,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveClientIDFromOpenIDConnectProviderCommandInput = RemoveClientIDFromOpenIDConnectProviderRequest;
-export type RemoveClientIDFromOpenIDConnectProviderCommandOutput = __MetadataBearer;
+export interface RemoveClientIDFromOpenIDConnectProviderCommandInput
+  extends RemoveClientIDFromOpenIDConnectProviderRequest {}
+export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified client ID (also known as audience) from the list of client IDs

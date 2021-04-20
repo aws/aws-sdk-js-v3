@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterGameServerCommandInput = DeregisterGameServerInput;
-export type DeregisterGameServerCommandOutput = __MetadataBearer;
+export interface DeregisterGameServerCommandInput extends DeregisterGameServerInput {}
+export interface DeregisterGameServerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>

@@ -17,10 +17,17 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetectAnomaliesCommandInput = Omit<DetectAnomaliesRequest, "Body"> & {
+type DetectAnomaliesCommandInputType = Omit<DetectAnomaliesRequest, "Body"> & {
+  /**
+   * For *`DetectAnomaliesRequest["Body"]`*, see {@link DetectAnomaliesRequest.Body}.
+   */
   Body: DetectAnomaliesRequest["Body"] | string | Uint8Array | Buffer;
 };
-export type DetectAnomaliesCommandOutput = DetectAnomaliesResponse & __MetadataBearer;
+/**
+ * This interface extends from `DetectAnomaliesRequest` interface. There are more parameters than `Body` defined in {@link DetectAnomaliesRequest}
+ */
+export interface DetectAnomaliesCommandInput extends DetectAnomaliesCommandInputType {}
+export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, __MetadataBearer {}
 
 /**
  * <p>Detects anomalies in an image that you supply. </p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRecommenderConfigurationCommandInput = UpdateRecommenderConfigurationRequest;
-export type UpdateRecommenderConfigurationCommandOutput = UpdateRecommenderConfigurationResponse & __MetadataBearer;
+export interface UpdateRecommenderConfigurationCommandInput extends UpdateRecommenderConfigurationRequest {}
+export interface UpdateRecommenderConfigurationCommandOutput
+  extends UpdateRecommenderConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates an Amazon Pinpoint configuration for a recommender model.</p>

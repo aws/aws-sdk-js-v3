@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConfigurationAggregatorsCommandInput = DescribeConfigurationAggregatorsRequest;
-export type DescribeConfigurationAggregatorsCommandOutput = DescribeConfigurationAggregatorsResponse & __MetadataBearer;
+export interface DescribeConfigurationAggregatorsCommandInput extends DescribeConfigurationAggregatorsRequest {}
+export interface DescribeConfigurationAggregatorsCommandOutput
+  extends DescribeConfigurationAggregatorsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the details of one or more configuration aggregators.

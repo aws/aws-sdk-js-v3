@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableAWSServiceAccessCommandInput = EnableAWSServiceAccessRequest;
-export type EnableAWSServiceAccessCommandOutput = __MetadataBearer;
+export interface EnableAWSServiceAccessCommandInput extends EnableAWSServiceAccessRequest {}
+export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables the integration of an AWS service (the service that is specified by

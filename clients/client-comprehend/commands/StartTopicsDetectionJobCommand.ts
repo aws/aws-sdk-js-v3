@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartTopicsDetectionJobCommandInput = StartTopicsDetectionJobRequest;
-export type StartTopicsDetectionJobCommandOutput = StartTopicsDetectionJobResponse & __MetadataBearer;
+export interface StartTopicsDetectionJobCommandInput extends StartTopicsDetectionJobRequest {}
+export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetectionJobResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous topic detection job. Use the

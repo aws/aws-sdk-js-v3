@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetectDominantLanguageCommandInput = DetectDominantLanguageRequest;
-export type DetectDominantLanguageCommandOutput = DetectDominantLanguageResponse & __MetadataBearer;
+export interface DetectDominantLanguageCommandInput extends DetectDominantLanguageRequest {}
+export interface DetectDominantLanguageCommandOutput extends DetectDominantLanguageResponse, __MetadataBearer {}
 
 /**
  * <p>Determines the dominant language of the input text. For a list of languages that Amazon

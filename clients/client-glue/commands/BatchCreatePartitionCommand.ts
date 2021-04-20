@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchCreatePartitionCommandInput = BatchCreatePartitionRequest;
-export type BatchCreatePartitionCommandOutput = BatchCreatePartitionResponse & __MetadataBearer;
+export interface BatchCreatePartitionCommandInput extends BatchCreatePartitionRequest {}
+export interface BatchCreatePartitionCommandOutput extends BatchCreatePartitionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates one or more partitions in a batch operation.</p>

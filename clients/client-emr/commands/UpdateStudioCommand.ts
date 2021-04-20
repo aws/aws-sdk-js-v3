@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateStudioCommandInput = UpdateStudioInput;
-export type UpdateStudioCommandOutput = __MetadataBearer;
+export interface UpdateStudioCommandInput extends UpdateStudioInput {}
+export interface UpdateStudioCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates an Amazon EMR Studio configuration, including attributes such as name, description, and subnets.</p>

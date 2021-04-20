@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachInternetGatewayCommandInput = DetachInternetGatewayRequest;
-export type DetachInternetGatewayCommandOutput = __MetadataBearer;
+export interface DetachInternetGatewayCommandInput extends DetachInternetGatewayRequest {}
+export interface DetachInternetGatewayCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Detaches an internet gateway from a VPC, disabling connectivity between the internet

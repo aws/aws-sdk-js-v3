@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAuditMitigationActionsExecutionsCommandInput = ListAuditMitigationActionsExecutionsRequest;
-export type ListAuditMitigationActionsExecutionsCommandOutput = ListAuditMitigationActionsExecutionsResponse &
-  __MetadataBearer;
+export interface ListAuditMitigationActionsExecutionsCommandInput extends ListAuditMitigationActionsExecutionsRequest {}
+export interface ListAuditMitigationActionsExecutionsCommandOutput
+  extends ListAuditMitigationActionsExecutionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the status of audit mitigation action tasks that were

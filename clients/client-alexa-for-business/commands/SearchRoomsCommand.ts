@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchRoomsCommandInput = SearchRoomsRequest;
-export type SearchRoomsCommandOutput = SearchRoomsResponse & __MetadataBearer;
+export interface SearchRoomsCommandInput extends SearchRoomsRequest {}
+export interface SearchRoomsCommandOutput extends SearchRoomsResponse, __MetadataBearer {}
 
 /**
  * <p>Searches rooms and lists the ones that meet a set of filter and sort

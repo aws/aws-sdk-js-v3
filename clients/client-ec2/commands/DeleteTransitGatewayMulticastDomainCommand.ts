@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteTransitGatewayMulticastDomainCommandInput = DeleteTransitGatewayMulticastDomainRequest;
-export type DeleteTransitGatewayMulticastDomainCommandOutput = DeleteTransitGatewayMulticastDomainResult &
-  __MetadataBearer;
+export interface DeleteTransitGatewayMulticastDomainCommandInput extends DeleteTransitGatewayMulticastDomainRequest {}
+export interface DeleteTransitGatewayMulticastDomainCommandOutput
+  extends DeleteTransitGatewayMulticastDomainResult,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the specified transit gateway multicast domain.</p>

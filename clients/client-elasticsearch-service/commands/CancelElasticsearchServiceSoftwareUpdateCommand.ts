@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelElasticsearchServiceSoftwareUpdateCommandInput = CancelElasticsearchServiceSoftwareUpdateRequest;
-export type CancelElasticsearchServiceSoftwareUpdateCommandOutput = CancelElasticsearchServiceSoftwareUpdateResponse &
-  __MetadataBearer;
+export interface CancelElasticsearchServiceSoftwareUpdateCommandInput
+  extends CancelElasticsearchServiceSoftwareUpdateRequest {}
+export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput
+  extends CancelElasticsearchServiceSoftwareUpdateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Cancels a scheduled service software update for an Amazon ES domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.</p>

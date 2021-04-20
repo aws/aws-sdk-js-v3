@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePredictorCommandInput = CreatePredictorRequest;
-export type CreatePredictorCommandOutput = CreatePredictorResponse & __MetadataBearer;
+export interface CreatePredictorCommandInput extends CreatePredictorRequest {}
+export interface CreatePredictorCommandOutput extends CreatePredictorResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Forecast predictor.</p>

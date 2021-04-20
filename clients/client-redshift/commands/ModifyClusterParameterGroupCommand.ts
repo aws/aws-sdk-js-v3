@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyClusterParameterGroupCommandInput = ModifyClusterParameterGroupMessage;
-export type ModifyClusterParameterGroupCommandOutput = ClusterParameterGroupNameMessage & __MetadataBearer;
+export interface ModifyClusterParameterGroupCommandInput extends ModifyClusterParameterGroupMessage {}
+export interface ModifyClusterParameterGroupCommandOutput extends ClusterParameterGroupNameMessage, __MetadataBearer {}
 
 /**
  * <p>Modifies the parameters of a parameter group.</p>

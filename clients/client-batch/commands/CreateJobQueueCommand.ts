@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateJobQueueCommandInput = CreateJobQueueRequest;
-export type CreateJobQueueCommandOutput = CreateJobQueueResponse & __MetadataBearer;
+export interface CreateJobQueueCommandInput extends CreateJobQueueRequest {}
+export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS Batch job queue. When you create a job queue, you associate one or more compute environments to the

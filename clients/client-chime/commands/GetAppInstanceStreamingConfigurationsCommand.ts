@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAppInstanceStreamingConfigurationsCommandInput = GetAppInstanceStreamingConfigurationsRequest;
-export type GetAppInstanceStreamingConfigurationsCommandOutput = GetAppInstanceStreamingConfigurationsResponse &
-  __MetadataBearer;
+export interface GetAppInstanceStreamingConfigurationsCommandInput
+  extends GetAppInstanceStreamingConfigurationsRequest {}
+export interface GetAppInstanceStreamingConfigurationsCommandOutput
+  extends GetAppInstanceStreamingConfigurationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the streaming settings for an <code>AppInstance</code>.</p>

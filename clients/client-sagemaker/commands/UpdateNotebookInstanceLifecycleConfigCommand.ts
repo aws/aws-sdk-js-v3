@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateNotebookInstanceLifecycleConfigCommandInput = UpdateNotebookInstanceLifecycleConfigInput;
-export type UpdateNotebookInstanceLifecycleConfigCommandOutput = UpdateNotebookInstanceLifecycleConfigOutput &
-  __MetadataBearer;
+export interface UpdateNotebookInstanceLifecycleConfigCommandInput extends UpdateNotebookInstanceLifecycleConfigInput {}
+export interface UpdateNotebookInstanceLifecycleConfigCommandOutput
+  extends UpdateNotebookInstanceLifecycleConfigOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Updates a notebook instance lifecycle configuration created with the <a>CreateNotebookInstanceLifecycleConfig</a> API.</p>

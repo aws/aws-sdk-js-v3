@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateLoadBalancerAttributeCommandInput = UpdateLoadBalancerAttributeRequest;
-export type UpdateLoadBalancerAttributeCommandOutput = UpdateLoadBalancerAttributeResult & __MetadataBearer;
+export interface UpdateLoadBalancerAttributeCommandInput extends UpdateLoadBalancerAttributeRequest {}
+export interface UpdateLoadBalancerAttributeCommandOutput extends UpdateLoadBalancerAttributeResult, __MetadataBearer {}
 
 /**
  * <p>Updates the specified attribute for a load balancer. You can only update one attribute at

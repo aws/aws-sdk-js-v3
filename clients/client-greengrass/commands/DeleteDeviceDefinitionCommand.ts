@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDeviceDefinitionCommandInput = DeleteDeviceDefinitionRequest;
-export type DeleteDeviceDefinitionCommandOutput = DeleteDeviceDefinitionResponse & __MetadataBearer;
+export interface DeleteDeviceDefinitionCommandInput extends DeleteDeviceDefinitionRequest {}
+export interface DeleteDeviceDefinitionCommandOutput extends DeleteDeviceDefinitionResponse, __MetadataBearer {}
 
 /**
  * Deletes a device definition.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAnalysisPermissionsCommandInput = UpdateAnalysisPermissionsRequest;
-export type UpdateAnalysisPermissionsCommandOutput = UpdateAnalysisPermissionsResponse & __MetadataBearer;
+export interface UpdateAnalysisPermissionsCommandInput extends UpdateAnalysisPermissionsRequest {}
+export interface UpdateAnalysisPermissionsCommandOutput extends UpdateAnalysisPermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the read and write permissions for an analysis.</p>

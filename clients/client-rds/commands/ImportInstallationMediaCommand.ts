@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportInstallationMediaCommandInput = ImportInstallationMediaMessage;
-export type ImportInstallationMediaCommandOutput = InstallationMedia & __MetadataBearer;
+export interface ImportInstallationMediaCommandInput extends ImportInstallationMediaMessage {}
+export interface ImportInstallationMediaCommandOutput extends InstallationMedia, __MetadataBearer {}
 
 /**
  * <p>Imports the installation media for a DB engine that requires an on-premises

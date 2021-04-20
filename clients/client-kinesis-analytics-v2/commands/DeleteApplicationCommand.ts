@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteApplicationCommandInput = DeleteApplicationRequest;
-export type DeleteApplicationCommandOutput = DeleteApplicationResponse & __MetadataBearer;
+export interface DeleteApplicationCommandInput extends DeleteApplicationRequest {}
+export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified application. Kinesis Data Analytics halts application execution and deletes the application.</p>

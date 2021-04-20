@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUsagePlanKeyCommandInput = CreateUsagePlanKeyRequest;
-export type CreateUsagePlanKeyCommandOutput = UsagePlanKey & __MetadataBearer;
+export interface CreateUsagePlanKeyCommandInput extends CreateUsagePlanKeyRequest {}
+export interface CreateUsagePlanKeyCommandOutput extends UsagePlanKey, __MetadataBearer {}
 
 /**
  * <p>Creates a usage plan key for adding an existing API key to a usage plan.</p>

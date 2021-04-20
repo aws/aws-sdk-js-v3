@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateThingShadowCommandInput = UpdateThingShadowRequest;
-export type UpdateThingShadowCommandOutput = UpdateThingShadowResponse & __MetadataBearer;
+export interface UpdateThingShadowCommandInput extends UpdateThingShadowRequest {}
+export interface UpdateThingShadowCommandOutput extends UpdateThingShadowResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the shadow for the specified thing.</p>

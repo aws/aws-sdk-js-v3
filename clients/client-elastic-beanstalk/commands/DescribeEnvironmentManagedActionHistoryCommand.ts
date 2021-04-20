@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEnvironmentManagedActionHistoryCommandInput = DescribeEnvironmentManagedActionHistoryRequest;
-export type DescribeEnvironmentManagedActionHistoryCommandOutput = DescribeEnvironmentManagedActionHistoryResult &
-  __MetadataBearer;
+export interface DescribeEnvironmentManagedActionHistoryCommandInput
+  extends DescribeEnvironmentManagedActionHistoryRequest {}
+export interface DescribeEnvironmentManagedActionHistoryCommandOutput
+  extends DescribeEnvironmentManagedActionHistoryResult,
+    __MetadataBearer {}
 
 /**
  * <p>Lists an environment's completed and failed managed actions.</p>

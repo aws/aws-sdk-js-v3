@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListChannelModeratorsCommandInput = ListChannelModeratorsRequest;
-export type ListChannelModeratorsCommandOutput = ListChannelModeratorsResponse & __MetadataBearer;
+export interface ListChannelModeratorsCommandInput extends ListChannelModeratorsRequest {}
+export interface ListChannelModeratorsCommandOutput extends ListChannelModeratorsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the moderators for a channel.</p>

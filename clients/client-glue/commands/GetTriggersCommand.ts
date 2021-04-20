@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTriggersCommandInput = GetTriggersRequest;
-export type GetTriggersCommandOutput = GetTriggersResponse & __MetadataBearer;
+export interface GetTriggersCommandInput extends GetTriggersRequest {}
+export interface GetTriggersCommandOutput extends GetTriggersResponse, __MetadataBearer {}
 
 /**
  * <p>Gets all the triggers associated with a job.</p>

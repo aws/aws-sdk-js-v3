@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePlayerSessionCommandInput = CreatePlayerSessionInput;
-export type CreatePlayerSessionCommandOutput = CreatePlayerSessionOutput & __MetadataBearer;
+export interface CreatePlayerSessionCommandInput extends CreatePlayerSessionInput {}
+export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOutput, __MetadataBearer {}
 
 /**
  * <p>Reserves an open player slot in a game session for a player. New player sessions can be

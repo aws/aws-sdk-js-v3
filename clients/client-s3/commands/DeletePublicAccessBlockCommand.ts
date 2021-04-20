@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePublicAccessBlockCommandInput = DeletePublicAccessBlockRequest;
-export type DeletePublicAccessBlockCommandOutput = __MetadataBearer;
+export interface DeletePublicAccessBlockCommandInput extends DeletePublicAccessBlockRequest {}
+export interface DeletePublicAccessBlockCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket. To use this

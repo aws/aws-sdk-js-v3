@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFirewallConfigsCommandInput = ListFirewallConfigsRequest;
-export type ListFirewallConfigsCommandOutput = ListFirewallConfigsResponse & __MetadataBearer;
+export interface ListFirewallConfigsCommandInput extends ListFirewallConfigsRequest {}
+export interface ListFirewallConfigsCommandOutput extends ListFirewallConfigsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the firewall configurations that you have defined. DNS Firewall uses the configurations to manage firewall behavior for your VPCs. </p>

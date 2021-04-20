@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetTemplateSummaryCommandInput = GetTemplateSummaryInput;
-export type GetTemplateSummaryCommandOutput = GetTemplateSummaryOutput & __MetadataBearer;
+export interface GetTemplateSummaryCommandInput extends GetTemplateSummaryInput {}
+export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about a new or existing template. The

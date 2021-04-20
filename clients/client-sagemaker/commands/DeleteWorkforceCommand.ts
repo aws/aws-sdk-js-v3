@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteWorkforceCommandInput = DeleteWorkforceRequest;
-export type DeleteWorkforceCommandOutput = DeleteWorkforceResponse & __MetadataBearer;
+export interface DeleteWorkforceCommandInput extends DeleteWorkforceRequest {}
+export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, __MetadataBearer {}
 
 /**
  * <p>Use this operation to delete a workforce.</p>

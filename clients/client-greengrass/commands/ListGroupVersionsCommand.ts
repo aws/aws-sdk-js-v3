@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListGroupVersionsCommandInput = ListGroupVersionsRequest;
-export type ListGroupVersionsCommandOutput = ListGroupVersionsResponse & __MetadataBearer;
+export interface ListGroupVersionsCommandInput extends ListGroupVersionsRequest {}
+export interface ListGroupVersionsCommandOutput extends ListGroupVersionsResponse, __MetadataBearer {}
 
 /**
  * Lists the versions of a group.

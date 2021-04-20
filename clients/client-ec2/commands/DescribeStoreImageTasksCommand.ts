@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStoreImageTasksCommandInput = DescribeStoreImageTasksRequest;
-export type DescribeStoreImageTasksCommandOutput = DescribeStoreImageTasksResult & __MetadataBearer;
+export interface DescribeStoreImageTasksCommandInput extends DescribeStoreImageTasksRequest {}
+export interface DescribeStoreImageTasksCommandOutput extends DescribeStoreImageTasksResult, __MetadataBearer {}
 
 /**
  * <p>Describes the progress of the AMI store tasks. You can describe the store tasks for

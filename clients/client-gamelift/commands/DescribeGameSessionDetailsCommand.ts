@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeGameSessionDetailsCommandInput = DescribeGameSessionDetailsInput;
-export type DescribeGameSessionDetailsCommandOutput = DescribeGameSessionDetailsOutput & __MetadataBearer;
+export interface DescribeGameSessionDetailsCommandInput extends DescribeGameSessionDetailsInput {}
+export interface DescribeGameSessionDetailsCommandOutput extends DescribeGameSessionDetailsOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves additional game session properties, including the game session protection

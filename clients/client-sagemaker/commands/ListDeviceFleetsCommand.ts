@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDeviceFleetsCommandInput = ListDeviceFleetsRequest;
-export type ListDeviceFleetsCommandOutput = ListDeviceFleetsResponse & __MetadataBearer;
+export interface ListDeviceFleetsCommandInput extends ListDeviceFleetsRequest {}
+export interface ListDeviceFleetsCommandOutput extends ListDeviceFleetsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of devices in the fleet.</p>

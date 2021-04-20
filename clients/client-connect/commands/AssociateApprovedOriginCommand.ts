@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateApprovedOriginCommandInput = AssociateApprovedOriginRequest;
-export type AssociateApprovedOriginCommandOutput = __MetadataBearer;
+export interface AssociateApprovedOriginCommandInput extends AssociateApprovedOriginRequest {}
+export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchEvaluateGeofencesCommandInput = BatchEvaluateGeofencesRequest;
-export type BatchEvaluateGeofencesCommandOutput = BatchEvaluateGeofencesResponse & __MetadataBearer;
+export interface BatchEvaluateGeofencesCommandInput extends BatchEvaluateGeofencesRequest {}
+export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofencesResponse, __MetadataBearer {}
 
 /**
  * <p>Evaluates device positions against the geofence geometries from a given geofence

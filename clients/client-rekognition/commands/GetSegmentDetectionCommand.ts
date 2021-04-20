@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSegmentDetectionCommandInput = GetSegmentDetectionRequest;
-export type GetSegmentDetectionCommandOutput = GetSegmentDetectionResponse & __MetadataBearer;
+export interface GetSegmentDetectionCommandInput extends GetSegmentDetectionRequest {}
+export interface GetSegmentDetectionCommandOutput extends GetSegmentDetectionResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the segment detection results of a Amazon Rekognition Video analysis started by <a>StartSegmentDetection</a>.</p>

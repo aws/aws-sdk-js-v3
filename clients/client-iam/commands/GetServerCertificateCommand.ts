@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetServerCertificateCommandInput = GetServerCertificateRequest;
-export type GetServerCertificateCommandOutput = GetServerCertificateResponse & __MetadataBearer;
+export interface GetServerCertificateCommandInput extends GetServerCertificateRequest {}
+export interface GetServerCertificateCommandOutput extends GetServerCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the specified server certificate stored in IAM.</p>

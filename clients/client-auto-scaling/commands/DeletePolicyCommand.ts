@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePolicyCommandInput = DeletePolicyType;
-export type DeletePolicyCommandOutput = __MetadataBearer;
+export interface DeletePolicyCommandInput extends DeletePolicyType {}
+export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified scaling policy.</p>

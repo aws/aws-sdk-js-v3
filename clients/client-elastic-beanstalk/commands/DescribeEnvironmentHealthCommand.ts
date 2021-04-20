@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeEnvironmentHealthCommandInput = DescribeEnvironmentHealthRequest;
-export type DescribeEnvironmentHealthCommandOutput = DescribeEnvironmentHealthResult & __MetadataBearer;
+export interface DescribeEnvironmentHealthCommandInput extends DescribeEnvironmentHealthRequest {}
+export interface DescribeEnvironmentHealthCommandOutput extends DescribeEnvironmentHealthResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about the overall health of the specified environment. The

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDocumentClassifierCommandInput = DescribeDocumentClassifierRequest;
-export type DescribeDocumentClassifierCommandOutput = DescribeDocumentClassifierResponse & __MetadataBearer;
+export interface DescribeDocumentClassifierCommandInput extends DescribeDocumentClassifierRequest {}
+export interface DescribeDocumentClassifierCommandOutput extends DescribeDocumentClassifierResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a document classifier.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAssociationBatchCommandInput = CreateAssociationBatchRequest;
-export type CreateAssociationBatchCommandOutput = CreateAssociationBatchResult & __MetadataBearer;
+export interface CreateAssociationBatchCommandInput extends CreateAssociationBatchRequest {}
+export interface CreateAssociationBatchCommandOutput extends CreateAssociationBatchResult, __MetadataBearer {}
 
 /**
  * <p>Associates the specified Systems Manager document with the specified instances or targets.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTypedLinkFacetCommandInput = UpdateTypedLinkFacetRequest;
-export type UpdateTypedLinkFacetCommandOutput = UpdateTypedLinkFacetResponse & __MetadataBearer;
+export interface UpdateTypedLinkFacetCommandInput extends UpdateTypedLinkFacetRequest {}
+export interface UpdateTypedLinkFacetCommandOutput extends UpdateTypedLinkFacetResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a <a>TypedLinkFacet</a>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>

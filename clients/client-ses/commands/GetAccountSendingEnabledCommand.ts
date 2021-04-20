@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccountSendingEnabledCommandInput = {};
-export type GetAccountSendingEnabledCommandOutput = GetAccountSendingEnabledResponse & __MetadataBearer;
+export interface GetAccountSendingEnabledCommandInput {}
+export interface GetAccountSendingEnabledCommandOutput extends GetAccountSendingEnabledResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the email sending status of the Amazon SES account for the current region.</p>

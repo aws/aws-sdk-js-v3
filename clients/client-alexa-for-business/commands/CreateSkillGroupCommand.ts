@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSkillGroupCommandInput = CreateSkillGroupRequest;
-export type CreateSkillGroupCommandOutput = CreateSkillGroupResponse & __MetadataBearer;
+export interface CreateSkillGroupCommandInput extends CreateSkillGroupRequest {}
+export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a skill group with a specified name and description.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchAssociateScramSecretCommandInput = BatchAssociateScramSecretRequest;
-export type BatchAssociateScramSecretCommandOutput = BatchAssociateScramSecretResponse & __MetadataBearer;
+export interface BatchAssociateScramSecretCommandInput extends BatchAssociateScramSecretRequest {}
+export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateScramSecretResponse, __MetadataBearer {}
 
 /**
  * <p>Associates one or more Scram Secrets with an Amazon MSK cluster.</p>

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput = DescribeMaintenanceWindowExecutionTaskInvocationsRequest;
-export type DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput = DescribeMaintenanceWindowExecutionTaskInvocationsResult &
-  __MetadataBearer;
+export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput
+  extends DescribeMaintenanceWindowExecutionTaskInvocationsRequest {}
+export interface DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput
+  extends DescribeMaintenanceWindowExecutionTaskInvocationsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves the individual task executions (one per target) for a particular task run as part

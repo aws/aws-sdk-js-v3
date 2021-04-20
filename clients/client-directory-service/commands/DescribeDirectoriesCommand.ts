@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDirectoriesCommandInput = DescribeDirectoriesRequest;
-export type DescribeDirectoriesCommandOutput = DescribeDirectoriesResult & __MetadataBearer;
+export interface DescribeDirectoriesCommandInput extends DescribeDirectoriesRequest {}
+export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesResult, __MetadataBearer {}
 
 /**
  * <p>Obtains information about the directories that belong to this account.</p>

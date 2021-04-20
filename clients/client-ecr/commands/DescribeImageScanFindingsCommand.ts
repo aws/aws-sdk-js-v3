@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeImageScanFindingsCommandInput = DescribeImageScanFindingsRequest;
-export type DescribeImageScanFindingsCommandOutput = DescribeImageScanFindingsResponse & __MetadataBearer;
+export interface DescribeImageScanFindingsCommandInput extends DescribeImageScanFindingsRequest {}
+export interface DescribeImageScanFindingsCommandOutput extends DescribeImageScanFindingsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the scan findings for the specified image.</p>

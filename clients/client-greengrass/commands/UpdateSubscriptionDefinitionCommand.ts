@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSubscriptionDefinitionCommandInput = UpdateSubscriptionDefinitionRequest;
-export type UpdateSubscriptionDefinitionCommandOutput = UpdateSubscriptionDefinitionResponse & __MetadataBearer;
+export interface UpdateSubscriptionDefinitionCommandInput extends UpdateSubscriptionDefinitionRequest {}
+export interface UpdateSubscriptionDefinitionCommandOutput
+  extends UpdateSubscriptionDefinitionResponse,
+    __MetadataBearer {}
 
 /**
  * Updates a subscription definition.

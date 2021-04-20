@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListObjectsV2CommandInput = ListObjectsV2Request;
-export type ListObjectsV2CommandOutput = ListObjectsV2Output & __MetadataBearer;
+export interface ListObjectsV2CommandInput extends ListObjectsV2Request {}
+export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __MetadataBearer {}
 
 /**
  * <p>Returns some or all (up to 1,000) of the objects in a bucket. You can use the request

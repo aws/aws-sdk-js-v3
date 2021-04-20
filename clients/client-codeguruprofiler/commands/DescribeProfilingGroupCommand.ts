@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeProfilingGroupCommandInput = DescribeProfilingGroupRequest;
-export type DescribeProfilingGroupCommandOutput = DescribeProfilingGroupResponse & __MetadataBearer;
+export interface DescribeProfilingGroupCommandInput extends DescribeProfilingGroupRequest {}
+export interface DescribeProfilingGroupCommandOutput extends DescribeProfilingGroupResponse, __MetadataBearer {}
 
 /**
  * <p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyReplicationGroupCommandInput = ModifyReplicationGroupMessage;
-export type ModifyReplicationGroupCommandOutput = ModifyReplicationGroupResult & __MetadataBearer;
+export interface ModifyReplicationGroupCommandInput extends ModifyReplicationGroupMessage {}
+export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGroupResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the settings for a replication group.</p>

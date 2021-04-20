@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeWorkspaceSnapshotsCommandInput = DescribeWorkspaceSnapshotsRequest;
-export type DescribeWorkspaceSnapshotsCommandOutput = DescribeWorkspaceSnapshotsResult & __MetadataBearer;
+export interface DescribeWorkspaceSnapshotsCommandInput extends DescribeWorkspaceSnapshotsRequest {}
+export interface DescribeWorkspaceSnapshotsCommandOutput extends DescribeWorkspaceSnapshotsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the snapshots for the specified WorkSpace.</p>

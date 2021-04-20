@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPermissionSetsCommandInput = ListPermissionSetsRequest;
-export type ListPermissionSetsCommandOutput = ListPermissionSetsResponse & __MetadataBearer;
+export interface ListPermissionSetsCommandInput extends ListPermissionSetsRequest {}
+export interface ListPermissionSetsCommandOutput extends ListPermissionSetsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the <a>PermissionSet</a>s in an SSO instance.</p>

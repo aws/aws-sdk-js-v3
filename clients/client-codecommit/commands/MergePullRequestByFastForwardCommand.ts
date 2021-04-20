@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type MergePullRequestByFastForwardCommandInput = MergePullRequestByFastForwardInput;
-export type MergePullRequestByFastForwardCommandOutput = MergePullRequestByFastForwardOutput & __MetadataBearer;
+export interface MergePullRequestByFastForwardCommandInput extends MergePullRequestByFastForwardInput {}
+export interface MergePullRequestByFastForwardCommandOutput
+  extends MergePullRequestByFastForwardOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Attempts to merge the source commit of a pull request into the specified destination

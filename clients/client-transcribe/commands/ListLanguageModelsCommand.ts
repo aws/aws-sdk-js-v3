@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListLanguageModelsCommandInput = ListLanguageModelsRequest;
-export type ListLanguageModelsCommandOutput = ListLanguageModelsResponse & __MetadataBearer;
+export interface ListLanguageModelsCommandInput extends ListLanguageModelsRequest {}
+export interface ListLanguageModelsCommandOutput extends ListLanguageModelsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides more information about the custom language models you've created. You can use

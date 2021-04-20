@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSessionTokenCommandInput = GetSessionTokenRequest;
-export type GetSessionTokenCommandOutput = GetSessionTokenResponse & __MetadataBearer;
+export interface GetSessionTokenCommandInput extends GetSessionTokenRequest {}
+export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a set of temporary credentials for an AWS account or IAM user. The

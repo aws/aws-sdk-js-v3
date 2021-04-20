@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSavingsPlansPurchaseRecommendationCommandInput = GetSavingsPlansPurchaseRecommendationRequest;
-export type GetSavingsPlansPurchaseRecommendationCommandOutput = GetSavingsPlansPurchaseRecommendationResponse &
-  __MetadataBearer;
+export interface GetSavingsPlansPurchaseRecommendationCommandInput
+  extends GetSavingsPlansPurchaseRecommendationRequest {}
+export interface GetSavingsPlansPurchaseRecommendationCommandOutput
+  extends GetSavingsPlansPurchaseRecommendationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves your request parameters, Savings Plan Recommendations Summary and Details. </p>

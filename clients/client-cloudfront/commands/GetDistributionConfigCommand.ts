@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDistributionConfigCommandInput = GetDistributionConfigRequest;
-export type GetDistributionConfigCommandOutput = GetDistributionConfigResult & __MetadataBearer;
+export interface GetDistributionConfigCommandInput extends GetDistributionConfigRequest {}
+export interface GetDistributionConfigCommandOutput extends GetDistributionConfigResult, __MetadataBearer {}
 
 /**
  * <p>Get the configuration information about a distribution. </p>

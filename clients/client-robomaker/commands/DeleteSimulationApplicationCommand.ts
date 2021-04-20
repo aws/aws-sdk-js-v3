@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSimulationApplicationCommandInput = DeleteSimulationApplicationRequest;
-export type DeleteSimulationApplicationCommandOutput = DeleteSimulationApplicationResponse & __MetadataBearer;
+export interface DeleteSimulationApplicationCommandInput extends DeleteSimulationApplicationRequest {}
+export interface DeleteSimulationApplicationCommandOutput
+  extends DeleteSimulationApplicationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes a simulation application.</p>

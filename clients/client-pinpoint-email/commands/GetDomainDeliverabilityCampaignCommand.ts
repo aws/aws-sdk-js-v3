@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDomainDeliverabilityCampaignCommandInput = GetDomainDeliverabilityCampaignRequest;
-export type GetDomainDeliverabilityCampaignCommandOutput = GetDomainDeliverabilityCampaignResponse & __MetadataBearer;
+export interface GetDomainDeliverabilityCampaignCommandInput extends GetDomainDeliverabilityCampaignRequest {}
+export interface GetDomainDeliverabilityCampaignCommandOutput
+  extends GetDomainDeliverabilityCampaignResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieve all the deliverability data for a specific campaign. This data is available

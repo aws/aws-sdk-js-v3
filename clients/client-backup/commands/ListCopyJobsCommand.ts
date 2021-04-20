@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCopyJobsCommandInput = ListCopyJobsInput;
-export type ListCopyJobsCommandOutput = ListCopyJobsOutput & __MetadataBearer;
+export interface ListCopyJobsCommandInput extends ListCopyJobsInput {}
+export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns metadata about your copy jobs.</p>

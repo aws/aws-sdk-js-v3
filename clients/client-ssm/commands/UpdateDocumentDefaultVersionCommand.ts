@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDocumentDefaultVersionCommandInput = UpdateDocumentDefaultVersionRequest;
-export type UpdateDocumentDefaultVersionCommandOutput = UpdateDocumentDefaultVersionResult & __MetadataBearer;
+export interface UpdateDocumentDefaultVersionCommandInput extends UpdateDocumentDefaultVersionRequest {}
+export interface UpdateDocumentDefaultVersionCommandOutput
+  extends UpdateDocumentDefaultVersionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Set the default version of a document. </p>

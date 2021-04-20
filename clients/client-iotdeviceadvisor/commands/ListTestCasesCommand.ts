@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTestCasesCommandInput = ListTestCasesRequest;
-export type ListTestCasesCommandOutput = ListTestCasesResponse & __MetadataBearer;
+export interface ListTestCasesCommandInput extends ListTestCasesRequest {}
+export interface ListTestCasesCommandOutput extends ListTestCasesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the test cases in the test suite.</p>

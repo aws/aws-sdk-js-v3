@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAttributeGroupCommandInput = DeleteAttributeGroupRequest;
-export type DeleteAttributeGroupCommandOutput = DeleteAttributeGroupResponse & __MetadataBearer;
+export interface DeleteAttributeGroupCommandInput extends DeleteAttributeGroupRequest {}
+export interface DeleteAttributeGroupCommandOutput extends DeleteAttributeGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an attribute group, specified either by its attribute group ID or name.</p>

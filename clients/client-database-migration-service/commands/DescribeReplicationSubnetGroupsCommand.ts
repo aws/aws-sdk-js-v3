@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeReplicationSubnetGroupsCommandInput = DescribeReplicationSubnetGroupsMessage;
-export type DescribeReplicationSubnetGroupsCommandOutput = DescribeReplicationSubnetGroupsResponse & __MetadataBearer;
+export interface DescribeReplicationSubnetGroupsCommandInput extends DescribeReplicationSubnetGroupsMessage {}
+export interface DescribeReplicationSubnetGroupsCommandOutput
+  extends DescribeReplicationSubnetGroupsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about the replication subnet groups.</p>

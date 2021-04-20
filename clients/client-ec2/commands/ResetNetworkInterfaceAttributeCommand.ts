@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ResetNetworkInterfaceAttributeCommandInput = ResetNetworkInterfaceAttributeRequest;
-export type ResetNetworkInterfaceAttributeCommandOutput = __MetadataBearer;
+export interface ResetNetworkInterfaceAttributeCommandInput extends ResetNetworkInterfaceAttributeRequest {}
+export interface ResetNetworkInterfaceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Resets a network interface attribute. You can specify only one attribute at a time.</p>

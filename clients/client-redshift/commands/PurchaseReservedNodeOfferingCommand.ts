@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PurchaseReservedNodeOfferingCommandInput = PurchaseReservedNodeOfferingMessage;
-export type PurchaseReservedNodeOfferingCommandOutput = PurchaseReservedNodeOfferingResult & __MetadataBearer;
+export interface PurchaseReservedNodeOfferingCommandInput extends PurchaseReservedNodeOfferingMessage {}
+export interface PurchaseReservedNodeOfferingCommandOutput
+  extends PurchaseReservedNodeOfferingResult,
+    __MetadataBearer {}
 
 /**
  * <p>Allows you to purchase reserved nodes. Amazon Redshift offers a predefined set of

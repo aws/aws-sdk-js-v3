@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyCurrentDBClusterCapacityCommandInput = ModifyCurrentDBClusterCapacityMessage;
-export type ModifyCurrentDBClusterCapacityCommandOutput = DBClusterCapacityInfo & __MetadataBearer;
+export interface ModifyCurrentDBClusterCapacityCommandInput extends ModifyCurrentDBClusterCapacityMessage {}
+export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCapacityInfo, __MetadataBearer {}
 
 /**
  * <p>Set the capacity of an Aurora Serverless DB cluster to a specific value.</p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAccessPointPolicyCommandInput = PutAccessPointPolicyRequest;
-export type PutAccessPointPolicyCommandOutput = __MetadataBearer;
+export interface PutAccessPointPolicyCommandInput extends PutAccessPointPolicyRequest {}
+export interface PutAccessPointPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Associates an access policy with the specified access point. Each access point can have only one policy, so a request made to this API

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRegistryCommandInput = DeleteRegistryRequest;
-export type DeleteRegistryCommandOutput = __MetadataBearer;
+export interface DeleteRegistryCommandInput extends DeleteRegistryRequest {}
+export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a Registry.</p>

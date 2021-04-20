@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListGlobalTablesCommandInput = ListGlobalTablesInput;
-export type ListGlobalTablesCommandOutput = ListGlobalTablesOutput & __MetadataBearer;
+export interface ListGlobalTablesCommandInput extends ListGlobalTablesInput {}
+export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, __MetadataBearer {}
 
 /**
  * <p>Lists all global tables that have a replica in the specified Region.</p>

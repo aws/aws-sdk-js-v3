@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateFleetCommandInput = DisassociateFleetRequest;
-export type DisassociateFleetCommandOutput = DisassociateFleetResult & __MetadataBearer;
+export interface DisassociateFleetCommandInput extends DisassociateFleetRequest {}
+export interface DisassociateFleetCommandOutput extends DisassociateFleetResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified fleet from the specified stack.</p>

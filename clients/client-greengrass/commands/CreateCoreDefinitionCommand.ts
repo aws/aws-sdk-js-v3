@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCoreDefinitionCommandInput = CreateCoreDefinitionRequest;
-export type CreateCoreDefinitionCommandOutput = CreateCoreDefinitionResponse & __MetadataBearer;
+export interface CreateCoreDefinitionCommandInput extends CreateCoreDefinitionRequest {}
+export interface CreateCoreDefinitionCommandOutput extends CreateCoreDefinitionResponse, __MetadataBearer {}
 
 /**
  * Creates a core definition. You may provide the initial version of the core definition now or use ''CreateCoreDefinitionVersion'' at a later time. Greengrass groups must each contain exactly one Greengrass core.

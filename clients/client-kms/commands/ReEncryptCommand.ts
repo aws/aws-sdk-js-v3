@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReEncryptCommandInput = ReEncryptRequest;
-export type ReEncryptCommandOutput = ReEncryptResponse & __MetadataBearer;
+export interface ReEncryptCommandInput extends ReEncryptRequest {}
+export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBearer {}
 
 /**
  * <p>Decrypts ciphertext and then reencrypts it entirely within AWS KMS. You can use this

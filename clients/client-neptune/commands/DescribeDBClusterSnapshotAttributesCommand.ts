@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDBClusterSnapshotAttributesCommandInput = DescribeDBClusterSnapshotAttributesMessage;
-export type DescribeDBClusterSnapshotAttributesCommandOutput = DescribeDBClusterSnapshotAttributesResult &
-  __MetadataBearer;
+export interface DescribeDBClusterSnapshotAttributesCommandInput extends DescribeDBClusterSnapshotAttributesMessage {}
+export interface DescribeDBClusterSnapshotAttributesCommandOutput
+  extends DescribeDBClusterSnapshotAttributesResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of DB cluster snapshot attribute names and values for a manual DB cluster

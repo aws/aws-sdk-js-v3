@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSchemasCommandInput = DescribeSchemasMessage;
-export type DescribeSchemasCommandOutput = DescribeSchemasResponse & __MetadataBearer;
+export interface DescribeSchemasCommandInput extends DescribeSchemasMessage {}
+export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the schema for the specified endpoint.</p>

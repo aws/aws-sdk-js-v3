@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableProactiveEngagementCommandInput = EnableProactiveEngagementRequest;
-export type EnableProactiveEngagementCommandOutput = EnableProactiveEngagementResponse & __MetadataBearer;
+export interface EnableProactiveEngagementCommandInput extends EnableProactiveEngagementRequest {}
+export interface EnableProactiveEngagementCommandOutput extends EnableProactiveEngagementResponse, __MetadataBearer {}
 
 /**
  * <p>Authorizes the DDoS Response Team (DRT) to use email and phone to notify contacts about escalations to the DRT and to initiate proactive customer support.</p>

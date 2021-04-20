@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CopyFpgaImageCommandInput = CopyFpgaImageRequest;
-export type CopyFpgaImageCommandOutput = CopyFpgaImageResult & __MetadataBearer;
+export interface CopyFpgaImageCommandInput extends CopyFpgaImageRequest {}
+export interface CopyFpgaImageCommandOutput extends CopyFpgaImageResult, __MetadataBearer {}
 
 /**
  * <p>Copies the specified Amazon FPGA Image (AFI) to the current Region.</p>

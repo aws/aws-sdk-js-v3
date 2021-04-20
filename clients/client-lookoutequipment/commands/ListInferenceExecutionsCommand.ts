@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInferenceExecutionsCommandInput = ListInferenceExecutionsRequest;
-export type ListInferenceExecutionsCommandOutput = ListInferenceExecutionsResponse & __MetadataBearer;
+export interface ListInferenceExecutionsCommandInput extends ListInferenceExecutionsRequest {}
+export interface ListInferenceExecutionsCommandOutput extends ListInferenceExecutionsResponse, __MetadataBearer {}
 
 /**
  * <p> Lists all inference executions that have been performed by the specified inference

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBotVersionCommandInput = CreateBotVersionRequest;
-export type CreateBotVersionCommandOutput = CreateBotVersionResponse & __MetadataBearer;
+export interface CreateBotVersionCommandInput extends CreateBotVersionRequest {}
+export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new version of the bot based on the <code>DRAFT</code>

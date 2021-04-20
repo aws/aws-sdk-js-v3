@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchDisableStandardsCommandInput = BatchDisableStandardsRequest;
-export type BatchDisableStandardsCommandOutput = BatchDisableStandardsResponse & __MetadataBearer;
+export interface BatchDisableStandardsCommandInput extends BatchDisableStandardsRequest {}
+export interface BatchDisableStandardsCommandOutput extends BatchDisableStandardsResponse, __MetadataBearer {}
 
 /**
  * <p>Disables the standards specified by the provided

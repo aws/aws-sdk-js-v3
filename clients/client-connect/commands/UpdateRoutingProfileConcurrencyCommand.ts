@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRoutingProfileConcurrencyCommandInput = UpdateRoutingProfileConcurrencyRequest;
-export type UpdateRoutingProfileConcurrencyCommandOutput = __MetadataBearer;
+export interface UpdateRoutingProfileConcurrencyCommandInput extends UpdateRoutingProfileConcurrencyRequest {}
+export interface UpdateRoutingProfileConcurrencyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing

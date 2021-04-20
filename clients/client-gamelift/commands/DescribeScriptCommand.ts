@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeScriptCommandInput = DescribeScriptInput;
-export type DescribeScriptCommandOutput = DescribeScriptOutput & __MetadataBearer;
+export interface DescribeScriptCommandInput extends DescribeScriptInput {}
+export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves properties for a Realtime script. </p>

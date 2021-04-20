@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTablesCommandInput = ListTablesRequest;
-export type ListTablesCommandOutput = ListTablesResponse & __MetadataBearer;
+export interface ListTablesCommandInput extends ListTablesRequest {}
+export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataBearer {}
 
 /**
  * <p>List the tables in a database. If neither <code>SchemaPattern</code> nor <code>TablePattern</code> are specified, then

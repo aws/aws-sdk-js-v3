@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListReceiptFiltersCommandInput = ListReceiptFiltersRequest;
-export type ListReceiptFiltersCommandOutput = ListReceiptFiltersResponse & __MetadataBearer;
+export interface ListReceiptFiltersCommandInput extends ListReceiptFiltersRequest {}
+export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the IP address filters associated with your AWS account in the current AWS

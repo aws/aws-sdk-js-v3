@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartPersonTrackingCommandInput = StartPersonTrackingRequest;
-export type StartPersonTrackingCommandOutput = StartPersonTrackingResponse & __MetadataBearer;
+export interface StartPersonTrackingCommandInput extends StartPersonTrackingRequest {}
+export interface StartPersonTrackingCommandOutput extends StartPersonTrackingResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the asynchronous tracking of a person's path in a stored video.</p>

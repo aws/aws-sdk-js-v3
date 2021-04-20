@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutDestinationCommandInput = PutDestinationRequest;
-export type PutDestinationCommandOutput = PutDestinationResponse & __MetadataBearer;
+export interface PutDestinationCommandInput extends PutDestinationRequest {}
+export interface PutDestinationCommandOutput extends PutDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates a destination. This operation is used only to create destinations for cross-account subscriptions.</p>

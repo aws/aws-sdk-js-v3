@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RotateSecretCommandInput = RotateSecretRequest;
-export type RotateSecretCommandOutput = RotateSecretResponse & __MetadataBearer;
+export interface RotateSecretCommandInput extends RotateSecretRequest {}
+export interface RotateSecretCommandOutput extends RotateSecretResponse, __MetadataBearer {}
 
 /**
  * <p>Configures and starts the asynchronous process of rotating this secret. If you include the

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteContainerCommandInput = DeleteContainerInput;
-export type DeleteContainerCommandOutput = DeleteContainerOutput & __MetadataBearer;
+export interface DeleteContainerCommandInput extends DeleteContainerInput {}
+export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified container. Before you make a <code>DeleteContainer</code>

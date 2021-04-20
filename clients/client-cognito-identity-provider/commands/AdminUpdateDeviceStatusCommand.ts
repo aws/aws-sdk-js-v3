@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminUpdateDeviceStatusCommandInput = AdminUpdateDeviceStatusRequest;
-export type AdminUpdateDeviceStatusCommandOutput = AdminUpdateDeviceStatusResponse & __MetadataBearer;
+export interface AdminUpdateDeviceStatusCommandInput extends AdminUpdateDeviceStatusRequest {}
+export interface AdminUpdateDeviceStatusCommandOutput extends AdminUpdateDeviceStatusResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the device status as an administrator.</p>

@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSigningCertificateCommandInput = GetSigningCertificateRequest;
-export type GetSigningCertificateCommandOutput = GetSigningCertificateResponse & __MetadataBearer;
+export interface GetSigningCertificateCommandInput extends GetSigningCertificateRequest {}
+export interface GetSigningCertificateCommandOutput extends GetSigningCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>This method takes a user pool ID, and returns the signing certificate.</p>

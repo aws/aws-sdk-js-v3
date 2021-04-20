@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTagOptionCommandInput = DescribeTagOptionInput;
-export type DescribeTagOptionCommandOutput = DescribeTagOptionOutput & __MetadataBearer;
+export interface DescribeTagOptionCommandInput extends DescribeTagOptionInput {}
+export interface DescribeTagOptionCommandOutput extends DescribeTagOptionOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about the specified TagOption.</p>

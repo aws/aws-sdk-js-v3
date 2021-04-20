@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeExportCommandInput = DescribeExportInput;
-export type DescribeExportCommandOutput = DescribeExportOutput & __MetadataBearer;
+export interface DescribeExportCommandInput extends DescribeExportInput {}
+export interface DescribeExportCommandOutput extends DescribeExportOutput, __MetadataBearer {}
 
 /**
  * <p>Describes an existing table export.</p>

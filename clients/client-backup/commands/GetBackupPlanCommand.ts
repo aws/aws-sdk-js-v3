@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBackupPlanCommandInput = GetBackupPlanInput;
-export type GetBackupPlanCommandOutput = GetBackupPlanOutput & __MetadataBearer;
+export interface GetBackupPlanCommandInput extends GetBackupPlanInput {}
+export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __MetadataBearer {}
 
 /**
  * <p>Returns <code>BackupPlan</code> details for the specified <code>BackupPlanId</code>. The

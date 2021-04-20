@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAppLaunchConfigurationCommandInput = PutAppLaunchConfigurationRequest;
-export type PutAppLaunchConfigurationCommandOutput = PutAppLaunchConfigurationResponse & __MetadataBearer;
+export interface PutAppLaunchConfigurationCommandInput extends PutAppLaunchConfigurationRequest {}
+export interface PutAppLaunchConfigurationCommandOutput extends PutAppLaunchConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates the launch configuration for the specified application.</p>

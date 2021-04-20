@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterDBProxyTargetsCommandInput = DeregisterDBProxyTargetsRequest;
-export type DeregisterDBProxyTargetsCommandOutput = DeregisterDBProxyTargetsResponse & __MetadataBearer;
+export interface DeregisterDBProxyTargetsCommandInput extends DeregisterDBProxyTargetsRequest {}
+export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxyTargetsResponse, __MetadataBearer {}
 
 /**
  * <p>Remove the association between one or more <code>DBProxyTarget</code> data structures and a <code>DBProxyTargetGroup</code>.</p>

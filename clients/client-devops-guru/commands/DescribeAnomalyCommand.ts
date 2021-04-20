@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAnomalyCommandInput = DescribeAnomalyRequest;
-export type DescribeAnomalyCommandOutput = DescribeAnomalyResponse & __MetadataBearer;
+export interface DescribeAnomalyCommandInput extends DescribeAnomalyRequest {}
+export interface DescribeAnomalyCommandOutput extends DescribeAnomalyResponse, __MetadataBearer {}
 
 /**
  * <p>

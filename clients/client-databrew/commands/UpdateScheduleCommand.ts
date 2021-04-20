@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateScheduleCommandInput = UpdateScheduleRequest;
-export type UpdateScheduleCommandOutput = UpdateScheduleResponse & __MetadataBearer;
+export interface UpdateScheduleCommandInput extends UpdateScheduleRequest {}
+export interface UpdateScheduleCommandOutput extends UpdateScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the definition of an existing DataBrew schedule.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetHostReservationPurchasePreviewCommandInput = GetHostReservationPurchasePreviewRequest;
-export type GetHostReservationPurchasePreviewCommandOutput = GetHostReservationPurchasePreviewResult & __MetadataBearer;
+export interface GetHostReservationPurchasePreviewCommandInput extends GetHostReservationPurchasePreviewRequest {}
+export interface GetHostReservationPurchasePreviewCommandOutput
+  extends GetHostReservationPurchasePreviewResult,
+    __MetadataBearer {}
 
 /**
  * <p>Preview a reservation purchase with configurations that match those of your

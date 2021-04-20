@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetRepositoriesCommandInput = BatchGetRepositoriesInput;
-export type BatchGetRepositoriesCommandOutput = BatchGetRepositoriesOutput & __MetadataBearer;
+export interface BatchGetRepositoriesCommandInput extends BatchGetRepositoriesInput {}
+export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about one or more repositories.</p>

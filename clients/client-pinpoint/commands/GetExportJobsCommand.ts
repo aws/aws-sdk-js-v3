@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetExportJobsCommandInput = GetExportJobsRequest;
-export type GetExportJobsCommandOutput = GetExportJobsResponse & __MetadataBearer;
+export interface GetExportJobsCommandInput extends GetExportJobsRequest {}
+export interface GetExportJobsCommandOutput extends GetExportJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the status and settings of all the export jobs for an application.</p>

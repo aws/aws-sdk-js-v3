@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDeploymentTargetCommandInput = GetDeploymentTargetInput;
-export type GetDeploymentTargetCommandOutput = GetDeploymentTargetOutput & __MetadataBearer;
+export interface GetDeploymentTargetCommandInput extends GetDeploymentTargetInput {}
+export interface GetDeploymentTargetCommandOutput extends GetDeploymentTargetOutput, __MetadataBearer {}
 
 /**
  * <p> Returns information about a deployment target. </p>

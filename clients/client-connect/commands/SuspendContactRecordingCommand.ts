@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SuspendContactRecordingCommandInput = SuspendContactRecordingRequest;
-export type SuspendContactRecordingCommandOutput = SuspendContactRecordingResponse & __MetadataBearer;
+export interface SuspendContactRecordingCommandInput extends SuspendContactRecordingRequest {}
+export interface SuspendContactRecordingCommandOutput extends SuspendContactRecordingResponse, __MetadataBearer {}
 
 /**
  * <p>When a contact is being recorded, this API suspends recording the call. For example, you

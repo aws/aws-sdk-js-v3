@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDatastoreCommandInput = DescribeDatastoreRequest;
-export type DescribeDatastoreCommandOutput = DescribeDatastoreResponse & __MetadataBearer;
+export interface DescribeDatastoreCommandInput extends DescribeDatastoreRequest {}
+export interface DescribeDatastoreCommandOutput extends DescribeDatastoreResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about a data store.</p>

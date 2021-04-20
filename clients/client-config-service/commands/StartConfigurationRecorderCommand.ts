@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartConfigurationRecorderCommandInput = StartConfigurationRecorderRequest;
-export type StartConfigurationRecorderCommandOutput = __MetadataBearer;
+export interface StartConfigurationRecorderCommandInput extends StartConfigurationRecorderRequest {}
+export interface StartConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Starts recording configurations of the AWS resources you have

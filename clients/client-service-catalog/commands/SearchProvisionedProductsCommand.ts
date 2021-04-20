@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchProvisionedProductsCommandInput = SearchProvisionedProductsInput;
-export type SearchProvisionedProductsCommandOutput = SearchProvisionedProductsOutput & __MetadataBearer;
+export interface SearchProvisionedProductsCommandInput extends SearchProvisionedProductsInput {}
+export interface SearchProvisionedProductsCommandOutput extends SearchProvisionedProductsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets information about the provisioned products that meet the specified criteria.</p>

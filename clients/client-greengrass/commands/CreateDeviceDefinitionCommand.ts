@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDeviceDefinitionCommandInput = CreateDeviceDefinitionRequest;
-export type CreateDeviceDefinitionCommandOutput = CreateDeviceDefinitionResponse & __MetadataBearer;
+export interface CreateDeviceDefinitionCommandInput extends CreateDeviceDefinitionRequest {}
+export interface CreateDeviceDefinitionCommandOutput extends CreateDeviceDefinitionResponse, __MetadataBearer {}
 
 /**
  * Creates a device definition. You may provide the initial version of the device definition now or use ''CreateDeviceDefinitionVersion'' at a later time.

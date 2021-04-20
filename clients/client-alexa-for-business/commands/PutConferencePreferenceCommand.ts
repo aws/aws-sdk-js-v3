@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutConferencePreferenceCommandInput = PutConferencePreferenceRequest;
-export type PutConferencePreferenceCommandOutput = PutConferencePreferenceResponse & __MetadataBearer;
+export interface PutConferencePreferenceCommandInput extends PutConferencePreferenceRequest {}
+export interface PutConferencePreferenceCommandOutput extends PutConferencePreferenceResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the conference preferences on a specific conference provider at the account

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateWorkflowCommandInput = UpdateWorkflowRequest;
-export type UpdateWorkflowCommandOutput = UpdateWorkflowResponse & __MetadataBearer;
+export interface UpdateWorkflowCommandInput extends UpdateWorkflowRequest {}
+export interface UpdateWorkflowCommandOutput extends UpdateWorkflowResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing workflow.</p>

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEventTypesCommandInput = ListEventTypesRequest;
-export type ListEventTypesCommandOutput = ListEventTypesResult & __MetadataBearer;
+export interface ListEventTypesCommandInput extends ListEventTypesRequest {}
+export interface ListEventTypesCommandOutput extends ListEventTypesResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about the event types available for configuring notifications.</p>

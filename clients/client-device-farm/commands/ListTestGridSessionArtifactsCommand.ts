@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTestGridSessionArtifactsCommandInput = ListTestGridSessionArtifactsRequest;
-export type ListTestGridSessionArtifactsCommandOutput = ListTestGridSessionArtifactsResult & __MetadataBearer;
+export interface ListTestGridSessionArtifactsCommandInput extends ListTestGridSessionArtifactsRequest {}
+export interface ListTestGridSessionArtifactsCommandOutput
+  extends ListTestGridSessionArtifactsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of artifacts created during the session.</p>

@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AdminSetUserPasswordCommandInput = AdminSetUserPasswordRequest;
-export type AdminSetUserPasswordCommandOutput = AdminSetUserPasswordResponse & __MetadataBearer;
+export interface AdminSetUserPasswordCommandInput extends AdminSetUserPasswordRequest {}
+export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the specified user's password in a user pool as an administrator. Works on any

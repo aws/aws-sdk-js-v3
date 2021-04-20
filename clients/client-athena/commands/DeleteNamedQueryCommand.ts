@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteNamedQueryCommandInput = DeleteNamedQueryInput;
-export type DeleteNamedQueryCommandOutput = DeleteNamedQueryOutput & __MetadataBearer;
+export interface DeleteNamedQueryCommandInput extends DeleteNamedQueryInput {}
+export interface DeleteNamedQueryCommandOutput extends DeleteNamedQueryOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the named query if you have access to the workgroup in which the query was

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProcessingJobsCommandInput = ListProcessingJobsRequest;
-export type ListProcessingJobsCommandOutput = ListProcessingJobsResponse & __MetadataBearer;
+export interface ListProcessingJobsCommandInput extends ListProcessingJobsRequest {}
+export interface ListProcessingJobsCommandOutput extends ListProcessingJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists processing jobs that satisfy various filters.</p>

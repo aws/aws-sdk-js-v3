@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBucketCommandInput = CreateBucketRequest;
-export type CreateBucketCommandOutput = CreateBucketOutput & __MetadataBearer;
+export interface CreateBucketCommandInput extends CreateBucketRequest {}
+export interface CreateBucketCommandOutput extends CreateBucketOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a new S3 bucket. To create a bucket, you must register with Amazon S3 and have a

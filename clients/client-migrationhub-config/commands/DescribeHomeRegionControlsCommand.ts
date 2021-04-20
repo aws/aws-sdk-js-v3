@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeHomeRegionControlsCommandInput = DescribeHomeRegionControlsRequest;
-export type DescribeHomeRegionControlsCommandOutput = DescribeHomeRegionControlsResult & __MetadataBearer;
+export interface DescribeHomeRegionControlsCommandInput extends DescribeHomeRegionControlsRequest {}
+export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeRegionControlsResult, __MetadataBearer {}
 
 /**
  * <p>This API permits filtering on the <code>ControlId</code> and <code>HomeRegion</code>

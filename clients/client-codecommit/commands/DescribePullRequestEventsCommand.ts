@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePullRequestEventsCommandInput = DescribePullRequestEventsInput;
-export type DescribePullRequestEventsCommandOutput = DescribePullRequestEventsOutput & __MetadataBearer;
+export interface DescribePullRequestEventsCommandInput extends DescribePullRequestEventsInput {}
+export interface DescribePullRequestEventsCommandOutput extends DescribePullRequestEventsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about one or more pull request events.</p>

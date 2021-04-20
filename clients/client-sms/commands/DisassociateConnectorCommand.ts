@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateConnectorCommandInput = DisassociateConnectorRequest;
-export type DisassociateConnectorCommandOutput = DisassociateConnectorResponse & __MetadataBearer;
+export interface DisassociateConnectorCommandInput extends DisassociateConnectorRequest {}
+export interface DisassociateConnectorCommandOutput extends DisassociateConnectorResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified connector from AWS SMS.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBudgetCommandInput = UpdateBudgetRequest;
-export type UpdateBudgetCommandOutput = UpdateBudgetResponse & __MetadataBearer;
+export interface UpdateBudgetCommandInput extends UpdateBudgetRequest {}
+export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a budget. You can change every part of a budget except for the <code>budgetName</code> and the <code>calculatedSpend</code>. When you modify a budget, the <code>calculatedSpend</code> drops to zero until AWS has new usage data to use for forecasting.</p>

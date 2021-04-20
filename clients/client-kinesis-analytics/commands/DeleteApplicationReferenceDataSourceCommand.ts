@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteApplicationReferenceDataSourceCommandInput = DeleteApplicationReferenceDataSourceRequest;
-export type DeleteApplicationReferenceDataSourceCommandOutput = DeleteApplicationReferenceDataSourceResponse &
-  __MetadataBearer;
+export interface DeleteApplicationReferenceDataSourceCommandInput extends DeleteApplicationReferenceDataSourceRequest {}
+export interface DeleteApplicationReferenceDataSourceCommandOutput
+  extends DeleteApplicationReferenceDataSourceResponse,
+    __MetadataBearer {}
 
 /**
  * <note>

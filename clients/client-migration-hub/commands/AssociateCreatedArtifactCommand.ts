@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateCreatedArtifactCommandInput = AssociateCreatedArtifactRequest;
-export type AssociateCreatedArtifactCommandOutput = AssociateCreatedArtifactResult & __MetadataBearer;
+export interface AssociateCreatedArtifactCommandInput extends AssociateCreatedArtifactRequest {}
+export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedArtifactResult, __MetadataBearer {}
 
 /**
  * <p>Associates a created artifact of an AWS cloud resource, the target receiving the

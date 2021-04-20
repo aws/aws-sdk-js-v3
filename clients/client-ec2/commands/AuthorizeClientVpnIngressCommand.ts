@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AuthorizeClientVpnIngressCommandInput = AuthorizeClientVpnIngressRequest;
-export type AuthorizeClientVpnIngressCommandOutput = AuthorizeClientVpnIngressResult & __MetadataBearer;
+export interface AuthorizeClientVpnIngressCommandInput extends AuthorizeClientVpnIngressRequest {}
+export interface AuthorizeClientVpnIngressCommandOutput extends AuthorizeClientVpnIngressResult, __MetadataBearer {}
 
 /**
  * <p>Adds an ingress authorization rule to a Client VPN endpoint. Ingress authorization rules act as

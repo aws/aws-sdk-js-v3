@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ExecuteCommandCommandInput = ExecuteCommandRequest;
-export type ExecuteCommandCommandOutput = ExecuteCommandResponse & __MetadataBearer;
+export interface ExecuteCommandCommandInput extends ExecuteCommandRequest {}
+export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __MetadataBearer {}
 
 /**
  * <p>Runs a command remotely on a container within a task.</p>

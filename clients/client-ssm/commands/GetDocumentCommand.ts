@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDocumentCommandInput = GetDocumentRequest;
-export type GetDocumentCommandOutput = GetDocumentResult & __MetadataBearer;
+export interface GetDocumentCommandInput extends GetDocumentRequest {}
+export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataBearer {}
 
 /**
  * <p>Gets the contents of the specified Systems Manager document.</p>

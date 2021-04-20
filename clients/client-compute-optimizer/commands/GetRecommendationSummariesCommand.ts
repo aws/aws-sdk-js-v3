@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRecommendationSummariesCommandInput = GetRecommendationSummariesRequest;
-export type GetRecommendationSummariesCommandOutput = GetRecommendationSummariesResponse & __MetadataBearer;
+export interface GetRecommendationSummariesCommandInput extends GetRecommendationSummariesRequest {}
+export interface GetRecommendationSummariesCommandOutput extends GetRecommendationSummariesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the optimization findings for an account.</p>

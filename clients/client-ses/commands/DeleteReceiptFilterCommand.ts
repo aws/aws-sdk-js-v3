@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteReceiptFilterCommandInput = DeleteReceiptFilterRequest;
-export type DeleteReceiptFilterCommandOutput = DeleteReceiptFilterResponse & __MetadataBearer;
+export interface DeleteReceiptFilterCommandInput extends DeleteReceiptFilterRequest {}
+export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified IP address filter.</p>

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConfigurationSetEventDestinationsCommandInput = GetConfigurationSetEventDestinationsRequest;
-export type GetConfigurationSetEventDestinationsCommandOutput = GetConfigurationSetEventDestinationsResponse &
-  __MetadataBearer;
+export interface GetConfigurationSetEventDestinationsCommandInput extends GetConfigurationSetEventDestinationsRequest {}
+export interface GetConfigurationSetEventDestinationsCommandOutput
+  extends GetConfigurationSetEventDestinationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieve a list of event destinations that are associated with a configuration

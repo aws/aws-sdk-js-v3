@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteContainerImageCommandInput = DeleteContainerImageRequest;
-export type DeleteContainerImageCommandOutput = DeleteContainerImageResult & __MetadataBearer;
+export interface DeleteContainerImageCommandInput extends DeleteContainerImageRequest {}
+export interface DeleteContainerImageCommandOutput extends DeleteContainerImageResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a container image that is registered to your Amazon Lightsail container

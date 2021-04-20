@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AddPermissionCommandInput = AddPermissionInput;
-export type AddPermissionCommandOutput = __MetadataBearer;
+export interface AddPermissionCommandInput extends AddPermissionInput {}
+export interface AddPermissionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds a statement to a topic's access control policy, granting access for the specified

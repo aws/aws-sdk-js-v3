@@ -24,9 +24,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCustomRoutingAcceleratorAttributesCommandInput = DescribeCustomRoutingAcceleratorAttributesRequest;
-export type DescribeCustomRoutingAcceleratorAttributesCommandOutput = DescribeCustomRoutingAcceleratorAttributesResponse &
-  __MetadataBearer;
+export interface DescribeCustomRoutingAcceleratorAttributesCommandInput
+  extends DescribeCustomRoutingAcceleratorAttributesRequest {}
+export interface DescribeCustomRoutingAcceleratorAttributesCommandOutput
+  extends DescribeCustomRoutingAcceleratorAttributesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describe the attributes of a custom routing accelerator. </p>

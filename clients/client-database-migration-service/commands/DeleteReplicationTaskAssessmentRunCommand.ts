@@ -24,9 +24,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteReplicationTaskAssessmentRunCommandInput = DeleteReplicationTaskAssessmentRunMessage;
-export type DeleteReplicationTaskAssessmentRunCommandOutput = DeleteReplicationTaskAssessmentRunResponse &
-  __MetadataBearer;
+export interface DeleteReplicationTaskAssessmentRunCommandInput extends DeleteReplicationTaskAssessmentRunMessage {}
+export interface DeleteReplicationTaskAssessmentRunCommandOutput
+  extends DeleteReplicationTaskAssessmentRunResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes the record of a single premigration assessment run.</p>

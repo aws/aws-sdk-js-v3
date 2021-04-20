@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDataSourceCommandInput = GetDataSourceRequest;
-export type GetDataSourceCommandOutput = GetDataSourceResponse & __MetadataBearer;
+export interface GetDataSourceCommandInput extends GetDataSourceRequest {}
+export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a <code>DataSource</code> object.</p>

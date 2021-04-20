@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBlueprintsCommandInput = GetBlueprintsRequest;
-export type GetBlueprintsCommandOutput = GetBlueprintsResult & __MetadataBearer;
+export interface GetBlueprintsCommandInput extends GetBlueprintsRequest {}
+export interface GetBlueprintsCommandOutput extends GetBlueprintsResult, __MetadataBearer {}
 
 /**
  * <p>Returns the list of available instance images, or <i>blueprints</i>. You can

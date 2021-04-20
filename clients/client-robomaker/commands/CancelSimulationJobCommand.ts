@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelSimulationJobCommandInput = CancelSimulationJobRequest;
-export type CancelSimulationJobCommandOutput = CancelSimulationJobResponse & __MetadataBearer;
+export interface CancelSimulationJobCommandInput extends CancelSimulationJobRequest {}
+export interface CancelSimulationJobCommandOutput extends CancelSimulationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels the specified simulation job.</p>

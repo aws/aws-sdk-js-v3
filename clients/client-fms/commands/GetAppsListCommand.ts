@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAppsListCommandInput = GetAppsListRequest;
-export type GetAppsListCommandOutput = GetAppsListResponse & __MetadataBearer;
+export interface GetAppsListCommandInput extends GetAppsListRequest {}
+export interface GetAppsListCommandOutput extends GetAppsListResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the specified AWS Firewall Manager applications list.</p>

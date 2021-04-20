@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketStatisticsCommandInput = GetBucketStatisticsRequest;
-export type GetBucketStatisticsCommandOutput = GetBucketStatisticsResponse & __MetadataBearer;
+export interface GetBucketStatisticsCommandInput extends GetBucketStatisticsRequest {}
+export interface GetBucketStatisticsCommandOutput extends GetBucketStatisticsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves (queries) aggregated statistical data for all the S3 buckets that Amazon Macie monitors and analyzes.</p>

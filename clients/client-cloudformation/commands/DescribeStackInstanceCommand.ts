@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStackInstanceCommandInput = DescribeStackInstanceInput;
-export type DescribeStackInstanceCommandOutput = DescribeStackInstanceOutput & __MetadataBearer;
+export interface DescribeStackInstanceCommandInput extends DescribeStackInstanceInput {}
+export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanceOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the stack instance that's associated with the specified stack set, AWS

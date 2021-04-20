@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSSHPublicKeysCommandInput = ListSSHPublicKeysRequest;
-export type ListSSHPublicKeysCommandOutput = ListSSHPublicKeysResponse & __MetadataBearer;
+export interface ListSSHPublicKeysCommandInput extends ListSSHPublicKeysRequest {}
+export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the SSH public keys associated with the specified IAM

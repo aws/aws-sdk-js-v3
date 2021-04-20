@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateConfigurationSetTrackingOptionsCommandInput = UpdateConfigurationSetTrackingOptionsRequest;
-export type UpdateConfigurationSetTrackingOptionsCommandOutput = UpdateConfigurationSetTrackingOptionsResponse &
-  __MetadataBearer;
+export interface UpdateConfigurationSetTrackingOptionsCommandInput
+  extends UpdateConfigurationSetTrackingOptionsRequest {}
+export interface UpdateConfigurationSetTrackingOptionsCommandOutput
+  extends UpdateConfigurationSetTrackingOptionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies an association between a configuration set and a custom domain for open and

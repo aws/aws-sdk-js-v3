@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartDocumentTextDetectionCommandInput = StartDocumentTextDetectionRequest;
-export type StartDocumentTextDetectionCommandOutput = StartDocumentTextDetectionResponse & __MetadataBearer;
+export interface StartDocumentTextDetectionCommandInput extends StartDocumentTextDetectionRequest {}
+export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTextDetectionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the asynchronous detection of text in a document. Amazon Textract can detect lines of

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchStopCommandInput = BatchStopRequest;
-export type BatchStopCommandOutput = BatchStopResponse & __MetadataBearer;
+export interface BatchStopCommandInput extends BatchStopRequest {}
+export interface BatchStopCommandOutput extends BatchStopResponse, __MetadataBearer {}
 
 /**
  * Stops running resources

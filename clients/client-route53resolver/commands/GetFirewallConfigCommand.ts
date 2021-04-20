@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetFirewallConfigCommandInput = GetFirewallConfigRequest;
-export type GetFirewallConfigCommandOutput = GetFirewallConfigResponse & __MetadataBearer;
+export interface GetFirewallConfigCommandInput extends GetFirewallConfigRequest {}
+export interface GetFirewallConfigCommandOutput extends GetFirewallConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the configuration of the firewall behavior provided by DNS Firewall for a single Amazon virtual private cloud (VPC). </p>

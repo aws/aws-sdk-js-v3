@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVirtualRouterCommandInput = DeleteVirtualRouterInput;
-export type DeleteVirtualRouterCommandOutput = DeleteVirtualRouterOutput & __MetadataBearer;
+export interface DeleteVirtualRouterCommandInput extends DeleteVirtualRouterInput {}
+export interface DeleteVirtualRouterCommandOutput extends DeleteVirtualRouterOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing virtual router.</p>

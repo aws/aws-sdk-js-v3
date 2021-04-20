@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAddressCommandInput = DescribeAddressRequest;
-export type DescribeAddressCommandOutput = DescribeAddressResult & __MetadataBearer;
+export interface DescribeAddressCommandInput extends DescribeAddressRequest {}
+export interface DescribeAddressCommandOutput extends DescribeAddressResult, __MetadataBearer {}
 
 /**
  * <p>Takes an <code>AddressId</code> and returns specific details about that address in the

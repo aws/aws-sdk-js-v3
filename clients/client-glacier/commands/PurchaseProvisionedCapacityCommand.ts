@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PurchaseProvisionedCapacityCommandInput = PurchaseProvisionedCapacityInput;
-export type PurchaseProvisionedCapacityCommandOutput = PurchaseProvisionedCapacityOutput & __MetadataBearer;
+export interface PurchaseProvisionedCapacityCommandInput extends PurchaseProvisionedCapacityInput {}
+export interface PurchaseProvisionedCapacityCommandOutput extends PurchaseProvisionedCapacityOutput, __MetadataBearer {}
 
 /**
  * <p>This operation purchases a provisioned capacity unit for an AWS account. </p>

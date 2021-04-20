@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteWorkerBlockCommandInput = DeleteWorkerBlockRequest;
-export type DeleteWorkerBlockCommandOutput = DeleteWorkerBlockResponse & __MetadataBearer;
+export interface DeleteWorkerBlockCommandInput extends DeleteWorkerBlockRequest {}
+export interface DeleteWorkerBlockCommandOutput extends DeleteWorkerBlockResponse, __MetadataBearer {}
 
 /**
  * <p>The <code>DeleteWorkerBlock</code> operation allows you to reinstate a blocked Worker to work on your HITs. This operation reverses the effects of the CreateWorkerBlock operation. You need the Worker ID to use this operation. If the Worker ID is missing or invalid, this operation fails and returns the message “WorkerId is invalid.” If the specified Worker is not blocked, this operation returns successfully.</p>

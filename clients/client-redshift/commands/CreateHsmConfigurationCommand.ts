@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateHsmConfigurationCommandInput = CreateHsmConfigurationMessage;
-export type CreateHsmConfigurationCommandOutput = CreateHsmConfigurationResult & __MetadataBearer;
+export interface CreateHsmConfigurationCommandInput extends CreateHsmConfigurationMessage {}
+export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurationResult, __MetadataBearer {}
 
 /**
  * <p>Creates an HSM configuration that contains the information required by an Amazon Redshift

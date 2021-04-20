@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CompleteMultipartUploadCommandInput = CompleteMultipartUploadInput;
-export type CompleteMultipartUploadCommandOutput = ArchiveCreationOutput & __MetadataBearer;
+export interface CompleteMultipartUploadCommandInput extends CompleteMultipartUploadInput {}
+export interface CompleteMultipartUploadCommandOutput extends ArchiveCreationOutput, __MetadataBearer {}
 
 /**
  * <p>You call this operation to inform Amazon S3 Glacier (Glacier) that all the archive parts have been

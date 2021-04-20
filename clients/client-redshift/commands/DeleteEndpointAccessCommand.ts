@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteEndpointAccessCommandInput = DeleteEndpointAccessMessage;
-export type DeleteEndpointAccessCommandOutput = EndpointAccess & __MetadataBearer;
+export interface DeleteEndpointAccessCommandInput extends DeleteEndpointAccessMessage {}
+export interface DeleteEndpointAccessCommandOutput extends EndpointAccess, __MetadataBearer {}
 
 /**
  * <p>Deletes a Redshift-managed VPC endpoint.</p>

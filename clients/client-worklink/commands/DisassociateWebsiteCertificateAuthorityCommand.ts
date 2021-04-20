@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateWebsiteCertificateAuthorityCommandInput = DisassociateWebsiteCertificateAuthorityRequest;
-export type DisassociateWebsiteCertificateAuthorityCommandOutput = DisassociateWebsiteCertificateAuthorityResponse &
-  __MetadataBearer;
+export interface DisassociateWebsiteCertificateAuthorityCommandInput
+  extends DisassociateWebsiteCertificateAuthorityRequest {}
+export interface DisassociateWebsiteCertificateAuthorityCommandOutput
+  extends DisassociateWebsiteCertificateAuthorityResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Removes a certificate authority (CA).</p>

@@ -16,8 +16,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableHealthServiceAccessForOrganizationCommandInput = {};
-export type EnableHealthServiceAccessForOrganizationCommandOutput = __MetadataBearer;
+export interface EnableHealthServiceAccessForOrganizationCommandInput {}
+export interface EnableHealthServiceAccessForOrganizationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables AWS Health to work with AWS Organizations. You can use the organizational view feature

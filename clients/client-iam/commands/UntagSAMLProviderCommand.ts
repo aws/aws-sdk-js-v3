@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagSAMLProviderCommandInput = UntagSAMLProviderRequest;
-export type UntagSAMLProviderCommandOutput = __MetadataBearer;
+export interface UntagSAMLProviderCommandInput extends UntagSAMLProviderRequest {}
+export interface UntagSAMLProviderCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified tags from the specified Security Assertion Markup Language (SAML)

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateTrackerConsumerCommandInput = AssociateTrackerConsumerRequest;
-export type AssociateTrackerConsumerCommandOutput = AssociateTrackerConsumerResponse & __MetadataBearer;
+export interface AssociateTrackerConsumerCommandInput extends AssociateTrackerConsumerRequest {}
+export interface AssociateTrackerConsumerCommandOutput extends AssociateTrackerConsumerResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an association between a geofence collection and a tracker resource. This

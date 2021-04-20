@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateWebACLCommandInput = CreateWebACLRequest;
-export type CreateWebACLCommandOutput = CreateWebACLResponse & __MetadataBearer;
+export interface CreateWebACLCommandInput extends CreateWebACLRequest {}
+export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a <a>WebACL</a> per the specifications provided.</p>

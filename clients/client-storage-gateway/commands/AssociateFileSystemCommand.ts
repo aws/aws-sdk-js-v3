@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateFileSystemCommandInput = AssociateFileSystemInput;
-export type AssociateFileSystemCommandOutput = AssociateFileSystemOutput & __MetadataBearer;
+export interface AssociateFileSystemCommandInput extends AssociateFileSystemInput {}
+export interface AssociateFileSystemCommandOutput extends AssociateFileSystemOutput, __MetadataBearer {}
 
 /**
  * <p>Associate an Amazon FSx file system with the Amazon FSx file gateway. After the

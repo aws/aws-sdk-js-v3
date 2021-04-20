@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutDetectorCommandInput = PutDetectorRequest;
-export type PutDetectorCommandOutput = PutDetectorResult & __MetadataBearer;
+export interface PutDetectorCommandInput extends PutDetectorRequest {}
+export interface PutDetectorCommandOutput extends PutDetectorResult, __MetadataBearer {}
 
 /**
  * <p>Creates or updates a detector. </p>

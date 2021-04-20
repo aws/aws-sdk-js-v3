@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetGcmChannelCommandInput = GetGcmChannelRequest;
-export type GetGcmChannelCommandOutput = GetGcmChannelResponse & __MetadataBearer;
+export interface GetGcmChannelCommandInput extends GetGcmChannelRequest {}
+export interface GetGcmChannelCommandOutput extends GetGcmChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about the status and settings of the GCM channel for an application.</p>

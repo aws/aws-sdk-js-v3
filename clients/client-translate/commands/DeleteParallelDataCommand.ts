@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteParallelDataCommandInput = DeleteParallelDataRequest;
-export type DeleteParallelDataCommandOutput = DeleteParallelDataResponse & __MetadataBearer;
+export interface DeleteParallelDataCommandInput extends DeleteParallelDataRequest {}
+export interface DeleteParallelDataCommandOutput extends DeleteParallelDataResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a parallel data resource in Amazon Translate.</p>

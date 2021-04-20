@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateWorkloadShareCommandInput = CreateWorkloadShareInput;
-export type CreateWorkloadShareCommandOutput = CreateWorkloadShareOutput & __MetadataBearer;
+export interface CreateWorkloadShareCommandInput extends CreateWorkloadShareInput {}
+export interface CreateWorkloadShareCommandOutput extends CreateWorkloadShareOutput, __MetadataBearer {}
 
 /**
  * <p>Create a workload share.</p>

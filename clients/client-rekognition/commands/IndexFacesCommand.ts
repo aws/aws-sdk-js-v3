@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type IndexFacesCommandInput = IndexFacesRequest;
-export type IndexFacesCommandOutput = IndexFacesResponse & __MetadataBearer;
+export interface IndexFacesCommandInput extends IndexFacesRequest {}
+export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataBearer {}
 
 /**
  * <p>Detects faces in the input image and adds them to the specified collection. </p>

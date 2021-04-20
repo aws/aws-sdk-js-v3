@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEffectivePoliciesCommandInput = GetEffectivePoliciesRequest;
-export type GetEffectivePoliciesCommandOutput = GetEffectivePoliciesResponse & __MetadataBearer;
+export interface GetEffectivePoliciesCommandInput extends GetEffectivePoliciesRequest {}
+export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of the policies that have an effect on the authorization behavior of the

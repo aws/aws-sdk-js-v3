@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterDevicesCommandInput = RegisterDevicesRequest;
-export type RegisterDevicesCommandOutput = __MetadataBearer;
+export interface RegisterDevicesCommandInput extends RegisterDevicesRequest {}
+export interface RegisterDevicesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Register devices.</p>

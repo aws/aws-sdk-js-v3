@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateUserSettingsCommandInput = UpdateUserSettingsRequest;
-export type UpdateUserSettingsCommandOutput = __MetadataBearer;
+export interface UpdateUserSettingsCommandInput extends UpdateUserSettingsRequest {}
+export interface UpdateUserSettingsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the settings for the specified user, such as phone number settings.</p>

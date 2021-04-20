@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReorderReceiptRuleSetCommandInput = ReorderReceiptRuleSetRequest;
-export type ReorderReceiptRuleSetCommandOutput = ReorderReceiptRuleSetResponse & __MetadataBearer;
+export interface ReorderReceiptRuleSetCommandInput extends ReorderReceiptRuleSetRequest {}
+export interface ReorderReceiptRuleSetCommandOutput extends ReorderReceiptRuleSetResponse, __MetadataBearer {}
 
 /**
  * <p>Reorders the receipt rules within a receipt rule set.</p>

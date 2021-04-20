@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type InvokeCommandInput = InvocationRequest;
-export type InvokeCommandOutput = InvocationResponse & __MetadataBearer;
+export interface InvokeCommandInput extends InvocationRequest {}
+export interface InvokeCommandOutput extends InvocationResponse, __MetadataBearer {}
 
 /**
  * <p>Invokes a Lambda function. You can invoke a function synchronously (and wait for the response), or

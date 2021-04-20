@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeProvisioningTemplateCommandInput = DescribeProvisioningTemplateRequest;
-export type DescribeProvisioningTemplateCommandOutput = DescribeProvisioningTemplateResponse & __MetadataBearer;
+export interface DescribeProvisioningTemplateCommandInput extends DescribeProvisioningTemplateRequest {}
+export interface DescribeProvisioningTemplateCommandOutput
+  extends DescribeProvisioningTemplateResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns information about a fleet provisioning template.</p>

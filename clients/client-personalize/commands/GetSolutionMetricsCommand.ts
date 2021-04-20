@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSolutionMetricsCommandInput = GetSolutionMetricsRequest;
-export type GetSolutionMetricsCommandOutput = GetSolutionMetricsResponse & __MetadataBearer;
+export interface GetSolutionMetricsCommandInput extends GetSolutionMetricsRequest {}
+export interface GetSolutionMetricsCommandOutput extends GetSolutionMetricsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the metrics for the specified solution version.</p>

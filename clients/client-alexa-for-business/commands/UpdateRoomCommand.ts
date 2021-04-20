@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRoomCommandInput = UpdateRoomRequest;
-export type UpdateRoomCommandOutput = UpdateRoomResponse & __MetadataBearer;
+export interface UpdateRoomCommandInput extends UpdateRoomRequest {}
+export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataBearer {}
 
 /**
  * <p>Updates room details by room ARN.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRolePolicyCommandInput = GetRolePolicyRequest;
-export type GetRolePolicyCommandOutput = GetRolePolicyResponse & __MetadataBearer;
+export interface GetRolePolicyCommandInput extends GetRolePolicyRequest {}
+export interface GetRolePolicyCommandOutput extends GetRolePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the specified inline policy document that is embedded with the specified

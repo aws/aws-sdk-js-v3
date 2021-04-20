@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateShardCountCommandInput = UpdateShardCountInput;
-export type UpdateShardCountCommandOutput = UpdateShardCountOutput & __MetadataBearer;
+export interface UpdateShardCountCommandInput extends UpdateShardCountInput {}
+export interface UpdateShardCountCommandOutput extends UpdateShardCountOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the shard count of the specified stream to the specified number of

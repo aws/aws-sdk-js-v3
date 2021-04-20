@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAggregateComplianceByConformancePacksCommandInput = DescribeAggregateComplianceByConformancePacksRequest;
-export type DescribeAggregateComplianceByConformancePacksCommandOutput = DescribeAggregateComplianceByConformancePacksResponse &
-  __MetadataBearer;
+export interface DescribeAggregateComplianceByConformancePacksCommandInput
+  extends DescribeAggregateComplianceByConformancePacksRequest {}
+export interface DescribeAggregateComplianceByConformancePacksCommandOutput
+  extends DescribeAggregateComplianceByConformancePacksResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of the conformance packs and their associated compliance status with the count of compliant and noncompliant AWS Config rules within each conformance pack.

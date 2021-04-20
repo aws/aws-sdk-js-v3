@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFaqCommandInput = DeleteFaqRequest;
-export type DeleteFaqCommandOutput = __MetadataBearer;
+export interface DeleteFaqCommandInput extends DeleteFaqRequest {}
+export interface DeleteFaqCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes an FAQ from an index.</p>

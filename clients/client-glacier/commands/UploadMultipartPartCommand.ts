@@ -17,10 +17,17 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UploadMultipartPartCommandInput = Omit<UploadMultipartPartInput, "body"> & {
+type UploadMultipartPartCommandInputType = Omit<UploadMultipartPartInput, "body"> & {
+  /**
+   * For *`UploadMultipartPartInput["body"]`*, see {@link UploadMultipartPartInput.body}.
+   */
   body?: UploadMultipartPartInput["body"] | string | Uint8Array | Buffer;
 };
-export type UploadMultipartPartCommandOutput = UploadMultipartPartOutput & __MetadataBearer;
+/**
+ * This interface extends from `UploadMultipartPartInput` interface. There are more parameters than `body` defined in {@link UploadMultipartPartInput}
+ */
+export interface UploadMultipartPartCommandInput extends UploadMultipartPartCommandInputType {}
+export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOutput, __MetadataBearer {}
 
 /**
  * <p>This operation uploads a part of an archive. You can upload archive parts in any

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TerminateEnvironmentCommandInput = TerminateEnvironmentMessage;
-export type TerminateEnvironmentCommandOutput = EnvironmentDescription & __MetadataBearer;
+export interface TerminateEnvironmentCommandInput extends TerminateEnvironmentMessage {}
+export interface TerminateEnvironmentCommandOutput extends EnvironmentDescription, __MetadataBearer {}
 
 /**
  * <p>Terminates the specified environment.</p>

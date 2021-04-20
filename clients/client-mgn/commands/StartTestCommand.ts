@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartTestCommandInput = StartTestRequest;
-export type StartTestCommandOutput = StartTestResponse & __MetadataBearer;
+export interface StartTestCommandInput extends StartTestRequest {}
+export interface StartTestCommandOutput extends StartTestResponse, __MetadataBearer {}
 
 /**
  * <p>Lauches a Test Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartTest and changes the SourceServer.lifeCycle.state property to TESTING.</p>

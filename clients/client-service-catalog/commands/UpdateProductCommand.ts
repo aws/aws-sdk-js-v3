@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateProductCommandInput = UpdateProductInput;
-export type UpdateProductCommandOutput = UpdateProductOutput & __MetadataBearer;
+export interface UpdateProductCommandInput extends UpdateProductInput {}
+export interface UpdateProductCommandOutput extends UpdateProductOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the specified product.</p>

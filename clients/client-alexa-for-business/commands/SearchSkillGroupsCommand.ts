@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchSkillGroupsCommandInput = SearchSkillGroupsRequest;
-export type SearchSkillGroupsCommandOutput = SearchSkillGroupsResponse & __MetadataBearer;
+export interface SearchSkillGroupsCommandInput extends SearchSkillGroupsRequest {}
+export interface SearchSkillGroupsCommandOutput extends SearchSkillGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Searches skill groups and lists the ones that meet a set of filter and sort

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateThingGroupCommandInput = UpdateThingGroupRequest;
-export type UpdateThingGroupCommandOutput = UpdateThingGroupResponse & __MetadataBearer;
+export interface UpdateThingGroupCommandInput extends UpdateThingGroupRequest {}
+export interface UpdateThingGroupCommandOutput extends UpdateThingGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Update a thing group.</p>

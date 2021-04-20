@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRouteResponseCommandInput = UpdateRouteResponseRequest;
-export type UpdateRouteResponseCommandOutput = UpdateRouteResponseResponse & __MetadataBearer;
+export interface UpdateRouteResponseCommandInput extends UpdateRouteResponseRequest {}
+export interface UpdateRouteResponseCommandOutput extends UpdateRouteResponseResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a RouteResponse.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelReplayCommandInput = CancelReplayRequest;
-export type CancelReplayCommandOutput = CancelReplayResponse & __MetadataBearer;
+export interface CancelReplayCommandInput extends CancelReplayRequest {}
+export interface CancelReplayCommandOutput extends CancelReplayResponse, __MetadataBearer {}
 
 /**
  * <p>Cancels the specified replay.</p>

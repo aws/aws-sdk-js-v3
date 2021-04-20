@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RetryBuildCommandInput = RetryBuildInput;
-export type RetryBuildCommandOutput = RetryBuildOutput & __MetadataBearer;
+export interface RetryBuildCommandInput extends RetryBuildInput {}
+export interface RetryBuildCommandOutput extends RetryBuildOutput, __MetadataBearer {}
 
 /**
  * <p>Restarts a build.</p>

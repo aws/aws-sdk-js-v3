@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopInstanceCommandInput = StopInstanceRequest;
-export type StopInstanceCommandOutput = StopInstanceResult & __MetadataBearer;
+export interface StopInstanceCommandInput extends StopInstanceRequest {}
+export interface StopInstanceCommandOutput extends StopInstanceResult, __MetadataBearer {}
 
 /**
  * <p>Stops a specific Amazon Lightsail instance that is currently running.</p>

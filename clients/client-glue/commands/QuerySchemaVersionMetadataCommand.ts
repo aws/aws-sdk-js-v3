@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type QuerySchemaVersionMetadataCommandInput = QuerySchemaVersionMetadataInput;
-export type QuerySchemaVersionMetadataCommandOutput = QuerySchemaVersionMetadataResponse & __MetadataBearer;
+export interface QuerySchemaVersionMetadataCommandInput extends QuerySchemaVersionMetadataInput {}
+export interface QuerySchemaVersionMetadataCommandOutput extends QuerySchemaVersionMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Queries for the schema version metadata information. </p>

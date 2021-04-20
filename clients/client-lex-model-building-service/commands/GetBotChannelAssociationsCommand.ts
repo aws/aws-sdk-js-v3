@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBotChannelAssociationsCommandInput = GetBotChannelAssociationsRequest;
-export type GetBotChannelAssociationsCommandOutput = GetBotChannelAssociationsResponse & __MetadataBearer;
+export interface GetBotChannelAssociationsCommandInput extends GetBotChannelAssociationsRequest {}
+export interface GetBotChannelAssociationsCommandOutput extends GetBotChannelAssociationsResponse, __MetadataBearer {}
 
 /**
  * <p> Returns a list of all of the channels associated with the

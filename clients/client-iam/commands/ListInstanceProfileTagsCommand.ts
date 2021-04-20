@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListInstanceProfileTagsCommandInput = ListInstanceProfileTagsRequest;
-export type ListInstanceProfileTagsCommandOutput = ListInstanceProfileTagsResponse & __MetadataBearer;
+export interface ListInstanceProfileTagsCommandInput extends ListInstanceProfileTagsRequest {}
+export interface ListInstanceProfileTagsCommandOutput extends ListInstanceProfileTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the tags that are attached to the specified IAM instance profile. The returned list of tags is sorted by tag key.

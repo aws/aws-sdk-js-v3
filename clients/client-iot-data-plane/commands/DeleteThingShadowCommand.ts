@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteThingShadowCommandInput = DeleteThingShadowRequest;
-export type DeleteThingShadowCommandOutput = DeleteThingShadowResponse & __MetadataBearer;
+export interface DeleteThingShadowCommandInput extends DeleteThingShadowRequest {}
+export interface DeleteThingShadowCommandOutput extends DeleteThingShadowResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the shadow for the specified thing.</p>

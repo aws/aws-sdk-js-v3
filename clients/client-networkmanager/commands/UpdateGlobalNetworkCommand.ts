@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateGlobalNetworkCommandInput = UpdateGlobalNetworkRequest;
-export type UpdateGlobalNetworkCommandOutput = UpdateGlobalNetworkResponse & __MetadataBearer;
+export interface UpdateGlobalNetworkCommandInput extends UpdateGlobalNetworkRequest {}
+export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing global network. To remove information for any of the parameters,

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSpotPriceHistoryCommandInput = DescribeSpotPriceHistoryRequest;
-export type DescribeSpotPriceHistoryCommandOutput = DescribeSpotPriceHistoryResult & __MetadataBearer;
+export interface DescribeSpotPriceHistoryCommandInput extends DescribeSpotPriceHistoryRequest {}
+export interface DescribeSpotPriceHistoryCommandOutput extends DescribeSpotPriceHistoryResult, __MetadataBearer {}
 
 /**
  * <p>Describes the Spot price history. For more information, see

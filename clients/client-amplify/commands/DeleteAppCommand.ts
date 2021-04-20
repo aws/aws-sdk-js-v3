@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAppCommandInput = DeleteAppRequest;
-export type DeleteAppCommandOutput = DeleteAppResult & __MetadataBearer;
+export interface DeleteAppCommandInput extends DeleteAppRequest {}
+export interface DeleteAppCommandOutput extends DeleteAppResult, __MetadataBearer {}
 
 /**
  * <p> Deletes an existing Amplify app specified by an app ID. </p>

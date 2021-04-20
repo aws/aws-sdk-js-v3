@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeIdentityUsageCommandInput = DescribeIdentityUsageRequest;
-export type DescribeIdentityUsageCommandOutput = DescribeIdentityUsageResponse & __MetadataBearer;
+export interface DescribeIdentityUsageCommandInput extends DescribeIdentityUsageRequest {}
+export interface DescribeIdentityUsageCommandOutput extends DescribeIdentityUsageResponse, __MetadataBearer {}
 
 /**
  * <p>Gets usage information for an identity, including number of datasets and data usage.</p>

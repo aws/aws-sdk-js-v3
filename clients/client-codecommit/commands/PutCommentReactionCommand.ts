@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutCommentReactionCommandInput = PutCommentReactionInput;
-export type PutCommentReactionCommandOutput = __MetadataBearer;
+export interface PutCommentReactionCommandInput extends PutCommentReactionInput {}
+export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds or updates a reaction to a specified comment for the user whose identity is used to make the request. You can only add or

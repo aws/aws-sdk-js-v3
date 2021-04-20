@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDomainConfigurationCommandInput = UpdateDomainConfigurationRequest;
-export type UpdateDomainConfigurationCommandOutput = UpdateDomainConfigurationResponse & __MetadataBearer;
+export interface UpdateDomainConfigurationCommandInput extends UpdateDomainConfigurationRequest {}
+export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p>

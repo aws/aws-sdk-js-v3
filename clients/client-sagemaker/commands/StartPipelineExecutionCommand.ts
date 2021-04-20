@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartPipelineExecutionCommandInput = StartPipelineExecutionRequest;
-export type StartPipelineExecutionCommandOutput = StartPipelineExecutionResponse & __MetadataBearer;
+export interface StartPipelineExecutionCommandInput extends StartPipelineExecutionRequest {}
+export interface StartPipelineExecutionCommandOutput extends StartPipelineExecutionResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a pipeline execution.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteWarmPoolCommandInput = DeleteWarmPoolType;
-export type DeleteWarmPoolCommandOutput = DeleteWarmPoolAnswer & __MetadataBearer;
+export interface DeleteWarmPoolCommandInput extends DeleteWarmPoolType {}
+export interface DeleteWarmPoolCommandOutput extends DeleteWarmPoolAnswer, __MetadataBearer {}
 
 /**
  * <p>Deletes the warm pool for the specified Auto Scaling group.</p>

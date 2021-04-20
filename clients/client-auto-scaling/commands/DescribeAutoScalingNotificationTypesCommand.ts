@@ -17,9 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAutoScalingNotificationTypesCommandInput = {};
-export type DescribeAutoScalingNotificationTypesCommandOutput = DescribeAutoScalingNotificationTypesAnswer &
-  __MetadataBearer;
+export interface DescribeAutoScalingNotificationTypesCommandInput {}
+export interface DescribeAutoScalingNotificationTypesCommandOutput
+  extends DescribeAutoScalingNotificationTypesAnswer,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the notification types that are supported by Amazon EC2 Auto Scaling.</p>

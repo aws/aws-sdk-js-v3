@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteProvisioningArtifactCommandInput = DeleteProvisioningArtifactInput;
-export type DeleteProvisioningArtifactCommandOutput = DeleteProvisioningArtifactOutput & __MetadataBearer;
+export interface DeleteProvisioningArtifactCommandInput extends DeleteProvisioningArtifactInput {}
+export interface DeleteProvisioningArtifactCommandOutput extends DeleteProvisioningArtifactOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified provisioning artifact (also known as a version) for the specified product.</p>

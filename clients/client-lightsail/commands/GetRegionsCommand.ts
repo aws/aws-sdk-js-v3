@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRegionsCommandInput = GetRegionsRequest;
-export type GetRegionsCommandOutput = GetRegionsResult & __MetadataBearer;
+export interface GetRegionsCommandInput extends GetRegionsRequest {}
+export interface GetRegionsCommandOutput extends GetRegionsResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of all valid regions for Amazon Lightsail. Use the <code>include

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFlowLogsCommandInput = CreateFlowLogsRequest;
-export type CreateFlowLogsCommandOutput = CreateFlowLogsResult & __MetadataBearer;
+export interface CreateFlowLogsCommandInput extends CreateFlowLogsRequest {}
+export interface CreateFlowLogsCommandOutput extends CreateFlowLogsResult, __MetadataBearer {}
 
 /**
  * <p>Creates one or more flow logs to capture information about IP traffic for a specific network interface,

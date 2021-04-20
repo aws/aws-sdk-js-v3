@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePullRequestApprovalStateCommandInput = UpdatePullRequestApprovalStateInput;
-export type UpdatePullRequestApprovalStateCommandOutput = __MetadataBearer;
+export interface UpdatePullRequestApprovalStateCommandInput extends UpdatePullRequestApprovalStateInput {}
+export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the state of a user's approval on a pull request. The user is derived from the signed-in account when the request is made.</p>

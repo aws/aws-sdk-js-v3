@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type NotifyWhenUploadedCommandInput = NotifyWhenUploadedInput;
-export type NotifyWhenUploadedCommandOutput = NotifyWhenUploadedOutput & __MetadataBearer;
+export interface NotifyWhenUploadedCommandInput extends NotifyWhenUploadedInput {}
+export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutput, __MetadataBearer {}
 
 /**
  * <p>Sends you notification through CloudWatch Events when all files written to your file

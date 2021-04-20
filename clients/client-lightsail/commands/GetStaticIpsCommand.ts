@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetStaticIpsCommandInput = GetStaticIpsRequest;
-export type GetStaticIpsCommandOutput = GetStaticIpsResult & __MetadataBearer;
+export interface GetStaticIpsCommandInput extends GetStaticIpsRequest {}
+export interface GetStaticIpsCommandOutput extends GetStaticIpsResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about all static IPs in the user's account.</p>

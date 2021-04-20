@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopCrawlerCommandInput = StopCrawlerRequest;
-export type StopCrawlerCommandOutput = StopCrawlerResponse & __MetadataBearer;
+export interface StopCrawlerCommandInput extends StopCrawlerRequest {}
+export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __MetadataBearer {}
 
 /**
  * <p>If the specified crawler is running, stops the crawl.</p>

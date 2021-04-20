@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveTagsCommandInput = RemoveTagsInput;
-export type RemoveTagsCommandOutput = RemoveTagsOutput & __MetadataBearer;
+export interface RemoveTagsCommandInput extends RemoveTagsInput {}
+export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBearer {}
 
 /**
  * <p>Removes tags from an Amazon EMR resource. Tags make it easier to associate clusters in

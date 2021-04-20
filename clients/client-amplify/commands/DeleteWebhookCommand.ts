@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteWebhookCommandInput = DeleteWebhookRequest;
-export type DeleteWebhookCommandOutput = DeleteWebhookResult & __MetadataBearer;
+export interface DeleteWebhookCommandInput extends DeleteWebhookRequest {}
+export interface DeleteWebhookCommandOutput extends DeleteWebhookResult, __MetadataBearer {}
 
 /**
  * <p> Deletes a webhook. </p>

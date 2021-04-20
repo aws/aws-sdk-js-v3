@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDatasetGroupCommandInput = DeleteDatasetGroupRequest;
-export type DeleteDatasetGroupCommandOutput = __MetadataBearer;
+export interface DeleteDatasetGroupCommandInput extends DeleteDatasetGroupRequest {}
+export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a dataset group. Before you delete a dataset group, you must delete the

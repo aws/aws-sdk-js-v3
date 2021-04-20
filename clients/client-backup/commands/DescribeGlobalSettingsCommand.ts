@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeGlobalSettingsCommandInput = DescribeGlobalSettingsInput;
-export type DescribeGlobalSettingsCommandOutput = DescribeGlobalSettingsOutput & __MetadataBearer;
+export interface DescribeGlobalSettingsCommandInput extends DescribeGlobalSettingsInput {}
+export interface DescribeGlobalSettingsCommandOutput extends DescribeGlobalSettingsOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the global settings of the AWS account, including whether it is opted in to

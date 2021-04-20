@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AbortEnvironmentUpdateCommandInput = AbortEnvironmentUpdateMessage;
-export type AbortEnvironmentUpdateCommandOutput = __MetadataBearer;
+export interface AbortEnvironmentUpdateCommandInput extends AbortEnvironmentUpdateMessage {}
+export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Cancels in-progress environment configuration update or application version

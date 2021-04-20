@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDeliveryStreamCommandInput = DescribeDeliveryStreamInput;
-export type DescribeDeliveryStreamCommandOutput = DescribeDeliveryStreamOutput & __MetadataBearer;
+export interface DescribeDeliveryStreamCommandInput extends DescribeDeliveryStreamInput {}
+export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Describes the specified delivery stream and its status. For example, after your

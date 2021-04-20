@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSigningProfileCommandInput = GetSigningProfileRequest;
-export type GetSigningProfileCommandOutput = GetSigningProfileResponse & __MetadataBearer;
+export interface GetSigningProfileCommandInput extends GetSigningProfileRequest {}
+export interface GetSigningProfileCommandOutput extends GetSigningProfileResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information on a specific signing profile.</p>

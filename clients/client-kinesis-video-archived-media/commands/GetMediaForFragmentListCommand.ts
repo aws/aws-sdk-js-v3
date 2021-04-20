@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMediaForFragmentListCommandInput = GetMediaForFragmentListInput;
-export type GetMediaForFragmentListCommandOutput = GetMediaForFragmentListOutput & __MetadataBearer;
+export interface GetMediaForFragmentListCommandInput extends GetMediaForFragmentListInput {}
+export interface GetMediaForFragmentListCommandOutput extends GetMediaForFragmentListOutput, __MetadataBearer {}
 
 /**
  * <p>Gets media for a list of fragments (specified by fragment number) from the archived

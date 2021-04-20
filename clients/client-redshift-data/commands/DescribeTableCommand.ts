@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTableCommandInput = DescribeTableRequest;
-export type DescribeTableCommandOutput = DescribeTableResponse & __MetadataBearer;
+export interface DescribeTableCommandInput extends DescribeTableRequest {}
+export interface DescribeTableCommandOutput extends DescribeTableResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the detailed information about a table from metadata in the cluster. The

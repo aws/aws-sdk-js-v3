@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDatasetGroupsCommandInput = ListDatasetGroupsRequest;
-export type ListDatasetGroupsCommandOutput = ListDatasetGroupsResponse & __MetadataBearer;
+export interface ListDatasetGroupsCommandInput extends ListDatasetGroupsRequest {}
+export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of dataset groups created using the <a>CreateDatasetGroup</a>

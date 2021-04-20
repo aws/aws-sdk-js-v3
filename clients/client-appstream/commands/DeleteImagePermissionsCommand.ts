@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteImagePermissionsCommandInput = DeleteImagePermissionsRequest;
-export type DeleteImagePermissionsCommandOutput = DeleteImagePermissionsResult & __MetadataBearer;
+export interface DeleteImagePermissionsCommandInput extends DeleteImagePermissionsRequest {}
+export interface DeleteImagePermissionsCommandOutput extends DeleteImagePermissionsResult, __MetadataBearer {}
 
 /**
  * <p>Deletes permissions for the specified private image. After you delete permissions for an image, AWS accounts to which you previously granted these permissions can no longer use the image.</p>

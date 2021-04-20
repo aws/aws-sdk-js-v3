@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGatewayCommandInput = DeleteGatewayRequest;
-export type DeleteGatewayCommandOutput = __MetadataBearer;
+export interface DeleteGatewayCommandInput extends DeleteGatewayRequest {}
+export interface DeleteGatewayCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a gateway from AWS IoT SiteWise. When you delete a gateway, some of the gateway's files remain

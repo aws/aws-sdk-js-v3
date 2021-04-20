@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutMetricFilterCommandInput = PutMetricFilterRequest;
-export type PutMetricFilterCommandOutput = __MetadataBearer;
+export interface PutMetricFilterCommandInput extends PutMetricFilterRequest {}
+export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates or updates a metric filter and associates it with the specified log group.

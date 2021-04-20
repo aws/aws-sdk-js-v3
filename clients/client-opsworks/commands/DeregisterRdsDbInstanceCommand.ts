@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterRdsDbInstanceCommandInput = DeregisterRdsDbInstanceRequest;
-export type DeregisterRdsDbInstanceCommandOutput = __MetadataBearer;
+export interface DeregisterRdsDbInstanceCommandInput extends DeregisterRdsDbInstanceRequest {}
+export interface DeregisterRdsDbInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deregisters an Amazon RDS instance.</p>

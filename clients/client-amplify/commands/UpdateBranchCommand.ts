@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBranchCommandInput = UpdateBranchRequest;
-export type UpdateBranchCommandOutput = UpdateBranchResult & __MetadataBearer;
+export interface UpdateBranchCommandInput extends UpdateBranchRequest {}
+export interface UpdateBranchCommandOutput extends UpdateBranchResult, __MetadataBearer {}
 
 /**
  * <p> Updates a branch for an Amplify app. </p>

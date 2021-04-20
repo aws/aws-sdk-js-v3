@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResolverRuleCommandInput = GetResolverRuleRequest;
-export type GetResolverRuleCommandOutput = GetResolverRuleResponse & __MetadataBearer;
+export interface GetResolverRuleCommandInput extends GetResolverRuleRequest {}
+export interface GetResolverRuleCommandOutput extends GetResolverRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about a specified Resolver rule, such as the domain name that the rule forwards DNS queries for and the ID of the

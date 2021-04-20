@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopContactRecordingCommandInput = StopContactRecordingRequest;
-export type StopContactRecordingCommandOutput = StopContactRecordingResponse & __MetadataBearer;
+export interface StopContactRecordingCommandInput extends StopContactRecordingRequest {}
+export interface StopContactRecordingCommandOutput extends StopContactRecordingResponse, __MetadataBearer {}
 
 /**
  * <p>Stops recording a call when a contact is being recorded. StopContactRecording is a one-time

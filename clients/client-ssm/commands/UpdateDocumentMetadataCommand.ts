@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDocumentMetadataCommandInput = UpdateDocumentMetadataRequest;
-export type UpdateDocumentMetadataCommandOutput = UpdateDocumentMetadataResponse & __MetadataBearer;
+export interface UpdateDocumentMetadataCommandInput extends UpdateDocumentMetadataRequest {}
+export interface UpdateDocumentMetadataCommandOutput extends UpdateDocumentMetadataResponse, __MetadataBearer {}
 
 /**
  * <p>Updates information related to approval reviews for a specific version of a document.</p>

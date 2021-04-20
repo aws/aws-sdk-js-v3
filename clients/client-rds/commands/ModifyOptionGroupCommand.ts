@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyOptionGroupCommandInput = ModifyOptionGroupMessage;
-export type ModifyOptionGroupCommandOutput = ModifyOptionGroupResult & __MetadataBearer;
+export interface ModifyOptionGroupCommandInput extends ModifyOptionGroupMessage {}
+export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult, __MetadataBearer {}
 
 /**
  * <p>Modifies an existing option group.</p>

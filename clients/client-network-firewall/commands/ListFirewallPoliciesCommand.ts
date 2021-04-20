@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFirewallPoliciesCommandInput = ListFirewallPoliciesRequest;
-export type ListFirewallPoliciesCommandOutput = ListFirewallPoliciesResponse & __MetadataBearer;
+export interface ListFirewallPoliciesCommandInput extends ListFirewallPoliciesRequest {}
+export interface ListFirewallPoliciesCommandOutput extends ListFirewallPoliciesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the metadata for the firewall policies that you have defined. Depending on

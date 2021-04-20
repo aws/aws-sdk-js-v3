@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListWorldTemplatesCommandInput = ListWorldTemplatesRequest;
-export type ListWorldTemplatesCommandOutput = ListWorldTemplatesResponse & __MetadataBearer;
+export interface ListWorldTemplatesCommandInput extends ListWorldTemplatesRequest {}
+export interface ListWorldTemplatesCommandOutput extends ListWorldTemplatesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists world templates.</p>

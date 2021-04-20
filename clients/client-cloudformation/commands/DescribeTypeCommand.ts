@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTypeCommandInput = DescribeTypeInput;
-export type DescribeTypeCommandOutput = DescribeTypeOutput & __MetadataBearer;
+export interface DescribeTypeCommandInput extends DescribeTypeInput {}
+export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __MetadataBearer {}
 
 /**
  * <p>Returns detailed information about an extension that has been registered.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVpcPeeringConnectionCommandInput = DeleteVpcPeeringConnectionInput;
-export type DeleteVpcPeeringConnectionCommandOutput = DeleteVpcPeeringConnectionOutput & __MetadataBearer;
+export interface DeleteVpcPeeringConnectionCommandInput extends DeleteVpcPeeringConnectionInput {}
+export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeeringConnectionOutput, __MetadataBearer {}
 
 /**
  * <p>Removes a VPC peering connection. To delete the connection, you must have a valid

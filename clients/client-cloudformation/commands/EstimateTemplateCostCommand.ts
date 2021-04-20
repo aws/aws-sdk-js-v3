@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EstimateTemplateCostCommandInput = EstimateTemplateCostInput;
-export type EstimateTemplateCostCommandOutput = EstimateTemplateCostOutput & __MetadataBearer;
+export interface EstimateTemplateCostCommandInput extends EstimateTemplateCostInput {}
+export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the estimated monthly cost of a template. The return value is an AWS Simple

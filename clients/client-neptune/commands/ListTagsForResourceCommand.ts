@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTagsForResourceCommandInput = ListTagsForResourceMessage;
-export type ListTagsForResourceCommandOutput = TagListMessage & __MetadataBearer;
+export interface ListTagsForResourceCommandInput extends ListTagsForResourceMessage {}
+export interface ListTagsForResourceCommandOutput extends TagListMessage, __MetadataBearer {}
 
 /**
  * <p>Lists all tags on an Amazon Neptune resource.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeThingRegistrationTaskCommandInput = DescribeThingRegistrationTaskRequest;
-export type DescribeThingRegistrationTaskCommandOutput = DescribeThingRegistrationTaskResponse & __MetadataBearer;
+export interface DescribeThingRegistrationTaskCommandInput extends DescribeThingRegistrationTaskRequest {}
+export interface DescribeThingRegistrationTaskCommandOutput
+  extends DescribeThingRegistrationTaskResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes a bulk thing provisioning task.</p>

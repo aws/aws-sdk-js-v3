@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListContainerInstancesCommandInput = ListContainerInstancesRequest;
-export type ListContainerInstancesCommandOutput = ListContainerInstancesResponse & __MetadataBearer;
+export interface ListContainerInstancesCommandInput extends ListContainerInstancesRequest {}
+export interface ListContainerInstancesCommandOutput extends ListContainerInstancesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of container instances in a specified cluster. You can filter the

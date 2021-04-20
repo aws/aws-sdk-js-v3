@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetReservationPurchaseRecommendationCommandInput = GetReservationPurchaseRecommendationRequest;
-export type GetReservationPurchaseRecommendationCommandOutput = GetReservationPurchaseRecommendationResponse &
-  __MetadataBearer;
+export interface GetReservationPurchaseRecommendationCommandInput extends GetReservationPurchaseRecommendationRequest {}
+export interface GetReservationPurchaseRecommendationCommandOutput
+  extends GetReservationPurchaseRecommendationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets recommendations for which reservations to purchase. These recommendations could help you reduce your costs.

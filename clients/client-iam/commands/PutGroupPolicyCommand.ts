@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutGroupPolicyCommandInput = PutGroupPolicyRequest;
-export type PutGroupPolicyCommandOutput = __MetadataBearer;
+export interface PutGroupPolicyCommandInput extends PutGroupPolicyRequest {}
+export interface PutGroupPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds or updates an inline policy document that is embedded in the specified IAM

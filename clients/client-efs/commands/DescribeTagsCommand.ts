@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTagsCommandInput = DescribeTagsRequest;
-export type DescribeTagsCommandOutput = DescribeTagsResponse & __MetadataBearer;
+export interface DescribeTagsCommandInput extends DescribeTagsRequest {}
+export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __MetadataBearer {}
 
 /**
  * @deprecated

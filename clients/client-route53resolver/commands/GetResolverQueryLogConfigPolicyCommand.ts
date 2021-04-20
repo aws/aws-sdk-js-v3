@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResolverQueryLogConfigPolicyCommandInput = GetResolverQueryLogConfigPolicyRequest;
-export type GetResolverQueryLogConfigPolicyCommandOutput = GetResolverQueryLogConfigPolicyResponse & __MetadataBearer;
+export interface GetResolverQueryLogConfigPolicyCommandInput extends GetResolverQueryLogConfigPolicyRequest {}
+export interface GetResolverQueryLogConfigPolicyCommandOutput
+  extends GetResolverQueryLogConfigPolicyResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets information about a query logging policy. A query logging policy specifies the Resolver query logging

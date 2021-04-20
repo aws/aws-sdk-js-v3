@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDomainNamesCommandInput = GetDomainNamesRequest;
-export type GetDomainNamesCommandOutput = GetDomainNamesResponse & __MetadataBearer;
+export interface GetDomainNamesCommandInput extends GetDomainNamesRequest {}
+export interface GetDomainNamesCommandOutput extends GetDomainNamesResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the domain names for an AWS account.</p>

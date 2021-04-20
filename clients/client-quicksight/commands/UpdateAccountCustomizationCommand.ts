@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAccountCustomizationCommandInput = UpdateAccountCustomizationRequest;
-export type UpdateAccountCustomizationCommandOutput = UpdateAccountCustomizationResponse & __MetadataBearer;
+export interface UpdateAccountCustomizationCommandInput extends UpdateAccountCustomizationRequest {}
+export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCustomizationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates Amazon QuickSight customizations the current AWS Region. Currently, the only

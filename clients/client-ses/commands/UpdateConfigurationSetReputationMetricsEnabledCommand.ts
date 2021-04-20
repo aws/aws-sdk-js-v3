@@ -17,8 +17,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateConfigurationSetReputationMetricsEnabledCommandInput = UpdateConfigurationSetReputationMetricsEnabledRequest;
-export type UpdateConfigurationSetReputationMetricsEnabledCommandOutput = __MetadataBearer;
+export interface UpdateConfigurationSetReputationMetricsEnabledCommandInput
+  extends UpdateConfigurationSetReputationMetricsEnabledRequest {}
+export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables or disables the publishing of reputation metrics for emails sent using a

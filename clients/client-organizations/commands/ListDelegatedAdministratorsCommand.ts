@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDelegatedAdministratorsCommandInput = ListDelegatedAdministratorsRequest;
-export type ListDelegatedAdministratorsCommandOutput = ListDelegatedAdministratorsResponse & __MetadataBearer;
+export interface ListDelegatedAdministratorsCommandInput extends ListDelegatedAdministratorsRequest {}
+export interface ListDelegatedAdministratorsCommandOutput
+  extends ListDelegatedAdministratorsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Lists the AWS accounts that are designated as delegated administrators in this

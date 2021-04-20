@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDefaultSubnetCommandInput = CreateDefaultSubnetRequest;
-export type CreateDefaultSubnetCommandOutput = CreateDefaultSubnetResult & __MetadataBearer;
+export interface CreateDefaultSubnetCommandInput extends CreateDefaultSubnetRequest {}
+export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetResult, __MetadataBearer {}
 
 /**
  * <p>Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the

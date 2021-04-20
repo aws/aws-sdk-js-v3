@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGameSessionQueueCommandInput = CreateGameSessionQueueInput;
-export type CreateGameSessionQueueCommandOutput = CreateGameSessionQueueOutput & __MetadataBearer;
+export interface CreateGameSessionQueueCommandInput extends CreateGameSessionQueueInput {}
+export interface CreateGameSessionQueueCommandOutput extends CreateGameSessionQueueOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a placement queue that processes requests for new game sessions. A queue uses

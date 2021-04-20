@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDetectorCommandInput = DescribeDetectorRequest;
-export type DescribeDetectorCommandOutput = DescribeDetectorResponse & __MetadataBearer;
+export interface DescribeDetectorCommandInput extends DescribeDetectorRequest {}
+export interface DescribeDetectorCommandOutput extends DescribeDetectorResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the specified detector (instance).</p>

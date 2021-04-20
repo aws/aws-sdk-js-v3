@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListScriptsCommandInput = ListScriptsInput;
-export type ListScriptsCommandOutput = ListScriptsOutput & __MetadataBearer;
+export interface ListScriptsCommandInput extends ListScriptsInput {}
+export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves script records for all Realtime scripts that are associated with the AWS account in use. </p>

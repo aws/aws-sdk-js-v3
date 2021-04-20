@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTargetsCommandInput = ListTargetsRequest;
-export type ListTargetsCommandOutput = ListTargetsResult & __MetadataBearer;
+export interface ListTargetsCommandInput extends ListTargetsRequest {}
+export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the notification rule targets for an AWS account.</p>

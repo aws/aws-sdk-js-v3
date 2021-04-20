@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRxNormInferenceJobsCommandInput = ListRxNormInferenceJobsRequest;
-export type ListRxNormInferenceJobsCommandOutput = ListRxNormInferenceJobsResponse & __MetadataBearer;
+export interface ListRxNormInferenceJobsCommandInput extends ListRxNormInferenceJobsRequest {}
+export interface ListRxNormInferenceJobsCommandOutput extends ListRxNormInferenceJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of InferRxNorm jobs that you have submitted.</p>

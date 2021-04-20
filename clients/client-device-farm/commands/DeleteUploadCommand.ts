@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUploadCommandInput = DeleteUploadRequest;
-export type DeleteUploadCommandOutput = DeleteUploadResult & __MetadataBearer;
+export interface DeleteUploadCommandInput extends DeleteUploadRequest {}
+export interface DeleteUploadCommandOutput extends DeleteUploadResult, __MetadataBearer {}
 
 /**
  * <p>Deletes an upload given the upload ARN.</p>

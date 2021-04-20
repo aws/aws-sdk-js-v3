@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyFpgaImageAttributeCommandInput = ModifyFpgaImageAttributeRequest;
-export type ModifyFpgaImageAttributeCommandOutput = ModifyFpgaImageAttributeResult & __MetadataBearer;
+export interface ModifyFpgaImageAttributeCommandInput extends ModifyFpgaImageAttributeRequest {}
+export interface ModifyFpgaImageAttributeCommandOutput extends ModifyFpgaImageAttributeResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified attribute of the specified Amazon FPGA Image (AFI).</p>

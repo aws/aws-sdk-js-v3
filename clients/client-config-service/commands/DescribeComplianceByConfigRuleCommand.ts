@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeComplianceByConfigRuleCommandInput = DescribeComplianceByConfigRuleRequest;
-export type DescribeComplianceByConfigRuleCommandOutput = DescribeComplianceByConfigRuleResponse & __MetadataBearer;
+export interface DescribeComplianceByConfigRuleCommandInput extends DescribeComplianceByConfigRuleRequest {}
+export interface DescribeComplianceByConfigRuleCommandOutput
+  extends DescribeComplianceByConfigRuleResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Indicates whether the specified AWS Config rules are compliant.

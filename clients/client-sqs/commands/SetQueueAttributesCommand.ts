@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetQueueAttributesCommandInput = SetQueueAttributesRequest;
-export type SetQueueAttributesCommandOutput = __MetadataBearer;
+export interface SetQueueAttributesCommandInput extends SetQueueAttributesRequest {}
+export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the value of one or more queue attributes. When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the Amazon SQS system.

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInventorySchemaCommandInput = GetInventorySchemaRequest;
-export type GetInventorySchemaCommandOutput = GetInventorySchemaResult & __MetadataBearer;
+export interface GetInventorySchemaCommandInput extends GetInventorySchemaRequest {}
+export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResult, __MetadataBearer {}
 
 /**
  * <p>Return a list of inventory type names for the account, or return a list of attribute names

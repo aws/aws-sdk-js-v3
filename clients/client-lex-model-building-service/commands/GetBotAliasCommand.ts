@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBotAliasCommandInput = GetBotAliasRequest;
-export type GetBotAliasCommandOutput = GetBotAliasResponse & __MetadataBearer;
+export interface GetBotAliasCommandInput extends GetBotAliasRequest {}
+export interface GetBotAliasCommandOutput extends GetBotAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about an Amazon Lex bot alias. For more information

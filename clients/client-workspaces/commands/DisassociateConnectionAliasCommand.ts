@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateConnectionAliasCommandInput = DisassociateConnectionAliasRequest;
-export type DisassociateConnectionAliasCommandOutput = DisassociateConnectionAliasResult & __MetadataBearer;
+export interface DisassociateConnectionAliasCommandInput extends DisassociateConnectionAliasRequest {}
+export interface DisassociateConnectionAliasCommandOutput extends DisassociateConnectionAliasResult, __MetadataBearer {}
 
 /**
  * <p>Disassociates a connection alias from a directory. Disassociating a connection alias disables cross-Region

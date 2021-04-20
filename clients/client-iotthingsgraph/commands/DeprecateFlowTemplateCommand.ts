@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeprecateFlowTemplateCommandInput = DeprecateFlowTemplateRequest;
-export type DeprecateFlowTemplateCommandOutput = DeprecateFlowTemplateResponse & __MetadataBearer;
+export interface DeprecateFlowTemplateCommandInput extends DeprecateFlowTemplateRequest {}
+export interface DeprecateFlowTemplateCommandOutput extends DeprecateFlowTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Deprecates the specified workflow. This action marks the workflow for deletion. Deprecated flows can't be deployed, but existing deployments will continue to run.</p>

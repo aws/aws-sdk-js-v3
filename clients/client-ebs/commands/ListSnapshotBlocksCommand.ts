@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSnapshotBlocksCommandInput = ListSnapshotBlocksRequest;
-export type ListSnapshotBlocksCommandOutput = ListSnapshotBlocksResponse & __MetadataBearer;
+export interface ListSnapshotBlocksCommandInput extends ListSnapshotBlocksRequest {}
+export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the blocks in an Amazon Elastic Block Store snapshot.</p>

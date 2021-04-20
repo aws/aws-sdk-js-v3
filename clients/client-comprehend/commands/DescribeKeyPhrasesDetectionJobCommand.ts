@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeKeyPhrasesDetectionJobCommandInput = DescribeKeyPhrasesDetectionJobRequest;
-export type DescribeKeyPhrasesDetectionJobCommandOutput = DescribeKeyPhrasesDetectionJobResponse & __MetadataBearer;
+export interface DescribeKeyPhrasesDetectionJobCommandInput extends DescribeKeyPhrasesDetectionJobRequest {}
+export interface DescribeKeyPhrasesDetectionJobCommandOutput
+  extends DescribeKeyPhrasesDetectionJobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Gets the properties associated with a key phrases detection job. Use this operation to get

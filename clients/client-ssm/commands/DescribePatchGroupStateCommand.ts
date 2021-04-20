@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePatchGroupStateCommandInput = DescribePatchGroupStateRequest;
-export type DescribePatchGroupStateCommandOutput = DescribePatchGroupStateResult & __MetadataBearer;
+export interface DescribePatchGroupStateCommandInput extends DescribePatchGroupStateRequest {}
+export interface DescribePatchGroupStateCommandOutput extends DescribePatchGroupStateResult, __MetadataBearer {}
 
 /**
  * <p>Returns high-level aggregated patch compliance state for a patch group.</p>

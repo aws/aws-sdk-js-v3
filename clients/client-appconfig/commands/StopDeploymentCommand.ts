@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopDeploymentCommandInput = StopDeploymentRequest;
-export type StopDeploymentCommandOutput = Deployment & __MetadataBearer;
+export interface StopDeploymentCommandInput extends StopDeploymentRequest {}
+export interface StopDeploymentCommandOutput extends Deployment, __MetadataBearer {}
 
 /**
  * <p>Stops a deployment. This API action works only on deployments that have a status of

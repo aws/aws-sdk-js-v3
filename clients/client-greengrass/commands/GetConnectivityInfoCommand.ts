@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConnectivityInfoCommandInput = GetConnectivityInfoRequest;
-export type GetConnectivityInfoCommandOutput = GetConnectivityInfoResponse & __MetadataBearer;
+export interface GetConnectivityInfoCommandInput extends GetConnectivityInfoRequest {}
+export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoResponse, __MetadataBearer {}
 
 /**
  * Retrieves the connectivity information for a core.

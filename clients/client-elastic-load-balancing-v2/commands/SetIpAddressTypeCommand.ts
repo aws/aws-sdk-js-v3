@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetIpAddressTypeCommandInput = SetIpAddressTypeInput;
-export type SetIpAddressTypeCommandOutput = SetIpAddressTypeOutput & __MetadataBearer;
+export interface SetIpAddressTypeCommandInput extends SetIpAddressTypeInput {}
+export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeOutput, __MetadataBearer {}
 
 /**
  * <p>Sets the type of IP addresses used by the subnets of the specified Application Load

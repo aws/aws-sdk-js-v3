@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDefaultVpcCommandInput = CreateDefaultVpcRequest;
-export type CreateDefaultVpcCommandOutput = CreateDefaultVpcResult & __MetadataBearer;
+export interface CreateDefaultVpcCommandInput extends CreateDefaultVpcRequest {}
+export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, __MetadataBearer {}
 
 /**
  * <p>Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet

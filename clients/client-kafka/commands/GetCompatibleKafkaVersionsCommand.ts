@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCompatibleKafkaVersionsCommandInput = GetCompatibleKafkaVersionsRequest;
-export type GetCompatibleKafkaVersionsCommandOutput = GetCompatibleKafkaVersionsResponse & __MetadataBearer;
+export interface GetCompatibleKafkaVersionsCommandInput extends GetCompatibleKafkaVersionsRequest {}
+export interface GetCompatibleKafkaVersionsCommandOutput extends GetCompatibleKafkaVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the Apache Kafka versions to which you can update the MSK cluster.</p>

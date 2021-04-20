@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetInsightEventsCommandInput = GetInsightEventsRequest;
-export type GetInsightEventsCommandOutput = GetInsightEventsResult & __MetadataBearer;
+export interface GetInsightEventsCommandInput extends GetInsightEventsRequest {}
+export interface GetInsightEventsCommandOutput extends GetInsightEventsResult, __MetadataBearer {}
 
 /**
  * <p>X-Ray reevaluates insights periodically until they're resolved, and records each intermediate state as an

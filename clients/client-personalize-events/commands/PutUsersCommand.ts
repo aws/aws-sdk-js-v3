@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutUsersCommandInput = PutUsersRequest;
-export type PutUsersCommandOutput = __MetadataBearer;
+export interface PutUsersCommandInput extends PutUsersRequest {}
+export interface PutUsersCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds one or more users to a Users dataset. For more information see

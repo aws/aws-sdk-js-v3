@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AllocateHostsCommandInput = AllocateHostsRequest;
-export type AllocateHostsCommandOutput = AllocateHostsResult & __MetadataBearer;
+export interface AllocateHostsCommandInput extends AllocateHostsRequest {}
+export interface AllocateHostsCommandOutput extends AllocateHostsResult, __MetadataBearer {}
 
 /**
  * <p>Allocates a Dedicated Host to your account. At a minimum, specify the supported instance

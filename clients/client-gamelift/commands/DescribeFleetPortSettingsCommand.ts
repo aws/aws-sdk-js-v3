@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFleetPortSettingsCommandInput = DescribeFleetPortSettingsInput;
-export type DescribeFleetPortSettingsCommandOutput = DescribeFleetPortSettingsOutput & __MetadataBearer;
+export interface DescribeFleetPortSettingsCommandInput extends DescribeFleetPortSettingsInput {}
+export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPortSettingsOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves a fleet's inbound connection permissions. Connection permissions specify the

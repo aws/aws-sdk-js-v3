@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RevokeSigningProfileCommandInput = RevokeSigningProfileRequest;
-export type RevokeSigningProfileCommandOutput = __MetadataBearer;
+export interface RevokeSigningProfileCommandInput extends RevokeSigningProfileRequest {}
+export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Changes the state of a signing profile to REVOKED. This indicates that signatures

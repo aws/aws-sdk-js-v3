@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePartnerEventSourceCommandInput = CreatePartnerEventSourceRequest;
-export type CreatePartnerEventSourceCommandOutput = CreatePartnerEventSourceResponse & __MetadataBearer;
+export interface CreatePartnerEventSourceCommandInput extends CreatePartnerEventSourceRequest {}
+export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEventSourceResponse, __MetadataBearer {}
 
 /**
  * <p>Called by an SaaS partner to create a partner event source. This operation is not used by

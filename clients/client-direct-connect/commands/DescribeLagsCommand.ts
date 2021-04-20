@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLagsCommandInput = DescribeLagsRequest;
-export type DescribeLagsCommandOutput = Lags & __MetadataBearer;
+export interface DescribeLagsCommandInput extends DescribeLagsRequest {}
+export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
 
 /**
  * <p>Describes all your link aggregation groups (LAG) or the specified LAG.</p>

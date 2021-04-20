@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSecurityConfigurationCommandInput = CreateSecurityConfigurationInput;
-export type CreateSecurityConfigurationCommandOutput = CreateSecurityConfigurationOutput & __MetadataBearer;
+export interface CreateSecurityConfigurationCommandInput extends CreateSecurityConfigurationInput {}
+export interface CreateSecurityConfigurationCommandOutput extends CreateSecurityConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a security configuration, which is stored in the service and can be specified

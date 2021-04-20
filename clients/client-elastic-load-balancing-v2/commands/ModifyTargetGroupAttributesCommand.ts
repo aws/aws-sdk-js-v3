@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyTargetGroupAttributesCommandInput = ModifyTargetGroupAttributesInput;
-export type ModifyTargetGroupAttributesCommandOutput = ModifyTargetGroupAttributesOutput & __MetadataBearer;
+export interface ModifyTargetGroupAttributesCommandInput extends ModifyTargetGroupAttributesInput {}
+export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGroupAttributesOutput, __MetadataBearer {}
 
 /**
  * <p>Modifies the specified attributes of the specified target group.</p>

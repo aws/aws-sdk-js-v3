@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeQueriesCommandInput = DescribeQueriesRequest;
-export type DescribeQueriesCommandOutput = DescribeQueriesResponse & __MetadataBearer;
+export interface DescribeQueriesCommandInput extends DescribeQueriesRequest {}
+export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a list of CloudWatch Logs Insights queries that are scheduled, executing, or have

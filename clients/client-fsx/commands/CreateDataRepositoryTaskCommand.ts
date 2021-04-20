@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDataRepositoryTaskCommandInput = CreateDataRepositoryTaskRequest;
-export type CreateDataRepositoryTaskCommandOutput = CreateDataRepositoryTaskResponse & __MetadataBearer;
+export interface CreateDataRepositoryTaskCommandInput extends CreateDataRepositoryTaskRequest {}
+export interface CreateDataRepositoryTaskCommandOutput extends CreateDataRepositoryTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon FSx for Lustre data repository task. You use data repository tasks

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReleaseAddressCommandInput = ReleaseAddressRequest;
-export type ReleaseAddressCommandOutput = __MetadataBearer;
+export interface ReleaseAddressCommandInput extends ReleaseAddressRequest {}
+export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Releases the specified Elastic IP address.</p>

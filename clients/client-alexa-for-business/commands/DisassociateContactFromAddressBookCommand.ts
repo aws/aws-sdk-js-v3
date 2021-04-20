@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateContactFromAddressBookCommandInput = DisassociateContactFromAddressBookRequest;
-export type DisassociateContactFromAddressBookCommandOutput = DisassociateContactFromAddressBookResponse &
-  __MetadataBearer;
+export interface DisassociateContactFromAddressBookCommandInput extends DisassociateContactFromAddressBookRequest {}
+export interface DisassociateContactFromAddressBookCommandOutput
+  extends DisassociateContactFromAddressBookResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates a contact from a given address book.</p>

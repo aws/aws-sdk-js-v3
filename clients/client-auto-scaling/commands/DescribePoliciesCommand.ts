@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribePoliciesCommandInput = DescribePoliciesType;
-export type DescribePoliciesCommandOutput = PoliciesType & __MetadataBearer;
+export interface DescribePoliciesCommandInput extends DescribePoliciesType {}
+export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataBearer {}
 
 /**
  * <p>Describes the policies for the specified Auto Scaling group.</p>

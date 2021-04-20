@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAccountSummaryCommandInput = {};
-export type GetAccountSummaryCommandOutput = GetAccountSummaryResponse & __MetadataBearer;
+export interface GetAccountSummaryCommandInput {}
+export interface GetAccountSummaryCommandOutput extends GetAccountSummaryResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves information about IAM entity usage and IAM quotas in the AWS

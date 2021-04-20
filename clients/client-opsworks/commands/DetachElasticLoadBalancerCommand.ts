@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DetachElasticLoadBalancerCommandInput = DetachElasticLoadBalancerRequest;
-export type DetachElasticLoadBalancerCommandOutput = __MetadataBearer;
+export interface DetachElasticLoadBalancerCommandInput extends DetachElasticLoadBalancerRequest {}
+export interface DetachElasticLoadBalancerCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Detaches a specified Elastic Load Balancing instance from its layer.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ConstantQueryStringCommandInput = ConstantQueryStringInput;
-export type ConstantQueryStringCommandOutput = __MetadataBearer;
+export interface ConstantQueryStringCommandInput extends ConstantQueryStringInput {}
+export interface ConstantQueryStringCommandOutput extends __MetadataBearer {}
 
 /**
  * This example uses a constant query string parameters and a label.

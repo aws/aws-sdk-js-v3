@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateResourceServerCommandInput = UpdateResourceServerRequest;
-export type UpdateResourceServerCommandOutput = UpdateResourceServerResponse & __MetadataBearer;
+export interface UpdateResourceServerCommandInput extends UpdateResourceServerRequest {}
+export interface UpdateResourceServerCommandOutput extends UpdateResourceServerResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the name and scopes of resource server. All other fields are read-only.</p>

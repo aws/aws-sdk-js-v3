@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetTracesCommandInput = BatchGetTracesRequest;
-export type BatchGetTracesCommandOutput = BatchGetTracesResult & __MetadataBearer;
+export interface BatchGetTracesCommandInput extends BatchGetTracesRequest {}
+export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of traces specified by ID. Each trace is a collection of segment

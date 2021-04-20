@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTeamMemberCommandInput = UpdateTeamMemberRequest;
-export type UpdateTeamMemberCommandOutput = UpdateTeamMemberResult & __MetadataBearer;
+export interface UpdateTeamMemberCommandInput extends UpdateTeamMemberRequest {}
+export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, __MetadataBearer {}
 
 /**
  * <p>Updates a team member's attributes in an AWS CodeStar project. For example, you can change a

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateResolverRuleCommandInput = UpdateResolverRuleRequest;
-export type UpdateResolverRuleCommandOutput = UpdateResolverRuleResponse & __MetadataBearer;
+export interface UpdateResolverRuleCommandInput extends UpdateResolverRuleRequest {}
+export interface UpdateResolverRuleCommandOutput extends UpdateResolverRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Updates settings for a specified Resolver rule. <code>ResolverRuleId</code> is required, and all other parameters are optional.

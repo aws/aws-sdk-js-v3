@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteMetricStreamCommandInput = DeleteMetricStreamInput;
-export type DeleteMetricStreamCommandOutput = DeleteMetricStreamOutput & __MetadataBearer;
+export interface DeleteMetricStreamCommandInput extends DeleteMetricStreamInput {}
+export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutput, __MetadataBearer {}
 
 /**
  * <p>Permanently deletes the metric stream that you specify.</p>

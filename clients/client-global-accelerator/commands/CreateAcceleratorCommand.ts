@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAcceleratorCommandInput = CreateAcceleratorRequest;
-export type CreateAcceleratorCommandOutput = CreateAcceleratorResponse & __MetadataBearer;
+export interface CreateAcceleratorCommandInput extends CreateAcceleratorRequest {}
+export interface CreateAcceleratorCommandOutput extends CreateAcceleratorResponse, __MetadataBearer {}
 
 /**
  * <p>Create an accelerator. An accelerator includes one or more listeners that process inbound connections and direct traffic

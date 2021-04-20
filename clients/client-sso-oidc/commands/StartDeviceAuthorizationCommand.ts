@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartDeviceAuthorizationCommandInput = StartDeviceAuthorizationRequest;
-export type StartDeviceAuthorizationCommandOutput = StartDeviceAuthorizationResponse & __MetadataBearer;
+export interface StartDeviceAuthorizationCommandInput extends StartDeviceAuthorizationRequest {}
+export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthorizationResponse, __MetadataBearer {}
 
 /**
  * <p>Initiates device authorization by requesting a pair of verification codes from the authorization service.</p>

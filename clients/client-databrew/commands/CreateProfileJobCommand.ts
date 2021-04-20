@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateProfileJobCommandInput = CreateProfileJobRequest;
-export type CreateProfileJobCommandOutput = CreateProfileJobResponse & __MetadataBearer;
+export interface CreateProfileJobCommandInput extends CreateProfileJobRequest {}
+export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new job to analyze a dataset and create its data profile.</p>

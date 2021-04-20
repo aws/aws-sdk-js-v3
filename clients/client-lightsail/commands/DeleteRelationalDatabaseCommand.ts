@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRelationalDatabaseCommandInput = DeleteRelationalDatabaseRequest;
-export type DeleteRelationalDatabaseCommandOutput = DeleteRelationalDatabaseResult & __MetadataBearer;
+export interface DeleteRelationalDatabaseCommandInput extends DeleteRelationalDatabaseRequest {}
+export interface DeleteRelationalDatabaseCommandOutput extends DeleteRelationalDatabaseResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a database in Amazon Lightsail.</p>

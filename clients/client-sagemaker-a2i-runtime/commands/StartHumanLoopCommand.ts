@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartHumanLoopCommandInput = StartHumanLoopRequest;
-export type StartHumanLoopCommandOutput = StartHumanLoopResponse & __MetadataBearer;
+export interface StartHumanLoopCommandInput extends StartHumanLoopRequest {}
+export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __MetadataBearer {}
 
 /**
  * <p>Starts a human loop, provided that at least one activation condition is met.</p>

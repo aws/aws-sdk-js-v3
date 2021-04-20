@@ -18,8 +18,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBucketIntelligentTieringConfigurationCommandInput = DeleteBucketIntelligentTieringConfigurationRequest;
-export type DeleteBucketIntelligentTieringConfigurationCommandOutput = __MetadataBearer;
+export interface DeleteBucketIntelligentTieringConfigurationCommandInput
+  extends DeleteBucketIntelligentTieringConfigurationRequest {}
+export interface DeleteBucketIntelligentTieringConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the S3 Intelligent-Tiering configuration from the specified bucket.</p>

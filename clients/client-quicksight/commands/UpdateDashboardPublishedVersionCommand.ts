@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDashboardPublishedVersionCommandInput = UpdateDashboardPublishedVersionRequest;
-export type UpdateDashboardPublishedVersionCommandOutput = UpdateDashboardPublishedVersionResponse & __MetadataBearer;
+export interface UpdateDashboardPublishedVersionCommandInput extends UpdateDashboardPublishedVersionRequest {}
+export interface UpdateDashboardPublishedVersionCommandOutput
+  extends UpdateDashboardPublishedVersionResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the published version of a dashboard.</p>

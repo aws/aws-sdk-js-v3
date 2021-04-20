@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetUserCommandInput = GetUserRequest;
-export type GetUserCommandOutput = GetUserResponse & __MetadataBearer;
+export interface GetUserCommandInput extends GetUserRequest {}
+export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the user attributes and metadata for a user.</p>

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListLicenseSpecificationsForResourceCommandInput = ListLicenseSpecificationsForResourceRequest;
-export type ListLicenseSpecificationsForResourceCommandOutput = ListLicenseSpecificationsForResourceResponse &
-  __MetadataBearer;
+export interface ListLicenseSpecificationsForResourceCommandInput extends ListLicenseSpecificationsForResourceRequest {}
+export interface ListLicenseSpecificationsForResourceCommandOutput
+  extends ListLicenseSpecificationsForResourceResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the license configurations for the specified resource.</p>

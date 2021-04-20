@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRandomPasswordCommandInput = GetRandomPasswordRequest;
-export type GetRandomPasswordCommandOutput = GetRandomPasswordResponse & __MetadataBearer;
+export interface GetRandomPasswordCommandInput extends GetRandomPasswordRequest {}
+export interface GetRandomPasswordCommandOutput extends GetRandomPasswordResponse, __MetadataBearer {}
 
 /**
  * <p>Generates a random password of the specified complexity. This operation is intended for

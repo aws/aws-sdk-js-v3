@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRecipeJobCommandInput = CreateRecipeJobRequest;
-export type CreateRecipeJobCommandOutput = CreateRecipeJobResponse & __MetadataBearer;
+export interface CreateRecipeJobCommandInput extends CreateRecipeJobRequest {}
+export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new job to transform input data, using steps defined in an existing AWS Glue

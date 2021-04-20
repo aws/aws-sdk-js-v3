@@ -17,10 +17,17 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RecognizeUtteranceCommandInput = Omit<RecognizeUtteranceRequest, "inputStream"> & {
+type RecognizeUtteranceCommandInputType = Omit<RecognizeUtteranceRequest, "inputStream"> & {
+  /**
+   * For *`RecognizeUtteranceRequest["inputStream"]`*, see {@link RecognizeUtteranceRequest.inputStream}.
+   */
   inputStream?: RecognizeUtteranceRequest["inputStream"] | string | Uint8Array | Buffer;
 };
-export type RecognizeUtteranceCommandOutput = RecognizeUtteranceResponse & __MetadataBearer;
+/**
+ * This interface extends from `RecognizeUtteranceRequest` interface. There are more parameters than `inputStream` defined in {@link RecognizeUtteranceRequest}
+ */
+export interface RecognizeUtteranceCommandInput extends RecognizeUtteranceCommandInputType {}
+export interface RecognizeUtteranceCommandOutput extends RecognizeUtteranceResponse, __MetadataBearer {}
 
 /**
  * <p>Sends user input to Amazon Lex. You can send text or speech. Clients use

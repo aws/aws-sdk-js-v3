@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteLoadBalancerPolicyCommandInput = DeleteLoadBalancerPolicyInput;
-export type DeleteLoadBalancerPolicyCommandOutput = DeleteLoadBalancerPolicyOutput & __MetadataBearer;
+export interface DeleteLoadBalancerPolicyCommandInput extends DeleteLoadBalancerPolicyInput {}
+export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalancerPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified policy from the specified load balancer. This policy must not be enabled for any listeners.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CopySnapshotCommandInput = CopySnapshotRequest;
-export type CopySnapshotCommandOutput = CopySnapshotResult & __MetadataBearer;
+export interface CopySnapshotCommandInput extends CopySnapshotRequest {}
+export interface CopySnapshotCommandOutput extends CopySnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Copies a manual snapshot of an instance or disk as another manual snapshot, or copies an

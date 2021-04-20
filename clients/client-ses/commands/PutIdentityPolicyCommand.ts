@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutIdentityPolicyCommandInput = PutIdentityPolicyRequest;
-export type PutIdentityPolicyCommandOutput = PutIdentityPolicyResponse & __MetadataBearer;
+export interface PutIdentityPolicyCommandInput extends PutIdentityPolicyRequest {}
+export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Adds or updates a sending authorization policy for the specified identity (an email

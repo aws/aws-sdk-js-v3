@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeArtifactCommandInput = DescribeArtifactRequest;
-export type DescribeArtifactCommandOutput = DescribeArtifactResponse & __MetadataBearer;
+export interface DescribeArtifactCommandInput extends DescribeArtifactRequest {}
+export interface DescribeArtifactCommandOutput extends DescribeArtifactResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an artifact.</p>

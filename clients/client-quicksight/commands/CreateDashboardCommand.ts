@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDashboardCommandInput = CreateDashboardRequest;
-export type CreateDashboardCommandOutput = CreateDashboardResponse & __MetadataBearer;
+export interface CreateDashboardCommandInput extends CreateDashboardRequest {}
+export interface CreateDashboardCommandOutput extends CreateDashboardResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a dashboard from a template. To first create a template, see the <code>

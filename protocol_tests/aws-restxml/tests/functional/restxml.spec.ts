@@ -12,6 +12,7 @@ import { FlattenedXmlMapWithXmlNamespaceCommand } from "../../commands/Flattened
 import { GreetingWithErrorsCommand } from "../../commands/GreetingWithErrorsCommand";
 import { HttpPayloadTraitsCommand } from "../../commands/HttpPayloadTraitsCommand";
 import { HttpPayloadTraitsWithMediaTypeCommand } from "../../commands/HttpPayloadTraitsWithMediaTypeCommand";
+import { HttpPayloadWithMemberXmlNameCommand } from "../../commands/HttpPayloadWithMemberXmlNameCommand";
 import { HttpPayloadWithStructureCommand } from "../../commands/HttpPayloadWithStructureCommand";
 import { HttpPayloadWithXmlNameCommand } from "../../commands/HttpPayloadWithXmlNameCommand";
 import { HttpPayloadWithXmlNamespaceAndPrefixCommand } from "../../commands/HttpPayloadWithXmlNamespaceAndPrefixCommand";
@@ -224,12 +225,6 @@ it("AllQueryStringTypes:Request", async () => {
     queryEnum: "Foo",
 
     queryEnumList: ["Foo", "Baz", "Bar"],
-
-    queryParamsMapOfStrings: {
-      QueryParamsStringKeyA: "Foo",
-
-      QueryParamsStringKeyB: "Bar",
-    } as any,
   } as any);
   try {
     await client.send(command);
@@ -279,6 +274,41 @@ it("AllQueryStringTypes:Request", async () => {
     expect(queryString).toContain("EnumList=Foo");
     expect(queryString).toContain("EnumList=Baz");
     expect(queryString).toContain("EnumList=Bar");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Handles query string maps
+ */
+it("RestXmlQueryStringMap:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new AllQueryStringTypesCommand({
+    queryParamsMapOfStrings: {
+      QueryParamsStringKeyA: "Foo",
+
+      QueryParamsStringKeyB: "Bar",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/AllQueryStringTypesInput");
+
+    const queryString = buildQueryString(r.query);
     expect(queryString).toContain("QueryParamsStringKeyA=Foo");
     expect(queryString).toContain("QueryParamsStringKeyB=Bar");
 
@@ -1168,6 +1198,84 @@ it("HttpPayloadTraitsWithMediaTypeWithBlob:Response", async () => {
 });
 
 /**
+ * Serializes a structure in the payload using a wrapper name based on member xmlName
+ */
+it("HttpPayloadWithMemberXmlName:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpPayloadWithMemberXmlNameCommand({
+    nested: {
+      name: "Phreddy",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/HttpPayloadWithMemberXmlName");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const bodyString = `<Hola><name>Phreddy</name></Hola>`;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a structure in the payload using a wrapper name based on member xmlName
+ */
+it("HttpPayloadWithMemberXmlName:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<Hola><name>Phreddy</name></Hola>`
+    ),
+  });
+
+  const params: any = {};
+  const command = new HttpPayloadWithMemberXmlNameCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got err.");
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      nested: {
+        name: "Phreddy",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
  * Serializes a structure in the payload
  */
 it("HttpPayloadWithStructure:Request", async () => {
@@ -1828,7 +1936,7 @@ it("IgnoreQueryParamsInResponse:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<IgnoreQueryParamsInResponseInputOutput><baz>bam</baz></IgnoreQueryParamsInResponseInputOutput>`
+      `<IgnoreQueryParamsInResponseOutput><baz>bam</baz></IgnoreQueryParamsInResponseOutput>`
     ),
   });
 

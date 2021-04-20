@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFpgaImageCommandInput = DeleteFpgaImageRequest;
-export type DeleteFpgaImageCommandOutput = DeleteFpgaImageResult & __MetadataBearer;
+export interface DeleteFpgaImageCommandInput extends DeleteFpgaImageRequest {}
+export interface DeleteFpgaImageCommandOutput extends DeleteFpgaImageResult, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Amazon FPGA Image (AFI).</p>

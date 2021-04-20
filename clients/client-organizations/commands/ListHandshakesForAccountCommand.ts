@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListHandshakesForAccountCommandInput = ListHandshakesForAccountRequest;
-export type ListHandshakesForAccountCommandOutput = ListHandshakesForAccountResponse & __MetadataBearer;
+export interface ListHandshakesForAccountCommandInput extends ListHandshakesForAccountRequest {}
+export interface ListHandshakesForAccountCommandOutput extends ListHandshakesForAccountResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the current handshakes that are associated with the account of the requesting

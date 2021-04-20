@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBudgetActionCommandInput = UpdateBudgetActionRequest;
-export type UpdateBudgetActionCommandOutput = UpdateBudgetActionResponse & __MetadataBearer;
+export interface UpdateBudgetActionCommandInput extends UpdateBudgetActionRequest {}
+export interface UpdateBudgetActionCommandOutput extends UpdateBudgetActionResponse, __MetadataBearer {}
 
 /**
  * <p>

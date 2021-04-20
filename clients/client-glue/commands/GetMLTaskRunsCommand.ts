@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMLTaskRunsCommandInput = GetMLTaskRunsRequest;
-export type GetMLTaskRunsCommandOutput = GetMLTaskRunsResponse & __MetadataBearer;
+export interface GetMLTaskRunsCommandInput extends GetMLTaskRunsRequest {}
+export interface GetMLTaskRunsCommandOutput extends GetMLTaskRunsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of runs for a machine learning transform. Machine learning task runs are

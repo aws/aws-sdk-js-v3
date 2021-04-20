@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateChannelModeratorCommandInput = CreateChannelModeratorRequest;
-export type CreateChannelModeratorCommandOutput = CreateChannelModeratorResponse & __MetadataBearer;
+export interface CreateChannelModeratorCommandInput extends CreateChannelModeratorRequest {}
+export interface CreateChannelModeratorCommandOutput extends CreateChannelModeratorResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>

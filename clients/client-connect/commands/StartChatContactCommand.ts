@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartChatContactCommandInput = StartChatContactRequest;
-export type StartChatContactCommandOutput = StartChatContactResponse & __MetadataBearer;
+export interface StartChatContactCommandInput extends StartChatContactRequest {}
+export interface StartChatContactCommandOutput extends StartChatContactResponse, __MetadataBearer {}
 
 /**
  * <p>Initiates a contact flow to start a new chat for the customer. Response of this API provides

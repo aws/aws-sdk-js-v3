@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CopyBackupCommandInput = CopyBackupRequest;
-export type CopyBackupCommandOutput = CopyBackupResponse & __MetadataBearer;
+export interface CopyBackupCommandInput extends CopyBackupRequest {}
+export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataBearer {}
 
 /**
  * <p>Copies an existing backup within the same AWS account to another Region

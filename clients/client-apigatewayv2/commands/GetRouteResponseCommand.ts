@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRouteResponseCommandInput = GetRouteResponseRequest;
-export type GetRouteResponseCommandOutput = GetRouteResponseResponse & __MetadataBearer;
+export interface GetRouteResponseCommandInput extends GetRouteResponseRequest {}
+export interface GetRouteResponseCommandOutput extends GetRouteResponseResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a RouteResponse.</p>

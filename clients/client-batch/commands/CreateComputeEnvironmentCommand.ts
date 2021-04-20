@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateComputeEnvironmentCommandInput = CreateComputeEnvironmentRequest;
-export type CreateComputeEnvironmentCommandOutput = CreateComputeEnvironmentResponse & __MetadataBearer;
+export interface CreateComputeEnvironmentCommandInput extends CreateComputeEnvironmentRequest {}
+export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvironmentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an AWS Batch compute environment. You can create <code>MANAGED</code> or <code>UNMANAGED</code> compute

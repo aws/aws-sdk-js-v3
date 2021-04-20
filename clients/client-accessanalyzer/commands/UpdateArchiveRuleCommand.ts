@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateArchiveRuleCommandInput = UpdateArchiveRuleRequest;
-export type UpdateArchiveRuleCommandOutput = __MetadataBearer;
+export interface UpdateArchiveRuleCommandInput extends UpdateArchiveRuleRequest {}
+export interface UpdateArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the criteria and values for the specified archive rule.</p>

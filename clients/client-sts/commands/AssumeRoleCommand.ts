@@ -15,8 +15,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssumeRoleCommandInput = AssumeRoleRequest;
-export type AssumeRoleCommandOutput = AssumeRoleResponse & __MetadataBearer;
+export interface AssumeRoleCommandInput extends AssumeRoleRequest {}
+export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a set of temporary security credentials that you can use to access AWS

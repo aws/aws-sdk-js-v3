@@ -19,8 +19,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBucketReplicationCommandInput = PutBucketReplicationRequest;
-export type PutBucketReplicationCommandOutput = __MetadataBearer;
+export interface PutBucketReplicationCommandInput extends PutBucketReplicationRequest {}
+export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p> Creates a replication configuration or replaces an existing one. For more information,

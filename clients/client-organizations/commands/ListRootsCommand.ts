@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRootsCommandInput = ListRootsRequest;
-export type ListRootsCommandOutput = ListRootsResponse & __MetadataBearer;
+export interface ListRootsCommandInput extends ListRootsRequest {}
+export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the roots that are defined in the current organization.</p>

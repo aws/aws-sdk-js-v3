@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMemberCommandInput = UpdateMemberInput;
-export type UpdateMemberCommandOutput = UpdateMemberOutput & __MetadataBearer;
+export interface UpdateMemberCommandInput extends UpdateMemberInput {}
+export interface UpdateMemberCommandOutput extends UpdateMemberOutput, __MetadataBearer {}
 
 /**
  * <p>Updates a member configuration with new parameters.</p>

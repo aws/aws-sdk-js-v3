@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateExperimentCommandInput = UpdateExperimentRequest;
-export type UpdateExperimentCommandOutput = UpdateExperimentResponse & __MetadataBearer;
+export interface UpdateExperimentCommandInput extends UpdateExperimentRequest {}
+export interface UpdateExperimentCommandOutput extends UpdateExperimentResponse, __MetadataBearer {}
 
 /**
  * <p>Adds, updates, or removes the description of an experiment. Updates the display name of an

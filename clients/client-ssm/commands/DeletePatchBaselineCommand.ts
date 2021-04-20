@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePatchBaselineCommandInput = DeletePatchBaselineRequest;
-export type DeletePatchBaselineCommandOutput = DeletePatchBaselineResult & __MetadataBearer;
+export interface DeletePatchBaselineCommandInput extends DeletePatchBaselineRequest {}
+export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a patch baseline.</p>

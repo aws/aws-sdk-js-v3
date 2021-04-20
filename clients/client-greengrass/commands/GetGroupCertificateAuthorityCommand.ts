@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetGroupCertificateAuthorityCommandInput = GetGroupCertificateAuthorityRequest;
-export type GetGroupCertificateAuthorityCommandOutput = GetGroupCertificateAuthorityResponse & __MetadataBearer;
+export interface GetGroupCertificateAuthorityCommandInput extends GetGroupCertificateAuthorityRequest {}
+export interface GetGroupCertificateAuthorityCommandOutput
+  extends GetGroupCertificateAuthorityResponse,
+    __MetadataBearer {}
 
 /**
  * Retreives the CA associated with a group. Returns the public key of the CA.

@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeOrganizationConformancePacksCommandInput = DescribeOrganizationConformancePacksRequest;
-export type DescribeOrganizationConformancePacksCommandOutput = DescribeOrganizationConformancePacksResponse &
-  __MetadataBearer;
+export interface DescribeOrganizationConformancePacksCommandInput extends DescribeOrganizationConformancePacksRequest {}
+export interface DescribeOrganizationConformancePacksCommandOutput
+  extends DescribeOrganizationConformancePacksResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a list of organization conformance packs. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEnvironmentsCommandInput = ListEnvironmentsRequest;
-export type ListEnvironmentsCommandOutput = Environments & __MetadataBearer;
+export interface ListEnvironmentsCommandInput extends ListEnvironmentsRequest {}
+export interface ListEnvironmentsCommandOutput extends Environments, __MetadataBearer {}
 
 /**
  * <p>List the environments for an application.</p>

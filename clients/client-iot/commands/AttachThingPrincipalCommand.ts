@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachThingPrincipalCommandInput = AttachThingPrincipalRequest;
-export type AttachThingPrincipalCommandOutput = AttachThingPrincipalResponse & __MetadataBearer;
+export interface AttachThingPrincipalCommandInput extends AttachThingPrincipalRequest {}
+export interface AttachThingPrincipalCommandOutput extends AttachThingPrincipalResponse, __MetadataBearer {}
 
 /**
  * <p>Attaches the specified principal to the specified thing. A principal can be X.509

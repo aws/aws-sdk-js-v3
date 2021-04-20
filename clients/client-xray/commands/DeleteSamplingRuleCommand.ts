@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSamplingRuleCommandInput = DeleteSamplingRuleRequest;
-export type DeleteSamplingRuleCommandOutput = DeleteSamplingRuleResult & __MetadataBearer;
+export interface DeleteSamplingRuleCommandInput extends DeleteSamplingRuleRequest {}
+export interface DeleteSamplingRuleCommandOutput extends DeleteSamplingRuleResult, __MetadataBearer {}
 
 /**
  * <p>Deletes a sampling rule.</p>

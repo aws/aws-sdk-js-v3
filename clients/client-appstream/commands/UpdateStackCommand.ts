@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateStackCommandInput = UpdateStackRequest;
-export type UpdateStackCommandOutput = UpdateStackResult & __MetadataBearer;
+export interface UpdateStackCommandInput extends UpdateStackRequest {}
+export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataBearer {}
 
 /**
  * <p>Updates the specified fields for the specified stack.</p>

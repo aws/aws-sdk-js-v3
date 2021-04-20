@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeInterconnectLoaCommandInput = DescribeInterconnectLoaRequest;
-export type DescribeInterconnectLoaCommandOutput = DescribeInterconnectLoaResponse & __MetadataBearer;
+export interface DescribeInterconnectLoaCommandInput extends DescribeInterconnectLoaRequest {}
+export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconnectLoaResponse, __MetadataBearer {}
 
 /**
  * @deprecated

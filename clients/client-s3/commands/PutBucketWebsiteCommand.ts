@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutBucketWebsiteCommandInput = PutBucketWebsiteRequest;
-export type PutBucketWebsiteCommandOutput = __MetadataBearer;
+export interface PutBucketWebsiteCommandInput extends PutBucketWebsiteRequest {}
+export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the configuration of the website that is specified in the <code>website</code>

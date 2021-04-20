@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterPatchBaselineForPatchGroupCommandInput = DeregisterPatchBaselineForPatchGroupRequest;
-export type DeregisterPatchBaselineForPatchGroupCommandOutput = DeregisterPatchBaselineForPatchGroupResult &
-  __MetadataBearer;
+export interface DeregisterPatchBaselineForPatchGroupCommandInput extends DeregisterPatchBaselineForPatchGroupRequest {}
+export interface DeregisterPatchBaselineForPatchGroupCommandOutput
+  extends DeregisterPatchBaselineForPatchGroupResult,
+    __MetadataBearer {}
 
 /**
  * <p>Removes a patch group from a patch baseline.</p>

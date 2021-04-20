@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSystemTemplateCommandInput = CreateSystemTemplateRequest;
-export type CreateSystemTemplateCommandOutput = CreateSystemTemplateResponse & __MetadataBearer;
+export interface CreateSystemTemplateCommandInput extends CreateSystemTemplateRequest {}
+export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a system. The system is validated against the entities in the

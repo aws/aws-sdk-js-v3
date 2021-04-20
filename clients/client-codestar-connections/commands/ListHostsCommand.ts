@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListHostsCommandInput = ListHostsInput;
-export type ListHostsCommandOutput = ListHostsOutput & __MetadataBearer;
+export interface ListHostsCommandInput extends ListHostsInput {}
+export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists the hosts associated with your account.</p>

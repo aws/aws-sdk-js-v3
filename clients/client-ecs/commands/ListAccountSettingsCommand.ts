@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAccountSettingsCommandInput = ListAccountSettingsRequest;
-export type ListAccountSettingsCommandOutput = ListAccountSettingsResponse & __MetadataBearer;
+export interface ListAccountSettingsCommandInput extends ListAccountSettingsRequest {}
+export interface ListAccountSettingsCommandOutput extends ListAccountSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the account settings for a specified principal.</p>

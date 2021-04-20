@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeConnectionAliasesCommandInput = DescribeConnectionAliasesRequest;
-export type DescribeConnectionAliasesCommandOutput = DescribeConnectionAliasesResult & __MetadataBearer;
+export interface DescribeConnectionAliasesCommandInput extends DescribeConnectionAliasesRequest {}
+export interface DescribeConnectionAliasesCommandOutput extends DescribeConnectionAliasesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list that describes the connection aliases used for cross-Region redirection. For more information, see

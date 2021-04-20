@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateThemePermissionsCommandInput = UpdateThemePermissionsRequest;
-export type UpdateThemePermissionsCommandOutput = UpdateThemePermissionsResponse & __MetadataBearer;
+export interface UpdateThemePermissionsCommandInput extends UpdateThemePermissionsRequest {}
+export interface UpdateThemePermissionsCommandOutput extends UpdateThemePermissionsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the resource permissions for a theme. Permissions apply to the action to grant or

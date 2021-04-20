@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyBackupAttributesCommandInput = ModifyBackupAttributesRequest;
-export type ModifyBackupAttributesCommandOutput = ModifyBackupAttributesResponse & __MetadataBearer;
+export interface ModifyBackupAttributesCommandInput extends ModifyBackupAttributesRequest {}
+export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies attributes for AWS CloudHSM backup.</p>

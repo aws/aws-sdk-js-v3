@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyVpnTunnelCertificateCommandInput = ModifyVpnTunnelCertificateRequest;
-export type ModifyVpnTunnelCertificateCommandOutput = ModifyVpnTunnelCertificateResult & __MetadataBearer;
+export interface ModifyVpnTunnelCertificateCommandInput extends ModifyVpnTunnelCertificateRequest {}
+export interface ModifyVpnTunnelCertificateCommandOutput extends ModifyVpnTunnelCertificateResult, __MetadataBearer {}
 
 /**
  * <p>Modifies the VPN tunnel endpoint certificate.</p>

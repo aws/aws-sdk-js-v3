@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateSkillWithUsersCommandInput = AssociateSkillWithUsersRequest;
-export type AssociateSkillWithUsersCommandOutput = AssociateSkillWithUsersResponse & __MetadataBearer;
+export interface AssociateSkillWithUsersCommandInput extends AssociateSkillWithUsersRequest {}
+export interface AssociateSkillWithUsersCommandOutput extends AssociateSkillWithUsersResponse, __MetadataBearer {}
 
 /**
  * <p>Makes a private skill available for enrolled users to enable on their devices.</p>

@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PromoteResourceShareCreatedFromPolicyCommandInput = PromoteResourceShareCreatedFromPolicyRequest;
-export type PromoteResourceShareCreatedFromPolicyCommandOutput = PromoteResourceShareCreatedFromPolicyResponse &
-  __MetadataBearer;
+export interface PromoteResourceShareCreatedFromPolicyCommandInput
+  extends PromoteResourceShareCreatedFromPolicyRequest {}
+export interface PromoteResourceShareCreatedFromPolicyCommandOutput
+  extends PromoteResourceShareCreatedFromPolicyResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Resource shares that were created by attaching a policy to a resource are visible only to

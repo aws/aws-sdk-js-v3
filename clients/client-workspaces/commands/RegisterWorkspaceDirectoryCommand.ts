@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RegisterWorkspaceDirectoryCommandInput = RegisterWorkspaceDirectoryRequest;
-export type RegisterWorkspaceDirectoryCommandOutput = RegisterWorkspaceDirectoryResult & __MetadataBearer;
+export interface RegisterWorkspaceDirectoryCommandInput extends RegisterWorkspaceDirectoryRequest {}
+export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspaceDirectoryResult, __MetadataBearer {}
 
 /**
  * <p>Registers the specified directory. This operation is asynchronous

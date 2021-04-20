@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeOpsItemsCommandInput = DescribeOpsItemsRequest;
-export type DescribeOpsItemsCommandOutput = DescribeOpsItemsResponse & __MetadataBearer;
+export interface DescribeOpsItemsCommandInput extends DescribeOpsItemsRequest {}
+export interface DescribeOpsItemsCommandOutput extends DescribeOpsItemsResponse, __MetadataBearer {}
 
 /**
  * <p>Query a set of OpsItems. You must have permission in AWS Identity and Access Management

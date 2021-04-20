@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetJobTemplateCommandInput = GetJobTemplateRequest;
-export type GetJobTemplateCommandOutput = GetJobTemplateResponse & __MetadataBearer;
+export interface GetJobTemplateCommandInput extends GetJobTemplateRequest {}
+export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __MetadataBearer {}
 
 /**
  * Retrieve the JSON for a specific job template.

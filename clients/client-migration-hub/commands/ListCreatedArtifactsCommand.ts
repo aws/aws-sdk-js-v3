@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCreatedArtifactsCommandInput = ListCreatedArtifactsRequest;
-export type ListCreatedArtifactsCommandOutput = ListCreatedArtifactsResult & __MetadataBearer;
+export interface ListCreatedArtifactsCommandInput extends ListCreatedArtifactsRequest {}
+export interface ListCreatedArtifactsCommandOutput extends ListCreatedArtifactsResult, __MetadataBearer {}
 
 /**
  * <p>Lists the created artifacts attached to a given migration task in an update stream. This

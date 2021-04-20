@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UntagServerCertificateCommandInput = UntagServerCertificateRequest;
-export type UntagServerCertificateCommandOutput = __MetadataBearer;
+export interface UntagServerCertificateCommandInput extends UntagServerCertificateRequest {}
+export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified tags from the IAM server certificate.

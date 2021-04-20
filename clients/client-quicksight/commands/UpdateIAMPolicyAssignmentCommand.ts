@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateIAMPolicyAssignmentCommandInput = UpdateIAMPolicyAssignmentRequest;
-export type UpdateIAMPolicyAssignmentCommandOutput = UpdateIAMPolicyAssignmentResponse & __MetadataBearer;
+export interface UpdateIAMPolicyAssignmentCommandInput extends UpdateIAMPolicyAssignmentRequest {}
+export interface UpdateIAMPolicyAssignmentCommandOutput extends UpdateIAMPolicyAssignmentResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing IAM policy assignment. This operation updates only the optional

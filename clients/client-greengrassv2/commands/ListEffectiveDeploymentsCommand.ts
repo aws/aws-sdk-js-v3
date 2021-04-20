@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListEffectiveDeploymentsCommandInput = ListEffectiveDeploymentsRequest;
-export type ListEffectiveDeploymentsCommandOutput = ListEffectiveDeploymentsResponse & __MetadataBearer;
+export interface ListEffectiveDeploymentsCommandInput extends ListEffectiveDeploymentsRequest {}
+export interface ListEffectiveDeploymentsCommandOutput extends ListEffectiveDeploymentsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a paginated list of deployment jobs that AWS IoT Greengrass sends to AWS IoT Greengrass core

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSubscriptionCommandInput = DescribeSubscriptionRequest;
-export type DescribeSubscriptionCommandOutput = DescribeSubscriptionResponse & __MetadataBearer;
+export interface DescribeSubscriptionCommandInput extends DescribeSubscriptionRequest {}
+export interface DescribeSubscriptionCommandOutput extends DescribeSubscriptionResponse, __MetadataBearer {}
 
 /**
  * <p>Provides details about the AWS Shield Advanced subscription for an account.</p>

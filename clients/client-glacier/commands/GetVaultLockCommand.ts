@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetVaultLockCommandInput = GetVaultLockInput;
-export type GetVaultLockCommandOutput = GetVaultLockOutput & __MetadataBearer;
+export interface GetVaultLockCommandInput extends GetVaultLockInput {}
+export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __MetadataBearer {}
 
 /**
  * <p>This operation retrieves the following attributes from the <code>lock-policy</code>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSchemaVersionsDiffCommandInput = GetSchemaVersionsDiffInput;
-export type GetSchemaVersionsDiffCommandOutput = GetSchemaVersionsDiffResponse & __MetadataBearer;
+export interface GetSchemaVersionsDiffCommandInput extends GetSchemaVersionsDiffInput {}
+export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDiffResponse, __MetadataBearer {}
 
 /**
  * <p>Fetches the schema version difference in the specified difference type between two stored schema versions in the Schema Registry.</p>

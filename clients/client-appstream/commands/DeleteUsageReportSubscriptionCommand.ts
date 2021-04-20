@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUsageReportSubscriptionCommandInput = DeleteUsageReportSubscriptionRequest;
-export type DeleteUsageReportSubscriptionCommandOutput = DeleteUsageReportSubscriptionResult & __MetadataBearer;
+export interface DeleteUsageReportSubscriptionCommandInput extends DeleteUsageReportSubscriptionRequest {}
+export interface DeleteUsageReportSubscriptionCommandOutput
+  extends DeleteUsageReportSubscriptionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Disables usage report generation.</p>

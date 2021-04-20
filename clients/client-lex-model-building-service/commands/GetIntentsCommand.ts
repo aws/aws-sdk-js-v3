@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetIntentsCommandInput = GetIntentsRequest;
-export type GetIntentsCommandOutput = GetIntentsResponse & __MetadataBearer;
+export interface GetIntentsCommandInput extends GetIntentsRequest {}
+export interface GetIntentsCommandOutput extends GetIntentsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns intent information as follows: </p>

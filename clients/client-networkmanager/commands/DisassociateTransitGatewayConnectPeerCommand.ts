@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateTransitGatewayConnectPeerCommandInput = DisassociateTransitGatewayConnectPeerRequest;
-export type DisassociateTransitGatewayConnectPeerCommandOutput = DisassociateTransitGatewayConnectPeerResponse &
-  __MetadataBearer;
+export interface DisassociateTransitGatewayConnectPeerCommandInput
+  extends DisassociateTransitGatewayConnectPeerRequest {}
+export interface DisassociateTransitGatewayConnectPeerCommandOutput
+  extends DisassociateTransitGatewayConnectPeerResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates a transit gateway Connect peer from a device and link.</p>

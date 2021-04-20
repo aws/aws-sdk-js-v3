@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableLoggingCommandInput = EnableLoggingMessage;
-export type EnableLoggingCommandOutput = LoggingStatus & __MetadataBearer;
+export interface EnableLoggingCommandInput extends EnableLoggingMessage {}
+export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBearer {}
 
 /**
  * <p>Starts logging information, such as queries and connection attempts, for the

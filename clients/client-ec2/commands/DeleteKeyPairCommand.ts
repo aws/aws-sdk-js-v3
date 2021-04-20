@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteKeyPairCommandInput = DeleteKeyPairRequest;
-export type DeleteKeyPairCommandOutput = __MetadataBearer;
+export interface DeleteKeyPairCommandInput extends DeleteKeyPairRequest {}
+export interface DeleteKeyPairCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified key pair, by removing the public key from Amazon EC2.</p>

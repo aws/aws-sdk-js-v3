@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAccountAuditConfigurationCommandInput = DeleteAccountAuditConfigurationRequest;
-export type DeleteAccountAuditConfigurationCommandOutput = DeleteAccountAuditConfigurationResponse & __MetadataBearer;
+export interface DeleteAccountAuditConfigurationCommandInput extends DeleteAccountAuditConfigurationRequest {}
+export interface DeleteAccountAuditConfigurationCommandOutput
+  extends DeleteAccountAuditConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Restores the default settings for Device Defender audits for this account. Any

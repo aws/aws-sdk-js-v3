@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ScheduleKeyDeletionCommandInput = ScheduleKeyDeletionRequest;
-export type ScheduleKeyDeletionCommandOutput = ScheduleKeyDeletionResponse & __MetadataBearer;
+export interface ScheduleKeyDeletionCommandInput extends ScheduleKeyDeletionRequest {}
+export interface ScheduleKeyDeletionCommandOutput extends ScheduleKeyDeletionResponse, __MetadataBearer {}
 
 /**
  * <p>Schedules the deletion of a customer master key (CMK). You may provide a waiting period,

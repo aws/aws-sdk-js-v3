@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListStreamingDistributionsCommandInput = ListStreamingDistributionsRequest;
-export type ListStreamingDistributionsCommandOutput = ListStreamingDistributionsResult & __MetadataBearer;
+export interface ListStreamingDistributionsCommandInput extends ListStreamingDistributionsRequest {}
+export interface ListStreamingDistributionsCommandOutput extends ListStreamingDistributionsResult, __MetadataBearer {}
 
 /**
  * <p>List streaming distributions. </p>

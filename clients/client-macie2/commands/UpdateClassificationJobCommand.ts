@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateClassificationJobCommandInput = UpdateClassificationJobRequest;
-export type UpdateClassificationJobCommandOutput = UpdateClassificationJobResponse & __MetadataBearer;
+export interface UpdateClassificationJobCommandInput extends UpdateClassificationJobRequest {}
+export interface UpdateClassificationJobCommandOutput extends UpdateClassificationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Changes the status of a classification job.</p>

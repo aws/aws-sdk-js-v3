@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeScalableTargetsCommandInput = DescribeScalableTargetsRequest;
-export type DescribeScalableTargetsCommandOutput = DescribeScalableTargetsResponse & __MetadataBearer;
+export interface DescribeScalableTargetsCommandInput extends DescribeScalableTargetsRequest {}
+export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTargetsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the scalable targets in the specified namespace.</p>

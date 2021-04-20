@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptResourceShareInvitationCommandInput = AcceptResourceShareInvitationRequest;
-export type AcceptResourceShareInvitationCommandOutput = AcceptResourceShareInvitationResponse & __MetadataBearer;
+export interface AcceptResourceShareInvitationCommandInput extends AcceptResourceShareInvitationRequest {}
+export interface AcceptResourceShareInvitationCommandOutput
+  extends AcceptResourceShareInvitationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Accepts an invitation to a resource share from another AWS account.</p>

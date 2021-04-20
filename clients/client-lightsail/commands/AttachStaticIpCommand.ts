@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AttachStaticIpCommandInput = AttachStaticIpRequest;
-export type AttachStaticIpCommandOutput = AttachStaticIpResult & __MetadataBearer;
+export interface AttachStaticIpCommandInput extends AttachStaticIpRequest {}
+export interface AttachStaticIpCommandOutput extends AttachStaticIpResult, __MetadataBearer {}
 
 /**
  * <p>Attaches a static IP address to a specific Amazon Lightsail instance.</p>

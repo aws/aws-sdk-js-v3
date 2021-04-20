@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateModelCommandInput = CreateModelRequest;
-export type CreateModelCommandOutput = CreateModelResponse & __MetadataBearer;
+export interface CreateModelCommandInput extends CreateModelRequest {}
+export interface CreateModelCommandOutput extends CreateModelResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new version of a model within an an Amazon Lookout for Vision project.

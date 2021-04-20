@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type MigrateWorkspaceCommandInput = MigrateWorkspaceRequest;
-export type MigrateWorkspaceCommandOutput = MigrateWorkspaceResult & __MetadataBearer;
+export interface MigrateWorkspaceCommandInput extends MigrateWorkspaceRequest {}
+export interface MigrateWorkspaceCommandOutput extends MigrateWorkspaceResult, __MetadataBearer {}
 
 /**
  * <p>Migrates a WorkSpace from one operating system or bundle type to another, while retaining the data on the user volume.</p>

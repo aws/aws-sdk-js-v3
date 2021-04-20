@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateApprovalRuleTemplateDescriptionCommandInput = UpdateApprovalRuleTemplateDescriptionInput;
-export type UpdateApprovalRuleTemplateDescriptionCommandOutput = UpdateApprovalRuleTemplateDescriptionOutput &
-  __MetadataBearer;
+export interface UpdateApprovalRuleTemplateDescriptionCommandInput extends UpdateApprovalRuleTemplateDescriptionInput {}
+export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
+  extends UpdateApprovalRuleTemplateDescriptionOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Updates the description for a specified approval rule template.</p>

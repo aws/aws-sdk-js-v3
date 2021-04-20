@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDatasetContentCommandInput = CreateDatasetContentRequest;
-export type CreateDatasetContentCommandOutput = CreateDatasetContentResponse & __MetadataBearer;
+export interface CreateDatasetContentCommandInput extends CreateDatasetContentRequest {}
+export interface CreateDatasetContentCommandOutput extends CreateDatasetContentResponse, __MetadataBearer {}
 
 /**
  * <p>Creates the content of a data set by applying a <code>queryAction</code> (a SQL query) or

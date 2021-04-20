@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSipRuleCommandInput = GetSipRuleRequest;
-export type GetSipRuleCommandOutput = GetSipRuleResponse & __MetadataBearer;
+export interface GetSipRuleCommandInput extends GetSipRuleRequest {}
+export interface GetSipRuleCommandOutput extends GetSipRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and target endpoints.</p>

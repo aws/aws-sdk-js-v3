@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListFirewallRuleGroupsCommandInput = ListFirewallRuleGroupsRequest;
-export type ListFirewallRuleGroupsCommandOutput = ListFirewallRuleGroupsResponse & __MetadataBearer;
+export interface ListFirewallRuleGroupsCommandInput extends ListFirewallRuleGroupsRequest {}
+export interface ListFirewallRuleGroupsCommandOutput extends ListFirewallRuleGroupsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the minimal high-level information for the rule groups that you have defined.  </p>

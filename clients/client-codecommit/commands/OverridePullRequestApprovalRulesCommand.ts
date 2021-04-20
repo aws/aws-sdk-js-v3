@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type OverridePullRequestApprovalRulesCommandInput = OverridePullRequestApprovalRulesInput;
-export type OverridePullRequestApprovalRulesCommandOutput = __MetadataBearer;
+export interface OverridePullRequestApprovalRulesCommandInput extends OverridePullRequestApprovalRulesInput {}
+export interface OverridePullRequestApprovalRulesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets aside (overrides) all approval rule requirements for a specified pull request.</p>

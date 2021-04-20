@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBotLocaleCommandInput = DeleteBotLocaleRequest;
-export type DeleteBotLocaleCommandOutput = DeleteBotLocaleResponse & __MetadataBearer;
+export interface DeleteBotLocaleCommandInput extends DeleteBotLocaleRequest {}
+export interface DeleteBotLocaleCommandOutput extends DeleteBotLocaleResponse, __MetadataBearer {}
 
 /**
  * <p>Removes a locale from a bot.</p>

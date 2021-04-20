@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RestoreFromClusterSnapshotCommandInput = RestoreFromClusterSnapshotMessage;
-export type RestoreFromClusterSnapshotCommandOutput = RestoreFromClusterSnapshotResult & __MetadataBearer;
+export interface RestoreFromClusterSnapshotCommandInput extends RestoreFromClusterSnapshotMessage {}
+export interface RestoreFromClusterSnapshotCommandOutput extends RestoreFromClusterSnapshotResult, __MetadataBearer {}
 
 /**
  * <p>Creates a new cluster from a snapshot. By default, Amazon Redshift creates the resulting

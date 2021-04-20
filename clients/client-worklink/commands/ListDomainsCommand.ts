@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDomainsCommandInput = ListDomainsRequest;
-export type ListDomainsCommandOutput = ListDomainsResponse & __MetadataBearer;
+export interface ListDomainsCommandInput extends ListDomainsRequest {}
+export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves a list of domains associated to a specified fleet.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type OpenInstancePublicPortsCommandInput = OpenInstancePublicPortsRequest;
-export type OpenInstancePublicPortsCommandOutput = OpenInstancePublicPortsResult & __MetadataBearer;
+export interface OpenInstancePublicPortsCommandInput extends OpenInstancePublicPortsRequest {}
+export interface OpenInstancePublicPortsCommandOutput extends OpenInstancePublicPortsResult, __MetadataBearer {}
 
 /**
  * <p>Opens ports for a specific Amazon Lightsail instance, and specifies the IP addresses

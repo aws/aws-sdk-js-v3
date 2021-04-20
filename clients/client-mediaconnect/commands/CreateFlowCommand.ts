@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFlowCommandInput = CreateFlowRequest;
-export type CreateFlowCommandOutput = CreateFlowResponse & __MetadataBearer;
+export interface CreateFlowCommandInput extends CreateFlowRequest {}
+export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataBearer {}
 
 /**
  * Creates a new flow. The request must include one source. The request optionally can include outputs (up to 50) and entitlements (up to 50).

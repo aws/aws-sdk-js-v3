@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateReusableDelegationSetCommandInput = CreateReusableDelegationSetRequest;
-export type CreateReusableDelegationSetCommandOutput = CreateReusableDelegationSetResponse & __MetadataBearer;
+export interface CreateReusableDelegationSetCommandInput extends CreateReusableDelegationSetRequest {}
+export interface CreateReusableDelegationSetCommandOutput
+  extends CreateReusableDelegationSetResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a delegation set (a group of four name servers) that can be reused by multiple hosted zones that were created by

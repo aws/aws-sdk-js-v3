@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeBotLocaleCommandInput = DescribeBotLocaleRequest;
-export type DescribeBotLocaleCommandOutput = DescribeBotLocaleResponse & __MetadataBearer;
+export interface DescribeBotLocaleCommandInput extends DescribeBotLocaleRequest {}
+export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the settings that a bot has for a specific locale. </p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPipelineExecutionsCommandInput = ListPipelineExecutionsInput;
-export type ListPipelineExecutionsCommandOutput = ListPipelineExecutionsOutput & __MetadataBearer;
+export interface ListPipelineExecutionsCommandInput extends ListPipelineExecutionsInput {}
+export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecutionsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets a summary of the most recent executions for a pipeline.</p>

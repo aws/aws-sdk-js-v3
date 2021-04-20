@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartInstanceRefreshCommandInput = StartInstanceRefreshType;
-export type StartInstanceRefreshCommandOutput = StartInstanceRefreshAnswer & __MetadataBearer;
+export interface StartInstanceRefreshCommandInput extends StartInstanceRefreshType {}
+export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshAnswer, __MetadataBearer {}
 
 /**
  * <p>Starts a new instance refresh operation, which triggers a rolling replacement of

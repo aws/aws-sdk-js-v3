@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetIdentityPoolConfigurationCommandInput = SetIdentityPoolConfigurationRequest;
-export type SetIdentityPoolConfigurationCommandOutput = SetIdentityPoolConfigurationResponse & __MetadataBearer;
+export interface SetIdentityPoolConfigurationCommandInput extends SetIdentityPoolConfigurationRequest {}
+export interface SetIdentityPoolConfigurationCommandOutput
+  extends SetIdentityPoolConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Sets the necessary configuration for push sync.</p><p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyDocumentPermissionCommandInput = ModifyDocumentPermissionRequest;
-export type ModifyDocumentPermissionCommandOutput = ModifyDocumentPermissionResponse & __MetadataBearer;
+export interface ModifyDocumentPermissionCommandInput extends ModifyDocumentPermissionRequest {}
+export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPermissionResponse, __MetadataBearer {}
 
 /**
  * <p>Shares a Systems Manager document publicly or privately. If you share a document privately, you must

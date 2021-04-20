@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSamplingRulesCommandInput = GetSamplingRulesRequest;
-export type GetSamplingRulesCommandOutput = GetSamplingRulesResult & __MetadataBearer;
+export interface GetSamplingRulesCommandInput extends GetSamplingRulesRequest {}
+export interface GetSamplingRulesCommandOutput extends GetSamplingRulesResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves all sampling rules.</p>

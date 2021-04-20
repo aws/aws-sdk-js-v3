@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRegistrationCodeCommandInput = DeleteRegistrationCodeRequest;
-export type DeleteRegistrationCodeCommandOutput = DeleteRegistrationCodeResponse & __MetadataBearer;
+export interface DeleteRegistrationCodeCommandInput extends DeleteRegistrationCodeRequest {}
+export interface DeleteRegistrationCodeCommandOutput extends DeleteRegistrationCodeResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a CA certificate registration code.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetPhoneNumberCommandInput = GetPhoneNumberRequest;
-export type GetPhoneNumberCommandOutput = GetPhoneNumberResponse & __MetadataBearer;
+export interface GetPhoneNumberCommandInput extends GetPhoneNumberRequest {}
+export interface GetPhoneNumberCommandOutput extends GetPhoneNumberResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves details for the specified phone number ID, such as associations, capabilities, and product type.</p>

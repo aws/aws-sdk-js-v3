@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateSipMediaApplicationCommandInput = UpdateSipMediaApplicationRequest;
-export type UpdateSipMediaApplicationCommandOutput = UpdateSipMediaApplicationResponse & __MetadataBearer;
+export interface UpdateSipMediaApplicationCommandInput extends UpdateSipMediaApplicationRequest {}
+export interface UpdateSipMediaApplicationCommandOutput extends UpdateSipMediaApplicationResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the details of the specified SIP media application.</p>

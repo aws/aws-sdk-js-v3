@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateProxySessionCommandInput = UpdateProxySessionRequest;
-export type UpdateProxySessionCommandOutput = UpdateProxySessionResponse & __MetadataBearer;
+export interface UpdateProxySessionCommandInput extends UpdateProxySessionRequest {}
+export interface UpdateProxySessionCommandOutput extends UpdateProxySessionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the specified proxy session details, such as voice or SMS capabilities.</p>

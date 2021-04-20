@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateLocationObjectStorageCommandInput = UpdateLocationObjectStorageRequest;
-export type UpdateLocationObjectStorageCommandOutput = UpdateLocationObjectStorageResponse & __MetadataBearer;
+export interface UpdateLocationObjectStorageCommandInput extends UpdateLocationObjectStorageRequest {}
+export interface UpdateLocationObjectStorageCommandOutput
+  extends UpdateLocationObjectStorageResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Updates some of the parameters of a previously created location for self-managed object

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAssessmentRunAgentsCommandInput = ListAssessmentRunAgentsRequest;
-export type ListAssessmentRunAgentsCommandOutput = ListAssessmentRunAgentsResponse & __MetadataBearer;
+export interface ListAssessmentRunAgentsCommandInput extends ListAssessmentRunAgentsRequest {}
+export interface ListAssessmentRunAgentsCommandOutput extends ListAssessmentRunAgentsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the agents of the assessment runs that are specified by the ARNs of the

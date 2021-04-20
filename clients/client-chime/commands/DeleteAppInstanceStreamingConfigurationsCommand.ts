@@ -17,8 +17,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAppInstanceStreamingConfigurationsCommandInput = DeleteAppInstanceStreamingConfigurationsRequest;
-export type DeleteAppInstanceStreamingConfigurationsCommandOutput = __MetadataBearer;
+export interface DeleteAppInstanceStreamingConfigurationsCommandInput
+  extends DeleteAppInstanceStreamingConfigurationsRequest {}
+export interface DeleteAppInstanceStreamingConfigurationsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the streaming configurations of an <code>AppInstance</code>.</p>

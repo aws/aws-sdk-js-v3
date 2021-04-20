@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSubscriptionDefinitionCommandInput = DeleteSubscriptionDefinitionRequest;
-export type DeleteSubscriptionDefinitionCommandOutput = DeleteSubscriptionDefinitionResponse & __MetadataBearer;
+export interface DeleteSubscriptionDefinitionCommandInput extends DeleteSubscriptionDefinitionRequest {}
+export interface DeleteSubscriptionDefinitionCommandOutput
+  extends DeleteSubscriptionDefinitionResponse,
+    __MetadataBearer {}
 
 /**
  * Deletes a subscription definition.

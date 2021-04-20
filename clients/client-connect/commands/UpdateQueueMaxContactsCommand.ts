@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateQueueMaxContactsCommandInput = UpdateQueueMaxContactsRequest;
-export type UpdateQueueMaxContactsCommandOutput = __MetadataBearer;
+export interface UpdateQueueMaxContactsCommandInput extends UpdateQueueMaxContactsRequest {}
+export interface UpdateQueueMaxContactsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteNamespaceCommandInput = DeleteNamespaceRequest;
-export type DeleteNamespaceCommandOutput = DeleteNamespaceResponse & __MetadataBearer;
+export interface DeleteNamespaceCommandInput extends DeleteNamespaceRequest {}
+export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a namespace and the users and groups that are associated with the namespace.

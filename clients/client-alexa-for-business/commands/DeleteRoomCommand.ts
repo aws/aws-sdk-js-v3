@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteRoomCommandInput = DeleteRoomRequest;
-export type DeleteRoomCommandOutput = DeleteRoomResponse & __MetadataBearer;
+export interface DeleteRoomCommandInput extends DeleteRoomRequest {}
+export interface DeleteRoomCommandOutput extends DeleteRoomResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a room by the room ARN.</p>

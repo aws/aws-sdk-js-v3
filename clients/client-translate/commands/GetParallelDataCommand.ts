@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetParallelDataCommandInput = GetParallelDataRequest;
-export type GetParallelDataCommandOutput = GetParallelDataResponse & __MetadataBearer;
+export interface GetParallelDataCommandInput extends GetParallelDataRequest {}
+export interface GetParallelDataCommandOutput extends GetParallelDataResponse, __MetadataBearer {}
 
 /**
  * <p>Provides information about a parallel data resource.</p>

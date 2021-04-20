@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteIntentCommandInput = DeleteIntentRequest;
-export type DeleteIntentCommandOutput = __MetadataBearer;
+export interface DeleteIntentCommandInput extends DeleteIntentRequest {}
+export interface DeleteIntentCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified intent.</p>

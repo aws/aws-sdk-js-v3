@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeNotificationRuleCommandInput = DescribeNotificationRuleRequest;
-export type DescribeNotificationRuleCommandOutput = DescribeNotificationRuleResult & __MetadataBearer;
+export interface DescribeNotificationRuleCommandInput extends DescribeNotificationRuleRequest {}
+export interface DescribeNotificationRuleCommandOutput extends DescribeNotificationRuleResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about a specified notification rule.</p>

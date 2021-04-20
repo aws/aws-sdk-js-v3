@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateTrialComponentCommandInput = AssociateTrialComponentRequest;
-export type AssociateTrialComponentCommandOutput = AssociateTrialComponentResponse & __MetadataBearer;
+export interface AssociateTrialComponentCommandInput extends AssociateTrialComponentRequest {}
+export interface AssociateTrialComponentCommandOutput extends AssociateTrialComponentResponse, __MetadataBearer {}
 
 /**
  * <p>Associates a trial component with a trial. A trial component can be associated with

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutInventoryCommandInput = PutInventoryRequest;
-export type PutInventoryCommandOutput = PutInventoryResult & __MetadataBearer;
+export interface PutInventoryCommandInput extends PutInventoryRequest {}
+export interface PutInventoryCommandOutput extends PutInventoryResult, __MetadataBearer {}
 
 /**
  * <p>Bulk update custom inventory items on one more instance. The request adds an inventory item,

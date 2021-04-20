@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteDBClusterEndpointCommandInput = DeleteDBClusterEndpointMessage;
-export type DeleteDBClusterEndpointCommandOutput = DeleteDBClusterEndpointOutput & __MetadataBearer;
+export interface DeleteDBClusterEndpointCommandInput extends DeleteDBClusterEndpointMessage {}
+export interface DeleteDBClusterEndpointCommandOutput extends DeleteDBClusterEndpointOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes a custom endpoint and removes it from an Amazon Neptune DB cluster.</p>

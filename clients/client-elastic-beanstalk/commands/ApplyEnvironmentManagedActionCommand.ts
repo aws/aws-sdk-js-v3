@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ApplyEnvironmentManagedActionCommandInput = ApplyEnvironmentManagedActionRequest;
-export type ApplyEnvironmentManagedActionCommandOutput = ApplyEnvironmentManagedActionResult & __MetadataBearer;
+export interface ApplyEnvironmentManagedActionCommandInput extends ApplyEnvironmentManagedActionRequest {}
+export interface ApplyEnvironmentManagedActionCommandOutput
+  extends ApplyEnvironmentManagedActionResult,
+    __MetadataBearer {}
 
 /**
  * <p>Applies a scheduled managed action immediately. A managed action can be applied only if

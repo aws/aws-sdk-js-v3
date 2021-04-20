@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListResourceServersCommandInput = ListResourceServersRequest;
-export type ListResourceServersCommandOutput = ListResourceServersResponse & __MetadataBearer;
+export interface ListResourceServersCommandInput extends ListResourceServersRequest {}
+export interface ListResourceServersCommandOutput extends ListResourceServersResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the resource servers for a user pool.</p>

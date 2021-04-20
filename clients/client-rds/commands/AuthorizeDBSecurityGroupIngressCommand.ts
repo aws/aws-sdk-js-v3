@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AuthorizeDBSecurityGroupIngressCommandInput = AuthorizeDBSecurityGroupIngressMessage;
-export type AuthorizeDBSecurityGroupIngressCommandOutput = AuthorizeDBSecurityGroupIngressResult & __MetadataBearer;
+export interface AuthorizeDBSecurityGroupIngressCommandInput extends AuthorizeDBSecurityGroupIngressMessage {}
+export interface AuthorizeDBSecurityGroupIngressCommandOutput
+  extends AuthorizeDBSecurityGroupIngressResult,
+    __MetadataBearer {}
 
 /**
  * <p>Enables ingress to a DBSecurityGroup using one of two forms of authorization. First, EC2 or VPC security

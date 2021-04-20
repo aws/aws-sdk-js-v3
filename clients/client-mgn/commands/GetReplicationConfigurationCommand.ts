@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetReplicationConfigurationCommandInput = GetReplicationConfigurationRequest;
-export type GetReplicationConfigurationCommandOutput = ReplicationConfiguration & __MetadataBearer;
+export interface GetReplicationConfigurationCommandInput extends GetReplicationConfigurationRequest {}
+export interface GetReplicationConfigurationCommandOutput extends ReplicationConfiguration, __MetadataBearer {}
 
 /**
  * <p>Lists all ReplicationConfigurations, filtered by Source Server ID.</p>

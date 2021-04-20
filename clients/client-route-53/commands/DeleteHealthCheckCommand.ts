@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteHealthCheckCommandInput = DeleteHealthCheckRequest;
-export type DeleteHealthCheckCommandOutput = DeleteHealthCheckResponse & __MetadataBearer;
+export interface DeleteHealthCheckCommandInput extends DeleteHealthCheckRequest {}
+export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a health check.</p>

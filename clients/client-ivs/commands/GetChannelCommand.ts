@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetChannelCommandInput = GetChannelRequest;
-export type GetChannelCommandOutput = GetChannelResponse & __MetadataBearer;
+export interface GetChannelCommandInput extends GetChannelRequest {}
+export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Gets the channel configuration for the specified channel ARN. See also <a>BatchGetChannel</a>.</p>

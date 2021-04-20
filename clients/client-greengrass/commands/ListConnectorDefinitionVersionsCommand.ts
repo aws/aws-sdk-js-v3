@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListConnectorDefinitionVersionsCommandInput = ListConnectorDefinitionVersionsRequest;
-export type ListConnectorDefinitionVersionsCommandOutput = ListConnectorDefinitionVersionsResponse & __MetadataBearer;
+export interface ListConnectorDefinitionVersionsCommandInput extends ListConnectorDefinitionVersionsRequest {}
+export interface ListConnectorDefinitionVersionsCommandOutput
+  extends ListConnectorDefinitionVersionsResponse,
+    __MetadataBearer {}
 
 /**
  * Lists the versions of a connector definition, which are containers for connectors. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.

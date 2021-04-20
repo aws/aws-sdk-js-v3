@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateDeviceWithNetworkProfileCommandInput = AssociateDeviceWithNetworkProfileRequest;
-export type AssociateDeviceWithNetworkProfileCommandOutput = AssociateDeviceWithNetworkProfileResponse &
-  __MetadataBearer;
+export interface AssociateDeviceWithNetworkProfileCommandInput extends AssociateDeviceWithNetworkProfileRequest {}
+export interface AssociateDeviceWithNetworkProfileCommandOutput
+  extends AssociateDeviceWithNetworkProfileResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Associates a device with the specified network profile.</p>

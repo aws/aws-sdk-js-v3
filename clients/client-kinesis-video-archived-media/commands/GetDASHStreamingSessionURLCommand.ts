@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetDASHStreamingSessionURLCommandInput = GetDASHStreamingSessionURLInput;
-export type GetDASHStreamingSessionURLCommandOutput = GetDASHStreamingSessionURLOutput & __MetadataBearer;
+export interface GetDASHStreamingSessionURLCommandInput extends GetDASHStreamingSessionURLInput {}
+export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamingSessionURLOutput, __MetadataBearer {}
 
 /**
  * <p>Retrieves an MPEG Dynamic Adaptive Streaming over HTTP (DASH) URL for the stream. You

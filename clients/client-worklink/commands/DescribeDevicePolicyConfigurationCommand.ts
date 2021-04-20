@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeDevicePolicyConfigurationCommandInput = DescribeDevicePolicyConfigurationRequest;
-export type DescribeDevicePolicyConfigurationCommandOutput = DescribeDevicePolicyConfigurationResponse &
-  __MetadataBearer;
+export interface DescribeDevicePolicyConfigurationCommandInput extends DescribeDevicePolicyConfigurationRequest {}
+export interface DescribeDevicePolicyConfigurationCommandOutput
+  extends DescribeDevicePolicyConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the device policy configuration for the specified fleet.</p>

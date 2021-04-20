@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutObjectLockConfigurationCommandInput = PutObjectLockConfigurationRequest;
-export type PutObjectLockConfigurationCommandOutput = PutObjectLockConfigurationOutput & __MetadataBearer;
+export interface PutObjectLockConfigurationCommandInput extends PutObjectLockConfigurationRequest {}
+export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockConfigurationOutput, __MetadataBearer {}
 
 /**
  * <p>Places an Object Lock configuration on the specified bucket. The rule specified in the

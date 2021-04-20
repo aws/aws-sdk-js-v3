@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCoreDefinitionCommandInput = UpdateCoreDefinitionRequest;
-export type UpdateCoreDefinitionCommandOutput = UpdateCoreDefinitionResponse & __MetadataBearer;
+export interface UpdateCoreDefinitionCommandInput extends UpdateCoreDefinitionRequest {}
+export interface UpdateCoreDefinitionCommandOutput extends UpdateCoreDefinitionResponse, __MetadataBearer {}
 
 /**
  * Updates a core definition.

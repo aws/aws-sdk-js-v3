@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateProtectionGroupCommandInput = CreateProtectionGroupRequest;
-export type CreateProtectionGroupCommandOutput = CreateProtectionGroupResponse & __MetadataBearer;
+export interface CreateProtectionGroupCommandInput extends CreateProtectionGroupRequest {}
+export interface CreateProtectionGroupCommandOutput extends CreateProtectionGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>

@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetJobTaggingCommandInput = GetJobTaggingRequest;
-export type GetJobTaggingCommandOutput = GetJobTaggingResult & __MetadataBearer;
+export interface GetJobTaggingCommandInput extends GetJobTaggingRequest {}
+export interface GetJobTaggingCommandOutput extends GetJobTaggingResult, __MetadataBearer {}
 
 /**
  * <p>Returns the tags on an S3 Batch Operations job. To use this operation, you must have

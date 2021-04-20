@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePermissionSetCommandInput = DeletePermissionSetRequest;
-export type DeletePermissionSetCommandOutput = DeletePermissionSetResponse & __MetadataBearer;
+export interface DeletePermissionSetCommandInput extends DeletePermissionSetRequest {}
+export interface DeletePermissionSetCommandOutput extends DeletePermissionSetResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified permission set.</p>

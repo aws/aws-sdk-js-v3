@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteVolumeCommandInput = DeleteVolumeInput;
-export type DeleteVolumeCommandOutput = DeleteVolumeOutput & __MetadataBearer;
+export interface DeleteVolumeCommandInput extends DeleteVolumeInput {}
+export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified storage volume that you previously created using the <a>CreateCachediSCSIVolume</a> or <a>CreateStorediSCSIVolume</a> API.

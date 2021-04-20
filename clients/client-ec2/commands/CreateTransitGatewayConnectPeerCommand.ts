@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTransitGatewayConnectPeerCommandInput = CreateTransitGatewayConnectPeerRequest;
-export type CreateTransitGatewayConnectPeerCommandOutput = CreateTransitGatewayConnectPeerResult & __MetadataBearer;
+export interface CreateTransitGatewayConnectPeerCommandInput extends CreateTransitGatewayConnectPeerRequest {}
+export interface CreateTransitGatewayConnectPeerCommandOutput
+  extends CreateTransitGatewayConnectPeerResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a Connect peer for a specified transit gateway Connect attachment between a

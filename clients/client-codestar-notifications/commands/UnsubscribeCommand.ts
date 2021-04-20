@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UnsubscribeCommandInput = UnsubscribeRequest;
-export type UnsubscribeCommandOutput = UnsubscribeResult & __MetadataBearer;
+export interface UnsubscribeCommandInput extends UnsubscribeRequest {}
+export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataBearer {}
 
 /**
  * <p>Removes an association between a notification rule and an Amazon SNS topic so that

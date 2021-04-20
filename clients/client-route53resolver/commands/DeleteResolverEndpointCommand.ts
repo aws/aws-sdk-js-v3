@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteResolverEndpointCommandInput = DeleteResolverEndpointRequest;
-export type DeleteResolverEndpointCommandOutput = DeleteResolverEndpointResponse & __MetadataBearer;
+export interface DeleteResolverEndpointCommandInput extends DeleteResolverEndpointRequest {}
+export interface DeleteResolverEndpointCommandOutput extends DeleteResolverEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a Resolver endpoint. The effect of deleting a Resolver endpoint depends on whether it's an inbound or an outbound

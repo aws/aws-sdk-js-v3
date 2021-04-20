@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateTerminationProtectionCommandInput = UpdateTerminationProtectionInput;
-export type UpdateTerminationProtectionCommandOutput = UpdateTerminationProtectionOutput & __MetadataBearer;
+export interface UpdateTerminationProtectionCommandInput extends UpdateTerminationProtectionInput {}
+export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminationProtectionOutput, __MetadataBearer {}
 
 /**
  * <p>Updates termination protection for the specified stack. If a user attempts to delete

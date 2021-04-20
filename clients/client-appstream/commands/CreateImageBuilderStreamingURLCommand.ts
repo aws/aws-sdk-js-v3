@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateImageBuilderStreamingURLCommandInput = CreateImageBuilderStreamingURLRequest;
-export type CreateImageBuilderStreamingURLCommandOutput = CreateImageBuilderStreamingURLResult & __MetadataBearer;
+export interface CreateImageBuilderStreamingURLCommandInput extends CreateImageBuilderStreamingURLRequest {}
+export interface CreateImageBuilderStreamingURLCommandOutput
+  extends CreateImageBuilderStreamingURLResult,
+    __MetadataBearer {}
 
 /**
  * <p>Creates a URL to start an image builder streaming session.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAgentCommandInput = UpdateAgentRequest;
-export type UpdateAgentCommandOutput = UpdateAgentResponse & __MetadataBearer;
+export interface UpdateAgentCommandInput extends UpdateAgentRequest {}
+export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the name of an agent.</p>

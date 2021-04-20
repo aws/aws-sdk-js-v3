@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDashboardsCommandInput = ListDashboardsInput;
-export type ListDashboardsCommandOutput = ListDashboardsOutput & __MetadataBearer;
+export interface ListDashboardsCommandInput extends ListDashboardsInput {}
+export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of the dashboards for your account. If you include <code>DashboardNamePrefix</code>, only

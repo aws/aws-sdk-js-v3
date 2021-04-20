@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSuiteCommandInput = GetSuiteRequest;
-export type GetSuiteCommandOutput = GetSuiteResult & __MetadataBearer;
+export interface GetSuiteCommandInput extends GetSuiteRequest {}
+export interface GetSuiteCommandOutput extends GetSuiteResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about a suite.</p>

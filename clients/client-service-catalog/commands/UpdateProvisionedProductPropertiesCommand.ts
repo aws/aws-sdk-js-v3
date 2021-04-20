@@ -17,9 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateProvisionedProductPropertiesCommandInput = UpdateProvisionedProductPropertiesInput;
-export type UpdateProvisionedProductPropertiesCommandOutput = UpdateProvisionedProductPropertiesOutput &
-  __MetadataBearer;
+export interface UpdateProvisionedProductPropertiesCommandInput extends UpdateProvisionedProductPropertiesInput {}
+export interface UpdateProvisionedProductPropertiesCommandOutput
+  extends UpdateProvisionedProductPropertiesOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Requests updates to the properties of the specified provisioned product.</p>

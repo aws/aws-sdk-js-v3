@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteServiceLinkedRoleCommandInput = DeleteServiceLinkedRoleRequest;
-export type DeleteServiceLinkedRoleCommandOutput = DeleteServiceLinkedRoleResponse & __MetadataBearer;
+export interface DeleteServiceLinkedRoleCommandInput extends DeleteServiceLinkedRoleRequest {}
+export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinkedRoleResponse, __MetadataBearer {}
 
 /**
  * <p>Submits a service-linked role deletion request and returns a

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteResourcePolicyCommandInput = DeleteResourcePolicyRequest;
-export type DeleteResourcePolicyCommandOutput = DeleteResourcePolicyResponse & __MetadataBearer;
+export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRequest {}
+export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes the resource-based permission policy attached to the secret.</p>

@@ -18,8 +18,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBucketInventoryConfigurationCommandInput = GetBucketInventoryConfigurationRequest;
-export type GetBucketInventoryConfigurationCommandOutput = GetBucketInventoryConfigurationOutput & __MetadataBearer;
+export interface GetBucketInventoryConfigurationCommandInput extends GetBucketInventoryConfigurationRequest {}
+export interface GetBucketInventoryConfigurationCommandOutput
+  extends GetBucketInventoryConfigurationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Returns an inventory configuration (identified by the inventory configuration ID) from

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSystemInstanceCommandInput = CreateSystemInstanceRequest;
-export type CreateSystemInstanceCommandOutput = CreateSystemInstanceResponse & __MetadataBearer;
+export interface CreateSystemInstanceCommandInput extends CreateSystemInstanceRequest {}
+export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a system instance. </p>

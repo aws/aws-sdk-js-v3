@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeProvisioningParametersCommandInput = DescribeProvisioningParametersInput;
-export type DescribeProvisioningParametersCommandOutput = DescribeProvisioningParametersOutput & __MetadataBearer;
+export interface DescribeProvisioningParametersCommandInput extends DescribeProvisioningParametersInput {}
+export interface DescribeProvisioningParametersCommandOutput
+  extends DescribeProvisioningParametersOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Gets information about the configuration required to provision the specified product using

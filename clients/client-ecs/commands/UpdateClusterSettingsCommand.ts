@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateClusterSettingsCommandInput = UpdateClusterSettingsRequest;
-export type UpdateClusterSettingsCommandOutput = UpdateClusterSettingsResponse & __MetadataBearer;
+export interface UpdateClusterSettingsCommandInput extends UpdateClusterSettingsRequest {}
+export interface UpdateClusterSettingsCommandOutput extends UpdateClusterSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Modifies the settings to use for a cluster.</p>

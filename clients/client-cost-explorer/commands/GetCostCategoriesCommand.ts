@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetCostCategoriesCommandInput = GetCostCategoriesRequest;
-export type GetCostCategoriesCommandOutput = GetCostCategoriesResponse & __MetadataBearer;
+export interface GetCostCategoriesCommandInput extends GetCostCategoriesRequest {}
+export interface GetCostCategoriesCommandOutput extends GetCostCategoriesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves an array of Cost Category names and values incurred cost.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutInsightRuleCommandInput = PutInsightRuleInput;
-export type PutInsightRuleCommandOutput = PutInsightRuleOutput & __MetadataBearer;
+export interface PutInsightRuleCommandInput extends PutInsightRuleInput {}
+export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a Contributor Insights rule. Rules evaluate log events in a

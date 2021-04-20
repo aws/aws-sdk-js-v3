@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMeetingDialOutCommandInput = CreateMeetingDialOutRequest;
-export type CreateMeetingDialOutCommandOutput = CreateMeetingDialOutResponse & __MetadataBearer;
+export interface CreateMeetingDialOutCommandInput extends CreateMeetingDialOutRequest {}
+export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutResponse, __MetadataBearer {}
 
 /**
  * <p>Uses the join token and call metadata in a meeting request (From number, To number, and so forth) to initiate an outbound call to a public

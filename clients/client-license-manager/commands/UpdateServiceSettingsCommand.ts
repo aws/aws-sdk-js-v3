@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateServiceSettingsCommandInput = UpdateServiceSettingsRequest;
-export type UpdateServiceSettingsCommandOutput = UpdateServiceSettingsResponse & __MetadataBearer;
+export interface UpdateServiceSettingsCommandInput extends UpdateServiceSettingsRequest {}
+export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Updates License Manager settings for the current Region.</p>

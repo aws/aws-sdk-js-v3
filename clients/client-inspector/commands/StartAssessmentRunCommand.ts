@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartAssessmentRunCommandInput = StartAssessmentRunRequest;
-export type StartAssessmentRunCommandOutput = StartAssessmentRunResponse & __MetadataBearer;
+export interface StartAssessmentRunCommandInput extends StartAssessmentRunRequest {}
+export interface StartAssessmentRunCommandOutput extends StartAssessmentRunResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the assessment run specified by the ARN of the assessment template. For this

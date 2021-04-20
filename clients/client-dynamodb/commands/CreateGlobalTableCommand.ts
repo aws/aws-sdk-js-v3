@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateGlobalTableCommandInput = CreateGlobalTableInput;
-export type CreateGlobalTableCommandOutput = CreateGlobalTableOutput & __MetadataBearer;
+export interface CreateGlobalTableCommandInput extends CreateGlobalTableInput {}
+export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a global table from an existing table. A global table creates a replication

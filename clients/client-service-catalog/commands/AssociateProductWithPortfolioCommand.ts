@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateProductWithPortfolioCommandInput = AssociateProductWithPortfolioInput;
-export type AssociateProductWithPortfolioCommandOutput = AssociateProductWithPortfolioOutput & __MetadataBearer;
+export interface AssociateProductWithPortfolioCommandInput extends AssociateProductWithPortfolioInput {}
+export interface AssociateProductWithPortfolioCommandOutput
+  extends AssociateProductWithPortfolioOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Associates the specified product with the specified portfolio.</p>

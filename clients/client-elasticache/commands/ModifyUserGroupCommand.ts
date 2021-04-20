@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyUserGroupCommandInput = ModifyUserGroupMessage;
-export type ModifyUserGroupCommandOutput = UserGroup & __MetadataBearer;
+export interface ModifyUserGroupCommandInput extends ModifyUserGroupMessage {}
+export interface ModifyUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**
  * <p>Changes the list of users that belong to the user group.</p>

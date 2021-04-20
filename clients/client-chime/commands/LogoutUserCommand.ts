@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type LogoutUserCommandInput = LogoutUserRequest;
-export type LogoutUserCommandOutput = LogoutUserResponse & __MetadataBearer;
+export interface LogoutUserCommandInput extends LogoutUserRequest {}
+export interface LogoutUserCommandOutput extends LogoutUserResponse, __MetadataBearer {}
 
 /**
  * <p>Logs out the specified user from all of the devices they are currently logged into.</p>

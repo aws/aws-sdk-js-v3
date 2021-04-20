@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetWorkflowRunsCommandInput = GetWorkflowRunsRequest;
-export type GetWorkflowRunsCommandOutput = GetWorkflowRunsResponse & __MetadataBearer;
+export interface GetWorkflowRunsCommandInput extends GetWorkflowRunsRequest {}
+export interface GetWorkflowRunsCommandOutput extends GetWorkflowRunsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves metadata for all runs of a given workflow.</p>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifyHostsCommandInput = ModifyHostsRequest;
-export type ModifyHostsCommandOutput = ModifyHostsResult & __MetadataBearer;
+export interface ModifyHostsCommandInput extends ModifyHostsRequest {}
+export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataBearer {}
 
 /**
  * <p>Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled,

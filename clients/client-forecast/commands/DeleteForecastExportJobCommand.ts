@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteForecastExportJobCommandInput = DeleteForecastExportJobRequest;
-export type DeleteForecastExportJobCommandOutput = __MetadataBearer;
+export interface DeleteForecastExportJobCommandInput extends DeleteForecastExportJobRequest {}
+export interface DeleteForecastExportJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a forecast export job created using the <a>CreateForecastExportJob</a>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAppImageConfigCommandInput = UpdateAppImageConfigRequest;
-export type UpdateAppImageConfigCommandOutput = UpdateAppImageConfigResponse & __MetadataBearer;
+export interface UpdateAppImageConfigCommandInput extends UpdateAppImageConfigRequest {}
+export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the properties of an AppImageConfig.</p>

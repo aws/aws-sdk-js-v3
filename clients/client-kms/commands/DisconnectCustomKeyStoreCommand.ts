@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisconnectCustomKeyStoreCommandInput = DisconnectCustomKeyStoreRequest;
-export type DisconnectCustomKeyStoreCommandOutput = DisconnectCustomKeyStoreResponse & __MetadataBearer;
+export interface DisconnectCustomKeyStoreCommandInput extends DisconnectCustomKeyStoreRequest {}
+export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
  * <p>Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> from its associated AWS CloudHSM cluster. While a custom key

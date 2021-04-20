@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TransferCertificateCommandInput = TransferCertificateRequest;
-export type TransferCertificateCommandOutput = TransferCertificateResponse & __MetadataBearer;
+export interface TransferCertificateCommandInput extends TransferCertificateRequest {}
+export interface TransferCertificateCommandOutput extends TransferCertificateResponse, __MetadataBearer {}
 
 /**
  * <p>Transfers the specified certificate to the specified AWS account.</p>

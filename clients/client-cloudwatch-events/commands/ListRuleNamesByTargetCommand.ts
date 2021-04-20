@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRuleNamesByTargetCommandInput = ListRuleNamesByTargetRequest;
-export type ListRuleNamesByTargetCommandOutput = ListRuleNamesByTargetResponse & __MetadataBearer;
+export interface ListRuleNamesByTargetCommandInput extends ListRuleNamesByTargetRequest {}
+export interface ListRuleNamesByTargetCommandOutput extends ListRuleNamesByTargetResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the rules for the specified target. You can see which of the rules in Amazon

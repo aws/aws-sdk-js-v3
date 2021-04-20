@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateKeyPairCommandInput = CreateKeyPairRequest;
-export type CreateKeyPairCommandOutput = CreateKeyPairResult & __MetadataBearer;
+export interface CreateKeyPairCommandInput extends CreateKeyPairRequest {}
+export interface CreateKeyPairCommandOutput extends CreateKeyPairResult, __MetadataBearer {}
 
 /**
  * <p>Creates an SSH key pair.</p>

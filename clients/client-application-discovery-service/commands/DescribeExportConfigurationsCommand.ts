@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeExportConfigurationsCommandInput = DescribeExportConfigurationsRequest;
-export type DescribeExportConfigurationsCommandOutput = DescribeExportConfigurationsResponse & __MetadataBearer;
+export interface DescribeExportConfigurationsCommandInput extends DescribeExportConfigurationsRequest {}
+export interface DescribeExportConfigurationsCommandOutput
+  extends DescribeExportConfigurationsResponse,
+    __MetadataBearer {}
 
 /**
  * @deprecated

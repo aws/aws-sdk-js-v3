@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetReportGroupsCommandInput = BatchGetReportGroupsInput;
-export type BatchGetReportGroupsCommandOutput = BatchGetReportGroupsOutput & __MetadataBearer;
+export interface BatchGetReportGroupsCommandInput extends BatchGetReportGroupsInput {}
+export interface BatchGetReportGroupsCommandOutput extends BatchGetReportGroupsOutput, __MetadataBearer {}
 
 /**
  * <p>

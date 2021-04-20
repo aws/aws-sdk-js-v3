@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListDomainsCommandInput = ListDomainsInput;
-export type ListDomainsCommandOutput = DomainInfos & __MetadataBearer;
+export interface ListDomainsCommandInput extends ListDomainsInput {}
+export interface ListDomainsCommandOutput extends DomainInfos, __MetadataBearer {}
 
 /**
  * <p>Returns the list of domains registered in the account. The results may be split into

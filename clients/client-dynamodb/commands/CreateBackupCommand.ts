@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateBackupCommandInput = CreateBackupInput;
-export type CreateBackupCommandOutput = CreateBackupOutput & __MetadataBearer;
+export interface CreateBackupCommandInput extends CreateBackupInput {}
+export interface CreateBackupCommandOutput extends CreateBackupOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a backup for an existing table.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveAllBackendsCommandInput = RemoveAllBackendsRequest;
-export type RemoveAllBackendsCommandOutput = RemoveAllBackendsResponse & __MetadataBearer;
+export interface RemoveAllBackendsCommandInput extends RemoveAllBackendsRequest {}
+export interface RemoveAllBackendsCommandOutput extends RemoveAllBackendsResponse, __MetadataBearer {}
 
 /**
  * <p>Removes all backend environments from your Amplify project.</p>

@@ -18,8 +18,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAccessPointPolicyForObjectLambdaCommandInput = DeleteAccessPointPolicyForObjectLambdaRequest;
-export type DeleteAccessPointPolicyForObjectLambdaCommandOutput = __MetadataBearer;
+export interface DeleteAccessPointPolicyForObjectLambdaCommandInput
+  extends DeleteAccessPointPolicyForObjectLambdaRequest {}
+export interface DeleteAccessPointPolicyForObjectLambdaCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the resource policy for an Object Lambda Access Point.</p>

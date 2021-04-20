@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DownloadDBLogFilePortionCommandInput = DownloadDBLogFilePortionMessage;
-export type DownloadDBLogFilePortionCommandOutput = DownloadDBLogFilePortionDetails & __MetadataBearer;
+export interface DownloadDBLogFilePortionCommandInput extends DownloadDBLogFilePortionMessage {}
+export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFilePortionDetails, __MetadataBearer {}
 
 /**
  * <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>

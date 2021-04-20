@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutRuleCommandInput = PutRuleRequest;
-export type PutRuleCommandOutput = PutRuleResponse & __MetadataBearer;
+export interface PutRuleCommandInput extends PutRuleRequest {}
+export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates the specified rule. Rules are enabled by default, or based on value of

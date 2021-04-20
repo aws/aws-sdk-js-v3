@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopHyperParameterTuningJobCommandInput = StopHyperParameterTuningJobRequest;
-export type StopHyperParameterTuningJobCommandOutput = __MetadataBearer;
+export interface StopHyperParameterTuningJobCommandInput extends StopHyperParameterTuningJobRequest {}
+export interface StopHyperParameterTuningJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a running hyperparameter tuning job and all running training jobs that the

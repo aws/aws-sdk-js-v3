@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBackendAuthCommandInput = UpdateBackendAuthRequest;
-export type UpdateBackendAuthCommandOutput = UpdateBackendAuthResponse & __MetadataBearer;
+export interface UpdateBackendAuthCommandInput extends UpdateBackendAuthRequest {}
+export interface UpdateBackendAuthCommandOutput extends UpdateBackendAuthResponse, __MetadataBearer {}
 
 /**
  * <p>Updates an existing backend authentication resource.</p>

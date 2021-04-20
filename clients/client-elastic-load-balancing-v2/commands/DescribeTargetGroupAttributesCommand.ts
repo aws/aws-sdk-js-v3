@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTargetGroupAttributesCommandInput = DescribeTargetGroupAttributesInput;
-export type DescribeTargetGroupAttributesCommandOutput = DescribeTargetGroupAttributesOutput & __MetadataBearer;
+export interface DescribeTargetGroupAttributesCommandInput extends DescribeTargetGroupAttributesInput {}
+export interface DescribeTargetGroupAttributesCommandOutput
+  extends DescribeTargetGroupAttributesOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Describes the attributes for the specified target group.</p>

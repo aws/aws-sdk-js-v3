@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemovePermissionCommandInput = RemovePermissionRequest;
-export type RemovePermissionCommandOutput = __MetadataBearer;
+export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
+export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Revokes the permission of another AWS account to be able to put events to the specified

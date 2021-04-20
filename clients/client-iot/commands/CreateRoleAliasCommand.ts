@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateRoleAliasCommandInput = CreateRoleAliasRequest;
-export type CreateRoleAliasCommandOutput = CreateRoleAliasResponse & __MetadataBearer;
+export interface CreateRoleAliasCommandInput extends CreateRoleAliasRequest {}
+export interface CreateRoleAliasCommandOutput extends CreateRoleAliasResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a role alias.</p>

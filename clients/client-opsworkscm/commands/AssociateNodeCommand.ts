@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AssociateNodeCommandInput = AssociateNodeRequest;
-export type AssociateNodeCommandOutput = AssociateNodeResponse & __MetadataBearer;
+export interface AssociateNodeCommandInput extends AssociateNodeRequest {}
+export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __MetadataBearer {}
 
 /**
  * <p> Associates a new node with the server. For more information about how to disassociate a node, see <a>DisassociateNode</a>.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type BatchGetApplicationRevisionsCommandInput = BatchGetApplicationRevisionsInput;
-export type BatchGetApplicationRevisionsCommandOutput = BatchGetApplicationRevisionsOutput & __MetadataBearer;
+export interface BatchGetApplicationRevisionsCommandInput extends BatchGetApplicationRevisionsInput {}
+export interface BatchGetApplicationRevisionsCommandOutput
+  extends BatchGetApplicationRevisionsOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Gets information about one or more application revisions. The maximum number of

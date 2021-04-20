@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBotsCommandInput = ListBotsRequest;
-export type ListBotsCommandOutput = ListBotsResponse & __MetadataBearer;
+export interface ListBotsCommandInput extends ListBotsRequest {}
+export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the bots associated with the administrator's Amazon Chime Enterprise account ID.</p>

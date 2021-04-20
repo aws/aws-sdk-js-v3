@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteComponentCommandInput = DeleteComponentRequest;
-export type DeleteComponentCommandOutput = __MetadataBearer;
+export interface DeleteComponentCommandInput extends DeleteComponentRequest {}
+export interface DeleteComponentCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a version of a component from AWS IoT Greengrass.</p>

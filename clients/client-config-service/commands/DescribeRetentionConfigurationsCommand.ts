@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeRetentionConfigurationsCommandInput = DescribeRetentionConfigurationsRequest;
-export type DescribeRetentionConfigurationsCommandOutput = DescribeRetentionConfigurationsResponse & __MetadataBearer;
+export interface DescribeRetentionConfigurationsCommandInput extends DescribeRetentionConfigurationsRequest {}
+export interface DescribeRetentionConfigurationsCommandOutput
+  extends DescribeRetentionConfigurationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the details of one or more retention configurations. If

@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UnclaimDeviceCommandInput = UnclaimDeviceRequest;
-export type UnclaimDeviceCommandOutput = UnclaimDeviceResponse & __MetadataBearer;
+export interface UnclaimDeviceCommandInput extends UnclaimDeviceRequest {}
+export interface UnclaimDeviceCommandOutput extends UnclaimDeviceResponse, __MetadataBearer {}
 
 /**
  * <p>Disassociates a device from your AWS account using its device ID.</p>

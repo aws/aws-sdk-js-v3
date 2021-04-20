@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetIdentityPoolRolesCommandInput = SetIdentityPoolRolesInput;
-export type SetIdentityPoolRolesCommandOutput = __MetadataBearer;
+export interface SetIdentityPoolRolesCommandInput extends SetIdentityPoolRolesInput {}
+export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the roles for an identity pool. These roles are used when making calls to <a>GetCredentialsForIdentity</a> action.</p>

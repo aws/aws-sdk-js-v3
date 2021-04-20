@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSavingsPlanCommandInput = CreateSavingsPlanRequest;
-export type CreateSavingsPlanCommandOutput = CreateSavingsPlanResponse & __MetadataBearer;
+export interface CreateSavingsPlanCommandInput extends CreateSavingsPlanRequest {}
+export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a Savings Plan.</p>

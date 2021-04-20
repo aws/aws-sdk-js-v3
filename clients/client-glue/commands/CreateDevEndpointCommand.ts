@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDevEndpointCommandInput = CreateDevEndpointRequest;
-export type CreateDevEndpointCommandOutput = CreateDevEndpointResponse & __MetadataBearer;
+export interface CreateDevEndpointCommandInput extends CreateDevEndpointRequest {}
+export interface CreateDevEndpointCommandOutput extends CreateDevEndpointResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new development endpoint.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SearchEntitiesCommandInput = SearchEntitiesRequest;
-export type SearchEntitiesCommandOutput = SearchEntitiesResponse & __MetadataBearer;
+export interface SearchEntitiesCommandInput extends SearchEntitiesRequest {}
+export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __MetadataBearer {}
 
 /**
  * <p>Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.</p>

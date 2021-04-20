@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateWorkGroupCommandInput = UpdateWorkGroupInput;
-export type UpdateWorkGroupCommandOutput = UpdateWorkGroupOutput & __MetadataBearer;
+export interface UpdateWorkGroupCommandInput extends UpdateWorkGroupInput {}
+export interface UpdateWorkGroupCommandOutput extends UpdateWorkGroupOutput, __MetadataBearer {}
 
 /**
  * <p>Updates the workgroup with the specified name. The workgroup's name cannot be

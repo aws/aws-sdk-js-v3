@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteStreamCommandInput = DeleteStreamInput;
-export type DeleteStreamCommandOutput = __MetadataBearer;
+export interface DeleteStreamCommandInput extends DeleteStreamInput {}
+export interface DeleteStreamCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a Kinesis data stream and all its shards and data. You must shut down any

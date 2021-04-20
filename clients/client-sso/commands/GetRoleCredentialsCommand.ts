@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetRoleCredentialsCommandInput = GetRoleCredentialsRequest;
-export type GetRoleCredentialsCommandOutput = GetRoleCredentialsResponse & __MetadataBearer;
+export interface GetRoleCredentialsCommandInput extends GetRoleCredentialsRequest {}
+export interface GetRoleCredentialsCommandOutput extends GetRoleCredentialsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns the STS short-term credentials for a given role name that is assigned to the

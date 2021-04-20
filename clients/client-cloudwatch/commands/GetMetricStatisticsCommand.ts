@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMetricStatisticsCommandInput = GetMetricStatisticsInput;
-export type GetMetricStatisticsCommandOutput = GetMetricStatisticsOutput & __MetadataBearer;
+export interface GetMetricStatisticsCommandInput extends GetMetricStatisticsInput {}
+export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOutput, __MetadataBearer {}
 
 /**
  * <p>Gets statistics for the specified metric.</p>

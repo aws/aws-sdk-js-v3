@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeIpGroupsCommandInput = DescribeIpGroupsRequest;
-export type DescribeIpGroupsCommandOutput = DescribeIpGroupsResult & __MetadataBearer;
+export interface DescribeIpGroupsCommandInput extends DescribeIpGroupsRequest {}
+export interface DescribeIpGroupsCommandOutput extends DescribeIpGroupsResult, __MetadataBearer {}
 
 /**
  * <p>Describes one or more of your IP access control groups.</p>

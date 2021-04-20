@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetItemCommandInput = GetItemInput;
-export type GetItemCommandOutput = GetItemOutput & __MetadataBearer;
+export interface GetItemCommandInput extends GetItemInput {}
+export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
 
 /**
  * <p>The <code>GetItem</code> operation returns a set of attributes for the item with the given primary

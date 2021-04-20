@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGatewayGroupCommandInput = DeleteGatewayGroupRequest;
-export type DeleteGatewayGroupCommandOutput = DeleteGatewayGroupResponse & __MetadataBearer;
+export interface DeleteGatewayGroupCommandInput extends DeleteGatewayGroupRequest {}
+export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a gateway group.</p>

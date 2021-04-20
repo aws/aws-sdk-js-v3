@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCertificatesCommandInput = DescribeCertificatesMessage;
-export type DescribeCertificatesCommandOutput = CertificateMessage & __MetadataBearer;
+export interface DescribeCertificatesCommandInput extends DescribeCertificatesMessage {}
+export interface DescribeCertificatesCommandOutput extends CertificateMessage, __MetadataBearer {}
 
 /**
  * <p>Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB for

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListMemberAccountsCommandInput = ListMemberAccountsRequest;
-export type ListMemberAccountsCommandOutput = ListMemberAccountsResponse & __MetadataBearer;
+export interface ListMemberAccountsCommandInput extends ListMemberAccountsRequest {}
+export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResponse, __MetadataBearer {}
 
 /**
  * <p>Returns a <code>MemberAccounts</code> object that lists the member accounts in the

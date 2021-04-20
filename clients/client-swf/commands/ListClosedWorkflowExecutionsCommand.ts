@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListClosedWorkflowExecutionsCommandInput = ListClosedWorkflowExecutionsInput;
-export type ListClosedWorkflowExecutionsCommandOutput = WorkflowExecutionInfos & __MetadataBearer;
+export interface ListClosedWorkflowExecutionsCommandInput extends ListClosedWorkflowExecutionsInput {}
+export interface ListClosedWorkflowExecutionsCommandOutput extends WorkflowExecutionInfos, __MetadataBearer {}
 
 /**
  * <p>Returns a list of closed workflow executions in the specified domain that meet the

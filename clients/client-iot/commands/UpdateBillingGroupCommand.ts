@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateBillingGroupCommandInput = UpdateBillingGroupRequest;
-export type UpdateBillingGroupCommandOutput = UpdateBillingGroupResponse & __MetadataBearer;
+export interface UpdateBillingGroupCommandInput extends UpdateBillingGroupRequest {}
+export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupResponse, __MetadataBearer {}
 
 /**
  * <p>Updates information about the billing group.</p>

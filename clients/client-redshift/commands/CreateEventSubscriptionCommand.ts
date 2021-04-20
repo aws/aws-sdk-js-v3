@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateEventSubscriptionCommandInput = CreateEventSubscriptionMessage;
-export type CreateEventSubscriptionCommandOutput = CreateEventSubscriptionResult & __MetadataBearer;
+export interface CreateEventSubscriptionCommandInput extends CreateEventSubscriptionMessage {}
+export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscriptionResult, __MetadataBearer {}
 
 /**
  * <p>Creates an Amazon Redshift event notification subscription. This action requires an ARN

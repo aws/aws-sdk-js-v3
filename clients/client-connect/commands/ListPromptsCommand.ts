@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListPromptsCommandInput = ListPromptsRequest;
-export type ListPromptsCommandOutput = ListPromptsResponse & __MetadataBearer;
+export interface ListPromptsCommandInput extends ListPromptsRequest {}
+export interface ListPromptsCommandOutput extends ListPromptsResponse, __MetadataBearer {}
 
 /**
  * <p>Provides information about the prompts for the specified Amazon Connect instance.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateNodegroupVersionCommandInput = UpdateNodegroupVersionRequest;
-export type UpdateNodegroupVersionCommandOutput = UpdateNodegroupVersionResponse & __MetadataBearer;
+export interface UpdateNodegroupVersionCommandInput extends UpdateNodegroupVersionRequest {}
+export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVersionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the Kubernetes version or AMI version of an Amazon EKS managed node group.</p>

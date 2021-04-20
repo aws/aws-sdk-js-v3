@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateLedgerCommandInput = UpdateLedgerRequest;
-export type UpdateLedgerCommandOutput = UpdateLedgerResponse & __MetadataBearer;
+export interface UpdateLedgerCommandInput extends UpdateLedgerRequest {}
+export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __MetadataBearer {}
 
 /**
  * <p>Updates properties on a ledger.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetConfigurationSetCommandInput = GetConfigurationSetRequest;
-export type GetConfigurationSetCommandOutput = GetConfigurationSetResponse & __MetadataBearer;
+export interface GetConfigurationSetCommandInput extends GetConfigurationSetRequest {}
+export interface GetConfigurationSetCommandOutput extends GetConfigurationSetResponse, __MetadataBearer {}
 
 /**
  * <p>Get information about an existing configuration set, including the dedicated IP pool

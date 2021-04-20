@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetServiceRoleForAccountCommandInput = GetServiceRoleForAccountRequest;
-export type GetServiceRoleForAccountCommandOutput = GetServiceRoleForAccountResponse & __MetadataBearer;
+export interface GetServiceRoleForAccountCommandInput extends GetServiceRoleForAccountRequest {}
+export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleForAccountResponse, __MetadataBearer {}
 
 /**
  * Retrieves the service role that is attached to your account.

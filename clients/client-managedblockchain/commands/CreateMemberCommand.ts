@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateMemberCommandInput = CreateMemberInput;
-export type CreateMemberCommandOutput = CreateMemberOutput & __MetadataBearer;
+export interface CreateMemberCommandInput extends CreateMemberInput {}
+export interface CreateMemberCommandOutput extends CreateMemberOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a member within a Managed Blockchain network.</p>

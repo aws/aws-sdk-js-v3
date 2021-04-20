@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListProfileObjectTypesCommandInput = ListProfileObjectTypesRequest;
-export type ListProfileObjectTypesCommandOutput = ListProfileObjectTypesResponse & __MetadataBearer;
+export interface ListProfileObjectTypesCommandInput extends ListProfileObjectTypesRequest {}
+export interface ListProfileObjectTypesCommandOutput extends ListProfileObjectTypesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of the templates available within the service.</p>

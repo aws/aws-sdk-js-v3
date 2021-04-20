@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteQueryLoggingConfigCommandInput = DeleteQueryLoggingConfigRequest;
-export type DeleteQueryLoggingConfigCommandOutput = DeleteQueryLoggingConfigResponse & __MetadataBearer;
+export interface DeleteQueryLoggingConfigCommandInput extends DeleteQueryLoggingConfigRequest {}
+export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggingConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a configuration for DNS query logging. If you delete a configuration, Amazon Route 53 stops sending query logs to CloudWatch Logs.

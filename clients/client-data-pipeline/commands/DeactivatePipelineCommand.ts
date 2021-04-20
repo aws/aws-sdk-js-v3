@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeactivatePipelineCommandInput = DeactivatePipelineInput;
-export type DeactivatePipelineCommandOutput = DeactivatePipelineOutput & __MetadataBearer;
+export interface DeactivatePipelineCommandInput extends DeactivatePipelineInput {}
+export interface DeactivatePipelineCommandOutput extends DeactivatePipelineOutput, __MetadataBearer {}
 
 /**
  * <p>Deactivates the specified running pipeline. The pipeline is set to the <code>DEACTIVATING</code>

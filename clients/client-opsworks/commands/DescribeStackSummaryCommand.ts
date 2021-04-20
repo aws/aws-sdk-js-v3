@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeStackSummaryCommandInput = DescribeStackSummaryRequest;
-export type DescribeStackSummaryCommandOutput = DescribeStackSummaryResult & __MetadataBearer;
+export interface DescribeStackSummaryCommandInput extends DescribeStackSummaryRequest {}
+export interface DescribeStackSummaryCommandOutput extends DescribeStackSummaryResult, __MetadataBearer {}
 
 /**
  * <p>Describes the number of layers and apps in a specified stack, and the number of instances in

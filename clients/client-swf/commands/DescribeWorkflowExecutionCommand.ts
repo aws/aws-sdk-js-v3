@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeWorkflowExecutionCommandInput = DescribeWorkflowExecutionInput;
-export type DescribeWorkflowExecutionCommandOutput = WorkflowExecutionDetail & __MetadataBearer;
+export interface DescribeWorkflowExecutionCommandInput extends DescribeWorkflowExecutionInput {}
+export interface DescribeWorkflowExecutionCommandOutput extends WorkflowExecutionDetail, __MetadataBearer {}
 
 /**
  * <p>Returns information about the specified workflow execution including its type and some

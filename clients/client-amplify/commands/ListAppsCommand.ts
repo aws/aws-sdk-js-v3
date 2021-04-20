@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAppsCommandInput = ListAppsRequest;
-export type ListAppsCommandOutput = ListAppsResult & __MetadataBearer;
+export interface ListAppsCommandInput extends ListAppsRequest {}
+export interface ListAppsCommandOutput extends ListAppsResult, __MetadataBearer {}
 
 /**
  * <p> Returns a list of the existing Amplify apps. </p>

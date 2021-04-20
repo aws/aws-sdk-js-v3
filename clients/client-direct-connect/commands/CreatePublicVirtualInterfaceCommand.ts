@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreatePublicVirtualInterfaceCommandInput = CreatePublicVirtualInterfaceRequest;
-export type CreatePublicVirtualInterfaceCommandOutput = VirtualInterface & __MetadataBearer;
+export interface CreatePublicVirtualInterfaceCommandInput extends CreatePublicVirtualInterfaceRequest {}
+export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterface, __MetadataBearer {}
 
 /**
  * <p>Creates a public virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic.

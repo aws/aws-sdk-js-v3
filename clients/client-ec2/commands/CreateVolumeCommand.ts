@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateVolumeCommandInput = CreateVolumeRequest;
-export type CreateVolumeCommandOutput = Volume & __MetadataBearer;
+export interface CreateVolumeCommandInput extends CreateVolumeRequest {}
+export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
 
 /**
  * <p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.</p>

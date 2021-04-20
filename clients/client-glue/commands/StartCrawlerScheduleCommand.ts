@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartCrawlerScheduleCommandInput = StartCrawlerScheduleRequest;
-export type StartCrawlerScheduleCommandOutput = StartCrawlerScheduleResponse & __MetadataBearer;
+export interface StartCrawlerScheduleCommandInput extends StartCrawlerScheduleRequest {}
+export interface StartCrawlerScheduleCommandOutput extends StartCrawlerScheduleResponse, __MetadataBearer {}
 
 /**
  * <p>Changes the schedule state of the specified crawler to

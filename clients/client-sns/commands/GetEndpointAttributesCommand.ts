@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEndpointAttributesCommandInput = GetEndpointAttributesInput;
-export type GetEndpointAttributesCommandOutput = GetEndpointAttributesResponse & __MetadataBearer;
+export interface GetEndpointAttributesCommandInput extends GetEndpointAttributesInput {}
+export interface GetEndpointAttributesCommandOutput extends GetEndpointAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the endpoint attributes for a device on one of the supported push

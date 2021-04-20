@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLDAPSSettingsCommandInput = DescribeLDAPSSettingsRequest;
-export type DescribeLDAPSSettingsCommandOutput = DescribeLDAPSSettingsResult & __MetadataBearer;
+export interface DescribeLDAPSSettingsCommandInput extends DescribeLDAPSSettingsRequest {}
+export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSettingsResult, __MetadataBearer {}
 
 /**
  * <p>Describes the status of LDAP security for the specified directory.</p>

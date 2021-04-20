@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutOutcomeCommandInput = PutOutcomeRequest;
-export type PutOutcomeCommandOutput = PutOutcomeResult & __MetadataBearer;
+export interface PutOutcomeCommandInput extends PutOutcomeRequest {}
+export interface PutOutcomeCommandOutput extends PutOutcomeResult, __MetadataBearer {}
 
 /**
  * <p>Creates or updates an outcome. </p>

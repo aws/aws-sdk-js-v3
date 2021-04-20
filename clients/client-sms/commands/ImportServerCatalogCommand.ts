@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ImportServerCatalogCommandInput = ImportServerCatalogRequest;
-export type ImportServerCatalogCommandOutput = ImportServerCatalogResponse & __MetadataBearer;
+export interface ImportServerCatalogCommandInput extends ImportServerCatalogRequest {}
+export interface ImportServerCatalogCommandOutput extends ImportServerCatalogResponse, __MetadataBearer {}
 
 /**
  * <p>Gathers a complete list of on-premises servers. Connectors must be installed and

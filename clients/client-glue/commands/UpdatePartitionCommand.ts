@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePartitionCommandInput = UpdatePartitionRequest;
-export type UpdatePartitionCommandOutput = UpdatePartitionResponse & __MetadataBearer;
+export interface UpdatePartitionCommandInput extends UpdatePartitionRequest {}
+export interface UpdatePartitionCommandOutput extends UpdatePartitionResponse, __MetadataBearer {}
 
 /**
  * <p>Updates a partition.</p>

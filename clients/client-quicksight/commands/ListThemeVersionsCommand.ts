@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListThemeVersionsCommandInput = ListThemeVersionsRequest;
-export type ListThemeVersionsCommandOutput = ListThemeVersionsResponse & __MetadataBearer;
+export interface ListThemeVersionsCommandInput extends ListThemeVersionsRequest {}
+export interface ListThemeVersionsCommandOutput extends ListThemeVersionsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the versions of the themes in the current AWS account.</p>

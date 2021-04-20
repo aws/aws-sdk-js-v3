@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCaseCommandInput = CreateCaseRequest;
-export type CreateCaseCommandOutput = CreateCaseResponse & __MetadataBearer;
+export interface CreateCaseCommandInput extends CreateCaseRequest {}
+export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a case in the AWS Support Center. This operation is similar to how you create a case

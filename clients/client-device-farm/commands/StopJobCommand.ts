@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopJobCommandInput = StopJobRequest;
-export type StopJobCommandOutput = StopJobResult & __MetadataBearer;
+export interface StopJobCommandInput extends StopJobRequest {}
+export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
 
 /**
  * <p>Initiates a stop request for the current job. AWS Device Farm immediately stops the job on the device

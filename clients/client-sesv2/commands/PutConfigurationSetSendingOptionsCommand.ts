@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutConfigurationSetSendingOptionsCommandInput = PutConfigurationSetSendingOptionsRequest;
-export type PutConfigurationSetSendingOptionsCommandOutput = PutConfigurationSetSendingOptionsResponse &
-  __MetadataBearer;
+export interface PutConfigurationSetSendingOptionsCommandInput extends PutConfigurationSetSendingOptionsRequest {}
+export interface PutConfigurationSetSendingOptionsCommandOutput
+  extends PutConfigurationSetSendingOptionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Enable or disable email sending for messages that use a particular configuration set

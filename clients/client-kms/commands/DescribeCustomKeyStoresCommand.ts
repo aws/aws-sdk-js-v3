@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCustomKeyStoresCommandInput = DescribeCustomKeyStoresRequest;
-export type DescribeCustomKeyStoresCommandOutput = DescribeCustomKeyStoresResponse & __MetadataBearer;
+export interface DescribeCustomKeyStoresCommandInput extends DescribeCustomKeyStoresRequest {}
+export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyStoresResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> in the account and region.</p>

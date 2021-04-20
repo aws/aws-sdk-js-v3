@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStoreImageTaskCommandInput = CreateStoreImageTaskRequest;
-export type CreateStoreImageTaskCommandOutput = CreateStoreImageTaskResult & __MetadataBearer;
+export interface CreateStoreImageTaskCommandInput extends CreateStoreImageTaskRequest {}
+export interface CreateStoreImageTaskCommandOutput extends CreateStoreImageTaskResult, __MetadataBearer {}
 
 /**
  * <p>Stores an AMI as a single object in an S3 bucket.</p>

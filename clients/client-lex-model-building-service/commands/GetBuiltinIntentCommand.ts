@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBuiltinIntentCommandInput = GetBuiltinIntentRequest;
-export type GetBuiltinIntentCommandOutput = GetBuiltinIntentResponse & __MetadataBearer;
+export interface GetBuiltinIntentCommandInput extends GetBuiltinIntentRequest {}
+export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a built-in intent.</p>

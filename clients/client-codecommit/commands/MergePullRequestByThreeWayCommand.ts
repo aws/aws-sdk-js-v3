@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type MergePullRequestByThreeWayCommandInput = MergePullRequestByThreeWayInput;
-export type MergePullRequestByThreeWayCommandOutput = MergePullRequestByThreeWayOutput & __MetadataBearer;
+export interface MergePullRequestByThreeWayCommandInput extends MergePullRequestByThreeWayInput {}
+export interface MergePullRequestByThreeWayCommandOutput extends MergePullRequestByThreeWayOutput, __MetadataBearer {}
 
 /**
  * <p>Attempts to merge the source commit of a pull request into the specified destination

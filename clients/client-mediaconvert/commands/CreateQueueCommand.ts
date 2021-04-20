@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateQueueCommandInput = CreateQueueRequest;
-export type CreateQueueCommandOutput = CreateQueueResponse & __MetadataBearer;
+export interface CreateQueueCommandInput extends CreateQueueRequest {}
+export interface CreateQueueCommandOutput extends CreateQueueResponse, __MetadataBearer {}
 
 /**
  * Create a new transcoding queue. For information about queues, see Working With Queues in the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html

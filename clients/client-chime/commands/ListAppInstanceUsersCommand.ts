@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAppInstanceUsersCommandInput = ListAppInstanceUsersRequest;
-export type ListAppInstanceUsersCommandOutput = ListAppInstanceUsersResponse & __MetadataBearer;
+export interface ListAppInstanceUsersCommandInput extends ListAppInstanceUsersRequest {}
+export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersResponse, __MetadataBearer {}
 
 /**
  * <p>

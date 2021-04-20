@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateWorkspaceAliasCommandInput = UpdateWorkspaceAliasRequest;
-export type UpdateWorkspaceAliasCommandOutput = __MetadataBearer;
+export interface UpdateWorkspaceAliasCommandInput extends UpdateWorkspaceAliasRequest {}
+export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
 
 /**
  * Updates an AMP workspace alias.

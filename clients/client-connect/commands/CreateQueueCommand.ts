@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateQueueCommandInput = CreateQueueRequest;
-export type CreateQueueCommandOutput = CreateQueueResponse & __MetadataBearer;
+export interface CreateQueueCommandInput extends CreateQueueRequest {}
+export interface CreateQueueCommandOutput extends CreateQueueResponse, __MetadataBearer {}
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>

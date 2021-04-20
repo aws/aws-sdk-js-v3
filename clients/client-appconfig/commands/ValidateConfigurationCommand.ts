@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ValidateConfigurationCommandInput = ValidateConfigurationRequest;
-export type ValidateConfigurationCommandOutput = __MetadataBearer;
+export interface ValidateConfigurationCommandInput extends ValidateConfigurationRequest {}
+export interface ValidateConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Uses the validators in a configuration profile to validate a configuration.</p>

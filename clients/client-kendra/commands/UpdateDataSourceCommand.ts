@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateDataSourceCommandInput = UpdateDataSourceRequest;
-export type UpdateDataSourceCommandOutput = __MetadataBearer;
+export interface UpdateDataSourceCommandInput extends UpdateDataSourceRequest {}
+export interface UpdateDataSourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates an existing Amazon Kendra data source.</p>

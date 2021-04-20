@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutItemsCommandInput = PutItemsRequest;
-export type PutItemsCommandOutput = __MetadataBearer;
+export interface PutItemsCommandInput extends PutItemsRequest {}
+export interface PutItemsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds one or more items to an Items dataset. For more information see

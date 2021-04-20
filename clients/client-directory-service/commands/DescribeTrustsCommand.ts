@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTrustsCommandInput = DescribeTrustsRequest;
-export type DescribeTrustsCommandOutput = DescribeTrustsResult & __MetadataBearer;
+export interface DescribeTrustsCommandInput extends DescribeTrustsRequest {}
+export interface DescribeTrustsCommandOutput extends DescribeTrustsResult, __MetadataBearer {}
 
 /**
  * <p>Obtains information about the trust relationships for this account.</p>

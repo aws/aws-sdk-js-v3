@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeAlertCommandInput = DescribeAlertRequest;
-export type DescribeAlertCommandOutput = DescribeAlertResponse & __MetadataBearer;
+export interface DescribeAlertCommandInput extends DescribeAlertRequest {}
+export interface DescribeAlertCommandOutput extends DescribeAlertResponse, __MetadataBearer {}
 
 /**
  * <p>Describes an alert.</p>

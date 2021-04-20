@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartImportTaskCommandInput = StartImportTaskRequest;
-export type StartImportTaskCommandOutput = StartImportTaskResponse & __MetadataBearer;
+export interface StartImportTaskCommandInput extends StartImportTaskRequest {}
+export interface StartImportTaskCommandOutput extends StartImportTaskResponse, __MetadataBearer {}
 
 /**
  * <p>Starts an import task, which allows you to import details of your on-premises environment

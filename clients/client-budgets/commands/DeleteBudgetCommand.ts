@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBudgetCommandInput = DeleteBudgetRequest;
-export type DeleteBudgetCommandOutput = DeleteBudgetResponse & __MetadataBearer;
+export interface DeleteBudgetCommandInput extends DeleteBudgetRequest {}
+export interface DeleteBudgetCommandOutput extends DeleteBudgetResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a budget. You can delete your budget at any time.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type EnableUserCommandInput = EnableUserRequest;
-export type EnableUserCommandOutput = EnableUserResult & __MetadataBearer;
+export interface EnableUserCommandInput extends EnableUserRequest {}
+export interface EnableUserCommandOutput extends EnableUserResult, __MetadataBearer {}
 
 /**
  * <p>Enables a user in the user pool. After being enabled, users can sign in to AppStream 2.0 and open applications from the stacks to which they are assigned.</p>

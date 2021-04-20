@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartBackupJobCommandInput = StartBackupJobInput;
-export type StartBackupJobCommandOutput = StartBackupJobOutput & __MetadataBearer;
+export interface StartBackupJobCommandInput extends StartBackupJobInput {}
+export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __MetadataBearer {}
 
 /**
  * <p>Starts an on-demand backup job for the specified resource.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDocumentClassifierCommandInput = CreateDocumentClassifierRequest;
-export type CreateDocumentClassifierCommandOutput = CreateDocumentClassifierResponse & __MetadataBearer;
+export interface CreateDocumentClassifierCommandInput extends CreateDocumentClassifierRequest {}
+export interface CreateDocumentClassifierCommandOutput extends CreateDocumentClassifierResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new document classifier that you can use to categorize documents. To create a

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBackupPlansCommandInput = ListBackupPlansInput;
-export type ListBackupPlansCommandOutput = ListBackupPlansOutput & __MetadataBearer;
+export interface ListBackupPlansCommandInput extends ListBackupPlansInput {}
+export interface ListBackupPlansCommandOutput extends ListBackupPlansOutput, __MetadataBearer {}
 
 /**
  * <p>Returns a list of existing backup plans for an authenticated account. The list is

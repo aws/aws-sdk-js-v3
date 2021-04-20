@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateProjectCommandInput = UpdateProjectInput;
-export type UpdateProjectCommandOutput = UpdateProjectOutput & __MetadataBearer;
+export interface UpdateProjectCommandInput extends UpdateProjectInput {}
+export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __MetadataBearer {}
 
 /**
  * <p>Changes the settings of a build project.</p>

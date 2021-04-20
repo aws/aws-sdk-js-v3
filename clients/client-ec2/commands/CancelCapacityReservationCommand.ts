@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CancelCapacityReservationCommandInput = CancelCapacityReservationRequest;
-export type CancelCapacityReservationCommandOutput = CancelCapacityReservationResult & __MetadataBearer;
+export interface CancelCapacityReservationCommandInput extends CancelCapacityReservationRequest {}
+export interface CancelCapacityReservationCommandOutput extends CancelCapacityReservationResult, __MetadataBearer {}
 
 /**
  * <p>Cancels the specified Capacity Reservation, releases the reserved capacity, and changes the Capacity Reservation's state to

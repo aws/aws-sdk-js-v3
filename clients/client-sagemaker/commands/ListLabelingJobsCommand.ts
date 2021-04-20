@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListLabelingJobsCommandInput = ListLabelingJobsRequest;
-export type ListLabelingJobsCommandOutput = ListLabelingJobsResponse & __MetadataBearer;
+export interface ListLabelingJobsCommandInput extends ListLabelingJobsRequest {}
+export interface ListLabelingJobsCommandOutput extends ListLabelingJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Gets a list of labeling jobs.</p>

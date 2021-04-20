@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeModelCommandInput = DescribeModelInput;
-export type DescribeModelCommandOutput = DescribeModelOutput & __MetadataBearer;
+export interface DescribeModelCommandInput extends DescribeModelInput {}
+export interface DescribeModelCommandOutput extends DescribeModelOutput, __MetadataBearer {}
 
 /**
  * <p>Describes a model that you created using the <code>CreateModel</code>

@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAppsCommandInput = ListAppsRequest;
-export type ListAppsCommandOutput = ListAppsResponse & __MetadataBearer;
+export interface ListAppsCommandInput extends ListAppsRequest {}
+export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves summaries for all applications.</p>

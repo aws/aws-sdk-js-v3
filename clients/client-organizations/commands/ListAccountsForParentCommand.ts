@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListAccountsForParentCommandInput = ListAccountsForParentRequest;
-export type ListAccountsForParentCommandOutput = ListAccountsForParentResponse & __MetadataBearer;
+export interface ListAccountsForParentCommandInput extends ListAccountsForParentRequest {}
+export interface ListAccountsForParentCommandOutput extends ListAccountsForParentResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the accounts in an organization that are contained by the specified target root

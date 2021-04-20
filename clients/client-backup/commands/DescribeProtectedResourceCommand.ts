@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeProtectedResourceCommandInput = DescribeProtectedResourceInput;
-export type DescribeProtectedResourceCommandOutput = DescribeProtectedResourceOutput & __MetadataBearer;
+export interface DescribeProtectedResourceCommandInput extends DescribeProtectedResourceInput {}
+export interface DescribeProtectedResourceCommandOutput extends DescribeProtectedResourceOutput, __MetadataBearer {}
 
 /**
  * <p>Returns information about a saved resource, including the last time it was backed up,

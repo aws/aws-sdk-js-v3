@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeSecurityConfigurationCommandInput = DescribeSecurityConfigurationInput;
-export type DescribeSecurityConfigurationCommandOutput = DescribeSecurityConfigurationOutput & __MetadataBearer;
+export interface DescribeSecurityConfigurationCommandInput extends DescribeSecurityConfigurationInput {}
+export interface DescribeSecurityConfigurationCommandOutput
+  extends DescribeSecurityConfigurationOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Provides the details of a security configuration by returning the configuration

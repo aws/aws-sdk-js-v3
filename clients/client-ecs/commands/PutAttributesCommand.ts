@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutAttributesCommandInput = PutAttributesRequest;
-export type PutAttributesCommandOutput = PutAttributesResponse & __MetadataBearer;
+export interface PutAttributesCommandInput extends PutAttributesRequest {}
+export interface PutAttributesCommandOutput extends PutAttributesResponse, __MetadataBearer {}
 
 /**
  * <p>Create or update an attribute on an Amazon ECS resource. If the attribute does not exist,

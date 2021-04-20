@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFileSystemPolicyCommandInput = DeleteFileSystemPolicyRequest;
-export type DeleteFileSystemPolicyCommandOutput = __MetadataBearer;
+export interface DeleteFileSystemPolicyCommandInput extends DeleteFileSystemPolicyRequest {}
+export interface DeleteFileSystemPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the <code>FileSystemPolicy</code> for the specified file system.

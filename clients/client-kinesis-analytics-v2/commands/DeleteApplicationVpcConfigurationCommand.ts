@@ -24,9 +24,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteApplicationVpcConfigurationCommandInput = DeleteApplicationVpcConfigurationRequest;
-export type DeleteApplicationVpcConfigurationCommandOutput = DeleteApplicationVpcConfigurationResponse &
-  __MetadataBearer;
+export interface DeleteApplicationVpcConfigurationCommandInput extends DeleteApplicationVpcConfigurationRequest {}
+export interface DeleteApplicationVpcConfigurationCommandOutput
+  extends DeleteApplicationVpcConfigurationResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Removes a VPC configuration from a Kinesis Data Analytics application.</p>

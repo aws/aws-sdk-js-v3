@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListNotificationChannelsCommandInput = ListNotificationChannelsRequest;
-export type ListNotificationChannelsCommandOutput = ListNotificationChannelsResponse & __MetadataBearer;
+export interface ListNotificationChannelsCommandInput extends ListNotificationChannelsRequest {}
+export interface ListNotificationChannelsCommandOutput extends ListNotificationChannelsResponse, __MetadataBearer {}
 
 /**
  * <p>

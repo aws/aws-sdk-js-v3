@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSpotDatafeedSubscriptionCommandInput = DeleteSpotDatafeedSubscriptionRequest;
-export type DeleteSpotDatafeedSubscriptionCommandOutput = __MetadataBearer;
+export interface DeleteSpotDatafeedSubscriptionCommandInput extends DeleteSpotDatafeedSubscriptionRequest {}
+export interface DeleteSpotDatafeedSubscriptionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the data feed for Spot Instances.</p>

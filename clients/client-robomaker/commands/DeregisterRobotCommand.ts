@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeregisterRobotCommandInput = DeregisterRobotRequest;
-export type DeregisterRobotCommandOutput = DeregisterRobotResponse & __MetadataBearer;
+export interface DeregisterRobotCommandInput extends DeregisterRobotRequest {}
+export interface DeregisterRobotCommandOutput extends DeregisterRobotResponse, __MetadataBearer {}
 
 /**
  * <p>Deregisters a robot.</p>

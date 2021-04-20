@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePipelineNotificationsCommandInput = UpdatePipelineNotificationsRequest;
-export type UpdatePipelineNotificationsCommandOutput = UpdatePipelineNotificationsResponse & __MetadataBearer;
+export interface UpdatePipelineNotificationsCommandInput extends UpdatePipelineNotificationsRequest {}
+export interface UpdatePipelineNotificationsCommandOutput
+  extends UpdatePipelineNotificationsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>With the UpdatePipelineNotifications operation, you can update Amazon Simple Notification Service (Amazon SNS) notifications for a pipeline.</p>

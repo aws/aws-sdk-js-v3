@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListExportsCommandInput = ListExportsInput;
-export type ListExportsCommandOutput = ListExportsOutput & __MetadataBearer;
+export interface ListExportsCommandInput extends ListExportsInput {}
+export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists completed exports within the past 90 days.</p>

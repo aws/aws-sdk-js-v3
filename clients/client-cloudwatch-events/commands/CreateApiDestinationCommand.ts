@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateApiDestinationCommandInput = CreateApiDestinationRequest;
-export type CreateApiDestinationCommandOutput = CreateApiDestinationResponse & __MetadataBearer;
+export interface CreateApiDestinationCommandInput extends CreateApiDestinationRequest {}
+export interface CreateApiDestinationCommandOutput extends CreateApiDestinationResponse, __MetadataBearer {}
 
 /**
  * <p>Creates an API destination, which is an HTTP invocation endpoint configured as a target

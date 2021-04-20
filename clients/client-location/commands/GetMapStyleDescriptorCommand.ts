@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetMapStyleDescriptorCommandInput = GetMapStyleDescriptorRequest;
-export type GetMapStyleDescriptorCommandOutput = GetMapStyleDescriptorResponse & __MetadataBearer;
+export interface GetMapStyleDescriptorCommandInput extends GetMapStyleDescriptorRequest {}
+export interface GetMapStyleDescriptorCommandOutput extends GetMapStyleDescriptorResponse, __MetadataBearer {}
 
 /**
  * <p>Retrieves the map style descriptor from a map resource. </p>

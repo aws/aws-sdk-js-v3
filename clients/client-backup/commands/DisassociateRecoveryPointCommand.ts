@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateRecoveryPointCommandInput = DisassociateRecoveryPointInput;
-export type DisassociateRecoveryPointCommandOutput = __MetadataBearer;
+export interface DisassociateRecoveryPointCommandInput extends DisassociateRecoveryPointInput {}
+export interface DisassociateRecoveryPointCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified continuous backup recovery point from AWS Backup and releases

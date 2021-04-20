@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SelectResourceConfigCommandInput = SelectResourceConfigRequest;
-export type SelectResourceConfigCommandOutput = SelectResourceConfigResponse & __MetadataBearer;
+export interface SelectResourceConfigCommandInput extends SelectResourceConfigRequest {}
+export interface SelectResourceConfigCommandOutput extends SelectResourceConfigResponse, __MetadataBearer {}
 
 /**
  * <p>Accepts a structured query language (SQL) <code>SELECT</code> command, performs the corresponding search, and returns resource configurations matching the properties.</p>

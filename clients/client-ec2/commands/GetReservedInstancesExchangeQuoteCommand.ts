@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetReservedInstancesExchangeQuoteCommandInput = GetReservedInstancesExchangeQuoteRequest;
-export type GetReservedInstancesExchangeQuoteCommandOutput = GetReservedInstancesExchangeQuoteResult & __MetadataBearer;
+export interface GetReservedInstancesExchangeQuoteCommandInput extends GetReservedInstancesExchangeQuoteRequest {}
+export interface GetReservedInstancesExchangeQuoteCommandOutput
+  extends GetReservedInstancesExchangeQuoteResult,
+    __MetadataBearer {}
 
 /**
  * <p>Returns a quote and exchange information for exchanging one or more specified

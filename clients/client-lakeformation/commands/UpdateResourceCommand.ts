@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateResourceCommandInput = UpdateResourceRequest;
-export type UpdateResourceCommandOutput = UpdateResourceResponse & __MetadataBearer;
+export interface UpdateResourceCommandInput extends UpdateResourceRequest {}
+export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __MetadataBearer {}
 
 /**
  * <p>Updates the data access role used for vending access to the given (registered) resource in AWS Lake Formation. </p>

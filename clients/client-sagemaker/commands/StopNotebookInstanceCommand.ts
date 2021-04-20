@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopNotebookInstanceCommandInput = StopNotebookInstanceInput;
-export type StopNotebookInstanceCommandOutput = __MetadataBearer;
+export interface StopNotebookInstanceCommandInput extends StopNotebookInstanceInput {}
+export interface StopNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Terminates the ML compute instance. Before terminating the instance, Amazon SageMaker

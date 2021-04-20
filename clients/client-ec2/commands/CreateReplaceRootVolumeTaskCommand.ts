@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateReplaceRootVolumeTaskCommandInput = CreateReplaceRootVolumeTaskRequest;
-export type CreateReplaceRootVolumeTaskCommandOutput = CreateReplaceRootVolumeTaskResult & __MetadataBearer;
+export interface CreateReplaceRootVolumeTaskCommandInput extends CreateReplaceRootVolumeTaskRequest {}
+export interface CreateReplaceRootVolumeTaskCommandOutput extends CreateReplaceRootVolumeTaskResult, __MetadataBearer {}
 
 /**
  * <p>Creates a root volume replacement task for an Amazon EC2 instance. The root volume

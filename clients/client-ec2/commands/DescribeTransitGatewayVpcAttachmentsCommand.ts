@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTransitGatewayVpcAttachmentsCommandInput = DescribeTransitGatewayVpcAttachmentsRequest;
-export type DescribeTransitGatewayVpcAttachmentsCommandOutput = DescribeTransitGatewayVpcAttachmentsResult &
-  __MetadataBearer;
+export interface DescribeTransitGatewayVpcAttachmentsCommandInput extends DescribeTransitGatewayVpcAttachmentsRequest {}
+export interface DescribeTransitGatewayVpcAttachmentsCommandOutput
+  extends DescribeTransitGatewayVpcAttachmentsResult,
+    __MetadataBearer {}
 
 /**
  * <p>Describes one or more VPC attachments. By default, all VPC attachments are described.

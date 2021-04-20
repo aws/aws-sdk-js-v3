@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListBackendJobsCommandInput = ListBackendJobsRequest;
-export type ListBackendJobsCommandOutput = ListBackendJobsResponse & __MetadataBearer;
+export interface ListBackendJobsCommandInput extends ListBackendJobsRequest {}
+export interface ListBackendJobsCommandOutput extends ListBackendJobsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the jobs for the backend of an Amplify app.</p>

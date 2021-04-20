@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLogEventsCommandInput = GetLogEventsRequest;
-export type GetLogEventsCommandOutput = GetLogEventsResponse & __MetadataBearer;
+export interface GetLogEventsCommandInput extends GetLogEventsRequest {}
+export interface GetLogEventsCommandOutput extends GetLogEventsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists log events from the specified log stream. You can list all of the log events or

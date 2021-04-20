@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateGroupCommandInput = UpdateGroupRequest;
-export type UpdateGroupCommandOutput = __MetadataBearer;
+export interface UpdateGroupCommandInput extends UpdateGroupRequest {}
+export interface UpdateGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the name and/or the path of the specified IAM group.</p>

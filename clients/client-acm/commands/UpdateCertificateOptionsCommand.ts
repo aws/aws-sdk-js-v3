@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateCertificateOptionsCommandInput = UpdateCertificateOptionsRequest;
-export type UpdateCertificateOptionsCommandOutput = __MetadataBearer;
+export interface UpdateCertificateOptionsCommandInput extends UpdateCertificateOptionsRequest {}
+export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates a certificate. Currently, you can use this function to specify whether to opt in

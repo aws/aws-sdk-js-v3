@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeHumanTaskUiCommandInput = DescribeHumanTaskUiRequest;
-export type DescribeHumanTaskUiCommandOutput = DescribeHumanTaskUiResponse & __MetadataBearer;
+export interface DescribeHumanTaskUiCommandInput extends DescribeHumanTaskUiRequest {}
+export interface DescribeHumanTaskUiCommandOutput extends DescribeHumanTaskUiResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about the requested human task user interface (worker task template).</p>

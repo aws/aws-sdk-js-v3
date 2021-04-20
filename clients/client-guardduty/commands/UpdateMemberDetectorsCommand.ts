@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMemberDetectorsCommandInput = UpdateMemberDetectorsRequest;
-export type UpdateMemberDetectorsCommandOutput = UpdateMemberDetectorsResponse & __MetadataBearer;
+export interface UpdateMemberDetectorsCommandInput extends UpdateMemberDetectorsRequest {}
+export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetectorsResponse, __MetadataBearer {}
 
 /**
  * <p>Contains information on member accounts to be updated.</p>

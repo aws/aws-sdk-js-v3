@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCompatibleImagesCommandInput = ListCompatibleImagesRequest;
-export type ListCompatibleImagesCommandOutput = ListCompatibleImagesResult & __MetadataBearer;
+export interface ListCompatibleImagesCommandInput extends ListCompatibleImagesRequest {}
+export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesResult, __MetadataBearer {}
 
 /**
  * <p>This action returns a list of the different Amazon EC2 Amazon Machine Images (AMIs)

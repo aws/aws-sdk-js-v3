@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RejectPortfolioShareCommandInput = RejectPortfolioShareInput;
-export type RejectPortfolioShareCommandOutput = RejectPortfolioShareOutput & __MetadataBearer;
+export interface RejectPortfolioShareCommandInput extends RejectPortfolioShareInput {}
+export interface RejectPortfolioShareCommandOutput extends RejectPortfolioShareOutput, __MetadataBearer {}
 
 /**
  * <p>Rejects an offer to share the specified portfolio.</p>

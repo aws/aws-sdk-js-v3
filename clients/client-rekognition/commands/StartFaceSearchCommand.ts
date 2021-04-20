@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartFaceSearchCommandInput = StartFaceSearchRequest;
-export type StartFaceSearchCommandOutput = StartFaceSearchResponse & __MetadataBearer;
+export interface StartFaceSearchCommandInput extends StartFaceSearchRequest {}
+export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, __MetadataBearer {}
 
 /**
  * <p>Starts the asynchronous search for faces in a collection that match the faces of persons detected in a stored video.</p>

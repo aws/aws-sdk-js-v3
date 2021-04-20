@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListStreamsCommandInput = ListStreamsRequest;
-export type ListStreamsCommandOutput = ListStreamsResponse & __MetadataBearer;
+export interface ListStreamsCommandInput extends ListStreamsRequest {}
+export interface ListStreamsCommandOutput extends ListStreamsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all of the streams in your AWS account.</p>

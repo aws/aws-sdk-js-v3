@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ReplaceTransitGatewayRouteCommandInput = ReplaceTransitGatewayRouteRequest;
-export type ReplaceTransitGatewayRouteCommandOutput = ReplaceTransitGatewayRouteResult & __MetadataBearer;
+export interface ReplaceTransitGatewayRouteCommandInput extends ReplaceTransitGatewayRouteRequest {}
+export interface ReplaceTransitGatewayRouteCommandOutput extends ReplaceTransitGatewayRouteResult, __MetadataBearer {}
 
 /**
  * <p>Replaces the specified route in the specified transit gateway route table.</p>

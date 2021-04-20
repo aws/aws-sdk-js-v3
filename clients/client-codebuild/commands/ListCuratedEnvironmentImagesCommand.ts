@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListCuratedEnvironmentImagesCommandInput = ListCuratedEnvironmentImagesInput;
-export type ListCuratedEnvironmentImagesCommandOutput = ListCuratedEnvironmentImagesOutput & __MetadataBearer;
+export interface ListCuratedEnvironmentImagesCommandInput extends ListCuratedEnvironmentImagesInput {}
+export interface ListCuratedEnvironmentImagesCommandOutput
+  extends ListCuratedEnvironmentImagesOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Gets information about Docker images that are managed by AWS CodeBuild.</p>

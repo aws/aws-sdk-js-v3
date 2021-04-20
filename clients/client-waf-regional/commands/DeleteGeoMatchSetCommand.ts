@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteGeoMatchSetCommandInput = DeleteGeoMatchSetRequest;
-export type DeleteGeoMatchSetCommandOutput = DeleteGeoMatchSetResponse & __MetadataBearer;
+export interface DeleteGeoMatchSetCommandInput extends DeleteGeoMatchSetRequest {}
+export interface DeleteGeoMatchSetCommandOutput extends DeleteGeoMatchSetResponse, __MetadataBearer {}
 
 /**
  * <note>

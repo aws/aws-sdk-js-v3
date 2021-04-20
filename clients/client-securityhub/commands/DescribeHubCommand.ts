@@ -18,8 +18,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeHubCommandInput = DescribeHubRequest;
-export type DescribeHubCommandOutput = DescribeHubResponse & __MetadataBearer;
+export interface DescribeHubCommandInput extends DescribeHubRequest {}
+export interface DescribeHubCommandOutput extends DescribeHubResponse, __MetadataBearer {}
 
 /**
  * <p>Returns details about the Hub resource in your account, including the

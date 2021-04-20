@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeGameSessionPlacementCommandInput = DescribeGameSessionPlacementInput;
-export type DescribeGameSessionPlacementCommandOutput = DescribeGameSessionPlacementOutput & __MetadataBearer;
+export interface DescribeGameSessionPlacementCommandInput extends DescribeGameSessionPlacementInput {}
+export interface DescribeGameSessionPlacementCommandOutput
+  extends DescribeGameSessionPlacementOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Retrieves information, including current status, about a game session placement request. </p>

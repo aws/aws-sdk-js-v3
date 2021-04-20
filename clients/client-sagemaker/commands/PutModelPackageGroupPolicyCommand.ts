@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutModelPackageGroupPolicyCommandInput = PutModelPackageGroupPolicyInput;
-export type PutModelPackageGroupPolicyCommandOutput = PutModelPackageGroupPolicyOutput & __MetadataBearer;
+export interface PutModelPackageGroupPolicyCommandInput extends PutModelPackageGroupPolicyInput {}
+export interface PutModelPackageGroupPolicyCommandOutput extends PutModelPackageGroupPolicyOutput, __MetadataBearer {}
 
 /**
  * <p>Adds a resouce policy to control access to a model group. For information about

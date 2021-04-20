@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopContinuousExportCommandInput = StopContinuousExportRequest;
-export type StopContinuousExportCommandOutput = StopContinuousExportResponse & __MetadataBearer;
+export interface StopContinuousExportCommandInput extends StopContinuousExportRequest {}
+export interface StopContinuousExportCommandOutput extends StopContinuousExportResponse, __MetadataBearer {}
 
 /**
  * <p>Stop the continuous flow of agent's discovered data into Amazon Athena.</p>

@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListActivatedRulesInRuleGroupCommandInput = ListActivatedRulesInRuleGroupRequest;
-export type ListActivatedRulesInRuleGroupCommandOutput = ListActivatedRulesInRuleGroupResponse & __MetadataBearer;
+export interface ListActivatedRulesInRuleGroupCommandInput extends ListActivatedRulesInRuleGroupRequest {}
+export interface ListActivatedRulesInRuleGroupCommandOutput
+  extends ListActivatedRulesInRuleGroupResponse,
+    __MetadataBearer {}
 
 /**
  * <note>

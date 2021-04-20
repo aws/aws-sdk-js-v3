@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetServersCommandInput = GetServersRequest;
-export type GetServersCommandOutput = GetServersResponse & __MetadataBearer;
+export interface GetServersCommandInput extends GetServersRequest {}
+export interface GetServersCommandOutput extends GetServersResponse, __MetadataBearer {}
 
 /**
  * <p>Describes the servers in your server catalog.</p>

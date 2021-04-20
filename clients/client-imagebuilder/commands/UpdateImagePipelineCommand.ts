@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateImagePipelineCommandInput = UpdateImagePipelineRequest;
-export type UpdateImagePipelineCommandOutput = UpdateImagePipelineResponse & __MetadataBearer;
+export interface UpdateImagePipelineCommandInput extends UpdateImagePipelineRequest {}
+export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineResponse, __MetadataBearer {}
 
 /**
  * <p> Updates a new image pipeline. Image pipelines enable you to automate the creation and

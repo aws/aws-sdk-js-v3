@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListSAMLProviderTagsCommandInput = ListSAMLProviderTagsRequest;
-export type ListSAMLProviderTagsCommandOutput = ListSAMLProviderTagsResponse & __MetadataBearer;
+export interface ListSAMLProviderTagsCommandInput extends ListSAMLProviderTagsRequest {}
+export interface ListSAMLProviderTagsCommandOutput extends ListSAMLProviderTagsResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the tags that are attached to the specified Security Assertion Markup Language

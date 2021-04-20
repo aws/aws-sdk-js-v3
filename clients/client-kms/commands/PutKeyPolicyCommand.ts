@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutKeyPolicyCommandInput = PutKeyPolicyRequest;
-export type PutKeyPolicyCommandOutput = __MetadataBearer;
+export interface PutKeyPolicyCommandInput extends PutKeyPolicyRequest {}
+export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attaches a key policy to the specified customer master key (CMK). </p>

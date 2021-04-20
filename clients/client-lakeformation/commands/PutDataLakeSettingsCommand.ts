@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutDataLakeSettingsCommandInput = PutDataLakeSettingsRequest;
-export type PutDataLakeSettingsCommandOutput = PutDataLakeSettingsResponse & __MetadataBearer;
+export interface PutDataLakeSettingsCommandInput extends PutDataLakeSettingsRequest {}
+export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsResponse, __MetadataBearer {}
 
 /**
  * <p>Sets the list of data lake administrators who have admin privileges on all resources managed by Lake Formation. For more information on admin privileges, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/lake-formation-permissions.html">Granting Lake Formation Permissions</a>.</p>

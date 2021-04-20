@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type NullAndEmptyHeadersClientCommandInput = NullAndEmptyHeadersIO;
-export type NullAndEmptyHeadersClientCommandOutput = NullAndEmptyHeadersIO & __MetadataBearer;
+export interface NullAndEmptyHeadersClientCommandInput extends NullAndEmptyHeadersIO {}
+export interface NullAndEmptyHeadersClientCommandOutput extends NullAndEmptyHeadersIO, __MetadataBearer {}
 
 /**
  * Null and empty headers are not sent over the wire.

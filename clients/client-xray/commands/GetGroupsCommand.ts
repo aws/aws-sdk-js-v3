@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetGroupsCommandInput = GetGroupsRequest;
-export type GetGroupsCommandOutput = GetGroupsResult & __MetadataBearer;
+export interface GetGroupsCommandInput extends GetGroupsRequest {}
+export interface GetGroupsCommandOutput extends GetGroupsResult, __MetadataBearer {}
 
 /**
  * <p>Retrieves all active group details.</p>

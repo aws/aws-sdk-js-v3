@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetGeoLocationCommandInput = GetGeoLocationRequest;
-export type GetGeoLocationCommandOutput = GetGeoLocationResponse & __MetadataBearer;
+export interface GetGeoLocationCommandInput extends GetGeoLocationRequest {}
+export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about whether a specified geographic location is supported for Amazon Route 53 geolocation

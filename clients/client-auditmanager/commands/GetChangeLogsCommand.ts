@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetChangeLogsCommandInput = GetChangeLogsRequest;
-export type GetChangeLogsCommandOutput = GetChangeLogsResponse & __MetadataBearer;
+export interface GetChangeLogsCommandInput extends GetChangeLogsRequest {}
+export interface GetChangeLogsCommandOutput extends GetChangeLogsResponse, __MetadataBearer {}
 
 /**
  * <p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdatePackagingGroupCommandInput = UpdatePackagingGroupRequest;
-export type UpdatePackagingGroupCommandOutput = UpdatePackagingGroupResponse & __MetadataBearer;
+export interface UpdatePackagingGroupCommandInput extends UpdatePackagingGroupRequest {}
+export interface UpdatePackagingGroupCommandOutput extends UpdatePackagingGroupResponse, __MetadataBearer {}
 
 /**
  * Updates a specific packaging group. You can't change the id attribute or any other system-generated attributes.

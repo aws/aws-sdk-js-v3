@@ -14,8 +14,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListRolesCommandInput = ListRolesRequest;
-export type ListRolesCommandOutput = ListRolesResponse & __MetadataBearer;
+export interface ListRolesCommandInput extends ListRolesRequest {}
+export interface ListRolesCommandOutput extends ListRolesResponse, __MetadataBearer {}
 
 /**
  * <p>Lists the IAM roles that have the specified path prefix. If there are none, the

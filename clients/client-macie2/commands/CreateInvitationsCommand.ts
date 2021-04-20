@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateInvitationsCommandInput = CreateInvitationsRequest;
-export type CreateInvitationsCommandOutput = CreateInvitationsResponse & __MetadataBearer;
+export interface CreateInvitationsCommandInput extends CreateInvitationsRequest {}
+export interface CreateInvitationsCommandOutput extends CreateInvitationsResponse, __MetadataBearer {}
 
 /**
  * <p>Sends an Amazon Macie membership invitation to one or more accounts.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartTaskContactCommandInput = StartTaskContactRequest;
-export type StartTaskContactCommandOutput = StartTaskContactResponse & __MetadataBearer;
+export interface StartTaskContactCommandInput extends StartTaskContactRequest {}
+export interface StartTaskContactCommandOutput extends StartTaskContactResponse, __MetadataBearer {}
 
 /**
  * <p>Initiates a contact flow to start a new task.</p>

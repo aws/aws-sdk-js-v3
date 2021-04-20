@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteUserDefinedFunctionCommandInput = DeleteUserDefinedFunctionRequest;
-export type DeleteUserDefinedFunctionCommandOutput = DeleteUserDefinedFunctionResponse & __MetadataBearer;
+export interface DeleteUserDefinedFunctionCommandInput extends DeleteUserDefinedFunctionRequest {}
+export interface DeleteUserDefinedFunctionCommandOutput extends DeleteUserDefinedFunctionResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing function definition from the Data Catalog.</p>

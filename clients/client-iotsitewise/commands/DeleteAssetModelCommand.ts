@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAssetModelCommandInput = DeleteAssetModelRequest;
-export type DeleteAssetModelCommandOutput = DeleteAssetModelResponse & __MetadataBearer;
+export interface DeleteAssetModelCommandInput extends DeleteAssetModelRequest {}
+export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an asset model. This action can't be undone. You must delete all assets created

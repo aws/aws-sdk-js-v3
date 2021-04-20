@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateDistributionWithTagsCommandInput = CreateDistributionWithTagsRequest;
-export type CreateDistributionWithTagsCommandOutput = CreateDistributionWithTagsResult & __MetadataBearer;
+export interface CreateDistributionWithTagsCommandInput extends CreateDistributionWithTagsRequest {}
+export interface CreateDistributionWithTagsCommandOutput extends CreateDistributionWithTagsResult, __MetadataBearer {}
 
 /**
  * <p>Create a new distribution with tags.</p>

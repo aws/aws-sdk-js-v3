@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RemoveTagsCommandInput = RemoveTagsRequest;
-export type RemoveTagsCommandOutput = __MetadataBearer;
+export interface RemoveTagsCommandInput extends RemoveTagsRequest {}
+export interface RemoveTagsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified set of tags from the specified Elasticsearch domain.</p>

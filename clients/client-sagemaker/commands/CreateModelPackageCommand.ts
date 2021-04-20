@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateModelPackageCommandInput = CreateModelPackageInput;
-export type CreateModelPackageCommandOutput = CreateModelPackageOutput & __MetadataBearer;
+export interface CreateModelPackageCommandInput extends CreateModelPackageInput {}
+export interface CreateModelPackageCommandOutput extends CreateModelPackageOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a model package that you can use to create Amazon SageMaker models or list on AWS

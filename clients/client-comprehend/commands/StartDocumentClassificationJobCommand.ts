@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartDocumentClassificationJobCommandInput = StartDocumentClassificationJobRequest;
-export type StartDocumentClassificationJobCommandOutput = StartDocumentClassificationJobResponse & __MetadataBearer;
+export interface StartDocumentClassificationJobCommandInput extends StartDocumentClassificationJobRequest {}
+export interface StartDocumentClassificationJobCommandOutput
+  extends StartDocumentClassificationJobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous document classification job. Use the  operation to track the progress of the

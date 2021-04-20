@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFindingsFilterCommandInput = DeleteFindingsFilterRequest;
-export type DeleteFindingsFilterCommandOutput = DeleteFindingsFilterResponse & __MetadataBearer;
+export interface DeleteFindingsFilterCommandInput extends DeleteFindingsFilterRequest {}
+export interface DeleteFindingsFilterCommandOutput extends DeleteFindingsFilterResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a findings filter.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetResolverRulePolicyCommandInput = GetResolverRulePolicyRequest;
-export type GetResolverRulePolicyCommandOutput = GetResolverRulePolicyResponse & __MetadataBearer;
+export interface GetResolverRulePolicyCommandInput extends GetResolverRulePolicyRequest {}
+export interface GetResolverRulePolicyCommandOutput extends GetResolverRulePolicyResponse, __MetadataBearer {}
 
 /**
  * <p>Gets information about the Resolver rule policy for a specified rule. A Resolver rule policy includes the rule that you want to share

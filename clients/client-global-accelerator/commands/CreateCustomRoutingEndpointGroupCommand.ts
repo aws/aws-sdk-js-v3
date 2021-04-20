@@ -21,8 +21,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCustomRoutingEndpointGroupCommandInput = CreateCustomRoutingEndpointGroupRequest;
-export type CreateCustomRoutingEndpointGroupCommandOutput = CreateCustomRoutingEndpointGroupResponse & __MetadataBearer;
+export interface CreateCustomRoutingEndpointGroupCommandInput extends CreateCustomRoutingEndpointGroupRequest {}
+export interface CreateCustomRoutingEndpointGroupCommandOutput
+  extends CreateCustomRoutingEndpointGroupResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Create an endpoint group for the specified listener for a custom routing accelerator.

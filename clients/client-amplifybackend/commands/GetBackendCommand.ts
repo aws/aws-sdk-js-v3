@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetBackendCommandInput = GetBackendRequest;
-export type GetBackendCommandOutput = GetBackendResponse & __MetadataBearer;
+export interface GetBackendCommandInput extends GetBackendRequest {}
+export interface GetBackendCommandOutput extends GetBackendResponse, __MetadataBearer {}
 
 /**
  * <p>Provides project-level details for your Amplify UI project.</p>

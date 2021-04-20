@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetAutomationExecutionCommandInput = GetAutomationExecutionRequest;
-export type GetAutomationExecutionCommandOutput = GetAutomationExecutionResult & __MetadataBearer;
+export interface GetAutomationExecutionCommandInput extends GetAutomationExecutionRequest {}
+export interface GetAutomationExecutionCommandOutput extends GetAutomationExecutionResult, __MetadataBearer {}
 
 /**
  * <p>Get detailed information about a particular Automation execution.</p>

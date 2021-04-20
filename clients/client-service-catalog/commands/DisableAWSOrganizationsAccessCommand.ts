@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisableAWSOrganizationsAccessCommandInput = DisableAWSOrganizationsAccessInput;
-export type DisableAWSOrganizationsAccessCommandOutput = DisableAWSOrganizationsAccessOutput & __MetadataBearer;
+export interface DisableAWSOrganizationsAccessCommandInput extends DisableAWSOrganizationsAccessInput {}
+export interface DisableAWSOrganizationsAccessCommandOutput
+  extends DisableAWSOrganizationsAccessOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Disable portfolio sharing through AWS Organizations feature. This feature will not

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetEmailTemplateCommandInput = GetEmailTemplateRequest;
-export type GetEmailTemplateCommandOutput = GetEmailTemplateResponse & __MetadataBearer;
+export interface GetEmailTemplateCommandInput extends GetEmailTemplateRequest {}
+export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse, __MetadataBearer {}
 
 /**
  * <p>Displays the template object (which includes the subject line, HTML part and text

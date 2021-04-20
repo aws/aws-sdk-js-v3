@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListChannelBansCommandInput = ListChannelBansRequest;
-export type ListChannelBansCommandOutput = ListChannelBansResponse & __MetadataBearer;
+export interface ListChannelBansCommandInput extends ListChannelBansRequest {}
+export interface ListChannelBansCommandOutput extends ListChannelBansResponse, __MetadataBearer {}
 
 /**
  * <p>Lists all the users banned from a particular channel.</p>

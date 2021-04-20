@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StopJobCommandInput = StopJobRequest;
-export type StopJobCommandOutput = StopJobResult & __MetadataBearer;
+export interface StopJobCommandInput extends StopJobRequest {}
+export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
 
 /**
  * <p> Stops a job that is in progress for a branch of an Amplify app. </p>

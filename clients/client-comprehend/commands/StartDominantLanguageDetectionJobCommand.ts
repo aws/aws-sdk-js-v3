@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type StartDominantLanguageDetectionJobCommandInput = StartDominantLanguageDetectionJobRequest;
-export type StartDominantLanguageDetectionJobCommandOutput = StartDominantLanguageDetectionJobResponse &
-  __MetadataBearer;
+export interface StartDominantLanguageDetectionJobCommandInput extends StartDominantLanguageDetectionJobRequest {}
+export interface StartDominantLanguageDetectionJobCommandOutput
+  extends StartDominantLanguageDetectionJobResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Starts an asynchronous dominant language detection job for a collection of documents. Use

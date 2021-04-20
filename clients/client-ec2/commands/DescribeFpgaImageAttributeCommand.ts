@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeFpgaImageAttributeCommandInput = DescribeFpgaImageAttributeRequest;
-export type DescribeFpgaImageAttributeCommandOutput = DescribeFpgaImageAttributeResult & __MetadataBearer;
+export interface DescribeFpgaImageAttributeCommandInput extends DescribeFpgaImageAttributeRequest {}
+export interface DescribeFpgaImageAttributeCommandOutput extends DescribeFpgaImageAttributeResult, __MetadataBearer {}
 
 /**
  * <p>Describes the specified attribute of the specified Amazon FPGA Image (AFI).</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTaskSetCommandInput = CreateTaskSetRequest;
-export type CreateTaskSetCommandOutput = CreateTaskSetResponse & __MetadataBearer;
+export interface CreateTaskSetCommandInput extends CreateTaskSetRequest {}
+export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __MetadataBearer {}
 
 /**
  * <p>Create a task set in the specified cluster and service. This is used when a service

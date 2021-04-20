@@ -22,8 +22,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateAuthEventFeedbackCommandInput = UpdateAuthEventFeedbackRequest;
-export type UpdateAuthEventFeedbackCommandOutput = UpdateAuthEventFeedbackResponse & __MetadataBearer;
+export interface UpdateAuthEventFeedbackCommandInput extends UpdateAuthEventFeedbackRequest {}
+export interface UpdateAuthEventFeedbackCommandOutput extends UpdateAuthEventFeedbackResponse, __MetadataBearer {}
 
 /**
  * <p>Provides the feedback for an authentication event whether it was from a valid user or

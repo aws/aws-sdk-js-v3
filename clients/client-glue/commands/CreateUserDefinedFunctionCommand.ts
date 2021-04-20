@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateUserDefinedFunctionCommandInput = CreateUserDefinedFunctionRequest;
-export type CreateUserDefinedFunctionCommandOutput = CreateUserDefinedFunctionResponse & __MetadataBearer;
+export interface CreateUserDefinedFunctionCommandInput extends CreateUserDefinedFunctionRequest {}
+export interface CreateUserDefinedFunctionCommandOutput extends CreateUserDefinedFunctionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a new function definition in the Data Catalog.</p>

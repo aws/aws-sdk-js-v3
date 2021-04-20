@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeCompilationJobCommandInput = DescribeCompilationJobRequest;
-export type DescribeCompilationJobCommandOutput = DescribeCompilationJobResponse & __MetadataBearer;
+export interface DescribeCompilationJobCommandInput extends DescribeCompilationJobRequest {}
+export interface DescribeCompilationJobCommandOutput extends DescribeCompilationJobResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information about a model compilation job.</p>

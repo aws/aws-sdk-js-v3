@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateAccessKeyCommandInput = CreateAccessKeyRequest;
-export type CreateAccessKeyCommandOutput = CreateAccessKeyResponse & __MetadataBearer;
+export interface CreateAccessKeyCommandInput extends CreateAccessKeyRequest {}
+export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, __MetadataBearer {}
 
 /**
  * <p> Creates a new AWS secret access key and corresponding AWS access key ID for the

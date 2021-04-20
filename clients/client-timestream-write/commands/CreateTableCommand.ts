@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateTableCommandInput = CreateTableRequest;
-export type CreateTableCommandOutput = CreateTableResponse & __MetadataBearer;
+export interface CreateTableCommandInput extends CreateTableRequest {}
+export interface CreateTableCommandOutput extends CreateTableResponse, __MetadataBearer {}
 
 /**
  * <p>The CreateTable operation adds a new table to an existing database in your account. In an AWS account,

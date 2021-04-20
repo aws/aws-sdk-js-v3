@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFleetCommandInput = DeleteFleetRequest;
-export type DeleteFleetCommandOutput = DeleteFleetResponse & __MetadataBearer;
+export interface DeleteFleetCommandInput extends DeleteFleetRequest {}
+export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes a fleet.</p>

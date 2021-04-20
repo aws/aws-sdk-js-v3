@@ -20,9 +20,11 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SetIdentityHeadersInNotificationsEnabledCommandInput = SetIdentityHeadersInNotificationsEnabledRequest;
-export type SetIdentityHeadersInNotificationsEnabledCommandOutput = SetIdentityHeadersInNotificationsEnabledResponse &
-  __MetadataBearer;
+export interface SetIdentityHeadersInNotificationsEnabledCommandInput
+  extends SetIdentityHeadersInNotificationsEnabledRequest {}
+export interface SetIdentityHeadersInNotificationsEnabledCommandOutput
+  extends SetIdentityHeadersInNotificationsEnabledResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Given an identity (an email address or a domain), sets whether Amazon SES includes the

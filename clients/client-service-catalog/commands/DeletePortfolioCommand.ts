@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeletePortfolioCommandInput = DeletePortfolioInput;
-export type DeletePortfolioCommandOutput = DeletePortfolioOutput & __MetadataBearer;
+export interface DeletePortfolioCommandInput extends DeletePortfolioInput {}
+export interface DeletePortfolioCommandOutput extends DeletePortfolioOutput, __MetadataBearer {}
 
 /**
  * <p>Deletes the specified portfolio.</p>

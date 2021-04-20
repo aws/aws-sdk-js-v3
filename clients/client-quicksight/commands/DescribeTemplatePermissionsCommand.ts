@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeTemplatePermissionsCommandInput = DescribeTemplatePermissionsRequest;
-export type DescribeTemplatePermissionsCommandOutput = DescribeTemplatePermissionsResponse & __MetadataBearer;
+export interface DescribeTemplatePermissionsCommandInput extends DescribeTemplatePermissionsRequest {}
+export interface DescribeTemplatePermissionsCommandOutput
+  extends DescribeTemplatePermissionsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Describes read and write permissions on a template.</p>

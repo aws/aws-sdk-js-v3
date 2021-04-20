@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateStreamingURLCommandInput = CreateStreamingURLRequest;
-export type CreateStreamingURLCommandOutput = CreateStreamingURLResult & __MetadataBearer;
+export interface CreateStreamingURLCommandInput extends CreateStreamingURLRequest {}
+export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResult, __MetadataBearer {}
 
 /**
  * <p>Creates a temporary URL to start an AppStream 2.0 streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup. </p>

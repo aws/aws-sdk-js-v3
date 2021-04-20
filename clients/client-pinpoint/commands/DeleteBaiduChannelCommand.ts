@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteBaiduChannelCommandInput = DeleteBaiduChannelRequest;
-export type DeleteBaiduChannelCommandOutput = DeleteBaiduChannelResponse & __MetadataBearer;
+export interface DeleteBaiduChannelCommandInput extends DeleteBaiduChannelRequest {}
+export interface DeleteBaiduChannelCommandOutput extends DeleteBaiduChannelResponse, __MetadataBearer {}
 
 /**
  * <p>Disables the Baidu channel for an application and deletes any existing settings for the channel.</p>

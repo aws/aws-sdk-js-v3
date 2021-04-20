@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateShareInvitationCommandInput = UpdateShareInvitationInput;
-export type UpdateShareInvitationCommandOutput = UpdateShareInvitationOutput & __MetadataBearer;
+export interface UpdateShareInvitationCommandInput extends UpdateShareInvitationInput {}
+export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitationOutput, __MetadataBearer {}
 
 /**
  * <p>Update a workload invitation.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetSigningPlatformCommandInput = GetSigningPlatformRequest;
-export type GetSigningPlatformCommandOutput = GetSigningPlatformResponse & __MetadataBearer;
+export interface GetSigningPlatformCommandInput extends GetSigningPlatformRequest {}
+export interface GetSigningPlatformCommandOutput extends GetSigningPlatformResponse, __MetadataBearer {}
 
 /**
  * <p>Returns information on a specific signing platform.</p>

@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateMyUserProfileCommandInput = UpdateMyUserProfileRequest;
-export type UpdateMyUserProfileCommandOutput = __MetadataBearer;
+export interface UpdateMyUserProfileCommandInput extends UpdateMyUserProfileRequest {}
+export interface UpdateMyUserProfileCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates a user's SSH public key.</p>

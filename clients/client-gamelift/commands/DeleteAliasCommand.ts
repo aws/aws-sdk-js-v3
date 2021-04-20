@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteAliasCommandInput = DeleteAliasInput;
-export type DeleteAliasCommandOutput = __MetadataBearer;
+export interface DeleteAliasCommandInput extends DeleteAliasInput {}
+export interface DeleteAliasCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an alias. This operation removes all record of the alias. Game clients

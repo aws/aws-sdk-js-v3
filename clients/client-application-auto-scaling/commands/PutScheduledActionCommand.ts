@@ -21,8 +21,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutScheduledActionCommandInput = PutScheduledActionRequest;
-export type PutScheduledActionCommandOutput = PutScheduledActionResponse & __MetadataBearer;
+export interface PutScheduledActionCommandInput extends PutScheduledActionRequest {}
+export interface PutScheduledActionCommandOutput extends PutScheduledActionResponse, __MetadataBearer {}
 
 /**
  * <p>Creates or updates a scheduled action for an Application Auto Scaling scalable target. </p>

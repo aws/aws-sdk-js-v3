@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateSnapshotCopyGrantCommandInput = CreateSnapshotCopyGrantMessage;
-export type CreateSnapshotCopyGrantCommandOutput = CreateSnapshotCopyGrantResult & __MetadataBearer;
+export interface CreateSnapshotCopyGrantCommandInput extends CreateSnapshotCopyGrantMessage {}
+export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopyGrantResult, __MetadataBearer {}
 
 /**
  * <p>Creates a snapshot copy grant that permits Amazon Redshift to use a customer master key

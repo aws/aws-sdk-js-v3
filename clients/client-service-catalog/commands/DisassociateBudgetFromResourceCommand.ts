@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DisassociateBudgetFromResourceCommandInput = DisassociateBudgetFromResourceInput;
-export type DisassociateBudgetFromResourceCommandOutput = DisassociateBudgetFromResourceOutput & __MetadataBearer;
+export interface DisassociateBudgetFromResourceCommandInput extends DisassociateBudgetFromResourceInput {}
+export interface DisassociateBudgetFromResourceCommandOutput
+  extends DisassociateBudgetFromResourceOutput,
+    __MetadataBearer {}
 
 /**
  * <p>Disassociates the specified budget from the specified resource.</p>

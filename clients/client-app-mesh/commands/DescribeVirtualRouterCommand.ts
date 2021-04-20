@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeVirtualRouterCommandInput = DescribeVirtualRouterInput;
-export type DescribeVirtualRouterCommandOutput = DescribeVirtualRouterOutput & __MetadataBearer;
+export interface DescribeVirtualRouterCommandInput extends DescribeVirtualRouterInput {}
+export interface DescribeVirtualRouterCommandOutput extends DescribeVirtualRouterOutput, __MetadataBearer {}
 
 /**
  * <p>Describes an existing virtual router.</p>

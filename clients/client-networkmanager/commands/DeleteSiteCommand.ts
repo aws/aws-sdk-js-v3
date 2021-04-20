@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteSiteCommandInput = DeleteSiteRequest;
-export type DeleteSiteCommandOutput = DeleteSiteResponse & __MetadataBearer;
+export interface DeleteSiteCommandInput extends DeleteSiteRequest {}
+export interface DeleteSiteCommandOutput extends DeleteSiteResponse, __MetadataBearer {}
 
 /**
  * <p>Deletes an existing site. The site cannot be associated with any device or link.</p>

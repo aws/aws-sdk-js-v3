@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DeleteFirewallManagerRuleGroupsCommandInput = DeleteFirewallManagerRuleGroupsRequest;
-export type DeleteFirewallManagerRuleGroupsCommandOutput = DeleteFirewallManagerRuleGroupsResponse & __MetadataBearer;
+export interface DeleteFirewallManagerRuleGroupsCommandInput extends DeleteFirewallManagerRuleGroupsRequest {}
+export interface DeleteFirewallManagerRuleGroupsCommandOutput
+  extends DeleteFirewallManagerRuleGroupsResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Deletes all rule groups that are managed by AWS Firewall Manager for the specified web ACL. </p>

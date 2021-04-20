@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type TestIdentityProviderCommandInput = TestIdentityProviderRequest;
-export type TestIdentityProviderCommandOutput = TestIdentityProviderResponse & __MetadataBearer;
+export interface TestIdentityProviderCommandInput extends TestIdentityProviderRequest {}
+export interface TestIdentityProviderCommandOutput extends TestIdentityProviderResponse, __MetadataBearer {}
 
 /**
  * <p>If the <code>IdentityProviderType</code> of a file transfer protocol-enabled server is

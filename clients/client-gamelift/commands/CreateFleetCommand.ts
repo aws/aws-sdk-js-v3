@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateFleetCommandInput = CreateFleetInput;
-export type CreateFleetCommandOutput = CreateFleetOutput & __MetadataBearer;
+export interface CreateFleetCommandInput extends CreateFleetInput {}
+export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataBearer {}
 
 /**
  * <p>Creates a fleet of Amazon Elastic Compute Cloud (Amazon EC2) instances to host your

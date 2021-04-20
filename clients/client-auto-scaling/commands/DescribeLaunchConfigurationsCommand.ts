@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type DescribeLaunchConfigurationsCommandInput = LaunchConfigurationNamesType;
-export type DescribeLaunchConfigurationsCommandOutput = LaunchConfigurationsType & __MetadataBearer;
+export interface DescribeLaunchConfigurationsCommandInput extends LaunchConfigurationNamesType {}
+export interface DescribeLaunchConfigurationsCommandOutput extends LaunchConfigurationsType, __MetadataBearer {}
 
 /**
  * <p>Describes one or more launch configurations.</p>

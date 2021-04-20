@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListTapePoolsCommandInput = ListTapePoolsInput;
-export type ListTapePoolsCommandOutput = ListTapePoolsOutput & __MetadataBearer;
+export interface ListTapePoolsCommandInput extends ListTapePoolsInput {}
+export interface ListTapePoolsCommandOutput extends ListTapePoolsOutput, __MetadataBearer {}
 
 /**
  * <p>Lists custom tape pools. You specify custom tape pools to list by specifying one or more

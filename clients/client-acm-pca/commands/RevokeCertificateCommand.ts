@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type RevokeCertificateCommandInput = RevokeCertificateRequest;
-export type RevokeCertificateCommandOutput = __MetadataBearer;
+export interface RevokeCertificateCommandInput extends RevokeCertificateRequest {}
+export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Revokes a certificate that was issued inside ACM Private CA. If you enable a certificate

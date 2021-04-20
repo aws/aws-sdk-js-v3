@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type SendChannelMessageCommandInput = SendChannelMessageRequest;
-export type SendChannelMessageCommandOutput = SendChannelMessageResponse & __MetadataBearer;
+export interface SendChannelMessageCommandInput extends SendChannelMessageRequest {}
+export interface SendChannelMessageCommandOutput extends SendChannelMessageResponse, __MetadataBearer {}
 
 /**
  * <p>Sends a message to a particular channel that the member is a part of.</p>

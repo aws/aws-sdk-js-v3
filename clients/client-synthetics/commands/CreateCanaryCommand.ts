@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type CreateCanaryCommandInput = CreateCanaryRequest;
-export type CreateCanaryCommandOutput = CreateCanaryResponse & __MetadataBearer;
+export interface CreateCanaryCommandInput extends CreateCanaryRequest {}
+export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __MetadataBearer {}
 
 /**
  * <p>Creates a canary. Canaries are scripts that monitor your endpoints and APIs from the

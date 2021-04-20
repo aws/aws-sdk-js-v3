@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ListQueuesCommandInput = ListQueuesRequest;
-export type ListQueuesCommandOutput = ListQueuesResponse & __MetadataBearer;
+export interface ListQueuesCommandInput extends ListQueuesRequest {}
+export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataBearer {}
 
 /**
  * Retrieve a JSON array of up to twenty of your queues. This will return the queues themselves, not just a list of them. To retrieve the next twenty queues, use the nextToken string returned with the array.

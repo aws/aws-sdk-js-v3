@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type ModifySnapshotCopyRetentionPeriodCommandInput = ModifySnapshotCopyRetentionPeriodMessage;
-export type ModifySnapshotCopyRetentionPeriodCommandOutput = ModifySnapshotCopyRetentionPeriodResult & __MetadataBearer;
+export interface ModifySnapshotCopyRetentionPeriodCommandInput extends ModifySnapshotCopyRetentionPeriodMessage {}
+export interface ModifySnapshotCopyRetentionPeriodCommandOutput
+  extends ModifySnapshotCopyRetentionPeriodResult,
+    __MetadataBearer {}
 
 /**
  * <p>Modifies the number of days to retain snapshots in the destination AWS Region after

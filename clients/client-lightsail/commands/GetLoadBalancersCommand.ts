@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetLoadBalancersCommandInput = GetLoadBalancersRequest;
-export type GetLoadBalancersCommandOutput = GetLoadBalancersResult & __MetadataBearer;
+export interface GetLoadBalancersCommandInput extends GetLoadBalancersRequest {}
+export interface GetLoadBalancersCommandOutput extends GetLoadBalancersResult, __MetadataBearer {}
 
 /**
  * <p>Returns information about all load balancers in an account.</p>

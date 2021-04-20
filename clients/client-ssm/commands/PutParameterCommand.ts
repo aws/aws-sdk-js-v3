@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type PutParameterCommandInput = PutParameterRequest;
-export type PutParameterCommandOutput = PutParameterResult & __MetadataBearer;
+export interface PutParameterCommandInput extends PutParameterRequest {}
+export interface PutParameterCommandOutput extends PutParameterResult, __MetadataBearer {}
 
 /**
  * <p>Add a parameter to the system.</p>

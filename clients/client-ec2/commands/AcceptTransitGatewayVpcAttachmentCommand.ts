@@ -17,8 +17,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type AcceptTransitGatewayVpcAttachmentCommandInput = AcceptTransitGatewayVpcAttachmentRequest;
-export type AcceptTransitGatewayVpcAttachmentCommandOutput = AcceptTransitGatewayVpcAttachmentResult & __MetadataBearer;
+export interface AcceptTransitGatewayVpcAttachmentCommandInput extends AcceptTransitGatewayVpcAttachmentRequest {}
+export interface AcceptTransitGatewayVpcAttachmentCommandOutput
+  extends AcceptTransitGatewayVpcAttachmentResult,
+    __MetadataBearer {}
 
 /**
  * <p>Accepts a request to attach a VPC to a transit gateway.</p>

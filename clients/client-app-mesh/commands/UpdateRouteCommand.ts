@@ -17,8 +17,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type UpdateRouteCommandInput = UpdateRouteInput;
-export type UpdateRouteCommandOutput = UpdateRouteOutput & __MetadataBearer;
+export interface UpdateRouteCommandInput extends UpdateRouteInput {}
+export interface UpdateRouteCommandOutput extends UpdateRouteOutput, __MetadataBearer {}
 
 /**
  * <p>Updates an existing route for a specified service mesh and virtual router.</p>

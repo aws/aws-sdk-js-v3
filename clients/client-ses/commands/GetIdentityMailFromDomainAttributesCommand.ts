@@ -20,9 +20,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-export type GetIdentityMailFromDomainAttributesCommandInput = GetIdentityMailFromDomainAttributesRequest;
-export type GetIdentityMailFromDomainAttributesCommandOutput = GetIdentityMailFromDomainAttributesResponse &
-  __MetadataBearer;
+export interface GetIdentityMailFromDomainAttributesCommandInput extends GetIdentityMailFromDomainAttributesRequest {}
+export interface GetIdentityMailFromDomainAttributesCommandOutput
+  extends GetIdentityMailFromDomainAttributesResponse,
+    __MetadataBearer {}
 
 /**
  * <p>Returns the custom MAIL FROM attributes for a list of identities (email addresses :
