@@ -13,9 +13,9 @@ export interface EndpointsInputConfig {
 }
 
 interface PreviouslyResolved {
-  regionInfoProvider?: RegionInfoProvider;
+  regionInfoProvider: RegionInfoProvider;
   urlParser: UrlParser;
-  region?: Provider<string>;
+  region: Provider<string>;
 }
 
 export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> {
@@ -45,10 +45,6 @@ const normalizeEndpoint = (input: EndpointsInputConfig & PreviouslyResolved): Pr
 };
 
 const getEndPointFromRegion = async (input: EndpointsInputConfig & PreviouslyResolved) => {
-  if (input.region === undefined || input.regionInfoProvider === undefined) {
-    throw new Error("No endpoint specified and region is not defined");
-  }
-
   const { tls = true } = input;
   const region = await input.region();
 
