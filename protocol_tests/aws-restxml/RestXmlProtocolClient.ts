@@ -39,10 +39,6 @@ import {
   HttpPayloadTraitsWithMediaTypeCommandOutput,
 } from "./commands/HttpPayloadTraitsWithMediaTypeCommand";
 import {
-  HttpPayloadWithMemberXmlNameCommandInput,
-  HttpPayloadWithMemberXmlNameCommandOutput,
-} from "./commands/HttpPayloadWithMemberXmlNameCommand";
-import {
   HttpPayloadWithStructureCommandInput,
   HttpPayloadWithStructureCommandOutput,
 } from "./commands/HttpPayloadWithStructureCommand";
@@ -194,7 +190,6 @@ export type ServiceInputTypes =
   | GreetingWithErrorsCommandInput
   | HttpPayloadTraitsCommandInput
   | HttpPayloadTraitsWithMediaTypeCommandInput
-  | HttpPayloadWithMemberXmlNameCommandInput
   | HttpPayloadWithStructureCommandInput
   | HttpPayloadWithXmlNameCommandInput
   | HttpPayloadWithXmlNamespaceAndPrefixCommandInput
@@ -246,7 +241,6 @@ export type ServiceOutputTypes =
   | GreetingWithErrorsCommandOutput
   | HttpPayloadTraitsCommandOutput
   | HttpPayloadTraitsWithMediaTypeCommandOutput
-  | HttpPayloadWithMemberXmlNameCommandOutput
   | HttpPayloadWithStructureCommandOutput
   | HttpPayloadWithXmlNameCommandOutput
   | HttpPayloadWithXmlNamespaceAndPrefixCommandOutput

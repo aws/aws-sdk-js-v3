@@ -203,7 +203,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IotDeviceAdvisorClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IotDeviceAdvisorClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -211,8 +211,12 @@ export type IotDeviceAdvisorClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IotDeviceAdvisorClient class constructor that set the region, credentials and other options.
+ */
+export interface IotDeviceAdvisorClientConfig extends IotDeviceAdvisorClientConfigType {}
 
-export type IotDeviceAdvisorClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IotDeviceAdvisorClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -220,6 +224,10 @@ export type IotDeviceAdvisorClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IotDeviceAdvisorClient class. This is resolved and normalized from the {@link IotDeviceAdvisorClientConfig | constructor configuration interface}.
+ */
+export interface IotDeviceAdvisorClientResolvedConfig extends IotDeviceAdvisorClientResolvedConfigType {}
 
 /**
  * <p>AWS IoT Core Device Advisor is a cloud-based, fully managed test capability for validating IoT devices during device software development. Device Advisor provides pre-built tests that you can use to validate IoT devices for reliable and secure connectivity with AWS IoT Core before deploying devices to production. By using Device Advisor, you can confirm that your devices can connect to AWS IoT Core, follow security best practices and, if applicable, receive software updates from IoT Device Management. You can also download signed qualification reports to submit to the AWS Partner Network to get your device qualified for the AWS Partner Device Catalog without the need to send your device in and wait for it to be tested.</p>
@@ -230,6 +238,9 @@ export class IotDeviceAdvisorClient extends __Client<
   ServiceOutputTypes,
   IotDeviceAdvisorClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IotDeviceAdvisorClient class. This is resolved and normalized from the {@link IotDeviceAdvisorClientConfig | constructor configuration interface}.
+   */
   readonly config: IotDeviceAdvisorClientResolvedConfig;
 
   constructor(configuration: IotDeviceAdvisorClientConfig) {
