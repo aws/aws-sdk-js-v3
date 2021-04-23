@@ -269,7 +269,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type WellArchitectedClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type WellArchitectedClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -277,8 +277,12 @@ export type WellArchitectedClientConfig = Partial<__SmithyConfiguration<__HttpHa
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of WellArchitectedClient class constructor that set the region, credentials and other options.
+ */
+export interface WellArchitectedClientConfig extends WellArchitectedClientConfigType {}
 
-export type WellArchitectedClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type WellArchitectedClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -286,6 +290,10 @@ export type WellArchitectedClientResolvedConfig = __SmithyResolvedConfiguration<
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of WellArchitectedClient class. This is resolved and normalized from the {@link WellArchitectedClientConfig | constructor configuration interface}.
+ */
+export interface WellArchitectedClientResolvedConfig extends WellArchitectedClientResolvedConfigType {}
 
 /**
  * <fullname>AWS Well-Architected Tool</fullname>
@@ -302,6 +310,9 @@ export class WellArchitectedClient extends __Client<
   ServiceOutputTypes,
   WellArchitectedClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of WellArchitectedClient class. This is resolved and normalized from the {@link WellArchitectedClientConfig | constructor configuration interface}.
+   */
   readonly config: WellArchitectedClientResolvedConfig;
 
   constructor(configuration: WellArchitectedClientConfig) {

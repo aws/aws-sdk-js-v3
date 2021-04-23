@@ -189,7 +189,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 }
 
-export type LexRuntimeV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type LexRuntimeV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -199,8 +199,12 @@ export type LexRuntimeV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   EventStreamInputConfig &
   UserAgentInputConfig &
   EventStreamSerdeInputConfig;
+/**
+ * The configuration interface of LexRuntimeV2Client class constructor that set the region, credentials and other options.
+ */
+export interface LexRuntimeV2ClientConfig extends LexRuntimeV2ClientConfigType {}
 
-export type LexRuntimeV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type LexRuntimeV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -210,6 +214,10 @@ export type LexRuntimeV2ClientResolvedConfig = __SmithyResolvedConfiguration<__H
   EventStreamResolvedConfig &
   UserAgentResolvedConfig &
   EventStreamSerdeResolvedConfig;
+/**
+ * The resolved configuration interface of LexRuntimeV2Client class. This is resolved and normalized from the {@link LexRuntimeV2ClientConfig | constructor configuration interface}.
+ */
+export interface LexRuntimeV2ClientResolvedConfig extends LexRuntimeV2ClientResolvedConfigType {}
 
 /**
  * <p></p>
@@ -220,6 +228,9 @@ export class LexRuntimeV2Client extends __Client<
   ServiceOutputTypes,
   LexRuntimeV2ClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of LexRuntimeV2Client class. This is resolved and normalized from the {@link LexRuntimeV2ClientConfig | constructor configuration interface}.
+   */
   readonly config: LexRuntimeV2ClientResolvedConfig;
 
   constructor(configuration: LexRuntimeV2ClientConfig) {

@@ -299,7 +299,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type LocationClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type LocationClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -307,8 +307,12 @@ export type LocationClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOp
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of LocationClient class constructor that set the region, credentials and other options.
+ */
+export interface LocationClientConfig extends LocationClientConfigType {}
 
-export type LocationClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type LocationClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -316,6 +320,10 @@ export type LocationClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of LocationClient class. This is resolved and normalized from the {@link LocationClientConfig | constructor configuration interface}.
+ */
+export interface LocationClientResolvedConfig extends LocationClientResolvedConfigType {}
 
 /**
  * Suite of geospatial services including Maps, Places, Tracking, and Geofencing
@@ -326,6 +334,9 @@ export class LocationClient extends __Client<
   ServiceOutputTypes,
   LocationClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of LocationClient class. This is resolved and normalized from the {@link LocationClientConfig | constructor configuration interface}.
+   */
   readonly config: LocationClientResolvedConfig;
 
   constructor(configuration: LocationClientConfig) {

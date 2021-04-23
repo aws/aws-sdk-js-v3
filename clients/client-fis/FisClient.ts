@@ -209,7 +209,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type FisClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type FisClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -217,8 +217,12 @@ export type FisClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of FisClient class constructor that set the region, credentials and other options.
+ */
+export interface FisClientConfig extends FisClientConfigType {}
 
-export type FisClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type FisClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -226,6 +230,10 @@ export type FisClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of FisClient class. This is resolved and normalized from the {@link FisClientConfig | constructor configuration interface}.
+ */
+export interface FisClientResolvedConfig extends FisClientResolvedConfigType {}
 
 /**
  * <p>AWS Fault Injection Simulator is a managed service that enables you to perform fault injection
@@ -237,6 +245,9 @@ export class FisClient extends __Client<
   ServiceOutputTypes,
   FisClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of FisClient class. This is resolved and normalized from the {@link FisClientConfig | constructor configuration interface}.
+   */
   readonly config: FisClientResolvedConfig;
 
   constructor(configuration: FisClientConfig) {

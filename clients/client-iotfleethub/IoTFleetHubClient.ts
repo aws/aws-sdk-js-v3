@@ -179,7 +179,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IoTFleetHubClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IoTFleetHubClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -187,8 +187,12 @@ export type IoTFleetHubClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IoTFleetHubClient class constructor that set the region, credentials and other options.
+ */
+export interface IoTFleetHubClientConfig extends IoTFleetHubClientConfigType {}
 
-export type IoTFleetHubClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IoTFleetHubClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -196,6 +200,10 @@ export type IoTFleetHubClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IoTFleetHubClient class. This is resolved and normalized from the {@link IoTFleetHubClientConfig | constructor configuration interface}.
+ */
+export interface IoTFleetHubClientResolvedConfig extends IoTFleetHubClientResolvedConfigType {}
 
 /**
  * <p>With Fleet Hub for AWS IoT Device Management you can build stand-alone web applications for monitoring the health of your device fleets.</p>
@@ -209,6 +217,9 @@ export class IoTFleetHubClient extends __Client<
   ServiceOutputTypes,
   IoTFleetHubClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IoTFleetHubClient class. This is resolved and normalized from the {@link IoTFleetHubClientConfig | constructor configuration interface}.
+   */
   readonly config: IoTFleetHubClientResolvedConfig;
 
   constructor(configuration: IoTFleetHubClientConfig) {

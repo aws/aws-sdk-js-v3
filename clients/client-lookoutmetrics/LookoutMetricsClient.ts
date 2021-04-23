@@ -257,7 +257,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type LookoutMetricsClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type LookoutMetricsClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -265,8 +265,12 @@ export type LookoutMetricsClientConfig = Partial<__SmithyConfiguration<__HttpHan
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of LookoutMetricsClient class constructor that set the region, credentials and other options.
+ */
+export interface LookoutMetricsClientConfig extends LookoutMetricsClientConfigType {}
 
-export type LookoutMetricsClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type LookoutMetricsClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -274,6 +278,10 @@ export type LookoutMetricsClientResolvedConfig = __SmithyResolvedConfiguration<_
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of LookoutMetricsClient class. This is resolved and normalized from the {@link LookoutMetricsClientConfig | constructor configuration interface}.
+ */
+export interface LookoutMetricsClientResolvedConfig extends LookoutMetricsClientResolvedConfigType {}
 
 /**
  * <p>This is the <i>Amazon Lookout for Metrics API Reference</i>. For an introduction to the service
@@ -286,6 +294,9 @@ export class LookoutMetricsClient extends __Client<
   ServiceOutputTypes,
   LookoutMetricsClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of LookoutMetricsClient class. This is resolved and normalized from the {@link LookoutMetricsClientConfig | constructor configuration interface}.
+   */
   readonly config: LookoutMetricsClientResolvedConfig;
 
   constructor(configuration: LookoutMetricsClientConfig) {

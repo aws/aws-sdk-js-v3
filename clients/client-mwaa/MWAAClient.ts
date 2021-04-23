@@ -188,7 +188,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MWAAClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MWAAClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -196,8 +196,12 @@ export type MWAAClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOption
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MWAAClient class constructor that set the region, credentials and other options.
+ */
+export interface MWAAClientConfig extends MWAAClientConfigType {}
 
-export type MWAAClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MWAAClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -205,6 +209,10 @@ export type MWAAClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandl
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MWAAClient class. This is resolved and normalized from the {@link MWAAClientConfig | constructor configuration interface}.
+ */
+export interface MWAAClientResolvedConfig extends MWAAClientResolvedConfigType {}
 
 /**
  * <fullname>Amazon Managed Workflows for Apache Airflow</fullname>
@@ -216,6 +224,9 @@ export class MWAAClient extends __Client<
   ServiceOutputTypes,
   MWAAClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MWAAClient class. This is resolved and normalized from the {@link MWAAClientConfig | constructor configuration interface}.
+   */
   readonly config: MWAAClientResolvedConfig;
 
   constructor(configuration: MWAAClientConfig) {

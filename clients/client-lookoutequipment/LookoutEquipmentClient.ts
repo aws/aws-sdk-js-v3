@@ -251,7 +251,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type LookoutEquipmentClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type LookoutEquipmentClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -259,8 +259,12 @@ export type LookoutEquipmentClientConfig = Partial<__SmithyConfiguration<__HttpH
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of LookoutEquipmentClient class constructor that set the region, credentials and other options.
+ */
+export interface LookoutEquipmentClientConfig extends LookoutEquipmentClientConfigType {}
 
-export type LookoutEquipmentClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type LookoutEquipmentClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -268,6 +272,10 @@ export type LookoutEquipmentClientResolvedConfig = __SmithyResolvedConfiguration
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of LookoutEquipmentClient class. This is resolved and normalized from the {@link LookoutEquipmentClientConfig | constructor configuration interface}.
+ */
+export interface LookoutEquipmentClientResolvedConfig extends LookoutEquipmentClientResolvedConfigType {}
 
 /**
  * <p>Amazon Lookout for Equipment is a machine learning service that uses advanced analytics to identify
@@ -279,6 +287,9 @@ export class LookoutEquipmentClient extends __Client<
   ServiceOutputTypes,
   LookoutEquipmentClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of LookoutEquipmentClient class. This is resolved and normalized from the {@link LookoutEquipmentClientConfig | constructor configuration interface}.
+   */
   readonly config: LookoutEquipmentClientResolvedConfig;
 
   constructor(configuration: LookoutEquipmentClientConfig) {
