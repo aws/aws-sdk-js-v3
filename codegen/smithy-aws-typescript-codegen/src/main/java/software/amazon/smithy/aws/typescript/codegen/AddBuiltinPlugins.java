@@ -47,8 +47,14 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "Region", HAS_CONFIG)
                         .servicePredicate((m, s) -> isAwsService(s))
                         .build(),
+                // Only one of Endpoints or CustomEndpoints should be used
                 RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "Endpoints", HAS_CONFIG)
+                        .servicePredicate((m, s) -> isAwsService(s))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(TypeScriptDependency.CONFIG_RESOLVER.dependency, "CustomEndpoints", HAS_CONFIG)
+                        .servicePredicate((m, s) -> !isAwsService(s))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.MIDDLEWARE_RETRY.dependency, "Retry")
