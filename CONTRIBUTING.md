@@ -101,10 +101,10 @@ The above command will use Lerna to run the `test` script in every package of th
 
 #### Test a changed package
 
-To run the tests for a specific package, you can run `yarn test` from within the
+To run the tests for a specific package, you can run `yarn test` within the
 specified package folder.
 
-Or from the project root, run:
+Alternatively, from the project root, you can run:
 
 ```
 lerna run test --scope [package name]
