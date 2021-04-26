@@ -110,7 +110,7 @@ Alternatively, from the project root, you can run:
 lerna run test --scope [package name]
 ```
 
-If `lerna` is not available in your environment, you can install in globally with:
+If `lerna` is not available in your environment, you can install it globally with:
 
 ```
 npm install -g lerna
