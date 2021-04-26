@@ -18,6 +18,7 @@ export class SdkClientTocPlugin extends RendererComponent {
   private commandsNavigationItem?: NavigationItem;
   private clientsNavigationItem?: NavigationItem;
   private paginatorsNavigationItem?: NavigationItem;
+  private waitersNavigationItem?: NavigationItem;
   private clientDir?: string;
 
   initialize() {
@@ -53,9 +54,15 @@ export class SdkClientTocPlugin extends RendererComponent {
       this.clientsNavigationItem = new NavigationItem("Clients", void 0, page.toc);
       this.commandsNavigationItem = new NavigationItem("Commands", void 0, page.toc);
       this.paginatorsNavigationItem = new NavigationItem("Paginators", void 0, page.toc);
+      this.waitersNavigationItem = new NavigationItem("Waiters", void 0, page.toc);
     }
 
     this.buildToc(model, trail, page.toc, tocRestriction);
+  }
+
+  // Confirm declaration comes from the same folder as the client class
+  private belongsToClientPackage(model: DeclarationReflection): boolean {
+    return this.clientDir && model.sources?.[0].file?.fullFileName.indexOf(this.clientDir) === 0;
   }
 
   private isClient(model: DeclarationReflection): boolean {
@@ -66,28 +73,36 @@ export class SdkClientTocPlugin extends RendererComponent {
       (model.name.endsWith("Client") /* Modular client like S3Client */ ||
         extendedTypes.filter((reference) => (reference as ReferenceType).name === `${model.name}Client`).length > 0) &&
       /* Filter out other client classes that not sourced from the same directory as current client. e.g. STS, SSO */
-      this.clientDir &&
-      dirname(model.sources[0]?.file.fullFileName) === this.clientDir
+      this.belongsToClientPackage(model)
     );
   }
 
   private isCommand(model: DeclarationReflection): boolean {
     return (
       model.kindOf(ReflectionKind.Class) &&
-      model.getFullName() !== "Command" && // Exclude the Smithy Command class.
       model.name.endsWith("Command") &&
-      model.children?.some((child) => child.name === "resolveMiddleware")
+      model.children?.some((child) => child.name === "resolveMiddleware") &&
+      this.belongsToClientPackage(model)
     );
   }
 
   private isPaginator(model: DeclarationReflection): boolean {
-    return model.name.startsWith("paginate") && model.kindOf(ReflectionKind.Function);
+    return (
+      model.name.startsWith("paginate") && model.kindOf(ReflectionKind.Function) && this.belongsToClientPackage(model)
+    );
   }
 
   private isInputOrOutput(model: DeclarationReflection): boolean {
     return (
       model.kindOf(ReflectionKind.Interface) &&
-      (model.name.endsWith("CommandInput") || model.name.endsWith("CommandOutput"))
+      (model.name.endsWith("CommandInput") || model.name.endsWith("CommandOutput")) &&
+      this.belongsToClientPackage(model)
+    );
+  }
+
+  private isWaiter(model: DeclarationReflection): boolean {
+    return (
+      model.name.startsWith("waitFor") && model.kindOf(ReflectionKind.Function) && this.belongsToClientPackage(model)
     );
   }
 
@@ -128,6 +143,8 @@ export class SdkClientTocPlugin extends RendererComponent {
           NavigationItem.create(child, this.paginatorsNavigationItem, true);
         } else if (this.isInputOrOutput(child)) {
           NavigationItem.create(child, this.commandsNavigationItem, true);
+        } else if (this.isWaiter(child)) {
+          NavigationItem.create(child, this.waitersNavigationItem, true);
         } else {
           const item = NavigationItem.create(child, parent, true);
           if (trail.includes(child)) {
