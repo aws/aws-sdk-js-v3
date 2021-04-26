@@ -1,4 +1,3 @@
-// TODO: Create a .spec.ts for this
 import { Endpoint, Provider, UrlParser } from "@aws-sdk/types";
 
 export interface CustomEndpointsInputConfig {
@@ -19,7 +18,7 @@ interface PreviouslyResolved {
 
 export interface CustomEndpointsResolvedConfig extends Required<CustomEndpointsInputConfig> {
   endpoint: Provider<Endpoint>;
-  isCustomEndpoint: true; // TODO: Can this be removed or some other logic depends on this?
+  isCustomEndpoint: true;
 }
 
 export const resolveCustomEndpointsConfig = <T>(
@@ -31,7 +30,6 @@ export const resolveCustomEndpointsConfig = <T>(
   isCustomEndpoint: true,
 });
 
-// TODO: can this be shared with EndpointsConfig.ts
 const normalizeEndpoint = (input: CustomEndpointsInputConfig & PreviouslyResolved): Provider<Endpoint> => {
   const { endpoint, urlParser } = input;
   if (typeof endpoint === "string") {
