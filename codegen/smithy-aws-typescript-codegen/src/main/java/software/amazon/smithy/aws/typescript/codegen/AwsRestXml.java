@@ -139,19 +139,40 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    protected void writeDefaultHeaders(GenerationContext context, Shape operationOrError, boolean isInput) {
-        super.writeDefaultHeaders(context, operationOrError, isInput);
-        if (isInput && operationOrError.isOperationShape()) {
-            AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operationOrError.asOperationShape().get());
-        }
+    protected void writeDefaultInputHeaders(GenerationContext context, OperationShape operation) {
+        AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
     }
 
     @Override
-    protected void serializeDocumentBody(
+    public void serializeInputDocumentBody(
             GenerationContext context,
             OperationShape operation,
-            List<HttpBinding> documentBindings,
-            boolean isInput
+            List<HttpBinding> documentBindings
+    ) {
+        serializeDocumentBody(context, documentBindings);
+    }
+
+    @Override
+    public void serializeOutputDocumentBody(
+            GenerationContext context,
+            OperationShape operation,
+            List<HttpBinding> documentBindings
+    ) {
+        serializeDocumentBody(context, documentBindings);
+    }
+
+    @Override
+    public void serializeErrorDocumentBody(
+            GenerationContext context,
+            StructureShape error,
+            List<HttpBinding> documentBindings
+    ) {
+        serializeDocumentBody(context, documentBindings);
+    }
+
+    private void serializeDocumentBody(
+            GenerationContext context,
+            List<HttpBinding> documentBindings
     ) {
         // Short circuit when we have no bindings.
         TypeScriptWriter writer = context.getWriter();
@@ -204,11 +225,38 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    protected void serializePayload(
+    protected void serializeInputPayload(
             GenerationContext context,
             OperationShape operation,
-            HttpBinding payloadBinding,
-            boolean isInput
+            HttpBinding payloadBinding
+    ) {
+        super.serializeInputPayload(context, operation, payloadBinding);
+        serializePayload(context, payloadBinding);
+    }
+
+    @Override
+    protected void serializeOutputPayload(
+            GenerationContext context,
+            OperationShape operation,
+            HttpBinding payloadBinding
+    ) {
+        super.serializeOutputPayload(context, operation, payloadBinding);
+        serializePayload(context, payloadBinding);
+    }
+
+    @Override
+    protected void serializeErrorPayload(
+            GenerationContext context,
+            StructureShape error,
+            HttpBinding payloadBinding
+    ) {
+        super.serializeErrorPayload(context, error, payloadBinding);
+        serializePayload(context, payloadBinding);
+    }
+
+    private void serializePayload(
+            GenerationContext context,
+            HttpBinding payloadBinding
     ) {
         SymbolProvider symbolProvider = context.getSymbolProvider();
         TypeScriptWriter writer = context.getWriter();
@@ -256,11 +304,35 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
     }
 
     @Override
+    public void deserializeInputDocumentBody(
+            GenerationContext context,
+            OperationShape operation,
+            List<HttpBinding> documentBindings
+    ) {
+        deserializeDocumentBody(context, documentBindings);
+    }
+
+    @Override
+    public void deserializeOutputDocumentBody(
+            GenerationContext context,
+            OperationShape operation,
+            List<HttpBinding> documentBindings
+    ) {
+        deserializeDocumentBody(context, documentBindings);
+    }
+
+    @Override
+    public void deserializeErrorDocumentBody(
+            GenerationContext context,
+            StructureShape error,
+            List<HttpBinding> documentBindings
+    ) {
+        deserializeDocumentBody(context, documentBindings);
+    }
+
     protected void deserializeDocumentBody(
             GenerationContext context,
-            Shape operationOrError,
-            List<HttpBinding> documentBindings,
-            boolean isInput
+            List<HttpBinding> documentBindings
     ) {
         SymbolProvider symbolProvider = context.getSymbolProvider();
         XmlShapeDeserVisitor shapeVisitor = new XmlShapeDeserVisitor(context);

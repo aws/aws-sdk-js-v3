@@ -87,36 +87,62 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    protected void writeDefaultHeaders(GenerationContext context, Shape operationOrError, boolean isInput) {
-        super.writeDefaultHeaders(context, operationOrError, isInput);
-        if (operationOrError.isOperationShape()) {
-            OperationShape operation = operationOrError.asOperationShape().get();
-            if (isInput) {
-                AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
-            }
-        } else if (operationOrError.isStructureShape()) {
-            context.getWriter().write("'x-amzn-errortype': $S,", operationOrError.getId().getName());
-        }
+    protected void writeDefaultInputHeaders(GenerationContext context, OperationShape operation) {
+        AwsProtocolUtils.generateUnsignedPayloadSigV4Header(context, operation);
     }
 
     @Override
-    public void serializeDocumentBody(
+    protected void writeDefaultErrorHeaders(GenerationContext context, StructureShape error) {
+        context.getWriter().write("'x-amzn-errortype': $S,", error.getId().getName());
+    }
+
+    @Override
+    public void serializeInputDocumentBody(
             GenerationContext context,
             OperationShape operation,
-            List<HttpBinding> documentBindings,
-            boolean isInput
+            List<HttpBinding> documentBindings
     ) {
         // Short circuit when we have no bindings.
         TypeScriptWriter writer = context.getWriter();
         if (documentBindings.isEmpty()) {
-            if (isInput) {
-                writer.write("body = \"\";");
-            } else {
-                writer.write("body = \"{}\";");
-            }
+            writer.write("body = \"\";");
             return;
         }
+        serializeDocumentBody(context, documentBindings);
+    }
 
+    @Override
+    public void serializeOutputDocumentBody(
+            GenerationContext context,
+            OperationShape operation,
+            List<HttpBinding> documentBindings
+    ) {
+        // Short circuit when we have no bindings.
+        TypeScriptWriter writer = context.getWriter();
+        if (documentBindings.isEmpty()) {
+            writer.write("body = \"{}\";");
+            return;
+        }
+        serializeDocumentBody(context, documentBindings);
+    }
+
+    @Override
+    public void serializeErrorDocumentBody(
+            GenerationContext context,
+            StructureShape error,
+            List<HttpBinding> documentBindings
+    ) {
+        // Short circuit when we have no bindings.
+        TypeScriptWriter writer = context.getWriter();
+        if (documentBindings.isEmpty()) {
+            writer.write("body = \"{}\";");
+            return;
+        }
+        serializeDocumentBody(context, documentBindings);
+    }
+
+    private void serializeDocumentBody(GenerationContext context, List<HttpBinding> documentBindings) {
+        TypeScriptWriter writer = context.getWriter();
         SymbolProvider symbolProvider = context.getSymbolProvider();
 
         writer.openBlock("body = JSON.stringify({", "});", () -> {
@@ -148,15 +174,39 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    protected void serializePayload(
+    protected void serializeInputPayload(
             GenerationContext context,
             OperationShape operation,
-            HttpBinding payloadBinding,
-            boolean isInput
+            HttpBinding payloadBinding
     ) {
-        // We want the standard serialization, but need to alter it to JSON.
-        super.serializePayload(context, operation, payloadBinding, isInput);
+        super.serializeInputPayload(context, operation, payloadBinding);
+        serializePayload(context, payloadBinding);
+    }
 
+    @Override
+    protected void serializeOutputPayload(
+            GenerationContext context,
+            OperationShape operation,
+            HttpBinding payloadBinding
+    ) {
+        super.serializeOutputPayload(context, operation, payloadBinding);
+        serializePayload(context, payloadBinding);
+    }
+
+    @Override
+    protected void serializeErrorPayload(
+            GenerationContext context,
+            StructureShape error,
+            HttpBinding payloadBinding
+    ) {
+        super.serializeErrorPayload(context, error, payloadBinding);
+        serializePayload(context, payloadBinding);
+    }
+
+    private void serializePayload(
+            GenerationContext context,
+            HttpBinding payloadBinding
+    ) {
         TypeScriptWriter writer = context.getWriter();
         MemberShape payloadMember = payloadBinding.getMember();
         Shape target = context.getModel().expectShape(payloadMember.getTarget());
@@ -179,17 +229,9 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         return new JsonMemberSerVisitor(context, dataSource, getDocumentTimestampFormat());
     }
 
-    @Override
-    protected boolean shouldWriteDefaultBody(GenerationContext context, Shape operationOrError, boolean isInput) {
-        if (!isInput) {
-            // Operations that have any defined output shape should always send a default body.
-            if (operationOrError.isOperationShape()) {
-                OperationShape operation = operationOrError.asOperationShape().get();
-                return operation.getOutput().isPresent();
-            }
-            return true;
-        }
-        return super.shouldWriteDefaultBody(context, operationOrError, isInput);
+    protected boolean shouldWriteDefaultOutputBody(GenerationContext context, OperationShape operation) {
+        // Operations that have any defined output shape should always send a default body.
+        return operation.getOutput().isPresent();
     }
 
     @Override
@@ -201,11 +243,35 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
-    public void deserializeDocumentBody(
+    public void deserializeInputDocumentBody(
             GenerationContext context,
-            Shape operationOrError,
-            List<HttpBinding> documentBindings,
-            boolean isInput
+            OperationShape operation,
+            List<HttpBinding> documentBindings
+    ) {
+        deserializeDocumentBody(context, documentBindings);
+    }
+
+    @Override
+    public void deserializeOutputDocumentBody(
+            GenerationContext context,
+            OperationShape operation,
+            List<HttpBinding> documentBindings
+    ) {
+        deserializeDocumentBody(context, documentBindings);
+    }
+
+    @Override
+    public void deserializeErrorDocumentBody(
+            GenerationContext context,
+            StructureShape error,
+            List<HttpBinding> documentBindings
+    ) {
+        deserializeDocumentBody(context, documentBindings);
+    }
+
+    private void deserializeDocumentBody(
+            GenerationContext context,
+            List<HttpBinding> documentBindings
     ) {
         TypeScriptWriter writer = context.getWriter();
         SymbolProvider symbolProvider = context.getSymbolProvider();
@@ -226,11 +292,43 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         }
     }
 
-    protected HttpBinding readResponsePayload(
+    @Override
+    protected HttpBinding deserializeInputPayload(
+            GenerationContext context,
+            OperationShape operation,
+            HttpBinding payloadBinding
+    ) {
+        HttpBinding returnedBinding = super.deserializeInputPayload(context, operation, payloadBinding);
+        readPayload(context, payloadBinding);
+        return returnedBinding;
+    }
+
+    @Override
+    protected HttpBinding deserializeOutputPayload(
+            GenerationContext context,
+            OperationShape operation,
+            HttpBinding payloadBinding
+    ) {
+        HttpBinding returnedBinding = super.deserializeOutputPayload(context, operation, payloadBinding);
+        readPayload(context, payloadBinding);
+        return returnedBinding;
+    }
+
+    @Override
+    protected HttpBinding deserializeErrorPayload(
+            GenerationContext context,
+            StructureShape error,
+            HttpBinding payloadBinding
+    ) {
+        HttpBinding returnedBinding = super.deserializeErrorPayload(context, error, payloadBinding);
+        readPayload(context, payloadBinding);
+        return returnedBinding;
+    }
+
+    protected void readPayload(
             GenerationContext context,
             HttpBinding payloadBinding
     ) {
-        HttpBinding returnedBinding = super.readResponsePayload(context, payloadBinding);
         TypeScriptWriter writer = context.getWriter();
         Shape target = context.getModel().expectShape(payloadBinding.getMember().getTarget());
 
@@ -238,8 +336,6 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         if (target instanceof DocumentShape) {
             writer.write("contents.$L = JSON.parse(data);", payloadBinding.getMemberName());
         }
-
-        return returnedBinding;
     }
 
     private DocumentMemberDeserVisitor getMemberDeserVisitor(GenerationContext context, String dataSource) {
