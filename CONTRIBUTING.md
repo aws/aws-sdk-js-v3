@@ -84,21 +84,47 @@ yarn --version
 
 If not, please refer to [yarn installation](https://yarnpkg.com/en/docs/install) to install `yarn`.
 
-To install the dependencies and link the library, run the following command:
+To install the dependencies and link the library, run the following command under project root:
 
 ```
 yarn
 ```
 
-To run all of the tests in the repository, still from the root package, run the following command:
+To run all of the tests in the repository, still from the root package, run the following command
+under project root:
 
 ```
 yarn test:all
 ```
 
-The above command will use Lerna to run the `test` script in every package in the `packages` directory.
+The above command will use Lerna to run the `test` script in every package of the monorepo.
 
-To run the tests for a specific package, you can run `yarn test` from within the specified package folder, assuming the above steps have been run.
+#### Test a changed package
+
+To run the tests for a specific package, you can run `yarn test` within the
+specified package folder.
+
+Alternatively, from the project root, you can run:
+
+```
+lerna run test --scope [package name]
+```
+
+If `lerna` is not available in your environment, you can install it globally with:
+
+```
+npm install -g lerna
+```
+
+If you have touched multiple packages and you want to make sure the package
+you want to test has picked up all your latest changes in dependencies, you
+can build them in one command:
+
+```
+lerna run build --scope [package name] --include-dependencies
+```
+
+You don't need to run this command if the dependency packages are not changed.
 
 ### Generating Service Clients
 
