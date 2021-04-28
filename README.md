@@ -385,7 +385,7 @@ For a full pagination deep dive please check out our [blog post](https://aws.ama
 
 The following code snippet shows how to upload a file using S3's putObject API in the browser with support to abort the upload. First, create a controller using the `AbortController()` constructor, then grab a reference to its associated AbortSignal object using the AbortController.signal property. When the `PutObjectCommand` is called with `.send()` operation, pass in AbortController.signal as abortSignal in the httpOptions parameter. This will allow you to abort the PutObject operation by calling `abortController.abort()`.
 
-```JavaScript
+```javascript
 const abortController = new AbortController();
 const abortSignal = abortController.signal;
 
