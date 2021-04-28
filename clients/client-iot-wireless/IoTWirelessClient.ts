@@ -410,7 +410,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type IoTWirelessClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type IoTWirelessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -418,8 +418,12 @@ export type IoTWirelessClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of IoTWirelessClient class constructor that set the region, credentials and other options.
+ */
+export interface IoTWirelessClientConfig extends IoTWirelessClientConfigType {}
 
-export type IoTWirelessClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type IoTWirelessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -427,6 +431,10 @@ export type IoTWirelessClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of IoTWirelessClient class. This is resolved and normalized from the {@link IoTWirelessClientConfig | constructor configuration interface}.
+ */
+export interface IoTWirelessClientResolvedConfig extends IoTWirelessClientResolvedConfigType {}
 
 /**
  * <p>AWS IoT Wireless API documentation</p>
@@ -437,6 +445,9 @@ export class IoTWirelessClient extends __Client<
   ServiceOutputTypes,
   IoTWirelessClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of IoTWirelessClient class. This is resolved and normalized from the {@link IoTWirelessClientConfig | constructor configuration interface}.
+   */
   readonly config: IoTWirelessClientResolvedConfig;
 
   constructor(configuration: IoTWirelessClientConfig) {
