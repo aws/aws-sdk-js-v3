@@ -275,7 +275,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type LexModelsV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type LexModelsV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -283,8 +283,12 @@ export type LexModelsV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandle
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of LexModelsV2Client class constructor that set the region, credentials and other options.
+ */
+export interface LexModelsV2ClientConfig extends LexModelsV2ClientConfigType {}
 
-export type LexModelsV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type LexModelsV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -292,6 +296,10 @@ export type LexModelsV2ClientResolvedConfig = __SmithyResolvedConfiguration<__Ht
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of LexModelsV2Client class. This is resolved and normalized from the {@link LexModelsV2ClientConfig | constructor configuration interface}.
+ */
+export interface LexModelsV2ClientResolvedConfig extends LexModelsV2ClientResolvedConfigType {}
 
 /**
  * <p></p>
@@ -302,6 +310,9 @@ export class LexModelsV2Client extends __Client<
   ServiceOutputTypes,
   LexModelsV2ClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of LexModelsV2Client class. This is resolved and normalized from the {@link LexModelsV2ClientConfig | constructor configuration interface}.
+   */
   readonly config: LexModelsV2ClientResolvedConfig;
 
   constructor(configuration: LexModelsV2ClientConfig) {

@@ -269,7 +269,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type MgnClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type MgnClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -277,8 +277,12 @@ export type MgnClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of MgnClient class constructor that set the region, credentials and other options.
+ */
+export interface MgnClientConfig extends MgnClientConfigType {}
 
-export type MgnClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type MgnClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -286,6 +290,10 @@ export type MgnClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of MgnClient class. This is resolved and normalized from the {@link MgnClientConfig | constructor configuration interface}.
+ */
+export interface MgnClientResolvedConfig extends MgnClientResolvedConfigType {}
 
 /**
  * <p>The Application Migration Service service.</p>
@@ -296,6 +304,9 @@ export class MgnClient extends __Client<
   ServiceOutputTypes,
   MgnClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of MgnClient class. This is resolved and normalized from the {@link MgnClientConfig | constructor configuration interface}.
+   */
   readonly config: MgnClientResolvedConfig;
 
   constructor(configuration: MgnClientConfig) {

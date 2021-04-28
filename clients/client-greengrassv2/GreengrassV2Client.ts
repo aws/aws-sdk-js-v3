@@ -230,7 +230,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type GreengrassV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type GreengrassV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -238,8 +238,12 @@ export type GreengrassV2ClientConfig = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of GreengrassV2Client class constructor that set the region, credentials and other options.
+ */
+export interface GreengrassV2ClientConfig extends GreengrassV2ClientConfigType {}
 
-export type GreengrassV2ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type GreengrassV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -247,6 +251,10 @@ export type GreengrassV2ClientResolvedConfig = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of GreengrassV2Client class. This is resolved and normalized from the {@link GreengrassV2ClientConfig | constructor configuration interface}.
+ */
+export interface GreengrassV2ClientResolvedConfig extends GreengrassV2ClientResolvedConfigType {}
 
 /**
  * <p>AWS IoT Greengrass brings local compute, messaging, data management, sync, and ML inference capabilities
@@ -267,6 +275,9 @@ export class GreengrassV2Client extends __Client<
   ServiceOutputTypes,
   GreengrassV2ClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of GreengrassV2Client class. This is resolved and normalized from the {@link GreengrassV2ClientConfig | constructor configuration interface}.
+   */
   readonly config: GreengrassV2ClientResolvedConfig;
 
   constructor(configuration: GreengrassV2ClientConfig) {

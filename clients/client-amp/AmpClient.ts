@@ -167,7 +167,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 }
 
-export type AmpClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
+type AmpClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
   EndpointsInputConfig &
@@ -175,8 +175,12 @@ export type AmpClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig;
+/**
+ * The configuration interface of AmpClient class constructor that set the region, credentials and other options.
+ */
+export interface AmpClientConfig extends AmpClientConfigType {}
 
-export type AmpClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
+type AmpClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
   EndpointsResolvedConfig &
@@ -184,6 +188,10 @@ export type AmpClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
+/**
+ * The resolved configuration interface of AmpClient class. This is resolved and normalized from the {@link AmpClientConfig | constructor configuration interface}.
+ */
+export interface AmpClientResolvedConfig extends AmpClientResolvedConfigType {}
 
 /**
  * Amazon Managed Service for Prometheus
@@ -194,6 +202,9 @@ export class AmpClient extends __Client<
   ServiceOutputTypes,
   AmpClientResolvedConfig
 > {
+  /**
+   * The resolved configuration of AmpClient class. This is resolved and normalized from the {@link AmpClientConfig | constructor configuration interface}.
+   */
   readonly config: AmpClientResolvedConfig;
 
   constructor(configuration: AmpClientConfig) {
