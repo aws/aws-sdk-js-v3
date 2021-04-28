@@ -23,12 +23,12 @@ describe("userAgentMiddleware", () => {
     const handler = middleware(mockNextHandler, { userAgent: [["cfg/retry-mode", "standard"]] });
     await handler({ input: {}, request: new HttpRequest({ headers: {} }) });
     expect(mockNextHandler.mock.calls.length).toEqual(1);
-    const sdkUserAgent = mockNextHandler.mock.calls[0][0].request.headers[X_AMZ_USER_AGENT];
+    const sdkUserAgent = mockNextHandler.mock.calls[0][0].request.headers[USER_AGENT];
     expect(sdkUserAgent).toEqual(expect.stringContaining("aws-sdk-js/1.0.0"));
     expect(sdkUserAgent).toEqual(expect.stringContaining("default_agent/1.0.0"));
     expect(sdkUserAgent).toEqual(expect.stringContaining("custom_ua/abc"));
     expect(sdkUserAgent).toEqual(expect.stringContaining("cfg/retry-mode/standard"));
-    expect(mockNextHandler.mock.calls[0][0].request.headers[USER_AGENT]).toEqual(
+    expect(mockNextHandler.mock.calls[0][0].request.headers[X_AMZ_USER_AGENT]).toEqual(
       expect.stringContaining("aws-sdk-js/1.0.0")
     );
   });
