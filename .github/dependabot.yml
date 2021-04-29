@@ -1,0 +1,37 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "13:00"
+  open-pull-requests-limit: 10
+  versioning-strategy: increase-if-necessary
+  ignore:
+  - dependency-name: "@types/fs-extra"
+    versions:
+    - 9.0.5
+    - 9.0.7
+    - 9.0.8
+    - 9.0.9
+  - dependency-name: "@types/uuid"
+    versions:
+    - 8.3.0
+  - dependency-name: puppeteer
+    versions:
+    - 5.5.0
+    - 8.0.0
+  - dependency-name: ts-loader
+    versions:
+    - 8.0.14
+    - 8.0.17
+    - 8.0.18
+  - dependency-name: eslint-config-prettier
+    versions:
+    - 7.1.0
+    - 7.2.0
+    - 8.0.0
+    - 8.1.0
+  - dependency-name: nock
+    versions:
+    - 13.0.6
