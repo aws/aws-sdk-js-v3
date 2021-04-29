@@ -29,10 +29,12 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SetUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Adds blobReader dependency if needed.
  */
+@SmithyInternalApi
 public class AddBodyChecksumGeneratorDependency implements TypeScriptIntegration {
     private static final Set<String> SERVICE_IDS = SetUtils.of("Glacier");
 

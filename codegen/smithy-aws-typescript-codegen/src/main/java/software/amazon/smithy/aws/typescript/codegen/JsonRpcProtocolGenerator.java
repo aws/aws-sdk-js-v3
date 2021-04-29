@@ -26,6 +26,7 @@ import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeser
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGenerator;
 import software.amazon.smithy.utils.IoUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Handles general components across the AWS JSON protocols that have do not have
@@ -41,6 +42,7 @@ import software.amazon.smithy.utils.IoUtils;
  * @see JsonMemberDeserVisitor
  * @see AwsProtocolUtils
  */
+@SmithyInternalApi
 abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
 
     /**

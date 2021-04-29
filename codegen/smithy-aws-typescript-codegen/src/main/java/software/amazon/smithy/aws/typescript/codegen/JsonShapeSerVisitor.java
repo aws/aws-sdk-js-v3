@@ -36,6 +36,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Visitor to generate serialization functions for shapes in AWS JSON protocol
@@ -46,6 +47,7 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
  *
  * Timestamps are serialized to {@link Format}.EPOCH_SECONDS by default.
  */
+@SmithyInternalApi
 final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
     private static final Format TIMESTAMP_FORMAT = Format.EPOCH_SECONDS;
 

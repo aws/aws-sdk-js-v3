@@ -33,6 +33,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Visitor to generate deserialization functions for shapes in AWS JSON protocol
@@ -43,6 +44,7 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
  *
  * Timestamps are deserialized from {@link Format}.EPOCH_SECONDS by default.
  */
+@SmithyInternalApi
 final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
 
     JsonShapeDeserVisitor(GenerationContext context) {

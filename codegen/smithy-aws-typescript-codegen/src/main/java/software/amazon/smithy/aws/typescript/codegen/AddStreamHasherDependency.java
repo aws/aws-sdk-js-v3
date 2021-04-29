@@ -27,10 +27,12 @@ import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.MapUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Adds StreamHasher if needed.
  */
+@SmithyInternalApi
 public class AddStreamHasherDependency implements TypeScriptIntegration {
 
     @Override

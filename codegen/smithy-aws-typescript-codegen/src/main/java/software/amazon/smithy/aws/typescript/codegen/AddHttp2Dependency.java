@@ -29,7 +29,9 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
+@SmithyInternalApi
 public class AddHttp2Dependency implements TypeScriptIntegration {
     @Override
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(

@@ -31,10 +31,12 @@ import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.SetUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Adds all built-in runtime client plugins to clients.
  */
+@SmithyInternalApi
 public class AddBuiltinPlugins implements TypeScriptIntegration {
     private static final Set<String> ROUTE_53_ID_MEMBERS = SetUtils.of("DelegationSetId", "HostedZoneId", "Id");
 

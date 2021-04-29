@@ -22,11 +22,13 @@ import java.util.Collections;
 import java.util.List;
 import software.amazon.smithy.codegen.core.SymbolDependency;
 import software.amazon.smithy.codegen.core.SymbolDependencyContainer;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * This enum should define all TypeScript dependencies that are introduced by
  * this package.
  */
+@SmithyInternalApi
 public enum AwsDependency implements SymbolDependencyContainer {
 
     MIDDLEWARE_SIGNING(NORMAL_DEPENDENCY, "@aws-sdk/middleware-signing", "^1.0.0-rc.1"),

@@ -32,10 +32,12 @@ import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.IoUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Generates Client and Commands for DynamoDB Document Client.
  */
+@SmithyInternalApi
 public class AddDocumentClientPlugin implements TypeScriptIntegration {
 
     @Override

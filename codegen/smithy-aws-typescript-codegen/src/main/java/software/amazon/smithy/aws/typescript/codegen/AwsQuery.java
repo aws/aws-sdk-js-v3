@@ -26,6 +26,7 @@ import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGenerator;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Handles generating the aws.query protocol for services. It handles reading and
@@ -42,6 +43,7 @@ import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGene
  * @see AwsProtocolUtils
  * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
  */
+@SmithyInternalApi
 final class AwsQuery extends HttpRpcProtocolGenerator {
 
     AwsQuery() {

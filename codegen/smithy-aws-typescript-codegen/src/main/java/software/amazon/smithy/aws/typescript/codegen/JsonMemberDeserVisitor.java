@@ -22,11 +22,13 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Overrides the default implementation of BigDecimal and BigInteger shape
  * deserialization to throw when encountered in AWS REST JSON based protocols.
  */
+@SmithyInternalApi
 final class JsonMemberDeserVisitor extends DocumentMemberDeserVisitor {
 
     /**

@@ -26,6 +26,7 @@ import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGenerator;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Handles generating the aws.ec2 protocol for services. It handles reading and
@@ -43,6 +44,7 @@ import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGene
  * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
  * @see <a href="https://awslabs.github.io/smithy/spec/aws-core.html#ec2QueryName-trait">Smithy EC2 Query Name trait.</a>
  */
+@SmithyInternalApi
 final class AwsEc2 extends HttpRpcProtocolGenerator {
 
     AwsEc2() {

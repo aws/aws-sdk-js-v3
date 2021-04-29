@@ -29,7 +29,9 @@ import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.ApplicationProtocol;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
+@SmithyInternalApi
 final class DocumentClientGenerator implements Runnable {
     static final String CLIENT_CONFIG_SECTION = "client_config";
     static final String CLIENT_PROPERTIES_SECTION = "client_properties";

@@ -43,11 +43,13 @@ import software.amazon.smithy.utils.IoUtils;
 import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SetUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Configure clients with AWS auth configurations and plugin.
  */
 // TODO: Think about AWS Auth supported for only some operations and not all, when not AWS service, with say @auth([])
+@SmithyInternalApi
 public final class AddAwsAuthPlugin implements TypeScriptIntegration {
     static final String STS_CLIENT_PREFIX = "sts-client-";
     static final String ROLE_ASSUMERS_FILE = "defaultRoleAssumers";

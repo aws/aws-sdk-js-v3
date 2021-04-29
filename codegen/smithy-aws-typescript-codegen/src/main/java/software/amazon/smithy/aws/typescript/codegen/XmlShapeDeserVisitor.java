@@ -37,6 +37,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Visitor to generate deserialization functions for shapes in XML-document
@@ -49,6 +50,7 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
  *
  * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
  */
+@SmithyInternalApi
 final class XmlShapeDeserVisitor extends DocumentShapeDeserVisitor {
 
     XmlShapeDeserVisitor(GenerationContext context) {

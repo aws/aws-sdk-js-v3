@@ -38,10 +38,12 @@ import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegrati
 import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SetUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * AWS S3 client configuration.
  */
+@SmithyInternalApi
 public final class AddS3Config implements TypeScriptIntegration {
 
     private static final Set<String> S3_MD5_OPERATIONS = SetUtils.of(

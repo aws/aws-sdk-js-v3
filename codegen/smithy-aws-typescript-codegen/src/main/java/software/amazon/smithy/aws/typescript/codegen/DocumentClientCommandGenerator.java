@@ -35,7 +35,9 @@ import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.typescript.codegen.ApplicationProtocol;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
+@SmithyInternalApi
 final class DocumentClientCommandGenerator implements Runnable {
     static final String COMMAND_PROPERTIES_SECTION = "command_properties";
     static final String COMMAND_BODY_EXTRA_SECTION = "command_body_extra";

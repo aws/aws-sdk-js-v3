@@ -31,11 +31,13 @@ import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Add client plubins and configs to support injecting user agent.
  */
 // TODO: Looks to add this back for non-AWS service clients, by fixing the dependency on ClientSharedValues.serviceId
+@SmithyInternalApi
 public class AddUserAgentDependency implements TypeScriptIntegration {
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {

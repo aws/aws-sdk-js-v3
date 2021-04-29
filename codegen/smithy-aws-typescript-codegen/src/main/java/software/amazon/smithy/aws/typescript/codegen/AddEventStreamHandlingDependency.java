@@ -37,11 +37,13 @@ import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
 import software.amazon.smithy.utils.MapUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Adds runtime client plugins that handle the eventstream flow in request,
  * including eventstream payload signing.
  */
+@SmithyInternalApi
 public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
