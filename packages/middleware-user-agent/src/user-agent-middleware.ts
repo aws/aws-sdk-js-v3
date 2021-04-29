@@ -36,15 +36,22 @@ export const userAgentMiddleware = (options: UserAgentResolvedConfig) => <Output
   const userAgent = context?.userAgent?.map(escapeUserAgent) || [];
   const defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
   const customUserAgent = options?.customUserAgent?.map(escapeUserAgent) || [];
+
   // Set value to AWS-specific user agent header
-  headers[X_AMZ_USER_AGENT] = [...defaultUserAgent, ...userAgent, ...customUserAgent].join(SPACE);
+  const sdkUserAgentValue = [...defaultUserAgent, ...userAgent, ...customUserAgent].join(SPACE);
   // Get value to be sent with non-AWS-specific user agent header.
   const normalUAValue = [
     ...defaultUserAgent.filter((section) => section.startsWith("aws-sdk-")),
     ...customUserAgent,
   ].join(SPACE);
-  if (options.runtime !== "browser" && normalUAValue) {
-    headers[USER_AGENT] = headers[USER_AGENT] ? `${headers[USER_AGENT]} ${normalUAValue}` : normalUAValue;
+
+  if (options.runtime !== "browser") {
+    if (normalUAValue) {
+      headers[X_AMZ_USER_AGENT] = headers[X_AMZ_USER_AGENT] ? `${headers[USER_AGENT]} ${normalUAValue}` : normalUAValue;
+    }
+    headers[USER_AGENT] = sdkUserAgentValue;
+  } else {
+    headers[X_AMZ_USER_AGENT] = sdkUserAgentValue;
   }
 
   return next({
