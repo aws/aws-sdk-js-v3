@@ -15,6 +15,8 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
+
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.function.BiConsumer;
@@ -55,6 +57,12 @@ public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptI
             resource = resource.replace("${year}", Integer.toString(Calendar.getInstance().get(Calendar.YEAR)));
             writer.write(resource);
         });
+
+        // TODO: May need to generate a different/modified README.md for these cases
+        if (!settings.generateClient() || !isAwsService(settings, model)) {
+            return;
+        }
+
         writerFactory.accept("README.md", writer -> {
             ServiceShape service = settings.getService(model);
             String resource =  IoUtils.readUtf8Resource(getClass(), "README.md.template");

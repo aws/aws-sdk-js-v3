@@ -221,6 +221,10 @@ final class AwsProtocolUtils {
      * @param context The generation context.
      */
     static void addItempotencyAutofillImport(GenerationContext context) {
+        // servers do not autogenerate idempotency tokens during deserialization
+        if (!context.getSettings().generateClient()) {
+            return;
+        }
         context.getModel().shapes(MemberShape.class)
                 .filter(memberShape -> memberShape.hasTrait(IdempotencyTokenTrait.class))
                 .findFirst()

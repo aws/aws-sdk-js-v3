@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSigV4Service;
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
@@ -46,6 +47,7 @@ import software.amazon.smithy.utils.SetUtils;
 /**
  * Configure clients with AWS auth configurations and plugin.
  */
+// TODO: Think about AWS Auth supported for only some operations and not all, when not AWS service, with say @auth([])
 public final class AddAwsAuthPlugin implements TypeScriptIntegration {
     static final String STS_CLIENT_PREFIX = "sts-client-";
     static final String ROLE_ASSUMERS_FILE = "defaultRoleAssumers";
@@ -59,6 +61,9 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         TypeScriptWriter writer
     ) {
         ServiceShape service = settings.getService(model);
+        if (!isSigV4Service(service)) {
+            return;
+        }
         if (!areAllOptionalAuthOperations(model, service)) {
             writer.addImport("Credentials", "__Credentials", TypeScriptDependency.AWS_SDK_TYPES.packageName);
             writer.writeDocs("Default credentials provider; Not available in browser runtime.")
@@ -71,7 +76,9 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         return ListUtils.of(
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_CONFIG)
-                    .servicePredicate((m, s) -> !areAllOptionalAuthOperations(m, s) && !testServiceId(s, "STS"))
+                    .servicePredicate((m, s) -> isSigV4Service(s)
+                            && !areAllOptionalAuthOperations(m, s)
+                            && !testServiceId(s, "STS"))
                     .build(),
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.STS_MIDDLEWARE.dependency,
@@ -83,7 +90,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
                     .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
                     // See operationUsesAwsAuth() below for AwsAuth Middleware customizations.
                     .servicePredicate(
-                        (m, s) -> !testServiceId(s, "STS") && !hasOptionalAuthOperation(m, s)
+                        (m, s) -> !testServiceId(s, "STS") && isSigV4Service(s) && !hasOptionalAuthOperation(m, s)
                     ).build(),
             RuntimeClientPlugin.builder()
                     .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
@@ -100,7 +107,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         LanguageTarget target
     ) {
         ServiceShape service = settings.getService(model);
-        if (areAllOptionalAuthOperations(model, service)) {
+        if (!isSigV4Service(service) || areAllOptionalAuthOperations(model, service)) {
             return Collections.emptyMap();
         }
         switch (target) {
@@ -187,8 +194,8 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         }
 
         // optionalAuth trait doesn't require authentication.
-        if (hasOptionalAuthOperation(model, service)) {
-            return !operation.getTrait(OptionalAuthTrait.class).isPresent();
+        if (isSigV4Service(service) && hasOptionalAuthOperation(model, service)) {
+            return !operation.hasTrait(OptionalAuthTrait.class);
         }
         return false;
     }
@@ -197,7 +204,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         TopDownIndex topDownIndex = TopDownIndex.of(model);
         Set<OperationShape> operations = topDownIndex.getContainedOperations(service);
         for (OperationShape operation : operations) {
-            if (operation.getTrait(OptionalAuthTrait.class).isPresent()) {
+            if (operation.hasTrait(OptionalAuthTrait.class)) {
                 return true;
             }
         }
@@ -208,7 +215,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         TopDownIndex topDownIndex = TopDownIndex.of(model);
         Set<OperationShape> operations = topDownIndex.getContainedOperations(service);
         for (OperationShape operation : operations) {
-            if (!operation.getTrait(OptionalAuthTrait.class).isPresent()) {
+            if (!operation.hasTrait(OptionalAuthTrait.class)) {
                 return false;
             }
         }

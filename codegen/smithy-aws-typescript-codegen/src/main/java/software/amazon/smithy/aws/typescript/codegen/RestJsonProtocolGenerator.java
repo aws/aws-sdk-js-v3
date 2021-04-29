@@ -91,6 +91,12 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     }
 
     @Override
+    protected void writeDefaultErrorHeaders(GenerationContext context, StructureShape error) {
+        super.writeDefaultErrorHeaders(context, error);
+        context.getWriter().write("'x-amzn-errortype': $S,", error.getId().getName());
+    }
+
+    @Override
     public void serializeInputDocument(
             GenerationContext context,
             OperationShape operation,
