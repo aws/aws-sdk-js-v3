@@ -9,6 +9,7 @@ import {
   isDnsCompatibleBucketName,
   validateAccountId,
   validateArnEndpointOptions,
+  validateClientRegion,
   validateDNSHostLabel,
   validateNoDualstack,
   validateNoFIPS,
@@ -66,7 +67,7 @@ const getEndpointFromArn = (options: ArnHostnameParams & { isCustomEndpoint: boo
   validateService(service);
   validatePartition(partition, { clientPartition });
   validateAccountId(accountId);
-  validateRegion(region, { useArnRegion, clientRegion, clientSigningRegion });
+  validateClientRegion(clientRegion);
   const { accesspointName, outpostId } = getArnResources(resource);
   const DNSHostLabel = `${accesspointName}-${accountId}`;
   validateDNSHostLabel(DNSHostLabel, { tlsCompatible });
@@ -74,6 +75,7 @@ const getEndpointFromArn = (options: ArnHostnameParams & { isCustomEndpoint: boo
   const endpointRegion = useArnRegion ? region : clientRegion;
   const signingRegion = useArnRegion ? region : clientSigningRegion;
   if (service === "s3-object-lambda") {
+    validateRegion(region, { useArnRegion, clientRegion, clientSigningRegion, allowFipsRegion: true });
     validateNoDualstack(dualstackEndpoint);
     return {
       bucketEndpoint: true,
@@ -83,6 +85,7 @@ const getEndpointFromArn = (options: ArnHostnameParams & { isCustomEndpoint: boo
     };
   } else if (outpostId) {
     // if this is an Outpost ARN
+    validateRegion(region, { useArnRegion, clientRegion, clientSigningRegion });
     validateOutpostService(service);
     validateDNSHostLabel(outpostId, { tlsCompatible });
     validateNoDualstack(dualstackEndpoint);
@@ -96,6 +99,7 @@ const getEndpointFromArn = (options: ArnHostnameParams & { isCustomEndpoint: boo
     };
   }
   // construct endpoint from Accesspoint ARN
+  validateRegion(region, { useArnRegion, clientRegion, clientSigningRegion, allowFipsRegion: true });
   validateS3Service(service);
   const hostnamePrefix = `${DNSHostLabel}`;
   return {

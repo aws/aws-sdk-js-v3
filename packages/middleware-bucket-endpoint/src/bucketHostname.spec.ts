@@ -234,37 +234,60 @@ describe("bucketHostname", () => {
       });
     });
 
-    describe("allows different client region with same signing scope", () => {
-      ["s3-external-1", "s3"].forEach((clientRegion) => {
-        const baseHostname = `${clientRegion}.amazonaws.com`;
-        it(`should use client region from base hostname ${baseHostname}`, () => {
-          const { bucketEndpoint, hostname } = bucketHostname({
-            bucketName: parseArn("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint"),
-            baseHostname,
-            isCustomEndpoint: false,
-            clientRegion: region,
-            clientSigningRegion: "us-east-1",
-          });
-          expect(bucketEndpoint).toBe(true);
-          expect(hostname).toBe(`myendpoint-123456789012.s3-accesspoint.${clientRegion}.amazonaws.com`);
+    describe("validate client region", () => {
+      [
+        { baseHostname: "s3.amazonaws.com", region: "aws-global", signingRegion: "us-east-1" },
+        {
+          baseHostname: "s3-external-1.amazonaws.com",
+          region: "s3-external-1",
+          signingRegion: "us-east-1",
+        },
+      ].forEach(({ baseHostname, region, signingRegion }) => {
+        it(`should throw if supplied with global region ${region}`, () => {
+          try {
+            bucketHostname({
+              bucketName: parseArn("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint"),
+              baseHostname,
+              isCustomEndpoint: false,
+              clientRegion: region,
+              clientSigningRegion: signingRegion,
+            });
+            fail("function should have thrown");
+          } catch (e) {
+            expect(e).toBeDefined();
+          }
         });
       });
+      //   ["s3-external-1", "s3"].forEach((clientRegion) => {
+      //     const baseHostname = `${clientRegion}.amazonaws.com`;
+      //     it(`should use client region from base hostname ${baseHostname}`, () => {
+      //       const { bucketEndpoint, hostname } = bucketHostname({
+      //         bucketName: parseArn("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint"),
+      //         baseHostname,
+      //         isCustomEndpoint: false,
+      //         clientRegion: region,
+      //         clientSigningRegion: "us-east-1",
+      //       });
+      //       expect(bucketEndpoint).toBe(true);
+      //       expect(hostname).toBe(`myendpoint-123456789012.s3-accesspoint.${clientRegion}.amazonaws.com`);
+      //     });
+      //   });
 
-      ["s3-external-1", "s3"].forEach((clientRegion) => {
-        const baseHostname = `${clientRegion}.amazonaws.com`;
-        it(`should use ARN region with base hostname ${baseHostname}`, () => {
-          const { bucketEndpoint, hostname } = bucketHostname({
-            bucketName: parseArn("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint"),
-            baseHostname,
-            isCustomEndpoint: false,
-            clientRegion: region,
-            clientSigningRegion: "us-east-1",
-            useArnRegion: true,
-          });
-          expect(bucketEndpoint).toBe(true);
-          expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint.us-east-1.amazonaws.com");
-        });
-      });
+      //   ["s3-external-1", "s3"].forEach((clientRegion) => {
+      //     const baseHostname = `${clientRegion}.amazonaws.com`;
+      //     it(`should use ARN region with base hostname ${baseHostname}`, () => {
+      //       const { bucketEndpoint, hostname } = bucketHostname({
+      //         bucketName: parseArn("arn:aws:s3:us-east-1:123456789012:accesspoint:myendpoint"),
+      //         baseHostname,
+      //         isCustomEndpoint: false,
+      //         clientRegion: region,
+      //         clientSigningRegion: "us-east-1",
+      //         useArnRegion: true,
+      //       });
+      //       expect(bucketEndpoint).toBe(true);
+      //       expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint.us-east-1.amazonaws.com");
+      //     });
+      //   });
     });
 
     it("should throw if ARN region and client region are incompatible", () => {
@@ -554,8 +577,8 @@ describe("bucketHostname", () => {
       }).toThrow(`Partition in ARN is incompatible, got "aws-cn" but expected "aws"`);
     });
 
-    describe("not supports fips region", () => {
-      it("should throw if client region is fips", () => {
+    describe("fips region", () => {
+      it("should construct endpoint if client fips region matches arn region", () => {
         expect.assertions(2);
         expect(() => {
           bucketHostname({
@@ -797,18 +820,6 @@ describe("bucketHostname", () => {
             true,
             "mybanner-3123456789012.s3-object-lambda.us-east-1.amazonaws.com",
           ],
-          [
-            "arn:aws:s3-object-lambda:us-east-1:4123456789012:accesspoint/mybanner",
-            "s3-external-1",
-            true,
-            "mybanner-4123456789012.s3-object-lambda.us-east-1.amazonaws.com",
-          ],
-          [
-            "arn:aws:s3-object-lambda:us-east-1:5123456789012:accesspoint/mybanner",
-            "aws-global",
-            true,
-            "mybanner-5123456789012.s3-object-lambda.us-east-1.amazonaws.com",
-          ],
         ];
         validLambdaExpectations.forEach((lambdaArn) => {
           const arn = lambdaArn[0];
@@ -894,6 +905,18 @@ describe("bucketHostname", () => {
             "us-west-2",
             false,
             "Invalid ARN, Access Point ARN contains sub resources",
+          ],
+          [
+            "arn:aws:s3-object-lambda:us-east-1:4123456789012:accesspoint/mybanner",
+            "s3-external-1",
+            false,
+            "mybanner-4123456789012.s3-object-lambda.us-east-1.amazonaws.com",
+          ],
+          [
+            "arn:aws:s3-object-lambda:us-east-1:5123456789012:accesspoint/mybanner",
+            "aws-global",
+            false,
+            "mybanner-5123456789012.s3-object-lambda.us-east-1.amazonaws.com",
           ],
         ];
 

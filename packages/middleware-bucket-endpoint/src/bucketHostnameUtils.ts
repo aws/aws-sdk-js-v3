@@ -124,12 +124,16 @@ export const validateRegion = (
   region: string,
   options: {
     useArnRegion?: boolean;
+    allowFipsRegion?: boolean;
     clientRegion: string;
     clientSigningRegion: string;
   }
 ) => {
   if (region === "") {
     throw new Error("ARN region is empty");
+  }
+  if (!options.allowFipsRegion && isFipsRegion(region)) {
+    throw new Error("Endpoint does not support FIPS region");
   }
   if (
     !options.useArnRegion &&
@@ -138,8 +142,15 @@ export const validateRegion = (
   ) {
     throw new Error(`Region in ARN is incompatible, got ${region} but expected ${options.clientRegion}`);
   }
-  if (options.useArnRegion && isFipsRegion(region)) {
-    throw new Error("Endpoint does not support FIPS region");
+};
+
+/**
+ *
+ * @param region
+ */
+export const validateClientRegion = (region: string) => {
+  if (["s3-external-1", "aws-global"].includes(getPseudoRegion(region))) {
+    throw new Error(`Client region ${region} is not regional`);
   }
 };
 
