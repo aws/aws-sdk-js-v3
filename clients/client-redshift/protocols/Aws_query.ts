@@ -2,6 +2,7 @@ import {
   AcceptReservedNodeExchangeCommandInput,
   AcceptReservedNodeExchangeCommandOutput,
 } from "../commands/AcceptReservedNodeExchangeCommand";
+import { AddPartnerCommandInput, AddPartnerCommandOutput } from "../commands/AddPartnerCommand";
 import {
   AuthorizeClusterSecurityGroupIngressCommandInput,
   AuthorizeClusterSecurityGroupIngressCommandOutput,
@@ -107,6 +108,7 @@ import {
   DeleteHsmConfigurationCommandInput,
   DeleteHsmConfigurationCommandOutput,
 } from "../commands/DeleteHsmConfigurationCommand";
+import { DeletePartnerCommandInput, DeletePartnerCommandOutput } from "../commands/DeletePartnerCommand";
 import {
   DeleteScheduledActionCommandInput,
   DeleteScheduledActionCommandOutput,
@@ -199,6 +201,7 @@ import {
   DescribeOrderableClusterOptionsCommandInput,
   DescribeOrderableClusterOptionsCommandOutput,
 } from "../commands/DescribeOrderableClusterOptionsCommand";
+import { DescribePartnersCommandInput, DescribePartnersCommandOutput } from "../commands/DescribePartnersCommand";
 import {
   DescribeReservedNodeOfferingsCommandInput,
   DescribeReservedNodeOfferingsCommandOutput,
@@ -336,6 +339,10 @@ import {
   RotateEncryptionKeyCommandOutput,
 } from "../commands/RotateEncryptionKeyCommand";
 import {
+  UpdatePartnerStatusCommandInput,
+  UpdatePartnerStatusCommandOutput,
+} from "../commands/UpdatePartnerStatusCommand";
+import {
   AcceptReservedNodeExchangeInputMessage,
   AcceptReservedNodeExchangeOutputMessage,
   AccessToClusterDeniedFault,
@@ -471,14 +478,13 @@ import {
   DescribeLoggingStatusMessage,
   DescribeNodeConfigurationOptionsMessage,
   DescribeOrderableClusterOptionsMessage,
+  DescribePartnersInputMessage,
+  DescribePartnersOutputMessage,
   DescribeReservedNodeOfferingsMessage,
   DescribeReservedNodesMessage,
   DescribeResizeMessage,
   DescribeScheduledActionsMessage,
   DescribeSnapshotCopyGrantsMessage,
-  DescribeSnapshotSchedulesMessage,
-  DescribeSnapshotSchedulesOutputMessage,
-  DescribeTableRestoreStatusMessage,
   EC2SecurityGroup,
   ElasticIpStatus,
   Endpoint,
@@ -548,6 +554,10 @@ import {
   OrderableClusterOption,
   OrderableClusterOptionsMessage,
   Parameter,
+  PartnerIntegrationInfo,
+  PartnerIntegrationInputMessage,
+  PartnerIntegrationOutputMessage,
+  PartnerNotFoundFault,
   PauseClusterMessage,
   PendingModifiedValues,
   RecurringCharge,
@@ -582,7 +592,6 @@ import {
   Snapshot,
   SnapshotCopyGrant,
   SnapshotCopyGrantAlreadyExistsFault,
-  SnapshotCopyGrantMessage,
   SnapshotCopyGrantNotFoundFault,
   SnapshotCopyGrantQuotaExceededFault,
   SnapshotErrorMessage,
@@ -601,13 +610,11 @@ import {
   SubscriptionSeverityNotFoundFault,
   SupportedOperation,
   SupportedPlatform,
-  TableRestoreNotFoundFault,
-  TableRestoreStatus,
-  TableRestoreStatusMessage,
   Tag,
   TagLimitExceededFault,
   TrackListMessage,
   UnauthorizedOperation,
+  UnauthorizedPartnerIntegrationFault,
   UnsupportedOperationFault,
   UpdateTarget,
   UsageLimit,
@@ -617,6 +624,9 @@ import {
   VpcSecurityGroupMembership,
 } from "../models/models_0";
 import {
+  DescribeSnapshotSchedulesMessage,
+  DescribeSnapshotSchedulesOutputMessage,
+  DescribeTableRestoreStatusMessage,
   DescribeTagsMessage,
   DescribeUsageLimitsMessage,
   DisableLoggingMessage,
@@ -683,13 +693,18 @@ import {
   SnapshotCopyAlreadyDisabledFault,
   SnapshotCopyAlreadyEnabledFault,
   SnapshotCopyDisabledFault,
+  SnapshotCopyGrantMessage,
   SnapshotScheduleUpdateInProgressFault,
   SubnetAlreadyInUse,
   TableLimitExceededFault,
+  TableRestoreNotFoundFault,
+  TableRestoreStatus,
+  TableRestoreStatusMessage,
   TaggedResource,
   TaggedResourceListMessage,
   UnknownSnapshotCopyRegionFault,
   UnsupportedOptionFault,
+  UpdatePartnerStatusInputMessage,
   UsageLimitList,
 } from "../models/models_1";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -719,6 +734,22 @@ export const serializeAws_queryAcceptReservedNodeExchangeCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryAcceptReservedNodeExchangeInputMessage(input, context),
     Action: "AcceptReservedNodeExchange",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryAddPartnerCommand = async (
+  input: AddPartnerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryPartnerIntegrationInputMessage(input, context),
+    Action: "AddPartner",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1204,6 +1235,22 @@ export const serializeAws_queryDeleteHsmConfigurationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryDeletePartnerCommand = async (
+  input: DeletePartnerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryPartnerIntegrationInputMessage(input, context),
+    Action: "DeletePartner",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryDeleteScheduledActionCommand = async (
   input: DeleteScheduledActionCommandInput,
   context: __SerdeContext
@@ -1615,6 +1662,22 @@ export const serializeAws_queryDescribeOrderableClusterOptionsCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeOrderableClusterOptionsMessage(input, context),
     Action: "DescribeOrderableClusterOptions",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribePartnersCommand = async (
+  input: DescribePartnersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribePartnersInputMessage(input, context),
+    Action: "DescribePartners",
     Version: "2012-12-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2306,6 +2369,22 @@ export const serializeAws_queryRotateEncryptionKeyCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryUpdatePartnerStatusCommand = async (
+  input: UpdatePartnerStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryUpdatePartnerStatusInputMessage(input, context),
+    Action: "UpdatePartnerStatus",
+    Version: "2012-12-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const deserializeAws_queryAcceptReservedNodeExchangeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2390,6 +2469,76 @@ const deserializeAws_queryAcceptReservedNodeExchangeCommandError = async (
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       response = {
         ...(await deserializeAws_queryUnsupportedOperationFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryAddPartnerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddPartnerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryAddPartnerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryPartnerIntegrationOutputMessage(data.AddPartnerResult, context);
+  const response: AddPartnerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryAddPartnerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddPartnerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PartnerNotFoundFault":
+    case "com.amazonaws.redshift#PartnerNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryPartnerNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedPartnerIntegrationFault":
+    case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
+      response = {
+        ...(await deserializeAws_queryUnauthorizedPartnerIntegrationFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5027,6 +5176,76 @@ const deserializeAws_queryDeleteHsmConfigurationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryDeletePartnerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePartnerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeletePartnerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryPartnerIntegrationOutputMessage(data.DeletePartnerResult, context);
+  const response: DeletePartnerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeletePartnerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePartnerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PartnerNotFoundFault":
+    case "com.amazonaws.redshift#PartnerNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryPartnerNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedPartnerIntegrationFault":
+    case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
+      response = {
+        ...(await deserializeAws_queryUnauthorizedPartnerIntegrationFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryDeleteScheduledActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6530,6 +6749,68 @@ const deserializeAws_queryDescribeOrderableClusterOptionsCommandError = async (
   let errorCode: string = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDescribePartnersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePartnersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribePartnersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribePartnersOutputMessage(data.DescribePartnersResult, context);
+  const response: DescribePartnersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribePartnersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePartnersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedPartnerIntegrationFault":
+    case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
+      response = {
+        ...(await deserializeAws_queryUnauthorizedPartnerIntegrationFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -10054,6 +10335,76 @@ const deserializeAws_queryRotateEncryptionKeyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryUpdatePartnerStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePartnerStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryUpdatePartnerStatusCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryPartnerIntegrationOutputMessage(data.UpdatePartnerStatusResult, context);
+  const response: UpdatePartnerStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryUpdatePartnerStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePartnerStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClusterNotFoundFault":
+    case "com.amazonaws.redshift#ClusterNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryClusterNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PartnerNotFoundFault":
+    case "com.amazonaws.redshift#PartnerNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryPartnerNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedPartnerIntegrationFault":
+    case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
+      response = {
+        ...(await deserializeAws_queryUnauthorizedPartnerIntegrationFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_queryAccessToClusterDeniedFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -11194,6 +11545,21 @@ const deserializeAws_queryNumberOfNodesQuotaExceededFaultResponse = async (
   return contents;
 };
 
+const deserializeAws_queryPartnerNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PartnerNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryPartnerNotFoundFault(body.Error, context);
+  const contents: PartnerNotFoundFault = {
+    name: "PartnerNotFoundFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryReservedNodeAlreadyExistsFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -11727,6 +12093,21 @@ const deserializeAws_queryUnauthorizedOperationResponse = async (
   const deserialized: any = deserializeAws_queryUnauthorizedOperation(body.Error, context);
   const contents: UnauthorizedOperation = {
     name: "UnauthorizedOperation",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryUnauthorizedPartnerIntegrationFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnauthorizedPartnerIntegrationFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryUnauthorizedPartnerIntegrationFault(body.Error, context);
+  const contents: UnauthorizedPartnerIntegrationFault = {
+    name: "UnauthorizedPartnerIntegrationFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -13165,6 +13546,26 @@ const serializeAws_queryDescribeOrderableClusterOptionsMessage = (
   return entries;
 };
 
+const serializeAws_queryDescribePartnersInputMessage = (
+  input: DescribePartnersInputMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AccountId !== undefined && input.AccountId !== null) {
+    entries["AccountId"] = input.AccountId;
+  }
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
+    entries["ClusterIdentifier"] = input.ClusterIdentifier;
+  }
+  if (input.DatabaseName !== undefined && input.DatabaseName !== null) {
+    entries["DatabaseName"] = input.DatabaseName;
+  }
+  if (input.PartnerName !== undefined && input.PartnerName !== null) {
+    entries["PartnerName"] = input.PartnerName;
+  }
+  return entries;
+};
+
 const serializeAws_queryDescribeReservedNodeOfferingsMessage = (
   input: DescribeReservedNodeOfferingsMessage,
   context: __SerdeContext
@@ -13990,6 +14391,26 @@ const serializeAws_queryParametersList = (input: Parameter[], context: __SerdeCo
   return entries;
 };
 
+const serializeAws_queryPartnerIntegrationInputMessage = (
+  input: PartnerIntegrationInputMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AccountId !== undefined && input.AccountId !== null) {
+    entries["AccountId"] = input.AccountId;
+  }
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
+    entries["ClusterIdentifier"] = input.ClusterIdentifier;
+  }
+  if (input.DatabaseName !== undefined && input.DatabaseName !== null) {
+    entries["DatabaseName"] = input.DatabaseName;
+  }
+  if (input.PartnerName !== undefined && input.PartnerName !== null) {
+    entries["PartnerName"] = input.PartnerName;
+  }
+  return entries;
+};
+
 const serializeAws_queryPauseClusterMessage = (input: PauseClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
@@ -14465,6 +14886,32 @@ const serializeAws_queryTagValueList = (input: string[], context: __SerdeContext
     }
     entries[`TagValue.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryUpdatePartnerStatusInputMessage = (
+  input: UpdatePartnerStatusInputMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AccountId !== undefined && input.AccountId !== null) {
+    entries["AccountId"] = input.AccountId;
+  }
+  if (input.ClusterIdentifier !== undefined && input.ClusterIdentifier !== null) {
+    entries["ClusterIdentifier"] = input.ClusterIdentifier;
+  }
+  if (input.DatabaseName !== undefined && input.DatabaseName !== null) {
+    entries["DatabaseName"] = input.DatabaseName;
+  }
+  if (input.PartnerName !== undefined && input.PartnerName !== null) {
+    entries["PartnerName"] = input.PartnerName;
+  }
+  if (input.Status !== undefined && input.Status !== null) {
+    entries["Status"] = input.Status;
+  }
+  if (input.StatusMessage !== undefined && input.StatusMessage !== null) {
+    entries["StatusMessage"] = input.StatusMessage;
   }
   return entries;
 };
@@ -16286,6 +16733,28 @@ const deserializeAws_queryDescribeDefaultClusterParametersResult = (
   return contents;
 };
 
+const deserializeAws_queryDescribePartnersOutputMessage = (
+  output: any,
+  context: __SerdeContext
+): DescribePartnersOutputMessage => {
+  let contents: any = {
+    PartnerIntegrationInfoList: undefined,
+  };
+  if (output.PartnerIntegrationInfoList === "") {
+    contents.PartnerIntegrationInfoList = [];
+  }
+  if (
+    output["PartnerIntegrationInfoList"] !== undefined &&
+    output["PartnerIntegrationInfoList"]["PartnerIntegrationInfo"] !== undefined
+  ) {
+    contents.PartnerIntegrationInfoList = deserializeAws_queryPartnerIntegrationInfoList(
+      __getArrayIfSingleItem(output["PartnerIntegrationInfoList"]["PartnerIntegrationInfo"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_queryDescribeSnapshotSchedulesOutputMessage = (
   output: any,
   context: __SerdeContext
@@ -18072,6 +18541,77 @@ const deserializeAws_queryParametersList = (output: any, context: __SerdeContext
       }
       return deserializeAws_queryParameter(entry, context);
     });
+};
+
+const deserializeAws_queryPartnerIntegrationInfo = (output: any, context: __SerdeContext): PartnerIntegrationInfo => {
+  let contents: any = {
+    DatabaseName: undefined,
+    PartnerName: undefined,
+    Status: undefined,
+    StatusMessage: undefined,
+    CreatedAt: undefined,
+    UpdatedAt: undefined,
+  };
+  if (output["DatabaseName"] !== undefined) {
+    contents.DatabaseName = output["DatabaseName"];
+  }
+  if (output["PartnerName"] !== undefined) {
+    contents.PartnerName = output["PartnerName"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["StatusMessage"] !== undefined) {
+    contents.StatusMessage = output["StatusMessage"];
+  }
+  if (output["CreatedAt"] !== undefined) {
+    contents.CreatedAt = new Date(output["CreatedAt"]);
+  }
+  if (output["UpdatedAt"] !== undefined) {
+    contents.UpdatedAt = new Date(output["UpdatedAt"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryPartnerIntegrationInfoList = (
+  output: any,
+  context: __SerdeContext
+): PartnerIntegrationInfo[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_queryPartnerIntegrationInfo(entry, context);
+    });
+};
+
+const deserializeAws_queryPartnerIntegrationOutputMessage = (
+  output: any,
+  context: __SerdeContext
+): PartnerIntegrationOutputMessage => {
+  let contents: any = {
+    DatabaseName: undefined,
+    PartnerName: undefined,
+  };
+  if (output["DatabaseName"] !== undefined) {
+    contents.DatabaseName = output["DatabaseName"];
+  }
+  if (output["PartnerName"] !== undefined) {
+    contents.PartnerName = output["PartnerName"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryPartnerNotFoundFault = (output: any, context: __SerdeContext): PartnerNotFoundFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryPauseClusterMessage = (output: any, context: __SerdeContext): PauseClusterMessage => {
@@ -19878,6 +20418,19 @@ const deserializeAws_queryTrackListMessage = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryUnauthorizedOperation = (output: any, context: __SerdeContext): UnauthorizedOperation => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryUnauthorizedPartnerIntegrationFault = (
+  output: any,
+  context: __SerdeContext
+): UnauthorizedPartnerIntegrationFault => {
   let contents: any = {
     message: undefined,
   };

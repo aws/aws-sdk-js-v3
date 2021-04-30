@@ -1,0 +1,80 @@
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
+import { DescribePartnersInputMessage, DescribePartnersOutputMessage } from "../models/models_0";
+import {
+  deserializeAws_queryDescribePartnersCommand,
+  serializeAws_queryDescribePartnersCommand,
+} from "../protocols/Aws_query";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext,
+} from "@aws-sdk/types";
+
+export interface DescribePartnersCommandInput extends DescribePartnersInputMessage {}
+export interface DescribePartnersCommandOutput extends DescribePartnersOutputMessage, __MetadataBearer {}
+
+/**
+ * <p>Returns information about the partner integrations defined for a cluster.</p>
+ */
+export class DescribePartnersCommand extends $Command<
+  DescribePartnersCommandInput,
+  DescribePartnersCommandOutput,
+  RedshiftClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: DescribePartnersCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  /**
+   * @internal
+   */
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: RedshiftClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<DescribePartnersCommandInput, DescribePartnersCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "DescribePartnersCommand";
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: DescribePartnersInputMessage.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribePartnersOutputMessage.filterSensitiveLog,
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(input: DescribePartnersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryDescribePartnersCommand(input, context);
+  }
+
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePartnersCommandOutput> {
+    return deserializeAws_queryDescribePartnersCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}

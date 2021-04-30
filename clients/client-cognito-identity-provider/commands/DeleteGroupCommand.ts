@@ -26,7 +26,7 @@ export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
 export interface DeleteGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a group. Currently only groups with no members can be deleted.</p>
+ * <p>Deletes a group.</p>
  *         <p>Calling this action requires developer credentials.</p>
  */
 export class DeleteGroupCommand extends $Command<

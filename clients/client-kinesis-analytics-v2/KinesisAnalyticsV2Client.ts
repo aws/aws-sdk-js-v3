@@ -82,6 +82,10 @@ import { StopApplicationCommandInput, StopApplicationCommandOutput } from "./com
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
+import {
+  UpdateApplicationMaintenanceConfigurationCommandInput,
+  UpdateApplicationMaintenanceConfigurationCommandOutput,
+} from "./commands/UpdateApplicationMaintenanceConfigurationCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -160,7 +164,8 @@ export type ServiceInputTypes =
   | StopApplicationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateApplicationCommandInput;
+  | UpdateApplicationCommandInput
+  | UpdateApplicationMaintenanceConfigurationCommandInput;
 
 export type ServiceOutputTypes =
   | AddApplicationCloudWatchLoggingOptionCommandOutput
@@ -189,7 +194,8 @@ export type ServiceOutputTypes =
   | StopApplicationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateApplicationCommandOutput;
+  | UpdateApplicationCommandOutput
+  | UpdateApplicationMaintenanceConfigurationCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -256,7 +262,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests
+   * The AWS region to which this client will send requests or use as signingRegion
    */
   region?: string | __Provider<string>;
 

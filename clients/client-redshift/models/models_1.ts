@@ -6,11 +6,13 @@ import {
   ClusterSubnetGroup,
   EventSubscription,
   Parameter,
+  PartnerIntegrationStatus,
   ReservedNode,
   ReservedNodeOffering,
   ScheduledActionType,
   Snapshot,
-  TableRestoreStatus,
+  SnapshotCopyGrant,
+  SnapshotSchedule,
   Tag,
   UsageLimit,
   UsageLimitBreachAction,
@@ -18,6 +20,268 @@ import {
 } from "./models_0";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+/**
+ * <p></p>
+ */
+export interface SnapshotCopyGrantMessage {
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <code>DescribeSnapshotCopyGrant</code> request exceed the
+   *             value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   *         <p>Constraints: You can specify either the <b>SnapshotCopyGrantName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The list of <code>SnapshotCopyGrant</code> objects.</p>
+   */
+  SnapshotCopyGrants?: SnapshotCopyGrant[];
+}
+
+export namespace SnapshotCopyGrantMessage {
+  export const filterSensitiveLog = (obj: SnapshotCopyGrantMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeSnapshotSchedulesMessage {
+  /**
+   * <p>The unique identifier for the cluster whose snapshot schedules you want to
+   *             view.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * <p>A unique identifier for a snapshot schedule.</p>
+   */
+  ScheduleIdentifier?: string;
+
+  /**
+   * <p>The key value for a snapshot schedule tag.</p>
+   */
+  TagKeys?: string[];
+
+  /**
+   * <p>The value corresponding to the key of the snapshot schedule tag.</p>
+   */
+  TagValues?: string[];
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>marker</code> parameter
+   *             and retrying the command. If the <code>marker</code> field is empty, all response
+   *             records have been retrieved for the request.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number or response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned <code>marker</code>
+   *             value.</p>
+   */
+  MaxRecords?: number;
+}
+
+export namespace DescribeSnapshotSchedulesMessage {
+  export const filterSensitiveLog = (obj: DescribeSnapshotSchedulesMessage): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeSnapshotSchedulesOutputMessage {
+  /**
+   * <p>A list of SnapshotSchedules.</p>
+   */
+  SnapshotSchedules?: SnapshotSchedule[];
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a
+   *             subsequent request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the <code>marker</code> parameter
+   *             and retrying the command. If the <code>marker</code> field is empty, all response
+   *             records have been retrieved for the request.</p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeSnapshotSchedulesOutputMessage {
+  export const filterSensitiveLog = (obj: DescribeSnapshotSchedulesOutputMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeTableRestoreStatusMessage {
+  /**
+   * <p>The Amazon Redshift cluster that the table is being restored to.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * <p>The identifier of the table restore request to return status for. If you don't
+   *             specify a <code>TableRestoreRequestId</code> value, then
+   *                 <code>DescribeTableRestoreStatus</code> returns the status of all in-progress table
+   *             restore requests.</p>
+   */
+  TableRestoreRequestId?: string;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist
+   *             than the specified <code>MaxRecords</code> value, a pagination token called a marker is
+   *             included in the response so that the remaining results can be retrieved.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *                 <code>DescribeTableRestoreStatus</code> request. If this parameter is specified, the
+   *             response includes only records beyond the marker, up to the value specified by the
+   *                 <code>MaxRecords</code> parameter.</p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeTableRestoreStatusMessage {
+  export const filterSensitiveLog = (obj: DescribeTableRestoreStatusMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified <code>TableRestoreRequestId</code> value was not found.</p>
+ */
+export interface TableRestoreNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "TableRestoreNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace TableRestoreNotFoundFault {
+  export const filterSensitiveLog = (obj: TableRestoreNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+export type TableRestoreStatusType = "CANCELED" | "FAILED" | "IN_PROGRESS" | "PENDING" | "SUCCEEDED";
+
+/**
+ * <p>Describes the status of a <a>RestoreTableFromClusterSnapshot</a>
+ *             operation.</p>
+ */
+export interface TableRestoreStatus {
+  /**
+   * <p>The unique identifier for the table restore request.</p>
+   */
+  TableRestoreRequestId?: string;
+
+  /**
+   * <p>A value that describes the current state of the table restore request.</p>
+   *         <p>Valid Values: <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>,
+   *                 <code>PENDING</code>, <code>IN_PROGRESS</code>
+   *         </p>
+   */
+  Status?: TableRestoreStatusType | string;
+
+  /**
+   * <p>A description of the status of the table restore request. Status values include
+   *                 <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>,
+   *                 <code>PENDING</code>, <code>IN_PROGRESS</code>.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The time that the table restore request was made, in Universal Coordinated Time
+   *             (UTC).</p>
+   */
+  RequestTime?: Date;
+
+  /**
+   * <p>The amount of data restored to the new table so far, in megabytes (MB).</p>
+   */
+  ProgressInMegaBytes?: number;
+
+  /**
+   * <p>The total amount of data to restore to the new table, in megabytes (MB).</p>
+   */
+  TotalDataInMegaBytes?: number;
+
+  /**
+   * <p>The identifier of the Amazon Redshift cluster that the table is being restored
+   *             to.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * <p>The identifier of the snapshot that the table is being restored from.</p>
+   */
+  SnapshotIdentifier?: string;
+
+  /**
+   * <p>The name of the source database that contains the table being restored.</p>
+   */
+  SourceDatabaseName?: string;
+
+  /**
+   * <p>The name of the source schema that contains the table being restored.</p>
+   */
+  SourceSchemaName?: string;
+
+  /**
+   * <p>The name of the source table being restored.</p>
+   */
+  SourceTableName?: string;
+
+  /**
+   * <p>The name of the database to restore the table to.</p>
+   */
+  TargetDatabaseName?: string;
+
+  /**
+   * <p>The name of the schema to restore the table to.</p>
+   */
+  TargetSchemaName?: string;
+
+  /**
+   * <p>The name of the table to create as a result of the table restore request.</p>
+   */
+  NewTableName?: string;
+}
+
+export namespace TableRestoreStatus {
+  export const filterSensitiveLog = (obj: TableRestoreStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ */
+export interface TableRestoreStatusMessage {
+  /**
+   * <p>A list of status details for one or more table restore requests.</p>
+   */
+  TableRestoreStatusDetails?: TableRestoreStatus[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent <a>DescribeTableRestoreStatus</a> request.</p>
+   */
+  Marker?: string;
+}
+
+export namespace TableRestoreStatusMessage {
+  export const filterSensitiveLog = (obj: TableRestoreStatusMessage): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p></p>
@@ -2392,6 +2656,44 @@ export interface RotateEncryptionKeyResult {
 
 export namespace RotateEncryptionKeyResult {
   export const filterSensitiveLog = (obj: RotateEncryptionKeyResult): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdatePartnerStatusInputMessage {
+  /**
+   * <p>The AWS account ID that owns the cluster.</p>
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The cluster identifier of the cluster whose partner integration status is being updated.</p>
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the database whose partner integration status is being updated.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the partner whose integration status is being updated.</p>
+   */
+  PartnerName: string | undefined;
+
+  /**
+   * <p>The value of the updated status.</p>
+   */
+  Status: PartnerIntegrationStatus | string | undefined;
+
+  /**
+   * <p>The status message provided by the partner.</p>
+   */
+  StatusMessage?: string;
+}
+
+export namespace UpdatePartnerStatusInputMessage {
+  export const filterSensitiveLog = (obj: UpdatePartnerStatusInputMessage): any => ({
     ...obj,
   });
 }

@@ -27,6 +27,8 @@ export * from "./waiters/waitForTestConnectionSucceeds";
 export * from "./commands/DescribeEndpointsCommand";
 export * from "./pagination/DescribeEndpointsPaginator";
 export * from "./waiters/waitForEndpointDeleted";
+export * from "./commands/DescribeEndpointSettingsCommand";
+export * from "./pagination/DescribeEndpointSettingsPaginator";
 export * from "./commands/DescribeEndpointTypesCommand";
 export * from "./pagination/DescribeEndpointTypesPaginator";
 export * from "./commands/DescribeEventCategoriesCommand";

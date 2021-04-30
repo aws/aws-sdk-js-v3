@@ -22,9 +22,8 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
 
 /**
  * <p>Creates a member association in Security Hub between the specified accounts and the account
- *          used to make the request, which is the master account. If you are integrated with
- *          Organizations, then the master account is the Security Hub administrator account that is
- *          designated by the organization management account.</p>
+ *          used to make the request, which is the administrator account. If you are integrated with
+ *          Organizations, then the administrator account is designated by the organization management account.</p>
  *          <p>
  *             <code>CreateMembers</code> is always used to add accounts that are not organization
  *          members.</p>
@@ -51,10 +50,10 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *          the invitation, the account becomes a member account in Security Hub.</p>
  *          <p>Accounts that are part of an organization do not receive an invitation. They
  *          automatically become a member account in Security Hub.</p>
- *          <p>A permissions policy is added that permits the master account to view the findings
- *          generated in the member account. When Security Hub is enabled in a member account, findings are
- *          sent to both the member and master accounts. </p>
- *          <p>To remove the association between the master and member accounts, use the <code>
+ *          <p>A permissions policy is added that permits the administrator account to view the findings
+ *          generated in the member account. When Security Hub is enabled in a member account, the member account findings are
+ *          also visible to the administrator account. </p>
+ *          <p>To remove the association between the administrator and member accounts, use the <code>
  *                <a>DisassociateFromMasterAccount</a>
  *             </code> or <code>
  *                <a>DisassociateMembers</a>

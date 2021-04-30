@@ -1763,7 +1763,7 @@ export interface CheckpointConfiguration {
    * <p>Describes the interval in milliseconds between checkpoint operations. </p>
    *          <note>
    *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
-   *     the application will use a <code>CheckpointInterval</code> vaue of 60000, even if this value is set
+   *     the application will use a <code>CheckpointInterval</code> value of 60000, even if this value is set
    *       to another value using this API or in application code.</p>
    *          </note>
    */
@@ -1836,7 +1836,7 @@ export namespace MonitoringConfiguration {
 
 /**
  * <p>Describes parameters for how a Flink-based Kinesis Data Analytics application
- *       application executes multiple tasks simultaneously. For more information about parallelism,
+ *       executes multiple tasks simultaneously. For more information about parallelism,
  *       see <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/parallel.html">Parallel Execution</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink
  *         Documentation</a>.</p>
  */
@@ -2053,7 +2053,7 @@ export interface CheckpointConfigurationDescription {
    * <p>Describes the interval in milliseconds between checkpoint operations. </p>
    *          <note>
    *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
-   *     the application will use a <code>CheckpointInterval</code> vaue of 60000, even if this value is set to another value
+   *     the application will use a <code>CheckpointInterval</code> value of 60000, even if this value is set to another value
    *       using this API or in application code.</p>
    *          </note>
    */
@@ -2414,7 +2414,7 @@ export interface CheckpointConfigurationUpdate {
    * <p>Describes updates to the interval in milliseconds between checkpoint operations.</p>
    *          <note>
    *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
-   *     the application will use a <code>CheckpointInterval</code> vaue of 60000, even if this value is set to another value
+   *     the application will use a <code>CheckpointInterval</code> value of 60000, even if this value is set to another value
    *       using this API or in application code.</p>
    *          </note>
    */
@@ -2969,10 +2969,32 @@ export namespace ApplicationConfigurationUpdate {
   });
 }
 
+/**
+ * <p>Describes the time window for automatic application maintenance.</p>
+ */
+export interface ApplicationMaintenanceConfigurationDescription {
+  /**
+   * <p>The start time for the automatic maintenance window.</p>
+   */
+  ApplicationMaintenanceWindowStartTime: string | undefined;
+
+  /**
+   * <p>The end time for the automatic maintenance window.</p>
+   */
+  ApplicationMaintenanceWindowEndTime: string | undefined;
+}
+
+export namespace ApplicationMaintenanceConfigurationDescription {
+  export const filterSensitiveLog = (obj: ApplicationMaintenanceConfigurationDescription): any => ({
+    ...obj,
+  });
+}
+
 export enum ApplicationStatus {
   AUTOSCALING = "AUTOSCALING",
   DELETING = "DELETING",
   FORCE_STOPPING = "FORCE_STOPPING",
+  MAINTENANCE = "MAINTENANCE",
   READY = "READY",
   RUNNING = "RUNNING",
   STARTING = "STARTING",
@@ -3008,7 +3030,7 @@ export interface ApplicationDetail {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The runtime environment for the application (<code>SQL-1.0</code>, <code>FLINK-1_6</code>, or <code>FLINK-1_8</code>).</p>
+   * <p>The runtime environment for the application (<code>SQL-1_0</code>, <code>FLINK-1_6</code>, <code>FLINK-1_8</code>, or <code>FLINK-1_11</code>).</p>
    */
   RuntimeEnvironment: RuntimeEnvironment | string | undefined;
 
@@ -3047,10 +3069,31 @@ export interface ApplicationDetail {
    * <p>Describes the application Amazon CloudWatch logging options.</p>
    */
   CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
+
+  /**
+   * <p>Describes the time window for automatic application maintenance.</p>
+   */
+  ApplicationMaintenanceConfigurationDescription?: ApplicationMaintenanceConfigurationDescription;
 }
 
 export namespace ApplicationDetail {
   export const filterSensitiveLog = (obj: ApplicationDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the updated time window for automatic application maintenance.</p>
+ */
+export interface ApplicationMaintenanceConfigurationUpdate {
+  /**
+   * <p>The updated start time for the automatic maintenance window.</p>
+   */
+  ApplicationMaintenanceWindowStartTimeUpdate: string | undefined;
+}
+
+export namespace ApplicationMaintenanceConfigurationUpdate {
+  export const filterSensitiveLog = (obj: ApplicationMaintenanceConfigurationUpdate): any => ({
     ...obj,
   });
 }
@@ -3080,7 +3123,7 @@ export interface ApplicationSummary {
   ApplicationVersionId: number | undefined;
 
   /**
-   * <p>The runtime environment for the application (<code>SQL-1.0</code>, <code>FLINK-1_6</code>, or <code>FLINK-1_8</code>).</p>
+   * <p>The runtime environment for the application (<code>SQL-1_0</code>, <code>FLINK-1_6</code>, <code>FLINK-1_8</code>, or <code>FLINK-1_11</code>).</p>
    */
   RuntimeEnvironment: RuntimeEnvironment | string | undefined;
 }
@@ -3152,7 +3195,7 @@ export interface CreateApplicationRequest {
   ApplicationDescription?: string;
 
   /**
-   * <p>The runtime environment for the application (<code>SQL-1.0</code>, <code>FLINK-1_6</code>, or <code>FLINK-1_8</code>).</p>
+   * <p>The runtime environment for the application (<code>SQL-1_0</code>, <code>FLINK-1_6</code>, <code>FLINK-1_8</code>, or <code>FLINK-1_11</code>).</p>
    */
   RuntimeEnvironment: RuntimeEnvironment | string | undefined;
 
@@ -4206,6 +4249,42 @@ export interface UpdateApplicationResponse {
 
 export namespace UpdateApplicationResponse {
   export const filterSensitiveLog = (obj: UpdateApplicationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateApplicationMaintenanceConfigurationRequest {
+  /**
+   * <p>The name of the application for which you want to update the maintenance time window.</p>
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * <p>Describes the application maintenance configuration update.</p>
+   */
+  ApplicationMaintenanceConfigurationUpdate: ApplicationMaintenanceConfigurationUpdate | undefined;
+}
+
+export namespace UpdateApplicationMaintenanceConfigurationRequest {
+  export const filterSensitiveLog = (obj: UpdateApplicationMaintenanceConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateApplicationMaintenanceConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the application.</p>
+   */
+  ApplicationARN?: string;
+
+  /**
+   * <p>The application maintenance configuration description after the update.</p>
+   */
+  ApplicationMaintenanceConfigurationDescription?: ApplicationMaintenanceConfigurationDescription;
+}
+
+export namespace UpdateApplicationMaintenanceConfigurationResponse {
+  export const filterSensitiveLog = (obj: UpdateApplicationMaintenanceConfigurationResponse): any => ({
     ...obj,
   });
 }

@@ -164,6 +164,7 @@ import {
   BucketCountByEffectivePermission,
   BucketCountByEncryptionType,
   BucketCountBySharedAccessType,
+  BucketCountPolicyAllowsUnencryptedObjectUploads,
   BucketCriteriaAdditionalProperties,
   BucketLevelPermissions,
   BucketMetadata,
@@ -4298,6 +4299,7 @@ export const deserializeAws_restJson1GetBucketStatisticsCommand = async (
     bucketCount: undefined,
     bucketCountByEffectivePermission: undefined,
     bucketCountByEncryptionType: undefined,
+    bucketCountByObjectEncryptionRequirement: undefined,
     bucketCountBySharedAccessType: undefined,
     classifiableObjectCount: undefined,
     classifiableSizeInBytes: undefined,
@@ -4321,6 +4323,15 @@ export const deserializeAws_restJson1GetBucketStatisticsCommand = async (
   if (data.bucketCountByEncryptionType !== undefined && data.bucketCountByEncryptionType !== null) {
     contents.bucketCountByEncryptionType = deserializeAws_restJson1BucketCountByEncryptionType(
       data.bucketCountByEncryptionType,
+      context
+    );
+  }
+  if (
+    data.bucketCountByObjectEncryptionRequirement !== undefined &&
+    data.bucketCountByObjectEncryptionRequirement !== null
+  ) {
+    contents.bucketCountByObjectEncryptionRequirement = deserializeAws_restJson1BucketCountPolicyAllowsUnencryptedObjectUploads(
+      data.bucketCountByObjectEncryptionRequirement,
       context
     );
   }
@@ -8371,6 +8382,7 @@ const deserializeAws_restJson1BucketCountByEncryptionType = (
     kmsManaged: output.kmsManaged !== undefined && output.kmsManaged !== null ? output.kmsManaged : undefined,
     s3Managed: output.s3Managed !== undefined && output.s3Managed !== null ? output.s3Managed : undefined,
     unencrypted: output.unencrypted !== undefined && output.unencrypted !== null ? output.unencrypted : undefined,
+    unknown: output.unknown !== undefined && output.unknown !== null ? output.unknown : undefined,
   } as any;
 };
 
@@ -8382,6 +8394,23 @@ const deserializeAws_restJson1BucketCountBySharedAccessType = (
     external: output.external !== undefined && output.external !== null ? output.external : undefined,
     internal: output.internal !== undefined && output.internal !== null ? output.internal : undefined,
     notShared: output.notShared !== undefined && output.notShared !== null ? output.notShared : undefined,
+    unknown: output.unknown !== undefined && output.unknown !== null ? output.unknown : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1BucketCountPolicyAllowsUnencryptedObjectUploads = (
+  output: any,
+  context: __SerdeContext
+): BucketCountPolicyAllowsUnencryptedObjectUploads => {
+  return {
+    allowsUnencryptedObjectUploads:
+      output.allowsUnencryptedObjectUploads !== undefined && output.allowsUnencryptedObjectUploads !== null
+        ? output.allowsUnencryptedObjectUploads
+        : undefined,
+    deniesUnencryptedObjectUploads:
+      output.deniesUnencryptedObjectUploads !== undefined && output.deniesUnencryptedObjectUploads !== null
+        ? output.deniesUnencryptedObjectUploads
+        : undefined,
     unknown: output.unknown !== undefined && output.unknown !== null ? output.unknown : undefined,
   } as any;
 };
@@ -8409,6 +8438,10 @@ const deserializeAws_restJson1BucketLevelPermissions = (
 const deserializeAws_restJson1BucketMetadata = (output: any, context: __SerdeContext): BucketMetadata => {
   return {
     accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
+    allowsUnencryptedObjectUploads:
+      output.allowsUnencryptedObjectUploads !== undefined && output.allowsUnencryptedObjectUploads !== null
+        ? output.allowsUnencryptedObjectUploads
+        : undefined,
     bucketArn: output.bucketArn !== undefined && output.bucketArn !== null ? output.bucketArn : undefined,
     bucketCreatedAt:
       output.bucketCreatedAt !== undefined && output.bucketCreatedAt !== null
@@ -9043,6 +9076,7 @@ const deserializeAws_restJson1ObjectCountByEncryptionType = (
     kmsManaged: output.kmsManaged !== undefined && output.kmsManaged !== null ? output.kmsManaged : undefined,
     s3Managed: output.s3Managed !== undefined && output.s3Managed !== null ? output.s3Managed : undefined,
     unencrypted: output.unencrypted !== undefined && output.unencrypted !== null ? output.unencrypted : undefined,
+    unknown: output.unknown !== undefined && output.unknown !== null ? output.unknown : undefined,
   } as any;
 };
 
@@ -9183,6 +9217,10 @@ const deserializeAws_restJson1ResourcesAffected = (output: any, context: __Serde
 
 const deserializeAws_restJson1S3Bucket = (output: any, context: __SerdeContext): S3Bucket => {
   return {
+    allowsUnencryptedObjectUploads:
+      output.allowsUnencryptedObjectUploads !== undefined && output.allowsUnencryptedObjectUploads !== null
+        ? output.allowsUnencryptedObjectUploads
+        : undefined,
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
     defaultServerSideEncryption:

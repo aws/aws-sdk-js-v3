@@ -1508,13 +1508,12 @@ export interface CreateServiceRequest {
   loadBalancers?: LoadBalancer[];
 
   /**
-   * <p>The details of the service discovery registries to assign to this service. For more
+   * <p>The details of the service discovery registry to associate with this service. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
    * 				discovery</a>.</p>
    * 		       <note>
-   * 			         <p>Service discovery is supported for Fargate tasks if you are using
-   * 				platform version v1.1.0 or later. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS Fargate platform
-   * 					versions</a>.</p>
+   * 			         <p>Each service may be associated with one service registry. Multiple service
+   * 				registries per service isn't supported.</p>
    * 		       </note>
    */
   serviceRegistries?: ServiceRegistry[];
@@ -1666,7 +1665,8 @@ export interface CreateServiceRequest {
   schedulingStrategy?: SchedulingStrategy | string;
 
   /**
-   * <p>The deployment controller to use for the service.</p>
+   * <p>The deployment controller to use for the service. If no deployment controller is
+   * 			specified, the default value of <code>ECS</code> is used.</p>
    */
   deploymentController?: DeploymentController;
 
@@ -2490,7 +2490,7 @@ export interface CreateTaskSetRequest {
   taskDefinition: string | undefined;
 
   /**
-   * <p>An object representing the network configuration for a task or service.</p>
+   * <p>An object representing the network configuration for a task set.</p>
    */
   networkConfiguration?: NetworkConfiguration;
 
@@ -2604,9 +2604,10 @@ export namespace CreateTaskSetRequest {
 
 export interface CreateTaskSetResponse {
   /**
-   * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an <code>EXTERNAL</code>
-   * 			deployment. An Amazon ECS task set includes details such as the desired number of tasks, how
-   * 			many tasks are running, and whether the task set serves production traffic.</p>
+   * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an
+   * 				<code>EXTERNAL</code> deployment. A task set includes details such as the desired
+   * 			number of tasks, how many tasks are running, and whether the task set serves production
+   * 			traffic.</p>
    */
   taskSet?: TaskSet;
 }
@@ -2837,7 +2838,7 @@ export namespace DeleteCapacityProviderRequest {
 
 export interface DeleteCapacityProviderResponse {
   /**
-   * <p>The details of a capacity provider.</p>
+   * <p>The details of the capacity provider.</p>
    */
   capacityProvider?: CapacityProvider;
 }
@@ -2995,9 +2996,7 @@ export namespace DeleteTaskSetRequest {
 
 export interface DeleteTaskSetResponse {
   /**
-   * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an <code>EXTERNAL</code>
-   * 			deployment. An Amazon ECS task set includes details such as the desired number of tasks, how
-   * 			many tasks are running, and whether the task set serves production traffic.</p>
+   * <p>Details about the task set.</p>
    */
   taskSet?: TaskSet;
 }
@@ -4028,6 +4027,10 @@ export enum TransportProtocol {
  * 				<code>host</code> network mode, exposed ports should be specified using
  * 				<code>containerPort</code>. The <code>hostPort</code> can be left blank or it must
  * 			be the same value as the <code>containerPort</code>.</p>
+ * 		       <note>
+ * 			         <p>You cannot expose the same container port for multiple protocols. An error will be
+ * 				returned if this is attempted</p>
+ * 		       </note>
  * 		       <p>After a task reaches the <code>RUNNING</code> status, manual and automatic host and
  * 			container port assignments are visible in the <code>networkBindings</code> section of
  * 				<a>DescribeTasks</a> API responses.</p>
@@ -4216,6 +4219,13 @@ export enum UlimitName {
 
 /**
  * <p>The <code>ulimit</code> settings to pass to the container.</p>
+ * 		       <p>Amazon ECS tasks hosted on Fargate use the default
+ * 							resource limit values set by the operating system with the exception of
+ * 							the <code>nofile</code> resource limit parameter which Fargate
+ * 							overrides. The <code>nofile</code> resource limit sets a restriction on
+ * 							the number of open files that a container can use. The default
+ * 								<code>nofile</code> soft limit is <code>1024</code> and hard limit
+ * 							is <code>4096</code>.</p>
  */
 export interface Ulimit {
   /**
@@ -4436,7 +4446,7 @@ export interface ContainerDefinition {
    * 				<code>--link</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
    * 			run</a>.</p>
    *          <note>
-   *                         <p>This parameter is not supported for Windows containers or tasks that use the awsvpc network mode.</p>
+   *                         <p>This parameter is not supported for Windows containers.</p>
    *                      </note>
    *          <important>
    * 			         <p>Containers that are collocated on a single container instance may be able to
@@ -4697,7 +4707,7 @@ export interface ContainerDefinition {
    * 			         </li>
    *          </ul>
    *          <note>
-   *                         <p>This parameter is not supported for Windows containers or tasks that use the awsvpc network mode.</p>
+   *                         <p>This parameter is not supported for Windows containers.</p>
    *                      </note>
    */
   user?: string;
@@ -4714,7 +4724,7 @@ export interface ContainerDefinition {
    * 			parameter maps to <code>NetworkDisabled</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a>
    * 			section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a>.</p>
    *          <note>
-   *                         <p>This parameter is not supported for Windows containers or tasks that use the awsvpc network mode.</p>
+   *                         <p>This parameter is not supported for Windows containers.</p>
    *                      </note>
    */
   disableNetworking?: boolean;
@@ -4737,7 +4747,7 @@ export interface ContainerDefinition {
    * 				<code>--read-only</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
    * 				run</a>.</p>
    *          <note>
-   *                         <p>This parameter is not supported for Windows containers or tasks that use the awsvpc network mode.</p>
+   *                         <p>This parameter is not supported for Windows containers.</p>
    *                      </note>
    */
   readonlyRootFilesystem?: boolean;
@@ -4747,7 +4757,7 @@ export interface ContainerDefinition {
    * 				<code>Dns</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
    * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--dns</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
    *          <note>
-   *                         <p>This parameter is not supported for Windows containers or tasks that use the awsvpc network mode.</p>
+   *                         <p>This parameter is not supported for Windows containers.</p>
    *                      </note>
    */
   dnsServers?: string[];
@@ -4757,7 +4767,7 @@ export interface ContainerDefinition {
    * 			to <code>DnsSearch</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
    * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--dns-search</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
    *          <note>
-   *                         <p>This parameter is not supported for Windows containers or tasks that use the awsvpc network mode.</p>
+   *                         <p>This parameter is not supported for Windows containers.</p>
    *                      </note>
    */
   dnsSearchDomains?: string[];
@@ -4829,10 +4839,18 @@ export interface ContainerDefinition {
    * 			in a task definition, it will override the default values set by Docker. This parameter
    * 			maps to <code>Ulimits</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
    * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--ulimit</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>. Valid naming values are displayed
-   * 			in the <a>Ulimit</a> data type. This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '{{.Server.APIVersion}}'</code>
+   * 			in the <a>Ulimit</a> data type.</p>
+   * 		       <p>Amazon ECS tasks hosted on Fargate use the default
+   * 							resource limit values set by the operating system with the exception of
+   * 							the <code>nofile</code> resource limit parameter which Fargate
+   * 							overrides. The <code>nofile</code> resource limit sets a restriction on
+   * 							the number of open files that a container can use. The default
+   * 								<code>nofile</code> soft limit is <code>1024</code> and hard limit
+   * 							is <code>4096</code>.</p>
+   * 		       <p>This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '{{.Server.APIVersion}}'</code>
    *          </p>
    *          <note>
-   *                         <p>This parameter is not supported for Windows containers or tasks that use the awsvpc network mode.</p>
+   *                         <p>This parameter is not supported for Windows containers.</p>
    *                      </note>
    */
   ulimits?: Ulimit[];
@@ -4909,6 +4927,31 @@ export interface ContainerDefinition {
 
 export namespace ContainerDefinition {
   export const filterSensitiveLog = (obj: ContainerDefinition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The amount of ephemeral storage to allocate for the task. This parameter is used to
+ * 			expand the total amount of ephemeral storage available, beyond the default amount, for
+ * 			tasks hosted on AWS Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html">Fargate task
+ * 				storage</a> in the <i>Amazon ECS User Guide for AWS Fargate</i>.</p>
+ * 		       <note>
+ * 			         <p>This parameter is only supported for tasks hosted on AWS Fargate using platform
+ * 				version <code>1.4.0</code> or later.</p>
+ * 		       </note>
+ */
+export interface EphemeralStorage {
+  /**
+   * <p>The total amount, in GiB, of ephemeral storage to set for the task. The minimum
+   * 			supported value is <code>21</code> GiB and the maximum supported value is
+   * 				<code>200</code> GiB.</p>
+   */
+  sizeInGiB: number | undefined;
+}
+
+export namespace EphemeralStorage {
+  export const filterSensitiveLog = (obj: EphemeralStorage): any => ({
     ...obj,
   });
 }
@@ -5664,6 +5707,11 @@ export interface TaskDefinition {
    * <p>The principal that registered the task definition.</p>
    */
   registeredBy?: string;
+
+  /**
+   * <p>The ephemeral storage settings to use for tasks run with the task definition.</p>
+   */
+  ephemeralStorage?: EphemeralStorage;
 }
 
 export namespace TaskDefinition {
@@ -6417,6 +6465,15 @@ export interface TaskOverride {
    * 			in this task are granted the permissions that are specified in this role.</p>
    */
   taskRoleArn?: string;
+
+  /**
+   * <p>The ephemeral storage setting override for the task.</p>
+   * 		       <note>
+   * 			         <p>This parameter is only supported for tasks hosted on AWS Fargate using platform
+   * 				version <code>1.4.0</code> or later.</p>
+   * 		       </note>
+   */
+  ephemeralStorage?: EphemeralStorage;
 }
 
 export namespace TaskOverride {
@@ -6723,6 +6780,11 @@ export interface Task {
    * 			current.</p>
    */
   version?: number;
+
+  /**
+   * <p>The ephemeral storage settings for the task.</p>
+   */
+  ephemeralStorage?: EphemeralStorage;
 }
 
 export namespace Task {
@@ -6977,6 +7039,10 @@ export interface ListAccountSettingsRequest {
    * <p>The ARN of the principal, which can be an IAM user, IAM role, or the root user. If
    * 			this field is omitted, the account settings are listed only for the authenticated
    * 			user.</p>
+   * 		       <note>
+   * 			         <p>Federated users assume the account setting of the root user and can't have
+   * 				explicit account settings set for them.</p>
+   * 		       </note>
    */
   principalArn?: string;
 
@@ -7674,6 +7740,10 @@ export interface PutAccountSettingRequest {
    * 			the root user of the account unless an IAM user or role explicitly overrides these
    * 			settings. If this field is omitted, the setting is changed only for the authenticated
    * 			user.</p>
+   * 		       <note>
+   * 			         <p>Federated users assume the account setting of the root user and can't have
+   * 				explicit account settings set for them.</p>
+   * 		       </note>
    */
   principalArn?: string;
 }
@@ -7725,7 +7795,7 @@ export namespace PutAccountSettingDefaultRequest {
 
 export interface PutAccountSettingDefaultResponse {
   /**
-   * <p>The current account setting for a resource.</p>
+   * <p>The current setting for a resource.</p>
    */
   setting?: Setting;
 }
@@ -7833,10 +7903,7 @@ export namespace PutClusterCapacityProvidersRequest {
 
 export interface PutClusterCapacityProvidersResponse {
   /**
-   * <p>A regional grouping of one or more container instances on which you can run task
-   * 			requests. Each account receives a default cluster the first time you use the Amazon ECS
-   * 			service, but you may also create other clusters. Clusters may contain more than one
-   * 			instance type simultaneously.</p>
+   * <p>Details about the cluster.</p>
    */
   cluster?: Cluster;
 }
@@ -8256,13 +8323,13 @@ export interface RegisterTaskDefinitionRequest {
 
   /**
    * <p>The configuration details for the App Mesh proxy.</p>
-   * 		       <p>For tasks using the EC2 launch type, the container instances require at
-   * 			least version 1.26.0 of the container agent and at least version 1.26.0-1 of the
-   * 				<code>ecs-init</code> package to enable a proxy configuration. If your container
-   * 			instances are launched from the Amazon ECS-optimized AMI version <code>20190301</code> or
-   * 			later, then they contain the required versions of the container agent and
-   * 				<code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Linux AMI</a>
-   * 		       </p>
+   * 		       <p>For tasks hosted on Amazon EC2 instances, the container instances require at least version
+   * 				<code>1.26.0</code> of the container agent and at least version
+   * 				<code>1.26.0-1</code> of the <code>ecs-init</code> package to enable a proxy
+   * 			configuration. If your container instances are launched from the Amazon ECS-optimized
+   * 			AMI version <code>20190301</code> or later, then they contain the required versions of
+   * 			the container agent and <code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-ami-versions.html">Amazon ECS-optimized AMI versions</a> in the
+   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   proxyConfiguration?: ProxyConfiguration;
 
@@ -8270,6 +8337,18 @@ export interface RegisterTaskDefinitionRequest {
    * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
    */
   inferenceAccelerators?: InferenceAccelerator[];
+
+  /**
+   * <p>The amount of ephemeral storage to allocate for the task. This parameter is used to
+   * 			expand the total amount of ephemeral storage available, beyond the default amount, for
+   * 			tasks hosted on AWS Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html">Fargate task
+   * 				storage</a> in the <i>Amazon ECS User Guide for AWS Fargate</i>.</p>
+   * 		       <note>
+   * 			         <p>This parameter is only supported for tasks hosted on AWS Fargate using platform
+   * 				version <code>1.4.0</code> or later.</p>
+   * 		       </note>
+   */
+  ephemeralStorage?: EphemeralStorage;
 }
 
 export namespace RegisterTaskDefinitionRequest {
@@ -9067,12 +9146,6 @@ export namespace UntagResourceResponse {
 export interface AutoScalingGroupProviderUpdate {
   /**
    * <p>The managed scaling settings for the Auto Scaling group capacity provider.</p>
-   * 		       <p>When managed scaling is enabled, Amazon ECS manages the scale-in and scale-out actions of
-   * 			the Auto Scaling group. Amazon ECS manages a target tracking scaling policy using an
-   * 			Amazon ECS-managed CloudWatch metric with the specified <code>targetCapacity</code> value as the
-   * 			target value for the metric. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/asg-capacity-providers.html#asg-capacity-providers-managed-scaling">Using Managed Scaling</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * 		       <p>If managed scaling is disabled, the user must manage the scaling of the Auto Scaling
-   * 			group.</p>
    */
   managedScaling?: ManagedScaling;
 
@@ -9121,7 +9194,7 @@ export namespace UpdateCapacityProviderRequest {
 
 export interface UpdateCapacityProviderResponse {
   /**
-   * <p>The details of a capacity provider.</p>
+   * <p>Details about the capacity provider.</p>
    */
   capacityProvider?: CapacityProvider;
 }
@@ -9157,10 +9230,7 @@ export namespace UpdateClusterRequest {
 
 export interface UpdateClusterResponse {
   /**
-   * <p>A regional grouping of one or more container instances on which you can run task
-   * 			requests. Each account receives a default cluster the first time you use the Amazon ECS
-   * 			service, but you may also create other clusters. Clusters may contain more than one
-   * 			instance type simultaneously.</p>
+   * <p>Details about the cluster.</p>
    */
   cluster?: Cluster;
 }
@@ -9194,10 +9264,7 @@ export namespace UpdateClusterSettingsRequest {
 
 export interface UpdateClusterSettingsResponse {
   /**
-   * <p>A regional grouping of one or more container instances on which you can run task
-   * 			requests. Each account receives a default cluster the first time you use the Amazon ECS
-   * 			service, but you may also create other clusters. Clusters may contain more than one
-   * 			instance type simultaneously.</p>
+   * <p>Details about the cluster</p>
    */
   cluster?: Cluster;
 }
@@ -9383,7 +9450,7 @@ export interface UpdateServiceRequest {
   deploymentConfiguration?: DeploymentConfiguration;
 
   /**
-   * <p>An object representing the network configuration for a task or service.</p>
+   * <p>An object representing the network configuration for the service.</p>
    */
   networkConfiguration?: NetworkConfiguration;
 
@@ -9492,9 +9559,7 @@ export namespace UpdateServicePrimaryTaskSetRequest {
 
 export interface UpdateServicePrimaryTaskSetResponse {
   /**
-   * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an <code>EXTERNAL</code>
-   * 			deployment. An Amazon ECS task set includes details such as the desired number of tasks, how
-   * 			many tasks are running, and whether the task set serves production traffic.</p>
+   * <p>Details about the task set.</p>
    */
   taskSet?: TaskSet;
 }
@@ -9537,9 +9602,7 @@ export namespace UpdateTaskSetRequest {
 
 export interface UpdateTaskSetResponse {
   /**
-   * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an <code>EXTERNAL</code>
-   * 			deployment. An Amazon ECS task set includes details such as the desired number of tasks, how
-   * 			many tasks are running, and whether the task set serves production traffic.</p>
+   * <p>Details about the task set.</p>
    */
   taskSet?: TaskSet;
 }

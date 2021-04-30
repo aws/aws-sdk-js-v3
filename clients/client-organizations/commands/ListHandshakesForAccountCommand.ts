@@ -34,7 +34,7 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  *                <i>only</i>
  * when there are no more results to display.</p>
  *          </note>
- *          <p>This operation can be called from any account in the organization.</p>
+ *         <p>This operation can be called from any account in the organization.</p>
  */
 export class ListHandshakesForAccountCommand extends $Command<
   ListHandshakesForAccountCommandInput,

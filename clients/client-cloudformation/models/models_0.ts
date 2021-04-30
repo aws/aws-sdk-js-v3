@@ -1519,7 +1519,11 @@ export interface DeploymentTargets {
    */
   Accounts?: string[];
 
+  /**
+   * <p>Returns the value of the AccountsUrl property.</p>
+   */
   AccountsUrl?: string;
+
   /**
    * <p>The organization root ID or organizational unit (OU) IDs to which StackSets deploys.</p>
    */
@@ -1543,7 +1547,11 @@ export enum RegionConcurrencyType {
  *          <p>For more information on maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options">Stack set operation options</a>.</p>
  */
 export interface StackSetOperationPreferences {
+  /**
+   * <p>The concurrency type of deploying StackSets operations in regions, could be in parallel or one region at a time.</p>
+   */
   RegionConcurrencyType?: RegionConcurrencyType | string;
+
   /**
    * <p>The order of the Regions in where you want to perform the stack operation.</p>
    */
@@ -1941,18 +1949,19 @@ export interface CreateStackSetInput {
    *                <p>
    *                   <code>CAPABILITY_AUTO_EXPAND</code>
    *                </p>
-   *                <p>Some templates contain macros. If your stack template contains one or more macros,
-   *                and you choose to create a stack directly from the processed template, without first
-   *                reviewing the resulting changes in a change set, you must acknowledge this
+   *                <p>Some templates reference macros. If your stack set template references one or more macros,
+   *                you must create the stack set directly from the processed template, without first
+   *                reviewing the resulting changes in a change set. To create the stack set directly, you must acknowledge this
    *                capability. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using AWS CloudFormation Macros to Perform Custom Processing on
    *                Templates</a>.</p>
-   *                <note>
-   *                   <p>Stack sets do not currently support macros in stack templates. (This includes
-   *                   the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a>
-   *                   transforms, which are macros hosted by AWS CloudFormation.) Even if you specify this
-   *                   capability, if you include a macro in your template the stack set operation will
-   *                   fail.</p>
-   *                </note>
+   *                <important>
+   *                   <p>Stack sets with service-managed permissions
+   *                      do not currently support the use of macros in templates. (This includes
+   *                      the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a>
+   *                      transforms, which are macros hosted by AWS CloudFormation.) Even if you specify this
+   *                      capability for a stack set with service-managed permissions, if you reference a macro in your template the stack set operation will
+   *                      fail.</p>
+   *                </important>
    *             </li>
    *          </ul>
    */
@@ -5097,6 +5106,21 @@ export interface GetTemplateSummaryInput {
    *             <code>TemplateURL</code>.</p>
    */
   StackSetName?: string;
+
+  /**
+   * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p>
+   *          <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with self-managed permissions.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you are signed in to the management account, specify <code>SELF</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you are signed in to a delegated administrator account, specify <code>DELEGATED_ADMIN</code>.</p>
+   *                <p>Your AWS account must be registered as a delegated administrator in the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register a delegated administrator</a> in the <i>AWS CloudFormation User Guide</i>.</p>
+   *             </li>
+   *          </ul>
+   */
+  CallAs?: CallAs | string;
 }
 
 export namespace GetTemplateSummaryInput {
@@ -7658,16 +7682,17 @@ export interface UpdateStackSetInput {
    *                <p>
    *                   <code>CAPABILITY_AUTO_EXPAND</code>
    *                </p>
-   *                <p>Some templates contain macros. If your stack template contains one or more macros,
-   *                and you choose to update a stack directly from the processed template, without first
-   *                reviewing the resulting changes in a change set, you must acknowledge this
+   *                <p>Some templates reference macros. If your stack set template references one or more macros,
+   *                you must update the stack set directly from the processed template, without first
+   *                reviewing the resulting changes in a change set. To update the stack set directly, you must acknowledge this
    *                capability. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using AWS CloudFormation Macros to Perform Custom Processing on
-   *                Templates</a>.</p>
+   *                   Templates</a>.</p>
    *                <important>
-   *                   <p>Stack sets do not currently support macros in stack templates. (This includes
+   *                   <p>Stack sets with service-managed permissions
+   *                   do not currently support the use of macros in templates. (This includes
    *                   the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a>
    *                   transforms, which are macros hosted by AWS CloudFormation.) Even if you specify this
-   *                   capability, if you include a macro in your template the stack set operation will
+   *                   capability for a stack set with service-managed permissions, if you reference a macro in your template the stack set operation will
    *                   fail.</p>
    *                </important>
    *             </li>

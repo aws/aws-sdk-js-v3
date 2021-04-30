@@ -23,7 +23,7 @@ export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyRes
 
 /**
  * <p>Deletes a key-signing key (KSK). Before you can delete a KSK, you must deactivate it. The KSK must be
- * 		deactived before you can delete it regardless of whether the hosted zone is enabled for DNSSEC signing.</p>
+ * 		deactivated before you can delete it regardless of whether the hosted zone is enabled for DNSSEC signing.</p>
  */
 export class DeleteKeySigningKeyCommand extends $Command<
   DeleteKeySigningKeyCommandInput,

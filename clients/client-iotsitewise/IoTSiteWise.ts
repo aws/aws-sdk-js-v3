@@ -157,6 +157,11 @@ import {
   GetAssetPropertyValueHistoryCommandOutput,
 } from "./commands/GetAssetPropertyValueHistoryCommand";
 import {
+  GetInterpolatedAssetPropertyValuesCommand,
+  GetInterpolatedAssetPropertyValuesCommandInput,
+  GetInterpolatedAssetPropertyValuesCommandOutput,
+} from "./commands/GetInterpolatedAssetPropertyValuesCommand";
+import {
   ListAccessPoliciesCommand,
   ListAccessPoliciesCommandInput,
   ListAccessPoliciesCommandOutput,
@@ -1400,6 +1405,51 @@ export class IoTSiteWise extends IoTSiteWiseClient {
     cb?: (err: any, data?: GetAssetPropertyValueHistoryCommandOutput) => void
   ): Promise<GetAssetPropertyValueHistoryCommandOutput> | void {
     const command = new GetAssetPropertyValueHistoryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get interpolated values for an asset property for a specified time interval, during a
+   *       period of time. For example, you can use the this operation to return the interpolated temperature values for a wind turbine every 24 hours
+   *       over a duration of 7 days.</p>
+   *
+   *          <p>To identify an asset property, you must specify one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The <code>assetId</code> and <code>propertyId</code> of an asset property.</p>
+   *             </li>
+   *             <li>
+   *                <p>A <code>propertyAlias</code>, which is a data stream alias (for example,
+   *           <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  public getInterpolatedAssetPropertyValues(
+    args: GetInterpolatedAssetPropertyValuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInterpolatedAssetPropertyValuesCommandOutput>;
+  public getInterpolatedAssetPropertyValues(
+    args: GetInterpolatedAssetPropertyValuesCommandInput,
+    cb: (err: any, data?: GetInterpolatedAssetPropertyValuesCommandOutput) => void
+  ): void;
+  public getInterpolatedAssetPropertyValues(
+    args: GetInterpolatedAssetPropertyValuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInterpolatedAssetPropertyValuesCommandOutput) => void
+  ): void;
+  public getInterpolatedAssetPropertyValues(
+    args: GetInterpolatedAssetPropertyValuesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInterpolatedAssetPropertyValuesCommandOutput) => void),
+    cb?: (err: any, data?: GetInterpolatedAssetPropertyValuesCommandOutput) => void
+  ): Promise<GetInterpolatedAssetPropertyValuesCommandOutput> | void {
+    const command = new GetInterpolatedAssetPropertyValuesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

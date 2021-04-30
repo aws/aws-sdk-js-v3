@@ -69,8 +69,8 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>This section provides documentation for the Amazon CodeGuru Reviewer API operations. CodeGuru Reviewer is a service
- *          that uses program analysis and machine learning to detect potential defects that are difficult for developers to find and recommends
- *          fixes in your Java code.</p>
+ *          that uses program analysis and machine learning to detect potential defects that are difficult for developers to find and recommendations to
+ *          address them in your Java and Python code.</p>
  *
  *          <p>By proactively detecting and providing recommendations for addressing code defects and implementing best practices, CodeGuru Reviewer
  *             improves the overall quality and maintainability of your code base during the code review stage. For more information about CodeGuru Reviewer, see the
@@ -100,7 +100,7 @@ export class CodeGuruReviewer extends CodeGuruReviewerClient {
    *          AWS Region and AWS account where its CodeGuru Reviewer code reviews are configured.</p>
    *
    *          <p>Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar
-   *          Connections to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/reviewer-ug/step-one.html#select-repository-source-provider">Connect to a repository source provider</a> in
+   *          Connections to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html">Associate a repository</a> in
    *          the <i>Amazon CodeGuru Reviewer User Guide.</i>
    *          </p>
    *

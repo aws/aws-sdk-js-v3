@@ -283,8 +283,7 @@ export interface SchemaAttributeType {
    *         <p>Specifies whether the attribute type is developer only. This attribute can only be
    *             modified by an administrator. Users will not be able to modify this attribute using
    *             their access token. For example, <code>DeveloperOnlyAttribute</code> can be modified
-   *             using AdminUpdateUserAttributes but cannot be updated
-   *             using UpdateUserAttributes.</p>
+   *             using AdminUpdateUserAttributes but cannot be updated using UpdateUserAttributes.</p>
    */
   DeveloperOnlyAttribute?: boolean;
 
@@ -733,9 +732,10 @@ export interface AdminCreateUserRequest {
    * <p>An array of name-value pairs that contain user attributes and attribute values to be
    *             set for the user to be created. You can create a user without specifying any attributes
    *             other than <code>Username</code>. However, any attributes that you specify as required
-   *             (when creating a user pool or in the <b>Attributes</b> tab of the console) must be supplied either by you (in your
-   *             call to <code>AdminCreateUser</code>) or by the user (when he or she signs up in
-   *             response to your welcome message).</p>
+   *             (when creating a user pool or in the <b>Attributes</b> tab of
+   *             the console) must be supplied either by you (in your call to
+   *                 <code>AdminCreateUser</code>) or by the user (when he or she signs up in response to
+   *             your welcome message).</p>
    *         <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the
    *             attribute name.</p>
    *         <p>To send a message inviting the user to sign up, you must specify the user's email
@@ -1336,7 +1336,7 @@ export namespace AliasExistsException {
 }
 
 /**
- * <p>Represents the request to disable any user as an administrator.</p>
+ * <p>Represents the request to disable the user as an administrator.</p>
  */
 export interface AdminDisableUserRequest {
   /**
@@ -1651,7 +1651,9 @@ export namespace AdminGetUserResponse {
  *         <p>An endpoint uniquely identifies a mobile device, email address, or phone number that
  *             can receive messages from Amazon Pinpoint analytics.</p>
  *         <note>
- *             <p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the region in which the user pool resides.</p>
+ *             <p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the
+ *                 US East (N. Virginia) us-east-1 Region, regardless of the region in which the user
+ *                 pool resides.</p>
  *         </note>
  */
 export interface AnalyticsMetadataType {
@@ -2076,9 +2078,23 @@ export interface AdminInitiateAuthResponse {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>NEW_PASSWORD_REQUIRED</code>: For users which are required to change
-   *                     their passwords after successful first login. This challenge should be passed
-   *                     with <code>NEW_PASSWORD</code> and any other required attributes.</p>
+   *                   <code>NEW_PASSWORD_REQUIRED</code>: For users who are required to change their
+   *                     passwords after successful first login. This challenge should be passed with
+   *                         <code>NEW_PASSWORD</code> and any other required attributes.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>MFA_SETUP</code>: For users who are required to setup an MFA factor
+   *                     before they can sign-in. The MFA types enabled for the user pool will be listed
+   *                     in the challenge parameters <code>MFA_CAN_SETUP</code> value. </p>
+   *                 <p> To setup software token MFA, use the session returned here from
+   *                         <code>InitiateAuth</code> as an input to
+   *                     <code>AssociateSoftwareToken</code>, and use the session returned by
+   *                         <code>VerifySoftwareToken</code> as an input to
+   *                         <code>RespondToAuthChallenge</code> with challenge name
+   *                         <code>MFA_SETUP</code> to complete sign-in. To setup SMS MFA, users will
+   *                     need help from an administrator to add a phone number to their account and then
+   *                     call <code>InitiateAuth</code> again to restart sign-in.</p>
    *             </li>
    *          </ul>
    */
@@ -2831,6 +2847,12 @@ export interface AdminRespondToAuthChallengeRequest {
    *                     required attributes, <code>USERNAME</code>, <code>SECRET_HASH</code> (if app
    *                     client is configured with client secret). </p>
    *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>MFA_SETUP</code> requires <code>USERNAME</code>, plus you need to use
+   *                     the session value returned by <code>VerifySoftwareToken</code> in the
+   *                         <code>Session</code> parameter.</p>
+   *             </li>
    *          </ul>
    *         <p>The value of the <code>USERNAME</code> attribute must be the user's actual username,
    *             not an alias (such as email address or phone number). To make this easier, the
@@ -2921,10 +2943,9 @@ export interface AdminRespondToAuthChallengeResponse {
 
   /**
    * <p>The session which should be passed both ways in challenge-response calls to the
-   *             service. If the caller needs to
-   *             go through another challenge, they return a session with other challenge parameters.
-   *             This session should be passed as it is to the next <code>RespondToAuthChallenge</code>
-   *             API call.</p>
+   *             service. If the caller needs to go through another challenge, they return a session with
+   *             other challenge parameters. This session should be passed as it is to the next
+   *                 <code>RespondToAuthChallenge</code> API call.</p>
    */
   Session?: string;
 
@@ -3002,15 +3023,18 @@ export namespace SoftwareTokenMFANotFoundException {
 }
 
 /**
- * <p>The type used for enabling SMS MFA at the user level. Phone numbers don't need to be verified
- *             to be used for SMS MFA. If an MFA type is enabled for a user, the user will be prompted for MFA during all sign in attempts,
- *             unless device tracking is turned on and the device has been trusted. If you would like MFA to be applied selectively based on the assessed risk level of sign in attempts,
- *             disable MFA for users and turn on Adaptive Authentication for the user pool.</p>
+ * <p>The type used for enabling SMS MFA at the user level. Phone numbers don't need to be
+ *             verified to be used for SMS MFA. If an MFA type is enabled for a user, the user will be
+ *             prompted for MFA during all sign in attempts, unless device tracking is turned on and
+ *             the device has been trusted. If you would like MFA to be applied selectively based on
+ *             the assessed risk level of sign in attempts, disable MFA for users and turn on Adaptive
+ *             Authentication for the user pool.</p>
  */
 export interface SMSMfaSettingsType {
   /**
-   * <p>Specifies whether SMS text message MFA is enabled. If an MFA type is enabled for a user,
-   *             the user will be prompted for MFA during all sign in attempts, unless device tracking is turned on and the device has been trusted.</p>
+   * <p>Specifies whether SMS text message MFA is enabled. If an MFA type is enabled for a
+   *             user, the user will be prompted for MFA during all sign in attempts, unless device
+   *             tracking is turned on and the device has been trusted.</p>
    */
   Enabled?: boolean;
 
@@ -3027,14 +3051,17 @@ export namespace SMSMfaSettingsType {
 }
 
 /**
- * <p>The type used for enabling software token MFA at the user level. If an MFA type is enabled for a user, the user will be prompted for MFA during all sign in attempts, unless device tracking is turned on
- *             and the device has been trusted. If you would like MFA to be applied selectively based on the assessed risk level of sign in attempts,
+ * <p>The type used for enabling software token MFA at the user level. If an MFA type is
+ *             enabled for a user, the user will be prompted for MFA during all sign in attempts,
+ *             unless device tracking is turned on and the device has been trusted. If you would like
+ *             MFA to be applied selectively based on the assessed risk level of sign in attempts,
  *             disable MFA for users and turn on Adaptive Authentication for the user pool.</p>
  */
 export interface SoftwareTokenMfaSettingsType {
   /**
-   * <p>Specifies whether software token MFA is enabled. If an MFA type is enabled for a user, the user will be prompted for MFA during
-   *             all sign in attempts, unless device tracking is turned on and the device has been trusted.</p>
+   * <p>Specifies whether software token MFA is enabled. If an MFA type is enabled for a user,
+   *             the user will be prompted for MFA during all sign in attempts, unless device tracking is
+   *             turned on and the device has been trusted.</p>
    */
   Enabled?: boolean;
 
@@ -3383,10 +3410,10 @@ export enum AliasAttributeType {
  * <p>The Amazon Pinpoint analytics configuration for collecting metrics for a user
  *             pool.</p>
  *         <note>
- *             <p>In regions where Pinpoint is not available, Cognito User Pools only supports sending events to Amazon Pinpoint projects in us-east-1.
- *                 In regions where Pinpoint is available, Cognito User Pools will
- *                 support sending events to Amazon Pinpoint projects within that same region.
- *             </p>
+ *             <p>In regions where Pinpoint is not available, Cognito User Pools only supports
+ *                 sending events to Amazon Pinpoint projects in us-east-1. In regions where Pinpoint
+ *                 is available, Cognito User Pools will support sending events to Amazon Pinpoint
+ *                 projects within that same region. </p>
  *         </note>
  */
 export interface AnalyticsConfigurationType {
@@ -3396,9 +3423,9 @@ export interface AnalyticsConfigurationType {
   ApplicationId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon Pinpoint
-   *         project for Pinpoint integration with the chosen User Pool Client.
-   *         Amazon Cognito publishes events to the pinpoint project declared by the app ARN.</p>
+   * <p>The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon
+   *             Pinpoint project for Pinpoint integration with the chosen User Pool Client. Amazon
+   *             Cognito publishes events to the pinpoint project declared by the app ARN.</p>
    */
   ApplicationArn?: string;
 
@@ -3943,22 +3970,22 @@ export interface CreateIdentityProviderRequest {
    *                </ul>
    *             </li>
    *             <li>
-   *                     <p>For Facebook:</p>
-   *                     <ul>
+   *                 <p>For Facebook:</p>
+   *                 <ul>
    *                   <li>
-   *                             <p>client_id</p>
-   *                         </li>
+   *                         <p>client_id</p>
+   *                     </li>
    *                   <li>
-   *                             <p>client_secret</p>
-   *                         </li>
+   *                         <p>client_secret</p>
+   *                     </li>
    *                   <li>
-   *                             <p>authorize_scopes</p>
-   *                         </li>
+   *                         <p>authorize_scopes</p>
+   *                     </li>
    *                   <li>
-   *                             <p>api_version</p>
-   *                         </li>
+   *                         <p>api_version</p>
+   *                     </li>
    *                </ul>
-   *                 </li>
+   *             </li>
    *             <li>
    *                 <p>For Sign in with Apple:</p>
    *                 <ul>
@@ -4545,10 +4572,10 @@ export enum EmailSendingAccountType {
 
 /**
  * <p>The email configuration type. </p>
- *          <note>
- *             <p>Amazon Cognito has specific regions for use with Amazon SES. For more information on the supported regions, see
- *             <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html">Email Settings for Amazon Cognito User Pools</a>.</p>
- *          </note>
+ *         <note>
+ *             <p>Amazon Cognito has specific regions for use with Amazon SES. For more information
+ *                 on the supported regions, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html">Email Settings for Amazon Cognito User Pools</a>.</p>
+ *         </note>
  */
 export interface EmailConfigurationType {
   /**
@@ -4593,40 +4620,40 @@ export interface EmailConfigurationType {
    *                     <p>The default FROM address is no-reply@verificationemail.com. To customize
    *                         the FROM address, provide the ARN of an Amazon SES verified email address
    *                         for the <code>SourceArn</code> parameter.</p>
-   *                     <p>
-   *                         If EmailSendingAccount is COGNITO_DEFAULT, the following parameters aren't allowed:</p>
+   *                     <p> If EmailSendingAccount is COGNITO_DEFAULT, the following parameters
+   *                         aren't allowed:</p>
    *
-   *                         <ul>
+   *                     <ul>
    *                   <li>
-   *                      <p>EmailVerificationMessage</p>
-   *                   </li>
+   *                             <p>EmailVerificationMessage</p>
+   *                         </li>
    *                   <li>
-   *                      <p>EmailVerificationSubject</p>
-   *                   </li>
+   *                             <p>EmailVerificationSubject</p>
+   *                         </li>
    *                   <li>
-   *                      <p>InviteMessageTemplate.EmailMessage</p>
-   *                   </li>
+   *                             <p>InviteMessageTemplate.EmailMessage</p>
+   *                         </li>
    *                   <li>
-   *                      <p>InviteMessageTemplate.EmailSubject</p>
-   *                   </li>
+   *                             <p>InviteMessageTemplate.EmailSubject</p>
+   *                         </li>
    *                   <li>
-   *                      <p>VerificationMessageTemplate.EmailMessage</p>
-   *                   </li>
+   *                             <p>VerificationMessageTemplate.EmailMessage</p>
+   *                         </li>
    *                   <li>
-   *                      <p>VerificationMessageTemplate.EmailMessageByLink</p>
-   *                   </li>
+   *                             <p>VerificationMessageTemplate.EmailMessageByLink</p>
+   *                         </li>
    *                   <li>
-   *                      <p>VerificationMessageTemplate.EmailSubject,</p>
-   *                   </li>
+   *                             <p>VerificationMessageTemplate.EmailSubject,</p>
+   *                         </li>
    *                   <li>
-   *                      <p>VerificationMessageTemplate.EmailSubjectByLink</p>
-   *                   </li>
+   *                             <p>VerificationMessageTemplate.EmailSubjectByLink</p>
+   *                         </li>
    *                </ul>
    *
    *
    *                     <note>
-   *                   <p>DEVELOPER EmailSendingAccount is required.</p>
-   *                </note>
+   *                         <p>DEVELOPER EmailSendingAccount is required.</p>
+   *                     </note>
    *                 </dd>
    *             <dt>DEVELOPER</dt>
    *             <dd>
@@ -4697,13 +4724,15 @@ export enum CustomEmailSenderLambdaVersionType {
  */
 export interface CustomEmailLambdaVersionConfigType {
   /**
-   * <p>The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function.
-   *             The only supported value is <code>V1_0</code>.</p>
+   * <p>The Lambda version represents the signature of the "request" attribute in the "event"
+   *             information Amazon Cognito passes to your custom email Lambda function. The only
+   *             supported value is <code>V1_0</code>.</p>
    */
   LambdaVersion: CustomEmailSenderLambdaVersionType | string | undefined;
 
   /**
-   * <p>The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.</p>
+   * <p>The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to
+   *             send email notifications to users.</p>
    */
   LambdaArn: string | undefined;
 }
@@ -4723,13 +4752,15 @@ export enum CustomSMSSenderLambdaVersionType {
  */
 export interface CustomSMSLambdaVersionConfigType {
   /**
-   * <p>The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function.
-   *             The only supported value is <code>V1_0</code>.</p>
+   * <p>The Lambda version represents the signature of the "request" attribute in the "event"
+   *             information Amazon Cognito passes to your custom SMS Lambda function. The only supported
+   *             value is <code>V1_0</code>.</p>
    */
   LambdaVersion: CustomSMSSenderLambdaVersionType | string | undefined;
 
   /**
-   * <p>The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.</p>
+   * <p>The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to
+   *             send SMS notifications to users.</p>
    */
   LambdaArn: string | undefined;
 }
@@ -4805,9 +4836,9 @@ export interface LambdaConfigType {
   CustomEmailSender?: CustomEmailLambdaVersionConfigType;
 
   /**
-   * <p>The Amazon Resource Name of Key Management Service <a href="/kms/latest/developerguide/concepts.html#master_keys">Customer master keys</a>
-   *             . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to
-   *             <code>CustomEmailSender</code> and <code>CustomSMSSender</code>.</p>
+   * <p>The Amazon Resource Name of Key Management Service <a href="/kms/latest/developerguide/concepts.html#master_keys">Customer master
+   *                 keys</a> . Amazon Cognito uses the key to encrypt codes and temporary passwords
+   *             sent to <code>CustomEmailSender</code> and <code>CustomSMSSender</code>.</p>
    */
   KMSKeyID?: string;
 }
@@ -4903,8 +4934,7 @@ export interface SmsConfigurationType {
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller.
    *             This is the ARN of the IAM role in your AWS account which Cognito will use to send SMS
-   *             messages. SMS messages are subject to a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html">spending limit</a>.
-   *         </p>
+   *             messages. SMS messages are subject to a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html">spending limit</a>. </p>
    */
   SnsCallerArn: string | undefined;
 
@@ -4916,6 +4946,10 @@ export interface SmsConfigurationType {
    *                 <code>ExternalID</code>. If you use the Cognito Management Console to create a role
    *             for SMS MFA, Cognito will create a role with the required permissions and a trust policy
    *             that demonstrates use of the <code>ExternalId</code>.</p>
+   *         <p>For more information about the <code>ExternalId</code> of a role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html">How to use an
+   *                 external ID when granting access to your AWS resources to a third
+   *             party</a>
+   *          </p>
    */
   ExternalId?: string;
 }
@@ -5002,29 +5036,25 @@ export interface VerificationMessageTemplateType {
   SmsMessage?: string;
 
   /**
-   * <p>The email message template. EmailMessage is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">
-   *             EmailSendingAccount</a> is DEVELOPER.
-   *          </p>
+   * <p>The email message template. EmailMessage is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is DEVELOPER. </p>
    */
   EmailMessage?: string;
 
   /**
-   * <p>The subject line for the email message template. EmailSubject is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a>
-   *             is DEVELOPER.
-   *           </p>
+   * <p>The subject line for the email message template. EmailSubject is allowed only if
+   *                 <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
    */
   EmailSubject?: string;
 
   /**
-   * <p>The email message template for sending a confirmation link to the user. EmailMessageByLink is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">
-   *             EmailSendingAccount</a> is DEVELOPER.</p>
+   * <p>The email message template for sending a confirmation link to the user.
+   *             EmailMessageByLink is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is DEVELOPER.</p>
    */
   EmailMessageByLink?: string;
 
   /**
    * <p>The subject line for the email message template for sending a confirmation link to the
-   *             user. EmailSubjectByLink is allowed only <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">
-   *                 EmailSendingAccount</a> is DEVELOPER.</p>
+   *             user. EmailSubjectByLink is allowed only <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is DEVELOPER.</p>
    */
   EmailSubjectByLink?: string;
 
@@ -5092,12 +5122,14 @@ export interface CreateUserPoolRequest {
   SmsVerificationMessage?: string;
 
   /**
-   * <p>A string representing the email verification message. EmailVerificationMessage is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
+   * <p>A string representing the email verification message. EmailVerificationMessage is
+   *             allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
    */
   EmailVerificationMessage?: string;
 
   /**
-   * <p>A string representing the email verification subject.  EmailVerificationSubject is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
+   * <p>A string representing the email verification subject. EmailVerificationSubject is
+   *             allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
    */
   EmailVerificationSubject?: string;
 
@@ -5444,21 +5476,25 @@ export enum TimeUnitsType {
 }
 
 /**
- * <p>The data type for TokenValidityUnits that specifics the time measurements for token validity.</p>
+ * <p>The data type for TokenValidityUnits that specifics the time measurements for token
+ *             validity.</p>
  */
 export interface TokenValidityUnitsType {
   /**
-   * <p> A time unit in “seconds”, “minutes”, “hours” or “days” for the value in AccessTokenValidity, defaults to hours.</p>
+   * <p> A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
+   *             AccessTokenValidity, defaults to hours.</p>
    */
   AccessToken?: TimeUnitsType | string;
 
   /**
-   * <p>A time unit in “seconds”, “minutes”, “hours” or “days” for the value in IdTokenValidity, defaults to hours.</p>
+   * <p>A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
+   *             IdTokenValidity, defaults to hours.</p>
    */
   IdToken?: TimeUnitsType | string;
 
   /**
-   * <p>A time unit in “seconds”, “minutes”, “hours” or “days” for the value in RefreshTokenValidity, defaults to days.</p>
+   * <p>A time unit in “seconds”, “minutes”, “hours” or “days” for the value in
+   *             RefreshTokenValidity, defaults to days.</p>
    */
   RefreshToken?: TimeUnitsType | string;
 }
@@ -5496,19 +5532,22 @@ export interface CreateUserPoolClientRequest {
   RefreshTokenValidity?: number;
 
   /**
-   * <p>The time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if
-   *             you have entered a value in TokenValidityUnits.</p>
+   * <p>The time limit, between 5 minutes and 1 day, after which the access token is no longer
+   *             valid and cannot be used. This value will be overridden if you have entered a value in
+   *             TokenValidityUnits.</p>
    */
   AccessTokenValidity?: number;
 
   /**
-   * <p>The time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if
-   *             you have entered a value in TokenValidityUnits.</p>
+   * <p>The time limit, between 5 minutes and 1 day, after which the ID token is no longer
+   *             valid and cannot be used. This value will be overridden if you have entered a value in
+   *             TokenValidityUnits.</p>
    */
   IdTokenValidity?: number;
 
   /**
-   * <p>The units in which the validity times are represented in. Default for RefreshToken is days, and default for ID and access tokens are hours.</p>
+   * <p>The units in which the validity times are represented in. Default for RefreshToken is
+   *             days, and default for ID and access tokens are hours.</p>
    */
   TokenValidityUnits?: TokenValidityUnitsType;
 
@@ -5655,10 +5694,10 @@ export interface CreateUserPoolClientRequest {
    * <p>The Amazon Pinpoint analytics configuration for collecting metrics for this user
    *             pool.</p>
    *         <note>
-   *             <p>In regions where Pinpoint is not available, Cognito User Pools only supports sending events to Amazon Pinpoint projects in us-east-1.
-   *                 In regions where Pinpoint is available, Cognito User Pools will
-   *                 support sending events to Amazon Pinpoint projects within that same region.
-   *             </p>
+   *             <p>In regions where Pinpoint is not available, Cognito User Pools only supports
+   *                 sending events to Amazon Pinpoint projects in us-east-1. In regions where Pinpoint
+   *                 is available, Cognito User Pools will support sending events to Amazon Pinpoint
+   *                 projects within that same region. </p>
    *         </note>
    */
   AnalyticsConfiguration?: AnalyticsConfigurationType;
@@ -5742,17 +5781,20 @@ export interface UserPoolClientType {
   RefreshTokenValidity?: number;
 
   /**
-   * <p>The time limit, specified by tokenValidityUnits, defaulting to hours, after which the access token is no longer valid and cannot be used.</p>
+   * <p>The time limit, specified by tokenValidityUnits, defaulting to hours, after which the
+   *             access token is no longer valid and cannot be used.</p>
    */
   AccessTokenValidity?: number;
 
   /**
-   * <p>The time limit, specified by tokenValidityUnits, defaulting to hours, after which the refresh token is no longer valid and cannot be used.</p>
+   * <p>The time limit, specified by tokenValidityUnits, defaulting to hours, after which the
+   *             refresh token is no longer valid and cannot be used.</p>
    */
   IdTokenValidity?: number;
 
   /**
-   * <p>The time units used to specify the token validity times of their respective token.</p>
+   * <p>The time units used to specify the token validity times of their respective
+   *             token.</p>
    */
   TokenValidityUnits?: TokenValidityUnitsType;
 
@@ -5890,7 +5932,9 @@ export interface UserPoolClientType {
   /**
    * <p>The Amazon Pinpoint analytics configuration for the user pool client.</p>
    *         <note>
-   *             <p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the region in which the user pool resides.</p>
+   *             <p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the
+   *                 US East (N. Virginia) us-east-1 Region, regardless of the region in which the user
+   *                 pool resides.</p>
    *         </note>
    */
   AnalyticsConfiguration?: AnalyticsConfigurationType;
@@ -7381,7 +7425,9 @@ export interface InitiateAuthRequest {
    *             <li>
    *                 <p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required),
    *                         <code>SECRET_HASH</code> (if app client is configured with client secret),
-   *                     <code>DEVICE_KEY</code>. To start the authentication flow with password verification, include <code>ChallengeName: SRP_A</code> and <code>SRP_A: (The SRP_A Value)</code>.</p>
+   *                         <code>DEVICE_KEY</code>. To start the authentication flow with password
+   *                     verification, include <code>ChallengeName: SRP_A</code> and <code>SRP_A: (The
+   *                         SRP_A Value)</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -7532,9 +7578,23 @@ export interface InitiateAuthResponse {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>NEW_PASSWORD_REQUIRED</code>: For users which are required to change
-   *                     their passwords after successful first login. This challenge should be passed
-   *                     with <code>NEW_PASSWORD</code> and any other required attributes.</p>
+   *                   <code>NEW_PASSWORD_REQUIRED</code>: For users who are required to change their
+   *                     passwords after successful first login. This challenge should be passed with
+   *                         <code>NEW_PASSWORD</code> and any other required attributes.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>MFA_SETUP</code>: For users who are required to setup an MFA factor
+   *                     before they can sign-in. The MFA types enabled for the user pool will be listed
+   *                     in the challenge parameters <code>MFA_CAN_SETUP</code> value. </p>
+   *                 <p> To setup software token MFA, use the session returned here from
+   *                         <code>InitiateAuth</code> as an input to
+   *                     <code>AssociateSoftwareToken</code>, and use the session returned by
+   *                         <code>VerifySoftwareToken</code> as an input to
+   *                         <code>RespondToAuthChallenge</code> with challenge name
+   *                         <code>MFA_SETUP</code> to complete sign-in. To setup SMS MFA, users will
+   *                     need help from an administrator to add a phone number to their account and then
+   *                     call <code>InitiateAuth</code> again to restart sign-in.</p>
    *             </li>
    *          </ul>
    */
@@ -7542,10 +7602,9 @@ export interface InitiateAuthResponse {
 
   /**
    * <p>The session which should be passed both ways in challenge-response calls to the
-   *             service. If the caller needs to
-   *             go through another challenge, they return a session with other challenge parameters.
-   *             This session should be passed as it is to the next <code>RespondToAuthChallenge</code>
-   *             API call.</p>
+   *             service. If the caller needs to go through another challenge, they return a session with
+   *             other challenge parameters. This session should be passed as it is to the next
+   *                 <code>RespondToAuthChallenge</code> API call.</p>
    */
   Session?: string;
 
@@ -8375,6 +8434,12 @@ export interface RespondToAuthChallengeRequest {
    *                   <code>DEVICE_PASSWORD_VERIFIER</code> requires everything that
    *                         <code>PASSWORD_VERIFIER</code> requires plus <code>DEVICE_KEY</code>.</p>
    *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>MFA_SETUP</code> requires <code>USERNAME</code>, plus you need to use
+   *                     the session value returned by <code>VerifySoftwareToken</code> in the
+   *                         <code>Session</code> parameter.</p>
+   *             </li>
    *          </ul>
    */
   ChallengeResponses?: { [key: string]: string };
@@ -8449,10 +8514,9 @@ export interface RespondToAuthChallengeResponse {
 
   /**
    * <p>The session which should be passed both ways in challenge-response calls to the
-   *             service. If the caller needs to
-   *             go through another challenge, they return a session with other challenge parameters.
-   *             This session should be passed as it is to the next <code>RespondToAuthChallenge</code>
-   *             API call.</p>
+   *             service. If the caller needs to go through another challenge, they return a session with
+   *             other challenge parameters. This session should be passed as it is to the next
+   *                 <code>RespondToAuthChallenge</code> API call.</p>
    */
   Session?: string;
 
@@ -8624,7 +8688,10 @@ export interface SetUserPoolMfaConfigRequest {
   SoftwareTokenMfaConfiguration?: SoftwareTokenMfaConfigType;
 
   /**
-   * <p>The MFA configuration. Valid values include:</p>
+   * <p>The MFA configuration. Users who don't have an MFA factor set up won't be able to
+   *             sign-in if you set the MfaConfiguration value to ‘ON’. See <a href="cognito/latest/developerguide/user-pool-settings-mfa.html">Adding Multi-Factor
+   *                 Authentication (MFA) to a User Pool</a> to learn more. Valid values
+   *             include:</p>
    *         <ul>
    *             <li>
    *                 <p>

@@ -459,7 +459,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *             identity and access policies.</p>
  *         <p>This API reference provides information about user pools in Amazon Cognito User
  *             Pools.</p>
- *         <p>For more information, see the Amazon Cognito Documentation.</p>
+ *         <p>For more information, see the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html">Amazon Cognito Documentation</a>.</p>
  */
 export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   /**
@@ -566,8 +566,8 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    *         <p>If <code>MessageAction</code> is not set, the default is to send a welcome message via
    *             email or phone (SMS).</p>
    *         <p>This message is based on a template that you configured in your call to create or
-   *             update a user pool. This template includes your custom sign-up instructions and placeholders
-   *             for user name and temporary password.</p>
+   *             update a user pool. This template includes your custom sign-up instructions and
+   *             placeholders for user name and temporary password.</p>
    *         <p>Alternatively, you can call <code>AdminCreateUser</code> with “SUPPRESS” for the
    *                 <code>MessageAction</code> parameter, and Amazon Cognito will not send any email. </p>
    *         <p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until
@@ -678,7 +678,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    *             disable is a linked external IdP user, any link between that user and an existing user
    *             is removed. The next time the external user (no longer attached to the previously linked
    *                 <code>DestinationUser</code>) signs in, they must create a new user account. See
-   *             <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html">AdminLinkProviderForUser</a>.</p>
+   *                 <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html">AdminLinkProviderForUser</a>.</p>
    *         <p>This action is enabled only for admin access and requires developer
    *             credentials.</p>
    *         <p>The <code>ProviderName</code> must match the value specified when creating an IdP for
@@ -693,7 +693,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    *         <p>For de-linking a SAML identity, there are two scenarios. If the linked identity has
    *             not yet been used to sign-in, the <code>ProviderAttributeName</code> and
    *                 <code>ProviderAttributeValue</code> must be the same values that were used for the
-   *                 <code>SourceUser</code> when the identities were originally linked using  <code>
+   *                 <code>SourceUser</code> when the identities were originally linked using <code>
    *                 AdminLinkProviderForUser</code> call. (If the linking was done with
    *                 <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>, the same
    *             applies here). However, if the user has already signed in, the
@@ -938,7 +938,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    *             is used, the user signs in as the existing user account. </p>
    *         <note>
    *             <p>The maximum number of federated identities linked to a user is 5.</p>
-   *          </note>
+   *         </note>
    *         <important>
    *             <p>Because this API allows a user with an external federated identity to sign in as
    *                 an existing user in the user pool, it is critical that it only be used with external
@@ -1821,7 +1821,7 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
   }
 
   /**
-   * <p>Deletes a group. Currently only groups with no members can be deleted.</p>
+   * <p>Deletes a group.</p>
    *         <p>Calling this action requires developer credentials.</p>
    */
   public deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
@@ -2323,10 +2323,11 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    * <p>Calling this API causes a message to be sent to the end user with a confirmation code
    *             that is required to change the user's password. For the <code>Username</code> parameter,
    *             you can use the username or user alias. The method used to send the confirmation code is
-   *             sent according to the specified AccountRecoverySetting. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-recover-a-user-account.html">Recovering User Accounts</a> in the <i>Amazon Cognito Developer Guide</i>.
-   *             If neither a verified phone number nor a verified email exists, an
+   *             sent according to the specified AccountRecoverySetting. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-recover-a-user-account.html">Recovering
+   *                 User Accounts</a> in the <i>Amazon Cognito Developer Guide</i>. If
+   *             neither a verified phone number nor a verified email exists, an
    *                 <code>InvalidParameterException</code> is thrown. To use the confirmation code for
-   *         resetting the password, call <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html">ConfirmForgotPassword</a>.</p>
+   *             resetting the password, call <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html">ConfirmForgotPassword</a>.</p>
    */
   public forgotPassword(
     args: ForgotPasswordCommandInput,
@@ -3148,9 +3149,11 @@ export class CognitoIdentityProvider extends CognitoIdentityProviderClient {
    *             MFA factors are enabled and if any are preferred. Only one factor can be set as
    *             preferred. The preferred MFA factor will be used to authenticate a user if multiple
    *             factors are enabled. If multiple options are enabled and no preference is set, a
-   *             challenge to choose an MFA option will be returned during sign in. If an MFA type is enabled for a user, the user will be prompted for MFA during all sign in attempts,
-   *             unless device tracking is turned on and the device has been trusted.
-   *             If you would like MFA to be applied selectively based on the assessed risk level of sign in attempts, disable MFA for users and turn on Adaptive Authentication for the user pool.</p>
+   *             challenge to choose an MFA option will be returned during sign in. If an MFA type is
+   *             enabled for a user, the user will be prompted for MFA during all sign in attempts,
+   *             unless device tracking is turned on and the device has been trusted. If you would like
+   *             MFA to be applied selectively based on the assessed risk level of sign in attempts,
+   *             disable MFA for users and turn on Adaptive Authentication for the user pool.</p>
    */
   public setUserMFAPreference(
     args: SetUserMFAPreferenceCommandInput,

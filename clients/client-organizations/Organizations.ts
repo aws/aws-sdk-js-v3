@@ -241,7 +241,77 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
- * <fullname>AWS Organizations</fullname>
+ * <p>AWS Organizations is a web service that enables you to consolidate your multiple AWS accounts
+ *             into an <i>organization</i> and centrally manage your accounts and their
+ *             resources.</p>
+ *         <p>This guide provides descriptions of the Organizations operations. For more information about
+ *             using this service, see the <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">AWS Organizations User Guide</a>.</p>
+ *         <p>
+ *             <b>Support and feedback for AWS Organizations</b>
+ *          </p>
+ *         <p>We welcome your feedback. Send your comments to <a href="mailto:feedback-awsorganizations@amazon.com">feedback-awsorganizations@amazon.com</a> or post your feedback and questions in
+ *             the <a href="http://forums.aws.amazon.com/forum.jspa?forumID=219">AWS Organizations support forum</a>. For
+ *             more information about the AWS support forums, see <a href="http://forums.aws.amazon.com/help.jspa">Forums Help</a>.</p>
+ *         <p>
+ *             <b>Endpoint to call When using the AWS CLI or the AWS
+ *                 SDK</b>
+ *          </p>
+ *         <p>For the current release of Organizations, specify the <code>us-east-1</code> region for all
+ *             AWS API and AWS CLI calls made from the commercial AWS Regions outside of China. If
+ *             calling from one of the AWS Regions in China, then specify
+ *             <code>cn-northwest-1</code>. You can do this in the AWS CLI by using these parameters and
+ *             commands:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>Use the following parameter with each command to specify both the endpoint and
+ *                     its region:</p>
+ *                 <p>
+ *                   <code>--endpoint-url https://organizations.us-east-1.amazonaws.com</code>
+ *                     <i>(from commercial AWS Regions outside of China)</i>
+ *                </p>
+ *                 <p>or</p>
+ *                 <p>
+ *                   <code>--endpoint-url
+ *                         https://organizations.cn-northwest-1.amazonaws.com.cn</code>
+ *                     <i>(from AWS Regions in China)</i>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                 <p>Use the default endpoint, but configure your default region with this
+ *                     command:</p>
+ *                 <p>
+ *                   <code>aws configure set default.region us-east-1</code>
+ *                     <i>(from commercial AWS Regions outside of China)</i>
+ *                </p>
+ *                 <p>or</p>
+ *                 <p>
+ *                   <code>aws configure set default.region cn-northwest-1</code>
+ *                     <i>(from AWS Regions in China)</i>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                 <p>Use the following parameter with each command to specify the endpoint:</p>
+ *                 <p>
+ *                   <code>--region us-east-1</code>
+ *                     <i>(from commercial AWS Regions outside of China)</i>
+ *                </p>
+ *                 <p>or</p>
+ *                 <p>
+ *                   <code>--region cn-northwest-1</code>
+ *                     <i>(from AWS Regions in China)</i>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *         <p>
+ *             <b>Recording API Requests</b>
+ *         </p>
+ *         <p>AWS Organizations supports AWS CloudTrail, a service that records AWS API calls for your AWS
+ *             account and delivers log files to an Amazon S3 bucket. By using information collected by
+ *             AWS CloudTrail, you can determine which requests the Organizations service received, who made the request
+ *             and when, and so on. For more about AWS Organizations and its support for AWS CloudTrail, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_incident-response.html#orgs_cloudtrail-integration">Logging
+ *                 AWS Organizations Events with AWS CloudTrail</a> in the <i>AWS Organizations User Guide</i>.
+ *             To learn more about AWS CloudTrail, including how to turn it on and find your log files, see the
+ *                 <a href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">AWS CloudTrail User Guide</a>.</p>
  */
 export class Organizations extends OrganizationsClient {
   /**
@@ -331,7 +401,7 @@ export class Organizations extends OrganizationsClient {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>This operation can be called only from the organization's management account.</p>
+   *         <p>This operation can be called only from the organization's management account.</p>
    */
   public attachPolicy(
     args: AttachPolicyCommandInput,
@@ -410,8 +480,8 @@ export class Organizations extends OrganizationsClient {
    *             </li>
    *             <li>
    *                 <p>Check the AWS CloudTrail log for the <code>CreateAccountResult</code> event. For
-   *                     information on using AWS CloudTrail with AWS Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html">Monitoring the Activity in Your
-   *                         Organization</a> in the <i>AWS Organizations User Guide.</i>
+   *                     information on using AWS CloudTrail with AWS Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html#orgs_cloudtrail-integration">Logging and monitoring in AWS Organizations</a> in the
+   *                         <i>AWS Organizations User Guide.</i>
    *                </p>
    *             </li>
    *          </ul>
@@ -1287,8 +1357,7 @@ export class Organizations extends OrganizationsClient {
    *                 required clean up of resources when disabling trusted access. </p>
    *             <p>For information about how to disable trusted service access to your organization
    *                 using the trusted service, see the <b>Learn more</b> link
-   *                 under the <b>Supports Trusted Access</b> column at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">AWS
-   *                     services that you can use with AWS Organizations</a>. on this page.</p>
+   *                 under the <b>Supports Trusted Access</b> column at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">AWS services that you can use with AWS Organizations</a>. on this page.</p>
    *             <p>If you disable access by using this command, it causes the following actions to
    *                 occur:</p>
    *             <ul>
@@ -1647,9 +1716,10 @@ export class Organizations extends OrganizationsClient {
    *                 </li>
    *                <li>
    *                     <p>The account that you want to leave must not be a delegated administrator
-   *                         account for any AWS service enabled for your organization. If the account is
-   *                         a delegated administrator, you must first change the delegated administrator
-   *                         account to another account that is remaining in the organization.</p>
+   *                         account for any AWS service enabled for your organization. If the account
+   *                         is a delegated administrator, you must first change the delegated
+   *                         administrator account to another account that is remaining in the
+   *                         organization.</p>
    *                 </li>
    *                <li>
    *                     <p>You can leave an organization only after you enable IAM user access to
@@ -1661,6 +1731,11 @@ export class Organizations extends OrganizationsClient {
    *                     <p>After the account leaves the organization, all tags that were attached to
    *                         the account object in the organization are deleted. AWS accounts outside
    *                         of an organization do not support tags.</p>
+   *                 </li>
+   *                <li>
+   *                     <p>A newly created account has a waiting period before it can be removed from
+   *                         its organization. If you get an error that indicates that a wait period is
+   *                         required, then try again in a few days.</p>
    *                 </li>
    *             </ul>
    *         </important>
@@ -1697,7 +1772,7 @@ export class Organizations extends OrganizationsClient {
   /**
    * <p>Lists all the accounts in the organization. To request only the accounts in a
    *             specified root or organizational unit (OU), use the <a>ListAccountsForParent</a> operation instead.</p>
-   *          <note>
+   *         <note>
    *             <p>Always check the <code>NextToken</code> response parameter
    * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
    * occasionally return an empty set of results even when there are more results available. The
@@ -1705,7 +1780,7 @@ export class Organizations extends OrganizationsClient {
    *                <i>only</i>
    * when there are no more results to display.</p>
    *          </note>
-   *             <p>This operation can be called only from the organization's
+   *         <p>This operation can be called only from the organization's
    * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listAccounts(
@@ -1740,7 +1815,7 @@ export class Organizations extends OrganizationsClient {
    *             that aren't in any OU. If you specify an OU, you get a list of all the accounts in only
    *             that OU and not in any child OUs. To get a list of all accounts in the organization, use
    *             the <a>ListAccounts</a> operation.</p>
-   *          <note>
+   *         <note>
    *             <p>Always check the <code>NextToken</code> response parameter
    * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
    * occasionally return an empty set of results even when there are more results available. The
@@ -1748,7 +1823,7 @@ export class Organizations extends OrganizationsClient {
    *                <i>only</i>
    * when there are no more results to display.</p>
    *          </note>
-   *             <p>This operation can be called only from the organization's
+   *         <p>This operation can be called only from the organization's
    * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listAccountsForParent(
@@ -1832,7 +1907,7 @@ export class Organizations extends OrganizationsClient {
    *                <i>only</i>
    * when there are no more results to display.</p>
    *          </note>
-   *          <p>This operation can be called only from the organization's
+   *         <p>This operation can be called only from the organization's
    * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listChildren(
@@ -1864,7 +1939,7 @@ export class Organizations extends OrganizationsClient {
   /**
    * <p>Lists the account creation requests that match the specified status that is currently
    *             being tracked for the organization.</p>
-   *          <note>
+   *         <note>
    *             <p>Always check the <code>NextToken</code> response parameter
    * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
    * occasionally return an empty set of results even when there are more results available. The
@@ -1872,7 +1947,7 @@ export class Organizations extends OrganizationsClient {
    *                <i>only</i>
    * when there are no more results to display.</p>
    *          </note>
-   *             <p>This operation can be called only from the organization's
+   *         <p>This operation can be called only from the organization's
    * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listCreateAccountStatus(
@@ -1988,7 +2063,7 @@ export class Organizations extends OrganizationsClient {
    *                <i>only</i>
    * when there are no more results to display.</p>
    *          </note>
-   *          <p>This operation can be called from any account in the organization.</p>
+   *         <p>This operation can be called from any account in the organization.</p>
    */
   public listHandshakesForAccount(
     args: ListHandshakesForAccountCommandInput,
@@ -2035,7 +2110,7 @@ export class Organizations extends OrganizationsClient {
    *                <i>only</i>
    * when there are no more results to display.</p>
    *          </note>
-   *          <p>This operation can be called only from the organization's
+   *         <p>This operation can be called only from the organization's
    * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listHandshakesForOrganization(
@@ -2077,7 +2152,7 @@ export class Organizations extends OrganizationsClient {
    *                <i>only</i>
    * when there are no more results to display.</p>
    *          </note>
-   *          <p>This operation can be called only from the organization's
+   *         <p>This operation can be called only from the organization's
    * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listOrganizationalUnitsForParent(
@@ -2121,7 +2196,7 @@ export class Organizations extends OrganizationsClient {
    *                <i>only</i>
    * when there are no more results to display.</p>
    *          </note>
-   *          <p>This operation can be called only from the organization's
+   *         <p>This operation can be called only from the organization's
    * management account or by a member account that is a delegated administrator for an AWS service.</p>
    *         <note>
    *             <p>In the current release, a child can have only a single parent.</p>
@@ -2160,7 +2235,7 @@ export class Organizations extends OrganizationsClient {
    *                <i>only</i>
    * when there are no more results to display.</p>
    *          </note>
-   *          <p>This operation can be called only from the organization's
+   *         <p>This operation can be called only from the organization's
    * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listPolicies(
@@ -2193,7 +2268,7 @@ export class Organizations extends OrganizationsClient {
    * <p>Lists the policies that are directly attached to the specified target root,
    *             organizational unit (OU), or account. You must specify the policy type that you want
    *             included in the returned list.</p>
-   *          <note>
+   *         <note>
    *             <p>Always check the <code>NextToken</code> response parameter
    * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
    * occasionally return an empty set of results even when there are more results available. The
@@ -2201,7 +2276,7 @@ export class Organizations extends OrganizationsClient {
    *                <i>only</i>
    * when there are no more results to display.</p>
    *          </note>
-   *             <p>This operation can be called only from the organization's
+   *         <p>This operation can be called only from the organization's
    * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listPoliciesForTarget(
@@ -2243,7 +2318,7 @@ export class Organizations extends OrganizationsClient {
    *                <i>only</i>
    * when there are no more results to display.</p>
    *          </note>
-   *          <p>This operation can be called only from the organization's
+   *         <p>This operation can be called only from the organization's
    * management account or by a member account that is a delegated administrator for an AWS service.</p>
    *         <note>
    *             <p>Policy types can be enabled and disabled in roots. This is distinct from whether
@@ -2328,7 +2403,7 @@ export class Organizations extends OrganizationsClient {
   /**
    * <p>Lists all the roots, organizational units (OUs), and accounts that the specified
    *             policy is attached to.</p>
-   *          <note>
+   *         <note>
    *             <p>Always check the <code>NextToken</code> response parameter
    * for a <code>null</code> value when calling a <code>List*</code> operation. These operations can
    * occasionally return an empty set of results even when there are more results available. The
@@ -2336,7 +2411,7 @@ export class Organizations extends OrganizationsClient {
    *                <i>only</i>
    * when there are no more results to display.</p>
    *          </note>
-   *             <p>This operation can be called only from the organization's
+   *         <p>This operation can be called only from the organization's
    * management account or by a member account that is a delegated administrator for an AWS service.</p>
    */
   public listTargetsForPolicy(
@@ -2463,9 +2538,10 @@ export class Organizations extends OrganizationsClient {
    *                 </li>
    *                <li>
    *                     <p>The account that you want to leave must not be a delegated administrator
-   *                         account for any AWS service enabled for your organization. If the account is
-   *                         a delegated administrator, you must first change the delegated administrator
-   *                         account to another account that is remaining in the organization.</p>
+   *                         account for any AWS service enabled for your organization. If the account
+   *                         is a delegated administrator, you must first change the delegated
+   *                         administrator account to another account that is remaining in the
+   *                         organization.</p>
    *                 </li>
    *                <li>
    *                     <p>After the account leaves the organization, all tags that were attached to

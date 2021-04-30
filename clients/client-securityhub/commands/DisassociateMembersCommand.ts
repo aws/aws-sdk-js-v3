@@ -21,8 +21,8 @@ export interface DisassociateMembersCommandInput extends DisassociateMembersRequ
 export interface DisassociateMembersCommandOutput extends DisassociateMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Disassociates the specified member accounts from the associated master account.</p>
- *          <p>Can be used to disassociate both accounts that are in an organization and accounts that
+ * <p>Disassociates the specified member accounts from the associated administrator account.</p>
+ *          <p>Can be used to disassociate both accounts that are managed using Organizations and accounts that
  *          were invited manually.</p>
  */
 export class DisassociateMembersCommand extends $Command<

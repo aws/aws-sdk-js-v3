@@ -25,6 +25,7 @@ export * from "./commands/HttpRequestWithLabelsAndTimestampFormatCommand";
 export * from "./commands/HttpResponseCodeCommand";
 export * from "./commands/IgnoreQueryParamsInResponseCommand";
 export * from "./commands/InputAndOutputWithHeadersCommand";
+export * from "./commands/NestedXmlMapsCommand";
 export * from "./commands/NoInputAndNoOutputCommand";
 export * from "./commands/NoInputAndOutputCommand";
 export * from "./commands/NullAndEmptyHeadersClientCommand";

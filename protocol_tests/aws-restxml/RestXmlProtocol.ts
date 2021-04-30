@@ -125,6 +125,11 @@ import {
   InputAndOutputWithHeadersCommandOutput,
 } from "./commands/InputAndOutputWithHeadersCommand";
 import {
+  NestedXmlMapsCommand,
+  NestedXmlMapsCommandInput,
+  NestedXmlMapsCommandOutput,
+} from "./commands/NestedXmlMapsCommand";
+import {
   NoInputAndNoOutputCommand,
   NoInputAndNoOutputCommandInput,
   NoInputAndNoOutputCommandOutput,
@@ -1042,6 +1047,35 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     cb?: (err: any, data?: InputAndOutputWithHeadersCommandOutput) => void
   ): Promise<InputAndOutputWithHeadersCommandOutput> | void {
     const command = new InputAndOutputWithHeadersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public nestedXmlMaps(
+    args: NestedXmlMapsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<NestedXmlMapsCommandOutput>;
+  public nestedXmlMaps(
+    args: NestedXmlMapsCommandInput,
+    cb: (err: any, data?: NestedXmlMapsCommandOutput) => void
+  ): void;
+  public nestedXmlMaps(
+    args: NestedXmlMapsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: NestedXmlMapsCommandOutput) => void
+  ): void;
+  public nestedXmlMaps(
+    args: NestedXmlMapsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: NestedXmlMapsCommandOutput) => void),
+    cb?: (err: any, data?: NestedXmlMapsCommandOutput) => void
+  ): Promise<NestedXmlMapsCommandOutput> | void {
+    const command = new NestedXmlMapsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

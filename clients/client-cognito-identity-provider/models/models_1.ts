@@ -161,7 +161,7 @@ export interface UpdateGroupRequest {
 
   /**
    * <p>The new precedence value for the group. For more information about this parameter, see
-   *             <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html">CreateGroup</a>.</p>
+   *                 <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html">CreateGroup</a>.</p>
    */
   Precedence?: number;
 }
@@ -415,7 +415,9 @@ export interface UpdateUserPoolRequest {
    *             <li>
    *                 <p>
    *                     <code>ON</code> - MFA tokens are required for all user registrations. You can
-   *                     only specify required when you are initially creating a user pool.</p>
+   *                     only specify ON when you are initially creating a user pool. You can use the
+   *                         <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html">SetUserPoolMfaConfig</a> API operation to turn MFA "ON" for existing
+   *                     user pools. </p>
    *             </li>
    *             <li>
    *                 <p>
@@ -515,7 +517,8 @@ export interface UpdateUserPoolClientRequest {
   RefreshTokenValidity?: number;
 
   /**
-   * <p>The time limit, after which the access token is no longer valid and cannot be used.</p>
+   * <p>The time limit, after which the access token is no longer valid and cannot be
+   *             used.</p>
    */
   AccessTokenValidity?: number;
 
@@ -525,7 +528,8 @@ export interface UpdateUserPoolClientRequest {
   IdTokenValidity?: number;
 
   /**
-   * <p>The units in which the validity times are represented in. Default for RefreshToken is days, and default for ID and access tokens are hours.</p>
+   * <p>The units in which the validity times are represented in. Default for RefreshToken is
+   *             days, and default for ID and access tokens are hours.</p>
    */
   TokenValidityUnits?: TokenValidityUnitsType;
 
@@ -664,10 +668,10 @@ export interface UpdateUserPoolClientRequest {
    * <p>The Amazon Pinpoint analytics configuration for collecting metrics for this user
    *             pool.</p>
    *         <note>
-   *             <p>In regions where Pinpoint is not available, Cognito User Pools only supports sending events to Amazon Pinpoint projects in us-east-1.
-   *                 In regions where Pinpoint is available, Cognito User Pools will
-   *                 support sending events to Amazon Pinpoint projects within that same region.
-   *             </p>
+   *             <p>In regions where Pinpoint is not available, Cognito User Pools only supports
+   *                 sending events to Amazon Pinpoint projects in us-east-1. In regions where Pinpoint
+   *                 is available, Cognito User Pools will support sending events to Amazon Pinpoint
+   *                 projects within that same region. </p>
    *         </note>
    */
   AnalyticsConfiguration?: AnalyticsConfigurationType;

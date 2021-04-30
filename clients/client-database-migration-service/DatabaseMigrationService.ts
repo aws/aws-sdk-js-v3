@@ -100,6 +100,11 @@ import {
   DescribeConnectionsCommandOutput,
 } from "./commands/DescribeConnectionsCommand";
 import {
+  DescribeEndpointSettingsCommand,
+  DescribeEndpointSettingsCommandInput,
+  DescribeEndpointSettingsCommandOutput,
+} from "./commands/DescribeEndpointSettingsCommand";
+import {
   DescribeEndpointTypesCommand,
   DescribeEndpointTypesCommandInput,
   DescribeEndpointTypesCommandOutput,
@@ -1010,6 +1015,39 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
     cb?: (err: any, data?: DescribeEndpointsCommandOutput) => void
   ): Promise<DescribeEndpointsCommandOutput> | void {
     const command = new DescribeEndpointsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about the possible endpoint settings available
+   *          when you create an endpoint for a specific database engine.</p>
+   */
+  public describeEndpointSettings(
+    args: DescribeEndpointSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEndpointSettingsCommandOutput>;
+  public describeEndpointSettings(
+    args: DescribeEndpointSettingsCommandInput,
+    cb: (err: any, data?: DescribeEndpointSettingsCommandOutput) => void
+  ): void;
+  public describeEndpointSettings(
+    args: DescribeEndpointSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEndpointSettingsCommandOutput) => void
+  ): void;
+  public describeEndpointSettings(
+    args: DescribeEndpointSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointSettingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeEndpointSettingsCommandOutput) => void
+  ): Promise<DescribeEndpointSettingsCommandOutput> | void {
+    const command = new DescribeEndpointSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -39,8 +39,7 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  *                 required clean up of resources when disabling trusted access. </p>
  *             <p>For information about how to disable trusted service access to your organization
  *                 using the trusted service, see the <b>Learn more</b> link
- *                 under the <b>Supports Trusted Access</b> column at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">AWS
- *                     services that you can use with AWS Organizations</a>. on this page.</p>
+ *                 under the <b>Supports Trusted Access</b> column at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services_list.html">AWS services that you can use with AWS Organizations</a>. on this page.</p>
  *             <p>If you disable access by using this command, it causes the following actions to
  *                 occur:</p>
  *             <ul>

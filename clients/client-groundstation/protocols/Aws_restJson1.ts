@@ -78,6 +78,8 @@ import {
   MissionProfileListItem,
   ResourceLimitExceededException,
   ResourceNotFoundException,
+  S3RecordingConfig,
+  S3RecordingDetails,
   SatelliteListItem,
   SecurityDetails,
   SocketAddress,
@@ -2981,6 +2983,7 @@ const serializeAws_restJson1ConfigTypeData = (input: ConfigTypeData, context: __
     dataflowEndpointConfig: (value) => ({
       dataflowEndpointConfig: serializeAws_restJson1DataflowEndpointConfig(value, context),
     }),
+    s3RecordingConfig: (value) => ({ s3RecordingConfig: serializeAws_restJson1S3RecordingConfig(value, context) }),
     trackingConfig: (value) => ({ trackingConfig: serializeAws_restJson1TrackingConfig(value, context) }),
     uplinkEchoConfig: (value) => ({ uplinkEchoConfig: serializeAws_restJson1UplinkEchoConfig(value, context) }),
     _: (name, value) => ({ name: value } as any),
@@ -3082,6 +3085,14 @@ const serializeAws_restJson1FrequencyBandwidth = (input: FrequencyBandwidth, con
   return {
     ...(input.units !== undefined && input.units !== null && { units: input.units }),
     ...(input.value !== undefined && input.value !== null && { value: input.value }),
+  };
+};
+
+const serializeAws_restJson1S3RecordingConfig = (input: S3RecordingConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.bucketArn !== undefined && input.bucketArn !== null && { bucketArn: input.bucketArn }),
+    ...(input.prefix !== undefined && input.prefix !== null && { prefix: input.prefix }),
+    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
   };
 };
 
@@ -3252,6 +3263,11 @@ const deserializeAws_restJson1ConfigDetails = (output: any, context: __SerdeCont
       endpointDetails: deserializeAws_restJson1EndpointDetails(output.endpointDetails, context),
     };
   }
+  if (output.s3RecordingDetails !== undefined && output.s3RecordingDetails !== null) {
+    return {
+      s3RecordingDetails: deserializeAws_restJson1S3RecordingDetails(output.s3RecordingDetails, context),
+    };
+  }
   return { $unknown: Object.entries(output)[0] };
 };
 
@@ -3297,6 +3313,11 @@ const deserializeAws_restJson1ConfigTypeData = (output: any, context: __SerdeCon
   if (output.dataflowEndpointConfig !== undefined && output.dataflowEndpointConfig !== null) {
     return {
       dataflowEndpointConfig: deserializeAws_restJson1DataflowEndpointConfig(output.dataflowEndpointConfig, context),
+    };
+  }
+  if (output.s3RecordingConfig !== undefined && output.s3RecordingConfig !== null) {
+    return {
+      s3RecordingConfig: deserializeAws_restJson1S3RecordingConfig(output.s3RecordingConfig, context),
     };
   }
   if (output.trackingConfig !== undefined && output.trackingConfig !== null) {
@@ -3606,6 +3627,21 @@ const deserializeAws_restJson1MissionProfileListItem = (
       output.missionProfileId !== undefined && output.missionProfileId !== null ? output.missionProfileId : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     region: output.region !== undefined && output.region !== null ? output.region : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1S3RecordingConfig = (output: any, context: __SerdeContext): S3RecordingConfig => {
+  return {
+    bucketArn: output.bucketArn !== undefined && output.bucketArn !== null ? output.bucketArn : undefined,
+    prefix: output.prefix !== undefined && output.prefix !== null ? output.prefix : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1S3RecordingDetails = (output: any, context: __SerdeContext): S3RecordingDetails => {
+  return {
+    bucketArn: output.bucketArn !== undefined && output.bucketArn !== null ? output.bucketArn : undefined,
+    keyTemplate: output.keyTemplate !== undefined && output.keyTemplate !== null ? output.keyTemplate : undefined,
   } as any;
 };
 

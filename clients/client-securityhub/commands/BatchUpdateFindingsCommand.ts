@@ -22,12 +22,12 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
 
 /**
  * <p>Used by Security Hub customers to update information about their investigation into a finding.
- *          Requested by master accounts or member accounts. Master accounts can update findings for
+ *          Requested by administrator accounts or member accounts. Administrator accounts can update findings for
  *          their account and their member accounts. Member accounts can update findings for their
  *          account.</p>
  *          <p>Updates from <code>BatchUpdateFindings</code> do not affect the value of
  *             <code>UpdatedAt</code> for a finding.</p>
- *          <p>Master and member accounts can use <code>BatchUpdateFindings</code> to update the
+ *          <p>Administrator and member accounts can use <code>BatchUpdateFindings</code> to update the
  *          following finding fields and objects.</p>
  *          <ul>
  *             <li>

@@ -4078,6 +4078,10 @@ const deserializeAws_json1_1DescribeDatasetImportJobResponse = (
       output.DatasetImportJobName !== undefined && output.DatasetImportJobName !== null
         ? output.DatasetImportJobName
         : undefined,
+    EstimatedTimeRemainingInMinutes:
+      output.EstimatedTimeRemainingInMinutes !== undefined && output.EstimatedTimeRemainingInMinutes !== null
+        ? output.EstimatedTimeRemainingInMinutes
+        : undefined,
     FieldStatistics:
       output.FieldStatistics !== undefined && output.FieldStatistics !== null
         ? deserializeAws_json1_1FieldStatistics(output.FieldStatistics, context)
@@ -4175,6 +4179,10 @@ const deserializeAws_json1_1DescribeForecastResponse = (
         : undefined,
     DatasetGroupArn:
       output.DatasetGroupArn !== undefined && output.DatasetGroupArn !== null ? output.DatasetGroupArn : undefined,
+    EstimatedTimeRemainingInMinutes:
+      output.EstimatedTimeRemainingInMinutes !== undefined && output.EstimatedTimeRemainingInMinutes !== null
+        ? output.EstimatedTimeRemainingInMinutes
+        : undefined,
     ForecastArn: output.ForecastArn !== undefined && output.ForecastArn !== null ? output.ForecastArn : undefined,
     ForecastName: output.ForecastName !== undefined && output.ForecastName !== null ? output.ForecastName : undefined,
     ForecastTypes:
@@ -4243,6 +4251,10 @@ const deserializeAws_json1_1DescribePredictorResponse = (
     EncryptionConfig:
       output.EncryptionConfig !== undefined && output.EncryptionConfig !== null
         ? deserializeAws_json1_1EncryptionConfig(output.EncryptionConfig, context)
+        : undefined,
+    EstimatedTimeRemainingInMinutes:
+      output.EstimatedTimeRemainingInMinutes !== undefined && output.EstimatedTimeRemainingInMinutes !== null
+        ? output.EstimatedTimeRemainingInMinutes
         : undefined,
     EvaluationParameters:
       output.EvaluationParameters !== undefined && output.EvaluationParameters !== null

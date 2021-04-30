@@ -21,8 +21,11 @@ export interface GetMasterAccountCommandInput extends GetMasterAccountRequest {}
 export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse, __MetadataBearer {}
 
 /**
- * <p>Provides the details for the Security Hub master account for the current member account.</p>
- *          <p>Can be used by both member accounts that are in an organization and accounts that were
+ * @deprecated
+ *
+ * <p>This method is deprecated. Instead, use <code>GetAdministratorAccount</code>.</p>
+ *          <p>Provides the details for the Security Hub administrator account for the current member account.</p>
+ *          <p>Can be used by both member accounts that are managed using Organizations and accounts that were
  *          invited manually.</p>
  */
 export class GetMasterAccountCommand extends $Command<

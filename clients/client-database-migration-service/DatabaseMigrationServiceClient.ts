@@ -64,6 +64,10 @@ import {
   DescribeConnectionsCommandOutput,
 } from "./commands/DescribeConnectionsCommand";
 import {
+  DescribeEndpointSettingsCommandInput,
+  DescribeEndpointSettingsCommandOutput,
+} from "./commands/DescribeEndpointSettingsCommand";
+import {
   DescribeEndpointTypesCommandInput,
   DescribeEndpointTypesCommandOutput,
 } from "./commands/DescribeEndpointTypesCommand";
@@ -247,6 +251,7 @@ export type ServiceInputTypes =
   | DescribeApplicableIndividualAssessmentsCommandInput
   | DescribeCertificatesCommandInput
   | DescribeConnectionsCommandInput
+  | DescribeEndpointSettingsCommandInput
   | DescribeEndpointTypesCommandInput
   | DescribeEndpointsCommandInput
   | DescribeEventCategoriesCommandInput
@@ -303,6 +308,7 @@ export type ServiceOutputTypes =
   | DescribeApplicableIndividualAssessmentsCommandOutput
   | DescribeCertificatesCommandOutput
   | DescribeConnectionsCommandOutput
+  | DescribeEndpointSettingsCommandOutput
   | DescribeEndpointTypesCommandOutput
   | DescribeEndpointsCommandOutput
   | DescribeEventCategoriesCommandOutput
@@ -403,7 +409,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests
+   * The AWS region to which this client will send requests or use as signingRegion
    */
   region?: string | __Provider<string>;
 

@@ -1,3 +1,7 @@
+import {
+  AcceptAdministratorInvitationCommandInput,
+  AcceptAdministratorInvitationCommandOutput,
+} from "../commands/AcceptAdministratorInvitationCommand";
 import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "../commands/AcceptInvitationCommand";
 import {
   BatchDisableStandardsCommandInput,
@@ -48,6 +52,10 @@ import {
 } from "../commands/DisableOrganizationAdminAccountCommand";
 import { DisableSecurityHubCommandInput, DisableSecurityHubCommandOutput } from "../commands/DisableSecurityHubCommand";
 import {
+  DisassociateFromAdministratorAccountCommandInput,
+  DisassociateFromAdministratorAccountCommandOutput,
+} from "../commands/DisassociateFromAdministratorAccountCommand";
+import {
   DisassociateFromMasterAccountCommandInput,
   DisassociateFromMasterAccountCommandOutput,
 } from "../commands/DisassociateFromMasterAccountCommand";
@@ -64,6 +72,10 @@ import {
   EnableOrganizationAdminAccountCommandOutput,
 } from "../commands/EnableOrganizationAdminAccountCommand";
 import { EnableSecurityHubCommandInput, EnableSecurityHubCommandOutput } from "../commands/EnableSecurityHubCommand";
+import {
+  GetAdministratorAccountCommandInput,
+  GetAdministratorAccountCommandOutput,
+} from "../commands/GetAdministratorAccountCommand";
 import {
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
@@ -386,6 +398,32 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+export const serializeAws_restJson1AcceptAdministratorInvitationCommand = async (
+  input: AcceptAdministratorInvitationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = "/administrator";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AdministratorId !== undefined &&
+      input.AdministratorId !== null && { AdministratorId: input.AdministratorId }),
+    ...(input.InvitationId !== undefined && input.InvitationId !== null && { InvitationId: input.InvitationId }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1AcceptInvitationCommand = async (
   input: AcceptInvitationCommandInput,
@@ -1009,6 +1047,26 @@ export const serializeAws_restJson1DisableSecurityHubCommand = async (
   });
 };
 
+export const serializeAws_restJson1DisassociateFromAdministratorAccountCommand = async (
+  input: DisassociateFromAdministratorAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/administrator/disassociate";
+  let body: any;
+  body = "";
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DisassociateFromMasterAccountCommand = async (
   input: DisassociateFromMasterAccountCommandInput,
   context: __SerdeContext
@@ -1123,6 +1181,26 @@ export const serializeAws_restJson1EnableSecurityHubCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetAdministratorAccountCommand = async (
+  input: GetAdministratorAccountCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {};
+  let resolvedPath = "/administrator";
+  let body: any;
+  body = "";
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
     headers,
     path: resolvedPath,
     body,
@@ -1730,6 +1808,89 @@ export const serializeAws_restJson1UpdateStandardsControlCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+export const deserializeAws_restJson1AcceptAdministratorInvitationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptAdministratorInvitationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AcceptAdministratorInvitationCommandError(output, context);
+  }
+  const contents: AcceptAdministratorInvitationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AcceptAdministratorInvitationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptAdministratorInvitationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidAccessExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1AcceptInvitationCommand = async (
@@ -3570,6 +3731,89 @@ const deserializeAws_restJson1DisableSecurityHubCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DisassociateFromAdministratorAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFromAdministratorAccountCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateFromAdministratorAccountCommandError(output, context);
+  }
+  const contents: DisassociateFromAdministratorAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DisassociateFromAdministratorAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFromAdministratorAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidAccessExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DisassociateFromMasterAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3960,6 +4204,93 @@ const deserializeAws_restJson1EnableSecurityHubCommandError = async (
     case "com.amazonaws.securityhub#ResourceConflictException":
       response = {
         ...(await deserializeAws_restJson1ResourceConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetAdministratorAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAdministratorAccountCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetAdministratorAccountCommandError(output, context);
+  }
+  const contents: GetAdministratorAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Administrator: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.Administrator !== undefined && data.Administrator !== null) {
+    contents.Administrator = deserializeAws_restJson1Invitation(data.Administrator, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetAdministratorAccountCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAdministratorAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidAccessExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -17159,6 +17490,8 @@ const deserializeAws_restJson1MapFilterList = (output: any, context: __SerdeCont
 const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): Member => {
   return {
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
+    AdministratorId:
+      output.AdministratorId !== undefined && output.AdministratorId !== null ? output.AdministratorId : undefined,
     Email: output.Email !== undefined && output.Email !== null ? output.Email : undefined,
     InvitedAt: output.InvitedAt !== undefined && output.InvitedAt !== null ? new Date(output.InvitedAt) : undefined,
     MasterId: output.MasterId !== undefined && output.MasterId !== null ? output.MasterId : undefined,

@@ -21,11 +21,14 @@ export interface AcceptInvitationCommandInput extends AcceptInvitationRequest {}
 export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse, __MetadataBearer {}
 
 /**
- * <p>Accepts the invitation to be a member account and be monitored by the Security Hub master
+ * @deprecated
+ *
+ * <p>This method is deprecated. Instead, use <code>AcceptAdministratorInvitation</code>.</p>
+ *          <p>Accepts the invitation to be a member account and be monitored by the Security Hub administrator
  *          account that the invitation was sent from.</p>
  *          <p>This operation is only used by member accounts that are not added through
  *          Organizations.</p>
- *          <p>When the member account accepts the invitation, permission is granted to the master
+ *          <p>When the member account accepts the invitation, permission is granted to the administrator
  *          account to view findings generated in the member account.</p>
  */
 export class AcceptInvitationCommand extends $Command<

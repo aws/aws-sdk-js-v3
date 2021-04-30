@@ -30,11 +30,12 @@ export interface CreateApplicationPresignedUrlCommandOutput
  * <p>Creates and returns a URL that you can use to connect to
  *             an application's extension. Currently, the only
  *             available extension is the Apache Flink dashboard.</p>
- *         <p>The IAM role or user used to call this API defines the permissions to access the extension.
- *             Once the presigned URL is created, no additional permission is required to access this URL. IAM
- *             authorization policies for this API are also enforced for every HTTP request that attempts to
- *             connect to the extension.
- *         </p>
+ *         <p>The IAM role or user used to call this API defines the permissions to access the
+ *       extension. After the presigned URL is created, no additional permission is required to access
+ *       this URL. IAM authorization policies for this API are also enforced for every HTTP request
+ *       that attempts to connect to the extension. </p>
+ *         <p>You    control the amount of time that the URL will be valid using the <code>SessionExpirationDurationInSeconds</code>
+ *         parameter. If you do not provide this parameter, the returned URL is valid for twelve hours.</p>
  *         <note>
  *             <p>The URL that you get from a call to CreateApplicationPresignedUrl must be used within 3 minutes
  *             to be valid.

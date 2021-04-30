@@ -1,28 +1,28 @@
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
-export interface AcceptInvitationRequest {
+export interface AcceptAdministratorInvitationRequest {
   /**
-   * <p>The account ID of the Security Hub master account that sent the invitation.</p>
+   * <p>The account ID of the Security Hub administrator account that sent the invitation.</p>
    */
-  MasterId: string | undefined;
+  AdministratorId: string | undefined;
 
   /**
-   * <p>The ID of the invitation sent from the Security Hub master account.</p>
+   * <p>The identifier of the invitation sent from the Security Hub administrator account.</p>
    */
   InvitationId: string | undefined;
 }
 
-export namespace AcceptInvitationRequest {
-  export const filterSensitiveLog = (obj: AcceptInvitationRequest): any => ({
+export namespace AcceptAdministratorInvitationRequest {
+  export const filterSensitiveLog = (obj: AcceptAdministratorInvitationRequest): any => ({
     ...obj,
   });
 }
 
-export interface AcceptInvitationResponse {}
+export interface AcceptAdministratorInvitationResponse {}
 
-export namespace AcceptInvitationResponse {
-  export const filterSensitiveLog = (obj: AcceptInvitationResponse): any => ({
+export namespace AcceptAdministratorInvitationResponse {
+  export const filterSensitiveLog = (obj: AcceptAdministratorInvitationResponse): any => ({
     ...obj,
   });
 }
@@ -106,6 +106,32 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 
 export namespace ResourceNotFoundException {
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+export interface AcceptInvitationRequest {
+  /**
+   * <p>The account ID of the Security Hub administrator account that sent the invitation.</p>
+   */
+  MasterId: string | undefined;
+
+  /**
+   * <p>The identifier of the invitation sent from the Security Hub administrator account.</p>
+   */
+  InvitationId: string | undefined;
+}
+
+export namespace AcceptInvitationRequest {
+  export const filterSensitiveLog = (obj: AcceptInvitationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AcceptInvitationResponse {}
+
+export namespace AcceptInvitationResponse {
+  export const filterSensitiveLog = (obj: AcceptInvitationResponse): any => ({
     ...obj,
   });
 }
@@ -11289,7 +11315,7 @@ export namespace CreateInsightResponse {
 
 export interface CreateMembersRequest {
   /**
-   * <p>The list of accounts to associate with the Security Hub master account. For each account, the
+   * <p>The list of accounts to associate with the Security Hub administrator account. For each account, the
    *          list includes the account ID and optionally the email address.</p>
    */
   AccountDetails: AccountDetails[] | undefined;
@@ -11493,39 +11519,6 @@ export interface DescribeActionTargetsRequest {
 
 export namespace DescribeActionTargetsRequest {
   export const filterSensitiveLog = (obj: DescribeActionTargetsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeActionTargetsResponse {
-  /**
-   * <p>A list of <code>ActionTarget</code> objects. Each object includes the <code>ActionTargetArn</code>,
-   *             <code>Description</code>, and <code>Name</code> of a custom action target available in
-   *          Security Hub.</p>
-   */
-  ActionTargets: ActionTarget[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeActionTargetsResponse {
-  export const filterSensitiveLog = (obj: DescribeActionTargetsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeHubRequest {
-  /**
-   * <p>The ARN of the Hub resource to retrieve.</p>
-   */
-  HubArn?: string;
-}
-
-export namespace DescribeHubRequest {
-  export const filterSensitiveLog = (obj: DescribeHubRequest): any => ({
     ...obj,
   });
 }

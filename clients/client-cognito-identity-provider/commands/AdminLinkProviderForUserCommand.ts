@@ -37,7 +37,7 @@ export interface AdminLinkProviderForUserCommandOutput extends AdminLinkProvider
  *             is used, the user signs in as the existing user account. </p>
  *         <note>
  *             <p>The maximum number of federated identities linked to a user is 5.</p>
- *          </note>
+ *         </note>
  *         <important>
  *             <p>Because this API allows a user with an external federated identity to sign in as
  *                 an existing user in the user pool, it is critical that it only be used with external

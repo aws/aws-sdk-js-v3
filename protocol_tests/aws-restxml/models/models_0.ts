@@ -396,6 +396,17 @@ export namespace InputAndOutputWithHeadersIO {
   });
 }
 
+export interface NestedXmlMapsInputOutput {
+  nestedMap?: { [key: string]: { [key: string]: FooEnum | string } };
+  flatNestedMap?: { [key: string]: { [key: string]: FooEnum | string } };
+}
+
+export namespace NestedXmlMapsInputOutput {
+  export const filterSensitiveLog = (obj: NestedXmlMapsInputOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface NoInputAndOutputOutput {}
 
 export namespace NoInputAndOutputOutput {

@@ -24,7 +24,7 @@ each Region to apply the change to.</p>
 <p>For example, if your Region is set to <code>us-west-2</code>, when you use <code>
 <a>CreateMembers</a>
 </code> to add a member account to Security Hub, the association of
-the member account with the master account is created only in the <code>us-west-2</code>
+the member account with the administrator account is created only in the <code>us-west-2</code>
 Region. Security Hub must be enabled for the member account in the same Region that the invitation
 was sent from.</p>
 <p>The following throttling limits apply to using Security Hub API operations.</p>
@@ -78,16 +78,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SecurityHubClient` and
-the commands you need, for example `AcceptInvitationCommand`:
+the commands you need, for example `AcceptAdministratorInvitationCommand`:
 
 ```js
 // ES5 example
-const { SecurityHubClient, AcceptInvitationCommand } = require("@aws-sdk/client-securityhub");
+const { SecurityHubClient, AcceptAdministratorInvitationCommand } = require("@aws-sdk/client-securityhub");
 ```
 
 ```ts
 // ES6+ example
-import { SecurityHubClient, AcceptInvitationCommand } from "@aws-sdk/client-securityhub";
+import { SecurityHubClient, AcceptAdministratorInvitationCommand } from "@aws-sdk/client-securityhub";
 ```
 
 ### Usage
@@ -106,7 +106,7 @@ const client = new SecurityHubClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptInvitationCommand(params);
+const command = new AcceptAdministratorInvitationCommand(params);
 ```
 
 #### Async/await
@@ -185,7 +185,7 @@ const client = new AWS.SecurityHub({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptInvitation(params);
+  const data = await client.acceptAdministratorInvitation(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -193,7 +193,7 @@ try {
 
 // Promises.
 client
-  .acceptInvitation(params)
+  .acceptAdministratorInvitation(params)
   .then((data) => {
     // process data.
   })
@@ -202,7 +202,7 @@ client
   });
 
 // callbacks.
-client.acceptInvitation(params, (err, data) => {
+client.acceptAdministratorInvitation(params, (err, data) => {
   // proccess err and data.
 });
 ```

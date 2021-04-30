@@ -35,7 +35,7 @@ export enum HandshakePartyType {
 export interface HandshakeParty {
   /**
    * <p>The unique identifier (ID) for the party.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
    */
   Id: string | undefined;
@@ -214,8 +214,8 @@ export enum HandshakeConstraintViolationExceptionReason {
  *             </li>
  *             <li>
  *                 <p>ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION: The handshake request
- *                     is invalid because the organization has already started the process to enable all
- *                     features.</p>
+ *                     is invalid because the organization has already started the process to enable
+ *                     all features.</p>
  *             </li>
  *             <li>
  *                 <p>ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD: The request failed because the
@@ -477,7 +477,7 @@ export enum AccountStatus {
 export interface Account {
   /**
    * <p>The unique identifier (ID) of the account.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
    */
   Id?: string;
@@ -616,7 +616,7 @@ export interface AttachPolicyRequest {
    * <p>The unique identifier (ID) of the policy that you want to attach to the target. You
    *             can get the ID for the policy by calling the <a>ListPolicies</a>
    *             operation.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
    */
   PolicyId: string | undefined;
@@ -625,7 +625,7 @@ export interface AttachPolicyRequest {
    * <p>The unique identifier (ID) of the root, OU, or account that you want to attach the
    *             policy to. You can get the ID by calling the <a>ListRoots</a>, <a>ListOrganizationalUnitsForParent</a>, or <a>ListAccounts</a>
    *             operations.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
    *     following:</p>
    *          <ul>
    *             <li>
@@ -697,10 +697,9 @@ export enum ConstraintViolationExceptionReason {
  *         </note>
  *         <ul>
  *             <li>
- *                 <p>ACCOUNT_CANNOT_LEAVE_ORGANIZAION: You attempted to remove the
- *                     management account from the organization. You can't remove the management account.
- *                     Instead, after you remove all member accounts, delete the organization
- *                     itself.</p>
+ *                 <p>ACCOUNT_CANNOT_LEAVE_ORGANIZATION: You attempted to remove the management
+ *                     account from the organization. You can't remove the management account. Instead,
+ *                     after you remove all member accounts, delete the organization itself.</p>
  *             </li>
  *             <li>
  *                 <p>ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an account from the
@@ -779,13 +778,13 @@ export enum ConstraintViolationExceptionReason {
  *             </li>
  *             <li>
  *                 <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the AWS Regions in
- *                     China. To create an organization, the master must have an valid business
- *                     license. For more information, contact customer support.</p>
+ *                     China. To create an organization, the master must have a valid business license.
+ *                     For more information, contact customer support.</p>
  *             </li>
  *             <li>
  *                 <p>MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must
- *                     first provide a valid contact address and phone number for the
- *                     management account. Then try the operation again.</p>
+ *                     first provide a valid contact address and phone number for the management
+ *                     account. Then try the operation again.</p>
  *             </li>
  *             <li>
  *                 <p>MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the
@@ -1084,8 +1083,8 @@ export interface CreateAccountRequest {
    * <p>A list of tags that you want to attach to the newly created account. For each tag in
    *             the list, you must specify both a tag key and a value. You can set the value to an empty
    *             string, but you can't set it to <code>null</code>. For more information about tagging,
-   *             see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging AWS
-   *                 Organizations resources</a> in the AWS Organizations User Guide.</p>
+   *             see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging AWS Organizations
+   *                 resources</a> in the AWS Organizations User Guide.</p>
    *         <note>
    *             <p>If any one of the tags is invalid or if you exceed the allowed number of tags for
    *                 an account, then the entire request fails and the account is not created.</p>
@@ -1133,7 +1132,7 @@ export interface CreateAccountStatus {
    * <p>The unique identifier (ID) that references this request. You get this value from the
    *             response of the initial <a>CreateAccount</a> request to create the
    *             account.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a create account request ID string
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a create account request ID string
    *     requires "car-" followed by from 8 to 32 lowercase letters or digits.</p>
    */
   Id?: string;
@@ -1144,7 +1143,7 @@ export interface CreateAccountStatus {
   AccountName?: string;
 
   /**
-   * <p>The status of the request.</p>
+   * <p>The status of the asynchronous request to create an AWS account.</p>
    */
   State?: CreateAccountState | string;
 
@@ -1161,7 +1160,7 @@ export interface CreateAccountStatus {
   /**
    * <p>If the account was created successfully, the unique identifier (ID) of the new
    *             account.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
    */
   AccountId?: string;
@@ -1176,8 +1175,8 @@ export interface CreateAccountStatus {
    * <p>If the request failed, a description of the reason for the failure.</p>
    *         <ul>
    *             <li>
-   *                 <p>ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you have
-   *                     reached the limit on the number of accounts in your organization.</p>
+   *                 <p>ACCOUNT_LIMIT_EXCEEDED: The account couldn't be created because you reached
+   *                     the limit on the number of accounts in your organization.</p>
    *             </li>
    *             <li>
    *                 <p>CONCURRENT_ACCOUNT_MODIFICATION: You already submitted a request with the same
@@ -1211,7 +1210,7 @@ export interface CreateAccountStatus {
    *             </li>
    *             <li>
    *                 <p>INTERNAL_FAILURE: The account could not be created because of an internal
-   *                     failure. Try again later. If the problem persists, contact Customer
+   *                     failure. Try again later. If the problem persists, contact AWS Customer
    *                     Support.</p>
    *             </li>
    *             <li>
@@ -1340,8 +1339,8 @@ export interface CreateGovCloudAccountRequest {
    *             account exists.</p>
    *         <p>For each tag in the list, you must specify both a tag key and a value. You can set the
    *             value to an empty string, but you can't set it to <code>null</code>. For more
-   *             information about tagging, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging AWS Organizations resources</a>
-   *             in the AWS Organizations User Guide.</p>
+   *             information about tagging, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging AWS Organizations resources</a> in the
+   *             AWS Organizations User Guide.</p>
    *         <note>
    *             <p>If any one of the tags is invalid or if you exceed the allowed number of tags for
    *                 an account, then the entire request fails and the account is not created.</p>
@@ -1459,7 +1458,7 @@ export namespace PolicyTypeSummary {
 export interface Organization {
   /**
    * <p>The unique identifier (ID) of an organization.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organization ID string requires "o-"
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organization ID string requires "o-"
    *     followed by from 10 to 32 lowercase letters or digits.</p>
    */
   Id?: string;
@@ -1481,8 +1480,8 @@ export interface Organization {
   FeatureSet?: OrganizationFeatureSet | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the account that is designated as the
-   *             management account for the organization.</p>
+   * <p>The Amazon Resource Name (ARN) of the account that is designated as the management
+   *             account for the organization.</p>
    *         <p>For more information about ARNs in Organizations, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies">ARN
    *     Formats Supported by Organizations</a> in the <i>AWS Service Authorization Reference</i>.</p>
    */
@@ -1537,7 +1536,7 @@ export interface CreateOrganizationalUnitRequest {
   /**
    * <p>The unique identifier (ID) of the parent root or OU that you want to create the new OU
    *             in.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
    *          <ul>
    *             <li>
@@ -1564,8 +1563,8 @@ export interface CreateOrganizationalUnitRequest {
    * <p>A list of tags that you want to attach to the newly created OU. For each tag in the
    *             list, you must specify both a tag key and a value. You can set the value to an empty
    *             string, but you can't set it to <code>null</code>. For more information about tagging,
-   *             see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging AWS
-   *                 Organizations resources</a> in the AWS Organizations User Guide.</p>
+   *             see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging AWS Organizations
+   *                 resources</a> in the AWS Organizations User Guide.</p>
    *         <note>
    *             <p>If any one of the tags is invalid or if you exceed the allowed number of tags for
    *                 an OU, then the entire request fails and the OU is not created.</p>
@@ -1588,7 +1587,7 @@ export namespace CreateOrganizationalUnitRequest {
 export interface OrganizationalUnit {
   /**
    * <p>The unique identifier (ID) associated with this OU.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
    *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters
    *     or digits.</p>
@@ -1711,8 +1710,8 @@ export interface CreatePolicyRequest {
    * <p>A list of tags that you want to attach to the newly created policy. For each tag in
    *             the list, you must specify both a tag key and a value. You can set the value to an empty
    *             string, but you can't set it to <code>null</code>. For more information about tagging,
-   *             see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging AWS
-   *                 Organizations resources</a> in the AWS Organizations User Guide.</p>
+   *             see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging AWS Organizations
+   *                 resources</a> in the AWS Organizations User Guide.</p>
    *         <note>
    *             <p>If any one of the tags is invalid or if you exceed the allowed number of tags for
    *                 a policy, then the entire request fails and the policy is not created.</p>
@@ -1734,7 +1733,7 @@ export namespace CreatePolicyRequest {
 export interface PolicySummary {
   /**
    * <p>The unique identifier (ID) of the policy.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
    */
   Id?: string;
@@ -1954,7 +1953,7 @@ export interface DeletePolicyRequest {
    * <p>The unique identifier (ID) of the policy that you want to delete. You can get the ID
    *             from the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
    *             operations.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
    */
   PolicyId: string | undefined;
@@ -2010,7 +2009,7 @@ export interface DescribeAccountRequest {
   /**
    * <p>The unique identifier (ID) of the AWS account that you want information about. You
    *             can get the ID from the <a>ListAccounts</a> or <a>ListAccountsForParent</a> operations.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
    */
   AccountId: string | undefined;
@@ -2057,7 +2056,7 @@ export interface DescribeCreateAccountStatusRequest {
    * <p>Specifies the <code>Id</code> value that uniquely identifies the
    *                 <code>CreateAccount</code> request. You can get the value from the
    *                 <code>CreateAccountStatus.Id</code> response in an earlier <a>CreateAccount</a> request, or from the <a>ListCreateAccountStatus</a> operation.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a create account request ID string
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a create account request ID string
    *     requires "car-" followed by from 8 to 32 lowercase letters or digits.</p>
    */
   CreateAccountRequestId: string | undefined;
@@ -2095,7 +2094,7 @@ export interface DescribeEffectivePolicyRequest {
   /**
    * <p>The type of policy that you want information about. You can specify one of the
    *             following values:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
@@ -2198,7 +2197,7 @@ export interface DescribeHandshakeRequest {
    * <p>The unique identifier (ID) of the handshake that you want information about. You can
    *             get the ID from the original call to <a>InviteAccountToOrganization</a>, or
    *             from a call to <a>ListHandshakesForAccount</a> or <a>ListHandshakesForOrganization</a>.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
    */
   HandshakeId: string | undefined;
@@ -2237,7 +2236,7 @@ export interface DescribeOrganizationalUnitRequest {
    * <p>The unique identifier (ID) of the organizational unit that you want details about. You
    *             can get the ID from the <a>ListOrganizationalUnitsForParent</a>
    *             operation.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
    *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters
    *     or digits.</p>
@@ -2269,7 +2268,7 @@ export interface DescribePolicyRequest {
    * <p>The unique identifier (ID) of the policy that you want details about. You can get the
    *             ID from the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
    *             operations.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
    */
   PolicyId: string | undefined;
@@ -2299,7 +2298,7 @@ export interface DetachPolicyRequest {
    * <p>The unique identifier (ID) of the policy you want to detach. You can get the ID from
    *             the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
    *             operations.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a policy ID string requires "p-" followed
    *     by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>
    */
   PolicyId: string | undefined;
@@ -2308,7 +2307,7 @@ export interface DetachPolicyRequest {
    * <p>The unique identifier (ID) of the root, OU, or account that you want to detach the
    *             policy from. You can get the ID from the <a>ListRoots</a>, <a>ListOrganizationalUnitsForParent</a>, or <a>ListAccounts</a>
    *             operations.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
    *     following:</p>
    *          <ul>
    *             <li>
@@ -2372,7 +2371,7 @@ export interface DisablePolicyTypeRequest {
   /**
    * <p>The unique identifier (ID) of the root in which you want to disable a policy type. You
    *             can get the ID from the <a>ListRoots</a> operation.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string requires "r-" followed by
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string requires "r-" followed by
    *     from 4 to 32 lowercase letters or digits.</p>
    */
   RootId: string | undefined;
@@ -2380,7 +2379,7 @@ export interface DisablePolicyTypeRequest {
   /**
    * <p>The policy type that you want to disable in this root. You can specify one of the
    *             following values:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
@@ -2421,7 +2420,7 @@ export namespace DisablePolicyTypeRequest {
 export interface Root {
   /**
    * <p>The unique identifier (ID) for the root.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string requires "r-" followed by
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string requires "r-" followed by
    *     from 4 to 32 lowercase letters or digits.</p>
    */
   Id?: string;
@@ -2515,7 +2514,7 @@ export interface EnablePolicyTypeRequest {
   /**
    * <p>The unique identifier (ID) of the root in which you want to enable a policy type. You
    *             can get the ID from the <a>ListRoots</a> operation.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string requires "r-" followed by
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string requires "r-" followed by
    *     from 4 to 32 lowercase letters or digits.</p>
    */
   RootId: string | undefined;
@@ -2523,7 +2522,7 @@ export interface EnablePolicyTypeRequest {
   /**
    * <p>The policy type that you want to enable. You can specify one of the following
    *             values:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
@@ -2612,8 +2611,8 @@ export interface InviteAccountToOrganizationRequest {
    *                         number</b>
    *                </i>>" }</code>
    *         </p>
-   *         <p>If you use the AWS CLI, you can submit this as a single string, similar to the
-   *             following example:</p>
+   *         <p>If you use the AWS CLI, you can submit this as a single string, similar to the following
+   *             example:</p>
    *         <p>
    *             <code>--target Id=123456789012,Type=ACCOUNT</code>
    *         </p>
@@ -2636,8 +2635,8 @@ export interface InviteAccountToOrganizationRequest {
    * <p>A list of tags that you want to attach to the account when it becomes a member of the
    *             organization. For each tag in the list, you must specify both a tag key and a value. You
    *             can set the value to an empty string, but you can't set it to <code>null</code>. For
-   *             more information about tagging, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging AWS Organizations resources</a>
-   *             in the AWS Organizations User Guide.</p>
+   *             more information about tagging, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging AWS Organizations resources</a> in the
+   *             AWS Organizations User Guide.</p>
    *         <important>
    *             <p>Any tags in the request are checked for compliance with any applicable tag
    *                 policies when the request is made. The request is rejected if the tags in the
@@ -2666,9 +2665,9 @@ export namespace InviteAccountToOrganizationRequest {
 }
 
 /**
- * <p>You can't remove a management account from an organization. If you want the
- *             management account to become a member account in another organization, you must first
- *             delete the current organization of the management account.</p>
+ * <p>You can't remove a management account from an organization. If you want the management
+ *             account to become a member account in another organization, you must first delete the
+ *             current organization of the management account.</p>
  */
 export interface MasterCannotLeaveOrganizationException extends __SmithyException, $MetadataBearer {
   name: "MasterCannotLeaveOrganizationException";
@@ -2875,7 +2874,7 @@ export interface ListChildrenRequest {
   /**
    * <p>The unique identifier (ID) for the parent root or OU whose children you want to
    *             list.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
    *          <ul>
    *             <li>
@@ -2932,7 +2931,7 @@ export namespace ListChildrenRequest {
 export interface Child {
   /**
    * <p>The unique identifier (ID) of this child entity.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a child ID string requires one of the
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a child ID string requires one of the
    *     following:</p>
    *          <ul>
    *             <li>
@@ -3203,8 +3202,8 @@ export namespace ListDelegatedServicesForAccountRequest {
  */
 export interface DelegatedService {
   /**
-   * <p>The name of a service that can request an operation for the specified service. This is
-   *             typically in the form of a URL, such as:
+   * <p>The name of an AWS service that can request an operation for the specified service.
+   *             This is typically in the form of a URL, such as:
    *                 <code>
    *                <i>servicename</i>.amazonaws.com</code>.</p>
    */
@@ -3260,7 +3259,7 @@ export interface HandshakeFilter {
    *             another type.</p>
    *         <p>If you specify <code>ParentHandshakeId</code>, you cannot also specify
    *                 <code>ActionType</code>.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
    */
   ParentHandshakeId?: string;
@@ -3442,7 +3441,7 @@ export interface ListParentsRequest {
   /**
    * <p>The unique identifier (ID) of the OU or account whose parent containers you want to
    *             list. Don't specify a root.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a child ID string requires one of the
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a child ID string requires one of the
    *     following:</p>
    *          <ul>
    *             <li>
@@ -3500,7 +3499,7 @@ export enum ParentType {
 export interface Parent {
   /**
    * <p>The unique identifier (ID) of the parent entity.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
    *          <ul>
    *             <li>
@@ -3555,7 +3554,7 @@ export interface ListPoliciesRequest {
   /**
    * <p>Specifies the type of policy that you want to include in the response. You must
    *             specify one of the following values:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
@@ -3634,7 +3633,7 @@ export interface ListPoliciesForTargetRequest {
   /**
    * <p>The unique identifier (ID) of the root, organizational unit, or account whose policies
    *             you want to list.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
    *     following:</p>
    *          <ul>
    *             <li>
@@ -3659,7 +3658,7 @@ export interface ListPoliciesForTargetRequest {
   /**
    * <p>The type of policy that you want to include in the returned list. You must specify one
    *             of the following values:</p>
-   *          <ul>
+   *         <ul>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html">AISERVICES_OPT_OUT_POLICY</a>
@@ -3786,7 +3785,7 @@ export namespace ListRootsResponse {
 export interface ListTagsForResourceRequest {
   /**
    * <p>The ID of the resource with the tags to list.</p>
-   *          <p>You can specify any of the following taggable resources.</p>
+   *         <p>You can specify any of the following taggable resources.</p>
    *         <ul>
    *             <li>
    *                 <p>AWS account – specify the account ID number.</p>
@@ -3898,7 +3897,7 @@ export enum TargetType {
 export interface PolicyTargetSummary {
   /**
    * <p>The unique identifier (ID) of the policy target.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target ID string requires one of the
    *     following:</p>
    *          <ul>
    *             <li>
@@ -4011,7 +4010,7 @@ export interface MoveAccountRequest {
   /**
    * <p>The unique identifier (ID) of the root or organizational unit that you want to move
    *             the account from.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
    *          <ul>
    *             <li>
@@ -4032,7 +4031,7 @@ export interface MoveAccountRequest {
   /**
    * <p>The unique identifier (ID) of the root or organizational unit that you want to move
    *             the account to.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a parent ID string requires one of the
    *     following:</p>
    *          <ul>
    *             <li>
@@ -4097,7 +4096,7 @@ export interface RemoveAccountFromOrganizationRequest {
   /**
    * <p>The unique identifier (ID) of the member account that you want to remove from the
    *             organization.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an account ID string requires exactly 12
    *     digits.</p>
    */
   AccountId: string | undefined;
@@ -4117,7 +4116,7 @@ export interface TagResourceRequest {
 
   /**
    * <p>A list of tags to add to the specified resource.</p>
-   *          <p>You can specify any of the following taggable resources.</p>
+   *         <p>You can specify any of the following taggable resources.</p>
    *         <ul>
    *             <li>
    *                 <p>AWS account – specify the account ID number.</p>
@@ -4141,9 +4140,8 @@ export interface TagResourceRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For
-   *             each tag in the list, you must specify both a tag key and a value. You can set the value
-   *             to an empty string, but you can't set it to <code>null</code>.</p>
+   *         <p>For each tag in the list, you must specify both a tag key and a value. You can set the
+   *             value to an empty string, but you can't set it to <code>null</code>.</p>
    *         <note>
    *             <p>If any one of the tags is invalid or if you exceed the allowed number of tags for
    *                 an account user, then the entire request fails and the account is not
@@ -4162,7 +4160,7 @@ export namespace TagResourceRequest {
 export interface UntagResourceRequest {
   /**
    * <p>The ID of the resource to remove a tag from.</p>
-   *          <p>You can specify any of the following taggable resources.</p>
+   *         <p>You can specify any of the following taggable resources.</p>
    *         <ul>
    *             <li>
    *                 <p>AWS account – specify the account ID number.</p>
@@ -4205,7 +4203,7 @@ export interface UpdateOrganizationalUnitRequest {
   /**
    * <p>The unique identifier (ID) of the OU that you want to rename. You can get the ID from
    *             the <a>ListOrganizationalUnitsForParent</a> operation.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational unit ID string requires
    *     "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the
    *     OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters
    *     or digits.</p>
@@ -4325,8 +4323,8 @@ export interface HandshakeResource {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>OWNER_NAME</code> - Specifies the name associated with the
-   *                     management account. Included as information about an organization. </p>
+   *                   <code>OWNER_NAME</code> - Specifies the name associated with the management
+   *                     account. Included as information about an organization. </p>
    *             </li>
    *             <li>
    *                 <p>
@@ -4359,15 +4357,15 @@ export namespace HandshakeResource {
  *             originator) invites another account (the recipient) to join its organization, the two
  *             accounts exchange information as a series of handshake requests and responses.</p>
  *         <p>
- *             <b>Note:</b> Handshakes that are CANCELED, ACCEPTED, or
- *             DECLINED show up in lists for only 30 days after entering that state After that they are
- *             deleted.</p>
+ *             <b>Note:</b> Handshakes that are <code>CANCELED</code>,
+ *                 <code>ACCEPTED</code>, or <code>DECLINED</code> show up in lists for only 30 days
+ *             after entering that state After that they are deleted.</p>
  */
 export interface Handshake {
   /**
    * <p>The unique identifier (ID) of a handshake. The originating account creates the ID when
    *             it initiates the handshake.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
+   *         <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for  handshake ID string requires "h-"
    *     followed by from 8 to 32 lowercase letters or digits.</p>
    */
   Id?: string;
@@ -4446,8 +4444,8 @@ export interface Handshake {
    *             <li>
    *                 <p>
    *                   <b>INVITE</b>: This type of handshake represents a
-   *                     request to join an organization. It is always sent from the management account to
-   *                     only non-member accounts.</p>
+   *                     request to join an organization. It is always sent from the management account
+   *                     to only non-member accounts.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -4455,7 +4453,8 @@ export interface Handshake {
    *                     represents a request to enable all features in an organization. It is always
    *                     sent from the management account to only <i>invited</i> member
    *                     accounts. Created accounts do not receive this because those accounts were
-   *                     created by the organization's management account and approval is inferred.</p>
+   *                     created by the organization's management account and approval is
+   *                     inferred.</p>
    *             </li>
    *             <li>
    *                 <p>

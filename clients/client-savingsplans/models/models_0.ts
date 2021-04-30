@@ -202,6 +202,7 @@ export enum SavingsPlanProductType {
   EC2 = "EC2",
   FARGATE = "Fargate",
   LAMBDA = "Lambda",
+  SAGEMAKER = "SageMaker",
 }
 
 export enum SavingsPlanRatePropertyKey {
@@ -236,7 +237,9 @@ export namespace SavingsPlanRateProperty {
 export enum SavingsPlanRateServiceCode {
   EC2 = "AmazonEC2",
   FARGATE = "AmazonECS",
+  FARGATE_EKS = "AmazonEKS",
   LAMBDA = "AWSLambda",
+  SAGEMAKER = "AmazonSageMaker",
 }
 
 export enum SavingsPlanRateUnit {
@@ -410,6 +413,7 @@ export enum SavingsPlanPaymentOption {
 export enum SavingsPlanType {
   COMPUTE = "Compute",
   EC2_INSTANCE = "EC2Instance",
+  SAGEMAKER = "SageMaker",
 }
 
 /**

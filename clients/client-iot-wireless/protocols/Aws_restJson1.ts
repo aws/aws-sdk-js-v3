@@ -6637,6 +6637,7 @@ const serializeAws_restJson1SidewalkSendDataToDevice = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.MessageType !== undefined && input.MessageType !== null && { MessageType: input.MessageType }),
     ...(input.Seq !== undefined && input.Seq !== null && { Seq: input.Seq }),
   };
 };

@@ -16,6 +16,43 @@ export namespace AccessDeniedException {
   });
 }
 
+export enum EncryptionOption {
+  AoCmk = "AWS_OWNED_CMK",
+  CmCmk = "CUSTOMER_MANAGED_CMK",
+}
+
+/**
+ * <p>An object that contains:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The encryption option for a repository association. It is either owned by AWS
+ *             Key Management Service (KMS) (<code>AWS_OWNED_CMK</code>) or customer managed (<code>CUSTOMER_MANAGED_CMK</code>).</p>
+ *             </li>
+ *             <li>
+ *                <p>The ID of the AWS KMS key that
+ *             is associated with a respository association.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface KMSKeyDetails {
+  /**
+   * <p>The ID of the AWS KMS key that is associated with a respository association.</p>
+   */
+  KMSKeyId?: string;
+
+  /**
+   * <p>The encryption option for a repository association. It is either owned by AWS
+   *             Key Management Service (KMS) (<code>AWS_OWNED_CMK</code>) or customer managed (<code>CUSTOMER_MANAGED_CMK</code>).</p>
+   */
+  EncryptionOption?: EncryptionOption | string;
+}
+
+export namespace KMSKeyDetails {
+  export const filterSensitiveLog = (obj: KMSKeyDetails): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>
  *          Information about a third-party source repository connected to CodeGuru Reviewer.
@@ -140,6 +177,21 @@ export interface AssociateRepositoryRequest {
    *          </ul>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>A <code>KMSKeyDetails</code> object that contains:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The encryption option for this repository association. It is either owned by AWS
+   *             Key Management Service (KMS) (<code>AWS_OWNED_CMK</code>) or customer managed (<code>CUSTOMER_MANAGED_CMK</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>The ID of the AWS KMS key that
+   *             is associated with this respository association.</p>
+   *             </li>
+   *          </ul>
+   */
+  KMSKeyDetails?: KMSKeyDetails;
 }
 
 export namespace AssociateRepositoryRequest {
@@ -282,6 +334,21 @@ export interface RepositoryAssociation {
    * <p>The time, in milliseconds since the epoch, when the repository association was created.</p>
    */
   CreatedTimeStamp?: Date;
+
+  /**
+   * <p>A <code>KMSKeyDetails</code> object that contains:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The encryption option for this repository association. It is either owned by AWS
+   *             Key Management Service (KMS) (<code>AWS_OWNED_CMK</code>) or customer managed (<code>CUSTOMER_MANAGED_CMK</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>The ID of the AWS KMS key that
+   *             is associated with this respository association.</p>
+   *             </li>
+   *          </ul>
+   */
+  KMSKeyDetails?: KMSKeyDetails;
 }
 
 export namespace RepositoryAssociation {
@@ -409,12 +476,10 @@ export namespace RepositoryHeadSourceCodeType {
 }
 
 /**
- * <p>
- *          A code review type that analyzes all code under a specified branch in an associated respository.
- *          The assocated repository is specified using its ARN when you call <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview">
+ * <p> A code review type that analyzes all code under a specified branch in an associated
+ * 			repository. The associated repository is specified using its ARN when you call <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview">
  *                <code>CreateCodeReview</code>
- *             </a>.
- *       </p>
+ *             </a>. </p>
  */
 export interface RepositoryAnalysis {
   /**
@@ -441,7 +506,7 @@ export namespace RepositoryAnalysis {
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>PullRequest</code> - A code review that is automatically triggered by a pull request on an assocaited repository. Because this
+ *                   <code>PullRequest</code> - A code review that is automatically triggered by a pull request on an associated repository. Because this
  *                type of code review is automatically generated, you cannot specify this code review type using <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview">
  *                      <code>CreateCodeReview</code>
  *                   </a>.
@@ -449,22 +514,20 @@ export namespace RepositoryAnalysis {
  *             </li>
  *             <li>
  *                <p>
- *                   <code>RepositoryAnalysis</code> - A code review that analyzes all code under a specified branch in an associated respository.
- *                The assocated repository is specified using its ARN in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview">
+ * 					             <code>RepositoryAnalysis</code> - A code review that analyzes all code under a specified
+ * 					branch in an associated repository. The associated repository is specified using its ARN
+ * 					in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview">
  *                      <code>CreateCodeReview</code>
- *                   </a>.
- *             </p>
+ *                   </a>. </p>
  *             </li>
  *          </ul>
  */
 export interface CodeReviewType {
   /**
-   * <p>
-   *          A code review that analyzes all code under a specified branch in an associated respository.
-   *          The assocated repository is specified using its ARN in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview">
+   * <p> A code review that analyzes all code under a specified branch in an associated
+   * 			repository. The associated repository is specified using its ARN in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CreateCodeReview">
    *                <code>CreateCodeReview</code>
-   *             </a>.
-   *       </p>
+   *             </a>. </p>
    */
   RepositoryAnalysis: RepositoryAnalysis | undefined;
 }

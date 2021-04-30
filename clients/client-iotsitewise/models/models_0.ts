@@ -23,7 +23,7 @@ export namespace GroupIdentity {
  */
 export interface IAMRoleIdentity {
   /**
-   * <p>The ARN of the IAM role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.htmll#identifiers-arns">IAM ARNs</a> in the
+   * <p>The ARN of the IAM role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM ARNs</a> in the
    *       <i>IAM User Guide</i>.</p>
    */
   arn: string | undefined;
@@ -41,7 +41,7 @@ export namespace IAMRoleIdentity {
 export interface IAMUserIdentity {
   /**
    * <p>The ARN of the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM ARNs</a> in the
-   *         <i>IAM User Guide</i>.</p>
+   *       <i>IAM User Guide</i>.</p>
    *          <note>
    *             <p>If you delete the IAM user, access policies that contain this identity include an
    *         empty <code>arn</code>. You can delete the access policy for the IAM user that no longer
@@ -3560,6 +3560,123 @@ export interface GetAssetPropertyValueHistoryResponse {
 
 export namespace GetAssetPropertyValueHistoryResponse {
   export const filterSensitiveLog = (obj: GetAssetPropertyValueHistoryResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInterpolatedAssetPropertyValuesRequest {
+  /**
+   * <p>The ID of the asset.</p>
+   */
+  assetId?: string;
+
+  /**
+   * <p>The ID of the asset property.</p>
+   */
+  propertyId?: string;
+
+  /**
+   * <p>The property alias that identifies the property, such as an OPC-UA server data stream path
+   *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
+   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
+   *         <i>AWS IoT SiteWise User Guide</i>.</p>
+   */
+  propertyAlias?: string;
+
+  /**
+   * <p>The exclusive start of the range from which to interpolate data, expressed in seconds in
+   *       Unix epoch time.</p>
+   */
+  startTimeInSeconds: number | undefined;
+
+  /**
+   * <p>The nanosecond offset converted from <code>startTimeInSeconds</code>.</p>
+   */
+  startTimeOffsetInNanos?: number;
+
+  /**
+   * <p>The inclusive end of the range from which to interpolate data, expressed in seconds in
+   *       Unix epoch time.</p>
+   */
+  endTimeInSeconds: number | undefined;
+
+  /**
+   * <p>The nanosecond offset converted from <code>endTimeInSeconds</code>.</p>
+   */
+  endTimeOffsetInNanos?: number;
+
+  /**
+   * <p>The quality of the asset property value. You can use this parameter as a filter to choose
+   *       only the asset property values that have a specific quality.</p>
+   */
+  quality: Quality | string | undefined;
+
+  /**
+   * <p>The time interval in seconds over which to interpolate data. Each interval starts when the
+   *       previous one ends.</p>
+   */
+  intervalInSeconds: number | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per paginated request.
+   *       If not specified, the default value is 10.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The interpolation type.</p>
+   *          <p>Valid values: <code>LINEAR_INTERPOLATION</code>
+   *          </p>
+   */
+  type: string | undefined;
+}
+
+export namespace GetInterpolatedAssetPropertyValuesRequest {
+  export const filterSensitiveLog = (obj: GetInterpolatedAssetPropertyValuesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about an interpolated asset property value.</p>
+ */
+export interface InterpolatedAssetPropertyValue {
+  /**
+   * <p>Contains a timestamp with optional nanosecond granularity.</p>
+   */
+  timestamp: TimeInNanos | undefined;
+
+  /**
+   * <p>Contains an asset property value (of a single type only).</p>
+   */
+  value: Variant | undefined;
+}
+
+export namespace InterpolatedAssetPropertyValue {
+  export const filterSensitiveLog = (obj: InterpolatedAssetPropertyValue): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInterpolatedAssetPropertyValuesResponse {
+  /**
+   * <p>The requested interpolated values.</p>
+   */
+  interpolatedAssetPropertyValues: InterpolatedAssetPropertyValue[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetInterpolatedAssetPropertyValuesResponse {
+  export const filterSensitiveLog = (obj: GetInterpolatedAssetPropertyValuesResponse): any => ({
     ...obj,
   });
 }

@@ -4,6 +4,7 @@ import {
   AcceptReservedNodeExchangeCommandInput,
   AcceptReservedNodeExchangeCommandOutput,
 } from "./commands/AcceptReservedNodeExchangeCommand";
+import { AddPartnerCommand, AddPartnerCommandInput, AddPartnerCommandOutput } from "./commands/AddPartnerCommand";
 import {
   AuthorizeClusterSecurityGroupIngressCommand,
   AuthorizeClusterSecurityGroupIngressCommandInput,
@@ -151,6 +152,11 @@ import {
   DeleteHsmConfigurationCommandOutput,
 } from "./commands/DeleteHsmConfigurationCommand";
 import {
+  DeletePartnerCommand,
+  DeletePartnerCommandInput,
+  DeletePartnerCommandOutput,
+} from "./commands/DeletePartnerCommand";
+import {
   DeleteScheduledActionCommand,
   DeleteScheduledActionCommandInput,
   DeleteScheduledActionCommandOutput,
@@ -276,6 +282,11 @@ import {
   DescribeOrderableClusterOptionsCommandInput,
   DescribeOrderableClusterOptionsCommandOutput,
 } from "./commands/DescribeOrderableClusterOptionsCommand";
+import {
+  DescribePartnersCommand,
+  DescribePartnersCommandInput,
+  DescribePartnersCommandOutput,
+} from "./commands/DescribePartnersCommand";
 import {
   DescribeReservedNodeOfferingsCommand,
   DescribeReservedNodeOfferingsCommandInput,
@@ -491,6 +502,11 @@ import {
   RotateEncryptionKeyCommandInput,
   RotateEncryptionKeyCommandOutput,
 } from "./commands/RotateEncryptionKeyCommand";
+import {
+  UpdatePartnerStatusCommand,
+  UpdatePartnerStatusCommandInput,
+  UpdatePartnerStatusCommandOutput,
+} from "./commands/UpdatePartnerStatusCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -542,6 +558,34 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: AcceptReservedNodeExchangeCommandOutput) => void
   ): Promise<AcceptReservedNodeExchangeCommandOutput> | void {
     const command = new AcceptReservedNodeExchangeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds a partner integration to a cluster.
+   *             This operation authorizes a partner to push status updates for the specified database.
+   *             To complete the integration, you also set up the integration on the partner website.</p>
+   */
+  public addPartner(args: AddPartnerCommandInput, options?: __HttpHandlerOptions): Promise<AddPartnerCommandOutput>;
+  public addPartner(args: AddPartnerCommandInput, cb: (err: any, data?: AddPartnerCommandOutput) => void): void;
+  public addPartner(
+    args: AddPartnerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AddPartnerCommandOutput) => void
+  ): void;
+  public addPartner(
+    args: AddPartnerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddPartnerCommandOutput) => void),
+    cb?: (err: any, data?: AddPartnerCommandOutput) => void
+  ): Promise<AddPartnerCommandOutput> | void {
+    const command = new AddPartnerCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1642,6 +1686,38 @@ export class Redshift extends RedshiftClient {
   }
 
   /**
+   * <p>Deletes a partner integration from a cluster. Data can still flow to the cluster until the integration is deleted at the partner's website.</p>
+   */
+  public deletePartner(
+    args: DeletePartnerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePartnerCommandOutput>;
+  public deletePartner(
+    args: DeletePartnerCommandInput,
+    cb: (err: any, data?: DeletePartnerCommandOutput) => void
+  ): void;
+  public deletePartner(
+    args: DeletePartnerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePartnerCommandOutput) => void
+  ): void;
+  public deletePartner(
+    args: DeletePartnerCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePartnerCommandOutput) => void),
+    cb?: (err: any, data?: DeletePartnerCommandOutput) => void
+  ): Promise<DeletePartnerCommandOutput> | void {
+    const command = new DeletePartnerCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a scheduled action.
    *              </p>
    */
@@ -2589,6 +2665,38 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: DescribeOrderableClusterOptionsCommandOutput) => void
   ): Promise<DescribeOrderableClusterOptionsCommandOutput> | void {
     const command = new DescribeOrderableClusterOptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about the partner integrations defined for a cluster.</p>
+   */
+  public describePartners(
+    args: DescribePartnersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePartnersCommandOutput>;
+  public describePartners(
+    args: DescribePartnersCommandInput,
+    cb: (err: any, data?: DescribePartnersCommandOutput) => void
+  ): void;
+  public describePartners(
+    args: DescribePartnersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePartnersCommandOutput) => void
+  ): void;
+  public describePartners(
+    args: DescribePartnersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePartnersCommandOutput) => void),
+    cb?: (err: any, data?: DescribePartnersCommandOutput) => void
+  ): Promise<DescribePartnersCommandOutput> | void {
+    const command = new DescribePartnersCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4174,6 +4282,38 @@ export class Redshift extends RedshiftClient {
     cb?: (err: any, data?: RotateEncryptionKeyCommandOutput) => void
   ): Promise<RotateEncryptionKeyCommandOutput> | void {
     const command = new RotateEncryptionKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the status of a partner integration.</p>
+   */
+  public updatePartnerStatus(
+    args: UpdatePartnerStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePartnerStatusCommandOutput>;
+  public updatePartnerStatus(
+    args: UpdatePartnerStatusCommandInput,
+    cb: (err: any, data?: UpdatePartnerStatusCommandOutput) => void
+  ): void;
+  public updatePartnerStatus(
+    args: UpdatePartnerStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePartnerStatusCommandOutput) => void
+  ): void;
+  public updatePartnerStatus(
+    args: UpdatePartnerStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePartnerStatusCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePartnerStatusCommandOutput) => void
+  ): Promise<UpdatePartnerStatusCommandOutput> | void {
+    const command = new UpdatePartnerStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

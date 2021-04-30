@@ -27,7 +27,7 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  *                <i>only</i>
  * when there are no more results to display.</p>
  *          </note>
- *          <p>This operation can be called only from the organization's
+ *         <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an AWS service.</p>
  *         <note>
  *             <p>Policy types can be enabled and disabled in roots. This is distinct from whether

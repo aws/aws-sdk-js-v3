@@ -66,12 +66,6 @@ import {
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
-  AwsAuthInputConfig,
-  AwsAuthResolvedConfig,
-  getAwsAuthPlugin,
-  resolveAwsAuthConfig,
-} from "@aws-sdk/middleware-signing";
-import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
@@ -86,7 +80,6 @@ import {
 import {
   Provider,
   RegionInfoProvider,
-  Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
   HashConstructor as __HashConstructor,
@@ -223,11 +216,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -236,11 +224,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Optional logger for logging debug/info/warn/error.
    */
   logger?: __Logger;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
 
   /**
    * Fetch related hostname, signing name or signing region with given region.
@@ -260,7 +243,6 @@ type QueryProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandler
   EndpointsInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
-  AwsAuthInputConfig &
   UserAgentInputConfig;
 /**
  * The configuration interface of QueryProtocolClient class constructor that set the region, credentials and other options.
@@ -273,7 +255,6 @@ type QueryProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__Htt
   EndpointsResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
-  AwsAuthResolvedConfig &
   UserAgentResolvedConfig;
 /**
  * The resolved configuration interface of QueryProtocolClient class. This is resolved and normalized from the {@link QueryProtocolClientConfig | constructor configuration interface}.
@@ -303,15 +284,13 @@ export class QueryProtocolClient extends __Client<
     let _config_2 = resolveEndpointsConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);
     let _config_4 = resolveHostHeaderConfig(_config_3);
-    let _config_5 = resolveAwsAuthConfig(_config_4);
-    let _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    let _config_5 = resolveUserAgentConfig(_config_4);
+    super(_config_5);
+    this.config = _config_5;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
-    this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }
 

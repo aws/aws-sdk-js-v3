@@ -3023,6 +3023,7 @@ export namespace GetSavingsPlansCoverageResponse {
 export enum SupportedSavingsPlansType {
   COMPUTE_SP = "COMPUTE_SP",
   EC2_INSTANCE_SP = "EC2_INSTANCE_SP",
+  SAGEMAKER_SP = "SAGEMAKER_SP",
 }
 
 /**
@@ -4144,7 +4145,7 @@ export interface GetCostAndUsageRequest {
    * <p>Sets the AWS cost granularity to <code>MONTHLY</code> or <code>DAILY</code>, or <code>HOURLY</code>. If <code>Granularity</code> isn't set,
    * 	    the response object doesn't include the <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>, or <code>HOURLY</code>. </p>
    */
-  Granularity?: Granularity | string;
+  Granularity: Granularity | string | undefined;
 
   /**
    * <p>Filters AWS costs by different dimensions. For example, you can specify <code>SERVICE</code> and <code>LINKED_ACCOUNT</code>
@@ -4206,7 +4207,7 @@ export interface GetCostAndUsageWithResourcesRequest {
    * 	    <code>Granularity</code> isn't set, the response object doesn't include the
    * 	    <code>Granularity</code>, <code>MONTHLY</code>, <code>DAILY</code>, or <code>HOURLY</code>. </p>
    */
-  Granularity?: Granularity | string;
+  Granularity: Granularity | string | undefined;
 
   /**
    * <p>Filters Amazon Web Services costs by different dimensions. For example, you can specify

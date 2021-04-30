@@ -130,6 +130,11 @@ import {
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
+import {
+  UpdateApplicationMaintenanceConfigurationCommand,
+  UpdateApplicationMaintenanceConfigurationCommandInput,
+  UpdateApplicationMaintenanceConfigurationCommandOutput,
+} from "./commands/UpdateApplicationMaintenanceConfigurationCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
@@ -411,11 +416,12 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
    * <p>Creates and returns a URL that you can use to connect to
    *             an application's extension. Currently, the only
    *             available extension is the Apache Flink dashboard.</p>
-   *         <p>The IAM role or user used to call this API defines the permissions to access the extension.
-   *             Once the presigned URL is created, no additional permission is required to access this URL. IAM
-   *             authorization policies for this API are also enforced for every HTTP request that attempts to
-   *             connect to the extension.
-   *         </p>
+   *         <p>The IAM role or user used to call this API defines the permissions to access the
+   *       extension. After the presigned URL is created, no additional permission is required to access
+   *       this URL. IAM authorization policies for this API are also enforced for every HTTP request
+   *       that attempts to connect to the extension. </p>
+   *         <p>You    control the amount of time that the URL will be valid using the <code>SessionExpirationDurationInSeconds</code>
+   *         parameter. If you do not provide this parameter, the returned URL is valid for twelve hours.</p>
    *         <note>
    *             <p>The URL that you get from a call to CreateApplicationPresignedUrl must be used within 3 minutes
    *             to be valid.
@@ -1082,6 +1088,40 @@ export class KinesisAnalyticsV2 extends KinesisAnalyticsV2Client {
     cb?: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): Promise<UpdateApplicationCommandOutput> | void {
     const command = new UpdateApplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the configuration for the automatic maintenance that Kinesis Data Analytics performs on the application. For information about automatic application maintenance, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/maintenance.html">Kinesis Data Analytics for Apache Flink Maintenance</a>.</p>
+   */
+  public updateApplicationMaintenanceConfiguration(
+    args: UpdateApplicationMaintenanceConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateApplicationMaintenanceConfigurationCommandOutput>;
+  public updateApplicationMaintenanceConfiguration(
+    args: UpdateApplicationMaintenanceConfigurationCommandInput,
+    cb: (err: any, data?: UpdateApplicationMaintenanceConfigurationCommandOutput) => void
+  ): void;
+  public updateApplicationMaintenanceConfiguration(
+    args: UpdateApplicationMaintenanceConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateApplicationMaintenanceConfigurationCommandOutput) => void
+  ): void;
+  public updateApplicationMaintenanceConfiguration(
+    args: UpdateApplicationMaintenanceConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateApplicationMaintenanceConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateApplicationMaintenanceConfigurationCommandOutput) => void
+  ): Promise<UpdateApplicationMaintenanceConfigurationCommandOutput> | void {
+    const command = new UpdateApplicationMaintenanceConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

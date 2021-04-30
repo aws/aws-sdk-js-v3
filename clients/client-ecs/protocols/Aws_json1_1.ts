@@ -208,6 +208,7 @@ import {
   EFSAuthorizationConfig,
   EFSVolumeConfiguration,
   EnvironmentFile,
+  EphemeralStorage,
   ExecuteCommandConfiguration,
   ExecuteCommandLogConfiguration,
   ExecuteCommandRequest,
@@ -6526,6 +6527,12 @@ const serializeAws_json1_1EnvironmentVariables = (input: KeyValuePair[], context
     });
 };
 
+const serializeAws_json1_1EphemeralStorage = (input: EphemeralStorage, context: __SerdeContext): any => {
+  return {
+    ...(input.sizeInGiB !== undefined && input.sizeInGiB !== null && { sizeInGiB: input.sizeInGiB }),
+  };
+};
+
 const serializeAws_json1_1ExecuteCommandConfiguration = (
   input: ExecuteCommandConfiguration,
   context: __SerdeContext
@@ -7154,6 +7161,10 @@ const serializeAws_json1_1RegisterTaskDefinitionRequest = (
         containerDefinitions: serializeAws_json1_1ContainerDefinitions(input.containerDefinitions, context),
       }),
     ...(input.cpu !== undefined && input.cpu !== null && { cpu: input.cpu }),
+    ...(input.ephemeralStorage !== undefined &&
+      input.ephemeralStorage !== null && {
+        ephemeralStorage: serializeAws_json1_1EphemeralStorage(input.ephemeralStorage, context),
+      }),
     ...(input.executionRoleArn !== undefined &&
       input.executionRoleArn !== null && { executionRoleArn: input.executionRoleArn }),
     ...(input.family !== undefined && input.family !== null && { family: input.family }),
@@ -7564,6 +7575,10 @@ const serializeAws_json1_1TaskOverride = (input: TaskOverride, context: __SerdeC
         containerOverrides: serializeAws_json1_1ContainerOverrides(input.containerOverrides, context),
       }),
     ...(input.cpu !== undefined && input.cpu !== null && { cpu: input.cpu }),
+    ...(input.ephemeralStorage !== undefined &&
+      input.ephemeralStorage !== null && {
+        ephemeralStorage: serializeAws_json1_1EphemeralStorage(input.ephemeralStorage, context),
+      }),
     ...(input.executionRoleArn !== undefined &&
       input.executionRoleArn !== null && { executionRoleArn: input.executionRoleArn }),
     ...(input.inferenceAcceleratorOverrides !== undefined &&
@@ -8905,6 +8920,12 @@ const deserializeAws_json1_1EnvironmentVariables = (output: any, context: __Serd
     });
 };
 
+const deserializeAws_json1_1EphemeralStorage = (output: any, context: __SerdeContext): EphemeralStorage => {
+  return {
+    sizeInGiB: output.sizeInGiB !== undefined && output.sizeInGiB !== null ? output.sizeInGiB : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ExecuteCommandConfiguration = (
   output: any,
   context: __SerdeContext
@@ -10126,6 +10147,10 @@ const deserializeAws_json1_1Task = (output: any, context: __SerdeContext): Task 
       output.enableExecuteCommand !== undefined && output.enableExecuteCommand !== null
         ? output.enableExecuteCommand
         : undefined,
+    ephemeralStorage:
+      output.ephemeralStorage !== undefined && output.ephemeralStorage !== null
+        ? deserializeAws_json1_1EphemeralStorage(output.ephemeralStorage, context)
+        : undefined,
     executionStoppedAt:
       output.executionStoppedAt !== undefined && output.executionStoppedAt !== null
         ? new Date(Math.round(output.executionStoppedAt * 1000))
@@ -10194,6 +10219,10 @@ const deserializeAws_json1_1TaskDefinition = (output: any, context: __SerdeConte
     deregisteredAt:
       output.deregisteredAt !== undefined && output.deregisteredAt !== null
         ? new Date(Math.round(output.deregisteredAt * 1000))
+        : undefined,
+    ephemeralStorage:
+      output.ephemeralStorage !== undefined && output.ephemeralStorage !== null
+        ? deserializeAws_json1_1EphemeralStorage(output.ephemeralStorage, context)
         : undefined,
     executionRoleArn:
       output.executionRoleArn !== undefined && output.executionRoleArn !== null ? output.executionRoleArn : undefined,
@@ -10272,6 +10301,10 @@ const deserializeAws_json1_1TaskOverride = (output: any, context: __SerdeContext
         ? deserializeAws_json1_1ContainerOverrides(output.containerOverrides, context)
         : undefined,
     cpu: output.cpu !== undefined && output.cpu !== null ? output.cpu : undefined,
+    ephemeralStorage:
+      output.ephemeralStorage !== undefined && output.ephemeralStorage !== null
+        ? deserializeAws_json1_1EphemeralStorage(output.ephemeralStorage, context)
+        : undefined,
     executionRoleArn:
       output.executionRoleArn !== undefined && output.executionRoleArn !== null ? output.executionRoleArn : undefined,
     inferenceAcceleratorOverrides:

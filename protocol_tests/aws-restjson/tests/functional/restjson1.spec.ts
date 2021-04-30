@@ -43,6 +43,7 @@ import { StreamingTraitsWithMediaTypeCommand } from "../../commands/StreamingTra
 import { TimestampFormatHeadersCommand } from "../../commands/TimestampFormatHeadersCommand";
 import { ComplexError, FooError, InvalidGreeting } from "../../models/models_0";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
+import { Encoder as __Encoder } from "@aws-sdk/types";
 import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { Readable } from "stream";
@@ -551,6 +552,7 @@ it("RestJsonEndpointTraitWithHostLabel:Request", async () => {
     expect(r.path).toBe("/EndpointWithHostLabelOperation");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{\"label\": \"bar\"}`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -1105,8 +1107,9 @@ it("EnumPayloadRequest:Request", async () => {
     expect(r.path).toBe("/EnumPayload");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `enumvalue`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(client.config, bodyString, r.body);
+    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1173,8 +1176,9 @@ it("RestJsonHttpPayloadTraitsWithBlob:Request", async () => {
     expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `blobby blob blob`;
-    const unequalParts: any = compareEquivalentOctetStreamBodies(client.config, bodyString, r.body);
+    const unequalParts: any = compareEquivalentOctetStreamBodies(utf8Encoder, bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1323,8 +1327,9 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:Request", async () => {
     expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `blobby blob blob`;
-    const unequalParts: any = compareEquivalentOctetStreamBodies(client.config, bodyString, r.body);
+    const unequalParts: any = compareEquivalentOctetStreamBodies(utf8Encoder, bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1404,6 +1409,7 @@ it("RestJsonHttpPayloadWithStructure:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"greeting\": \"hello\",
         \"name\": \"Phreddy\"
@@ -1828,8 +1834,9 @@ it("StringPayloadRequest:Request", async () => {
     expect(r.path).toBe("/StringPayload");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `rawstring`;
-    const unequalParts: any = compareEquivalentUnknownTypeBodies(client.config, bodyString, r.body);
+    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -1951,6 +1958,7 @@ it("InlineDocumentInput:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"stringValue\": \"string\",
         \"documentValue\": {
@@ -2040,6 +2048,7 @@ it("InlineDocumentAsPayloadInput:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"foo\": \"bar\"
     }`;
@@ -2521,6 +2530,7 @@ it("RestJsonJsonBlobs:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"data\": \"dmFsdWU=\"
     }`;
@@ -2612,6 +2622,7 @@ it("RestJsonJsonEnums:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"fooEnum1\": \"Foo\",
         \"fooEnum2\": \"0\",
@@ -2761,6 +2772,7 @@ it("RestJsonLists:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"stringList\": [
             \"foo\",
@@ -2841,6 +2853,7 @@ it("RestJsonListsEmpty:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"stringList\": []
     }`;
@@ -2878,6 +2891,7 @@ it("RestJsonListsSerializeNull:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"sparseStringList\": [
             null,
@@ -3132,6 +3146,7 @@ it("RestJsonJsonMaps:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"denseStructMap\": {
             \"foo\": {
@@ -3198,6 +3213,7 @@ it("RestJsonSerializesNullMapValues:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"sparseBooleanMap\": {
             \"x\": null
@@ -3260,6 +3276,7 @@ it("RestJsonSerializesZeroValuesInMaps:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"denseNumberMap\": {
             \"x\": 0
@@ -3511,6 +3528,7 @@ it("RestJsonJsonTimestamps:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"normal\": 1398796238
     }`;
@@ -3548,6 +3566,7 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"dateTime\": \"2014-04-29T18:30:38Z\"
     }`;
@@ -3585,6 +3604,7 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"epochSeconds\": 1398796238
     }`;
@@ -3622,6 +3642,7 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"httpDate\": \"Tue, 29 Apr 2014 18:30:38 GMT\"
     }`;
@@ -3821,6 +3842,7 @@ it("RestJsonSerializeStringUnionValue:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
             \"stringValue\": \"foo\"
@@ -3862,6 +3884,7 @@ it("RestJsonSerializeBooleanUnionValue:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
             \"booleanValue\": true
@@ -3903,6 +3926,7 @@ it("RestJsonSerializeNumberUnionValue:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
             \"numberValue\": 1
@@ -3944,6 +3968,7 @@ it("RestJsonSerializeBlobUnionValue:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
             \"blobValue\": \"Zm9v\"
@@ -3985,6 +4010,7 @@ it("RestJsonSerializeTimestampUnionValue:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
             \"timestampValue\": 1398796238
@@ -4026,6 +4052,7 @@ it("RestJsonSerializeEnumUnionValue:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
             \"enumValue\": \"Foo\"
@@ -4067,6 +4094,7 @@ it("RestJsonSerializeListUnionValue:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
             \"listValue\": [\"foo\", \"bar\"]
@@ -4112,6 +4140,7 @@ it("RestJsonSerializeMapUnionValue:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
             \"mapValue\": {
@@ -4158,6 +4187,7 @@ it("RestJsonSerializeStructureUnionValue:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
             \"structureValue\": {
@@ -4203,6 +4233,7 @@ it("RestJsonSerializeRenamedStructureUnionValue:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"contents\": {
             \"renamedStructureValue\": {
@@ -5105,6 +5136,7 @@ it("RestJsonRecursiveShapes:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"nested\": {
             \"foo\": \"Foo1\",
@@ -5238,6 +5270,7 @@ it("RestJsonSimpleScalarProperties:Request", async () => {
     expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{
         \"stringValue\": \"string\",
         \"trueBooleanValue\": true,
@@ -5283,6 +5316,7 @@ it("RestJsonDoesntSerializeNullStructureValues:Request", async () => {
     expect(r.headers["content-type"]).toBe("application/json");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `{}`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -5420,8 +5454,9 @@ it("RestJsonStreamingTraitsWithBlob:Request", async () => {
     expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `blobby blob blob`;
-    const unequalParts: any = compareEquivalentOctetStreamBodies(client.config, bodyString, r.body);
+    const unequalParts: any = compareEquivalentOctetStreamBodies(utf8Encoder, bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -5581,8 +5616,9 @@ it("RestJsonStreamingTraitsRequireLengthWithBlob:Request", async () => {
     expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `blobby blob blob`;
-    const unequalParts: any = compareEquivalentOctetStreamBodies(client.config, bodyString, r.body);
+    const unequalParts: any = compareEquivalentOctetStreamBodies(utf8Encoder, bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -5741,8 +5777,9 @@ it("RestJsonStreamingTraitsWithMediaTypeWithBlob:Request", async () => {
     expect(r.headers["x-foo"]).toBe("Foo");
 
     expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
     const bodyString = `blobby blob blob`;
-    const unequalParts: any = compareEquivalentOctetStreamBodies(client.config, bodyString, r.body);
+    const unequalParts: any = compareEquivalentOctetStreamBodies(utf8Encoder, bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
 });
@@ -5915,9 +5952,13 @@ const compareEquivalentJsonBodies = (expectedBody: string, generatedBody: string
  * Returns a map of key names that were un-equal to value objects showing the
  * discrepancies between the components.
  */
-const compareEquivalentOctetStreamBodies = (config: any, expectedBody: string, generatedBody: Uint8Array): Object => {
+const compareEquivalentOctetStreamBodies = (
+  utf8Encoder: __Encoder,
+  expectedBody: string,
+  generatedBody: Uint8Array
+): Object => {
   const expectedParts = { Value: expectedBody };
-  const generatedParts = { Value: config.utf8Encoder(generatedBody) };
+  const generatedParts = { Value: utf8Encoder(generatedBody) };
 
   return compareParts(expectedParts, generatedParts);
 };
@@ -5927,13 +5968,13 @@ const compareEquivalentOctetStreamBodies = (config: any, expectedBody: string, g
  * discrepancies between the components.
  */
 const compareEquivalentUnknownTypeBodies = (
-  config: any,
+  utf8Encoder: __Encoder,
   expectedBody: string,
   generatedBody: string | Uint8Array
 ): Object => {
   const expectedParts = { Value: expectedBody };
   const generatedParts = {
-    Value: generatedBody instanceof Uint8Array ? config.utf8Encoder(generatedBody) : generatedBody,
+    Value: generatedBody instanceof Uint8Array ? utf8Encoder(generatedBody) : generatedBody,
   };
 
   return compareParts(expectedParts, generatedParts);
