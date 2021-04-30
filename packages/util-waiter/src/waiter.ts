@@ -12,9 +12,15 @@ export interface WaiterConfiguration<Client> {
   maxWaitTime: number;
 
   /**
+   * @deprecated Use abortSignal
    * Abort controller. Used for ending the waiter early.
    */
   abortController?: AbortController;
+
+  /**
+   * Abort Signal. Used for ending the waiter early.
+   */
+  abortSignal?: AbortController["signal"];
 
   /**
    * The minimum amount of time to delay between retries in seconds. This is the
@@ -55,4 +61,28 @@ export enum WaiterState {
 
 export type WaiterResult = {
   state: WaiterState;
+
+  /**
+   * (optional) Indicates a reason for why a waiter has reached its state.
+   */
+  reason?: any;
+};
+
+/**
+ * Handles and throws exceptions resulting from the waiterResult
+ * @param result WaiterResult
+ */
+export const checkExceptions = (result: WaiterResult): WaiterResult => {
+  if (result.state === WaiterState.ABORTED) {
+    throw new Error(
+      `${JSON.stringify({
+        ...result,
+        name: "AbortError",
+        reason: "Request was aborted",
+      })}`
+    );
+  } else if (result.state !== WaiterState.SUCCESS) {
+    throw new Error(`${JSON.stringify({ result })}`);
+  }
+  return result;
 };
