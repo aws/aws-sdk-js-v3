@@ -42,3 +42,4 @@ export * from "./commands/UpdateWorkloadShareCommand";
 export * from "./commands/UpgradeLensReviewCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

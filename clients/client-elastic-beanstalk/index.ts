@@ -56,3 +56,4 @@ export * from "./commands/UpdateTagsForResourceCommand";
 export * from "./commands/ValidateConfigurationSettingsCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

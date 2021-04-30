@@ -24,3 +24,4 @@ export * from "./commands/StopLoggingCommand";
 export * from "./commands/UpdateTrailCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

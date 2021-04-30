@@ -34,3 +34,4 @@ export * from "./commands/UpdateIndexCommand";
 export * from "./commands/UpdateThesaurusCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

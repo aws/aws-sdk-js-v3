@@ -73,3 +73,4 @@ export * from "./commands/UpdateRouteResponseCommand";
 export * from "./commands/UpdateStageCommand";
 export * from "./commands/UpdateVpcLinkCommand";
 export * from "./models/index";
+export * from "./models/index";

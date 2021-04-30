@@ -24,3 +24,4 @@ export * from "./commands/TagQueueCommand";
 export * from "./commands/UntagQueueCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

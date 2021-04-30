@@ -64,3 +64,4 @@ export * from "./commands/UpdateSettingsCommand";
 export * from "./commands/ValidateAssessmentReportIntegrityCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

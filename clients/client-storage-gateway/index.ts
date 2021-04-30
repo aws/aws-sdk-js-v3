@@ -102,3 +102,4 @@ export * from "./commands/UpdateSnapshotScheduleCommand";
 export * from "./commands/UpdateVTLDeviceTypeCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

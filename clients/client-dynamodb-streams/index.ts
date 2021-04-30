@@ -5,3 +5,4 @@ export * from "./commands/GetRecordsCommand";
 export * from "./commands/GetShardIteratorCommand";
 export * from "./commands/ListStreamsCommand";
 export * from "./models/index";
+export * from "./models/index";

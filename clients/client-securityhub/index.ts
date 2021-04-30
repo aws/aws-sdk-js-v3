@@ -64,3 +64,4 @@ export * from "./commands/UpdateSecurityHubConfigurationCommand";
 export * from "./commands/UpdateStandardsControlCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

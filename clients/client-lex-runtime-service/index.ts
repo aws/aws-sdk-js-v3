@@ -6,3 +6,4 @@ export * from "./commands/PostContentCommand";
 export * from "./commands/PostTextCommand";
 export * from "./commands/PutSessionCommand";
 export * from "./models/index";
+export * from "./models/index";

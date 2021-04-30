@@ -29,3 +29,4 @@ export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateInferenceSchedulerCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

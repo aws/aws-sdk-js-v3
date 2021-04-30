@@ -113,3 +113,4 @@ export * from "./commands/UpdateRoomCommand";
 export * from "./commands/UpdateSkillGroupCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

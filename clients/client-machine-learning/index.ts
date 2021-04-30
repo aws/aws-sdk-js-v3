@@ -38,3 +38,4 @@ export * from "./commands/UpdateEvaluationCommand";
 export * from "./commands/UpdateMLModelCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

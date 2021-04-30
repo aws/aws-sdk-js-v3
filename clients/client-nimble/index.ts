@@ -46,3 +46,4 @@ export * from "./commands/UpdateStreamingImageCommand";
 export * from "./commands/UpdateStudioCommand";
 export * from "./commands/UpdateStudioComponentCommand";
 export * from "./models/index";
+export * from "./models/index";

@@ -6,3 +6,4 @@ export * from "./commands/QueryCommand";
 export * from "./pagination/QueryPaginator";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

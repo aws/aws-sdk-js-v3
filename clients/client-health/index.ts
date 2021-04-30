@@ -22,3 +22,4 @@ export * from "./commands/DisableHealthServiceAccessForOrganizationCommand";
 export * from "./commands/EnableHealthServiceAccessForOrganizationCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

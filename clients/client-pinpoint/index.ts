@@ -113,3 +113,4 @@ export * from "./commands/UpdateTemplateActiveVersionCommand";
 export * from "./commands/UpdateVoiceChannelCommand";
 export * from "./commands/UpdateVoiceTemplateCommand";
 export * from "./models/index";
+export * from "./models/index";

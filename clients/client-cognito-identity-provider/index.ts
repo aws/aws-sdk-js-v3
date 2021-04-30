@@ -111,3 +111,4 @@ export * from "./commands/VerifySoftwareTokenCommand";
 export * from "./commands/VerifyUserAttributeCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

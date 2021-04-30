@@ -24,3 +24,4 @@ export * from "./commands/NotifyMigrationTaskStateCommand";
 export * from "./commands/PutResourceAttributesCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

@@ -10,3 +10,4 @@ export * from "./commands/TagResourceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateEventIntegrationCommand";
 export * from "./models/index";
+export * from "./models/index";

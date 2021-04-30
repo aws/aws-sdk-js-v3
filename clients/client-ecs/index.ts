@@ -65,3 +65,4 @@ export * from "./commands/UpdateServicePrimaryTaskSetCommand";
 export * from "./commands/UpdateTaskSetCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

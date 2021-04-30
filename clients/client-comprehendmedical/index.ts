@@ -22,3 +22,4 @@ export * from "./commands/StopICD10CMInferenceJobCommand";
 export * from "./commands/StopPHIDetectionJobCommand";
 export * from "./commands/StopRxNormInferenceJobCommand";
 export * from "./models/index";
+export * from "./models/index";

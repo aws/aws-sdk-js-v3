@@ -9,3 +9,4 @@ export * from "./commands/ListConfigurationSetsCommand";
 export * from "./commands/SendVoiceMessageCommand";
 export * from "./commands/UpdateConfigurationSetEventDestinationCommand";
 export * from "./models/index";
+export * from "./models/index";

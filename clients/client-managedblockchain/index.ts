@@ -31,3 +31,4 @@ export * from "./commands/UpdateNodeCommand";
 export * from "./commands/VoteOnProposalCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

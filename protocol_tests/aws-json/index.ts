@@ -11,3 +11,4 @@ export * from "./commands/NullOperationCommand";
 export * from "./commands/OperationWithOptionalInputOutputCommand";
 export * from "./commands/PutAndGetInlineDocumentsCommand";
 export * from "./models/index";
+export * from "./models/index";

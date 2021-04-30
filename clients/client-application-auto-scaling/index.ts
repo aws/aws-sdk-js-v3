@@ -16,3 +16,4 @@ export * from "./commands/PutScheduledActionCommand";
 export * from "./commands/RegisterScalableTargetCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

@@ -76,3 +76,4 @@ export * from "./commands/StartDBClusterCommand";
 export * from "./commands/StopDBClusterCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

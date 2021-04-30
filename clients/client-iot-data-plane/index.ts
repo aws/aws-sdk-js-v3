@@ -6,3 +6,4 @@ export * from "./commands/ListNamedShadowsForThingCommand";
 export * from "./commands/PublishCommand";
 export * from "./commands/UpdateThingShadowCommand";
 export * from "./models/index";
+export * from "./models/index";

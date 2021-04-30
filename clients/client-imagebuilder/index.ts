@@ -62,3 +62,4 @@ export * from "./commands/UpdateImagePipelineCommand";
 export * from "./commands/UpdateInfrastructureConfigurationCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

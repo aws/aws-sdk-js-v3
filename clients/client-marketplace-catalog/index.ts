@@ -10,3 +10,4 @@ export * from "./pagination/ListEntitiesPaginator";
 export * from "./commands/StartChangeSetCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

@@ -5,3 +5,4 @@ export * from "./commands/GetPendingJobExecutionsCommand";
 export * from "./commands/StartNextPendingJobExecutionCommand";
 export * from "./commands/UpdateJobExecutionCommand";
 export * from "./models/index";
+export * from "./models/index";

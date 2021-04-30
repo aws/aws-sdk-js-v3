@@ -93,3 +93,4 @@ export * from "./commands/UpdateResourceDefinitionCommand";
 export * from "./commands/UpdateSubscriptionDefinitionCommand";
 export * from "./commands/UpdateThingRuntimeConfigurationCommand";
 export * from "./models/index";
+export * from "./models/index";

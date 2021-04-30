@@ -6,3 +6,4 @@ export * from "./commands/ListEndpointsCommand";
 export * from "./pagination/ListEndpointsPaginator";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

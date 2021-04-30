@@ -34,3 +34,4 @@ export * from "./commands/UpdateAnomalyDetectorCommand";
 export * from "./commands/UpdateMetricSetCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

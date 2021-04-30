@@ -12,3 +12,4 @@ export * from "./commands/GetLambdaFunctionRecommendationsCommand";
 export * from "./commands/GetRecommendationSummariesCommand";
 export * from "./commands/UpdateEnrollmentStatusCommand";
 export * from "./models/index";
+export * from "./models/index";

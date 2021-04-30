@@ -84,3 +84,4 @@ export * from "./commands/UpdateRealtimeLogConfigCommand";
 export * from "./commands/UpdateStreamingDistributionCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

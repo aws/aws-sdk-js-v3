@@ -45,3 +45,4 @@ export * from "./commands/UpdatePreparedStatementCommand";
 export * from "./commands/UpdateWorkGroupCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

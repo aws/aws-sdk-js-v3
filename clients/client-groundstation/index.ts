@@ -33,3 +33,4 @@ export * from "./commands/UpdateConfigCommand";
 export * from "./commands/UpdateMissionProfileCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

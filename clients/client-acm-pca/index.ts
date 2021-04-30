@@ -31,3 +31,4 @@ export * from "./commands/UntagCertificateAuthorityCommand";
 export * from "./commands/UpdateCertificateAuthorityCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

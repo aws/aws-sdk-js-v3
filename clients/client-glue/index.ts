@@ -188,3 +188,4 @@ export * from "./commands/UpdateUserDefinedFunctionCommand";
 export * from "./commands/UpdateWorkflowCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

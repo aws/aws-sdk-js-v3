@@ -207,3 +207,4 @@ export * from "./commands/UpdateVoiceConnectorCommand";
 export * from "./commands/UpdateVoiceConnectorGroupCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

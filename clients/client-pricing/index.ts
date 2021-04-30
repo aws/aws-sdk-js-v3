@@ -8,3 +8,4 @@ export * from "./commands/GetProductsCommand";
 export * from "./pagination/GetProductsPaginator";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

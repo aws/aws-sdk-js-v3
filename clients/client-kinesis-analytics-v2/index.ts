@@ -29,3 +29,4 @@ export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateApplicationCommand";
 export * from "./commands/UpdateApplicationMaintenanceConfigurationCommand";
 export * from "./models/index";
+export * from "./models/index";

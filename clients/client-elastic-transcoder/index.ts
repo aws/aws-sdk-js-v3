@@ -24,3 +24,4 @@ export * from "./commands/UpdatePipelineNotificationsCommand";
 export * from "./commands/UpdatePipelineStatusCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

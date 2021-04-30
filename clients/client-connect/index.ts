@@ -124,3 +124,4 @@ export * from "./commands/UpdateUserRoutingProfileCommand";
 export * from "./commands/UpdateUserSecurityProfilesCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

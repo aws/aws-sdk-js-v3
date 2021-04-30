@@ -54,3 +54,4 @@ export * from "./commands/UpdatePackageCommand";
 export * from "./commands/UpgradeElasticsearchDomainCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

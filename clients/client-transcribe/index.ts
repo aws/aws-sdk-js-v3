@@ -35,3 +35,4 @@ export * from "./commands/UpdateVocabularyCommand";
 export * from "./commands/UpdateVocabularyFilterCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

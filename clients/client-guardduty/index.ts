@@ -70,3 +70,4 @@ export * from "./commands/UpdatePublishingDestinationCommand";
 export * from "./commands/UpdateThreatIntelSetCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

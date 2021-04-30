@@ -65,3 +65,4 @@ export * from "./commands/UpdateTrustCommand";
 export * from "./commands/VerifyTrustCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

@@ -39,10 +39,6 @@ import {
   HttpPayloadTraitsWithMediaTypeCommandOutput,
 } from "./commands/HttpPayloadTraitsWithMediaTypeCommand";
 import {
-  HttpPayloadWithMemberXmlNameCommandInput,
-  HttpPayloadWithMemberXmlNameCommandOutput,
-} from "./commands/HttpPayloadWithMemberXmlNameCommand";
-import {
   HttpPayloadWithStructureCommandInput,
   HttpPayloadWithStructureCommandOutput,
 } from "./commands/HttpPayloadWithStructureCommand";
@@ -80,7 +76,6 @@ import {
   InputAndOutputWithHeadersCommandInput,
   InputAndOutputWithHeadersCommandOutput,
 } from "./commands/InputAndOutputWithHeadersCommand";
-import { NestedXmlMapsCommandInput, NestedXmlMapsCommandOutput } from "./commands/NestedXmlMapsCommand";
 import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "./commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "./commands/NoInputAndOutputCommand";
 import {
@@ -188,7 +183,6 @@ export type ServiceInputTypes =
   | GreetingWithErrorsCommandInput
   | HttpPayloadTraitsCommandInput
   | HttpPayloadTraitsWithMediaTypeCommandInput
-  | HttpPayloadWithMemberXmlNameCommandInput
   | HttpPayloadWithStructureCommandInput
   | HttpPayloadWithXmlNameCommandInput
   | HttpPayloadWithXmlNamespaceAndPrefixCommandInput
@@ -200,7 +194,6 @@ export type ServiceInputTypes =
   | HttpResponseCodeCommandInput
   | IgnoreQueryParamsInResponseCommandInput
   | InputAndOutputWithHeadersCommandInput
-  | NestedXmlMapsCommandInput
   | NoInputAndNoOutputCommandInput
   | NoInputAndOutputCommandInput
   | NullAndEmptyHeadersClientCommandInput
@@ -241,7 +234,6 @@ export type ServiceOutputTypes =
   | GreetingWithErrorsCommandOutput
   | HttpPayloadTraitsCommandOutput
   | HttpPayloadTraitsWithMediaTypeCommandOutput
-  | HttpPayloadWithMemberXmlNameCommandOutput
   | HttpPayloadWithStructureCommandOutput
   | HttpPayloadWithXmlNameCommandOutput
   | HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
@@ -253,7 +245,6 @@ export type ServiceOutputTypes =
   | HttpResponseCodeCommandOutput
   | IgnoreQueryParamsInResponseCommandOutput
   | InputAndOutputWithHeadersCommandOutput
-  | NestedXmlMapsCommandOutput
   | NoInputAndNoOutputCommandOutput
   | NoInputAndOutputCommandOutput
   | NullAndEmptyHeadersClientCommandOutput

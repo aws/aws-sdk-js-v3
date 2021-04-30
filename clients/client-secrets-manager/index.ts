@@ -26,3 +26,4 @@ export * from "./commands/UpdateSecretVersionStageCommand";
 export * from "./commands/ValidateResourcePolicyCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

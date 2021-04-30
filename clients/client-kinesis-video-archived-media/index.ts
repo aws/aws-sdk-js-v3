@@ -6,3 +6,4 @@ export * from "./commands/GetHLSStreamingSessionURLCommand";
 export * from "./commands/GetMediaForFragmentListCommand";
 export * from "./commands/ListFragmentsCommand";
 export * from "./models/index";
+export * from "./models/index";

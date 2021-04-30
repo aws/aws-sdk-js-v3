@@ -33,3 +33,4 @@ export * from "./commands/SetLoadBalancerPoliciesForBackendServerCommand";
 export * from "./commands/SetLoadBalancerPoliciesOfListenerCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

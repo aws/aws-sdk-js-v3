@@ -10,3 +10,4 @@ export * from "./commands/PutSnapshotBlockCommand";
 export * from "./commands/StartSnapshotCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

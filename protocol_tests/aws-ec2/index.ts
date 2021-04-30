@@ -21,3 +21,4 @@ export * from "./commands/XmlListsCommand";
 export * from "./commands/XmlNamespacesCommand";
 export * from "./commands/XmlTimestampsCommand";
 export * from "./models/index";
+export * from "./models/index";

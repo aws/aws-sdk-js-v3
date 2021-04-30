@@ -59,3 +59,4 @@ export * from "./commands/UpdateTableReplicaAutoScalingCommand";
 export * from "./commands/UpdateTimeToLiveCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

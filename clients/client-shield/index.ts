@@ -39,3 +39,4 @@ export * from "./commands/UpdateProtectionGroupCommand";
 export * from "./commands/UpdateSubscriptionCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

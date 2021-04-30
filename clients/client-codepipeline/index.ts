@@ -47,3 +47,4 @@ export * from "./commands/UpdateActionTypeCommand";
 export * from "./commands/UpdatePipelineCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

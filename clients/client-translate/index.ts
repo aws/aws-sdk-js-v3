@@ -19,3 +19,4 @@ export * from "./commands/TranslateTextCommand";
 export * from "./commands/UpdateParallelDataCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

@@ -7,3 +7,4 @@ export * from "./commands/GetDocumentTextDetectionCommand";
 export * from "./commands/StartDocumentAnalysisCommand";
 export * from "./commands/StartDocumentTextDetectionCommand";
 export * from "./models/index";
+export * from "./models/index";

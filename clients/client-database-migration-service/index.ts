@@ -84,3 +84,4 @@ export * from "./commands/StopReplicationTaskCommand";
 export * from "./commands/TestConnectionCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

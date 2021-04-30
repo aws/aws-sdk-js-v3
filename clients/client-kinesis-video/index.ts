@@ -23,3 +23,4 @@ export * from "./commands/UpdateSignalingChannelCommand";
 export * from "./commands/UpdateStreamCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

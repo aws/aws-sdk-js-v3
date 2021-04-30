@@ -22,3 +22,4 @@ export * from "./commands/UpdateClusterCommand";
 export * from "./commands/UpdateParameterGroupCommand";
 export * from "./commands/UpdateSubnetGroupCommand";
 export * from "./models/index";
+export * from "./models/index";

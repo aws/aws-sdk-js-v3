@@ -25,3 +25,4 @@ export * from "./commands/UpdateComputeEnvironmentCommand";
 export * from "./commands/UpdateJobQueueCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

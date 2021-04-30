@@ -78,3 +78,4 @@ export * from "./commands/UpdateSqlInjectionMatchSetCommand";
 export * from "./commands/UpdateWebACLCommand";
 export * from "./commands/UpdateXssMatchSetCommand";
 export * from "./models/index";
+export * from "./models/index";

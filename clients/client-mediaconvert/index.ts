@@ -32,3 +32,4 @@ export * from "./commands/UpdatePresetCommand";
 export * from "./commands/UpdateQueueCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

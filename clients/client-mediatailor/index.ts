@@ -38,3 +38,4 @@ export * from "./commands/UpdateSourceLocationCommand";
 export * from "./commands/UpdateVodSourceCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

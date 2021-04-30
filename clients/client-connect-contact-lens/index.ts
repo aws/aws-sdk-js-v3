@@ -4,3 +4,4 @@ export * from "./commands/ListRealtimeContactAnalysisSegmentsCommand";
 export * from "./pagination/ListRealtimeContactAnalysisSegmentsPaginator";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

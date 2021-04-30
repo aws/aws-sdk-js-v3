@@ -28,3 +28,4 @@ export * from "./commands/UpdateDataSetCommand";
 export * from "./commands/UpdateRevisionCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

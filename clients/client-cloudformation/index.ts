@@ -74,3 +74,4 @@ export * from "./commands/UpdateTerminationProtectionCommand";
 export * from "./commands/ValidateTemplateCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

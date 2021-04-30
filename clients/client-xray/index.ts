@@ -39,3 +39,4 @@ export * from "./commands/UpdateGroupCommand";
 export * from "./commands/UpdateSamplingRuleCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

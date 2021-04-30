@@ -21,3 +21,4 @@ export * from "./commands/ModifyHsmCommand";
 export * from "./commands/ModifyLunaClientCommand";
 export * from "./commands/RemoveTagsFromResourceCommand";
 export * from "./models/index";
+export * from "./models/index";

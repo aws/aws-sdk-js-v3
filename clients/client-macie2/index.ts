@@ -66,3 +66,4 @@ export * from "./commands/UpdateMemberSessionCommand";
 export * from "./commands/UpdateOrganizationConfigurationCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

@@ -187,3 +187,4 @@ export * from "./commands/UploadSigningCertificateCommand";
 export * from "./commands/UploadSSHPublicKeyCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

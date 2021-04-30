@@ -26,3 +26,4 @@ export * from "./commands/UpdateApplicationCommand";
 export * from "./commands/UpdateAttributeGroupCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

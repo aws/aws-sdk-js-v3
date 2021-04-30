@@ -30,3 +30,4 @@ export * from "./commands/UpdateInstanceCustomHealthStatusCommand";
 export * from "./commands/UpdateServiceCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

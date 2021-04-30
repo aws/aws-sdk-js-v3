@@ -76,3 +76,4 @@ export * from "./commands/VerifyEmailAddressCommand";
 export * from "./commands/VerifyEmailIdentityCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

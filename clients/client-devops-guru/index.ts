@@ -29,3 +29,4 @@ export * from "./commands/UpdateResourceCollectionCommand";
 export * from "./commands/UpdateServiceIntegrationCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

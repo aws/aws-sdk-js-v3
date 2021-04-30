@@ -79,3 +79,4 @@ export * from "./commands/UpdateMultiplexProgramCommand";
 export * from "./commands/UpdateReservationCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

@@ -6,3 +6,4 @@ export * from "./pagination/DescribeHomeRegionControlsPaginator";
 export * from "./commands/GetHomeRegionCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

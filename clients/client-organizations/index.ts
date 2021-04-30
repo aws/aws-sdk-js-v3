@@ -69,3 +69,4 @@ export * from "./commands/UpdateOrganizationalUnitCommand";
 export * from "./commands/UpdatePolicyCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

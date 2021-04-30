@@ -76,3 +76,4 @@ export * from "./commands/UpdateResolverEndpointCommand";
 export * from "./commands/UpdateResolverRuleCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

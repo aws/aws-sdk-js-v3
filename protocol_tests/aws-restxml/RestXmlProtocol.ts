@@ -65,11 +65,6 @@ import {
   HttpPayloadTraitsWithMediaTypeCommandOutput,
 } from "./commands/HttpPayloadTraitsWithMediaTypeCommand";
 import {
-  HttpPayloadWithMemberXmlNameCommand,
-  HttpPayloadWithMemberXmlNameCommandInput,
-  HttpPayloadWithMemberXmlNameCommandOutput,
-} from "./commands/HttpPayloadWithMemberXmlNameCommand";
-import {
   HttpPayloadWithStructureCommand,
   HttpPayloadWithStructureCommandInput,
   HttpPayloadWithStructureCommandOutput,
@@ -124,11 +119,6 @@ import {
   InputAndOutputWithHeadersCommandInput,
   InputAndOutputWithHeadersCommandOutput,
 } from "./commands/InputAndOutputWithHeadersCommand";
-import {
-  NestedXmlMapsCommand,
-  NestedXmlMapsCommandInput,
-  NestedXmlMapsCommandOutput,
-} from "./commands/NestedXmlMapsCommand";
 import {
   NoInputAndNoOutputCommand,
   NoInputAndNoOutputCommandInput,
@@ -668,39 +658,6 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
   }
 
   /**
-   * The following example serializes a payload that uses an XML name
-   * on the member, changing the wrapper name.
-   */
-  public httpPayloadWithMemberXmlName(
-    args: HttpPayloadWithMemberXmlNameCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<HttpPayloadWithMemberXmlNameCommandOutput>;
-  public httpPayloadWithMemberXmlName(
-    args: HttpPayloadWithMemberXmlNameCommandInput,
-    cb: (err: any, data?: HttpPayloadWithMemberXmlNameCommandOutput) => void
-  ): void;
-  public httpPayloadWithMemberXmlName(
-    args: HttpPayloadWithMemberXmlNameCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: HttpPayloadWithMemberXmlNameCommandOutput) => void
-  ): void;
-  public httpPayloadWithMemberXmlName(
-    args: HttpPayloadWithMemberXmlNameCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: HttpPayloadWithMemberXmlNameCommandOutput) => void),
-    cb?: (err: any, data?: HttpPayloadWithMemberXmlNameCommandOutput) => void
-  ): Promise<HttpPayloadWithMemberXmlNameCommandOutput> | void {
-    const command = new HttpPayloadWithMemberXmlNameCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  /**
    * This examples serializes a structure in the payload.
    *
    * Note that serializing a structure changes the wrapper element name
@@ -1047,35 +1004,6 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     cb?: (err: any, data?: InputAndOutputWithHeadersCommandOutput) => void
   ): Promise<InputAndOutputWithHeadersCommandOutput> | void {
     const command = new InputAndOutputWithHeadersCommand(args);
-    if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb);
-    } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
-      this.send(command, optionsOrCb || {}, cb);
-    } else {
-      return this.send(command, optionsOrCb);
-    }
-  }
-
-  public nestedXmlMaps(
-    args: NestedXmlMapsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<NestedXmlMapsCommandOutput>;
-  public nestedXmlMaps(
-    args: NestedXmlMapsCommandInput,
-    cb: (err: any, data?: NestedXmlMapsCommandOutput) => void
-  ): void;
-  public nestedXmlMaps(
-    args: NestedXmlMapsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: NestedXmlMapsCommandOutput) => void
-  ): void;
-  public nestedXmlMaps(
-    args: NestedXmlMapsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: NestedXmlMapsCommandOutput) => void),
-    cb?: (err: any, data?: NestedXmlMapsCommandOutput) => void
-  ): Promise<NestedXmlMapsCommandOutput> | void {
-    const command = new NestedXmlMapsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

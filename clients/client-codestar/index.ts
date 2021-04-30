@@ -19,3 +19,4 @@ export * from "./commands/UpdateProjectCommand";
 export * from "./commands/UpdateTeamMemberCommand";
 export * from "./commands/UpdateUserProfileCommand";
 export * from "./models/index";
+export * from "./models/index";

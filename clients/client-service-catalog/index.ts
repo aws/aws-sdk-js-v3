@@ -108,3 +108,4 @@ export * from "./commands/UpdateServiceActionCommand";
 export * from "./commands/UpdateTagOptionCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

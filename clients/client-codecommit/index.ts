@@ -92,3 +92,4 @@ export * from "./commands/UpdateRepositoryDescriptionCommand";
 export * from "./commands/UpdateRepositoryNameCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

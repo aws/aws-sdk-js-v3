@@ -83,3 +83,4 @@ export * from "./commands/UpdateUserProfileCommand";
 export * from "./commands/UpdateVolumeCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

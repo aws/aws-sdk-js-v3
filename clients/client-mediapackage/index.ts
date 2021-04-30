@@ -24,3 +24,4 @@ export * from "./commands/UpdateChannelCommand";
 export * from "./commands/UpdateOriginEndpointCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

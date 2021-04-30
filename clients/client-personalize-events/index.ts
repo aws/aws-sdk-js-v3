@@ -4,3 +4,4 @@ export * from "./commands/PutEventsCommand";
 export * from "./commands/PutItemsCommand";
 export * from "./commands/PutUsersCommand";
 export * from "./models/index";
+export * from "./models/index";

@@ -56,3 +56,4 @@ export * from "./commands/UpdateApplicationCommand";
 export * from "./commands/UpdateDeploymentGroupCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

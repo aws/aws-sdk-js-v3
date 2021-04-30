@@ -19,3 +19,4 @@ export * from "./commands/ResendValidationEmailCommand";
 export * from "./commands/UpdateCertificateOptionsCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

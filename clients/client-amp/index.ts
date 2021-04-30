@@ -8,3 +8,4 @@ export * from "./pagination/ListWorkspacesPaginator";
 export * from "./commands/UpdateWorkspaceAliasCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

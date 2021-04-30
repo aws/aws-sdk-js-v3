@@ -56,3 +56,4 @@ export * from "./commands/UpdateJobPriorityCommand";
 export * from "./commands/UpdateJobStatusCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

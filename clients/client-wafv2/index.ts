@@ -41,3 +41,4 @@ export * from "./commands/UpdateRegexPatternSetCommand";
 export * from "./commands/UpdateRuleGroupCommand";
 export * from "./commands/UpdateWebACLCommand";
 export * from "./models/index";
+export * from "./models/index";

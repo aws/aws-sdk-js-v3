@@ -65,3 +65,4 @@ export * from "./commands/UpdatePrimaryEmailAddressCommand";
 export * from "./commands/UpdateResourceCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

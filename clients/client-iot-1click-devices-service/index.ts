@@ -14,3 +14,4 @@ export * from "./commands/UnclaimDeviceCommand";
 export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateDeviceStateCommand";
 export * from "./models/index";
+export * from "./models/index";

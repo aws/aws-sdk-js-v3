@@ -52,3 +52,4 @@ export * from "./commands/UpdateApiDestinationCommand";
 export * from "./commands/UpdateArchiveCommand";
 export * from "./commands/UpdateConnectionCommand";
 export * from "./models/index";
+export * from "./models/index";

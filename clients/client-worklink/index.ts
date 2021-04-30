@@ -40,3 +40,4 @@ export * from "./commands/UpdateFleetMetadataCommand";
 export * from "./commands/UpdateIdentityProviderConfigurationCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

@@ -24,3 +24,4 @@ export * from "./commands/UpdateConnectorProfileCommand";
 export * from "./commands/UpdateFlowCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

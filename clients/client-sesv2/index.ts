@@ -95,3 +95,4 @@ export * from "./commands/UpdateEmailIdentityPolicyCommand";
 export * from "./commands/UpdateEmailTemplateCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

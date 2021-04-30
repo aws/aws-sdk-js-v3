@@ -58,3 +58,4 @@ export * from "./commands/UpdateWorkspaceBundleCommand";
 export * from "./commands/UpdateWorkspaceImagePermissionCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

@@ -47,3 +47,4 @@ export * from "./commands/UpdateNodegroupConfigCommand";
 export * from "./commands/UpdateNodegroupVersionCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

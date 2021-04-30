@@ -38,3 +38,4 @@ export * from "./commands/ValidatePolicyCommand";
 export * from "./pagination/ValidatePolicyPaginator";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

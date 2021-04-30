@@ -17,3 +17,4 @@ export * from "./commands/ListTablesCommand";
 export * from "./pagination/ListTablesPaginator";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

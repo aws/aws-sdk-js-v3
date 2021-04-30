@@ -29,3 +29,4 @@ export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateDomainCommand";
 export * from "./commands/UpdateProfileCommand";
 export * from "./models/index";
+export * from "./models/index";

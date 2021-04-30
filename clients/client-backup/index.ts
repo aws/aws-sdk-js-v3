@@ -65,3 +65,4 @@ export * from "./commands/UpdateRecoveryPointLifecycleCommand";
 export * from "./commands/UpdateRegionSettingsCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

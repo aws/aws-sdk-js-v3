@@ -35,3 +35,4 @@ export * from "./commands/UpdateRuleGroupCommand";
 export * from "./commands/UpdateSubnetChangeProtectionCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

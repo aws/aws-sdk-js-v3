@@ -29,3 +29,4 @@ export * from "./commands/UntagResourceCommand";
 export * from "./commands/UpdateProfilingGroupCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

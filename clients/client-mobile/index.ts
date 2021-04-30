@@ -13,3 +13,4 @@ export * from "./pagination/ListProjectsPaginator";
 export * from "./commands/UpdateProjectCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

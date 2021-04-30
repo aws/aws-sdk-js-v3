@@ -35,3 +35,4 @@ export * from "./commands/UpdateAnomalySubscriptionCommand";
 export * from "./commands/UpdateCostCategoryDefinitionCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

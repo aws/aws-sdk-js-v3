@@ -44,3 +44,4 @@ export * from "./commands/SearchPlaceIndexForPositionCommand";
 export * from "./commands/SearchPlaceIndexForTextCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

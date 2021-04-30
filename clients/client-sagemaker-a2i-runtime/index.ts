@@ -8,3 +8,4 @@ export * from "./commands/StartHumanLoopCommand";
 export * from "./commands/StopHumanLoopCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

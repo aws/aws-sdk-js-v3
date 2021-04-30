@@ -134,3 +134,4 @@ export * from "./commands/UpdateUsagePlanCommand";
 export * from "./commands/UpdateVpcLinkCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

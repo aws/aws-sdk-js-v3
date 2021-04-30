@@ -39,3 +39,4 @@ export * from "./commands/SetSecurityGroupsCommand";
 export * from "./commands/SetSubnetsCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

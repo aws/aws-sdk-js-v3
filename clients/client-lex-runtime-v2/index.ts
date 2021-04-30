@@ -7,3 +7,4 @@ export * from "./commands/RecognizeTextCommand";
 export * from "./commands/RecognizeUtteranceCommand";
 export * from "./commands/StartConversationCommand";
 export * from "./models/index";
+export * from "./models/index";

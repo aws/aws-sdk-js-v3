@@ -3,3 +3,4 @@ export * from "./PI";
 export * from "./commands/DescribeDimensionKeysCommand";
 export * from "./commands/GetResourceMetricsCommand";
 export * from "./models/index";
+export * from "./models/index";

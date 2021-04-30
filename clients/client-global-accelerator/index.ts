@@ -58,3 +58,4 @@ export * from "./commands/UpdateListenerCommand";
 export * from "./commands/WithdrawByoipCidrCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

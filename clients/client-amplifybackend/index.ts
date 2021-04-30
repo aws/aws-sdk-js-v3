@@ -25,3 +25,4 @@ export * from "./commands/UpdateBackendAuthCommand";
 export * from "./commands/UpdateBackendConfigCommand";
 export * from "./commands/UpdateBackendJobCommand";
 export * from "./models/index";
+export * from "./models/index";

@@ -31,3 +31,4 @@ export * from "./commands/UpdateReplicationConfigurationCommand";
 export * from "./commands/UpdateReplicationConfigurationTemplateCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

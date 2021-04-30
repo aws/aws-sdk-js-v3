@@ -46,3 +46,4 @@ export * from "./commands/UpdateLinkCommand";
 export * from "./commands/UpdateSiteCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";

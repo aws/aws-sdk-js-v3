@@ -62,3 +62,4 @@ export * from "./commands/UpdateStudioCommand";
 export * from "./commands/UpdateStudioSessionMappingCommand";
 export * from "./pagination/Interfaces";
 export * from "./models/index";
+export * from "./models/index";
