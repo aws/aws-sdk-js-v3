@@ -10,6 +10,8 @@ import { Component, RendererComponent } from "typedoc/dist/lib/output/components
 import { PageEvent } from "typedoc/dist/lib/output/events";
 import { NavigationItem } from "typedoc/dist/lib/output/models/NavigationItem";
 
+import { getCurrentClientDirectory } from "./utils";
+
 /**
  * Group the ToC for easier observability.
  */
@@ -164,10 +166,7 @@ export class SdkClientTocPlugin extends RendererComponent {
     while (projectModel.constructor.name !== "ProjectReflection" && !projectModel.kindOf(ReflectionKind.SomeModule)) {
       projectModel = projectModel.parent as ProjectReflection;
     }
-    const clientsDirectory = (projectModel as ProjectReflection).directory.directories["clients"].directories;
-    const dir = Object.values(clientsDirectory).filter((directory) =>
-      directory?.files.find((file) => file.name.endsWith("Client.ts"))
-    )[0];
-    return dirname(dir?.files.find((file) => file.name.endsWith("Client.ts")).fullFileName);
+    const clientsDirectory = getCurrentClientDirectory({ project: projectModel as ProjectReflection });
+    return dirname(clientsDirectory?.files.find((file) => file.name.endsWith("Client.ts")).fullFileName);
   }
 }
