@@ -243,7 +243,7 @@ guide and API reference for service specific details.
 
 **Bare-bones clients/commands**: This refers to a modular way of consuming individual operations on JS SDK clients. It results in less code being imported and thus more performant. It is otherwise equivlent to the aggregated clients/commands.
 
-```
+```javascript
 // this imports a bare-bones version of S3 that exposes the .send operation
 import { S3Client } from "@aws-sdk/client-s3"
 
@@ -257,7 +257,7 @@ await bareBonesS3.send(new GetObjectCommand({...}));
 
 **Aggregated clients/commands**: This refers to a way of consuming clients that contain all operations on them. Under the hood this calls the bare-bones commands. This imports all commands on a particular client and results in more code being imported and thus less performant. This is 1:1 with v2's style.
 
-```
+```javascript
 // this imports an aggregated version of S3 that exposes the .send operation
 import { S3 } from "@aws-sdk/client-s3"
 
@@ -298,7 +298,7 @@ An async iterator is much like an iterator, except that its `next()` method retu
 
 In v3, the clients expose paginateOperationName APIs that are written using async generators, allowing you to use async iterators in a for await..of loop. You can perform the paginateListTables operation from `@aws-sdk/client-dynamodb` as follows:
 
-```
+```javascript
 const {
   DynamoDBClient,
   paginateListTables,
@@ -323,7 +323,7 @@ for await (const page of paginator) {
 
 Or simplified:
 
-```
+```javascript
 ...
 const client = new DynamoDBClient({});
 
@@ -341,7 +341,7 @@ In v3, we support the AbortController interface which allows you to abort reques
 
 The [AbortController Interface](https://dom.spec.whatwg.org/#interface-abortcontroller) provides an `abort()` method that toggles the state of a corresponding AbortSignal object. Most APIs accept an AbortSignal object, and respond to `abort()` by rejecting any unsettled promise with an “AbortError”.
 
-```
+```javascript
 // Returns a new controller whose signal is set to a newly created AbortSignal object.
 const controller = new AbortController();
 
@@ -357,7 +357,7 @@ controller.abort();
 
 In JavaScript SDK v3, we added an implementation of WHATWG AbortController interface in `@aws-sdk/abort-controller`. To use it, you need to send `AbortController.signal` as `abortSignal` in the httpOptions parameter when calling `.send()` operation on the client as follows:
 
-```
+```javascript
 const { AbortController } = require("@aws-sdk/abort-controller");
 const { S3Client, CreateBucketCommand } = require("@aws-sdk/client-s3");
 
@@ -385,7 +385,7 @@ For a full pagination deep dive please check out our [blog post](https://aws.ama
 
 The following code snippet shows how to upload a file using S3's putObject API in the browser with support to abort the upload. First, create a controller using the `AbortController()` constructor, then grab a reference to its associated AbortSignal object using the AbortController.signal property. When the `PutObjectCommand` is called with `.send()` operation, pass in AbortController.signal as abortSignal in the httpOptions parameter. This will allow you to abort the PutObject operation by calling `abortController.abort()`.
 
-```#JavaScript
+```javascript
 const abortController = new AbortController();
 const abortSignal = abortController.signal;
 
@@ -425,7 +425,7 @@ A middleware is a higher-order function that transfers user input and/or HTTP re
 
 For example, you can use middleware to add a custom header like S3 object metadata:
 
-```
+```javascript
 const { S3 } = require("@aws-sdk/client-s3");
 const client = new S3({ region: "us-west-2" });
 // Middleware added to client, applies to all commands.
@@ -456,7 +456,7 @@ The example above adds middleware to `build` step of middleware stack. The middl
 - The **deserialize** lifecycle step deserializes the raw response object to a structured response. The upstream middleware have access to deserialized data in next callbacks return value: `result.output`.
   Each middleware must be added to a specific step. By default each middleware in the same step has undifferentiated order. In some cases, you might want to execute a middleware before or after another middleware in the same step. You can achieve it by specifying its `priority`.
 
-```
+```javascript
 client.middlewareStack.add(middleware, {
   step: "initialize",
   priority: "high", // or "low".
