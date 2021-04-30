@@ -367,6 +367,7 @@ export enum ConfigCapabilityType {
   ANTENNA_DOWNLINK_DEMOD_DECODE = "antenna-downlink-demod-decode",
   ANTENNA_UPLINK = "antenna-uplink",
   DATAFLOW_ENDPOINT = "dataflow-endpoint",
+  S3_RECORDING = "s3-recording",
   TRACKING = "tracking",
   UPLINK_ECHO = "uplink-echo",
 }
@@ -414,6 +415,32 @@ export interface DataflowEndpointConfig {
 
 export namespace DataflowEndpointConfig {
   export const filterSensitiveLog = (obj: DataflowEndpointConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an S3 recording <code>Config</code>.</p>
+ */
+export interface S3RecordingConfig {
+  /**
+   * <p>ARN of the bucket to record to.</p>
+   */
+  bucketArn: string | undefined;
+
+  /**
+   * <p>ARN of the role Ground Station assumes to write data to the bucket.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>S3 Key prefix to prefice data files.</p>
+   */
+  prefix?: string;
+}
+
+export namespace S3RecordingConfig {
+  export const filterSensitiveLog = (obj: S3RecordingConfig): any => ({
     ...obj,
   });
 }
@@ -474,6 +501,7 @@ export type ConfigTypeData =
   | ConfigTypeData.AntennaDownlinkDemodDecodeConfigMember
   | ConfigTypeData.AntennaUplinkConfigMember
   | ConfigTypeData.DataflowEndpointConfigMember
+  | ConfigTypeData.S3RecordingConfigMember
   | ConfigTypeData.TrackingConfigMember
   | ConfigTypeData.UplinkEchoConfigMember
   | ConfigTypeData.$UnknownMember;
@@ -489,6 +517,7 @@ export namespace ConfigTypeData {
     antennaDownlinkDemodDecodeConfig?: never;
     antennaUplinkConfig?: never;
     uplinkEchoConfig?: never;
+    s3RecordingConfig?: never;
     $unknown?: never;
   }
 
@@ -502,6 +531,7 @@ export namespace ConfigTypeData {
     antennaDownlinkDemodDecodeConfig?: never;
     antennaUplinkConfig?: never;
     uplinkEchoConfig?: never;
+    s3RecordingConfig?: never;
     $unknown?: never;
   }
 
@@ -515,6 +545,7 @@ export namespace ConfigTypeData {
     antennaDownlinkDemodDecodeConfig?: never;
     antennaUplinkConfig?: never;
     uplinkEchoConfig?: never;
+    s3RecordingConfig?: never;
     $unknown?: never;
   }
 
@@ -528,6 +559,7 @@ export namespace ConfigTypeData {
     antennaDownlinkDemodDecodeConfig: AntennaDownlinkDemodDecodeConfig;
     antennaUplinkConfig?: never;
     uplinkEchoConfig?: never;
+    s3RecordingConfig?: never;
     $unknown?: never;
   }
 
@@ -541,6 +573,7 @@ export namespace ConfigTypeData {
     antennaDownlinkDemodDecodeConfig?: never;
     antennaUplinkConfig: AntennaUplinkConfig;
     uplinkEchoConfig?: never;
+    s3RecordingConfig?: never;
     $unknown?: never;
   }
 
@@ -555,6 +588,21 @@ export namespace ConfigTypeData {
     antennaDownlinkDemodDecodeConfig?: never;
     antennaUplinkConfig?: never;
     uplinkEchoConfig: UplinkEchoConfig;
+    s3RecordingConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about an S3 recording <code>Config</code>.</p>
+   */
+  export interface S3RecordingConfigMember {
+    antennaDownlinkConfig?: never;
+    trackingConfig?: never;
+    dataflowEndpointConfig?: never;
+    antennaDownlinkDemodDecodeConfig?: never;
+    antennaUplinkConfig?: never;
+    uplinkEchoConfig?: never;
+    s3RecordingConfig: S3RecordingConfig;
     $unknown?: never;
   }
 
@@ -565,6 +613,7 @@ export namespace ConfigTypeData {
     antennaDownlinkDemodDecodeConfig?: never;
     antennaUplinkConfig?: never;
     uplinkEchoConfig?: never;
+    s3RecordingConfig?: never;
     $unknown: [string, any];
   }
 
@@ -575,6 +624,7 @@ export namespace ConfigTypeData {
     antennaDownlinkDemodDecodeConfig: (value: AntennaDownlinkDemodDecodeConfig) => T;
     antennaUplinkConfig: (value: AntennaUplinkConfig) => T;
     uplinkEchoConfig: (value: UplinkEchoConfig) => T;
+    s3RecordingConfig: (value: S3RecordingConfig) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -586,6 +636,7 @@ export namespace ConfigTypeData {
       return visitor.antennaDownlinkDemodDecodeConfig(value.antennaDownlinkDemodDecodeConfig);
     if (value.antennaUplinkConfig !== undefined) return visitor.antennaUplinkConfig(value.antennaUplinkConfig);
     if (value.uplinkEchoConfig !== undefined) return visitor.uplinkEchoConfig(value.uplinkEchoConfig);
+    if (value.s3RecordingConfig !== undefined) return visitor.s3RecordingConfig(value.s3RecordingConfig);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
@@ -606,6 +657,8 @@ export namespace ConfigTypeData {
       return { antennaUplinkConfig: AntennaUplinkConfig.filterSensitiveLog(obj.antennaUplinkConfig) };
     if (obj.uplinkEchoConfig !== undefined)
       return { uplinkEchoConfig: UplinkEchoConfig.filterSensitiveLog(obj.uplinkEchoConfig) };
+    if (obj.s3RecordingConfig !== undefined)
+      return { s3RecordingConfig: S3RecordingConfig.filterSensitiveLog(obj.s3RecordingConfig) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }
@@ -954,11 +1007,33 @@ export namespace EndpointDetails {
 }
 
 /**
+ * <p>Details about an S3 recording <code>Config</code> used in a contact.</p>
+ */
+export interface S3RecordingDetails {
+  /**
+   * <p>ARN of the bucket used.</p>
+   */
+  bucketArn?: string;
+
+  /**
+   * <p>Template of the S3 key used.</p>
+   */
+  keyTemplate?: string;
+}
+
+export namespace S3RecordingDetails {
+  export const filterSensitiveLog = (obj: S3RecordingDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Details for certain <code>Config</code> object types in a contact.</p>
  */
 export type ConfigDetails =
   | ConfigDetails.AntennaDemodDecodeDetailsMember
   | ConfigDetails.EndpointDetailsMember
+  | ConfigDetails.S3RecordingDetailsMember
   | ConfigDetails.$UnknownMember;
 
 export namespace ConfigDetails {
@@ -968,6 +1043,7 @@ export namespace ConfigDetails {
   export interface EndpointDetailsMember {
     endpointDetails: EndpointDetails;
     antennaDemodDecodeDetails?: never;
+    s3RecordingDetails?: never;
     $unknown?: never;
   }
 
@@ -977,18 +1053,31 @@ export namespace ConfigDetails {
   export interface AntennaDemodDecodeDetailsMember {
     endpointDetails?: never;
     antennaDemodDecodeDetails: AntennaDemodDecodeDetails;
+    s3RecordingDetails?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details for an S3 recording <code>Config</code> in a contact.</p>
+   */
+  export interface S3RecordingDetailsMember {
+    endpointDetails?: never;
+    antennaDemodDecodeDetails?: never;
+    s3RecordingDetails: S3RecordingDetails;
     $unknown?: never;
   }
 
   export interface $UnknownMember {
     endpointDetails?: never;
     antennaDemodDecodeDetails?: never;
+    s3RecordingDetails?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     endpointDetails: (value: EndpointDetails) => T;
     antennaDemodDecodeDetails: (value: AntennaDemodDecodeDetails) => T;
+    s3RecordingDetails: (value: S3RecordingDetails) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -996,6 +1085,7 @@ export namespace ConfigDetails {
     if (value.endpointDetails !== undefined) return visitor.endpointDetails(value.endpointDetails);
     if (value.antennaDemodDecodeDetails !== undefined)
       return visitor.antennaDemodDecodeDetails(value.antennaDemodDecodeDetails);
+    if (value.s3RecordingDetails !== undefined) return visitor.s3RecordingDetails(value.s3RecordingDetails);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
@@ -1004,6 +1094,8 @@ export namespace ConfigDetails {
       return { endpointDetails: EndpointDetails.filterSensitiveLog(obj.endpointDetails) };
     if (obj.antennaDemodDecodeDetails !== undefined)
       return { antennaDemodDecodeDetails: AntennaDemodDecodeDetails.filterSensitiveLog(obj.antennaDemodDecodeDetails) };
+    if (obj.s3RecordingDetails !== undefined)
+      return { s3RecordingDetails: S3RecordingDetails.filterSensitiveLog(obj.s3RecordingDetails) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
   };
 }

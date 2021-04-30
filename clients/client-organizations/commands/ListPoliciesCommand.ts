@@ -30,7 +30,7 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
  *                <i>only</i>
  * when there are no more results to display.</p>
  *          </note>
- *          <p>This operation can be called only from the organization's
+ *         <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an AWS service.</p>
  */
 export class ListPoliciesCommand extends $Command<

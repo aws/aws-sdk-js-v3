@@ -30,8 +30,8 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  *         <p>If <code>MessageAction</code> is not set, the default is to send a welcome message via
  *             email or phone (SMS).</p>
  *         <p>This message is based on a template that you configured in your call to create or
- *             update a user pool. This template includes your custom sign-up instructions and placeholders
- *             for user name and temporary password.</p>
+ *             update a user pool. This template includes your custom sign-up instructions and
+ *             placeholders for user name and temporary password.</p>
  *         <p>Alternatively, you can call <code>AdminCreateUser</code> with “SUPPRESS” for the
  *                 <code>MessageAction</code> parameter, and Amazon Cognito will not send any email. </p>
  *         <p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until

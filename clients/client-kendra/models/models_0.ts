@@ -4120,6 +4120,31 @@ export namespace ListThesauriResponse {
 }
 
 /**
+ * <p>Overrides the document relevance properties of a custom index field.</p>
+ */
+export interface DocumentRelevanceConfiguration {
+  /**
+   * <p>The name of the tuning configuration to override document relevance
+   *          at the index level.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Provides information for manually tuning the relevance of a field
+   *             in a search. When a query includes terms that match the field, the
+   *             results are given a boost in the response based on these tuning
+   *             parameters.</p>
+   */
+  Relevance: Relevance | undefined;
+}
+
+export namespace DocumentRelevanceConfiguration {
+  export const filterSensitiveLog = (obj: DocumentRelevanceConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information about a document attribute</p>
  */
 export interface Facet {
@@ -4934,6 +4959,18 @@ export interface QueryRequest {
    *          are returned.</p>
    */
   QueryResultTypeFilter?: QueryResultType | string;
+
+  /**
+   * <p>Overrides relevance tuning configurations of fields or attributes set at the index level.</p>
+   *          <p>If you use this API to override the relevance tuning configured at the index
+   *          level, but there is no relevance tuning configured at the index level, then Amazon Kendra does not apply any relevance tuning.</p>
+   *          <p>If there is relevance tuning configured at the index level, but you do not use this API
+   *          to override any relevance tuning in the index, then Amazon Kendra uses the relevance tuning that is configured at the index level.</p>
+   *          <p>If there is relevance tuning configured for fields at the index level,
+   *          but you use this API to override only some of these fields, then for the fields you did not override,
+   *          the importance is set to 1.</p>
+   */
+  DocumentRelevanceOverrideConfigurations?: DocumentRelevanceConfiguration[];
 
   /**
    * <p>Query results are returned in pages the size of the

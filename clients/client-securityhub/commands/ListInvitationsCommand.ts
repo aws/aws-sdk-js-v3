@@ -22,8 +22,8 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
 
 /**
  * <p>Lists all Security Hub membership invitations that were sent to the current AWS account.</p>
- *          <p>This operation is only used by accounts that do not belong to an organization.
- *          Organization accounts do not receive invitations.</p>
+ *          <p>This operation is only used by accounts that are managed by invitation.
+ *          Accounts that are managed using the integration with AWS Organizations do not receive invitations.</p>
  */
 export class ListInvitationsCommand extends $Command<
   ListInvitationsCommandInput,

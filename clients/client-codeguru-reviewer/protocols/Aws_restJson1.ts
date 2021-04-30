@@ -48,6 +48,7 @@ import {
   CommitDiffSourceCodeType,
   ConflictException,
   InternalServerException,
+  KMSKeyDetails,
   Metrics,
   MetricsSummary,
   NotFoundException,
@@ -90,6 +91,10 @@ export const serializeAws_restJson1AssociateRepositoryCommand = async (
   let body: any;
   body = JSON.stringify({
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.KMSKeyDetails !== undefined &&
+      input.KMSKeyDetails !== null && {
+        KMSKeyDetails: serializeAws_restJson1KMSKeyDetails(input.KMSKeyDetails, context),
+      }),
     ...(input.Repository !== undefined &&
       input.Repository !== null && { Repository: serializeAws_restJson1Repository(input.Repository, context) }),
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
@@ -1825,6 +1830,14 @@ const serializeAws_restJson1CodeReviewType = (input: CodeReviewType, context: __
   };
 };
 
+const serializeAws_restJson1KMSKeyDetails = (input: KMSKeyDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.EncryptionOption !== undefined &&
+      input.EncryptionOption !== null && { EncryptionOption: input.EncryptionOption }),
+    ...(input.KMSKeyId !== undefined && input.KMSKeyId !== null && { KMSKeyId: input.KMSKeyId }),
+  };
+};
+
 const serializeAws_restJson1Reactions = (input: (Reaction | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -1981,6 +1994,14 @@ const deserializeAws_restJson1CommitDiffSourceCodeType = (
   } as any;
 };
 
+const deserializeAws_restJson1KMSKeyDetails = (output: any, context: __SerdeContext): KMSKeyDetails => {
+  return {
+    EncryptionOption:
+      output.EncryptionOption !== undefined && output.EncryptionOption !== null ? output.EncryptionOption : undefined,
+    KMSKeyId: output.KMSKeyId !== undefined && output.KMSKeyId !== null ? output.KMSKeyId : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Metrics = (output: any, context: __SerdeContext): Metrics => {
   return {
     FindingsCount:
@@ -2104,6 +2125,10 @@ const deserializeAws_restJson1RepositoryAssociation = (output: any, context: __S
     CreatedTimeStamp:
       output.CreatedTimeStamp !== undefined && output.CreatedTimeStamp !== null
         ? new Date(Math.round(output.CreatedTimeStamp * 1000))
+        : undefined,
+    KMSKeyDetails:
+      output.KMSKeyDetails !== undefined && output.KMSKeyDetails !== null
+        ? deserializeAws_restJson1KMSKeyDetails(output.KMSKeyDetails, context)
         : undefined,
     LastUpdatedTimeStamp:
       output.LastUpdatedTimeStamp !== undefined && output.LastUpdatedTimeStamp !== null

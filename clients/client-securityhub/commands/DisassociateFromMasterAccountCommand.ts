@@ -23,10 +23,13 @@ export interface DisassociateFromMasterAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disassociates the current Security Hub member account from the associated master
+ * @deprecated
+ *
+ * <p>This method is deprecated. Instead, use <code>DisassociateFromAdministratorAccount</code>.</p>
+ *          <p>Disassociates the current Security Hub member account from the associated administrator
  *          account.</p>
  *          <p>This operation is only used by accounts that are not part of an organization. For
- *          organization accounts, only the master account (the designated Security Hub administrator) can
+ *          organization accounts, only the administrator account can
  *          disassociate a member account.</p>
  */
 export class DisassociateFromMasterAccountCommand extends $Command<

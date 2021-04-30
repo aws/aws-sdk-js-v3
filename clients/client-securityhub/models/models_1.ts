@@ -1,4 +1,5 @@
 import {
+  ActionTarget,
   AdminAccount,
   AwsSecurityFinding,
   AwsSecurityFindingFilters,
@@ -8,6 +9,39 @@ import {
   Result,
   StandardsSubscription,
 } from "./models_0";
+
+export interface DescribeActionTargetsResponse {
+  /**
+   * <p>A list of <code>ActionTarget</code> objects. Each object includes the <code>ActionTargetArn</code>,
+   *             <code>Description</code>, and <code>Name</code> of a custom action target available in
+   *          Security Hub.</p>
+   */
+  ActionTargets: ActionTarget[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeActionTargetsResponse {
+  export const filterSensitiveLog = (obj: DescribeActionTargetsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeHubRequest {
+  /**
+   * <p>The ARN of the Hub resource to retrieve.</p>
+   */
+  HubArn?: string;
+}
+
+export namespace DescribeHubRequest {
+  export const filterSensitiveLog = (obj: DescribeHubRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeHubResponse {
   /**
@@ -94,6 +128,7 @@ export namespace DescribeProductsRequest {
 export enum IntegrationType {
   RECEIVE_FINDINGS_FROM_SECURITY_HUB = "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
   SEND_FINDINGS_TO_SECURITY_HUB = "SEND_FINDINGS_TO_SECURITY_HUB",
+  UPDATE_FINDINGS_IN_SECURITY_HUB = "UPDATE_FINDINGS_IN_SECURITY_HUB",
 }
 
 /**
@@ -131,25 +166,30 @@ export interface Product {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>SEND_FINDINGS_TO_SECURITY_HUB</code> - Indicates that the integration sends
+   *                   <code>SEND_FINDINGS_TO_SECURITY_HUB</code> - The integration sends
    *                findings to Security Hub.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>RECEIVE_FINDINGS_FROM_SECURITY_HUB</code> - Indicates that the integration
+   *                   <code>RECEIVE_FINDINGS_FROM_SECURITY_HUB</code> - The integration
    *                receives findings from Security Hub.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FINDINGS_IN_SECURITY_HUB</code> - The integration does not send new findings to Security Hub, but does make updates to the findings that it receives from Security Hub.</p>
    *             </li>
    *          </ul>
    */
   IntegrationTypes?: (IntegrationType | string)[];
 
   /**
-   * <p>The URL for the page that contains more information about the product.</p>
+   * <p>For integrations with AWS services, the AWS Console URL from which to activate the service.</p>
+   *          <p>For integrations with third-party products, the AWS Marketplace URL from which to subscribe to or purchase the product.</p>
    */
   MarketplaceUrl?: string;
 
   /**
-   * <p>The URL used to activate the product.</p>
+   * <p>The URL to the service or product documentation about the integration with Security Hub, including how to activate the integration.</p>
    */
   ActivationUrl?: string;
 
@@ -439,6 +479,22 @@ export namespace DisableSecurityHubResponse {
   });
 }
 
+export interface DisassociateFromAdministratorAccountRequest {}
+
+export namespace DisassociateFromAdministratorAccountRequest {
+  export const filterSensitiveLog = (obj: DisassociateFromAdministratorAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateFromAdministratorAccountResponse {}
+
+export namespace DisassociateFromAdministratorAccountResponse {
+  export const filterSensitiveLog = (obj: DisassociateFromAdministratorAccountResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DisassociateFromMasterAccountRequest {}
 
 export namespace DisassociateFromMasterAccountRequest {
@@ -457,7 +513,7 @@ export namespace DisassociateFromMasterAccountResponse {
 
 export interface DisassociateMembersRequest {
   /**
-   * <p>The account IDs of the member accounts to disassociate from the master account.</p>
+   * <p>The account IDs of the member accounts to disassociate from the administrator account.</p>
    */
   AccountIds: string[] | undefined;
 }
@@ -549,6 +605,58 @@ export interface EnableSecurityHubResponse {}
 
 export namespace EnableSecurityHubResponse {
   export const filterSensitiveLog = (obj: EnableSecurityHubResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAdministratorAccountRequest {}
+
+export namespace GetAdministratorAccountRequest {
+  export const filterSensitiveLog = (obj: GetAdministratorAccountRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about an invitation.</p>
+ */
+export interface Invitation {
+  /**
+   * <p>The account ID of the Security Hub administrator account that the invitation was sent from.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The ID of the invitation sent to the member account.</p>
+   */
+  InvitationId?: string;
+
+  /**
+   * <p>The timestamp of when the invitation was sent.</p>
+   */
+  InvitedAt?: Date;
+
+  /**
+   * <p>The current status of the association between the member and administrator accounts.</p>
+   */
+  MemberStatus?: string;
+}
+
+export namespace Invitation {
+  export const filterSensitiveLog = (obj: Invitation): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAdministratorAccountResponse {
+  /**
+   * <p>Details about an invitation.</p>
+   */
+  Administrator?: Invitation;
+}
+
+export namespace GetAdministratorAccountResponse {
+  export const filterSensitiveLog = (obj: GetAdministratorAccountResponse): any => ({
     ...obj,
   });
 }
@@ -870,40 +978,9 @@ export namespace GetMasterAccountRequest {
   });
 }
 
-/**
- * <p>Details about an invitation.</p>
- */
-export interface Invitation {
-  /**
-   * <p>The account ID of the Security Hub master account that the invitation was sent from.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The ID of the invitation sent to the member account.</p>
-   */
-  InvitationId?: string;
-
-  /**
-   * <p>The timestamp of when the invitation was sent.</p>
-   */
-  InvitedAt?: Date;
-
-  /**
-   * <p>The current status of the association between the member and master accounts.</p>
-   */
-  MemberStatus?: string;
-}
-
-export namespace Invitation {
-  export const filterSensitiveLog = (obj: Invitation): any => ({
-    ...obj,
-  });
-}
-
 export interface GetMasterAccountResponse {
   /**
-   * <p>A list of details about the Security Hub master account for the current member account.
+   * <p>A list of details about the Security Hub administrator account for the current member account.
    *       </p>
    */
   Master?: Invitation;
@@ -943,23 +1020,31 @@ export interface Member {
   Email?: string;
 
   /**
-   * <p>The AWS account ID of the Security Hub master account associated with this member account.</p>
+   * @deprecated
+   *
+   * <p>This is replaced by <code>AdministratorID</code>.</p>
+   *          <p>The AWS account ID of the Security Hub administrator account associated with this member account.</p>
    */
   MasterId?: string;
 
   /**
-   * <p>The status of the relationship between the member account and its master account.
+   * <p>The AWS account ID of the Security Hub administrator account associated with this member account.</p>
+   */
+  AdministratorId?: string;
+
+  /**
+   * <p>The status of the relationship between the member account and its administrator account.
    *       </p>
    *          <p>The status can have one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATED</code> - Indicates that the master account added the member account,
+   *                   <code>CREATED</code> - Indicates that the administrator account added the member account,
    *                but has not yet invited the member account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INVITED</code> - Indicates that the master account invited the member
+   *                   <code>INVITED</code> - Indicates that the administrator account invited the member
    *                account. The member account has not yet responded to the invitation.</p>
    *             </li>
    *             <li>
@@ -970,17 +1055,17 @@ export interface Member {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>REMOVED</code> - Indicates that the master account disassociated the member
+   *                   <code>REMOVED</code> - Indicates that the administrator account disassociated the member
    *                account.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>RESIGNED</code> - Indicates that the member account disassociated themselves
-   *                from the master account.</p>
+   *                from the administrator account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DELETED</code> - Indicates that the master account deleted the member
+   *                   <code>DELETED</code> - Indicates that the administrator account deleted the member
    *                account.</p>
    *             </li>
    *          </ul>
@@ -1134,9 +1219,9 @@ export namespace ListInvitationsResponse {
 export interface ListMembersRequest {
   /**
    * <p>Specifies which member accounts to include in the response based on their relationship
-   *          status with the master account. The default value is <code>TRUE</code>.</p>
+   *          status with the administrator account. The default value is <code>TRUE</code>.</p>
    *          <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member
-   *          accounts whose relationship status with the master is set to <code>ENABLED</code>.</p>
+   *          accounts whose relationship status with the administrator account is set to <code>ENABLED</code>.</p>
    *          <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all
    *          existing member accounts. </p>
    */

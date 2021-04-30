@@ -41,6 +41,8 @@ export * from "./pagination/GetAssetPropertyAggregatesPaginator";
 export * from "./commands/GetAssetPropertyValueCommand";
 export * from "./commands/GetAssetPropertyValueHistoryCommand";
 export * from "./pagination/GetAssetPropertyValueHistoryPaginator";
+export * from "./commands/GetInterpolatedAssetPropertyValuesCommand";
+export * from "./pagination/GetInterpolatedAssetPropertyValuesPaginator";
 export * from "./commands/ListAccessPoliciesCommand";
 export * from "./pagination/ListAccessPoliciesPaginator";
 export * from "./commands/ListAssetModelsCommand";

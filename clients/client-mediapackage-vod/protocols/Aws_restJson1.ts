@@ -2455,6 +2455,10 @@ const serializeAws_restJson1CmafPackage = (input: CmafPackage, context: __SerdeC
       input.HlsManifests !== null && {
         hlsManifests: serializeAws_restJson1__listOfHlsManifest(input.HlsManifests, context),
       }),
+    ...(input.IncludeEncoderConfigurationInSegments !== undefined &&
+      input.IncludeEncoderConfigurationInSegments !== null && {
+        includeEncoderConfigurationInSegments: input.IncludeEncoderConfigurationInSegments,
+      }),
     ...(input.SegmentDurationSeconds !== undefined &&
       input.SegmentDurationSeconds !== null && { segmentDurationSeconds: input.SegmentDurationSeconds }),
   };
@@ -2492,6 +2496,10 @@ const serializeAws_restJson1DashPackage = (input: DashPackage, context: __SerdeC
       }),
     ...(input.Encryption !== undefined &&
       input.Encryption !== null && { encryption: serializeAws_restJson1DashEncryption(input.Encryption, context) }),
+    ...(input.IncludeEncoderConfigurationInSegments !== undefined &&
+      input.IncludeEncoderConfigurationInSegments !== null && {
+        includeEncoderConfigurationInSegments: input.IncludeEncoderConfigurationInSegments,
+      }),
     ...(input.PeriodTriggers !== undefined &&
       input.PeriodTriggers !== null && {
         periodTriggers: serializeAws_restJson1__listOf__PeriodTriggersElement(input.PeriodTriggers, context),
@@ -2785,6 +2793,11 @@ const deserializeAws_restJson1CmafPackage = (output: any, context: __SerdeContex
       output.hlsManifests !== undefined && output.hlsManifests !== null
         ? deserializeAws_restJson1__listOfHlsManifest(output.hlsManifests, context)
         : undefined,
+    IncludeEncoderConfigurationInSegments:
+      output.includeEncoderConfigurationInSegments !== undefined &&
+      output.includeEncoderConfigurationInSegments !== null
+        ? output.includeEncoderConfigurationInSegments
+        : undefined,
     SegmentDurationSeconds:
       output.segmentDurationSeconds !== undefined && output.segmentDurationSeconds !== null
         ? output.segmentDurationSeconds
@@ -2827,6 +2840,11 @@ const deserializeAws_restJson1DashPackage = (output: any, context: __SerdeContex
     Encryption:
       output.encryption !== undefined && output.encryption !== null
         ? deserializeAws_restJson1DashEncryption(output.encryption, context)
+        : undefined,
+    IncludeEncoderConfigurationInSegments:
+      output.includeEncoderConfigurationInSegments !== undefined &&
+      output.includeEncoderConfigurationInSegments !== null
+        ? output.includeEncoderConfigurationInSegments
         : undefined,
     PeriodTriggers:
       output.periodTriggers !== undefined && output.periodTriggers !== null

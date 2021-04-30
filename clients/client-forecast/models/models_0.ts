@@ -2089,6 +2089,11 @@ export interface DescribeDatasetImportJobResponse {
   DataSource?: DataSource;
 
   /**
+   * <p>The estimated time in minutes for the dataset import job to complete.</p>
+   */
+  EstimatedTimeRemainingInMinutes?: number;
+
+  /**
    * <p>Statistical information about each field in the input data.</p>
    */
   FieldStatistics?: { [key: string]: Statistics };
@@ -2210,6 +2215,11 @@ export interface DescribeForecastResponse {
    * <p>The ARN of the dataset group that provided the data used to train the predictor.</p>
    */
   DatasetGroupArn?: string;
+
+  /**
+   * <p>The estimated time in minutes for the forecast job to complete.</p>
+   */
+  EstimatedTimeRemainingInMinutes?: number;
 
   /**
    * <p>The status of the forecast. States include:</p>
@@ -2584,6 +2594,11 @@ export interface DescribePredictorResponse {
    *       of the predictor. You specify the number of backtests to perform when you call the  operation.</p>
    */
   PredictorExecutionDetails?: PredictorExecutionDetails;
+
+  /**
+   * <p>The estimated time in minutes for the predictor training job to complete.</p>
+   */
+  EstimatedTimeRemainingInMinutes?: number;
 
   /**
    * <p>An array of the ARNs of the dataset import jobs used to import training data for the

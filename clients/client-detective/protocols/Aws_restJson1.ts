@@ -1720,6 +1720,14 @@ const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeConte
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     UpdatedTime:
       output.UpdatedTime !== undefined && output.UpdatedTime !== null ? new Date(output.UpdatedTime) : undefined,
+    VolumeUsageInBytes:
+      output.VolumeUsageInBytes !== undefined && output.VolumeUsageInBytes !== null
+        ? output.VolumeUsageInBytes
+        : undefined,
+    VolumeUsageUpdatedTime:
+      output.VolumeUsageUpdatedTime !== undefined && output.VolumeUsageUpdatedTime !== null
+        ? new Date(output.VolumeUsageUpdatedTime)
+        : undefined,
   } as any;
 };
 

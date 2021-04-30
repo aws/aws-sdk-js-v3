@@ -3124,6 +3124,8 @@ export enum ConnectionPropertyKey {
   CONNECTOR_URL = "CONNECTOR_URL",
   CUSTOM_JDBC_CERT = "CUSTOM_JDBC_CERT",
   CUSTOM_JDBC_CERT_STRING = "CUSTOM_JDBC_CERT_STRING",
+  ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD = "ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD",
+  ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD = "ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD",
   ENCRYPTED_PASSWORD = "ENCRYPTED_PASSWORD",
   HOST = "HOST",
   INSTANCE_ID = "INSTANCE_ID",
@@ -3134,6 +3136,9 @@ export enum ConnectionPropertyKey {
   JDBC_ENGINE = "JDBC_ENGINE",
   JDBC_ENGINE_VERSION = "JDBC_ENGINE_VERSION",
   KAFKA_BOOTSTRAP_SERVERS = "KAFKA_BOOTSTRAP_SERVERS",
+  KAFKA_CLIENT_KEYSTORE = "KAFKA_CLIENT_KEYSTORE",
+  KAFKA_CLIENT_KEYSTORE_PASSWORD = "KAFKA_CLIENT_KEYSTORE_PASSWORD",
+  KAFKA_CLIENT_KEY_PASSWORD = "KAFKA_CLIENT_KEY_PASSWORD",
   KAFKA_CUSTOM_CERT = "KAFKA_CUSTOM_CERT",
   KAFKA_SKIP_CUSTOM_CERT_VALIDATION = "KAFKA_SKIP_CUSTOM_CERT_VALIDATION",
   KAFKA_SSL_ENABLED = "KAFKA_SSL_ENABLED",
@@ -7010,6 +7015,26 @@ export interface Connection {
    *             <li>
    *                <p>
    *                   <code>CONNECTOR_CLASS_NAME</code> - The connector class name for a MARKETPLACE or CUSTOM connection.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KAFKA_CLIENT_KEYSTORE</code> - The Amazon S3 location of the client keystore file for Kafka client side authentication (Optional).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KAFKA_CLIENT_KEYSTORE_PASSWORD</code> - The password to access the provided keystore (Optional).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KAFKA_CLIENT_KEY_PASSWORD</code> - A keystore can consist of multiple keys, so this is the password to access the client key to be used with the Kafka server side key (Optional).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD</code> - The encrypted version of the Kafka client keystore password (if the user has the AWS Glue encrypt passwords setting selected).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD</code> - The encrypted version of the Kafka client key password (if the user has the AWS Glue encrypt passwords setting selected).</p>
    *             </li>
    *          </ul>
    */

@@ -62,9 +62,10 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                 </li>
  *                <li>
  *                     <p>The account that you want to leave must not be a delegated administrator
- *                         account for any AWS service enabled for your organization. If the account is
- *                         a delegated administrator, you must first change the delegated administrator
- *                         account to another account that is remaining in the organization.</p>
+ *                         account for any AWS service enabled for your organization. If the account
+ *                         is a delegated administrator, you must first change the delegated
+ *                         administrator account to another account that is remaining in the
+ *                         organization.</p>
  *                 </li>
  *                <li>
  *                     <p>You can leave an organization only after you enable IAM user access to
@@ -76,6 +77,11 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                     <p>After the account leaves the organization, all tags that were attached to
  *                         the account object in the organization are deleted. AWS accounts outside
  *                         of an organization do not support tags.</p>
+ *                 </li>
+ *                <li>
+ *                     <p>A newly created account has a waiting period before it can be removed from
+ *                         its organization. If you get an error that indicates that a wait period is
+ *                         required, then try again in a few days.</p>
  *                 </li>
  *             </ul>
  *         </important>

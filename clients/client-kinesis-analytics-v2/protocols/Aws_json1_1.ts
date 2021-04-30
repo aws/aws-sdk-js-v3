@@ -83,6 +83,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand";
 import {
+  UpdateApplicationMaintenanceConfigurationCommandInput,
+  UpdateApplicationMaintenanceConfigurationCommandOutput,
+} from "../commands/UpdateApplicationMaintenanceConfigurationCommand";
+import {
   AddApplicationCloudWatchLoggingOptionRequest,
   AddApplicationCloudWatchLoggingOptionResponse,
   AddApplicationInputProcessingConfigurationRequest,
@@ -102,6 +106,8 @@ import {
   ApplicationConfigurationDescription,
   ApplicationConfigurationUpdate,
   ApplicationDetail,
+  ApplicationMaintenanceConfigurationDescription,
+  ApplicationMaintenanceConfigurationUpdate,
   ApplicationRestoreConfiguration,
   ApplicationSnapshotConfiguration,
   ApplicationSnapshotConfigurationDescription,
@@ -240,6 +246,8 @@ import {
   UnsupportedOperationException,
   UntagResourceRequest,
   UntagResourceResponse,
+  UpdateApplicationMaintenanceConfigurationRequest,
+  UpdateApplicationMaintenanceConfigurationResponse,
   UpdateApplicationRequest,
   UpdateApplicationResponse,
   VpcConfiguration,
@@ -604,6 +612,19 @@ export const serializeAws_json1_1UpdateApplicationCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateApplicationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommand = async (
+  input: UpdateApplicationMaintenanceConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "KinesisAnalytics_20180523.UpdateApplicationMaintenanceConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateApplicationMaintenanceConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2864,6 +2885,14 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "LimitExceededException":
+    case "com.amazonaws.kinesisanalyticsv2#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
       response = {
@@ -2876,6 +2905,92 @@ const deserializeAws_json1_1UpdateApplicationCommandError = async (
     case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApplicationMaintenanceConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateApplicationMaintenanceConfigurationResponse(data, context);
+  const response: UpdateApplicationMaintenanceConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateApplicationMaintenanceConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApplicationMaintenanceConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisanalyticsv2#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationException":
+    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3301,6 +3416,18 @@ const serializeAws_json1_1ApplicationConfigurationUpdate = (
     ...(input.VpcConfigurationUpdates !== undefined &&
       input.VpcConfigurationUpdates !== null && {
         VpcConfigurationUpdates: serializeAws_json1_1VpcConfigurationUpdates(input.VpcConfigurationUpdates, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1ApplicationMaintenanceConfigurationUpdate = (
+  input: ApplicationMaintenanceConfigurationUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApplicationMaintenanceWindowStartTimeUpdate !== undefined &&
+      input.ApplicationMaintenanceWindowStartTimeUpdate !== null && {
+        ApplicationMaintenanceWindowStartTimeUpdate: input.ApplicationMaintenanceWindowStartTimeUpdate,
       }),
   };
 };
@@ -4506,6 +4633,23 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
   };
 };
 
+const serializeAws_json1_1UpdateApplicationMaintenanceConfigurationRequest = (
+  input: UpdateApplicationMaintenanceConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ApplicationMaintenanceConfigurationUpdate !== undefined &&
+      input.ApplicationMaintenanceConfigurationUpdate !== null && {
+        ApplicationMaintenanceConfigurationUpdate: serializeAws_json1_1ApplicationMaintenanceConfigurationUpdate(
+          input.ApplicationMaintenanceConfigurationUpdate,
+          context
+        ),
+      }),
+    ...(input.ApplicationName !== undefined &&
+      input.ApplicationName !== null && { ApplicationName: input.ApplicationName }),
+  };
+};
+
 const serializeAws_json1_1UpdateApplicationRequest = (
   input: UpdateApplicationRequest,
   context: __SerdeContext
@@ -4777,6 +4921,14 @@ const deserializeAws_json1_1ApplicationDetail = (output: any, context: __SerdeCo
       output.ApplicationDescription !== undefined && output.ApplicationDescription !== null
         ? output.ApplicationDescription
         : undefined,
+    ApplicationMaintenanceConfigurationDescription:
+      output.ApplicationMaintenanceConfigurationDescription !== undefined &&
+      output.ApplicationMaintenanceConfigurationDescription !== null
+        ? deserializeAws_json1_1ApplicationMaintenanceConfigurationDescription(
+            output.ApplicationMaintenanceConfigurationDescription,
+            context
+          )
+        : undefined,
     ApplicationName:
       output.ApplicationName !== undefined && output.ApplicationName !== null ? output.ApplicationName : undefined,
     ApplicationStatus:
@@ -4806,6 +4958,23 @@ const deserializeAws_json1_1ApplicationDetail = (output: any, context: __SerdeCo
     ServiceExecutionRole:
       output.ServiceExecutionRole !== undefined && output.ServiceExecutionRole !== null
         ? output.ServiceExecutionRole
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ApplicationMaintenanceConfigurationDescription = (
+  output: any,
+  context: __SerdeContext
+): ApplicationMaintenanceConfigurationDescription => {
+  return {
+    ApplicationMaintenanceWindowEndTime:
+      output.ApplicationMaintenanceWindowEndTime !== undefined && output.ApplicationMaintenanceWindowEndTime !== null
+        ? output.ApplicationMaintenanceWindowEndTime
+        : undefined,
+    ApplicationMaintenanceWindowStartTime:
+      output.ApplicationMaintenanceWindowStartTime !== undefined &&
+      output.ApplicationMaintenanceWindowStartTime !== null
+        ? output.ApplicationMaintenanceWindowStartTime
         : undefined,
   } as any;
 };
@@ -5864,6 +6033,24 @@ const deserializeAws_json1_1UnsupportedOperationException = (
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1UpdateApplicationMaintenanceConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateApplicationMaintenanceConfigurationResponse => {
+  return {
+    ApplicationARN:
+      output.ApplicationARN !== undefined && output.ApplicationARN !== null ? output.ApplicationARN : undefined,
+    ApplicationMaintenanceConfigurationDescription:
+      output.ApplicationMaintenanceConfigurationDescription !== undefined &&
+      output.ApplicationMaintenanceConfigurationDescription !== null
+        ? deserializeAws_json1_1ApplicationMaintenanceConfigurationDescription(
+            output.ApplicationMaintenanceConfigurationDescription,
+            context
+          )
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateApplicationResponse = (

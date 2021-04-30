@@ -34,8 +34,8 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *             </li>
  *             <li>
  *                 <p>Check the AWS CloudTrail log for the <code>CreateAccountResult</code> event. For
- *                     information on using AWS CloudTrail with AWS Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html">Monitoring the Activity in Your
- *                         Organization</a> in the <i>AWS Organizations User Guide.</i>
+ *                     information on using AWS CloudTrail with AWS Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html#orgs_cloudtrail-integration">Logging and monitoring in AWS Organizations</a> in the
+ *                         <i>AWS Organizations User Guide.</i>
  *                </p>
  *             </li>
  *          </ul>

@@ -68,6 +68,12 @@ export namespace BatchGetCustomDataIdentifierSummary {
   });
 }
 
+export enum AllowsUnencryptedObjectUploads {
+  FALSE = "FALSE",
+  TRUE = "TRUE",
+  UNKNOWN = "UNKNOWN",
+}
+
 export enum IsDefinedInJob {
   FALSE = "FALSE",
   TRUE = "TRUE",
@@ -134,6 +140,11 @@ export interface ObjectCountByEncryptionType {
    * <p>The total number of objects that aren't encrypted or use client-side encryption.</p>
    */
   unencrypted?: number;
+
+  /**
+   * <p>The total number of objects that Amazon Macie doesn't have current encryption metadata for. Macie can't provide current data about the encryption settings for these objects.</p>
+   */
+  unknown?: number;
 }
 
 export namespace ObjectCountByEncryptionType {
@@ -217,7 +228,7 @@ export namespace AccessControlList {
 }
 
 /**
- * <p>Provides information about the permissions settings of a bucket policy for an S3 bucket.</p>
+ * <p>Provides information about the permissions settings of the bucket policy for an S3 bucket.</p>
  */
 export interface BucketPolicy {
   /**
@@ -294,7 +305,7 @@ export interface BucketPublicAccess {
   effectivePermission?: EffectivePermission | string;
 
   /**
-   * <p>The account-level and bucket-level permissions for the bucket.</p>
+   * <p>The account-level and bucket-level permissions settings for the bucket.</p>
    */
   permissionConfiguration?: BucketPermissionConfiguration;
 }
@@ -420,6 +431,11 @@ export interface BucketMetadata {
    * <p>The unique identifier for the AWS account that owns the bucket.</p>
    */
   accountId?: string;
+
+  /**
+   * <p>Specifies whether the bucket policy for the bucket requires server-side encryption of objects when objects are uploaded to the bucket. Possible values are:</p> <ul><li><p>FALSE - The bucket policy requires server-side encryption of new objects. PutObject requests must include the x-amz-server-side-encryption header and the value for that header must be AES256 or aws:kms.</p></li> <li><p>TRUE - The bucket doesn't have a bucket policy or it has a bucket policy that doesn't require server-side encryption of new objects. If a bucket policy exists, it doesn't require PutObject requests to include the x-amz-server-side-encryption header and it doesn't require the value for that header to be AES256 or aws:kms.</p></li> <li><p>UNKNOWN - Amazon Macie can't determine whether the bucket policy requires server-side encryption of new objects.</p></li></ul>
+   */
+  allowsUnencryptedObjectUploads?: AllowsUnencryptedObjectUploads | string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the bucket.</p>
@@ -1510,6 +1526,11 @@ export namespace S3BucketOwner {
  */
 export interface S3Bucket {
   /**
+   * <p>Specifies whether the bucket policy for the bucket requires server-side encryption of objects when objects are uploaded to the bucket. Possible values are:</p> <ul><li><p>FALSE - The bucket policy requires server-side encryption of new objects. PutObject requests must include the x-amz-server-side-encryption header and the value for that header must be AES256 or aws:kms.</p></li> <li><p>TRUE - The bucket doesn't have a bucket policy or it has a bucket policy that doesn't require server-side encryption of new objects. If a bucket policy exists, it doesn't require PutObject requests to include the x-amz-server-side-encryption header and it doesn't require the value for that header to be AES256 or aws:kms.</p></li> <li><p>UNKNOWN - Amazon Macie can't determine whether the bucket policy requires server-side encryption of objects.</p></li></ul>
+   */
+  allowsUnencryptedObjectUploads?: AllowsUnencryptedObjectUploads | string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the bucket.</p>
    */
   arn?: string;
@@ -1530,7 +1551,7 @@ export interface S3Bucket {
   name?: string;
 
   /**
-   * <p>The display name and account identifier for the user who owns the bucket.</p>
+   * <p>The display name and AWS account ID for the user who owns the bucket.</p>
    */
   owner?: S3BucketOwner;
 
@@ -2682,16 +2703,16 @@ export namespace BucketCountByEffectivePermission {
 }
 
 /**
- * <p>Provides information about the number of S3 buckets that use certain types of server-side encryption by default or don't encrypt new objects by default.</p>
+ * <p>Provides information about the number of S3 buckets that use certain types of server-side encryption by default or don't encrypt new objects by default. For detailed information about these settings, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html">Setting default server-side encryption behavior for Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
  */
 export interface BucketCountByEncryptionType {
   /**
-   * <p>The total number of buckets that use an AWS Key Management Service (AWS KMS) customer master key (CMK) to encrypt new objects by default. These buckets use AWS managed AWS KMS encryption (AWS-KMS) or customer managed AWS KMS encryption (SSE-KMS).</p>
+   * <p>The total number of buckets that use an AWS Key Management Service (AWS KMS) customer master key (CMK) to encrypt new objects by default. These buckets use AWS managed AWS KMS encryption (AWS-KMS) or customer managed AWS KMS encryption (SSE-KMS) by default.</p>
    */
   kmsManaged?: number;
 
   /**
-   * <p>The total number of buckets that use an Amazon S3 managed key to encrypt new objects by default. These buckets use Amazon S3 managed encryption (SSE-S3).</p>
+   * <p>The total number of buckets that use an Amazon S3 managed key to encrypt new objects by default. These buckets use Amazon S3 managed encryption (SSE-S3) by default.</p>
    */
   s3Managed?: number;
 
@@ -2699,6 +2720,11 @@ export interface BucketCountByEncryptionType {
    * <p>The total number of buckets that don't encrypt new objects by default. Default encryption is disabled for these buckets.</p>
    */
   unencrypted?: number;
+
+  /**
+   * <p>The total number of buckets that Amazon Macie doesn't have current encryption metadata for. Macie can't provide current data about the default encryption settings for these buckets.</p>
+   */
+  unknown?: number;
 }
 
 export namespace BucketCountByEncryptionType {
@@ -2708,7 +2734,7 @@ export namespace BucketCountByEncryptionType {
 }
 
 /**
- * <p>Provides information about the number of S3 buckets that are shared with other AWS accounts.</p>
+ * <p>Provides information about the number of S3 buckets that are and aren't shared with other AWS accounts.</p>
  */
 export interface BucketCountBySharedAccessType {
   /**
@@ -2734,6 +2760,32 @@ export interface BucketCountBySharedAccessType {
 
 export namespace BucketCountBySharedAccessType {
   export const filterSensitiveLog = (obj: BucketCountBySharedAccessType): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the number of S3 buckets whose bucket policies do and don't require server-side encryption of objects when objects are uploaded to the buckets.</p>
+ */
+export interface BucketCountPolicyAllowsUnencryptedObjectUploads {
+  /**
+   * <p>The total number of buckets that don't have a bucket policy or have a bucket policy that doesn't require server-side encryption of new objects. If a bucket policy exists, the policy doesn't require PutObject requests to include the x-amz-server-side-encryption header and it doesn't require the value for that header to be AES256 or aws:kms.</p>
+   */
+  allowsUnencryptedObjectUploads?: number;
+
+  /**
+   * <p>The total number of buckets whose bucket policies require server-side encryption of new objects. PutObject requests for these buckets must include the x-amz-server-side-encryption header and the value for that header must be AES256 or aws:kms.</p>
+   */
+  deniesUnencryptedObjectUploads?: number;
+
+  /**
+   * <p>The total number of buckets that Amazon Macie wasn't able to evaluate server-side encryption requirements for. Macie can't determine whether the bucket policies for these buckets require server-side encryption of new objects.</p>
+   */
+  unknown?: number;
+}
+
+export namespace BucketCountPolicyAllowsUnencryptedObjectUploads {
+  export const filterSensitiveLog = (obj: BucketCountPolicyAllowsUnencryptedObjectUploads): any => ({
     ...obj,
   });
 }
@@ -3082,7 +3134,7 @@ export interface CreateCustomDataIdentifierRequest {
   ignoreWords?: string[];
 
   /**
-   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 4 - 90 characters. Keywords aren't case sensitive.</p>
+   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.</p>
    */
   keywords?: string[];
 
@@ -3886,12 +3938,17 @@ export interface GetBucketStatisticsResponse {
   bucketCountByEffectivePermission?: BucketCountByEffectivePermission;
 
   /**
-   * <p>The total number of buckets, grouped by default server-side encryption type. This object also reports the total number of buckets that don't encrypt new objects by default.</p>
+   * <p>The total number of buckets that use certain types of server-side encryption to encrypt new objects by default. This object also reports the total number of buckets that don't encrypt new objects by default.</p>
    */
   bucketCountByEncryptionType?: BucketCountByEncryptionType;
 
   /**
-   * <p>The total number of buckets that are shared with another AWS account.</p>
+   * <p>The total number of buckets whose bucket policies do and don't require server-side encryption of objects when objects are uploaded to the buckets.</p>
+   */
+  bucketCountByObjectEncryptionRequirement?: BucketCountPolicyAllowsUnencryptedObjectUploads;
+
+  /**
+   * <p>The total number of buckets that are and aren't shared with another AWS account.</p>
    */
   bucketCountBySharedAccessType?: BucketCountBySharedAccessType;
 
@@ -4948,7 +5005,7 @@ export interface TestCustomDataIdentifierRequest {
   ignoreWords?: string[];
 
   /**
-   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 4 - 90 characters. Keywords aren't case sensitive.</p>
+   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 3 - 90 characters. Keywords aren't case sensitive.</p>
    */
   keywords?: string[];
 

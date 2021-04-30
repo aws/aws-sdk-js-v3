@@ -34,7 +34,7 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  *          AWS Region and AWS account where its CodeGuru Reviewer code reviews are configured.</p>
  *
  *          <p>Bitbucket and GitHub Enterprise Server repositories are managed by AWS CodeStar
- *          Connections to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/reviewer-ug/step-one.html#select-repository-source-provider">Connect to a repository source provider</a> in
+ *          Connections to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html">Associate a repository</a> in
  *          the <i>Amazon CodeGuru Reviewer User Guide.</i>
  *          </p>
  *

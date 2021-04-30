@@ -5432,6 +5432,9 @@ const serializeAws_queryGetTemplateSummaryInput = (input: GetTemplateSummaryInpu
   if (input.StackSetName !== undefined && input.StackSetName !== null) {
     entries["StackSetName"] = input.StackSetName;
   }
+  if (input.CallAs !== undefined && input.CallAs !== null) {
+    entries["CallAs"] = input.CallAs;
+  }
   return entries;
 };
 

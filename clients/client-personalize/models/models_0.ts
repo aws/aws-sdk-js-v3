@@ -213,7 +213,8 @@ export interface BatchInferenceJobConfig {
   /**
    * <p>A string to string map specifying the exploration configuration hyperparameters, including <code>explorationWeight</code> and
    *       <code>explorationItemAgeCutOff</code>, you want to use to configure the amount of item exploration Amazon Personalize uses when
-   *       recommending items. See <a>native-recipe-new-item-USER_PERSONALIZATION</a>.</p>
+   *       recommending items.
+   *       See <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>.</p>
    */
   itemExplorationConfig?: { [key: string]: string };
 }
@@ -293,7 +294,8 @@ export interface CreateBatchInferenceJobRequest {
 
   /**
    * <p>The ARN of the filter to apply to the batch inference job. For more information on using
-   *       filters, see Using Filters with Amazon Personalize.</p>
+   *       filters, see
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html">Filtering Batch Recommendations</a>..</p>
    */
   filterArn?: string;
 
@@ -314,7 +316,7 @@ export interface CreateBatchInferenceJobRequest {
   jobOutput: BatchInferenceJobOutput | undefined;
 
   /**
-   * <p>The ARN of the Amazon Identity and Access Management role that has permissions to read and write to your input and out
+   * <p>The ARN of the Amazon Identity and Access Management role that has permissions to read and write to your input and output
    *       Amazon S3 buckets respectively.</p>
    */
   roleArn: string | undefined;
@@ -534,6 +536,78 @@ export namespace CreateDatasetResponse {
   });
 }
 
+export enum IngestionMode {
+  ALL = "ALL",
+  BULK = "BULK",
+  PUT = "PUT",
+}
+
+/**
+ * <p>The output configuration parameters of a dataset export job.</p>
+ */
+export interface DatasetExportJobOutput {
+  /**
+   * <p>The configuration details of an Amazon S3 input or output bucket.</p>
+   */
+  s3DataDestination: S3DataConfig | undefined;
+}
+
+export namespace DatasetExportJobOutput {
+  export const filterSensitiveLog = (obj: DatasetExportJobOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateDatasetExportJobRequest {
+  /**
+   * <p>The name for the dataset export job.</p>
+   */
+  jobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset that contains the data to export.</p>
+   */
+  datasetArn: string | undefined;
+
+  /**
+   * <p>The data to export, based on how you imported the data. You can choose to export only <code>BULK</code> data that you imported using a dataset import job,
+   *       only <code>PUT</code> data that you imported incrementally (using the console, PutEvents, PutUsers and PutItems operations), or <code>ALL</code>
+   *       for both types. The default value is <code>PUT</code>.
+   *     </p>
+   */
+  ingestionMode?: IngestionMode | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management service role that has permissions to add data to your
+   *       output Amazon S3 bucket.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The path to the Amazon S3 bucket where the job's output is stored.</p>
+   */
+  jobOutput: DatasetExportJobOutput | undefined;
+}
+
+export namespace CreateDatasetExportJobRequest {
+  export const filterSensitiveLog = (obj: CreateDatasetExportJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateDatasetExportJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset export job.</p>
+   */
+  datasetExportJobArn?: string;
+}
+
+export namespace CreateDatasetExportJobResponse {
+  export const filterSensitiveLog = (obj: CreateDatasetExportJobResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateDatasetGroupRequest {
   /**
    * <p>The name for the new dataset group.</p>
@@ -579,7 +653,7 @@ export interface DataSource {
    * <p>The path to the Amazon S3 bucket where the data that you want to upload to your dataset is
    *       stored. For example: </p>
    *          <p>
-   *             <code>s3://bucket-name/training-data.csv</code>
+   *             <code>s3://bucket-name/folder-name/</code>
    *          </p>
    */
   dataLocation?: string;
@@ -1601,6 +1675,127 @@ export interface DescribeDatasetResponse {
 
 export namespace DescribeDatasetResponse {
   export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeDatasetExportJobRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset export job to describe.</p>
+   */
+  datasetExportJobArn: string | undefined;
+}
+
+export namespace DescribeDatasetExportJobRequest {
+  export const filterSensitiveLog = (obj: DescribeDatasetExportJobRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a job that exports a dataset to an Amazon S3 bucket. For more information, see <a>CreateDatasetExportJob</a>.</p>
+ *          <p>A dataset export job can be in one of the following states:</p>
+ *          <ul>
+ *             <li>
+ *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+ *             </li>
+ *          </ul>
+ */
+export interface DatasetExportJob {
+  /**
+   * <p>The name of the export job.</p>
+   */
+  jobName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset export job.</p>
+   */
+  datasetExportJobArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset to export.</p>
+   */
+  datasetArn?: string;
+
+  /**
+   * <p>The data to export, based on how you imported the data. You can choose to export <code>BULK</code> data that you imported using a dataset import job,
+   *       <code>PUT</code> data that you imported incrementally (using the console, PutEvents, PutUsers and PutItems operations), or <code>ALL</code>
+   *       for both types. The default value is <code>PUT</code>.
+   *     </p>
+   */
+  ingestionMode?: IngestionMode | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management service role that has permissions to add data to your
+   *       output Amazon S3 bucket.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * <p>The status of the dataset export job.</p>
+   *          <p>A dataset export job can be in one of the following states:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: string;
+
+  /**
+   * <p>The path to the Amazon S3 bucket where the job's output is stored.  For example:</p>
+   *          <p>
+   *             <code>s3://bucket-name/folder-name/</code>
+   *          </p>
+   */
+  jobOutput?: DatasetExportJobOutput;
+
+  /**
+   * <p>The creation date and time (in Unix time) of the dataset export job.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time (in Unix time) the status of the dataset export job was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>If a dataset export job fails, provides the reason why.</p>
+   */
+  failureReason?: string;
+}
+
+export namespace DatasetExportJob {
+  export const filterSensitiveLog = (obj: DatasetExportJob): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeDatasetExportJobResponse {
+  /**
+   * <p>Information about the dataset export job, including the status.</p>
+   *          <p>The status is one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATE PENDING</p>
+   *             </li>
+   *             <li>
+   *                <p>CREATE IN_PROGRESS</p>
+   *             </li>
+   *             <li>
+   *                <p>ACTIVE</p>
+   *             </li>
+   *             <li>
+   *                <p>CREATE FAILED</p>
+   *             </li>
+   *          </ul>
+   */
+  datasetExportJob?: DatasetExportJob;
+}
+
+export namespace DescribeDatasetExportJobResponse {
+  export const filterSensitiveLog = (obj: DescribeDatasetExportJobResponse): any => ({
     ...obj,
   });
 }
@@ -2691,7 +2886,7 @@ export interface ListBatchInferenceJobsResponse {
   batchInferenceJobs?: BatchInferenceJobSummary[];
 
   /**
-   * <p>The token to use to retreive the next page of results. The value is <code>null</code> when
+   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when
    *       there are no more results to return.</p>
    */
   nextToken?: string;
@@ -2793,6 +2988,96 @@ export interface ListCampaignsResponse {
 
 export namespace ListCampaignsResponse {
   export const filterSensitiveLog = (obj: ListCampaignsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDatasetExportJobsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset to list the dataset export jobs for.</p>
+   */
+  datasetArn?: string;
+
+  /**
+   * <p>A token returned from the previous call to <code>ListDatasetExportJobs</code> for getting
+   *       the next set of dataset export jobs (if they exist).</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of dataset export jobs to return.</p>
+   */
+  maxResults?: number;
+}
+
+export namespace ListDatasetExportJobsRequest {
+  export const filterSensitiveLog = (obj: ListDatasetExportJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides a summary of the properties of a dataset export job. For a complete listing, call the
+ *       <a>DescribeDatasetExportJob</a> API.</p>
+ */
+export interface DatasetExportJobSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset export job.</p>
+   */
+  datasetExportJobArn?: string;
+
+  /**
+   * <p>The name of the dataset export job.</p>
+   */
+  jobName?: string;
+
+  /**
+   * <p>The status of the dataset export job.</p>
+   *          <p>A dataset export job can be in one of the following states:</p>
+   *          <ul>
+   *             <li>
+   *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: string;
+
+  /**
+   * <p>The date and time (in Unix time) that the dataset export job was created.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The date and time (in Unix time) that the dataset export job status was last updated.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * <p>If a dataset export job fails, the reason behind the failure.</p>
+   */
+  failureReason?: string;
+}
+
+export namespace DatasetExportJobSummary {
+  export const filterSensitiveLog = (obj: DatasetExportJobSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDatasetExportJobsResponse {
+  /**
+   * <p>The list of dataset export jobs.</p>
+   */
+  datasetExportJobs?: DatasetExportJobSummary[];
+
+  /**
+   * <p>A token for getting the next set of dataset export jobs (if they exist).</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListDatasetExportJobsResponse {
+  export const filterSensitiveLog = (obj: ListDatasetExportJobsResponse): any => ({
     ...obj,
   });
 }
@@ -2941,7 +3226,7 @@ export interface DatasetImportJobSummary {
   creationDateTime?: Date;
 
   /**
-   * <p>The date and time (in Unix time) that the dataset was last updated.</p>
+   * <p>The date and time (in Unix time) that the dataset import job status was last updated.</p>
    */
   lastUpdatedDateTime?: Date;
 

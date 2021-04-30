@@ -1,5 +1,10 @@
 import { SecurityHubClient } from "./SecurityHubClient";
 import {
+  AcceptAdministratorInvitationCommand,
+  AcceptAdministratorInvitationCommandInput,
+  AcceptAdministratorInvitationCommandOutput,
+} from "./commands/AcceptAdministratorInvitationCommand";
+import {
   AcceptInvitationCommand,
   AcceptInvitationCommandInput,
   AcceptInvitationCommandOutput,
@@ -106,6 +111,11 @@ import {
   DisableSecurityHubCommandOutput,
 } from "./commands/DisableSecurityHubCommand";
 import {
+  DisassociateFromAdministratorAccountCommand,
+  DisassociateFromAdministratorAccountCommandInput,
+  DisassociateFromAdministratorAccountCommandOutput,
+} from "./commands/DisassociateFromAdministratorAccountCommand";
+import {
   DisassociateFromMasterAccountCommand,
   DisassociateFromMasterAccountCommandInput,
   DisassociateFromMasterAccountCommandOutput,
@@ -130,6 +140,11 @@ import {
   EnableSecurityHubCommandInput,
   EnableSecurityHubCommandOutput,
 } from "./commands/EnableSecurityHubCommand";
+import {
+  GetAdministratorAccountCommand,
+  GetAdministratorAccountCommandInput,
+  GetAdministratorAccountCommandOutput,
+} from "./commands/GetAdministratorAccountCommand";
 import {
   GetEnabledStandardsCommand,
   GetEnabledStandardsCommandInput,
@@ -235,7 +250,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  *          <p>For example, if your Region is set to <code>us-west-2</code>, when you use <code>
  *                <a>CreateMembers</a>
  *             </code> to add a member account to Security Hub, the association of
- *          the member account with the master account is created only in the <code>us-west-2</code>
+ *          the member account with the administrator account is created only in the <code>us-west-2</code>
  *          Region. Security Hub must be enabled for the member account in the same Region that the invitation
  *          was sent from.</p>
  *          <p>The following throttling limits apply to using Security Hub API operations.</p>
@@ -276,11 +291,51 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  */
 export class SecurityHub extends SecurityHubClient {
   /**
-   * <p>Accepts the invitation to be a member account and be monitored by the Security Hub master
+   * <p>Accepts the invitation to be a member account and be monitored by the Security Hub administrator
    *          account that the invitation was sent from.</p>
    *          <p>This operation is only used by member accounts that are not added through
    *          Organizations.</p>
-   *          <p>When the member account accepts the invitation, permission is granted to the master
+   *          <p>When the member account accepts the invitation, permission is granted to the administrator
+   *          account to view findings generated in the member account.</p>
+   */
+  public acceptAdministratorInvitation(
+    args: AcceptAdministratorInvitationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptAdministratorInvitationCommandOutput>;
+  public acceptAdministratorInvitation(
+    args: AcceptAdministratorInvitationCommandInput,
+    cb: (err: any, data?: AcceptAdministratorInvitationCommandOutput) => void
+  ): void;
+  public acceptAdministratorInvitation(
+    args: AcceptAdministratorInvitationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptAdministratorInvitationCommandOutput) => void
+  ): void;
+  public acceptAdministratorInvitation(
+    args: AcceptAdministratorInvitationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptAdministratorInvitationCommandOutput) => void),
+    cb?: (err: any, data?: AcceptAdministratorInvitationCommandOutput) => void
+  ): Promise<AcceptAdministratorInvitationCommandOutput> | void {
+    const command = new AcceptAdministratorInvitationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @deprecated
+   *
+   * <p>This method is deprecated. Instead, use <code>AcceptAdministratorInvitation</code>.</p>
+   *          <p>Accepts the invitation to be a member account and be monitored by the Security Hub administrator
+   *          account that the invitation was sent from.</p>
+   *          <p>This operation is only used by member accounts that are not added through
+   *          Organizations.</p>
+   *          <p>When the member account accepts the invitation, permission is granted to the administrator
    *          account to view findings generated in the member account.</p>
    */
   public acceptInvitation(
@@ -477,12 +532,12 @@ export class SecurityHub extends SecurityHubClient {
 
   /**
    * <p>Used by Security Hub customers to update information about their investigation into a finding.
-   *          Requested by master accounts or member accounts. Master accounts can update findings for
+   *          Requested by administrator accounts or member accounts. Administrator accounts can update findings for
    *          their account and their member accounts. Member accounts can update findings for their
    *          account.</p>
    *          <p>Updates from <code>BatchUpdateFindings</code> do not affect the value of
    *             <code>UpdatedAt</code> for a finding.</p>
-   *          <p>Master and member accounts can use <code>BatchUpdateFindings</code> to update the
+   *          <p>Administrator and member accounts can use <code>BatchUpdateFindings</code> to update the
    *          following finding fields and objects.</p>
    *          <ul>
    *             <li>
@@ -636,9 +691,8 @@ export class SecurityHub extends SecurityHubClient {
 
   /**
    * <p>Creates a member association in Security Hub between the specified accounts and the account
-   *          used to make the request, which is the master account. If you are integrated with
-   *          Organizations, then the master account is the Security Hub administrator account that is
-   *          designated by the organization management account.</p>
+   *          used to make the request, which is the administrator account. If you are integrated with
+   *          Organizations, then the administrator account is designated by the organization management account.</p>
    *          <p>
    *             <code>CreateMembers</code> is always used to add accounts that are not organization
    *          members.</p>
@@ -665,10 +719,10 @@ export class SecurityHub extends SecurityHubClient {
    *          the invitation, the account becomes a member account in Security Hub.</p>
    *          <p>Accounts that are part of an organization do not receive an invitation. They
    *          automatically become a member account in Security Hub.</p>
-   *          <p>A permissions policy is added that permits the master account to view the findings
-   *          generated in the member account. When Security Hub is enabled in a member account, findings are
-   *          sent to both the member and master accounts. </p>
-   *          <p>To remove the association between the master and member accounts, use the <code>
+   *          <p>A permissions policy is added that permits the administrator account to view the findings
+   *          generated in the member account. When Security Hub is enabled in a member account, the member account findings are
+   *          also visible to the administrator account. </p>
+   *          <p>To remove the association between the administrator and member accounts, use the <code>
    *                <a>DisassociateFromMasterAccount</a>
    *             </code> or <code>
    *                <a>DisassociateMembers</a>
@@ -1135,11 +1189,11 @@ export class SecurityHub extends SecurityHubClient {
   /**
    * <p>Disables Security Hub in your account only in the current Region. To disable Security Hub in all
    *          Regions, you must submit one request per Region where you have enabled Security Hub.</p>
-   *          <p>When you disable Security Hub for a master account, it doesn't disable Security Hub for any associated
+   *          <p>When you disable Security Hub for an administrator account, it doesn't disable Security Hub for any associated
    *          member accounts.</p>
    *          <p>When you disable Security Hub, your existing findings and insights and any Security Hub configuration
    *          settings are deleted after 90 days and cannot be recovered. Any standards that were enabled
-   *          are disabled, and your master and member account associations are removed.</p>
+   *          are disabled, and your administrator and member account associations are removed.</p>
    *          <p>If you want to save your existing findings, you must export them before you disable
    *          Security Hub.</p>
    */
@@ -1173,10 +1227,49 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   * <p>Disassociates the current Security Hub member account from the associated master
+   * <p>Disassociates the current Security Hub member account from the associated administrator
    *          account.</p>
    *          <p>This operation is only used by accounts that are not part of an organization. For
-   *          organization accounts, only the master account (the designated Security Hub administrator) can
+   *          organization accounts, only the administrator account can
+   *          disassociate a member account.</p>
+   */
+  public disassociateFromAdministratorAccount(
+    args: DisassociateFromAdministratorAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateFromAdministratorAccountCommandOutput>;
+  public disassociateFromAdministratorAccount(
+    args: DisassociateFromAdministratorAccountCommandInput,
+    cb: (err: any, data?: DisassociateFromAdministratorAccountCommandOutput) => void
+  ): void;
+  public disassociateFromAdministratorAccount(
+    args: DisassociateFromAdministratorAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateFromAdministratorAccountCommandOutput) => void
+  ): void;
+  public disassociateFromAdministratorAccount(
+    args: DisassociateFromAdministratorAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateFromAdministratorAccountCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateFromAdministratorAccountCommandOutput) => void
+  ): Promise<DisassociateFromAdministratorAccountCommandOutput> | void {
+    const command = new DisassociateFromAdministratorAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * @deprecated
+   *
+   * <p>This method is deprecated. Instead, use <code>DisassociateFromAdministratorAccount</code>.</p>
+   *          <p>Disassociates the current Security Hub member account from the associated administrator
+   *          account.</p>
+   *          <p>This operation is only used by accounts that are not part of an organization. For
+   *          organization accounts, only the administrator account can
    *          disassociate a member account.</p>
    */
   public disassociateFromMasterAccount(
@@ -1209,8 +1302,8 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   * <p>Disassociates the specified member accounts from the associated master account.</p>
-   *          <p>Can be used to disassociate both accounts that are in an organization and accounts that
+   * <p>Disassociates the specified member accounts from the associated administrator account.</p>
+   *          <p>Can be used to disassociate both accounts that are managed using Organizations and accounts that
    *          were invited manually.</p>
    */
   public disassociateMembers(
@@ -1356,6 +1449,40 @@ export class SecurityHub extends SecurityHubClient {
     cb?: (err: any, data?: EnableSecurityHubCommandOutput) => void
   ): Promise<EnableSecurityHubCommandOutput> | void {
     const command = new EnableSecurityHubCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides the details for the Security Hub administrator account for the current member account.</p>
+   *          <p>Can be used by both member accounts that are managed using Organizations and accounts that were
+   *          invited manually.</p>
+   */
+  public getAdministratorAccount(
+    args: GetAdministratorAccountCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAdministratorAccountCommandOutput>;
+  public getAdministratorAccount(
+    args: GetAdministratorAccountCommandInput,
+    cb: (err: any, data?: GetAdministratorAccountCommandOutput) => void
+  ): void;
+  public getAdministratorAccount(
+    args: GetAdministratorAccountCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAdministratorAccountCommandOutput) => void
+  ): void;
+  public getAdministratorAccount(
+    args: GetAdministratorAccountCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAdministratorAccountCommandOutput) => void),
+    cb?: (err: any, data?: GetAdministratorAccountCommandOutput) => void
+  ): Promise<GetAdministratorAccountCommandOutput> | void {
+    const command = new GetAdministratorAccountCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1516,8 +1643,11 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   * <p>Provides the details for the Security Hub master account for the current member account.</p>
-   *          <p>Can be used by both member accounts that are in an organization and accounts that were
+   * @deprecated
+   *
+   * <p>This method is deprecated. Instead, use <code>GetAdministratorAccount</code>.</p>
+   *          <p>Provides the details for the Security Hub administrator account for the current member account.</p>
+   *          <p>Can be used by both member accounts that are managed using Organizations and accounts that were
    *          invited manually.</p>
    */
   public getMasterAccount(
@@ -1551,9 +1681,9 @@ export class SecurityHub extends SecurityHubClient {
 
   /**
    * <p>Returns the details for the Security Hub member accounts for the specified account IDs.</p>
-   *          <p>A master account can be either a delegated Security Hub administrator account for an
-   *          organization or a master account that enabled Security Hub manually.</p>
-   *          <p>The results include both member accounts that are in an organization and accounts that
+   *          <p>An administrator account can be either the delegated Security Hub administrator account for an
+   *          organization or an administrator account that enabled Security Hub manually.</p>
+   *          <p>The results include both member accounts that are managed using Organizations and accounts that
    *          were invited manually.</p>
    */
   public getMembers(args: GetMembersCommandInput, options?: __HttpHandlerOptions): Promise<GetMembersCommandOutput>;
@@ -1580,7 +1710,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   * <p>Invites other AWS accounts to become member accounts for the Security Hub master account that
+   * <p>Invites other AWS accounts to become member accounts for the Security Hub administrator account that
    *          the invitation is sent from.</p>
    *          <p>This operation is only used to invite accounts that do not belong to an organization.
    *          Organization accounts do not receive invitations.</p>
@@ -1588,7 +1718,7 @@ export class SecurityHub extends SecurityHubClient {
    *                <a>CreateMembers</a>
    *             </code> action to create the member account in Security Hub.</p>
    *          <p>When the account owner enables Security Hub and accepts the invitation to become a member
-   *          account, the master account can view the findings generated from the member account.</p>
+   *          account, the administrator account can view the findings generated from the member account.</p>
    */
   public inviteMembers(
     args: InviteMembersCommandInput,
@@ -1654,8 +1784,8 @@ export class SecurityHub extends SecurityHubClient {
 
   /**
    * <p>Lists all Security Hub membership invitations that were sent to the current AWS account.</p>
-   *          <p>This operation is only used by accounts that do not belong to an organization.
-   *          Organization accounts do not receive invitations.</p>
+   *          <p>This operation is only used by accounts that are managed by invitation.
+   *          Accounts that are managed using the integration with AWS Organizations do not receive invitations.</p>
    */
   public listInvitations(
     args: ListInvitationsCommandInput,
@@ -1687,7 +1817,7 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
-   * <p>Lists details about all member accounts for the current Security Hub master
+   * <p>Lists details about all member accounts for the current Security Hub administrator
    *          account.</p>
    *          <p>The results include both member accounts that belong to an organization and member
    *          accounts that were invited manually.</p>

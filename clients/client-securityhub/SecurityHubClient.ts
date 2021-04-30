@@ -1,3 +1,7 @@
+import {
+  AcceptAdministratorInvitationCommandInput,
+  AcceptAdministratorInvitationCommandOutput,
+} from "./commands/AcceptAdministratorInvitationCommand";
 import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand";
 import {
   BatchDisableStandardsCommandInput,
@@ -48,6 +52,10 @@ import {
 } from "./commands/DisableOrganizationAdminAccountCommand";
 import { DisableSecurityHubCommandInput, DisableSecurityHubCommandOutput } from "./commands/DisableSecurityHubCommand";
 import {
+  DisassociateFromAdministratorAccountCommandInput,
+  DisassociateFromAdministratorAccountCommandOutput,
+} from "./commands/DisassociateFromAdministratorAccountCommand";
+import {
   DisassociateFromMasterAccountCommandInput,
   DisassociateFromMasterAccountCommandOutput,
 } from "./commands/DisassociateFromMasterAccountCommand";
@@ -64,6 +72,10 @@ import {
   EnableOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableOrganizationAdminAccountCommand";
 import { EnableSecurityHubCommandInput, EnableSecurityHubCommandOutput } from "./commands/EnableSecurityHubCommand";
+import {
+  GetAdministratorAccountCommandInput,
+  GetAdministratorAccountCommandOutput,
+} from "./commands/GetAdministratorAccountCommand";
 import {
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
@@ -161,6 +173,7 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | AcceptAdministratorInvitationCommandInput
   | AcceptInvitationCommandInput
   | BatchDisableStandardsCommandInput
   | BatchEnableStandardsCommandInput
@@ -183,11 +196,13 @@ export type ServiceInputTypes =
   | DisableImportFindingsForProductCommandInput
   | DisableOrganizationAdminAccountCommandInput
   | DisableSecurityHubCommandInput
+  | DisassociateFromAdministratorAccountCommandInput
   | DisassociateFromMasterAccountCommandInput
   | DisassociateMembersCommandInput
   | EnableImportFindingsForProductCommandInput
   | EnableOrganizationAdminAccountCommandInput
   | EnableSecurityHubCommandInput
+  | GetAdministratorAccountCommandInput
   | GetEnabledStandardsCommandInput
   | GetFindingsCommandInput
   | GetInsightResultsCommandInput
@@ -211,6 +226,7 @@ export type ServiceInputTypes =
   | UpdateStandardsControlCommandInput;
 
 export type ServiceOutputTypes =
+  | AcceptAdministratorInvitationCommandOutput
   | AcceptInvitationCommandOutput
   | BatchDisableStandardsCommandOutput
   | BatchEnableStandardsCommandOutput
@@ -233,11 +249,13 @@ export type ServiceOutputTypes =
   | DisableImportFindingsForProductCommandOutput
   | DisableOrganizationAdminAccountCommandOutput
   | DisableSecurityHubCommandOutput
+  | DisassociateFromAdministratorAccountCommandOutput
   | DisassociateFromMasterAccountCommandOutput
   | DisassociateMembersCommandOutput
   | EnableImportFindingsForProductCommandOutput
   | EnableOrganizationAdminAccountCommandOutput
   | EnableSecurityHubCommandOutput
+  | GetAdministratorAccountCommandOutput
   | GetEnabledStandardsCommandOutput
   | GetFindingsCommandOutput
   | GetInsightResultsCommandOutput
@@ -325,7 +343,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests
+   * The AWS region to which this client will send requests or use as signingRegion
    */
   region?: string | __Provider<string>;
 
@@ -400,7 +418,7 @@ export interface SecurityHubClientResolvedConfig extends SecurityHubClientResolv
  *          <p>For example, if your Region is set to <code>us-west-2</code>, when you use <code>
  *                <a>CreateMembers</a>
  *             </code> to add a member account to Security Hub, the association of
- *          the member account with the master account is created only in the <code>us-west-2</code>
+ *          the member account with the administrator account is created only in the <code>us-west-2</code>
  *          Region. Security Hub must be enabled for the member account in the same Region that the invitation
  *          was sent from.</p>
  *          <p>The following throttling limits apply to using Security Hub API operations.</p>

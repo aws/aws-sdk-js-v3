@@ -22,9 +22,9 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
 
 /**
  * <p>Returns the details for the Security Hub member accounts for the specified account IDs.</p>
- *          <p>A master account can be either a delegated Security Hub administrator account for an
- *          organization or a master account that enabled Security Hub manually.</p>
- *          <p>The results include both member accounts that are in an organization and accounts that
+ *          <p>An administrator account can be either the delegated Security Hub administrator account for an
+ *          organization or an administrator account that enabled Security Hub manually.</p>
+ *          <p>The results include both member accounts that are managed using Organizations and accounts that
  *          were invited manually.</p>
  */
 export class GetMembersCommand extends $Command<

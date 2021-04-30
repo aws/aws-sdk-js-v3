@@ -2,6 +2,7 @@ import {
   AcceptReservedNodeExchangeCommandInput,
   AcceptReservedNodeExchangeCommandOutput,
 } from "./commands/AcceptReservedNodeExchangeCommand";
+import { AddPartnerCommandInput, AddPartnerCommandOutput } from "./commands/AddPartnerCommand";
 import {
   AuthorizeClusterSecurityGroupIngressCommandInput,
   AuthorizeClusterSecurityGroupIngressCommandOutput,
@@ -107,6 +108,7 @@ import {
   DeleteHsmConfigurationCommandInput,
   DeleteHsmConfigurationCommandOutput,
 } from "./commands/DeleteHsmConfigurationCommand";
+import { DeletePartnerCommandInput, DeletePartnerCommandOutput } from "./commands/DeletePartnerCommand";
 import {
   DeleteScheduledActionCommandInput,
   DeleteScheduledActionCommandOutput,
@@ -199,6 +201,7 @@ import {
   DescribeOrderableClusterOptionsCommandInput,
   DescribeOrderableClusterOptionsCommandOutput,
 } from "./commands/DescribeOrderableClusterOptionsCommand";
+import { DescribePartnersCommandInput, DescribePartnersCommandOutput } from "./commands/DescribePartnersCommand";
 import {
   DescribeReservedNodeOfferingsCommandInput,
   DescribeReservedNodeOfferingsCommandOutput,
@@ -335,6 +338,10 @@ import {
   RotateEncryptionKeyCommandInput,
   RotateEncryptionKeyCommandOutput,
 } from "./commands/RotateEncryptionKeyCommand";
+import {
+  UpdatePartnerStatusCommandInput,
+  UpdatePartnerStatusCommandOutput,
+} from "./commands/UpdatePartnerStatusCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
   EndpointsInputConfig,
@@ -388,6 +395,7 @@ import {
 
 export type ServiceInputTypes =
   | AcceptReservedNodeExchangeCommandInput
+  | AddPartnerCommandInput
   | AuthorizeClusterSecurityGroupIngressCommandInput
   | AuthorizeEndpointAccessCommandInput
   | AuthorizeSnapshotAccessCommandInput
@@ -418,6 +426,7 @@ export type ServiceInputTypes =
   | DeleteEventSubscriptionCommandInput
   | DeleteHsmClientCertificateCommandInput
   | DeleteHsmConfigurationCommandInput
+  | DeletePartnerCommandInput
   | DeleteScheduledActionCommandInput
   | DeleteSnapshotCopyGrantCommandInput
   | DeleteSnapshotScheduleCommandInput
@@ -444,6 +453,7 @@ export type ServiceInputTypes =
   | DescribeLoggingStatusCommandInput
   | DescribeNodeConfigurationOptionsCommandInput
   | DescribeOrderableClusterOptionsCommandInput
+  | DescribePartnersCommandInput
   | DescribeReservedNodeOfferingsCommandInput
   | DescribeReservedNodesCommandInput
   | DescribeResizeCommandInput
@@ -486,10 +496,12 @@ export type ServiceInputTypes =
   | RevokeClusterSecurityGroupIngressCommandInput
   | RevokeEndpointAccessCommandInput
   | RevokeSnapshotAccessCommandInput
-  | RotateEncryptionKeyCommandInput;
+  | RotateEncryptionKeyCommandInput
+  | UpdatePartnerStatusCommandInput;
 
 export type ServiceOutputTypes =
   | AcceptReservedNodeExchangeCommandOutput
+  | AddPartnerCommandOutput
   | AuthorizeClusterSecurityGroupIngressCommandOutput
   | AuthorizeEndpointAccessCommandOutput
   | AuthorizeSnapshotAccessCommandOutput
@@ -520,6 +532,7 @@ export type ServiceOutputTypes =
   | DeleteEventSubscriptionCommandOutput
   | DeleteHsmClientCertificateCommandOutput
   | DeleteHsmConfigurationCommandOutput
+  | DeletePartnerCommandOutput
   | DeleteScheduledActionCommandOutput
   | DeleteSnapshotCopyGrantCommandOutput
   | DeleteSnapshotScheduleCommandOutput
@@ -546,6 +559,7 @@ export type ServiceOutputTypes =
   | DescribeLoggingStatusCommandOutput
   | DescribeNodeConfigurationOptionsCommandOutput
   | DescribeOrderableClusterOptionsCommandOutput
+  | DescribePartnersCommandOutput
   | DescribeReservedNodeOfferingsCommandOutput
   | DescribeReservedNodesCommandOutput
   | DescribeResizeCommandOutput
@@ -588,7 +602,8 @@ export type ServiceOutputTypes =
   | RevokeClusterSecurityGroupIngressCommandOutput
   | RevokeEndpointAccessCommandOutput
   | RevokeSnapshotAccessCommandOutput
-  | RotateEncryptionKeyCommandOutput;
+  | RotateEncryptionKeyCommandOutput
+  | UpdatePartnerStatusCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -655,7 +670,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   serviceId?: string;
 
   /**
-   * The AWS region to which this client will send requests
+   * The AWS region to which this client will send requests or use as signingRegion
    */
   region?: string | __Provider<string>;
 

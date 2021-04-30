@@ -54,6 +54,7 @@ export interface CreateHostedZoneCommandOutput extends CreateHostedZoneResponse,
  * 		       <p>When you submit a <code>CreateHostedZone</code> request, the initial status of the hosted zone is <code>PENDING</code>.
  * 			For public hosted zones, this means that the NS and SOA records are not yet available on all Route 53 DNS servers. When the
  * 			NS and SOA records are available, the status of the zone changes to <code>INSYNC</code>.</p>
+ * 		       <p>The <code>CreateHostedZone</code> request requires the caller to have an <code>ec2:DescribeVpcs</code> permission.</p>
  */
 export class CreateHostedZoneCommand extends $Command<
   CreateHostedZoneCommandInput,

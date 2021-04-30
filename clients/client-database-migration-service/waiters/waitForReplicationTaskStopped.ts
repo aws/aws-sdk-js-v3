@@ -78,20 +78,6 @@ const checkState = async (
         return projection_3;
       };
       for (let anyStringEq_4 of returnComparator()) {
-        if (anyStringEq_4 == "running") {
-          return { state: WaiterState.FAILURE };
-        }
-      }
-    } catch (e) {}
-    try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.ReplicationTasks);
-        let projection_3 = flat_1.map((element_2: any) => {
-          return element_2.Status;
-        });
-        return projection_3;
-      };
-      for (let anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "failed") {
           return { state: WaiterState.FAILURE };
         }

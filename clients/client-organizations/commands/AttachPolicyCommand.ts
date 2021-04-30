@@ -46,7 +46,7 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
- *          <p>This operation can be called only from the organization's management account.</p>
+ *         <p>This operation can be called only from the organization's management account.</p>
  */
 export class AttachPolicyCommand extends $Command<
   AttachPolicyCommandInput,

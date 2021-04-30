@@ -102,6 +102,7 @@ import {
   DocumentAttributeValue,
   DocumentAttributeValueCountPair,
   DocumentMetadataConfiguration,
+  DocumentRelevanceConfiguration,
   DocumentsMetadataConfiguration,
   Facet,
   FacetResult,
@@ -4150,6 +4151,31 @@ const serializeAws_json1_1DocumentMetadataConfigurationList = (
     });
 };
 
+const serializeAws_json1_1DocumentRelevanceConfiguration = (
+  input: DocumentRelevanceConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Relevance !== undefined &&
+      input.Relevance !== null && { Relevance: serializeAws_json1_1Relevance(input.Relevance, context) }),
+  };
+};
+
+const serializeAws_json1_1DocumentRelevanceOverrideConfigurationList = (
+  input: DocumentRelevanceConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1DocumentRelevanceConfiguration(entry, context);
+    });
+};
+
 const serializeAws_json1_1DocumentsMetadataConfiguration = (
   input: DocumentsMetadataConfiguration,
   context: __SerdeContext
@@ -4403,6 +4429,13 @@ const serializeAws_json1_1QueryRequest = (input: QueryRequest, context: __SerdeC
     ...(input.AttributeFilter !== undefined &&
       input.AttributeFilter !== null && {
         AttributeFilter: serializeAws_json1_1AttributeFilter(input.AttributeFilter, context),
+      }),
+    ...(input.DocumentRelevanceOverrideConfigurations !== undefined &&
+      input.DocumentRelevanceOverrideConfigurations !== null && {
+        DocumentRelevanceOverrideConfigurations: serializeAws_json1_1DocumentRelevanceOverrideConfigurationList(
+          input.DocumentRelevanceOverrideConfigurations,
+          context
+        ),
       }),
     ...(input.Facets !== undefined &&
       input.Facets !== null && { Facets: serializeAws_json1_1FacetList(input.Facets, context) }),

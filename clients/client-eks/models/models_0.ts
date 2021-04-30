@@ -205,7 +205,7 @@ export namespace AddonInfo {
   });
 }
 
-export type AMITypes = "AL2_ARM_64" | "AL2_x86_64" | "AL2_x86_64_GPU";
+export type AMITypes = "AL2_ARM_64" | "AL2_x86_64" | "AL2_x86_64_GPU" | "CUSTOM";
 
 /**
  * <p>Identifies the AWS Key Management Service (AWS KMS) customer master key (CMK) used to encrypt the
@@ -365,6 +365,8 @@ export enum UpdateParamType {
   IDENTITY_PROVIDER_CONFIG = "IdentityProviderConfig",
   LABELS_TO_ADD = "LabelsToAdd",
   LABELS_TO_REMOVE = "LabelsToRemove",
+  LAUNCH_TEMPLATE_NAME = "LaunchTemplateName",
+  LAUNCH_TEMPLATE_VERSION = "LaunchTemplateVersion",
   MAX_SIZE = "MaxSize",
   MIN_SIZE = "MinSize",
   PLATFORM_VERSION = "PlatformVersion",

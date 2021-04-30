@@ -1,0 +1,101 @@
+import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
+import { CreateDatasetExportJobRequest, CreateDatasetExportJobResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_1CreateDatasetExportJobCommand,
+  serializeAws_json1_1CreateDatasetExportJobCommand,
+} from "../protocols/Aws_json1_1";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  MiddlewareStack,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  SerdeContext as __SerdeContext,
+} from "@aws-sdk/types";
+
+export interface CreateDatasetExportJobCommandInput extends CreateDatasetExportJobRequest {}
+export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExportJobResponse, __MetadataBearer {}
+
+/**
+ * <p>
+ *       Creates a job that exports data from your dataset to an Amazon S3 bucket.
+ *       To allow Amazon Personalize to export the training data, you must specify an
+ *       service-linked AWS Identity and Access Management (IAM) role that gives Amazon Personalize <code>PutObject</code> permissions for your Amazon S3 bucket.
+ *       For information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/export-permissions.html">Dataset export job permissions requirements</a>
+ *       in the Amazon Personalize developer guide.
+ *     </p>
+ *          <p>
+ *             <b>Status</b>
+ *          </p>
+ *          <p>A dataset export job can be in one of the following states:</p>
+ *          <ul>
+ *             <li>
+ *                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *       To get the status of the export job, call <a>DescribeDatasetExportJob</a>,
+ *       and specify the Amazon Resource Name (ARN) of the dataset export job. The dataset export is
+ *       complete when the status shows as ACTIVE. If the status shows as CREATE FAILED, the response
+ *       includes a <code>failureReason</code> key, which describes why the job failed.
+ *     </p>
+ */
+export class CreateDatasetExportJobCommand extends $Command<
+  CreateDatasetExportJobCommandInput,
+  CreateDatasetExportJobCommandOutput,
+  PersonalizeClientResolvedConfig
+> {
+  // Start section: command_properties
+  // End section: command_properties
+
+  constructor(readonly input: CreateDatasetExportJobCommandInput) {
+    // Start section: command_constructor
+    super();
+    // End section: command_constructor
+  }
+
+  /**
+   * @internal
+   */
+  resolveMiddleware(
+    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
+    configuration: PersonalizeClientResolvedConfig,
+    options?: __HttpHandlerOptions
+  ): Handler<CreateDatasetExportJobCommandInput, CreateDatasetExportJobCommandOutput> {
+    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+
+    const stack = clientStack.concat(this.middlewareStack);
+
+    const { logger } = configuration;
+    const clientName = "PersonalizeClient";
+    const commandName = "CreateDatasetExportJobCommand";
+    const handlerExecutionContext: HandlerExecutionContext = {
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: CreateDatasetExportJobRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreateDatasetExportJobResponse.filterSensitiveLog,
+    };
+    const { requestHandler } = configuration;
+    return stack.resolve(
+      (request: FinalizeHandlerArguments<any>) =>
+        requestHandler.handle(request.request as __HttpRequest, options || {}),
+      handlerExecutionContext
+    );
+  }
+
+  private serialize(input: CreateDatasetExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1CreateDatasetExportJobCommand(input, context);
+  }
+
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetExportJobCommandOutput> {
+    return deserializeAws_json1_1CreateDatasetExportJobCommand(output, context);
+  }
+
+  // Start section: command_body_extra
+  // End section: command_body_extra
+}

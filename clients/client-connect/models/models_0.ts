@@ -5827,7 +5827,7 @@ export interface UpdateQueueMaxContactsRequest {
   /**
    * <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
    */
-  MaxContacts: number | undefined;
+  MaxContacts?: number;
 }
 
 export namespace UpdateQueueMaxContactsRequest {

@@ -749,6 +749,13 @@ export enum MessageFormatValue {
   JSON_UNFORMATTED = "json-unformatted",
 }
 
+export enum KafkaSecurityProtocol {
+  PLAINTEXT = "plaintext",
+  SASL_SSL = "sasl-ssl",
+  SSL_AUTHENTICATION = "ssl-authentication",
+  SSL_ENCRYPTION = "ssl-encryption",
+}
+
 /**
  * <p>Provides information that describes an Apache Kafka endpoint. This
  *          information includes the output format of records applied to the endpoint and details of
@@ -756,10 +763,14 @@ export enum MessageFormatValue {
  */
 export interface KafkaSettings {
   /**
-   * <p>The broker location and port of the Kafka broker that hosts your Kafka instance. Specify the broker
+   * <p>A comma-separated list of one or more broker locations in your Kafka cluster that host your Kafka instance. Specify each broker location
    *          in the form <code>
    *                <i>broker-hostname-or-ip</i>:<i>port</i>
-   *             </code>. For example, <code>"ec2-12-345-678-901.compute-1.amazonaws.com:2345"</code>.</p>
+   *             </code>. For example, <code>"ec2-12-345-678-901.compute-1.amazonaws.com:2345"</code>.
+   *          For more information and examples of specifying a list of broker locations,
+   *          see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html">Using Apache Kafka as a target for AWS Database Migration Service</a>
+   *          in the <i>AWS Data Migration Service User Guide</i>.
+   *       </p>
    */
   Broker?: string;
 
@@ -823,11 +834,53 @@ export interface KafkaSettings {
    * <p>Include NULL and empty columns for records migrated to the endpoint. The default is <code>false</code>.</p>
    */
   IncludeNullAndEmpty?: boolean;
+
+  /**
+   * <p>Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include
+   *          <code>ssl-encryption</code>, <code>ssl-authentication</code>, and <code>sasl-ssl</code>.
+   *          <code>sasl-ssl</code> requires <code>SaslUsername</code> and <code>SaslPassword</code>.</p>
+   */
+  SecurityProtocol?: KafkaSecurityProtocol | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.</p>
+   */
+  SslClientCertificateArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.</p>
+   */
+  SslClientKeyArn?: string;
+
+  /**
+   * <p> The password for the client private key used to securely connect to a Kafka target endpoint.</p>
+   */
+  SslClientKeyPassword?: string;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) for the private Certification Authority (CA) cert that AWS DMS uses
+   *          to securely connect to your Kafka target endpoint.</p>
+   */
+  SslCaCertificateArn?: string;
+
+  /**
+   * <p> The secure username you created when you first set up your MSK cluster to validate a client identity and
+   *          make an encrypted connection between server and client using SASL-SSL authentication.</p>
+   */
+  SaslUsername?: string;
+
+  /**
+   * <p>The secure password you created when you first set up your MSK cluster to validate a client identity and
+   *          make an encrypted connection between server and client using SASL-SSL authentication.</p>
+   */
+  SaslPassword?: string;
 }
 
 export namespace KafkaSettings {
   export const filterSensitiveLog = (obj: KafkaSettings): any => ({
     ...obj,
+    ...(obj.SslClientKeyPassword && { SslClientKeyPassword: SENSITIVE_STRING }),
+    ...(obj.SaslPassword && { SaslPassword: SENSITIVE_STRING }),
   });
 }
 
@@ -942,6 +995,14 @@ export interface MicrosoftSQLServerSettings {
   Password?: string;
 
   /**
+   * <p>Cleans and recreates table metadata information on the replication instance when
+   *          a mismatch occurs. An example is a situation where running an alter DDL statement on
+   *          a table might result in different information about the table cached in the replication
+   *          instance.</p>
+   */
+  QuerySingleAlwaysOnNode?: boolean;
+
+  /**
    * <p>When this attribute is set to <code>Y</code>, AWS DMS only reads changes
    *          from transaction log backups and doesn't read from the
    *          active transaction log file during ongoing replication. Setting
@@ -994,6 +1055,12 @@ export interface MicrosoftSQLServerSettings {
    *          disable the use BCP for loading table option.</p>
    */
   UseBcpFullLoad?: boolean;
+
+  /**
+   * <p>When this attribute is set to <code>Y</code>, DMS processes third-party
+   *          transaction log backups if they are created in native format.</p>
+   */
+  UseThirdPartyBackupDevice?: boolean;
 
   /**
    * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the
@@ -1169,6 +1236,14 @@ export interface MySQLSettings {
    *          running regardless if the SQL statement succeeds or fails.</p>
    */
   AfterConnectScript?: string;
+
+  /**
+   * <p>Adjusts the behavior of DMS when migrating from an SQL Server source database
+   *          that is hosted as part of an Always On availability group cluster.  If you need DMS to poll
+   *          all the nodes in the Always On cluster for transaction backups, set this attribute to
+   *          <code>false</code>.</p>
+   */
+  CleanSourceMetadataOnMismatch?: boolean;
 
   /**
    * <p>Database name for the endpoint.</p>
@@ -1589,6 +1664,16 @@ export interface OracleSettings {
    * <p>Fully qualified domain name of the endpoint.</p>
    */
   ServerName?: string;
+
+  /**
+   * <p>Use this attribute to convert <code>SDO_GEOMETRY</code> to
+   *          <code>GEOJSON</code> format. By default, DMS calls the
+   *          <code>SDO2GEOJSON</code> custom function if present and accessible.
+   *          Or you can create your own custom function that mimics the operation of
+   *          <code>SDOGEOJSON</code> and set
+   *          <code>SpatialDataOptionToGeoJsonFunctionName</code> to call it instead. </p>
+   */
+  SpatialDataOptionToGeoJsonFunctionName?: string;
 
   /**
    * <p>Endpoint connection user name.</p>
@@ -2075,7 +2160,7 @@ export enum ParquetVersionValue {
 export interface S3Settings {
   /**
    * <p> The Amazon Resource Name (ARN) used by the service access IAM role. It is a required
-   *          parameter that enables DMS to write and read objects from an 3S bucket.</p>
+   *          parameter that enables DMS to write and read objects from an S3 bucket.</p>
    */
   ServiceAccessRoleArn?: string;
 
@@ -2863,6 +2948,7 @@ export namespace CreateEndpointMessage {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
     ...(obj.MongoDbSettings && { MongoDbSettings: MongoDbSettings.filterSensitiveLog(obj.MongoDbSettings) }),
+    ...(obj.KafkaSettings && { KafkaSettings: KafkaSettings.filterSensitiveLog(obj.KafkaSettings) }),
     ...(obj.RedshiftSettings && { RedshiftSettings: RedshiftSettings.filterSensitiveLog(obj.RedshiftSettings) }),
     ...(obj.PostgreSQLSettings && {
       PostgreSQLSettings: PostgreSQLSettings.filterSensitiveLog(obj.PostgreSQLSettings),
@@ -3128,6 +3214,7 @@ export namespace Endpoint {
   export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj,
     ...(obj.MongoDbSettings && { MongoDbSettings: MongoDbSettings.filterSensitiveLog(obj.MongoDbSettings) }),
+    ...(obj.KafkaSettings && { KafkaSettings: KafkaSettings.filterSensitiveLog(obj.KafkaSettings) }),
     ...(obj.RedshiftSettings && { RedshiftSettings: RedshiftSettings.filterSensitiveLog(obj.RedshiftSettings) }),
     ...(obj.PostgreSQLSettings && {
       PostgreSQLSettings: PostgreSQLSettings.filterSensitiveLog(obj.PostgreSQLSettings),
@@ -5342,6 +5429,109 @@ export namespace DescribeEndpointsResponse {
   });
 }
 
+export interface DescribeEndpointSettingsMessage {
+  /**
+   * <p>The databse engine used for your source or target endpoint.</p>
+   */
+  EngineName: string | undefined;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response
+   *          so that the remaining results can be retrieved.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified,
+   *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeEndpointSettingsMessage {
+  export const filterSensitiveLog = (obj: DescribeEndpointSettingsMessage): any => ({
+    ...obj,
+  });
+}
+
+export enum EndpointSettingTypeValue {
+  BOOLEAN = "boolean",
+  ENUM = "enum",
+  INTEGER = "integer",
+  STRING = "string",
+}
+
+/**
+ * <p>Endpoint settings.</p>
+ */
+export interface EndpointSetting {
+  /**
+   * <p>The name that you want to give the endpoint settings.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
+   */
+  Type?: EndpointSettingTypeValue | string;
+
+  /**
+   * <p>Enumerated values to use for this endpoint.</p>
+   */
+  EnumValues?: string[];
+
+  /**
+   * <p>A value that marks this endpoint setting as sensitive.</p>
+   */
+  Sensitive?: boolean;
+
+  /**
+   * <p>The unit of measure for this endpoint setting.</p>
+   */
+  Units?: string;
+
+  /**
+   * <p>The relevance or validity of an endpoint setting for an engine name and its endpoint type.</p>
+   */
+  Applicability?: string;
+
+  /**
+   * <p>The minimum value of an endpoint setting that is of type <code>int</code>.</p>
+   */
+  IntValueMin?: number;
+
+  /**
+   * <p>The maximum value of an endpoint setting that is of type <code>int</code>.</p>
+   */
+  IntValueMax?: number;
+}
+
+export namespace EndpointSetting {
+  export const filterSensitiveLog = (obj: EndpointSetting): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeEndpointSettingsResponse {
+  /**
+   * <p>An optional pagination token provided by a previous request. If this parameter is specified,
+   *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Descriptions of the endpoint settings available for your source or target database engine.</p>
+   */
+  EndpointSettings?: EndpointSetting[];
+}
+
+export namespace DescribeEndpointSettingsResponse {
+  export const filterSensitiveLog = (obj: DescribeEndpointSettingsResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p></p>
  */
@@ -6815,6 +7005,7 @@ export interface ImportCertificateMessage {
 export namespace ImportCertificateMessage {
   export const filterSensitiveLog = (obj: ImportCertificateMessage): any => ({
     ...obj,
+    ...(obj.CertificatePem && { CertificatePem: SENSITIVE_STRING }),
   });
 }
 
@@ -7131,6 +7322,7 @@ export namespace ModifyEndpointMessage {
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
     ...(obj.MongoDbSettings && { MongoDbSettings: MongoDbSettings.filterSensitiveLog(obj.MongoDbSettings) }),
+    ...(obj.KafkaSettings && { KafkaSettings: KafkaSettings.filterSensitiveLog(obj.KafkaSettings) }),
     ...(obj.RedshiftSettings && { RedshiftSettings: RedshiftSettings.filterSensitiveLog(obj.RedshiftSettings) }),
     ...(obj.PostgreSQLSettings && {
       PostgreSQLSettings: PostgreSQLSettings.filterSensitiveLog(obj.PostgreSQLSettings),
@@ -7453,10 +7645,10 @@ export interface ModifyReplicationTaskMessage {
 
   /**
    * <p>When using the AWS CLI or boto3, provide the path of the JSON file that contains the
-   *          table mappings. Precede the path with <code>file://</code>. When working with the DMS API,
-   *          provide the JSON as the parameter value, for example: <code>--table-mappings
-   *             file://mappingfile.json</code>
-   *          </p>
+   *          table mappings. Precede the path with <code>file://</code>.  For example,
+   *          <code>--table-mappings file://mappingfile.json</code>. When working with the DMS API,
+   *          provide the JSON as the parameter value.
+   *     </p>
    */
   TableMappings?: string;
 

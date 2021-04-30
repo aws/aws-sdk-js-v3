@@ -4,6 +4,10 @@ import {
 } from "../commands/CreateBatchInferenceJobCommand";
 import { CreateCampaignCommandInput, CreateCampaignCommandOutput } from "../commands/CreateCampaignCommand";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "../commands/CreateDatasetCommand";
+import {
+  CreateDatasetExportJobCommandInput,
+  CreateDatasetExportJobCommandOutput,
+} from "../commands/CreateDatasetExportJobCommand";
 import { CreateDatasetGroupCommandInput, CreateDatasetGroupCommandOutput } from "../commands/CreateDatasetGroupCommand";
 import {
   CreateDatasetImportJobCommandInput,
@@ -31,6 +35,10 @@ import {
 } from "../commands/DescribeBatchInferenceJobCommand";
 import { DescribeCampaignCommandInput, DescribeCampaignCommandOutput } from "../commands/DescribeCampaignCommand";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "../commands/DescribeDatasetCommand";
+import {
+  DescribeDatasetExportJobCommandInput,
+  DescribeDatasetExportJobCommandOutput,
+} from "../commands/DescribeDatasetExportJobCommand";
 import {
   DescribeDatasetGroupCommandInput,
   DescribeDatasetGroupCommandOutput,
@@ -61,6 +69,10 @@ import {
   ListBatchInferenceJobsCommandOutput,
 } from "../commands/ListBatchInferenceJobsCommand";
 import { ListCampaignsCommandInput, ListCampaignsCommandOutput } from "../commands/ListCampaignsCommand";
+import {
+  ListDatasetExportJobsCommandInput,
+  ListDatasetExportJobsCommandOutput,
+} from "../commands/ListDatasetExportJobsCommand";
 import { ListDatasetGroupsCommandInput, ListDatasetGroupsCommandOutput } from "../commands/ListDatasetGroupsCommand";
 import {
   ListDatasetImportJobsCommandInput,
@@ -97,6 +109,8 @@ import {
   CreateBatchInferenceJobResponse,
   CreateCampaignRequest,
   CreateCampaignResponse,
+  CreateDatasetExportJobRequest,
+  CreateDatasetExportJobResponse,
   CreateDatasetGroupRequest,
   CreateDatasetGroupResponse,
   CreateDatasetImportJobRequest,
@@ -115,6 +129,9 @@ import {
   CreateSolutionVersionResponse,
   DataSource,
   Dataset,
+  DatasetExportJob,
+  DatasetExportJobOutput,
+  DatasetExportJobSummary,
   DatasetGroup,
   DatasetGroupSummary,
   DatasetImportJob,
@@ -139,6 +156,8 @@ import {
   DescribeBatchInferenceJobResponse,
   DescribeCampaignRequest,
   DescribeCampaignResponse,
+  DescribeDatasetExportJobRequest,
+  DescribeDatasetExportJobResponse,
   DescribeDatasetGroupRequest,
   DescribeDatasetGroupResponse,
   DescribeDatasetImportJobRequest,
@@ -178,6 +197,8 @@ import {
   ListBatchInferenceJobsResponse,
   ListCampaignsRequest,
   ListCampaignsResponse,
+  ListDatasetExportJobsRequest,
+  ListDatasetExportJobsResponse,
   ListDatasetGroupsRequest,
   ListDatasetGroupsResponse,
   ListDatasetImportJobsRequest,
@@ -257,6 +278,19 @@ export const serializeAws_json1_1CreateDatasetCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateDatasetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateDatasetExportJobCommand = async (
+  input: CreateDatasetExportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.CreateDatasetExportJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateDatasetExportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -494,6 +528,19 @@ export const serializeAws_json1_1DescribeDatasetCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeDatasetExportJobCommand = async (
+  input: DescribeDatasetExportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.DescribeDatasetExportJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeDatasetExportJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeDatasetGroupCommand = async (
   input: DescribeDatasetGroupCommandInput,
   context: __SerdeContext
@@ -647,6 +694,19 @@ export const serializeAws_json1_1ListCampaignsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListCampaignsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListDatasetExportJobsCommand = async (
+  input: ListDatasetExportJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonPersonalize.ListDatasetExportJobs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListDatasetExportJobsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -973,6 +1033,92 @@ const deserializeAws_json1_1CreateDatasetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateDatasetExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDatasetExportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateDatasetExportJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateDatasetExportJobResponse(data, context);
+  const response: CreateDatasetExportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateDatasetExportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDatasetExportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2309,6 +2455,68 @@ const deserializeAws_json1_1DescribeDatasetCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeDatasetExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDatasetExportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeDatasetExportJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeDatasetExportJobResponse(data, context);
+  const response: DescribeDatasetExportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeDatasetExportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDatasetExportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalize#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3020,6 +3228,68 @@ const deserializeAws_json1_1ListCampaignsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCampaignsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalize#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListDatasetExportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDatasetExportJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListDatasetExportJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListDatasetExportJobsResponse(data, context);
+  const response: ListDatasetExportJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListDatasetExportJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDatasetExportJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3913,6 +4183,20 @@ const serializeAws_json1_1CreateCampaignRequest = (input: CreateCampaignRequest,
   };
 };
 
+const serializeAws_json1_1CreateDatasetExportJobRequest = (
+  input: CreateDatasetExportJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
+    ...(input.ingestionMode !== undefined && input.ingestionMode !== null && { ingestionMode: input.ingestionMode }),
+    ...(input.jobName !== undefined && input.jobName !== null && { jobName: input.jobName }),
+    ...(input.jobOutput !== undefined &&
+      input.jobOutput !== null && { jobOutput: serializeAws_json1_1DatasetExportJobOutput(input.jobOutput, context) }),
+    ...(input.roleArn !== undefined && input.roleArn !== null && { roleArn: input.roleArn }),
+  };
+};
+
 const serializeAws_json1_1CreateDatasetGroupRequest = (
   input: CreateDatasetGroupRequest,
   context: __SerdeContext
@@ -4001,6 +4285,15 @@ const serializeAws_json1_1CreateSolutionVersionRequest = (
   };
 };
 
+const serializeAws_json1_1DatasetExportJobOutput = (input: DatasetExportJobOutput, context: __SerdeContext): any => {
+  return {
+    ...(input.s3DataDestination !== undefined &&
+      input.s3DataDestination !== null && {
+        s3DataDestination: serializeAws_json1_1S3DataConfig(input.s3DataDestination, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1DataSource = (input: DataSource, context: __SerdeContext): any => {
   return {
     ...(input.dataLocation !== undefined && input.dataLocation !== null && { dataLocation: input.dataLocation }),
@@ -4079,6 +4372,16 @@ const serializeAws_json1_1DescribeBatchInferenceJobRequest = (
 const serializeAws_json1_1DescribeCampaignRequest = (input: DescribeCampaignRequest, context: __SerdeContext): any => {
   return {
     ...(input.campaignArn !== undefined && input.campaignArn !== null && { campaignArn: input.campaignArn }),
+  };
+};
+
+const serializeAws_json1_1DescribeDatasetExportJobRequest = (
+  input: DescribeDatasetExportJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.datasetExportJobArn !== undefined &&
+      input.datasetExportJobArn !== null && { datasetExportJobArn: input.datasetExportJobArn }),
   };
 };
 
@@ -4302,6 +4605,17 @@ const serializeAws_json1_1ListCampaignsRequest = (input: ListCampaignsRequest, c
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
     ...(input.solutionArn !== undefined && input.solutionArn !== null && { solutionArn: input.solutionArn }),
+  };
+};
+
+const serializeAws_json1_1ListDatasetExportJobsRequest = (
+  input: ListDatasetExportJobsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.datasetArn !== undefined && input.datasetArn !== null && { datasetArn: input.datasetArn }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   };
 };
 
@@ -4799,6 +5113,18 @@ const deserializeAws_json1_1CreateCampaignResponse = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1CreateDatasetExportJobResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateDatasetExportJobResponse => {
+  return {
+    datasetExportJobArn:
+      output.datasetExportJobArn !== undefined && output.datasetExportJobArn !== null
+        ? output.datasetExportJobArn
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateDatasetGroupResponse = (
   output: any,
   context: __SerdeContext
@@ -4884,6 +5210,79 @@ const deserializeAws_json1_1Dataset = (output: any, context: __SerdeContext): Da
         : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     schemaArn: output.schemaArn !== undefined && output.schemaArn !== null ? output.schemaArn : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DatasetExportJob = (output: any, context: __SerdeContext): DatasetExportJob => {
+  return {
+    creationDateTime:
+      output.creationDateTime !== undefined && output.creationDateTime !== null
+        ? new Date(Math.round(output.creationDateTime * 1000))
+        : undefined,
+    datasetArn: output.datasetArn !== undefined && output.datasetArn !== null ? output.datasetArn : undefined,
+    datasetExportJobArn:
+      output.datasetExportJobArn !== undefined && output.datasetExportJobArn !== null
+        ? output.datasetExportJobArn
+        : undefined,
+    failureReason:
+      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
+    ingestionMode:
+      output.ingestionMode !== undefined && output.ingestionMode !== null ? output.ingestionMode : undefined,
+    jobName: output.jobName !== undefined && output.jobName !== null ? output.jobName : undefined,
+    jobOutput:
+      output.jobOutput !== undefined && output.jobOutput !== null
+        ? deserializeAws_json1_1DatasetExportJobOutput(output.jobOutput, context)
+        : undefined,
+    lastUpdatedDateTime:
+      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        : undefined,
+    roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
+    status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DatasetExportJobOutput = (output: any, context: __SerdeContext): DatasetExportJobOutput => {
+  return {
+    s3DataDestination:
+      output.s3DataDestination !== undefined && output.s3DataDestination !== null
+        ? deserializeAws_json1_1S3DataConfig(output.s3DataDestination, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DatasetExportJobs = (output: any, context: __SerdeContext): DatasetExportJobSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DatasetExportJobSummary(entry, context);
+    });
+};
+
+const deserializeAws_json1_1DatasetExportJobSummary = (
+  output: any,
+  context: __SerdeContext
+): DatasetExportJobSummary => {
+  return {
+    creationDateTime:
+      output.creationDateTime !== undefined && output.creationDateTime !== null
+        ? new Date(Math.round(output.creationDateTime * 1000))
+        : undefined,
+    datasetExportJobArn:
+      output.datasetExportJobArn !== undefined && output.datasetExportJobArn !== null
+        ? output.datasetExportJobArn
+        : undefined,
+    failureReason:
+      output.failureReason !== undefined && output.failureReason !== null ? output.failureReason : undefined,
+    jobName: output.jobName !== undefined && output.jobName !== null ? output.jobName : undefined,
+    lastUpdatedDateTime:
+      output.lastUpdatedDateTime !== undefined && output.lastUpdatedDateTime !== null
+        ? new Date(Math.round(output.lastUpdatedDateTime * 1000))
+        : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
 };
@@ -5198,6 +5597,18 @@ const deserializeAws_json1_1DescribeCampaignResponse = (
     campaign:
       output.campaign !== undefined && output.campaign !== null
         ? deserializeAws_json1_1Campaign(output.campaign, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeDatasetExportJobResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeDatasetExportJobResponse => {
+  return {
+    datasetExportJob:
+      output.datasetExportJob !== undefined && output.datasetExportJob !== null
+        ? deserializeAws_json1_1DatasetExportJob(output.datasetExportJob, context)
         : undefined,
   } as any;
 };
@@ -5615,6 +6026,19 @@ const deserializeAws_json1_1ListCampaignsResponse = (output: any, context: __Ser
     campaigns:
       output.campaigns !== undefined && output.campaigns !== null
         ? deserializeAws_json1_1Campaigns(output.campaigns, context)
+        : undefined,
+    nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListDatasetExportJobsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListDatasetExportJobsResponse => {
+  return {
+    datasetExportJobs:
+      output.datasetExportJobs !== undefined && output.datasetExportJobs !== null
+        ? deserializeAws_json1_1DatasetExportJobs(output.datasetExportJobs, context)
         : undefined,
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
   } as any;

@@ -701,6 +701,123 @@ export namespace GlobalReplicationGroupInfo {
   });
 }
 
+/**
+ * <p>The configuration details of the CloudWatch Logs destination.</p>
+ */
+export interface CloudWatchLogsDestinationDetails {
+  /**
+   * <p>The name of the CloudWatch Logs log group.</p>
+   */
+  LogGroup?: string;
+}
+
+export namespace CloudWatchLogsDestinationDetails {
+  export const filterSensitiveLog = (obj: CloudWatchLogsDestinationDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration details of the Kinesis Data Firehose destination.</p>
+ */
+export interface KinesisFirehoseDestinationDetails {
+  /**
+   * <p>The name of the Kinesis Data Firehose delivery stream.</p>
+   */
+  DeliveryStream?: string;
+}
+
+export namespace KinesisFirehoseDestinationDetails {
+  export const filterSensitiveLog = (obj: KinesisFirehoseDestinationDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.</p>
+ */
+export interface DestinationDetails {
+  /**
+   * <p>The configuration details of the CloudWatch Logs destination.</p>
+   */
+  CloudWatchLogsDetails?: CloudWatchLogsDestinationDetails;
+
+  /**
+   * <p>The configuration details of the Kinesis Data Firehose destination.</p>
+   */
+  KinesisFirehoseDetails?: KinesisFirehoseDestinationDetails;
+}
+
+export namespace DestinationDetails {
+  export const filterSensitiveLog = (obj: DestinationDetails): any => ({
+    ...obj,
+  });
+}
+
+export enum DestinationType {
+  CloudWatchLogs = "cloudwatch-logs",
+  KinesisFirehose = "kinesis-firehose",
+}
+
+export enum LogFormat {
+  JSON = "json",
+  TEXT = "text",
+}
+
+export enum LogType {
+  SLOW_LOG = "slow-log",
+}
+
+export enum LogDeliveryConfigurationStatus {
+  ACTIVE = "active",
+  DISABLING = "disabling",
+  ENABLING = "enabling",
+  ERROR = "error",
+  MODIFYING = "modifying",
+}
+
+/**
+ * <p>Returns the destination, format and type of the logs. </p>
+ */
+export interface LogDeliveryConfiguration {
+  /**
+   * <p>Refers to <a href="https://redis.io/commands/slowlog">slow-log</a>.</p>
+   */
+  LogType?: LogType | string;
+
+  /**
+   * <p>Returns the destination type, either <code>cloudwatch-logs</code> or <code>kinesis-firehose</code>.</p>
+   */
+  DestinationType?: DestinationType | string;
+
+  /**
+   * <p>Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.</p>
+   */
+  DestinationDetails?: DestinationDetails;
+
+  /**
+   * <p>Returns the log format, either JSON or TEXT.</p>
+   */
+  LogFormat?: LogFormat | string;
+
+  /**
+   * <p>Returns the log delivery configuration status. Values are one of <code>enabling</code> | <code>disabling</code> | <code>modifying</code> | <code>active</code> | <code>error</code>
+   *          </p>
+   */
+  Status?: LogDeliveryConfigurationStatus | string;
+
+  /**
+   * <p>Returns an error message for the log delivery configuration.</p>
+   */
+  Message?: string;
+}
+
+export namespace LogDeliveryConfiguration {
+  export const filterSensitiveLog = (obj: LogDeliveryConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export enum MultiAZStatus {
   DISABLED = "disabled",
   ENABLED = "enabled",
@@ -804,6 +921,37 @@ export enum PendingAutomaticFailoverStatus {
 }
 
 /**
+ * <p>The log delivery configurations being modified </p>
+ */
+export interface PendingLogDeliveryConfiguration {
+  /**
+   * <p>Refers to <a href="https://redis.io/commands/slowlog">slow-log</a>.</p>
+   */
+  LogType?: LogType | string;
+
+  /**
+   * <p>Returns the destination type, either CloudWatch Logs or Kinesis Data Firehose.</p>
+   */
+  DestinationType?: DestinationType | string;
+
+  /**
+   * <p>Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.</p>
+   */
+  DestinationDetails?: DestinationDetails;
+
+  /**
+   * <p>Returns the log format, either JSON or TEXT</p>
+   */
+  LogFormat?: LogFormat | string;
+}
+
+export namespace PendingLogDeliveryConfiguration {
+  export const filterSensitiveLog = (obj: PendingLogDeliveryConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Represents the progress of an online resharding operation.</p>
  */
 export interface SlotMigration {
@@ -886,6 +1034,11 @@ export interface ReplicationGroupPendingModifiedValues {
    * <p>The user groups being modified.</p>
    */
   UserGroups?: UserGroupsUpdateStatus;
+
+  /**
+   * <p>The log delivery configurations being modified </p>
+   */
+  LogDeliveryConfigurations?: PendingLogDeliveryConfiguration[];
 }
 
 export namespace ReplicationGroupPendingModifiedValues {
@@ -1060,6 +1213,11 @@ export interface ReplicationGroup {
    * <p>The list of user group IDs that have access to the replication group.</p>
    */
   UserGroupIds?: string[];
+
+  /**
+   * <p>Returns the destination, format and type of the logs. </p>
+   */
+  LogDeliveryConfigurations?: LogDeliveryConfiguration[];
 }
 
 export namespace ReplicationGroup {
@@ -1510,7 +1668,7 @@ export interface Snapshot {
   /**
    * <p>The number of cache nodes in the source cluster.</p>
    *         <p>For clusters running Redis, this value must be 1.
-   *             For clusters running Memcached, this value must be between 1 and 20.</p>
+   *             For clusters running Memcached, this value must be between 1 and 40.</p>
    */
   NumCacheNodes?: number;
 
@@ -1751,6 +1909,42 @@ export enum AZMode {
   SINGLE_AZ = "single-az",
 }
 
+/**
+ * <p>Specifies the destination, format and type of the logs. </p>
+ */
+export interface LogDeliveryConfigurationRequest {
+  /**
+   * <p>Refers to <a href="https://redis.io/commands/slowlog">slow-log</a>.</p>
+   */
+  LogType?: LogType | string;
+
+  /**
+   * <p>Specify either <code>cloudwatch-logs</code> or <code>kinesis-firehose</code> as the destination type.</p>
+   */
+  DestinationType?: DestinationType | string;
+
+  /**
+   * <p>Configuration details of either a CloudWatch Logs destination or Kinesis Data Firehose destination.</p>
+   */
+  DestinationDetails?: DestinationDetails;
+
+  /**
+   * <p>Specifies either JSON or TEXT</p>
+   */
+  LogFormat?: LogFormat | string;
+
+  /**
+   * <p>Specify if log delivery is enabled. Default <code>true</code>.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace LogDeliveryConfigurationRequest {
+  export const filterSensitiveLog = (obj: LogDeliveryConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
 export enum OutpostMode {
   CROSS_OUTPOST = "cross-outpost",
   SINGLE_OUTPOST = "single-outpost",
@@ -1821,7 +2015,7 @@ export interface CreateCacheClusterMessage {
   /**
    * <p>The initial number of cache nodes that the cluster has.</p>
    *         <p>For clusters running Redis, this value must be 1.
-   *     For clusters running Memcached, this value must be between 1 and 20.</p>
+   *     For clusters running Memcached, this value must be between 1 and 40.</p>
    *         <p>If you need more than 20 nodes for your Memcached cluster,
    *             please fill out the ElastiCache Limit Increase Request form at <a href="http://aws.amazon.com/contact-us/elasticache-node-limit-request/">http://aws.amazon.com/contact-us/elasticache-node-limit-request/</a>.</p>
    */
@@ -2204,6 +2398,11 @@ export interface CreateCacheClusterMessage {
    * <p>The outpost ARNs in which the cache cluster is created.</p>
    */
   PreferredOutpostArns?: string[];
+
+  /**
+   * <p>Specifies the destination, format and type of the logs. </p>
+   */
+  LogDeliveryConfigurations?: LogDeliveryConfigurationRequest[];
 }
 
 export namespace CreateCacheClusterMessage {
@@ -2558,7 +2757,7 @@ export interface PendingModifiedValues {
   /**
    * <p>The new number of cache nodes for the cluster.</p>
    *         <p>For clusters running Redis, this value must be 1.
-   *             For clusters running Memcached, this value must be between 1 and 20.</p>
+   *             For clusters running Memcached, this value must be between 1 and 40.</p>
    */
   NumCacheNodes?: number;
 
@@ -2582,6 +2781,11 @@ export interface PendingModifiedValues {
    * <p>The auth token status</p>
    */
   AuthTokenStatus?: AuthTokenUpdateStatus | string;
+
+  /**
+   * <p>The log delivery configurations being modified </p>
+   */
+  LogDeliveryConfigurations?: PendingLogDeliveryConfiguration[];
 }
 
 export namespace PendingModifiedValues {
@@ -2882,7 +3086,7 @@ export interface CacheCluster {
   /**
    * <p>The number of cache nodes in the cluster.</p>
    *         <p>For clusters running Redis, this value must be 1. For clusters running Memcached,
-   *             this value must be between 1 and 20.</p>
+   *             this value must be between 1 and 40.</p>
    */
   NumCacheNodes?: number;
 
@@ -3062,6 +3266,16 @@ export interface CacheCluster {
    * <p>The ARN (Amazon Resource Name) of the cache cluster.</p>
    */
   ARN?: string;
+
+  /**
+   * <p>A boolean value indicating whether log delivery is enabled for the replication group.</p>
+   */
+  ReplicationGroupLogDeliveryEnabled?: boolean;
+
+  /**
+   * <p>Returns the destination, format and type of the logs.</p>
+   */
+  LogDeliveryConfigurations?: LogDeliveryConfiguration[];
 }
 
 export namespace CacheCluster {
@@ -4429,6 +4643,11 @@ export interface CreateReplicationGroupMessage {
    * <p>The list of user groups to associate with the replication group.</p>
    */
   UserGroupIds?: string[];
+
+  /**
+   * <p>Specifies the destination, format and type of the logs.</p>
+   */
+  LogDeliveryConfigurations?: LogDeliveryConfigurationRequest[];
 }
 
 export namespace CreateReplicationGroupMessage {
@@ -4926,16 +5145,17 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupMessage {
   NodeGroupCount: number | undefined;
 
   /**
-   * <p>If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. NodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster.
+   * <p>If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. GlobalNodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster.
    *
-   *             ElastiCache for Redis will attempt to remove all node groups listed by NodeGroupsToRemove from the cluster. </p>
+   *             ElastiCache for Redis will attempt to remove all node groups listed by GlobalNodeGroupsToRemove from the cluster. </p>
    */
   GlobalNodeGroupsToRemove?: string[];
 
   /**
-   * <p>If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. NodeGroupsToRemove is a list of NodeGroupIds to remove from the cluster.
+   * <p>If the value of NodeGroupCount is less than the current number of node groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is required. GlobalNodeGroupsToRetain is a list of NodeGroupIds to retain from the cluster. ElastiCache for Redis will attempt to retain all node groups listed by GlobalNodeGroupsToRetain from the cluster.
    *
-   *             ElastiCache for Redis will attempt to remove all node groups listed by NodeGroupsToRemove from the cluster. </p>
+   *
+   *              </p>
    */
   GlobalNodeGroupsToRetain?: string[];
 
@@ -8504,7 +8724,7 @@ export interface ModifyCacheClusterMessage {
    *         <p>If you are removing cache nodes, you must
    *             use the <code>CacheNodeIdsToRemove</code> parameter to provide the IDs of the specific cache nodes to remove.</p>
    *         <p>For clusters running Redis, this value must be 1.
-   *     For clusters running Memcached, this value must be between 1 and 20.</p>
+   *     For clusters running Memcached, this value must be between 1 and 40.</p>
    *
    *         <note>
    *             <p>Adding or removing Memcached cache nodes can be applied immediately or as a pending operation (see <code>ApplyImmediately</code>).</p>
@@ -8551,11 +8771,14 @@ export interface ModifyCacheClusterMessage {
   AZMode?: AZMode | string;
 
   /**
-   * <p>The list of Availability Zones where the new Memcached cache nodes are created.</p>
+   * <note>
+   *             <p>This option is only supported on Memcached clusters.</p>
+   *          </note>
+   *         <p>The list of Availability Zones where the new Memcached cache nodes are created.</p>
    *         <p>This parameter is only valid when <code>NumCacheNodes</code> in the request is greater
    *             than the sum of the number of active cache nodes and the number of cache nodes pending creation (which may be zero).
    *             The number of Availability Zones supplied in this list must match the cache nodes being added in this request.</p>
-   *         <p>This option is only supported on Memcached clusters.</p>
+   *
    *         <p>Scenarios:</p>
    *             <ul>
    *             <li>
@@ -8832,6 +9055,11 @@ export interface ModifyCacheClusterMessage {
    *          </p>
    */
   AuthTokenUpdateStrategy?: AuthTokenUpdateStrategyType | string;
+
+  /**
+   * <p>Specifies the destination, format and type of the logs.</p>
+   */
+  LogDeliveryConfigurations?: LogDeliveryConfigurationRequest[];
 }
 
 export namespace ModifyCacheClusterMessage {
@@ -9294,6 +9522,11 @@ export interface ModifyReplicationGroupMessage {
    * <p>Removes the user groups that can access this replication group.</p>
    */
   RemoveUserGroups?: boolean;
+
+  /**
+   * <p>Specifies the destination, format and type of the logs.</p>
+   */
+  LogDeliveryConfigurations?: LogDeliveryConfigurationRequest[];
 }
 
 export namespace ModifyReplicationGroupMessage {

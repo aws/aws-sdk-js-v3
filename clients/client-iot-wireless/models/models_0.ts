@@ -2799,6 +2799,13 @@ export namespace LoRaWANSendDataToDevice {
   });
 }
 
+export enum MessageType {
+  CUSTOM_COMMAND_ID_GET = "CUSTOM_COMMAND_ID_GET",
+  CUSTOM_COMMAND_ID_NOTIFY = "CUSTOM_COMMAND_ID_NOTIFY",
+  CUSTOM_COMMAND_ID_RESP = "CUSTOM_COMMAND_ID_RESP",
+  CUSTOM_COMMAND_ID_SET = "CUSTOM_COMMAND_ID_SET",
+}
+
 /**
  * <p>Information about a Sidewalk router.</p>
  */
@@ -2807,6 +2814,11 @@ export interface SidewalkSendDataToDevice {
    * <p>The sequence number.</p>
    */
   Seq?: number;
+
+  /**
+   * <p>Sidewalk device message type.</p>
+   */
+  MessageType?: MessageType | string;
 }
 
 export namespace SidewalkSendDataToDevice {
