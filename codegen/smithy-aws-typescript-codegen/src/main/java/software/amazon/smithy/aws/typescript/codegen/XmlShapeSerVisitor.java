@@ -169,7 +169,7 @@ final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
                         AwsProtocolUtils.writeXmlNamespace(context, valueMember, "workingNode");
                         writer.write("return acc.addChildNode(workingNode);");
                     });
-                    writer.write(", new __XmlNode($S));", valueName);
+                    writer.write(", new __XmlNode($S))", valueName);
                 });
             } else {
                 // Add @xmlNamespace value of the target member.
