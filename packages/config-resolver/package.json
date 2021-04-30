@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/config-resolver",
-  "version": "3.13.1",
+  "version": "3.14.0",
   "scripts": {
     "prepublishOnly": "yarn build && downlevel-dts dist/types dist/types/ts3.4",
     "build:cjs": "tsc -p tsconfig.cjs.json",
