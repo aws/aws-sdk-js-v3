@@ -1,10 +1,12 @@
 import { EC2Client } from "../EC2Client";
 import { DescribeVpcsCommand, DescribeVpcsCommandInput } from "../commands/DescribeVpcsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, createWaiter } from "@aws-sdk/util-waiter";
+import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (client: EC2Client, input: DescribeVpcsCommandInput): Promise<WaiterResult> => {
+  let reason;
   try {
     let result: any = await client.send(new DescribeVpcsCommand(input));
+    reason = result;
     try {
       let returnComparator = () => {
         let flat_1: any[] = [].concat(...result.Vpcs);
@@ -18,14 +20,17 @@ const checkState = async (client: EC2Client, input: DescribeVpcsCommandInput): P
         allStringEq_5 = allStringEq_5 && element_4 == "available";
       }
       if (allStringEq_5) {
-        return { state: WaiterState.SUCCESS };
+        return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
-  } catch (exception) {}
-  return { state: WaiterState.RETRY };
+  } catch (exception) {
+    reason = exception;
+  }
+  return { state: WaiterState.RETRY, reason };
 };
 /**
  *
+ *  @deprecated in favor of waitUntilVpcAvailable. This does not throw on failure.
  *  @param params : Waiter configuration options.
  *  @param input : the input to DescribeVpcsCommand for polling.
  */
@@ -35,4 +40,17 @@ export const waitForVpcAvailable = async (
 ): Promise<WaiterResult> => {
   const serviceDefaults = { minDelay: 15, maxDelay: 120 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+};
+/**
+ *
+ *  @param params : Waiter configuration options.
+ *  @param input : the input to DescribeVpcsCommand for polling.
+ */
+export const waitUntilVpcAvailable = async (
+  params: WaiterConfiguration<EC2Client>,
+  input: DescribeVpcsCommandInput
+): Promise<WaiterResult> => {
+  const serviceDefaults = { minDelay: 15, maxDelay: 120 };
+  const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
+  return checkExceptions(result);
 };
