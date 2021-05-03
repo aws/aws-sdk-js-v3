@@ -22,6 +22,18 @@ export interface DeleteConfigurationCommandOutput extends DeleteConfigurationRes
 
 /**
  * <p>Deletes an MSK Configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new DeleteConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConfigurationCommand extends $Command<
   DeleteConfigurationCommandInput,

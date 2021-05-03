@@ -22,6 +22,18 @@ export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemp
 
 /**
  * <p>Describes one or more launch templates.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeLaunchTemplatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLaunchTemplatesCommandInput} for command's `input` shape.
+ * @see {@link DescribeLaunchTemplatesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLaunchTemplatesCommand extends $Command<
   DescribeLaunchTemplatesCommandInput,

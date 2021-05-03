@@ -24,6 +24,18 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  *       <code>NextToken</code> value. Use this value in a subsequent <code>ListTags</code> request to
  *       get more tags. When you receive a response with no <code>NextToken</code> (or an empty or null
  *       value), that means there are no more tags to get.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMV2Client(config);
+ * const command = new ListTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsCommandInput} for command's `input` shape.
+ * @see {@link ListTagsCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsCommand extends $Command<
   ListTagsCommandInput,

@@ -22,6 +22,18 @@ export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __Met
 
 /**
  * Changes the packaging group's properities to configure log subscription
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaPackageVodClient(config);
+ * const command = new ConfigureLogsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ConfigureLogsCommandInput} for command's `input` shape.
+ * @see {@link ConfigureLogsCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageVodClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ConfigureLogsCommand extends $Command<
   ConfigureLogsCommandInput,

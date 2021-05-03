@@ -34,6 +34,18 @@ export interface CreateContainerServiceDeploymentCommandOutput
  *          <p>You can deploy containers to your container service using container images from a public
  *       registry like Docker Hub, or from your local machine. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images">Creating container images for your Amazon Lightsail container services</a> in the
  *         <i>Lightsail Dev Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new CreateContainerServiceDeploymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateContainerServiceDeploymentCommandInput} for command's `input` shape.
+ * @see {@link CreateContainerServiceDeploymentCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateContainerServiceDeploymentCommand extends $Command<
   CreateContainerServiceDeploymentCommandInput,

@@ -24,6 +24,18 @@ export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateRes
  * <p>Deletes an email template.</p>
  *
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new DeleteEmailTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEmailTemplateCommandInput} for command's `input` shape.
+ * @see {@link DeleteEmailTemplateCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEmailTemplateCommand extends $Command<
   DeleteEmailTemplateCommandInput,

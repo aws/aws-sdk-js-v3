@@ -22,6 +22,18 @@ export interface GetCodeSigningConfigCommandOutput extends GetCodeSigningConfigR
 
 /**
  * <p>Returns information about the specified code signing configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new GetCodeSigningConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCodeSigningConfigCommandInput} for command's `input` shape.
+ * @see {@link GetCodeSigningConfigCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCodeSigningConfigCommand extends $Command<
   GetCodeSigningConfigCommandInput,

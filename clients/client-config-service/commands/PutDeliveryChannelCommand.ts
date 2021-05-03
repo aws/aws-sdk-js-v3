@@ -38,6 +38,18 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  *
  *
  * 		       </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new PutDeliveryChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutDeliveryChannelCommandInput} for command's `input` shape.
+ * @see {@link PutDeliveryChannelCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutDeliveryChannelCommand extends $Command<
   PutDeliveryChannelCommandInput,

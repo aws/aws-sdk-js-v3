@@ -22,6 +22,18 @@ export interface GetGatewayCommandOutput extends GetGatewayResponse, __MetadataB
 
 /**
  * <p>Retrieves the details of a gateway.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new GetGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetGatewayCommandInput} for command's `input` shape.
+ * @see {@link GetGatewayCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetGatewayCommand extends $Command<
   GetGatewayCommandInput,

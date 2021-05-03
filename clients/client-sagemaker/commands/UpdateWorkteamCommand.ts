@@ -22,6 +22,18 @@ export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __M
 
 /**
  * <p>Updates an existing work team with new member definitions or description.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new UpdateWorkteamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateWorkteamCommandInput} for command's `input` shape.
+ * @see {@link UpdateWorkteamCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateWorkteamCommand extends $Command<
   UpdateWorkteamCommandInput,

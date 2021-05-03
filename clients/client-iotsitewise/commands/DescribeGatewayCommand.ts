@@ -22,6 +22,18 @@ export interface DescribeGatewayCommandOutput extends DescribeGatewayResponse, _
 
 /**
  * <p>Retrieves information about a gateway.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new DescribeGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeGatewayCommandInput} for command's `input` shape.
+ * @see {@link DescribeGatewayCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeGatewayCommand extends $Command<
   DescribeGatewayCommandInput,

@@ -30,6 +30,18 @@ export interface AssociateAssessmentReportEvidenceFolderCommandOutput
  * <p>
  *          Associates an evidence folder to the specified assessment report in AWS Audit Manager.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new AssociateAssessmentReportEvidenceFolderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateAssessmentReportEvidenceFolderCommandInput} for command's `input` shape.
+ * @see {@link AssociateAssessmentReportEvidenceFolderCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateAssessmentReportEvidenceFolderCommand extends $Command<
   AssociateAssessmentReportEvidenceFolderCommandInput,

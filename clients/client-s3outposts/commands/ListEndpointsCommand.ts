@@ -40,6 +40,18 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResult, __Metad
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3OutpostsClient(config);
+ * const command = new ListEndpointsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEndpointsCommandInput} for command's `input` shape.
+ * @see {@link ListEndpointsCommandOutput} for command's `response` shape.
+ * @see {@link S3OutpostsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEndpointsCommand extends $Command<
   ListEndpointsCommandInput,

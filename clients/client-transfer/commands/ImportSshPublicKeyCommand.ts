@@ -27,6 +27,18 @@ export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyRespo
  *
  *          <p>The response returns the <code>UserName</code> value, the <code>ServerId</code> value, and
  *       the name of the <code>SshPublicKeyId</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TransferClient(config);
+ * const command = new ImportSshPublicKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportSshPublicKeyCommandInput} for command's `input` shape.
+ * @see {@link ImportSshPublicKeyCommandOutput} for command's `response` shape.
+ * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ImportSshPublicKeyCommand extends $Command<
   ImportSshPublicKeyCommandInput,

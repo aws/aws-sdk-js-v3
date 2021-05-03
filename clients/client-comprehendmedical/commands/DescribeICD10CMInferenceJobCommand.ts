@@ -29,6 +29,18 @@ export interface DescribeICD10CMInferenceJobCommandOutput
 /**
  * <p>Gets the properties associated with an InferICD10CM job. Use this operation to get the
  *       status of an inference job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendMedicalClient(config);
+ * const command = new DescribeICD10CMInferenceJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeICD10CMInferenceJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeICD10CMInferenceJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeICD10CMInferenceJobCommand extends $Command<
   DescribeICD10CMInferenceJobCommandInput,

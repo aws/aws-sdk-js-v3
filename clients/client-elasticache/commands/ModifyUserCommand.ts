@@ -19,6 +19,18 @@ export interface ModifyUserCommandOutput extends User, __MetadataBearer {}
 
 /**
  * <p>Changes user password(s) and/or access string.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new ModifyUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyUserCommandInput} for command's `input` shape.
+ * @see {@link ModifyUserCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyUserCommand extends $Command<
   ModifyUserCommandInput,

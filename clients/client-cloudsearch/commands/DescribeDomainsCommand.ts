@@ -24,6 +24,18 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * <p>Gets information about the search domains owned by this account. Can be limited to specific domains. Shows
  *       all domains by default. To get the number of searchable documents in a domain, use the console or submit a <code>matchall</code> request to your domain's search endpoint: <code>q=matchall&amp;q.parser=structured&amp;size=0</code>. For more information,
  *       see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html" target="_blank">Getting Information about a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudSearchClient(config);
+ * const command = new DescribeDomainsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDomainsCommandInput} for command's `input` shape.
+ * @see {@link DescribeDomainsCommandOutput} for command's `response` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDomainsCommand extends $Command<
   DescribeDomainsCommandInput,

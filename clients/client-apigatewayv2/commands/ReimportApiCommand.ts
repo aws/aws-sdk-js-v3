@@ -22,6 +22,18 @@ export interface ReimportApiCommandOutput extends ReimportApiResponse, __Metadat
 
 /**
  * <p>Puts an Api resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new ReimportApiCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReimportApiCommandInput} for command's `input` shape.
+ * @see {@link ReimportApiCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReimportApiCommand extends $Command<
   ReimportApiCommandInput,

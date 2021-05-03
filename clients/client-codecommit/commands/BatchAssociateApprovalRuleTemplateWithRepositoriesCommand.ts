@@ -28,6 +28,18 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
 
 /**
  * <p>Creates an association between an approval rule template and one or more specified repositories. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new BatchAssociateApprovalRuleTemplateWithRepositoriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput} for command's `input` shape.
+ * @see {@link BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $Command<
   BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,

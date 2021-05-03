@@ -28,6 +28,18 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  *          names available for that service. For example, some of the attribute names available for EC2 are
  *          <code>volumeType</code>, <code>maxIopsVolume</code>, <code>operation</code>,
  *          <code>locationType</code>, and <code>instanceCapacity10xlarge</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PricingClient(config);
+ * const command = new DescribeServicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeServicesCommandInput} for command's `input` shape.
+ * @see {@link DescribeServicesCommandOutput} for command's `response` shape.
+ * @see {@link PricingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeServicesCommand extends $Command<
   DescribeServicesCommandInput,

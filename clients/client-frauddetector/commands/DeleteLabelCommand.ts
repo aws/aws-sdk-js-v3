@@ -26,6 +26,18 @@ export interface DeleteLabelCommandOutput extends DeleteLabelResult, __MetadataB
  *          <p>You cannot delete a label assigned to an event ID. You must first delete the relevant event ID.</p>
  *
  *          <p>When you delete a label, Amazon Fraud Detector permanently deletes that label and the data is no longer stored in Amazon Fraud Detector.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new DeleteLabelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteLabelCommandInput} for command's `input` shape.
+ * @see {@link DeleteLabelCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteLabelCommand extends $Command<
   DeleteLabelCommandInput,

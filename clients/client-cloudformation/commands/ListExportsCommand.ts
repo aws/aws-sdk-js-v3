@@ -25,6 +25,18 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  *             </a> function. </p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html"> AWS
  *             CloudFormation Export Stack Output Values</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new ListExportsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListExportsCommandInput} for command's `input` shape.
+ * @see {@link ListExportsCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListExportsCommand extends $Command<
   ListExportsCommandInput,

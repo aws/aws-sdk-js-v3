@@ -31,6 +31,18 @@ export interface StartAvailabilityMonitorTestCommandOutput
  *          <note>
  *             <p>Starting this test will cause your gateway to go offline for a brief period.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new StartAvailabilityMonitorTestCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartAvailabilityMonitorTestCommandInput} for command's `input` shape.
+ * @see {@link StartAvailabilityMonitorTestCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartAvailabilityMonitorTestCommand extends $Command<
   StartAvailabilityMonitorTestCommandInput,

@@ -24,6 +24,18 @@ export interface FlattenedXmlMapWithXmlNamespaceCommandOutput
 
 /**
  * Flattened maps with @xmlNamespace and @xmlName
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QueryProtocolClient(config);
+ * const command = new FlattenedXmlMapWithXmlNamespaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link FlattenedXmlMapWithXmlNamespaceCommandInput} for command's `input` shape.
+ * @see {@link FlattenedXmlMapWithXmlNamespaceCommandOutput} for command's `response` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class FlattenedXmlMapWithXmlNamespaceCommand extends $Command<
   FlattenedXmlMapWithXmlNamespaceCommandInput,

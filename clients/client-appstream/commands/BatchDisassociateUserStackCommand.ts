@@ -22,6 +22,18 @@ export interface BatchDisassociateUserStackCommandOutput extends BatchDisassocia
 
 /**
  * <p>Disassociates the specified users from the specified stacks.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new BatchDisassociateUserStackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDisassociateUserStackCommandInput} for command's `input` shape.
+ * @see {@link BatchDisassociateUserStackCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDisassociateUserStackCommand extends $Command<
   BatchDisassociateUserStackCommandInput,

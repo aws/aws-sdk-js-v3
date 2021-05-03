@@ -23,6 +23,18 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
 /**
  * <p>Deletes a specific domain and all of its customer data, such as customer profile
  *          attributes and their related objects.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CustomerProfilesClient(config);
+ * const command = new DeleteDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDomainCommandInput} for command's `input` shape.
+ * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDomainCommand extends $Command<
   DeleteDomainCommandInput,

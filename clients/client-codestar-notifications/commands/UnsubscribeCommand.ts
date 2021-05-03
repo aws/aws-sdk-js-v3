@@ -28,6 +28,18 @@ export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataB
  * <p>Removes an association between a notification rule and an Amazon SNS topic so that
  *             subscribers to that topic stop receiving notifications when the events described in the
  *             rule are triggered.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodestarNotificationsClient(config);
+ * const command = new UnsubscribeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UnsubscribeCommandInput} for command's `input` shape.
+ * @see {@link UnsubscribeCommandOutput} for command's `response` shape.
+ * @see {@link CodestarNotificationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UnsubscribeCommand extends $Command<
   UnsubscribeCommandInput,

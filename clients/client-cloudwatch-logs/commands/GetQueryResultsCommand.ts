@@ -32,6 +32,18 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  *          <p>If the value of the <code>Status</code> field in the output is <code>Running</code>, this operation
  *       returns only partial results. If you see a value of <code>Scheduled</code> or <code>Running</code> for the status,
  *       you can retry the operation later to see the final results. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new GetQueryResultsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetQueryResultsCommandInput} for command's `input` shape.
+ * @see {@link GetQueryResultsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetQueryResultsCommand extends $Command<
   GetQueryResultsCommandInput,

@@ -43,6 +43,18 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  *             immediately before the operation began. If you need a consistent copy of the data, as of
  *             the time that the <code>Scan</code> begins, you can set the <code>ConsistentRead</code>
  *             parameter to <code>true</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new ScanCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ScanCommandInput} for command's `input` shape.
+ * @see {@link ScanCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, DynamoDBClientResolvedConfig> {
   // Start section: command_properties

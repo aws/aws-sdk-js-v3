@@ -27,6 +27,18 @@ export interface PutBlockPublicAccessConfigurationCommandOutput
  *          in the current Region. For more information see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html">Configure Block
  *             Public Access for Amazon EMR</a> in the <i>Amazon EMR Management
  *             Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRClient(config);
+ * const command = new PutBlockPublicAccessConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutBlockPublicAccessConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutBlockPublicAccessConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutBlockPublicAccessConfigurationCommand extends $Command<
   PutBlockPublicAccessConfigurationCommandInput,

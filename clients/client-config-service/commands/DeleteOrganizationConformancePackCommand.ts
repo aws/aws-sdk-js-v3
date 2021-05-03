@@ -28,6 +28,18 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
  * 		<code>ListDelegatedAdministrator</code> permissions are added.</p>
  * 			      <p>AWS Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion is complete.
  * 				You cannot update a conformance pack while it is in this state. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DeleteOrganizationConformancePackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteOrganizationConformancePackCommandInput} for command's `input` shape.
+ * @see {@link DeleteOrganizationConformancePackCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteOrganizationConformancePackCommand extends $Command<
   DeleteOrganizationConformancePackCommandInput,

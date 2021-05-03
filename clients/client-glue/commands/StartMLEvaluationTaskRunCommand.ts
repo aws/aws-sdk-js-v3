@@ -29,6 +29,18 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
  *
  * 	        <p>Returns a unique identifier for the run. You can call <code>GetMLTaskRun</code> to get more
  *       information about the stats of the <code>EvaluationTaskRun</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new StartMLEvaluationTaskRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartMLEvaluationTaskRunCommandInput} for command's `input` shape.
+ * @see {@link StartMLEvaluationTaskRunCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartMLEvaluationTaskRunCommand extends $Command<
   StartMLEvaluationTaskRunCommandInput,

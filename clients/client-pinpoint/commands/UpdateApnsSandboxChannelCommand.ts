@@ -22,6 +22,18 @@ export interface UpdateApnsSandboxChannelCommandOutput extends UpdateApnsSandbox
 
 /**
  * <p>Enables the APNs sandbox channel for an application or updates the status and settings of the APNs sandbox channel for an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new UpdateApnsSandboxChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateApnsSandboxChannelCommandInput} for command's `input` shape.
+ * @see {@link UpdateApnsSandboxChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateApnsSandboxChannelCommand extends $Command<
   UpdateApnsSandboxChannelCommandInput,

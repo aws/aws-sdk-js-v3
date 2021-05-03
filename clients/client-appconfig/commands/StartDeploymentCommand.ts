@@ -22,6 +22,18 @@ export interface StartDeploymentCommandOutput extends Deployment, __MetadataBear
 
 /**
  * <p>Starts a deployment.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppConfigClient(config);
+ * const command = new StartDeploymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartDeploymentCommandInput} for command's `input` shape.
+ * @see {@link StartDeploymentCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartDeploymentCommand extends $Command<
   StartDeploymentCommandInput,

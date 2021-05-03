@@ -22,6 +22,18 @@ export interface EnableAlarmActionsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables the actions for the specified alarms.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchClient(config);
+ * const command = new EnableAlarmActionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableAlarmActionsCommandInput} for command's `input` shape.
+ * @see {@link EnableAlarmActionsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableAlarmActionsCommand extends $Command<
   EnableAlarmActionsCommandInput,

@@ -26,6 +26,18 @@ export interface GetRawMessageContentCommandOutput extends GetRawMessageContentR
 
 /**
  * <p>Retrieves the raw content of an in-transit email message, in MIME format.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailMessageFlowClient(config);
+ * const command = new GetRawMessageContentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRawMessageContentCommandInput} for command's `input` shape.
+ * @see {@link GetRawMessageContentCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailMessageFlowClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRawMessageContentCommand extends $Command<
   GetRawMessageContentCommandInput,

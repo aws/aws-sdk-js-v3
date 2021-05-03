@@ -23,6 +23,18 @@ export interface DeleteBackupVaultCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the backup vault identified by its name. A vault can be deleted only if it is
  *          empty.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new DeleteBackupVaultCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBackupVaultCommandInput} for command's `input` shape.
+ * @see {@link DeleteBackupVaultCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBackupVaultCommand extends $Command<
   DeleteBackupVaultCommandInput,

@@ -26,6 +26,18 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  *          <p>When calling the UpdateProfile API, specifying an empty string value means that any
  *          existing value will be removed. Not specifying a string value means that any value already
  *          there will be kept.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CustomerProfilesClient(config);
+ * const command = new UpdateProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateProfileCommandInput} for command's `input` shape.
+ * @see {@link UpdateProfileCommandOutput} for command's `response` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateProfileCommand extends $Command<
   UpdateProfileCommandInput,

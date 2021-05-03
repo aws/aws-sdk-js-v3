@@ -24,6 +24,18 @@ export interface GetInsightEventsCommandOutput extends GetInsightEventsResult, _
  * <p>X-Ray reevaluates insights periodically until they're resolved, and records each intermediate state as an
  *          event. You can review an insight's events in the Impact Timeline on the Inspect page in the X-Ray
  *          console.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new XRayClient(config);
+ * const command = new GetInsightEventsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetInsightEventsCommandInput} for command's `input` shape.
+ * @see {@link GetInsightEventsCommandOutput} for command's `response` shape.
+ * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetInsightEventsCommand extends $Command<
   GetInsightEventsCommandInput,

@@ -31,6 +31,18 @@ export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
  *         </important>
  *         <p>For more information about instance profiles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About instance
  *             profiles</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new DeleteInstanceProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteInstanceProfileCommandInput} for command's `input` shape.
+ * @see {@link DeleteInstanceProfileCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteInstanceProfileCommand extends $Command<
   DeleteInstanceProfileCommandInput,

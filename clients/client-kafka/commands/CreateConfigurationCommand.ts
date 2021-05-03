@@ -22,6 +22,18 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
 
 /**
  * <p>Creates a new MSK configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new CreateConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateConfigurationCommandInput} for command's `input` shape.
+ * @see {@link CreateConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateConfigurationCommand extends $Command<
   CreateConfigurationCommandInput,

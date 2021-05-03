@@ -24,6 +24,18 @@ export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, _
  * <p>Updates an existing backup plan identified by its <code>backupPlanId</code> with the
  *          input document in JSON format. The new version is uniquely identified by a
  *             <code>VersionId</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new UpdateBackupPlanCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateBackupPlanCommandInput} for command's `input` shape.
+ * @see {@link UpdateBackupPlanCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateBackupPlanCommand extends $Command<
   UpdateBackupPlanCommandInput,

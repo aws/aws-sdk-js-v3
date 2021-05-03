@@ -31,6 +31,18 @@ export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationR
  *          <note>
  *             <p>To add or remove tags for a notification rule, you must use <a>TagResource</a> and <a>UntagResource</a>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodestarNotificationsClient(config);
+ * const command = new UpdateNotificationRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateNotificationRuleCommandInput} for command's `input` shape.
+ * @see {@link UpdateNotificationRuleCommandOutput} for command's `response` shape.
+ * @see {@link CodestarNotificationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateNotificationRuleCommand extends $Command<
   UpdateNotificationRuleCommandInput,

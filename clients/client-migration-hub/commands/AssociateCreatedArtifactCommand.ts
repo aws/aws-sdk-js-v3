@@ -39,6 +39,18 @@ export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedA
  *                or DMS endpoint, etc.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MigrationHubClient(config);
+ * const command = new AssociateCreatedArtifactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateCreatedArtifactCommandInput} for command's `input` shape.
+ * @see {@link AssociateCreatedArtifactCommandOutput} for command's `response` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateCreatedArtifactCommand extends $Command<
   AssociateCreatedArtifactCommandInput,

@@ -24,6 +24,18 @@ export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
 /**
  * <p>Sets the roles for an identity pool. These roles are used when making calls to <a>GetCredentialsForIdentity</a> action.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityClient(config);
+ * const command = new SetIdentityPoolRolesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetIdentityPoolRolesCommandInput} for command's `input` shape.
+ * @see {@link SetIdentityPoolRolesCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetIdentityPoolRolesCommand extends $Command<
   SetIdentityPoolRolesCommandInput,

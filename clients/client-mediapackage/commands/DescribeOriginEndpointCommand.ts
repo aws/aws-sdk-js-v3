@@ -22,6 +22,18 @@ export interface DescribeOriginEndpointCommandOutput extends DescribeOriginEndpo
 
 /**
  * Gets details about an existing OriginEndpoint.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaPackageClient(config);
+ * const command = new DescribeOriginEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeOriginEndpointCommandInput} for command's `input` shape.
+ * @see {@link DescribeOriginEndpointCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeOriginEndpointCommand extends $Command<
   DescribeOriginEndpointCommandInput,

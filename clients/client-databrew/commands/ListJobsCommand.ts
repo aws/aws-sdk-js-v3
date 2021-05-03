@@ -22,6 +22,18 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
 
 /**
  * <p>Lists all of the DataBrew jobs that are defined.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new ListJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListJobsCommandInput} for command's `input` shape.
+ * @see {@link ListJobsCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListJobsCommand extends $Command<
   ListJobsCommandInput,

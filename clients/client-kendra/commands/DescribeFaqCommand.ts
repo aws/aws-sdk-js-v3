@@ -22,6 +22,18 @@ export interface DescribeFaqCommandOutput extends DescribeFaqResponse, __Metadat
 
 /**
  * <p>Gets information about an FAQ list.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KendraClient(config);
+ * const command = new DescribeFaqCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFaqCommandInput} for command's `input` shape.
+ * @see {@link DescribeFaqCommandOutput} for command's `response` shape.
+ * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFaqCommand extends $Command<
   DescribeFaqCommandInput,

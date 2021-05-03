@@ -22,6 +22,18 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput,
 
 /**
  * <p>Returns a description of the specified algorithm that is in your account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeAlgorithmCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAlgorithmCommandInput} for command's `input` shape.
+ * @see {@link DescribeAlgorithmCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAlgorithmCommand extends $Command<
   DescribeAlgorithmCommandInput,

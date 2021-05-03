@@ -38,6 +38,18 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  *          step was running must have completed and run successfully.</p>
  *          <p>You can only add steps to a cluster that is in one of the following states: STARTING,
  *          BOOTSTRAPPING, RUNNING, or WAITING.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRClient(config);
+ * const command = new AddJobFlowStepsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddJobFlowStepsCommandInput} for command's `input` shape.
+ * @see {@link AddJobFlowStepsCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddJobFlowStepsCommand extends $Command<
   AddJobFlowStepsCommandInput,

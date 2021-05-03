@@ -26,6 +26,18 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsRespons
  *             also returned. Use the <code>NextToken</code> parameter in a new
  *                 <code>ListSubscriptions</code> call to get further results.</p>
  *         <p>This action is throttled at 30 transactions per second (TPS).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SNSClient(config);
+ * const command = new ListSubscriptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSubscriptionsCommandInput} for command's `input` shape.
+ * @see {@link ListSubscriptionsCommandOutput} for command's `response` shape.
+ * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSubscriptionsCommand extends $Command<
   ListSubscriptionsCommandInput,

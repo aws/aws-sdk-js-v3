@@ -22,6 +22,18 @@ export interface GetClassifierCommandOutput extends GetClassifierResponse, __Met
 
 /**
  * <p>Retrieve a classifier by name.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetClassifierCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetClassifierCommandInput} for command's `input` shape.
+ * @see {@link GetClassifierCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetClassifierCommand extends $Command<
   GetClassifierCommandInput,

@@ -24,6 +24,18 @@ export interface DescribeDetectorModelAnalysisCommandOutput
 
 /**
  * <p>Retrieves execution information about a detector model analysis</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTEventsClient(config);
+ * const command = new DescribeDetectorModelAnalysisCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDetectorModelAnalysisCommandInput} for command's `input` shape.
+ * @see {@link DescribeDetectorModelAnalysisCommandOutput} for command's `response` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDetectorModelAnalysisCommand extends $Command<
   DescribeDetectorModelAnalysisCommandInput,

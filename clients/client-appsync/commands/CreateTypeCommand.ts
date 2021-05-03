@@ -22,6 +22,18 @@ export interface CreateTypeCommandOutput extends CreateTypeResponse, __MetadataB
 
 /**
  * <p>Creates a <code>Type</code> object.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppSyncClient(config);
+ * const command = new CreateTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTypeCommandInput} for command's `input` shape.
+ * @see {@link CreateTypeCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTypeCommand extends $Command<
   CreateTypeCommandInput,

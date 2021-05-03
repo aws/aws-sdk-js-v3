@@ -22,6 +22,18 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResult, _
 
 /**
  * <p>Gets a list of AWS Cloud9 development environment identifiers.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Cloud9Client(config);
+ * const command = new ListEnvironmentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEnvironmentsCommandInput} for command's `input` shape.
+ * @see {@link ListEnvironmentsCommandOutput} for command's `response` shape.
+ * @see {@link Cloud9ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEnvironmentsCommand extends $Command<
   ListEnvironmentsCommandInput,

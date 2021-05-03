@@ -30,6 +30,18 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *             <code>CreateDataSource</code> is a synchronous operation. The
  *       operation returns 200 if the data source was successfully created.
  *       Otherwise, an exception is raised.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KendraClient(config);
+ * const command = new CreateDataSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDataSourceCommandInput} for command's `input` shape.
+ * @see {@link CreateDataSourceCommandOutput} for command's `response` shape.
+ * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDataSourceCommand extends $Command<
   CreateDataSourceCommandInput,

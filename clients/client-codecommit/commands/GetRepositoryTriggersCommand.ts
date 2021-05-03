@@ -22,6 +22,18 @@ export interface GetRepositoryTriggersCommandOutput extends GetRepositoryTrigger
 
 /**
  * <p>Gets information about triggers configured for a repository.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new GetRepositoryTriggersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRepositoryTriggersCommandInput} for command's `input` shape.
+ * @see {@link GetRepositoryTriggersCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRepositoryTriggersCommand extends $Command<
   GetRepositoryTriggersCommandInput,

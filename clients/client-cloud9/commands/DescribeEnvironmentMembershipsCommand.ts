@@ -24,6 +24,18 @@ export interface DescribeEnvironmentMembershipsCommandOutput
 
 /**
  * <p>Gets information about environment members for an AWS Cloud9 development environment.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Cloud9Client(config);
+ * const command = new DescribeEnvironmentMembershipsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEnvironmentMembershipsCommandInput} for command's `input` shape.
+ * @see {@link DescribeEnvironmentMembershipsCommandOutput} for command's `response` shape.
+ * @see {@link Cloud9ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEnvironmentMembershipsCommand extends $Command<
   DescribeEnvironmentMembershipsCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinat
 
 /**
  * <p>Retrieves details about an API destination.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EventBridgeClient(config);
+ * const command = new DescribeApiDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeApiDestinationCommandInput} for command's `input` shape.
+ * @see {@link DescribeApiDestinationCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeApiDestinationCommand extends $Command<
   DescribeApiDestinationCommandInput,

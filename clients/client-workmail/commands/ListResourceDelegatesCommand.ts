@@ -23,6 +23,18 @@ export interface ListResourceDelegatesCommandOutput extends ListResourceDelegate
 /**
  * <p>Lists the delegates associated with a resource. Users and groups can be resource
  *          delegates and answer requests on behalf of the resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new ListResourceDelegatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResourceDelegatesCommandInput} for command's `input` shape.
+ * @see {@link ListResourceDelegatesCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResourceDelegatesCommand extends $Command<
   ListResourceDelegatesCommandInput,

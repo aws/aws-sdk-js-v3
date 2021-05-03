@@ -31,6 +31,18 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  *             endpoint.</p>
  *          </note>
  *          <p></p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DeleteEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEndpointCommandInput} for command's `input` shape.
+ * @see {@link DeleteEndpointCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEndpointCommand extends $Command<
   DeleteEndpointCommandInput,

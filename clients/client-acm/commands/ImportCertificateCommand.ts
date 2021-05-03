@@ -94,6 +94,18 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  *
  *          <p>This operation returns the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
  *         Resource Name (ARN)</a> of the imported certificate.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ACMClient(config);
+ * const command = new ImportCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportCertificateCommandInput} for command's `input` shape.
+ * @see {@link ImportCertificateCommandOutput} for command's `response` shape.
+ * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ImportCertificateCommand extends $Command<
   ImportCertificateCommandInput,

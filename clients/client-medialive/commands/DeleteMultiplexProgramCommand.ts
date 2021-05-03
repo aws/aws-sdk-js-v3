@@ -22,6 +22,18 @@ export interface DeleteMultiplexProgramCommandOutput extends DeleteMultiplexProg
 
 /**
  * Delete a program from a multiplex.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaLiveClient(config);
+ * const command = new DeleteMultiplexProgramCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMultiplexProgramCommandInput} for command's `input` shape.
+ * @see {@link DeleteMultiplexProgramCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMultiplexProgramCommand extends $Command<
   DeleteMultiplexProgramCommandInput,

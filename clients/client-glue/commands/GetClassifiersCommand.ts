@@ -22,6 +22,18 @@ export interface GetClassifiersCommandOutput extends GetClassifiersResponse, __M
 
 /**
  * <p>Lists all classifier objects in the Data Catalog.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetClassifiersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetClassifiersCommandInput} for command's `input` shape.
+ * @see {@link GetClassifiersCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetClassifiersCommand extends $Command<
   GetClassifiersCommandInput,

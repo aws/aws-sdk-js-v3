@@ -24,6 +24,18 @@ export interface CreateMedicalVocabularyCommandOutput extends CreateMedicalVocab
  * <p>Creates a new custom vocabulary that you can use to
  *             change
  *             how Amazon Transcribe Medical transcribes your audio file.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeClient(config);
+ * const command = new CreateMedicalVocabularyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMedicalVocabularyCommandInput} for command's `input` shape.
+ * @see {@link CreateMedicalVocabularyCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMedicalVocabularyCommand extends $Command<
   CreateMedicalVocabularyCommandInput,

@@ -35,6 +35,18 @@ export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
  *          error. If an invalid lock ID is passed in the request when the vault lock is in the
  *             <code>InProgress</code> state, the operation throws an <code>InvalidParameter</code>
  *          error.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlacierClient(config);
+ * const command = new CompleteVaultLockCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CompleteVaultLockCommandInput} for command's `input` shape.
+ * @see {@link CompleteVaultLockCommandOutput} for command's `response` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CompleteVaultLockCommand extends $Command<
   CompleteVaultLockCommandInput,

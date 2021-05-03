@@ -28,6 +28,18 @@ export interface PutWebhookCommandOutput extends PutWebhookOutput, __MetadataBea
  *             filtering requirements supplied when defining the webhook. RegisterWebhookWithThirdParty
  *             and DeregisterWebhookWithThirdParty APIs can be used to automatically configure
  *             supported third parties to call the generated webhook URL.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new PutWebhookCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutWebhookCommandInput} for command's `input` shape.
+ * @see {@link PutWebhookCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutWebhookCommand extends $Command<
   PutWebhookCommandInput,

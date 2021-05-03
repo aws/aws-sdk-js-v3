@@ -29,6 +29,18 @@ export interface GetBotAliasCommandOutput extends GetBotAliasResponse, __Metadat
  *       about aliases, see <a>versioning-aliases</a>.</p>
  *          <p>This operation requires permissions for the
  *         <code>lex:GetBotAlias</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new GetBotAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBotAliasCommandInput} for command's `input` shape.
+ * @see {@link GetBotAliasCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBotAliasCommand extends $Command<
   GetBotAliasCommandInput,

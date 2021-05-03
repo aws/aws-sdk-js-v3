@@ -22,6 +22,18 @@ export interface AcceptPortfolioShareCommandOutput extends AcceptPortfolioShareO
 
 /**
  * <p>Accepts an offer to share the specified portfolio.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new AcceptPortfolioShareCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AcceptPortfolioShareCommandInput} for command's `input` shape.
+ * @see {@link AcceptPortfolioShareCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AcceptPortfolioShareCommand extends $Command<
   AcceptPortfolioShareCommandInput,

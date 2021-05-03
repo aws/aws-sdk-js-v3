@@ -29,6 +29,18 @@ export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, _
  *          WorkSpace</a>.</p>
  *          <p>This operation is asynchronous and returns before the WorkSpace is completely
  *          restored.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new RestoreWorkspaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RestoreWorkspaceCommandInput} for command's `input` shape.
+ * @see {@link RestoreWorkspaceCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RestoreWorkspaceCommand extends $Command<
   RestoreWorkspaceCommandInput,

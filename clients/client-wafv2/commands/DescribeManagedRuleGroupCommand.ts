@@ -22,6 +22,18 @@ export interface DescribeManagedRuleGroupCommandOutput extends DescribeManagedRu
 
 /**
  * <p>Provides high-level information for a managed rule group, including descriptions of the rules. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFV2Client(config);
+ * const command = new DescribeManagedRuleGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeManagedRuleGroupCommandInput} for command's `input` shape.
+ * @see {@link DescribeManagedRuleGroupCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeManagedRuleGroupCommand extends $Command<
   DescribeManagedRuleGroupCommandInput,

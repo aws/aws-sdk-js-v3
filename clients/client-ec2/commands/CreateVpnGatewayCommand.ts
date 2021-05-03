@@ -23,6 +23,18 @@ export interface CreateVpnGatewayCommandOutput extends CreateVpnGatewayResult, _
 /**
  * <p>Creates a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateVpnGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVpnGatewayCommandInput} for command's `input` shape.
+ * @see {@link CreateVpnGatewayCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateVpnGatewayCommand extends $Command<
   CreateVpnGatewayCommandInput,

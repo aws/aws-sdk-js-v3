@@ -23,6 +23,18 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Creates a tag for an EFS resource. You can create tags for EFS file systems and access points using this API operation.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:TagResource</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EFSClient(config);
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

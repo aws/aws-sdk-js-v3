@@ -22,6 +22,18 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
 
 /**
  * <p>Describes the tags associated with the specified AWS Direct Connect resources.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new DescribeTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTagsCommandInput} for command's `input` shape.
+ * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandInput,

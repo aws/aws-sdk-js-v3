@@ -32,6 +32,18 @@ export interface RestoreCertificateAuthorityCommandOutput extends __MetadataBear
  * 				<code>PENDING_CERTIFICATE</code> state at deletion, you must use the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html">ImportCertificateAuthorityCertificate</a> action to import a certificate
  * 			authority into the private CA before it can be activated. You cannot restore a CA after
  * 			the restoration period has ended.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ACMPCAClient(config);
+ * const command = new RestoreCertificateAuthorityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RestoreCertificateAuthorityCommandInput} for command's `input` shape.
+ * @see {@link RestoreCertificateAuthorityCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RestoreCertificateAuthorityCommand extends $Command<
   RestoreCertificateAuthorityCommandInput,

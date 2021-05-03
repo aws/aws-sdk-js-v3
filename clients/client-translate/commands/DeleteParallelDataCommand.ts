@@ -22,6 +22,18 @@ export interface DeleteParallelDataCommandOutput extends DeleteParallelDataRespo
 
 /**
  * <p>Deletes a parallel data resource in Amazon Translate.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranslateClient(config);
+ * const command = new DeleteParallelDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteParallelDataCommandInput} for command's `input` shape.
+ * @see {@link DeleteParallelDataCommandOutput} for command's `response` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteParallelDataCommand extends $Command<
   DeleteParallelDataCommandInput,

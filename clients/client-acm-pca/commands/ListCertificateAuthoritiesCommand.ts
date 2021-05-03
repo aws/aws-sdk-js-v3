@@ -22,6 +22,18 @@ export interface ListCertificateAuthoritiesCommandOutput extends ListCertificate
 
 /**
  * <p>Lists the private certificate authorities that you created by using the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html">CreateCertificateAuthority</a> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ACMPCAClient(config);
+ * const command = new ListCertificateAuthoritiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCertificateAuthoritiesCommandInput} for command's `input` shape.
+ * @see {@link ListCertificateAuthoritiesCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCertificateAuthoritiesCommand extends $Command<
   ListCertificateAuthoritiesCommandInput,

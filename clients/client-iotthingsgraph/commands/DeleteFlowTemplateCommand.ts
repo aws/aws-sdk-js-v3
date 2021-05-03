@@ -23,6 +23,18 @@ export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateRespo
 /**
  * <p>Deletes a workflow. Any new system or deployment that contains this workflow will fail to update or deploy.
  *          Existing deployments that contain the workflow will continue to run (since they use a snapshot of the workflow taken at the time of deployment).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTThingsGraphClient(config);
+ * const command = new DeleteFlowTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFlowTemplateCommandInput} for command's `input` shape.
+ * @see {@link DeleteFlowTemplateCommandOutput} for command's `response` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFlowTemplateCommand extends $Command<
   DeleteFlowTemplateCommandInput,

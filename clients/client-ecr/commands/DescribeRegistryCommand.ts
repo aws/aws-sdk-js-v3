@@ -24,6 +24,18 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  * <p>Describes the settings for a registry. The replication configuration for a repository
  *             can be created or updated with the <a>PutReplicationConfiguration</a> API
  *             action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECRClient(config);
+ * const command = new DescribeRegistryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRegistryCommandInput} for command's `input` shape.
+ * @see {@link DescribeRegistryCommandOutput} for command's `response` shape.
+ * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRegistryCommand extends $Command<
   DescribeRegistryCommandInput,

@@ -23,6 +23,18 @@ export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSki
 /**
  * <p>Makes a private skill unavailable for enrolled users and prevents them from enabling it
  *          on their devices.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new DisassociateSkillFromUsersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateSkillFromUsersCommandInput} for command's `input` shape.
+ * @see {@link DisassociateSkillFromUsersCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateSkillFromUsersCommand extends $Command<
   DisassociateSkillFromUsersCommandInput,

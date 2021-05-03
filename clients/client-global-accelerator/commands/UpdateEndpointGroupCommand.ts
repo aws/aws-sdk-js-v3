@@ -26,6 +26,18 @@ export interface UpdateEndpointGroupCommandOutput extends UpdateEndpointGroupRes
 
 /**
  * <p>Update an endpoint group. A resource must be valid and active when you add it as an endpoint.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new UpdateEndpointGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateEndpointGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateEndpointGroupCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateEndpointGroupCommand extends $Command<
   UpdateEndpointGroupCommandInput,

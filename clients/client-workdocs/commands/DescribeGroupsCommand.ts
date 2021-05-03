@@ -23,6 +23,18 @@ export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __M
 /**
  * <p>Describes the groups specified by the query. Groups are defined by the underlying
  *             Active Directory.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new DescribeGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeGroupsCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeGroupsCommand extends $Command<
   DescribeGroupsCommandInput,

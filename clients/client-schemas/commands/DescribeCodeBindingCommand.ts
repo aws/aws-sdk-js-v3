@@ -22,6 +22,18 @@ export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingRes
 
 /**
  * <p>Describe the code binding URI.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SchemasClient(config);
+ * const command = new DescribeCodeBindingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCodeBindingCommandInput} for command's `input` shape.
+ * @see {@link DescribeCodeBindingCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCodeBindingCommand extends $Command<
   DescribeCodeBindingCommandInput,

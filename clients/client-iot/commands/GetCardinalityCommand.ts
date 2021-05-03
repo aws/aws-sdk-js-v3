@@ -22,6 +22,18 @@ export interface GetCardinalityCommandOutput extends GetCardinalityResponse, __M
 
 /**
  * <p>Returns the approximate count of unique values that match the query.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new GetCardinalityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCardinalityCommandInput} for command's `input` shape.
+ * @see {@link GetCardinalityCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCardinalityCommand extends $Command<
   GetCardinalityCommandInput,

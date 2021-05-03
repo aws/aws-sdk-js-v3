@@ -27,6 +27,18 @@ export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizer
  *       the list, with a default number of 100 recognizers in the list.</p>
  *          <p>The results of this list are not in any particular order. Please get the list and sort
  *       locally if needed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new ListEntityRecognizersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEntityRecognizersCommandInput} for command's `input` shape.
+ * @see {@link ListEntityRecognizersCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEntityRecognizersCommand extends $Command<
   ListEntityRecognizersCommandInput,

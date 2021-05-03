@@ -28,6 +28,18 @@ export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse,
  *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
  *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
  *       filtering, only resources with the tag are retrieved.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new ListDevEndpointsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDevEndpointsCommandInput} for command's `input` shape.
+ * @see {@link ListDevEndpointsCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDevEndpointsCommand extends $Command<
   ListDevEndpointsCommandInput,

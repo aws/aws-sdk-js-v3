@@ -22,6 +22,18 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
 
 /**
  * <p>Removes a contact from a contact list.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new DeleteContactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteContactCommandInput} for command's `input` shape.
+ * @see {@link DeleteContactCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteContactCommand extends $Command<
   DeleteContactCommandInput,

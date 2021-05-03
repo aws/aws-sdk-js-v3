@@ -28,6 +28,18 @@ export interface ReplaceNetworkAclAssociationCommandOutput
  * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network
  * 			ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  *         <p>This is an idempotent operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ReplaceNetworkAclAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReplaceNetworkAclAssociationCommandInput} for command's `input` shape.
+ * @see {@link ReplaceNetworkAclAssociationCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReplaceNetworkAclAssociationCommand extends $Command<
   ReplaceNetworkAclAssociationCommandInput,

@@ -32,6 +32,18 @@ export interface AddNotificationChannelCommandOutput extends AddNotificationChan
  * 				     <p>If you use an Amazon SNS topic that is encrypted by an AWS Key Management Service customer-managed key (CMK), then you must add permissions
  * 				to the CMK. For more information, see <a href="https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-kms-permissions.html">Permissions for
  * 				AWS KMS–encrypted Amazon SNS topics</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DevOpsGuruClient(config);
+ * const command = new AddNotificationChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddNotificationChannelCommandInput} for command's `input` shape.
+ * @see {@link AddNotificationChannelCommandOutput} for command's `response` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddNotificationChannelCommand extends $Command<
   AddNotificationChannelCommandInput,

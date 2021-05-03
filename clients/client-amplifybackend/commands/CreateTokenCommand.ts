@@ -22,6 +22,18 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
 
 /**
  * <p>Generates a one-time challenge code to authenticate a user into your Amplify Admin UI.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyBackendClient(config);
+ * const command = new CreateTokenCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTokenCommandInput} for command's `input` shape.
+ * @see {@link CreateTokenCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTokenCommand extends $Command<
   CreateTokenCommandInput,

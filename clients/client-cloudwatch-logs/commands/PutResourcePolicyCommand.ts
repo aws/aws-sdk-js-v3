@@ -24,6 +24,18 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * <p>Creates or updates a resource policy allowing other AWS services to put log events to
  *       this account, such as Amazon Route 53. An account can have up to 10 resource policies per AWS
  *       Region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new PutResourcePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutResourcePolicyCommand extends $Command<
   PutResourcePolicyCommandInput,

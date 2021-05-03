@@ -22,6 +22,18 @@ export interface AddThingToBillingGroupCommandOutput extends AddThingToBillingGr
 
 /**
  * <p>Adds a thing to a billing group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new AddThingToBillingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddThingToBillingGroupCommandInput} for command's `input` shape.
+ * @see {@link AddThingToBillingGroupCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddThingToBillingGroupCommand extends $Command<
   AddThingToBillingGroupCommandInput,

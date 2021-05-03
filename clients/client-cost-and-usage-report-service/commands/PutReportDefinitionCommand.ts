@@ -26,6 +26,18 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
 
 /**
  * <p>Creates a new report using the description that you provide.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CostAndUsageReportServiceClient(config);
+ * const command = new PutReportDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutReportDefinitionCommandInput} for command's `input` shape.
+ * @see {@link PutReportDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutReportDefinitionCommand extends $Command<
   PutReportDefinitionCommandInput,

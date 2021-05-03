@@ -42,6 +42,18 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput
  *             in the <i>Classic Load Balancers Guide</i>. For more information about Proxy Protocol, see
  *             <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html">Configure Proxy Protocol Support</a>
  *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingClient(config);
+ * const command = new SetLoadBalancerPoliciesForBackendServerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetLoadBalancerPoliciesForBackendServerCommandInput} for command's `input` shape.
+ * @see {@link SetLoadBalancerPoliciesForBackendServerCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command<
   SetLoadBalancerPoliciesForBackendServerCommandInput,

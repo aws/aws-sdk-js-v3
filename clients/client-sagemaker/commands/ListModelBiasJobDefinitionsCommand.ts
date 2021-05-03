@@ -24,6 +24,18 @@ export interface ListModelBiasJobDefinitionsCommandOutput
 
 /**
  * <p>Lists model bias jobs definitions that satisfy various filters.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListModelBiasJobDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListModelBiasJobDefinitionsCommandInput} for command's `input` shape.
+ * @see {@link ListModelBiasJobDefinitionsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListModelBiasJobDefinitionsCommand extends $Command<
   ListModelBiasJobDefinitionsCommandInput,

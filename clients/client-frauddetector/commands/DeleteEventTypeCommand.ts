@@ -24,6 +24,18 @@ export interface DeleteEventTypeCommandOutput extends DeleteEventTypeResult, __M
  * <p>Deletes an event type.</p>
  * 	        <p>You cannot delete an event type that is used in a detector or a model.</p>
  * 	        <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new DeleteEventTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEventTypeCommandInput} for command's `input` shape.
+ * @see {@link DeleteEventTypeCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEventTypeCommand extends $Command<
   DeleteEventTypeCommandInput,

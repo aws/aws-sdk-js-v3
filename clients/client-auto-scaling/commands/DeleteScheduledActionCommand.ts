@@ -22,6 +22,18 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified scheduled action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingClient(config);
+ * const command = new DeleteScheduledActionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteScheduledActionCommandInput} for command's `input` shape.
+ * @see {@link DeleteScheduledActionCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteScheduledActionCommand extends $Command<
   DeleteScheduledActionCommandInput,

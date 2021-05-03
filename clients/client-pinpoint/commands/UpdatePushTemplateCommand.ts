@@ -22,6 +22,18 @@ export interface UpdatePushTemplateCommandOutput extends UpdatePushTemplateRespo
 
 /**
  * <p>Updates an existing message template for messages that are sent through a push notification channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new UpdatePushTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePushTemplateCommandInput} for command's `input` shape.
+ * @see {@link UpdatePushTemplateCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePushTemplateCommand extends $Command<
   UpdatePushTemplateCommandInput,

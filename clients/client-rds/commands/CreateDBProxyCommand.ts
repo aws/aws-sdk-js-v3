@@ -22,6 +22,18 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
 
 /**
  * <p>Creates a new DB proxy.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new CreateDBProxyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDBProxyCommandInput} for command's `input` shape.
+ * @see {@link CreateDBProxyCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDBProxyCommand extends $Command<
   CreateDBProxyCommandInput,

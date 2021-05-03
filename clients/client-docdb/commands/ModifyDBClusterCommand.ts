@@ -24,6 +24,18 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * <p>Modifies a setting for an Amazon DocumentDB cluster. You can change one or more database
  *             configuration parameters by specifying these parameters and the new values in the
  *             request. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DocDBClient(config);
+ * const command = new ModifyDBClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyDBClusterCommandInput} for command's `input` shape.
+ * @see {@link ModifyDBClusterCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyDBClusterCommand extends $Command<
   ModifyDBClusterCommandInput,

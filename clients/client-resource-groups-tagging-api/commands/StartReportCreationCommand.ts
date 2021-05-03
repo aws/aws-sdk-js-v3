@@ -34,6 +34,18 @@ export interface StartReportCreationCommandOutput extends StartReportCreationOut
  *          </p>
  *         <p>You can call this operation only from the organization's
  *     management account and from the us-east-1 Region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ResourceGroupsTaggingAPIClient(config);
+ * const command = new StartReportCreationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartReportCreationCommandInput} for command's `input` shape.
+ * @see {@link StartReportCreationCommandOutput} for command's `response` shape.
+ * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartReportCreationCommand extends $Command<
   StartReportCreationCommandInput,

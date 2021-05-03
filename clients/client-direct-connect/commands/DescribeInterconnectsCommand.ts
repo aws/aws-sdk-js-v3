@@ -22,6 +22,18 @@ export interface DescribeInterconnectsCommandOutput extends Interconnects, __Met
 
 /**
  * <p>Lists the interconnects owned by the AWS account or only the specified interconnect.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new DescribeInterconnectsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeInterconnectsCommandInput} for command's `input` shape.
+ * @see {@link DescribeInterconnectsCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeInterconnectsCommand extends $Command<
   DescribeInterconnectsCommandInput,

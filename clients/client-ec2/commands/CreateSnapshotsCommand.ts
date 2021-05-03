@@ -28,6 +28,18 @@ export interface CreateSnapshotsCommandOutput extends CreateSnapshotsResult, __M
  *   	in the same Region as the instance. If you create snapshots from an instance on an Outpost,
  *   	the snapshots can be stored on the same Outpost as the instance, or in the Region for that
  *   	Outpost.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateSnapshotsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSnapshotsCommandInput} for command's `input` shape.
+ * @see {@link CreateSnapshotsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSnapshotsCommand extends $Command<
   CreateSnapshotsCommandInput,

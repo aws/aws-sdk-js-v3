@@ -22,6 +22,18 @@ export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjec
 
 /**
  * <p>Change details of a project.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new UpdateTestGridProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTestGridProjectCommandInput} for command's `input` shape.
+ * @see {@link UpdateTestGridProjectCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTestGridProjectCommand extends $Command<
   UpdateTestGridProjectCommandInput,

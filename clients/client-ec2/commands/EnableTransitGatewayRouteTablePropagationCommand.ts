@@ -29,6 +29,18 @@ export interface EnableTransitGatewayRouteTablePropagationCommandOutput
 /**
  * <p>Enables the specified attachment to propagate routes to the specified
  *          propagation route table.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new EnableTransitGatewayRouteTablePropagationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableTransitGatewayRouteTablePropagationCommandInput} for command's `input` shape.
+ * @see {@link EnableTransitGatewayRouteTablePropagationCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableTransitGatewayRouteTablePropagationCommand extends $Command<
   EnableTransitGatewayRouteTablePropagationCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateIntegrationCommandOutput extends UpdateIntegrationResult,
 
 /**
  * <p>Updates an Integration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new UpdateIntegrationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateIntegrationCommandInput} for command's `input` shape.
+ * @see {@link UpdateIntegrationCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateIntegrationCommand extends $Command<
   UpdateIntegrationCommandInput,

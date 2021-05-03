@@ -24,6 +24,18 @@ export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse,
  * <p>
  * Returns the registration status of an account in AWS Audit Manager.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new GetAccountStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAccountStatusCommandInput} for command's `input` shape.
+ * @see {@link GetAccountStatusCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAccountStatusCommand extends $Command<
   GetAccountStatusCommandInput,

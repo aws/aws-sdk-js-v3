@@ -26,6 +26,18 @@ export interface GetDevicesInPlacementCommandOutput extends GetDevicesInPlacemen
 
 /**
  * <p>Returns an object enumerating the devices in a placement.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoT1ClickProjectsClient(config);
+ * const command = new GetDevicesInPlacementCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDevicesInPlacementCommandInput} for command's `input` shape.
+ * @see {@link GetDevicesInPlacementCommandOutput} for command's `response` shape.
+ * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDevicesInPlacementCommand extends $Command<
   GetDevicesInPlacementCommandInput,

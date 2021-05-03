@@ -26,6 +26,18 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
 
 /**
  * <p>Creates an application, optionally including an AWS SAM file to create the first application version in the same call.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServerlessApplicationRepositoryClient(config);
+ * const command = new CreateApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateApplicationCommandInput} for command's `input` shape.
+ * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
+ * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,

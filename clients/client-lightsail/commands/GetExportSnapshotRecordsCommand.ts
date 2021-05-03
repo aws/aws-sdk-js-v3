@@ -25,6 +25,18 @@ export interface GetExportSnapshotRecordsCommandOutput extends GetExportSnapshot
  *       operation.</p>
  *          <p>An export snapshot record can be used to create a new Amazon EC2 instance and its related
  *       resources with the <code>create cloud formation stack</code> operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetExportSnapshotRecordsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetExportSnapshotRecordsCommandInput} for command's `input` shape.
+ * @see {@link GetExportSnapshotRecordsCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetExportSnapshotRecordsCommand extends $Command<
   GetExportSnapshotRecordsCommandInput,

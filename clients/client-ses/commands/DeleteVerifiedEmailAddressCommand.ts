@@ -23,6 +23,18 @@ export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBeare
 /**
  * <p>Deprecated. Use the <code>DeleteIdentity</code> operation to delete email addresses
  *             and domains.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESClient(config);
+ * const command = new DeleteVerifiedEmailAddressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVerifiedEmailAddressCommandInput} for command's `input` shape.
+ * @see {@link DeleteVerifiedEmailAddressCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVerifiedEmailAddressCommand extends $Command<
   DeleteVerifiedEmailAddressCommandInput,

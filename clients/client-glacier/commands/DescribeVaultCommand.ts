@@ -39,6 +39,18 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  *          <p>For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/retrieving-vault-info.html">Retrieving Vault Metadata in
  *             Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-get.html">Describe Vault </a> in the
  *             <i>Amazon Glacier Developer Guide</i>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlacierClient(config);
+ * const command = new DescribeVaultCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeVaultCommandInput} for command's `input` shape.
+ * @see {@link DescribeVaultCommandOutput} for command's `response` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeVaultCommand extends $Command<
   DescribeVaultCommandInput,

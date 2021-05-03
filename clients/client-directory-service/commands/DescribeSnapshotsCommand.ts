@@ -28,6 +28,18 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  *          retrieve the next set of items.</p>
  *          <p>You can also specify a maximum number of return results with the <i>Limit</i>
  *          parameter.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new DescribeSnapshotsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSnapshotsCommandInput} for command's `input` shape.
+ * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSnapshotsCommand extends $Command<
   DescribeSnapshotsCommandInput,

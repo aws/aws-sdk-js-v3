@@ -22,6 +22,18 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
 
 /**
  * <p>Returns the definition of a specific DataBrew dataset.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new DescribeDatasetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDatasetCommandInput} for command's `input` shape.
+ * @see {@link DescribeDatasetCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDatasetCommand extends $Command<
   DescribeDatasetCommandInput,

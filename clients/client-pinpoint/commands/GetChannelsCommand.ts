@@ -22,6 +22,18 @@ export interface GetChannelsCommandOutput extends GetChannelsResponse, __Metadat
 
 /**
  * <p>Retrieves information about the history and status of each channel for an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new GetChannelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetChannelsCommandInput} for command's `input` shape.
+ * @see {@link GetChannelsCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetChannelsCommand extends $Command<
   GetChannelsCommandInput,

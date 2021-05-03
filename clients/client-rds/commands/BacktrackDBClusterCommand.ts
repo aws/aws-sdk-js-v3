@@ -30,6 +30,18 @@ export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __M
  *         <note>
  *             <p>This action only applies to Aurora MySQL DB clusters.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new BacktrackDBClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BacktrackDBClusterCommandInput} for command's `input` shape.
+ * @see {@link BacktrackDBClusterCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BacktrackDBClusterCommand extends $Command<
   BacktrackDBClusterCommandInput,

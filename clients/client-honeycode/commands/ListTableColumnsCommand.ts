@@ -24,6 +24,18 @@ export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, _
  * <p>
  *             The ListTableColumns API allows you to retrieve a list of all the columns in a table in a workbook.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new HoneycodeClient(config);
+ * const command = new ListTableColumnsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTableColumnsCommandInput} for command's `input` shape.
+ * @see {@link ListTableColumnsCommandOutput} for command's `response` shape.
+ * @see {@link HoneycodeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTableColumnsCommand extends $Command<
   ListTableColumnsCommandInput,

@@ -22,6 +22,18 @@ export interface GetInstanceSnapshotsCommandOutput extends GetInstanceSnapshotsR
 
 /**
  * <p>Returns all instance snapshots for the user's account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetInstanceSnapshotsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetInstanceSnapshotsCommandInput} for command's `input` shape.
+ * @see {@link GetInstanceSnapshotsCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetInstanceSnapshotsCommand extends $Command<
   GetInstanceSnapshotsCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
 
 /**
  * <p>Describes repositories in a public registry.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECRPUBLICClient(config);
+ * const command = new DescribeRepositoriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRepositoriesCommandInput} for command's `input` shape.
+ * @see {@link DescribeRepositoriesCommandOutput} for command's `response` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRepositoriesCommand extends $Command<
   DescribeRepositoriesCommandInput,

@@ -26,6 +26,18 @@ export interface UpdateApprovalRuleTemplateContentCommandOutput
  * <p>Updates the content of an approval rule template. You can change the number of
  *             required approvals, the membership of the approval rule, and whether an approval pool is
  *             defined.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new UpdateApprovalRuleTemplateContentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateApprovalRuleTemplateContentCommandInput} for command's `input` shape.
+ * @see {@link UpdateApprovalRuleTemplateContentCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateApprovalRuleTemplateContentCommand extends $Command<
   UpdateApprovalRuleTemplateContentCommandInput,

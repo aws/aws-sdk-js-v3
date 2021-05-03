@@ -25,6 +25,18 @@ export interface ListEventTrackersCommandOutput extends ListEventTrackersRespons
  *       The response provides the properties for each event tracker, including the Amazon Resource
  *       Name (ARN) and tracking ID. For more
  *       information on event trackers, see <a>CreateEventTracker</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeClient(config);
+ * const command = new ListEventTrackersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEventTrackersCommandInput} for command's `input` shape.
+ * @see {@link ListEventTrackersCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEventTrackersCommand extends $Command<
   ListEventTrackersCommandInput,

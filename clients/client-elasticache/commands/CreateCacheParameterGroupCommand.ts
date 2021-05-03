@@ -37,6 +37,18 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.html">Parameters and Parameter Groups</a> in the ElastiCache User Guide.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new CreateCacheParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCacheParameterGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateCacheParameterGroupCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCacheParameterGroupCommand extends $Command<
   CreateCacheParameterGroupCommandInput,

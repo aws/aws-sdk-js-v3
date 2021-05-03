@@ -19,6 +19,18 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
 
 /**
  * <p>Adds two domain controllers in the specified Region for the specified directory.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new AddRegionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddRegionCommandInput} for command's `input` shape.
+ * @see {@link AddRegionCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddRegionCommand extends $Command<
   AddRegionCommandInput,

@@ -22,6 +22,18 @@ export interface GetWirelessGatewayTaskCommandOutput extends GetWirelessGatewayT
 
 /**
  * <p>Gets information about a wireless gateway task.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new GetWirelessGatewayTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetWirelessGatewayTaskCommandInput} for command's `input` shape.
+ * @see {@link GetWirelessGatewayTaskCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetWirelessGatewayTaskCommand extends $Command<
   GetWirelessGatewayTaskCommandInput,

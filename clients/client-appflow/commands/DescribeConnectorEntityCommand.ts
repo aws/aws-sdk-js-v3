@@ -24,6 +24,18 @@ export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorE
  * <p>
  * Provides details regarding the entity used with the connector, with a description of the data model for each entity.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppflowClient(config);
+ * const command = new DescribeConnectorEntityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConnectorEntityCommandInput} for command's `input` shape.
+ * @see {@link DescribeConnectorEntityCommandOutput} for command's `response` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConnectorEntityCommand extends $Command<
   DescribeConnectorEntityCommandInput,

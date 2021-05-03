@@ -28,6 +28,18 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  *          doesn't change, and you can't invoke <a>CreateDeliveryStream</a> again on it.
  *          However, you can invoke the <a>DeleteDeliveryStream</a> operation to delete it.
  *          If the status is <code>DELETING_FAILED</code>, you can force deletion by invoking <a>DeleteDeliveryStream</a> again but with <a>DeleteDeliveryStreamInput$AllowForceDelete</a> set to true.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FirehoseClient(config);
+ * const command = new DescribeDeliveryStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDeliveryStreamCommandInput} for command's `input` shape.
+ * @see {@link DescribeDeliveryStreamCommandOutput} for command's `response` shape.
+ * @see {@link FirehoseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDeliveryStreamCommand extends $Command<
   DescribeDeliveryStreamCommandInput,

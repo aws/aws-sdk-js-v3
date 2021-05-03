@@ -30,6 +30,18 @@ export interface UpdateComponentConfigurationCommandOutput
  * <p>Updates the monitoring configurations for the component. The configuration input parameter
  *          is an escaped JSON of the configuration and should match the schema of what is returned
  *          by <code>DescribeComponentConfigurationRecommendation</code>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationInsightsClient(config);
+ * const command = new UpdateComponentConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateComponentConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateComponentConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateComponentConfigurationCommand extends $Command<
   UpdateComponentConfigurationCommandInput,

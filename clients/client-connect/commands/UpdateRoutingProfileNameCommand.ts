@@ -22,6 +22,18 @@ export interface UpdateRoutingProfileNameCommandOutput extends __MetadataBearer 
 
 /**
  * <p>Updates the name and description of a routing profile. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new UpdateRoutingProfileNameCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRoutingProfileNameCommandInput} for command's `input` shape.
+ * @see {@link UpdateRoutingProfileNameCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRoutingProfileNameCommand extends $Command<
   UpdateRoutingProfileNameCommandInput,

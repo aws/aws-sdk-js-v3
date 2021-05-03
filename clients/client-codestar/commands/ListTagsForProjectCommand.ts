@@ -22,6 +22,18 @@ export interface ListTagsForProjectCommandOutput extends ListTagsForProjectResul
 
 /**
  * <p>Gets the tags for a project.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeStarClient(config);
+ * const command = new ListTagsForProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsForProjectCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForProjectCommandOutput} for command's `response` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsForProjectCommand extends $Command<
   ListTagsForProjectCommandInput,

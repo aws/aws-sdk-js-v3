@@ -47,6 +47,18 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
  *             or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteSnapshot.html">DeleteSnapshot</a> in the <i>Amazon Elastic Compute Cloud API
  *                Reference</i>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new CreateSnapshotFromVolumeRecoveryPointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSnapshotFromVolumeRecoveryPointCommandInput} for command's `input` shape.
+ * @see {@link CreateSnapshotFromVolumeRecoveryPointCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<
   CreateSnapshotFromVolumeRecoveryPointCommandInput,

@@ -22,6 +22,18 @@ export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __M
 
 /**
  * <p>Lists all team members associated with a project.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeStarClient(config);
+ * const command = new ListTeamMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTeamMembersCommandInput} for command's `input` shape.
+ * @see {@link ListTeamMembersCommandOutput} for command's `response` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTeamMembersCommand extends $Command<
   ListTeamMembersCommandInput,

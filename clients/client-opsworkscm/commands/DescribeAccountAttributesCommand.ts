@@ -27,6 +27,18 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  *          <p>
  *       This operation is synchronous.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OpsWorksCMClient(config);
+ * const command = new DescribeAccountAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAccountAttributesCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAccountAttributesCommand extends $Command<
   DescribeAccountAttributesCommandInput,

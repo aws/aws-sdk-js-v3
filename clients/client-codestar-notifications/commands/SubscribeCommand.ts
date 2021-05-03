@@ -28,6 +28,18 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  * <p>Creates an association between a notification rule and an SNS topic so that the
  *             associated target can receive notifications when the events described in the rule are
  *             triggered.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodestarNotificationsClient(config);
+ * const command = new SubscribeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SubscribeCommandInput} for command's `input` shape.
+ * @see {@link SubscribeCommandOutput} for command's `response` shape.
+ * @see {@link CodestarNotificationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SubscribeCommand extends $Command<
   SubscribeCommandInput,

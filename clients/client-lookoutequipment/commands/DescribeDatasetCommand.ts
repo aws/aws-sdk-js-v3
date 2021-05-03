@@ -23,6 +23,18 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
 /**
  * <p>Provides information on a specified dataset such as the schema location, status, and so
  *          on.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutEquipmentClient(config);
+ * const command = new DescribeDatasetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDatasetCommandInput} for command's `input` shape.
+ * @see {@link DescribeDatasetCommandOutput} for command's `response` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDatasetCommand extends $Command<
   DescribeDatasetCommandInput,

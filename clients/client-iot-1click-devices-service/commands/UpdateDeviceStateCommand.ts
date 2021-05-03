@@ -27,6 +27,18 @@ export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateRespons
 /**
  * <p>Using a Boolean value (true or false), this operation
  *  enables or disables the device given a device ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoT1ClickDevicesServiceClient(config);
+ * const command = new UpdateDeviceStateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDeviceStateCommandInput} for command's `input` shape.
+ * @see {@link UpdateDeviceStateCommandOutput} for command's `response` shape.
+ * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDeviceStateCommand extends $Command<
   UpdateDeviceStateCommandInput,

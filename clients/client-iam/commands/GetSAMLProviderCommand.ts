@@ -26,6 +26,18 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  *         <note>
  *             <p>This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new GetSAMLProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSAMLProviderCommandInput} for command's `input` shape.
+ * @see {@link GetSAMLProviderCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSAMLProviderCommand extends $Command<
   GetSAMLProviderCommandInput,

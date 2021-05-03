@@ -22,6 +22,18 @@ export interface DescribeDBProxyEndpointsCommandOutput extends DescribeDBProxyEn
 
 /**
  * <p>Returns information about DB proxy endpoints.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new DescribeDBProxyEndpointsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDBProxyEndpointsCommandInput} for command's `input` shape.
+ * @see {@link DescribeDBProxyEndpointsCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDBProxyEndpointsCommand extends $Command<
   DescribeDBProxyEndpointsCommandInput,

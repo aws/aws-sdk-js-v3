@@ -58,6 +58,18 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *             </code> or <code>
  *                <a>DisassociateMembers</a>
  *             </code> operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecurityHubClient(config);
+ * const command = new CreateMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMembersCommandInput} for command's `input` shape.
+ * @see {@link CreateMembersCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMembersCommand extends $Command<
   CreateMembersCommandInput,

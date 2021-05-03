@@ -26,6 +26,18 @@ export interface DescribeEndpointGroupCommandOutput extends DescribeEndpointGrou
 
 /**
  * <p>Describe an endpoint group. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new DescribeEndpointGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEndpointGroupCommandInput} for command's `input` shape.
+ * @see {@link DescribeEndpointGroupCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEndpointGroupCommand extends $Command<
   DescribeEndpointGroupCommandInput,

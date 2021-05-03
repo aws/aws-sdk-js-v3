@@ -24,6 +24,18 @@ export interface DeleteSshPublicKeyCommandOutput extends __MetadataBearer {}
  * <p>Deletes a user's Secure Shell (SSH) public key.</p>
  *
  *          <p>No response is returned from this operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TransferClient(config);
+ * const command = new DeleteSshPublicKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSshPublicKeyCommandInput} for command's `input` shape.
+ * @see {@link DeleteSshPublicKeyCommandOutput} for command's `response` shape.
+ * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSshPublicKeyCommand extends $Command<
   DeleteSshPublicKeyCommandInput,

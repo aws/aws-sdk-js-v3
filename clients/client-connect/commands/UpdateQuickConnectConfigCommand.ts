@@ -23,6 +23,18 @@ export interface UpdateQuickConnectConfigCommandOutput extends __MetadataBearer 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the configuration settings for the specified quick connect.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new UpdateQuickConnectConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateQuickConnectConfigCommandInput} for command's `input` shape.
+ * @see {@link UpdateQuickConnectConfigCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateQuickConnectConfigCommand extends $Command<
   UpdateQuickConnectConfigCommandInput,

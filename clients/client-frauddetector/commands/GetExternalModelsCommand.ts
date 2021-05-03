@@ -27,6 +27,18 @@ export interface GetExternalModelsCommandOutput extends GetExternalModelsResult,
  *             <code>maxResults</code>, the value must be between 5 and 10. To get the next page
  *          results, provide the pagination token from the <code>GetExternalModelsResult</code> as part
  *          of your request. A null pagination token fetches the records from the beginning. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new GetExternalModelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetExternalModelsCommandInput} for command's `input` shape.
+ * @see {@link GetExternalModelsCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetExternalModelsCommand extends $Command<
   GetExternalModelsCommandInput,

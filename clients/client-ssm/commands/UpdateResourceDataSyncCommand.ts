@@ -30,6 +30,18 @@ export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataS
  *             <p>This API action only supports a resource data sync that was created with a SyncFromSource
  *      <code>SyncType</code>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new UpdateResourceDataSyncCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateResourceDataSyncCommandInput} for command's `input` shape.
+ * @see {@link UpdateResourceDataSyncCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateResourceDataSyncCommand extends $Command<
   UpdateResourceDataSyncCommandInput,

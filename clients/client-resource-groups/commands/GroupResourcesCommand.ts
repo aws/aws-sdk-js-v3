@@ -33,6 +33,18 @@ export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __Met
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ResourceGroupsClient(config);
+ * const command = new GroupResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GroupResourcesCommandInput} for command's `input` shape.
+ * @see {@link GroupResourcesCommandOutput} for command's `response` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GroupResourcesCommand extends $Command<
   GroupResourcesCommandInput,

@@ -44,6 +44,18 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  *                <p>x-amzn-transcribe-session-id</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeStreamingClient(config);
+ * const command = new StartStreamTranscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartStreamTranscriptionCommandInput} for command's `input` shape.
+ * @see {@link StartStreamTranscriptionCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeStreamingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartStreamTranscriptionCommand extends $Command<
   StartStreamTranscriptionCommandInput,

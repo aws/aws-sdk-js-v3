@@ -35,6 +35,18 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  *                <p>The user making the request must be the owner of the rule group.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFV2Client(config);
+ * const command = new PutPermissionPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutPermissionPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutPermissionPolicyCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutPermissionPolicyCommand extends $Command<
   PutPermissionPolicyCommandInput,

@@ -24,6 +24,18 @@ export interface DescribeThingRegistrationTaskCommandOutput
 
 /**
  * <p>Describes a bulk thing provisioning task.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DescribeThingRegistrationTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeThingRegistrationTaskCommandInput} for command's `input` shape.
+ * @see {@link DescribeThingRegistrationTaskCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeThingRegistrationTaskCommand extends $Command<
   DescribeThingRegistrationTaskCommandInput,

@@ -29,6 +29,18 @@ export interface CreateHsmClientCertificateCommandOutput extends CreateHsmClient
  *             provides a cluster the information needed to store and use encryption keys in the HSM.
  *             For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html#working-with-HSM">Hardware Security Modules</a>
  *             in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new CreateHsmClientCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateHsmClientCertificateCommandInput} for command's `input` shape.
+ * @see {@link CreateHsmClientCertificateCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateHsmClientCertificateCommand extends $Command<
   CreateHsmClientCertificateCommandInput,

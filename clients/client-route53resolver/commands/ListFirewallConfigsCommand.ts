@@ -23,6 +23,18 @@ export interface ListFirewallConfigsCommandOutput extends ListFirewallConfigsRes
 /**
  * <p>Retrieves the firewall configurations that you have defined. DNS Firewall uses the configurations to manage firewall behavior for your VPCs. </p>
  *          <p>A single call might return only a partial list of the configurations. For information, see <code>MaxResults</code>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new ListFirewallConfigsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFirewallConfigsCommandInput} for command's `input` shape.
+ * @see {@link ListFirewallConfigsCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFirewallConfigsCommand extends $Command<
   ListFirewallConfigsCommandInput,

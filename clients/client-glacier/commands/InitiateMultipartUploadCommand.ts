@@ -55,6 +55,18 @@ export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartU
  *          <p>For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/uploading-archive-mpu.html">Uploading Large Archives in
  *             Parts (Multipart Upload)</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-initiate-upload.html">Initiate Multipart
  *             Upload</a> in the <i>Amazon Glacier Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlacierClient(config);
+ * const command = new InitiateMultipartUploadCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InitiateMultipartUploadCommandInput} for command's `input` shape.
+ * @see {@link InitiateMultipartUploadCommandOutput} for command's `response` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InitiateMultipartUploadCommand extends $Command<
   InitiateMultipartUploadCommandInput,

@@ -23,6 +23,18 @@ export interface DescribeHostReservationsCommandOutput extends DescribeHostReser
 /**
  * <p>Describes reservations that are associated with Dedicated Hosts in your
  *             account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeHostReservationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeHostReservationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeHostReservationsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeHostReservationsCommand extends $Command<
   DescribeHostReservationsCommandInput,

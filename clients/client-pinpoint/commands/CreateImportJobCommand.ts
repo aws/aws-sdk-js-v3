@@ -22,6 +22,18 @@ export interface CreateImportJobCommandOutput extends CreateImportJobResponse, _
 
 /**
  * <p>Creates an import job for an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new CreateImportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateImportJobCommandInput} for command's `input` shape.
+ * @see {@link CreateImportJobCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateImportJobCommand extends $Command<
   CreateImportJobCommandInput,

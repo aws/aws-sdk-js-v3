@@ -22,6 +22,18 @@ export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __M
 
 /**
  * <p>Update public key information. Note that the only value you can change is the comment.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new UpdatePublicKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePublicKeyCommandInput} for command's `input` shape.
+ * @see {@link UpdatePublicKeyCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePublicKeyCommand extends $Command<
   UpdatePublicKeyCommandInput,

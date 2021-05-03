@@ -24,6 +24,18 @@ export interface GetTrafficPolicyInstanceCountCommandOutput
 
 /**
  * <p>Gets the number of traffic policy instances that are associated with the current AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new GetTrafficPolicyInstanceCountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTrafficPolicyInstanceCountCommandInput} for command's `input` shape.
+ * @see {@link GetTrafficPolicyInstanceCountCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTrafficPolicyInstanceCountCommand extends $Command<
   GetTrafficPolicyInstanceCountCommandInput,

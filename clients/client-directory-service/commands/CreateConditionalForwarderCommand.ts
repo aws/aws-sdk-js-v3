@@ -22,6 +22,18 @@ export interface CreateConditionalForwarderCommandOutput extends CreateCondition
 
 /**
  * <p>Creates a conditional forwarder associated with your AWS directory. Conditional forwarders are required in order to set up a trust relationship with another domain. The conditional forwarder points to the trusted domain.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new CreateConditionalForwarderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateConditionalForwarderCommandInput} for command's `input` shape.
+ * @see {@link CreateConditionalForwarderCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateConditionalForwarderCommand extends $Command<
   CreateConditionalForwarderCommandInput,

@@ -24,6 +24,18 @@ export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse,
  * <p>Seals and completes the snapshot after all of the required blocks of data have been
  *             written to it. Completing the snapshot changes the status to <code>completed</code>. You
  *             cannot write new blocks to a snapshot after it has been completed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EBSClient(config);
+ * const command = new CompleteSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CompleteSnapshotCommandInput} for command's `input` shape.
+ * @see {@link CompleteSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link EBSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CompleteSnapshotCommand extends $Command<
   CompleteSnapshotCommandInput,

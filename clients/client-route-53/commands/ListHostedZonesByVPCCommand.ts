@@ -34,6 +34,18 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  * 				<code>efs.amazonaws.com</code>. </p>
  * 			         </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new ListHostedZonesByVPCCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListHostedZonesByVPCCommandInput} for command's `input` shape.
+ * @see {@link ListHostedZonesByVPCCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListHostedZonesByVPCCommand extends $Command<
   ListHostedZonesByVPCCommandInput,

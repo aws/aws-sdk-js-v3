@@ -26,6 +26,18 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  *             as a parameter.</p>
  *         <p>By default, only the events occurring within the last 24 hours are returned; however,
  *             you can retrieve up to 14 days' worth of events if necessary.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DAXClient(config);
+ * const command = new DescribeEventsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEventsCommandInput} for command's `input` shape.
+ * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
+ * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEventsCommand extends $Command<
   DescribeEventsCommandInput,

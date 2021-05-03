@@ -22,6 +22,18 @@ export interface UpdateReservationCommandOutput extends UpdateReservationRespons
 
 /**
  * Update reservation.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaLiveClient(config);
+ * const command = new UpdateReservationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateReservationCommandInput} for command's `input` shape.
+ * @see {@link UpdateReservationCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateReservationCommand extends $Command<
   UpdateReservationCommandInput,

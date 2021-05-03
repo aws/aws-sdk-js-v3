@@ -24,6 +24,18 @@ export interface DeleteAssessmentFrameworkCommandOutput extends DeleteAssessment
  * <p>
  *    Deletes a custom framework in AWS Audit Manager.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new DeleteAssessmentFrameworkCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAssessmentFrameworkCommandInput} for command's `input` shape.
+ * @see {@link DeleteAssessmentFrameworkCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAssessmentFrameworkCommand extends $Command<
   DeleteAssessmentFrameworkCommandInput,

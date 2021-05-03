@@ -22,6 +22,18 @@ export interface UpdateDetectorVersionCommandOutput extends UpdateDetectorVersio
 
 /**
  * <p> Updates a detector version. The detector version attributes that you can update include models, external model endpoints, rules, rule execution mode, and description. You can only update a <code>DRAFT</code> detector version.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new UpdateDetectorVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDetectorVersionCommandInput} for command's `input` shape.
+ * @see {@link UpdateDetectorVersionCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDetectorVersionCommand extends $Command<
   UpdateDetectorVersionCommandInput,

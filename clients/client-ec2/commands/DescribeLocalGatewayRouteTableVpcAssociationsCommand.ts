@@ -28,6 +28,18 @@ export interface DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput
 
 /**
  * <p>Describes the specified associations between VPCs and local gateway route tables.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeLocalGatewayRouteTableVpcAssociationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLocalGatewayRouteTableVpcAssociationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Command<
   DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,

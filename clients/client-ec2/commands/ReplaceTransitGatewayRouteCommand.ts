@@ -22,6 +22,18 @@ export interface ReplaceTransitGatewayRouteCommandOutput extends ReplaceTransitG
 
 /**
  * <p>Replaces the specified route in the specified transit gateway route table.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ReplaceTransitGatewayRouteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReplaceTransitGatewayRouteCommandInput} for command's `input` shape.
+ * @see {@link ReplaceTransitGatewayRouteCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReplaceTransitGatewayRouteCommand extends $Command<
   ReplaceTransitGatewayRouteCommandInput,

@@ -24,6 +24,18 @@ export interface CreateModelBiasJobDefinitionCommandOutput
 
 /**
  * <p>Creates the definition for a model bias job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateModelBiasJobDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateModelBiasJobDefinitionCommandInput} for command's `input` shape.
+ * @see {@link CreateModelBiasJobDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateModelBiasJobDefinitionCommand extends $Command<
   CreateModelBiasJobDefinitionCommandInput,

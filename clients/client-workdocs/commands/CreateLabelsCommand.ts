@@ -23,6 +23,18 @@ export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __Metad
 /**
  * <p>Adds the specified list of labels to the given resource (a document or
  *             folder)</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new CreateLabelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLabelsCommandInput} for command's `input` shape.
+ * @see {@link CreateLabelsCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLabelsCommand extends $Command<
   CreateLabelsCommandInput,

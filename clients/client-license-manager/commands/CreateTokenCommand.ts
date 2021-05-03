@@ -25,6 +25,18 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  *          <p>A refresh token is a JWT token used to get an access token. With an access token,
  *           you can call AssumeRoleWithWebIdentity to get role credentials that you can use to
  *           call License Manager to manage the specified license.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LicenseManagerClient(config);
+ * const command = new CreateTokenCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTokenCommandInput} for command's `input` shape.
+ * @see {@link CreateTokenCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTokenCommand extends $Command<
   CreateTokenCommandInput,

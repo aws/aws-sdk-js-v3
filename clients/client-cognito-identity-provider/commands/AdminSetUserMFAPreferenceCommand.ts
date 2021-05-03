@@ -31,6 +31,18 @@ export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAP
  *             The preferred MFA factor will be used to authenticate a user if multiple factors are
  *             enabled. If multiple options are enabled and no preference is set, a challenge to choose
  *             an MFA option will be returned during sign in.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new AdminSetUserMFAPreferenceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdminSetUserMFAPreferenceCommandInput} for command's `input` shape.
+ * @see {@link AdminSetUserMFAPreferenceCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdminSetUserMFAPreferenceCommand extends $Command<
   AdminSetUserMFAPreferenceCommandInput,

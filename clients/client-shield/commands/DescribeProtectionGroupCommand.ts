@@ -22,6 +22,18 @@ export interface DescribeProtectionGroupCommandOutput extends DescribeProtection
 
 /**
  * <p>Returns the specification for the specified protection group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ShieldClient(config);
+ * const command = new DescribeProtectionGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeProtectionGroupCommandInput} for command's `input` shape.
+ * @see {@link DescribeProtectionGroupCommandOutput} for command's `response` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeProtectionGroupCommand extends $Command<
   DescribeProtectionGroupCommandInput,

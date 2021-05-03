@@ -25,6 +25,18 @@ export interface CreateObjectCommandOutput extends CreateObjectResponse, __Metad
  *       a parent, if a parent reference and <code>LinkName</code> is specified. An object is simply a
  *       collection of <a>Facet</a> attributes. You can also use this API call to create a
  *       policy object, if the facet from which you create the object is a policy facet. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new CreateObjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateObjectCommandInput} for command's `input` shape.
+ * @see {@link CreateObjectCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateObjectCommand extends $Command<
   CreateObjectCommandInput,

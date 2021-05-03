@@ -22,6 +22,18 @@ export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAcco
 
 /**
  * <p>Lists the names of stored connections to GitHub accounts.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new ListGitHubAccountTokenNamesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListGitHubAccountTokenNamesCommandInput} for command's `input` shape.
+ * @see {@link ListGitHubAccountTokenNamesCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListGitHubAccountTokenNamesCommand extends $Command<
   ListGitHubAccountTokenNamesCommandInput,

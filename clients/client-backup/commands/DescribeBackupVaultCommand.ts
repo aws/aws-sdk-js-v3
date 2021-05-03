@@ -22,6 +22,18 @@ export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOut
 
 /**
  * <p>Returns metadata about a backup vault specified by its name.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new DescribeBackupVaultCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeBackupVaultCommandInput} for command's `input` shape.
+ * @see {@link DescribeBackupVaultCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeBackupVaultCommand extends $Command<
   DescribeBackupVaultCommandInput,

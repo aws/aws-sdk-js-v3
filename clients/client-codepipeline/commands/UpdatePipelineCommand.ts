@@ -25,6 +25,18 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  *             file with the pipeline structure and <code>UpdatePipeline</code> to provide the full
  *             structure of the pipeline. Updating the pipeline increases the version number of the
  *             pipeline by 1.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new UpdatePipelineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePipelineCommandInput} for command's `input` shape.
+ * @see {@link UpdatePipelineCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePipelineCommand extends $Command<
   UpdatePipelineCommandInput,

@@ -34,6 +34,18 @@ export interface GetConfigurationCommandOutput extends Configuration, __Metadata
  *             calls to <code>GetConfiguration</code> must pass this value by using the
  *                <code>ClientConfigurationVersion</code> parameter. </p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppConfigClient(config);
+ * const command = new GetConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetConfigurationCommand extends $Command<
   GetConfigurationCommandInput,

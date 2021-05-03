@@ -22,6 +22,18 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
 
 /**
  * Deletes an existing Channel.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaPackageClient(config);
+ * const command = new DeleteChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteChannelCommandInput} for command's `input` shape.
+ * @see {@link DeleteChannelCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteChannelCommand extends $Command<
   DeleteChannelCommandInput,

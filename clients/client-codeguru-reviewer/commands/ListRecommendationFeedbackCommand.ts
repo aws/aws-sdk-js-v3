@@ -28,6 +28,18 @@ export interface ListRecommendationFeedbackCommandOutput extends ListRecommendat
  *             </a>
  *          objects that contain customer recommendation feedback for all CodeGuru Reviewer users.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeGuruReviewerClient(config);
+ * const command = new ListRecommendationFeedbackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRecommendationFeedbackCommandInput} for command's `input` shape.
+ * @see {@link ListRecommendationFeedbackCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRecommendationFeedbackCommand extends $Command<
   ListRecommendationFeedbackCommandInput,

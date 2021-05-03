@@ -24,6 +24,18 @@ export interface GetMergeOptionsCommandOutput extends GetMergeOptionsOutput, __M
  * <p>Returns information about the merge options available for merging two specified
  *             branches. For details about why a merge option is not available, use GetMergeConflicts
  *             or DescribeMergeConflicts.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new GetMergeOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMergeOptionsCommandInput} for command's `input` shape.
+ * @see {@link GetMergeOptionsCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMergeOptionsCommand extends $Command<
   GetMergeOptionsCommandInput,

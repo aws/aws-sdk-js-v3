@@ -27,6 +27,18 @@ export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCi
  *             are associated with the CIDR block before you can disassociate it. </p>
  * 		       <p>You cannot disassociate the CIDR block with which you originally created the VPC (the
  * 			primary CIDR block).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DisassociateVpcCidrBlockCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateVpcCidrBlockCommandInput} for command's `input` shape.
+ * @see {@link DisassociateVpcCidrBlockCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateVpcCidrBlockCommand extends $Command<
   DisassociateVpcCidrBlockCommandInput,

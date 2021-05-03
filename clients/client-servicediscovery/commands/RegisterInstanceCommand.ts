@@ -61,6 +61,18 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  *          <p>For the current quota on the number of instances that you can register using the same namespace and using the
  *    same service, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map
  *     Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceDiscoveryClient(config);
+ * const command = new RegisterInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterInstanceCommandInput} for command's `input` shape.
+ * @see {@link RegisterInstanceCommandOutput} for command's `response` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterInstanceCommand extends $Command<
   RegisterInstanceCommandInput,

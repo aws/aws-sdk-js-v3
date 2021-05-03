@@ -22,6 +22,18 @@ export interface GetCatalogImportStatusCommandOutput extends GetCatalogImportSta
 
 /**
  * <p>Retrieves the status of a migration operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetCatalogImportStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCatalogImportStatusCommandInput} for command's `input` shape.
+ * @see {@link GetCatalogImportStatusCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCatalogImportStatusCommand extends $Command<
   GetCatalogImportStatusCommandInput,

@@ -23,6 +23,18 @@ export interface GetStudioSessionMappingCommandOutput extends GetStudioSessionMa
 /**
  * <p>Fetches mapping details for the specified Amazon EMR Studio and identity (user or
  *          group).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRClient(config);
+ * const command = new GetStudioSessionMappingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetStudioSessionMappingCommandInput} for command's `input` shape.
+ * @see {@link GetStudioSessionMappingCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetStudioSessionMappingCommand extends $Command<
   GetStudioSessionMappingCommandInput,

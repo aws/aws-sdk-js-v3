@@ -22,6 +22,18 @@ export interface GetVoiceConnectorCommandOutput extends GetVoiceConnectorRespons
 
 /**
  * <p>Retrieves details for the specified Amazon Chime Voice Connector, such as timestamps,name, outbound host, and encryption requirements.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new GetVoiceConnectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetVoiceConnectorCommandInput} for command's `input` shape.
+ * @see {@link GetVoiceConnectorCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetVoiceConnectorCommand extends $Command<
   GetVoiceConnectorCommandInput,

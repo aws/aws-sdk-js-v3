@@ -24,6 +24,18 @@ export interface CancelDeploymentCommandOutput extends CancelDeploymentResponse,
  * <p>Cancels a deployment. This operation cancels the deployment for devices that haven't yet
  *       received it. If a device already received the deployment, this operation doesn't change
  *       anything for that device.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassV2Client(config);
+ * const command = new CancelDeploymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelDeploymentCommandInput} for command's `input` shape.
+ * @see {@link CancelDeploymentCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelDeploymentCommand extends $Command<
   CancelDeploymentCommandInput,

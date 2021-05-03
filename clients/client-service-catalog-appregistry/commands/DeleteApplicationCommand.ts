@@ -26,6 +26,18 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
 
 /**
  * <p>Deletes an application that is specified either by its application ID or name. All associated attribute groups and resources must be disassociated from it before deleting an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogAppRegistryClient(config);
+ * const command = new DeleteApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteApplicationCommandInput} for command's `input` shape.
+ * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteApplicationCommand extends $Command<
   DeleteApplicationCommandInput,

@@ -28,6 +28,18 @@ export interface GetMaintenanceWindowTaskCommandOutput extends GetMaintenanceWin
  *     placeholder value of <code>1</code>, which may be reported in the response to this command.
  *     These values do not affect the running of your task and can be ignored.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new GetMaintenanceWindowTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMaintenanceWindowTaskCommandInput} for command's `input` shape.
+ * @see {@link GetMaintenanceWindowTaskCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMaintenanceWindowTaskCommand extends $Command<
   GetMaintenanceWindowTaskCommandInput,

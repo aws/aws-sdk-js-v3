@@ -23,6 +23,18 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
 /**
  * <p>List of SQL statements. By default, only finished statements are shown.
  *         A token is returned to page through the statement list. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftDataClient(config);
+ * const command = new ListStatementsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListStatementsCommandInput} for command's `input` shape.
+ * @see {@link ListStatementsCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftDataClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListStatementsCommand extends $Command<
   ListStatementsCommandInput,

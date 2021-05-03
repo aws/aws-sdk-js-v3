@@ -22,6 +22,18 @@ export interface GetDeviceProfileCommandOutput extends GetDeviceProfileResponse,
 
 /**
  * <p>Gets information about a device profile.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new GetDeviceProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDeviceProfileCommandInput} for command's `input` shape.
+ * @see {@link GetDeviceProfileCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDeviceProfileCommand extends $Command<
   GetDeviceProfileCommandInput,

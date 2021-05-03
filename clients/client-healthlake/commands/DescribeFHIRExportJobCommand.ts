@@ -22,6 +22,18 @@ export interface DescribeFHIRExportJobCommandOutput extends DescribeFHIRExportJo
 
 /**
  * <p>Displays the properties of a FHIR export job, including the ID, ARN, name, and the status of the job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new HealthLakeClient(config);
+ * const command = new DescribeFHIRExportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFHIRExportJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeFHIRExportJobCommandOutput} for command's `response` shape.
+ * @see {@link HealthLakeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFHIRExportJobCommand extends $Command<
   DescribeFHIRExportJobCommandInput,

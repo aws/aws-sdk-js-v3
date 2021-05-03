@@ -22,6 +22,18 @@ export interface DeleteVirtualServiceCommandOutput extends DeleteVirtualServiceO
 
 /**
  * <p>Deletes an existing virtual service.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new DeleteVirtualServiceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVirtualServiceCommandInput} for command's `input` shape.
+ * @see {@link DeleteVirtualServiceCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVirtualServiceCommand extends $Command<
   DeleteVirtualServiceCommandInput,

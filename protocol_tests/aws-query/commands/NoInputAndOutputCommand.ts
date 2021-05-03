@@ -25,6 +25,18 @@ export interface NoInputAndOutputCommandOutput extends __MetadataBearer {}
  * no request payload or response members.
  *
  * While this should be rare, code generators must support this.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QueryProtocolClient(config);
+ * const command = new NoInputAndOutputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link NoInputAndOutputCommandInput} for command's `input` shape.
+ * @see {@link NoInputAndOutputCommandOutput} for command's `response` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class NoInputAndOutputCommand extends $Command<
   NoInputAndOutputCommandInput,

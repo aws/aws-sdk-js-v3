@@ -72,6 +72,18 @@ export interface UpdateContainerInstancesStateCommandOutput
  * 		       <p>When a container instance has been drained, you can set a container instance to
  * 				<code>ACTIVE</code> status and once it has reached that status the Amazon ECS scheduler
  * 			can begin scheduling tasks on the instance again.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new UpdateContainerInstancesStateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateContainerInstancesStateCommandInput} for command's `input` shape.
+ * @see {@link UpdateContainerInstancesStateCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateContainerInstancesStateCommand extends $Command<
   UpdateContainerInstancesStateCommandInput,

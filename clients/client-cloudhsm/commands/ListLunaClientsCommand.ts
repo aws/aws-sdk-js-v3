@@ -36,6 +36,18 @@ export interface ListLunaClientsCommandOutput extends ListLunaClientsResponse, _
  *       If more results are available, the <code>NextToken</code> member of the response contains a
  *       token that you pass in the next call to <code>ListLunaClients</code> to retrieve the next set
  *       of items.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMClient(config);
+ * const command = new ListLunaClientsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListLunaClientsCommandInput} for command's `input` shape.
+ * @see {@link ListLunaClientsCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListLunaClientsCommand extends $Command<
   ListLunaClientsCommandInput,

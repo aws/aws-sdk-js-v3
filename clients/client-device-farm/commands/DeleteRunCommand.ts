@@ -20,6 +20,18 @@ export interface DeleteRunCommandOutput extends DeleteRunResult, __MetadataBeare
 /**
  * <p>Deletes the run, given the run ARN.</p>
  *         <p> Deleting this resource does not stop an in-progress run.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new DeleteRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRunCommandInput} for command's `input` shape.
+ * @see {@link DeleteRunCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRunCommand extends $Command<
   DeleteRunCommandInput,

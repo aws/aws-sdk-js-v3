@@ -23,6 +23,18 @@ export interface GetTableVersionsCommandOutput extends GetTableVersionsResponse,
 /**
  * <p>Retrieves a list of strings that identify available versions of
  *       a specified table.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetTableVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTableVersionsCommandInput} for command's `input` shape.
+ * @see {@link GetTableVersionsCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTableVersionsCommand extends $Command<
   GetTableVersionsCommandInput,

@@ -48,6 +48,18 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  *                         lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeInstanceStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeInstanceStatusCommandInput} for command's `input` shape.
+ * @see {@link DescribeInstanceStatusCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeInstanceStatusCommand extends $Command<
   DescribeInstanceStatusCommandInput,

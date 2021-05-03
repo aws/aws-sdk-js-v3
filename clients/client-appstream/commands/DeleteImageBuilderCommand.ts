@@ -22,6 +22,18 @@ export interface DeleteImageBuilderCommandOutput extends DeleteImageBuilderResul
 
 /**
  * <p>Deletes the specified image builder and releases the capacity.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new DeleteImageBuilderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteImageBuilderCommandInput} for command's `input` shape.
+ * @see {@link DeleteImageBuilderCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteImageBuilderCommand extends $Command<
   DeleteImageBuilderCommandInput,

@@ -26,6 +26,18 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
 
 /**
  * <p>Associates a resource with an application. Both the resource and the application can be specified either by ID or name.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogAppRegistryClient(config);
+ * const command = new AssociateResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateResourceCommandInput} for command's `input` shape.
+ * @see {@link AssociateResourceCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateResourceCommand extends $Command<
   AssociateResourceCommandInput,

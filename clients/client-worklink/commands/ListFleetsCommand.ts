@@ -22,6 +22,18 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
 
 /**
  * <p>Retrieves a list of fleets for the current account and Region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkLinkClient(config);
+ * const command = new ListFleetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFleetsCommandInput} for command's `input` shape.
+ * @see {@link ListFleetsCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFleetsCommand extends $Command<
   ListFleetsCommandInput,

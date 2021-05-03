@@ -22,6 +22,18 @@ export interface DescribeTimeToLiveCommandOutput extends DescribeTimeToLiveOutpu
 
 /**
  * <p>Gives a description of the Time to Live (TTL) status on the specified table. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new DescribeTimeToLiveCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTimeToLiveCommandInput} for command's `input` shape.
+ * @see {@link DescribeTimeToLiveCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTimeToLiveCommand extends $Command<
   DescribeTimeToLiveCommandInput,

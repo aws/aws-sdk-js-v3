@@ -28,6 +28,18 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResult, __Met
  *             </a>
  *       object that contains information about the requested domain.
  *      </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeartifactClient(config);
+ * const command = new DescribeDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDomainCommandInput} for command's `input` shape.
+ * @see {@link DescribeDomainCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDomainCommand extends $Command<
   DescribeDomainCommandInput,

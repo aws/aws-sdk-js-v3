@@ -26,6 +26,18 @@ export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersR
  * <code>AppInstanceUsers</code>
  * created under a single <code>AppInstance</code>.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new ListAppInstanceUsersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAppInstanceUsersCommandInput} for command's `input` shape.
+ * @see {@link ListAppInstanceUsersCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAppInstanceUsersCommand extends $Command<
   ListAppInstanceUsersCommandInput,

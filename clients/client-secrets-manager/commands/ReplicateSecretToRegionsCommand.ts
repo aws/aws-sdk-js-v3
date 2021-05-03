@@ -23,6 +23,18 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
 /**
  * <p>Converts an existing secret to a multi-Region secret and begins replication the secret to a
  *       list of new regions. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecretsManagerClient(config);
+ * const command = new ReplicateSecretToRegionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReplicateSecretToRegionsCommandInput} for command's `input` shape.
+ * @see {@link ReplicateSecretToRegionsCommandOutput} for command's `response` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReplicateSecretToRegionsCommand extends $Command<
   ReplicateSecretToRegionsCommandInput,

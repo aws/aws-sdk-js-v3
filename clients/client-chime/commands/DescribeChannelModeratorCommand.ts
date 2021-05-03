@@ -28,6 +28,18 @@ export interface DescribeChannelModeratorCommandOutput extends DescribeChannelMo
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes
  *         the API call as the value in the header.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new DescribeChannelModeratorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeChannelModeratorCommandInput} for command's `input` shape.
+ * @see {@link DescribeChannelModeratorCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeChannelModeratorCommand extends $Command<
   DescribeChannelModeratorCommandInput,

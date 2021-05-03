@@ -22,6 +22,18 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
 
 /**
  * <p>Creates a dashboard in an AWS IoT SiteWise Monitor project.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new CreateDashboardCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDashboardCommandInput} for command's `input` shape.
+ * @see {@link CreateDashboardCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDashboardCommand extends $Command<
   CreateDashboardCommandInput,

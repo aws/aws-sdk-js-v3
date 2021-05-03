@@ -24,6 +24,18 @@ export interface TerminateClientVpnConnectionsCommandOutput
 
 /**
  * <p>Terminates active Client VPN endpoint connections. This action can be used to terminate a specific client connection, or up to five connections established by a specific user.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new TerminateClientVpnConnectionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TerminateClientVpnConnectionsCommandInput} for command's `input` shape.
+ * @see {@link TerminateClientVpnConnectionsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TerminateClientVpnConnectionsCommand extends $Command<
   TerminateClientVpnConnectionsCommandInput,

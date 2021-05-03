@@ -22,6 +22,18 @@ export interface ListGroupMembershipsCommandOutput extends ListGroupMembershipsR
 
 /**
  * <p>Lists member users in a group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new ListGroupMembershipsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListGroupMembershipsCommandInput} for command's `input` shape.
+ * @see {@link ListGroupMembershipsCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListGroupMembershipsCommand extends $Command<
   ListGroupMembershipsCommandInput,

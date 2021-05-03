@@ -68,6 +68,18 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  *             increasing. For example, records in a shard or across a stream might have time stamps
  *             that are out of order.</p>
  *         <p>This operation has a limit of five transactions per second per shard.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisClient(config);
+ * const command = new GetRecordsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRecordsCommandInput} for command's `input` shape.
+ * @see {@link GetRecordsCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRecordsCommand extends $Command<
   GetRecordsCommandInput,

@@ -27,6 +27,18 @@ export interface CreateProvisioningTemplateVersionCommandOutput
 
 /**
  * <p>Creates a new version of a fleet provisioning template.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new CreateProvisioningTemplateVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateProvisioningTemplateVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateProvisioningTemplateVersionCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateProvisioningTemplateVersionCommand extends $Command<
   CreateProvisioningTemplateVersionCommandInput,

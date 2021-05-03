@@ -27,6 +27,18 @@ export interface ListPredictorBacktestExportJobsCommandOutput
  *             for each backtest export job. You can filter the list using an array of <a>Filter</a> objects.</p>
  *         <p>To retrieve the complete set of properties for a particular backtest export job, use the
  *             ARN with the <a>DescribePredictorBacktestExportJob</a> operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ForecastClient(config);
+ * const command = new ListPredictorBacktestExportJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPredictorBacktestExportJobsCommandInput} for command's `input` shape.
+ * @see {@link ListPredictorBacktestExportJobsCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPredictorBacktestExportJobsCommand extends $Command<
   ListPredictorBacktestExportJobsCommandInput,

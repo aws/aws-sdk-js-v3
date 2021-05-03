@@ -24,6 +24,18 @@ export interface DescribeIdentityProviderConfigCommandOutput
 
 /**
  * <p>Returns descriptive information about an identity provider configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new DescribeIdentityProviderConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeIdentityProviderConfigCommandInput} for command's `input` shape.
+ * @see {@link DescribeIdentityProviderConfigCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeIdentityProviderConfigCommand extends $Command<
   DescribeIdentityProviderConfigCommandInput,

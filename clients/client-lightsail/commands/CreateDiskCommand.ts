@@ -25,6 +25,18 @@ export interface CreateDiskCommandOutput extends CreateDiskResult, __MetadataBea
  *       same Availability Zone (e.g., <code>us-east-2a</code>).</p>
  *          <p>The <code>create disk</code> operation supports tag-based access control via request tags.
  *       For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new CreateDiskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDiskCommandInput} for command's `input` shape.
+ * @see {@link CreateDiskCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDiskCommand extends $Command<
   CreateDiskCommandInput,

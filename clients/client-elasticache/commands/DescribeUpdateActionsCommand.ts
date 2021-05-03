@@ -22,6 +22,18 @@ export interface DescribeUpdateActionsCommandOutput extends UpdateActionsMessage
 
 /**
  * <p>Returns details of the update actions </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new DescribeUpdateActionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeUpdateActionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeUpdateActionsCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeUpdateActionsCommand extends $Command<
   DescribeUpdateActionsCommandInput,

@@ -22,6 +22,18 @@ export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjec
 
 /**
  * <p>Removes the specified facet from the specified object.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new RemoveFacetFromObjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveFacetFromObjectCommandInput} for command's `input` shape.
+ * @see {@link RemoveFacetFromObjectCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveFacetFromObjectCommand extends $Command<
   RemoveFacetFromObjectCommandInput,

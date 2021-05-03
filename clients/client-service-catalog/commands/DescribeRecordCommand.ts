@@ -30,6 +30,18 @@ export interface DescribeRecordCommandOutput extends DescribeRecordOutput, __Met
  *       will be able to describe all past records for that product. The previous owner will no longer be able to describe the records, but will be able to
  *       use <a>ListRecordHistory</a> to see the product's history from when he was the owner.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DescribeRecordCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRecordCommandInput} for command's `input` shape.
+ * @see {@link DescribeRecordCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRecordCommand extends $Command<
   DescribeRecordCommandInput,

@@ -25,6 +25,18 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  *          <note>
  *             <p>You cannot take snapshots of AD Connector directories.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new CreateSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSnapshotCommandInput} for command's `input` shape.
+ * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSnapshotCommand extends $Command<
   CreateSnapshotCommandInput,

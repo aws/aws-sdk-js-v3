@@ -25,6 +25,18 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  *         <p>If you update your account limits, the old limits might be returned for a few
  *             minutes.</p>
  *         <p>This operation has a limit of one transaction per second per account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisClient(config);
+ * const command = new DescribeLimitsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLimitsCommandInput} for command's `input` shape.
+ * @see {@link DescribeLimitsCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLimitsCommand extends $Command<
   DescribeLimitsCommandInput,

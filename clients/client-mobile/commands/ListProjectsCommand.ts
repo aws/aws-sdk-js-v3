@@ -24,6 +24,18 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * <p>
  *             Lists projects in AWS Mobile Hub.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MobileClient(config);
+ * const command = new ListProjectsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProjectsCommandInput} for command's `input` shape.
+ * @see {@link ListProjectsCommandOutput} for command's `response` shape.
+ * @see {@link MobileClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProjectsCommand extends $Command<
   ListProjectsCommandInput,

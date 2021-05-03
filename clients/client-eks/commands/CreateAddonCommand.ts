@@ -27,6 +27,18 @@ export interface CreateAddonCommandOutput extends CreateAddonResponse, __Metadat
  *             clusters running version 1.18 with platform version <code>eks.3</code> or later because
  *             add-ons rely on the Server-side Apply Kubernetes feature, which is only available in
  *             Kubernetes 1.18 and later.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new CreateAddonCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAddonCommandInput} for command's `input` shape.
+ * @see {@link CreateAddonCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAddonCommand extends $Command<
   CreateAddonCommandInput,

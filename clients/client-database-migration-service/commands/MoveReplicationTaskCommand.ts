@@ -29,6 +29,18 @@ export interface MoveReplicationTaskCommandOutput extends MoveReplicationTaskRes
  *          replication instance using the specified parameters. The target replication instance must
  *          be created with the same or later AWS DMS version as the current replication
  *          instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new MoveReplicationTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link MoveReplicationTaskCommandInput} for command's `input` shape.
+ * @see {@link MoveReplicationTaskCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class MoveReplicationTaskCommand extends $Command<
   MoveReplicationTaskCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeIngestionCommandOutput extends DescribeIngestionRespons
 
 /**
  * <p>Describes a SPICE ingestion.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new DescribeIngestionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeIngestionCommandInput} for command's `input` shape.
+ * @see {@link DescribeIngestionCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeIngestionCommand extends $Command<
   DescribeIngestionCommandInput,

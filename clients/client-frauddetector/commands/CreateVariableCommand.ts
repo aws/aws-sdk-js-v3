@@ -22,6 +22,18 @@ export interface CreateVariableCommandOutput extends CreateVariableResult, __Met
 
 /**
  * <p>Creates a variable.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new CreateVariableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVariableCommandInput} for command's `input` shape.
+ * @see {@link CreateVariableCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateVariableCommand extends $Command<
   CreateVariableCommandInput,

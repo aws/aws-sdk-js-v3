@@ -22,6 +22,18 @@ export interface UpdateThingGroupsForThingCommandOutput extends UpdateThingGroup
 
 /**
  * <p>Updates the groups to which the thing belongs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new UpdateThingGroupsForThingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateThingGroupsForThingCommandInput} for command's `input` shape.
+ * @see {@link UpdateThingGroupsForThingCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateThingGroupsForThingCommand extends $Command<
   UpdateThingGroupsForThingCommandInput,

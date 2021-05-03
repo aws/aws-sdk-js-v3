@@ -30,6 +30,18 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  *       To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason, LastUpdateStatusReasonCode)
  *       for a function or version, use <a>GetFunction</a>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new ListFunctionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFunctionsCommandInput} for command's `input` shape.
+ * @see {@link ListFunctionsCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFunctionsCommand extends $Command<
   ListFunctionsCommandInput,

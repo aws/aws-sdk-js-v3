@@ -33,6 +33,18 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  *             cannot be accepted or rejected.</p>
  *          <p>If you create a VPC peering connection request between VPCs with overlapping CIDR
  *             blocks, the VPC peering connection has a status of <code>failed</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateVpcPeeringConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVpcPeeringConnectionCommandInput} for command's `input` shape.
+ * @see {@link CreateVpcPeeringConnectionCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateVpcPeeringConnectionCommand extends $Command<
   CreateVpcPeeringConnectionCommandInput,

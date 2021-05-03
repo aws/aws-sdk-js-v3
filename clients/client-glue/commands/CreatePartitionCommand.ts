@@ -22,6 +22,18 @@ export interface CreatePartitionCommandOutput extends CreatePartitionResponse, _
 
 /**
  * <p>Creates a new partition.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new CreatePartitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePartitionCommandInput} for command's `input` shape.
+ * @see {@link CreatePartitionCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePartitionCommand extends $Command<
   CreatePartitionCommandInput,

@@ -39,6 +39,18 @@ export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCa
  *          <note>
  *             <p>This action only applies to Aurora DB clusters.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new ModifyCurrentDBClusterCapacityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyCurrentDBClusterCapacityCommandInput} for command's `input` shape.
+ * @see {@link ModifyCurrentDBClusterCapacityCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyCurrentDBClusterCapacityCommand extends $Command<
   ModifyCurrentDBClusterCapacityCommandInput,

@@ -29,6 +29,18 @@ export interface CancelDetectMitigationActionsTaskCommandOutput
  * <p>
  *         Cancels a Device Defender ML Detect mitigation action.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new CancelDetectMitigationActionsTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelDetectMitigationActionsTaskCommandInput} for command's `input` shape.
+ * @see {@link CancelDetectMitigationActionsTaskCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelDetectMitigationActionsTaskCommand extends $Command<
   CancelDetectMitigationActionsTaskCommandInput,

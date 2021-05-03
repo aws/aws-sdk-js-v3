@@ -28,6 +28,18 @@ export interface GetVoiceConnectorEmergencyCallingConfigurationCommandOutput
 
 /**
  * <p>Gets the emergency calling configuration details for the specified Amazon Chime Voice Connector.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new GetVoiceConnectorEmergencyCallingConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetVoiceConnectorEmergencyCallingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetVoiceConnectorEmergencyCallingConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Command<
   GetVoiceConnectorEmergencyCallingConfigurationCommandInput,

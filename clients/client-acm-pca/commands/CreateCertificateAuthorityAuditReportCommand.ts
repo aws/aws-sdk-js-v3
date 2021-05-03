@@ -43,6 +43,18 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
  * 		       <p>ACM Private CAA assets that are stored in Amazon S3 can be protected with encryption.
  *   For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuditReport.html#audit-report-encryption">Encrypting Your Audit
  * 				Reports</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ACMPCAClient(config);
+ * const command = new CreateCertificateAuthorityAuditReportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCertificateAuthorityAuditReportCommandInput} for command's `input` shape.
+ * @see {@link CreateCertificateAuthorityAuditReportCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCertificateAuthorityAuditReportCommand extends $Command<
   CreateCertificateAuthorityAuditReportCommandInput,

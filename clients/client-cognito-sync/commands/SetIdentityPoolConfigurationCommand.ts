@@ -74,6 +74,18 @@ export interface SetIdentityPoolConfigurationCommandOutput
  *             </response>
  *          </example>
  *       </examples>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoSyncClient(config);
+ * const command = new SetIdentityPoolConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetIdentityPoolConfigurationCommandInput} for command's `input` shape.
+ * @see {@link SetIdentityPoolConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetIdentityPoolConfigurationCommand extends $Command<
   SetIdentityPoolConfigurationCommandInput,

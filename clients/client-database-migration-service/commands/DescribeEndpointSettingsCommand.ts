@@ -27,6 +27,18 @@ export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointS
 /**
  * <p>Returns information about the possible endpoint settings available
  *          when you create an endpoint for a specific database engine.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DescribeEndpointSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEndpointSettingsCommandInput} for command's `input` shape.
+ * @see {@link DescribeEndpointSettingsCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEndpointSettingsCommand extends $Command<
   DescribeEndpointSettingsCommandInput,

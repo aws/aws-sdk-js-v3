@@ -36,6 +36,18 @@ export interface StartLabelDetectionCommandOutput extends StartLabelDetectionRes
  *         topic is <code>SUCCEEDED</code>. If so, call  <a>GetLabelDetection</a> and pass the job identifier
  *        (<code>JobId</code>) from the initial call to <code>StartLabelDetection</code>.</p>
  *         <p></p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RekognitionClient(config);
+ * const command = new StartLabelDetectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartLabelDetectionCommandInput} for command's `input` shape.
+ * @see {@link StartLabelDetectionCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartLabelDetectionCommand extends $Command<
   StartLabelDetectionCommandInput,

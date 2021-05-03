@@ -27,6 +27,18 @@ export interface DescribeSpotPriceHistoryCommandOutput extends DescribeSpotPrice
  *         <p>When you specify a start and end time, the operation returns the prices of the
  *             instance types within that time range. It also returns the last price change before the
  *             start time, which is the effective price as of the start time.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeSpotPriceHistoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSpotPriceHistoryCommandInput} for command's `input` shape.
+ * @see {@link DescribeSpotPriceHistoryCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSpotPriceHistoryCommand extends $Command<
   DescribeSpotPriceHistoryCommandInput,

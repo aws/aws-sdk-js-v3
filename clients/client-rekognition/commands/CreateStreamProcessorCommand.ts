@@ -30,6 +30,18 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
  *             the <code>Name</code> field. </p>
  *         <p>After you have finished analyzing a streaming video, use <a>StopStreamProcessor</a> to
  *         stop processing. You can delete the stream processor by calling <a>DeleteStreamProcessor</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RekognitionClient(config);
+ * const command = new CreateStreamProcessorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateStreamProcessorCommandInput} for command's `input` shape.
+ * @see {@link CreateStreamProcessorCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateStreamProcessorCommand extends $Command<
   CreateStreamProcessorCommandInput,

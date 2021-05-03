@@ -24,6 +24,18 @@ export interface UpdateSimulationApplicationCommandOutput
 
 /**
  * <p>Updates a simulation application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new UpdateSimulationApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSimulationApplicationCommandInput} for command's `input` shape.
+ * @see {@link UpdateSimulationApplicationCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSimulationApplicationCommand extends $Command<
   UpdateSimulationApplicationCommandInput,

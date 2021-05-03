@@ -46,6 +46,18 @@ export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResul
  *          <p>For more information about rotating your SSL/TLS certificate for Aurora DB engines, see
  *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html">
  *               Rotating Your SSL/TLS Certificate</a> in the <i>Amazon Aurora User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new ModifyCertificatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyCertificatesCommandInput} for command's `input` shape.
+ * @see {@link ModifyCertificatesCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyCertificatesCommand extends $Command<
   ModifyCertificatesCommandInput,

@@ -22,6 +22,18 @@ export interface GetBranchCommandOutput extends GetBranchResult, __MetadataBeare
 
 /**
  * <p> Returns a branch for an Amplify app. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyClient(config);
+ * const command = new GetBranchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBranchCommandInput} for command's `input` shape.
+ * @see {@link GetBranchCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBranchCommand extends $Command<
   GetBranchCommandInput,

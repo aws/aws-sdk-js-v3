@@ -37,6 +37,18 @@ export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage,
  *             ready for use.</p>
  *         <p>If cache nodes are currently being removed from the cluster, no endpoint information
  *             for the removed nodes is displayed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new DescribeCacheClustersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCacheClustersCommandInput} for command's `input` shape.
+ * @see {@link DescribeCacheClustersCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCacheClustersCommand extends $Command<
   DescribeCacheClustersCommandInput,

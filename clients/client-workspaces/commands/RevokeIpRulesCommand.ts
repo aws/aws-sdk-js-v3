@@ -22,6 +22,18 @@ export interface RevokeIpRulesCommandOutput extends RevokeIpRulesResult, __Metad
 
 /**
  * <p>Removes one or more rules from the specified IP access control group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new RevokeIpRulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RevokeIpRulesCommandInput} for command's `input` shape.
+ * @see {@link RevokeIpRulesCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RevokeIpRulesCommand extends $Command<
   RevokeIpRulesCommandInput,

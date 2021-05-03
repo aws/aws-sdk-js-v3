@@ -24,6 +24,18 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  * <p>
  *    		Collects customer feedback about the specified insight.
  *    	</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DevOpsGuruClient(config);
+ * const command = new PutFeedbackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutFeedbackCommandInput} for command's `input` shape.
+ * @see {@link PutFeedbackCommandOutput} for command's `response` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutFeedbackCommand extends $Command<
   PutFeedbackCommandInput,

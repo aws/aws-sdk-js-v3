@@ -25,6 +25,18 @@ export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOut
  *          you select a medium changer type for the tape gateway. This operation enables you to select
  *          a different type of medium changer after a tape gateway is activated. This operation is
  *          only supported in the tape gateway type.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new UpdateVTLDeviceTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateVTLDeviceTypeCommandInput} for command's `input` shape.
+ * @see {@link UpdateVTLDeviceTypeCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateVTLDeviceTypeCommand extends $Command<
   UpdateVTLDeviceTypeCommandInput,

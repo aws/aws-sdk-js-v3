@@ -23,6 +23,18 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  *          <p>Recently deregistered images appear in the returned results for a short interval and then return empty results.
  *         After all instances that reference a deregistered AMI are terminated, specifying the ID of the image results
  *         in an error indicating that the AMI ID cannot be found.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeImagesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeImagesCommandInput} for command's `input` shape.
+ * @see {@link DescribeImagesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeImagesCommand extends $Command<
   DescribeImagesCommandInput,

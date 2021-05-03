@@ -22,6 +22,18 @@ export interface GetModelCommandOutput extends GetModelResponse, __MetadataBeare
 
 /**
  * <p>Gets a Model.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new GetModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetModelCommandInput} for command's `input` shape.
+ * @see {@link GetModelCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetModelCommand extends $Command<
   GetModelCommandInput,

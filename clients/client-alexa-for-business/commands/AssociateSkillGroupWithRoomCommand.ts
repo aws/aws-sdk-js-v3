@@ -25,6 +25,18 @@ export interface AssociateSkillGroupWithRoomCommandOutput
 /**
  * <p>Associates a skill group with a given room. This enables all skills in the associated
  *          skill group on all devices in the room.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new AssociateSkillGroupWithRoomCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateSkillGroupWithRoomCommandInput} for command's `input` shape.
+ * @see {@link AssociateSkillGroupWithRoomCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateSkillGroupWithRoomCommand extends $Command<
   AssociateSkillGroupWithRoomCommandInput,

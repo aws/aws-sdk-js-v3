@@ -31,6 +31,18 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *             are managed by AWS for an Amazon EKS cluster. Each node group uses a version of the Amazon EKS
  *             optimized Amazon Linux 2 AMI. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html">Managed
  *                 Node Groups</a> in the <i>Amazon EKS User Guide</i>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new CreateNodegroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateNodegroupCommandInput} for command's `input` shape.
+ * @see {@link CreateNodegroupCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateNodegroupCommand extends $Command<
   CreateNodegroupCommandInput,

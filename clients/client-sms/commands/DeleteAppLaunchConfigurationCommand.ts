@@ -24,6 +24,18 @@ export interface DeleteAppLaunchConfigurationCommandOutput
 
 /**
  * <p>Deletes the launch configuration for the specified application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SMSClient(config);
+ * const command = new DeleteAppLaunchConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAppLaunchConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteAppLaunchConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAppLaunchConfigurationCommand extends $Command<
   DeleteAppLaunchConfigurationCommandInput,

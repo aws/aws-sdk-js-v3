@@ -53,6 +53,18 @@ export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
  *             operation returns the reason that it failed.</p>
  *         <p>By default, the list of associated entities is sorted by date, with the most recent
  *             access listed first.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new GetServiceLastAccessedDetailsWithEntitiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetServiceLastAccessedDetailsWithEntitiesCommandInput} for command's `input` shape.
+ * @see {@link GetServiceLastAccessedDetailsWithEntitiesCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command<
   GetServiceLastAccessedDetailsWithEntitiesCommandInput,

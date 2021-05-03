@@ -38,6 +38,18 @@ export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, _
  *       <p>The endpoint for submitting <code>UploadDocuments</code> requests is domain-specific. To get the document endpoint for your domain, use the Amazon CloudSearch configuration service <code>DescribeDomains</code> action. A domain's endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. </p>
  *       <p>For more information about formatting your data for Amazon CloudSearch, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/preparing-data.html">Preparing Your Data</a> in the <i>Amazon CloudSearch Developer Guide</i>.
  *       For more information about uploading data for indexing, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/uploading-data.html">Uploading Data</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudSearchDomainClient(config);
+ * const command = new UploadDocumentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UploadDocumentsCommandInput} for command's `input` shape.
+ * @see {@link UploadDocumentsCommandOutput} for command's `response` shape.
+ * @see {@link CloudSearchDomainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UploadDocumentsCommand extends $Command<
   UploadDocumentsCommandInput,

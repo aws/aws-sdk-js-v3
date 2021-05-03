@@ -22,6 +22,18 @@ export interface ListProvisioningTemplatesCommandOutput extends ListProvisioning
 
 /**
  * <p>Lists the fleet provisioning templates in your AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ListProvisioningTemplatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProvisioningTemplatesCommandInput} for command's `input` shape.
+ * @see {@link ListProvisioningTemplatesCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProvisioningTemplatesCommand extends $Command<
   ListProvisioningTemplatesCommandInput,

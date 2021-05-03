@@ -22,6 +22,18 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
 
 /**
  * <p>Returns a list of users.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new DescribeUsersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeUsersCommandInput} for command's `input` shape.
+ * @see {@link DescribeUsersCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeUsersCommand extends $Command<
   DescribeUsersCommandInput,

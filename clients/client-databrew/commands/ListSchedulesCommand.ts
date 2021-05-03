@@ -22,6 +22,18 @@ export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __Met
 
 /**
  * <p>Lists the DataBrew schedules that are defined.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new ListSchedulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSchedulesCommandInput} for command's `input` shape.
+ * @see {@link ListSchedulesCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSchedulesCommand extends $Command<
   ListSchedulesCommandInput,

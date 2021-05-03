@@ -22,6 +22,18 @@ export interface CreateUserDefinedFunctionCommandOutput extends CreateUserDefine
 
 /**
  * <p>Creates a new function definition in the Data Catalog.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new CreateUserDefinedFunctionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateUserDefinedFunctionCommandInput} for command's `input` shape.
+ * @see {@link CreateUserDefinedFunctionCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateUserDefinedFunctionCommand extends $Command<
   CreateUserDefinedFunctionCommandInput,

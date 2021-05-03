@@ -25,6 +25,18 @@ export interface DescribeCostCategoryDefinitionCommandOutput
 /**
  * <p>Returns the name, ARN, rules, definition, and effective dates of a Cost Category that's defined in the account.</p>
  *          <p>You have the option to use <code>EffectiveOn</code> to return a Cost Category that is active on a specific date. If there is no <code>EffectiveOn</code> specified, you’ll see a Cost Category that is effective on the current date. If Cost Category is still effective, <code>EffectiveEnd</code> is omitted in the response. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CostExplorerClient(config);
+ * const command = new DescribeCostCategoryDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCostCategoryDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DescribeCostCategoryDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCostCategoryDefinitionCommand extends $Command<
   DescribeCostCategoryDefinitionCommandInput,

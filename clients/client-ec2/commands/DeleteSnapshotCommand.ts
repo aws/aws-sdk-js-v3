@@ -28,6 +28,18 @@ export interface DeleteSnapshotCommandOutput extends __MetadataBearer {}
  *       You must first de-register the AMI before you can delete the snapshot.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html">Deleting an Amazon EBS snapshot</a> in the
  *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DeleteSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSnapshotCommandInput} for command's `input` shape.
+ * @see {@link DeleteSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSnapshotCommand extends $Command<
   DeleteSnapshotCommandInput,

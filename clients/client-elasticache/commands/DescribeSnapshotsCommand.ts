@@ -29,6 +29,18 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMes
  *         <note>
  *             <p>This operation is valid for Redis only.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new DescribeSnapshotsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSnapshotsCommandInput} for command's `input` shape.
+ * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSnapshotsCommand extends $Command<
   DescribeSnapshotsCommandInput,

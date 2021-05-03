@@ -26,6 +26,18 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationResult,
  *    the instance. To change the configuration state of an instance after you disassociate a document,
  *    you must create a new document with the desired configuration and associate it with the
  *    instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new DeleteAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAssociationCommandInput} for command's `input` shape.
+ * @see {@link DeleteAssociationCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAssociationCommand extends $Command<
   DeleteAssociationCommandInput,

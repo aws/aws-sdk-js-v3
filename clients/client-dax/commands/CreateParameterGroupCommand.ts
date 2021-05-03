@@ -23,6 +23,18 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
 /**
  * <p>Creates a new parameter group. A parameter group is a collection of parameters that
  *             you apply to all of the nodes in a DAX cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DAXClient(config);
+ * const command = new CreateParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateParameterGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateParameterGroupCommandOutput} for command's `response` shape.
+ * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateParameterGroupCommand extends $Command<
   CreateParameterGroupCommandInput,

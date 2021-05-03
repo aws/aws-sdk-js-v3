@@ -29,6 +29,18 @@ export interface PutDomainPermissionsPolicyCommandOutput extends PutDomainPermis
  *        This ensures that the owner of a domain cannot lock themselves out of the domain, which would prevent them from being
  *        able to update the resource policy.
  *      </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeartifactClient(config);
+ * const command = new PutDomainPermissionsPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutDomainPermissionsPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutDomainPermissionsPolicyCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutDomainPermissionsPolicyCommand extends $Command<
   PutDomainPermissionsPolicyCommandInput,

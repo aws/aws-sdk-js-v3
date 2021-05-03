@@ -104,6 +104,18 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KMSClient(config);
+ * const command = new DecryptCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DecryptCommandInput} for command's `input` shape.
+ * @see {@link DecryptCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties

@@ -22,6 +22,18 @@ export interface UpdateUsageCommandOutput extends Usage, __MetadataBearer {}
 
 /**
  * <p>Grants a temporary extension to the remaining quota of a usage plan associated with a specified API key.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new UpdateUsageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateUsageCommandInput} for command's `input` shape.
+ * @see {@link UpdateUsageCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateUsageCommand extends $Command<
   UpdateUsageCommandInput,

@@ -51,6 +51,18 @@ export interface DescribeLoadBalancerAttributesCommandOutput
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new DescribeLoadBalancerAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLoadBalancerAttributesCommandInput} for command's `input` shape.
+ * @see {@link DescribeLoadBalancerAttributesCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLoadBalancerAttributesCommand extends $Command<
   DescribeLoadBalancerAttributesCommandInput,

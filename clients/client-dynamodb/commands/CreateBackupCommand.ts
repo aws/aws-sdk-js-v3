@@ -51,6 +51,18 @@ export interface CreateBackupCommandOutput extends CreateBackupOutput, __Metadat
  *                   <p>Provisioned read and write capacity</p>
  *               </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new CreateBackupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateBackupCommandInput} for command's `input` shape.
+ * @see {@link CreateBackupCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateBackupCommand extends $Command<
   CreateBackupCommandInput,

@@ -22,6 +22,18 @@ export interface DeleteApiKeyCommandOutput extends DeleteApiKeyResponse, __Metad
 
 /**
  * <p>Deletes an API key.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppSyncClient(config);
+ * const command = new DeleteApiKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteApiKeyCommandInput} for command's `input` shape.
+ * @see {@link DeleteApiKeyCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteApiKeyCommand extends $Command<
   DeleteApiKeyCommandInput,

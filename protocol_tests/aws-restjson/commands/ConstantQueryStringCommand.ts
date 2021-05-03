@@ -25,6 +25,18 @@ export interface ConstantQueryStringCommandOutput extends __MetadataBearer {}
  * This simply tests that labels and query string parameters are
  * compatible. The fixed query string parameter named "hello" should
  * in no way conflict with the label, `{hello}`.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new ConstantQueryStringCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ConstantQueryStringCommandInput} for command's `input` shape.
+ * @see {@link ConstantQueryStringCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ConstantQueryStringCommand extends $Command<
   ConstantQueryStringCommandInput,

@@ -24,6 +24,18 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  * <p>Modifies the settings for a DAX cluster. You can use this action to change one or
  *             more cluster configuration parameters by specifying the parameters and the new
  *             values.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DAXClient(config);
+ * const command = new UpdateClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateClusterCommandInput} for command's `input` shape.
+ * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
+ * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateClusterCommand extends $Command<
   UpdateClusterCommandInput,

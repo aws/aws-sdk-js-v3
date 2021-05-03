@@ -26,6 +26,18 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  *             and the DAX cluster itself. When you receive a successful response from this action,
  *             DAX immediately begins deleting the cluster; you cannot cancel or revert this
  *             action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DAXClient(config);
+ * const command = new DeleteClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteClusterCommandInput} for command's `input` shape.
+ * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
+ * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,

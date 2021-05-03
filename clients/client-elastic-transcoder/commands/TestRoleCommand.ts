@@ -33,6 +33,18 @@ export interface TestRoleCommandOutput extends TestRoleResponse, __MetadataBeare
  *             process. The action attempts to assume the specified IAM role, checks read access to the
  *             input and output buckets, and tries to send a test notification to Amazon SNS topics
  *             that you specify.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticTranscoderClient(config);
+ * const command = new TestRoleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TestRoleCommandInput} for command's `input` shape.
+ * @see {@link TestRoleCommandOutput} for command's `response` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TestRoleCommand extends $Command<
   TestRoleCommandInput,

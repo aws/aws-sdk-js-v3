@@ -22,6 +22,18 @@ export interface CreateRouteResponseCommandOutput extends CreateRouteResponseRes
 
 /**
  * <p>Creates a RouteResponse for a Route.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new CreateRouteResponseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRouteResponseCommandInput} for command's `input` shape.
+ * @see {@link CreateRouteResponseCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRouteResponseCommand extends $Command<
   CreateRouteResponseCommandInput,

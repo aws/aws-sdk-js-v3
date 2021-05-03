@@ -24,6 +24,18 @@ export interface CreateEntityRecognizerCommandOutput extends CreateEntityRecogni
  * <p>Creates an entity recognizer using submitted files. After your
  *         <code>CreateEntityRecognizer</code> request is submitted, you can check job status using the
  *          API. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new CreateEntityRecognizerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateEntityRecognizerCommandInput} for command's `input` shape.
+ * @see {@link CreateEntityRecognizerCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateEntityRecognizerCommand extends $Command<
   CreateEntityRecognizerCommandInput,

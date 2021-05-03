@@ -22,6 +22,18 @@ export interface CreateGroupVersionCommandOutput extends CreateGroupVersionRespo
 
 /**
  * Creates a version of a group which has already been defined.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new CreateGroupVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateGroupVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateGroupVersionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateGroupVersionCommand extends $Command<
   CreateGroupVersionCommandInput,

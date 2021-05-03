@@ -22,6 +22,18 @@ export interface StartLoggingCommandOutput extends StartLoggingResponse, __Metad
 
 /**
  * <p>Starts the recording of AWS API calls and log file delivery for a trail. For a trail that is enabled in all regions, this operation must be called from the region in which the trail was created. This operation cannot be called on the shadow trails (replicated trails in other regions) of a trail that is enabled in all regions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudTrailClient(config);
+ * const command = new StartLoggingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartLoggingCommandInput} for command's `input` shape.
+ * @see {@link StartLoggingCommandOutput} for command's `response` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartLoggingCommand extends $Command<
   StartLoggingCommandInput,

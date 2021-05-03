@@ -22,6 +22,18 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
 
 /**
  * <p>Updates the IPSet specified by the IPSet ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new UpdateIPSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateIPSetCommandInput} for command's `input` shape.
+ * @see {@link UpdateIPSetCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateIPSetCommand extends $Command<
   UpdateIPSetCommandInput,

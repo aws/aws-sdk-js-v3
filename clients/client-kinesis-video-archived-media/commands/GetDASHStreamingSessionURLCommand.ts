@@ -172,6 +172,18 @@ export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamin
  *                 the bottom of this topic, as well as <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html">Common Errors</a>.
  *             </p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisVideoArchivedMediaClient(config);
+ * const command = new GetDASHStreamingSessionURLCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDASHStreamingSessionURLCommandInput} for command's `input` shape.
+ * @see {@link GetDASHStreamingSessionURLCommandOutput} for command's `response` shape.
+ * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDASHStreamingSessionURLCommand extends $Command<
   GetDASHStreamingSessionURLCommandInput,

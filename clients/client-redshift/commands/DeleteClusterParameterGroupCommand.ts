@@ -26,6 +26,18 @@ export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBear
  *             <p>You cannot delete a parameter group if it is associated with a
  *                 cluster.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DeleteClusterParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteClusterParameterGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteClusterParameterGroupCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteClusterParameterGroupCommand extends $Command<
   DeleteClusterParameterGroupCommandInput,

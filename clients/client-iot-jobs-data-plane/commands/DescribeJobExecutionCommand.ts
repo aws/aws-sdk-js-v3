@@ -22,6 +22,18 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
 
 /**
  * <p>Gets details of a job execution.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTJobsDataPlaneClient(config);
+ * const command = new DescribeJobExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeJobExecutionCommandInput} for command's `input` shape.
+ * @see {@link DescribeJobExecutionCommandOutput} for command's `response` shape.
+ * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeJobExecutionCommand extends $Command<
   DescribeJobExecutionCommandInput,

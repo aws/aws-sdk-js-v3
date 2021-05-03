@@ -26,6 +26,18 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  *       through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p>
  *          <p>The maximum number of metric filters that can be associated with a log group is
  *       100.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new PutMetricFilterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutMetricFilterCommandInput} for command's `input` shape.
+ * @see {@link PutMetricFilterCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutMetricFilterCommand extends $Command<
   PutMetricFilterCommandInput,

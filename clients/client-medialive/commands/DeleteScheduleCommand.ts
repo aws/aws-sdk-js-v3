@@ -22,6 +22,18 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleResponse, __M
 
 /**
  * Delete all schedule actions on a channel.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaLiveClient(config);
+ * const command = new DeleteScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteScheduleCommandInput} for command's `input` shape.
+ * @see {@link DeleteScheduleCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteScheduleCommand extends $Command<
   DeleteScheduleCommandInput,

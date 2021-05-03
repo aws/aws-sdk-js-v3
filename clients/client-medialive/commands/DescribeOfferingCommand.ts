@@ -22,6 +22,18 @@ export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse,
 
 /**
  * Get details for an offering.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaLiveClient(config);
+ * const command = new DescribeOfferingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeOfferingCommandInput} for command's `input` shape.
+ * @see {@link DescribeOfferingCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeOfferingCommand extends $Command<
   DescribeOfferingCommandInput,

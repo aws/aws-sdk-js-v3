@@ -22,6 +22,18 @@ export interface ListContactListsCommandOutput extends ListContactListsResponse,
 
 /**
  * <p>Lists all of the contact lists available.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new ListContactListsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListContactListsCommandInput} for command's `input` shape.
+ * @see {@link ListContactListsCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListContactListsCommand extends $Command<
   ListContactListsCommandInput,

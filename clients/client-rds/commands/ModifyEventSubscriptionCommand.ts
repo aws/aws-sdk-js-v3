@@ -26,6 +26,18 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  *          <p>You can see a list of the event categories for a given source type (<code>SourceType</code>)
  *           in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a> in the <i>Amazon RDS User Guide</i>
  *             or by using the <code>DescribeEventCategories</code> operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new ModifyEventSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyEventSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyEventSubscriptionCommand extends $Command<
   ModifyEventSubscriptionCommandInput,

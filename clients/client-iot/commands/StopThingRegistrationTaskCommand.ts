@@ -22,6 +22,18 @@ export interface StopThingRegistrationTaskCommandOutput extends StopThingRegistr
 
 /**
  * <p>Cancels a bulk thing provisioning task.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new StopThingRegistrationTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopThingRegistrationTaskCommandInput} for command's `input` shape.
+ * @see {@link StopThingRegistrationTaskCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopThingRegistrationTaskCommand extends $Command<
   StopThingRegistrationTaskCommandInput,

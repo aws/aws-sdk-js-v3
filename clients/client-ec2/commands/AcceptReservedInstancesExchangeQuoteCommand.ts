@@ -27,6 +27,18 @@ export interface AcceptReservedInstancesExchangeQuoteCommandOutput
 
 /**
  * <p>Accepts the Convertible Reserved Instance exchange quote described in the <a>GetReservedInstancesExchangeQuote</a> call.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new AcceptReservedInstancesExchangeQuoteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AcceptReservedInstancesExchangeQuoteCommandInput} for command's `input` shape.
+ * @see {@link AcceptReservedInstancesExchangeQuoteCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AcceptReservedInstancesExchangeQuoteCommand extends $Command<
   AcceptReservedInstancesExchangeQuoteCommandInput,

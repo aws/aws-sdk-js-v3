@@ -36,6 +36,18 @@ export interface DescribeClusterSecurityGroupsCommandOutput extends ClusterSecur
  *         <p>If both tag keys and values are omitted from the request, security groups are
  *             returned regardless of whether they have tag keys or values associated with
  *             them.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DescribeClusterSecurityGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeClusterSecurityGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeClusterSecurityGroupsCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeClusterSecurityGroupsCommand extends $Command<
   DescribeClusterSecurityGroupsCommandInput,

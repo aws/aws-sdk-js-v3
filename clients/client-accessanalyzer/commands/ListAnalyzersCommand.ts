@@ -22,6 +22,18 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
 
 /**
  * <p>Retrieves a list of analyzers.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AccessAnalyzerClient(config);
+ * const command = new ListAnalyzersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAnalyzersCommandInput} for command's `input` shape.
+ * @see {@link ListAnalyzersCommandOutput} for command's `response` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAnalyzersCommand extends $Command<
   ListAnalyzersCommandInput,

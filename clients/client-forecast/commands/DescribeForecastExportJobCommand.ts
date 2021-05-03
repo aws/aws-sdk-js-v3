@@ -46,6 +46,18 @@ export interface DescribeForecastExportJobCommandOutput extends DescribeForecast
  *                   <code>Message</code> - If an error occurred, information about the error.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ForecastClient(config);
+ * const command = new DescribeForecastExportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeForecastExportJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeForecastExportJobCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeForecastExportJobCommand extends $Command<
   DescribeForecastExportJobCommandInput,

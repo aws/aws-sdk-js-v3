@@ -34,6 +34,18 @@ export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBea
  *             configured cache disks left in the gateway, so you must configure at least one new cache
  *             disk for your gateway to function properly.</p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new ResetCacheCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResetCacheCommandInput} for command's `input` shape.
+ * @see {@link ResetCacheCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResetCacheCommand extends $Command<
   ResetCacheCommandInput,

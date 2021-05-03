@@ -22,6 +22,18 @@ export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsRespons
 
 /**
  * <p>List <code>FeatureGroup</code>s based on given filter and order.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListFeatureGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFeatureGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListFeatureGroupsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFeatureGroupsCommand extends $Command<
   ListFeatureGroupsCommandInput,

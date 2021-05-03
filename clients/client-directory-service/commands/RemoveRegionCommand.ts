@@ -24,6 +24,18 @@ export interface RemoveRegionCommandOutput extends RemoveRegionResult, __Metadat
  * <p>Stops all replication and removes the domain controllers from the specified Region. You
  *       cannot remove the primary Region with this operation. Instead, use the
  *         <code>DeleteDirectory</code> API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new RemoveRegionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveRegionCommandInput} for command's `input` shape.
+ * @see {@link RemoveRegionCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveRegionCommand extends $Command<
   RemoveRegionCommandInput,

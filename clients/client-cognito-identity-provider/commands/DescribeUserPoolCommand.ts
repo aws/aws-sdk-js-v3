@@ -27,6 +27,18 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
 
 /**
  * <p>Returns the configuration information and metadata of the specified user pool.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new DescribeUserPoolCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeUserPoolCommandInput} for command's `input` shape.
+ * @see {@link DescribeUserPoolCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeUserPoolCommand extends $Command<
   DescribeUserPoolCommandInput,

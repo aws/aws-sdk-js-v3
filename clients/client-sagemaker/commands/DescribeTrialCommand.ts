@@ -22,6 +22,18 @@ export interface DescribeTrialCommandOutput extends DescribeTrialResponse, __Met
 
 /**
  * <p>Provides a list of a trial's properties.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeTrialCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTrialCommandInput} for command's `input` shape.
+ * @see {@link DescribeTrialCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTrialCommand extends $Command<
   DescribeTrialCommandInput,

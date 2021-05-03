@@ -22,6 +22,18 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
 
 /**
  * List all of the configuration sets associated with your Amazon Pinpoint account in the current region.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointSMSVoiceClient(config);
+ * const command = new ListConfigurationSetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListConfigurationSetsCommandInput} for command's `input` shape.
+ * @see {@link ListConfigurationSetsCommandOutput} for command's `response` shape.
+ * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListConfigurationSetsCommand extends $Command<
   ListConfigurationSetsCommandInput,

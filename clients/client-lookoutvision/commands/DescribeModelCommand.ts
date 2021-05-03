@@ -24,6 +24,18 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * <p>Describes a version of an Amazon Lookout for Vision model.</p>
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:DescribeModel</code> operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutVisionClient(config);
+ * const command = new DescribeModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeModelCommandInput} for command's `input` shape.
+ * @see {@link DescribeModelCommandOutput} for command's `response` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeModelCommand extends $Command<
   DescribeModelCommandInput,

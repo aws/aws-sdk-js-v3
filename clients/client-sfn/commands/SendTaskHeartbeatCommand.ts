@@ -36,6 +36,18 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  *         its maximum allowed duration, regardless of the number of <a>SendTaskHeartbeat</a> requests received. Use <code>HeartbeatSeconds</code> to configure the timeout interval
  *         for heartbeats.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SFNClient(config);
+ * const command = new SendTaskHeartbeatCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendTaskHeartbeatCommandInput} for command's `input` shape.
+ * @see {@link SendTaskHeartbeatCommandOutput} for command's `response` shape.
+ * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendTaskHeartbeatCommand extends $Command<
   SendTaskHeartbeatCommandInput,

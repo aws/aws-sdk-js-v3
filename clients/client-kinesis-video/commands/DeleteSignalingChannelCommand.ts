@@ -24,6 +24,18 @@ export interface DeleteSignalingChannelCommandOutput extends DeleteSignalingChan
  * <p>Deletes a specified signaling channel. <code>DeleteSignalingChannel</code> is an
  *             asynchronous operation. If you don't specify the channel's current version, the most
  *             recent version is deleted.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisVideoClient(config);
+ * const command = new DeleteSignalingChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSignalingChannelCommandInput} for command's `input` shape.
+ * @see {@link DeleteSignalingChannelCommandOutput} for command's `response` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSignalingChannelCommand extends $Command<
   DeleteSignalingChannelCommandInput,

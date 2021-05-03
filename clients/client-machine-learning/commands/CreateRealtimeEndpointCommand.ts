@@ -22,6 +22,18 @@ export interface CreateRealtimeEndpointCommandOutput extends CreateRealtimeEndpo
 
 /**
  * <p>Creates a real-time endpoint for the <code>MLModel</code>. The endpoint contains the URI of the <code>MLModel</code>; that is, the location to send real-time prediction requests for the specified <code>MLModel</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MachineLearningClient(config);
+ * const command = new CreateRealtimeEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRealtimeEndpointCommandInput} for command's `input` shape.
+ * @see {@link CreateRealtimeEndpointCommandOutput} for command's `response` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRealtimeEndpointCommand extends $Command<
   CreateRealtimeEndpointCommandInput,

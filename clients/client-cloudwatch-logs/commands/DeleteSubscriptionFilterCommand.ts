@@ -22,6 +22,18 @@ export interface DeleteSubscriptionFilterCommandOutput extends __MetadataBearer 
 
 /**
  * <p>Deletes the specified subscription filter.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new DeleteSubscriptionFilterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSubscriptionFilterCommandInput} for command's `input` shape.
+ * @see {@link DeleteSubscriptionFilterCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSubscriptionFilterCommand extends $Command<
   DeleteSubscriptionFilterCommandInput,

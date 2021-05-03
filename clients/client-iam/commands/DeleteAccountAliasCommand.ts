@@ -24,6 +24,18 @@ export interface DeleteAccountAliasCommandOutput extends __MetadataBearer {}
  * <p> Deletes the specified AWS account alias. For information about using an AWS
  *             account alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using an alias for your AWS account ID</a> in the
  *                 <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new DeleteAccountAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAccountAliasCommandInput} for command's `input` shape.
+ * @see {@link DeleteAccountAliasCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAccountAliasCommand extends $Command<
   DeleteAccountAliasCommandInput,

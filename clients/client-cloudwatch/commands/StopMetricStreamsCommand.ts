@@ -22,6 +22,18 @@ export interface StopMetricStreamsCommandOutput extends StopMetricStreamsOutput,
 
 /**
  * <p>Stops the streaming of metrics for one or more of your metric streams.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchClient(config);
+ * const command = new StopMetricStreamsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopMetricStreamsCommandInput} for command's `input` shape.
+ * @see {@link StopMetricStreamsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopMetricStreamsCommand extends $Command<
   StopMetricStreamsCommandInput,

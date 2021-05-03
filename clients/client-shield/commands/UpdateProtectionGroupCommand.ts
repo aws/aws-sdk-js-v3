@@ -22,6 +22,18 @@ export interface UpdateProtectionGroupCommandOutput extends UpdateProtectionGrou
 
 /**
  * <p>Updates an existing protection group. A protection group is a grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ShieldClient(config);
+ * const command = new UpdateProtectionGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateProtectionGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateProtectionGroupCommandOutput} for command's `response` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateProtectionGroupCommand extends $Command<
   UpdateProtectionGroupCommandInput,

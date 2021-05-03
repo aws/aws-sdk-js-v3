@@ -23,6 +23,18 @@ export interface GetTelemetryMetadataCommandOutput extends GetTelemetryMetadataR
 /**
  * <p>Information about the data that is collected for the specified assessment
  *          run.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new GetTelemetryMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTelemetryMetadataCommandInput} for command's `input` shape.
+ * @see {@link GetTelemetryMetadataCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTelemetryMetadataCommand extends $Command<
   GetTelemetryMetadataCommandInput,

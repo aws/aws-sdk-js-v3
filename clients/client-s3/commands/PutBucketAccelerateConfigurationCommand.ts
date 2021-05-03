@@ -68,6 +68,18 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3Client(config);
+ * const command = new PutBucketAccelerateConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutBucketAccelerateConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutBucketAccelerateConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutBucketAccelerateConfigurationCommand extends $Command<
   PutBucketAccelerateConfigurationCommandInput,

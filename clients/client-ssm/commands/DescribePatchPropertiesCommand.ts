@@ -68,6 +68,18 @@ export interface DescribePatchPropertiesCommandOutput extends DescribePatchPrope
  *                <p>Valid properties: PRODUCT, PRODUCT_FAMILY, CLASSIFICATION, MSRC_SEVERITY</p>
  *             </dd>
  *          </dl>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new DescribePatchPropertiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePatchPropertiesCommandInput} for command's `input` shape.
+ * @see {@link DescribePatchPropertiesCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePatchPropertiesCommand extends $Command<
   DescribePatchPropertiesCommandInput,

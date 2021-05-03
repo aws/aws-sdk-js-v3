@@ -27,6 +27,18 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
 
 /**
  * <p>Update an origin access identity. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new UpdateCloudFrontOriginAccessIdentityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateCloudFrontOriginAccessIdentityCommandInput} for command's `input` shape.
+ * @see {@link UpdateCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<
   UpdateCloudFrontOriginAccessIdentityCommandInput,

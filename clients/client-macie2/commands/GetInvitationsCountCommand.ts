@@ -22,6 +22,18 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
 
 /**
  * <p>Retrieves the count of Amazon Macie membership invitations that were received by an account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new GetInvitationsCountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetInvitationsCountCommandInput} for command's `input` shape.
+ * @see {@link GetInvitationsCountCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetInvitationsCountCommand extends $Command<
   GetInvitationsCountCommandInput,

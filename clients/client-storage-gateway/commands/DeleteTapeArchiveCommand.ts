@@ -23,6 +23,18 @@ export interface DeleteTapeArchiveCommandOutput extends DeleteTapeArchiveOutput,
 /**
  * <p>Deletes the specified virtual tape from the virtual tape shelf (VTS). This operation is
  *          only supported in the tape gateway type.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new DeleteTapeArchiveCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTapeArchiveCommandInput} for command's `input` shape.
+ * @see {@link DeleteTapeArchiveCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTapeArchiveCommand extends $Command<
   DeleteTapeArchiveCommandInput,

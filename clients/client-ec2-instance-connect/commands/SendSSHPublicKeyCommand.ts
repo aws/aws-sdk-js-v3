@@ -29,6 +29,18 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  *             The key remains for 60 seconds. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.html">Connect to
  *                 your Linux instance using EC2 Instance Connect</a> in the <i>Amazon EC2
  *                 User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2InstanceConnectClient(config);
+ * const command = new SendSSHPublicKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendSSHPublicKeyCommandInput} for command's `input` shape.
+ * @see {@link SendSSHPublicKeyCommandOutput} for command's `response` shape.
+ * @see {@link EC2InstanceConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendSSHPublicKeyCommand extends $Command<
   SendSSHPublicKeyCommandInput,

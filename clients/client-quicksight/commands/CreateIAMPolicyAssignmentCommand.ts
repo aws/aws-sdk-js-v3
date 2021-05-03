@@ -25,6 +25,18 @@ export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyA
  * 			(ARN). This policy assignment is attached to the specified groups or users of Amazon QuickSight.
  * 			Assignment names are unique per AWS account. To avoid overwriting rules in other namespaces,
  * 			use assignment names that are unique.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new CreateIAMPolicyAssignmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateIAMPolicyAssignmentCommandInput} for command's `input` shape.
+ * @see {@link CreateIAMPolicyAssignmentCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateIAMPolicyAssignmentCommand extends $Command<
   CreateIAMPolicyAssignmentCommandInput,

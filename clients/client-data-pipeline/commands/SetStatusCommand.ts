@@ -51,6 +51,18 @@ export interface SetStatusCommandOutput extends __MetadataBearer {}
  *
  *             </response>
  *         </examples>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataPipelineClient(config);
+ * const command = new SetStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetStatusCommandInput} for command's `input` shape.
+ * @see {@link SetStatusCommandOutput} for command's `response` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetStatusCommand extends $Command<
   SetStatusCommandInput,

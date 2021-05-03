@@ -23,6 +23,18 @@ export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
 /**
  * <p>Executes the specified policy. This can be useful for testing the design of your
  *             scaling policy.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingClient(config);
+ * const command = new ExecutePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ExecutePolicyCommandInput} for command's `input` shape.
+ * @see {@link ExecutePolicyCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ExecutePolicyCommand extends $Command<
   ExecutePolicyCommandInput,

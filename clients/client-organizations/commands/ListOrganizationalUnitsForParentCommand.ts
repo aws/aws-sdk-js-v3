@@ -34,6 +34,18 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  *          </note>
  *         <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an AWS service.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OrganizationsClient(config);
+ * const command = new ListOrganizationalUnitsForParentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListOrganizationalUnitsForParentCommandInput} for command's `input` shape.
+ * @see {@link ListOrganizationalUnitsForParentCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListOrganizationalUnitsForParentCommand extends $Command<
   ListOrganizationalUnitsForParentCommandInput,

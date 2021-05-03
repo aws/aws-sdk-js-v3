@@ -29,6 +29,18 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
  *          </note>
  *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SFNClient(config);
+ * const command = new ListExecutionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListExecutionsCommandInput} for command's `input` shape.
+ * @see {@link ListExecutionsCommandOutput} for command's `response` shape.
+ * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListExecutionsCommand extends $Command<
   ListExecutionsCommandInput,

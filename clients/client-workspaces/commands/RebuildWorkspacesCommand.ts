@@ -29,6 +29,18 @@ export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult,
  *          WorkSpace</a>.</p>
  *          <p>This operation is asynchronous and returns before the WorkSpaces have been completely
  *          rebuilt.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new RebuildWorkspacesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RebuildWorkspacesCommandInput} for command's `input` shape.
+ * @see {@link RebuildWorkspacesCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RebuildWorkspacesCommand extends $Command<
   RebuildWorkspacesCommandInput,

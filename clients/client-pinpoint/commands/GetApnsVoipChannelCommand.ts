@@ -22,6 +22,18 @@ export interface GetApnsVoipChannelCommandOutput extends GetApnsVoipChannelRespo
 
 /**
  * <p>Retrieves information about the status and settings of the APNs VoIP channel for an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new GetApnsVoipChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetApnsVoipChannelCommandInput} for command's `input` shape.
+ * @see {@link GetApnsVoipChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetApnsVoipChannelCommand extends $Command<
   GetApnsVoipChannelCommandInput,

@@ -22,6 +22,18 @@ export interface ListTemplateVersionsCommandOutput extends ListTemplateVersionsR
 
 /**
  * <p>Retrieves information about all the versions of a specific message template.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new ListTemplateVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTemplateVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListTemplateVersionsCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTemplateVersionsCommand extends $Command<
   ListTemplateVersionsCommandInput,

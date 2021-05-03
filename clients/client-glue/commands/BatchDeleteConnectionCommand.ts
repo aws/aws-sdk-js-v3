@@ -22,6 +22,18 @@ export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectio
 
 /**
  * <p>Deletes a list of connection definitions from the Data Catalog.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new BatchDeleteConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDeleteConnectionCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteConnectionCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDeleteConnectionCommand extends $Command<
   BatchDeleteConnectionCommandInput,

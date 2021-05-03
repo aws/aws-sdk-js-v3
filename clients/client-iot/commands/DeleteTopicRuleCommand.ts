@@ -22,6 +22,18 @@ export interface DeleteTopicRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the rule.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DeleteTopicRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTopicRuleCommandInput} for command's `input` shape.
+ * @see {@link DeleteTopicRuleCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTopicRuleCommand extends $Command<
   DeleteTopicRuleCommandInput,

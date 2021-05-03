@@ -36,6 +36,18 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  *             <p>To use this operation, you must use the data plane API endpoint and authenticate with an
  *         AWS IoT device certificate. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/greengrass.html">AWS IoT Greengrass endpoints and quotas</a>.</p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassV2Client(config);
+ * const command = new ResolveComponentCandidatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResolveComponentCandidatesCommandInput} for command's `input` shape.
+ * @see {@link ResolveComponentCandidatesCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResolveComponentCandidatesCommand extends $Command<
   ResolveComponentCandidatesCommandInput,

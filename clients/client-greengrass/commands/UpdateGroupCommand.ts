@@ -22,6 +22,18 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
 
 /**
  * Updates a group.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new UpdateGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateGroupCommand extends $Command<
   UpdateGroupCommandInput,

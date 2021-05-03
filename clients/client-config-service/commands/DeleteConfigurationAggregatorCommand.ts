@@ -23,6 +23,18 @@ export interface DeleteConfigurationAggregatorCommandOutput extends __MetadataBe
 /**
  * <p>Deletes the specified configuration aggregator and the
  * 			aggregated data associated with the aggregator.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DeleteConfigurationAggregatorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConfigurationAggregatorCommandInput} for command's `input` shape.
+ * @see {@link DeleteConfigurationAggregatorCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConfigurationAggregatorCommand extends $Command<
   DeleteConfigurationAggregatorCommandInput,

@@ -22,6 +22,18 @@ export interface DeleteGrantCommandOutput extends DeleteGrantResponse, __Metadat
 
 /**
  * <p>Deletes the specified grant.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LicenseManagerClient(config);
+ * const command = new DeleteGrantCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteGrantCommandInput} for command's `input` shape.
+ * @see {@link DeleteGrantCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteGrantCommand extends $Command<
   DeleteGrantCommandInput,

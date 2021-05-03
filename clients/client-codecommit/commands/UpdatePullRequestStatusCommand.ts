@@ -22,6 +22,18 @@ export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestS
 
 /**
  * <p>Updates the status of a pull request. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new UpdatePullRequestStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePullRequestStatusCommandInput} for command's `input` shape.
+ * @see {@link UpdatePullRequestStatusCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePullRequestStatusCommand extends $Command<
   UpdatePullRequestStatusCommandInput,

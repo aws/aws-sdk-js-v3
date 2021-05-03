@@ -22,6 +22,18 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
 
 /**
  * <p>Modifies the definition of an existing DataBrew dataset.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new UpdateDatasetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDatasetCommandInput} for command's `input` shape.
+ * @see {@link UpdateDatasetCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDatasetCommand extends $Command<
   UpdateDatasetCommandInput,

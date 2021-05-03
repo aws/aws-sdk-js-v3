@@ -163,6 +163,18 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EFSClient(config);
+ * const command = new CreateMountTargetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMountTargetCommandInput} for command's `input` shape.
+ * @see {@link CreateMountTargetCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMountTargetCommand extends $Command<
   CreateMountTargetCommandInput,

@@ -26,6 +26,18 @@ export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __Met
  *          using the machine learning model that it build for the bot.</p>
  *          <p>In response, Amazon Lex returns the next message to convey to the user
  *          and an optional response card to display.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexRuntimeV2Client(config);
+ * const command = new RecognizeTextCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RecognizeTextCommandInput} for command's `input` shape.
+ * @see {@link RecognizeTextCommandOutput} for command's `response` shape.
+ * @see {@link LexRuntimeV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RecognizeTextCommand extends $Command<
   RecognizeTextCommandInput,

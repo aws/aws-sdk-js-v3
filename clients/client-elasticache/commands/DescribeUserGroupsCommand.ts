@@ -22,6 +22,18 @@ export interface DescribeUserGroupsCommandOutput extends DescribeUserGroupsResul
 
 /**
  * <p>Returns a list of user groups.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new DescribeUserGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeUserGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeUserGroupsCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeUserGroupsCommand extends $Command<
   DescribeUserGroupsCommandInput,

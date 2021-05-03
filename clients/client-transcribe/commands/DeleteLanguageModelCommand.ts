@@ -22,6 +22,18 @@ export interface DeleteLanguageModelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a custom language model using its name.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeClient(config);
+ * const command = new DeleteLanguageModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteLanguageModelCommandInput} for command's `input` shape.
+ * @see {@link DeleteLanguageModelCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteLanguageModelCommand extends $Command<
   DeleteLanguageModelCommandInput,

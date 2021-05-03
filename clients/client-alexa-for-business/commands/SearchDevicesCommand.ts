@@ -22,6 +22,18 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
 
 /**
  * <p>Searches devices and lists the ones that meet a set of filter criteria.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new SearchDevicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchDevicesCommandInput} for command's `input` shape.
+ * @see {@link SearchDevicesCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchDevicesCommand extends $Command<
   SearchDevicesCommandInput,

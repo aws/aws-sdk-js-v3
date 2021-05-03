@@ -30,6 +30,18 @@ export interface DisassociateConnectionAliasCommandOutput extends DisassociateCo
  *             <p>Before performing this operation, call <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html">
  *             DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new DisassociateConnectionAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateConnectionAliasCommandInput} for command's `input` shape.
+ * @see {@link DisassociateConnectionAliasCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateConnectionAliasCommand extends $Command<
   DisassociateConnectionAliasCommandInput,

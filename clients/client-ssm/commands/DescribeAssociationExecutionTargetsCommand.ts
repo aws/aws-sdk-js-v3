@@ -28,6 +28,18 @@ export interface DescribeAssociationExecutionTargetsCommandOutput
 /**
  * <p>Use this API action to view information about a specific execution of a specific
  *    association.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new DescribeAssociationExecutionTargetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAssociationExecutionTargetsCommandInput} for command's `input` shape.
+ * @see {@link DescribeAssociationExecutionTargetsCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAssociationExecutionTargetsCommand extends $Command<
   DescribeAssociationExecutionTargetsCommandInput,

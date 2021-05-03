@@ -95,6 +95,18 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *                <p>There  is a user error, such as an invalid data format.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new TransactWriteItemsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TransactWriteItemsCommandInput} for command's `input` shape.
+ * @see {@link TransactWriteItemsCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TransactWriteItemsCommand extends $Command<
   TransactWriteItemsCommandInput,

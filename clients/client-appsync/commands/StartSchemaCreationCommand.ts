@@ -24,6 +24,18 @@ export interface StartSchemaCreationCommandOutput extends StartSchemaCreationRes
  * <p>Adds a new schema to your GraphQL API.</p>
  *          <p>This operation is asynchronous. Use  to
  *          determine when it has completed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppSyncClient(config);
+ * const command = new StartSchemaCreationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartSchemaCreationCommandInput} for command's `input` shape.
+ * @see {@link StartSchemaCreationCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartSchemaCreationCommand extends $Command<
   StartSchemaCreationCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateSourceLocationCommandOutput extends UpdateSourceLocationR
 
 /**
  * <p>Updates a source location on a specific channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaTailorClient(config);
+ * const command = new UpdateSourceLocationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSourceLocationCommandInput} for command's `input` shape.
+ * @see {@link UpdateSourceLocationCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSourceLocationCommand extends $Command<
   UpdateSourceLocationCommandInput,

@@ -44,6 +44,18 @@ export interface UploadServerCertificateCommandOutput extends UploadServerCertif
  *                 information about using the Query API with IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/programming.html">Calling the API by making HTTP query
  *                     requests</a> in the <i>IAM User Guide</i>.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new UploadServerCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UploadServerCertificateCommandInput} for command's `input` shape.
+ * @see {@link UploadServerCertificateCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UploadServerCertificateCommand extends $Command<
   UploadServerCertificateCommandInput,

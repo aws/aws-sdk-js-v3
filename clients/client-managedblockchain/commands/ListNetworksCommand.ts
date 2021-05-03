@@ -27,6 +27,18 @@ export interface ListNetworksCommandOutput extends ListNetworksOutput, __Metadat
 /**
  * <p>Returns information about the networks in which the current AWS account participates.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ManagedBlockchainClient(config);
+ * const command = new ListNetworksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListNetworksCommandInput} for command's `input` shape.
+ * @see {@link ListNetworksCommandOutput} for command's `response` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListNetworksCommand extends $Command<
   ListNetworksCommandInput,

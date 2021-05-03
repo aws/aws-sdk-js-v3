@@ -27,6 +27,18 @@ export interface ListWorkersWithQualificationTypeCommandOutput
  *             The <code>ListWorkersWithQualificationType</code> operation returns all of the Workers
  *             that have been associated with a given Qualification type.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MTurkClient(config);
+ * const command = new ListWorkersWithQualificationTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListWorkersWithQualificationTypeCommandInput} for command's `input` shape.
+ * @see {@link ListWorkersWithQualificationTypeCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListWorkersWithQualificationTypeCommand extends $Command<
   ListWorkersWithQualificationTypeCommandInput,

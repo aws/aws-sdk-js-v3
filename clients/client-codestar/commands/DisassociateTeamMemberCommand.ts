@@ -25,6 +25,18 @@ export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMem
  *       policies from that user that allowed access to the project and its resources. Disassociating a
  *       team member does not remove that user's profile from AWS CodeStar. It does not remove the user from
  *       IAM.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeStarClient(config);
+ * const command = new DisassociateTeamMemberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateTeamMemberCommandInput} for command's `input` shape.
+ * @see {@link DisassociateTeamMemberCommandOutput} for command's `response` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateTeamMemberCommand extends $Command<
   DisassociateTeamMemberCommandInput,

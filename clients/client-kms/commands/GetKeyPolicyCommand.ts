@@ -30,6 +30,18 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  *          <p>
  *             <b>Related operations</b>: <a>PutKeyPolicy</a>
  *          </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KMSClient(config);
+ * const command = new GetKeyPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetKeyPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetKeyPolicyCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetKeyPolicyCommand extends $Command<
   GetKeyPolicyCommandInput,

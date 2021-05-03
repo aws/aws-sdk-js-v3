@@ -22,6 +22,18 @@ export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityR
 
 /**
  * <p>Checks if the specified CNAME is available.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new CheckDNSAvailabilityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CheckDNSAvailabilityCommandInput} for command's `input` shape.
+ * @see {@link CheckDNSAvailabilityCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CheckDNSAvailabilityCommand extends $Command<
   CheckDNSAvailabilityCommandInput,

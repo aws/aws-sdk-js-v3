@@ -24,6 +24,18 @@ export interface PutBackupVaultAccessPolicyCommandOutput extends __MetadataBeare
  * <p>Sets a resource-based policy that is used to manage access permissions on the target
  *          backup vault. Requires a backup vault name and an access policy document in JSON
  *          format.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new PutBackupVaultAccessPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutBackupVaultAccessPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutBackupVaultAccessPolicyCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutBackupVaultAccessPolicyCommand extends $Command<
   PutBackupVaultAccessPolicyCommandInput,

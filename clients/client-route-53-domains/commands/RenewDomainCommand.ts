@@ -26,6 +26,18 @@ export interface RenewDomainCommandOutput extends RenewDomainResponse, __Metadat
  * 			expiration date if you haven't renewed far enough in advance. For more information about renewing domain registration, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-renew.html">Renewing Registration for a Domain</a>
  * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53DomainsClient(config);
+ * const command = new RenewDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RenewDomainCommandInput} for command's `input` shape.
+ * @see {@link RenewDomainCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RenewDomainCommand extends $Command<
   RenewDomainCommandInput,

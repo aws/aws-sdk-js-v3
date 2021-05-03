@@ -22,6 +22,18 @@ export interface UpdateVodSourceCommandOutput extends UpdateVodSourceResponse, _
 
 /**
  * <p>Updates a specific VOD source in a specific source location.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaTailorClient(config);
+ * const command = new UpdateVodSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateVodSourceCommandInput} for command's `input` shape.
+ * @see {@link UpdateVodSourceCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateVodSourceCommand extends $Command<
   UpdateVodSourceCommandInput,

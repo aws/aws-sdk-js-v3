@@ -24,6 +24,18 @@ export interface DeleteEventIntegrationCommandOutput extends DeleteEventIntegrat
  * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
  *          <p>Deletes the specified existing event integration. If the event integration is associated
  *       with clients, the request is rejected.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppIntegrationsClient(config);
+ * const command = new DeleteEventIntegrationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEventIntegrationCommandInput} for command's `input` shape.
+ * @see {@link DeleteEventIntegrationCommandOutput} for command's `response` shape.
+ * @see {@link AppIntegrationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEventIntegrationCommand extends $Command<
   DeleteEventIntegrationCommandInput,

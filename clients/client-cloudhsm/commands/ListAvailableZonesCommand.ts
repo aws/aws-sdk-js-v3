@@ -32,6 +32,18 @@ export interface ListAvailableZonesCommandOutput extends ListAvailableZonesRespo
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
  *          <p>Lists the Availability Zones that have available AWS CloudHSM capacity.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMClient(config);
+ * const command = new ListAvailableZonesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAvailableZonesCommandInput} for command's `input` shape.
+ * @see {@link ListAvailableZonesCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAvailableZonesCommand extends $Command<
   ListAvailableZonesCommandInput,

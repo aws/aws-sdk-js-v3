@@ -27,6 +27,18 @@ export interface GetProposalCommandOutput extends GetProposalOutput, __MetadataB
 /**
  * <p>Returns detailed information about a proposal.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ManagedBlockchainClient(config);
+ * const command = new GetProposalCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetProposalCommandInput} for command's `input` shape.
+ * @see {@link GetProposalCommandOutput} for command's `response` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetProposalCommand extends $Command<
   GetProposalCommandInput,

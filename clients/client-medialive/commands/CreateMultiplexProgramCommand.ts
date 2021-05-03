@@ -22,6 +22,18 @@ export interface CreateMultiplexProgramCommandOutput extends CreateMultiplexProg
 
 /**
  * Create a new program in the multiplex.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaLiveClient(config);
+ * const command = new CreateMultiplexProgramCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMultiplexProgramCommandInput} for command's `input` shape.
+ * @see {@link CreateMultiplexProgramCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMultiplexProgramCommand extends $Command<
   CreateMultiplexProgramCommandInput,

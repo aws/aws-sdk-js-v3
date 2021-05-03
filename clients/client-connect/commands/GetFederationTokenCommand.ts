@@ -22,6 +22,18 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
 
 /**
  * <p>Retrieves a token for federation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new GetFederationTokenCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFederationTokenCommandInput} for command's `input` shape.
+ * @see {@link GetFederationTokenCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFederationTokenCommand extends $Command<
   GetFederationTokenCommandInput,

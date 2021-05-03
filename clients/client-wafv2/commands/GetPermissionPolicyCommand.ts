@@ -23,6 +23,18 @@ export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyRes
 /**
  * <p>Returns the IAM policy that is attached to the specified rule group.</p>
  *         <p>You must be the owner of the rule group to perform this operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFV2Client(config);
+ * const command = new GetPermissionPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPermissionPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetPermissionPolicyCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPermissionPolicyCommand extends $Command<
   GetPermissionPolicyCommandInput,

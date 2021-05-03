@@ -24,6 +24,18 @@ export interface CreateDomainCommandOutput extends CreateDomainResult, __Metadat
  * <p>Creates a domain resource for the specified domain (e.g., example.com).</p>
  *          <p>The <code>create domain</code> operation supports tag-based access control via request
  *       tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new CreateDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDomainCommandInput} for command's `input` shape.
+ * @see {@link CreateDomainCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDomainCommand extends $Command<
   CreateDomainCommandInput,

@@ -34,6 +34,18 @@ export interface RecognizeUtteranceCommandOutput extends RecognizeUtteranceRespo
  *          this API to send text and audio requests to Amazon Lex at runtime. Amazon Lex
  *          interprets the user input using the machine learning model built for
  *          the bot.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexRuntimeV2Client(config);
+ * const command = new RecognizeUtteranceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RecognizeUtteranceCommandInput} for command's `input` shape.
+ * @see {@link RecognizeUtteranceCommandOutput} for command's `response` shape.
+ * @see {@link LexRuntimeV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RecognizeUtteranceCommand extends $Command<
   RecognizeUtteranceCommandInput,

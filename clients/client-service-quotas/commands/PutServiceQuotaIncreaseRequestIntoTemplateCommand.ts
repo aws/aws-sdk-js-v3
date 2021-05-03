@@ -28,6 +28,18 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput
 
 /**
  * <p>Adds a quota increase request to your quota request template.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceQuotasClient(config);
+ * const command = new PutServiceQuotaIncreaseRequestIntoTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutServiceQuotaIncreaseRequestIntoTemplateCommandInput} for command's `input` shape.
+ * @see {@link PutServiceQuotaIncreaseRequestIntoTemplateCommandOutput} for command's `response` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutServiceQuotaIncreaseRequestIntoTemplateCommand extends $Command<
   PutServiceQuotaIncreaseRequestIntoTemplateCommandInput,

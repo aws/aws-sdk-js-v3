@@ -39,6 +39,18 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  *       A <code>ResourceNotFoundException</code> is thrown when the server is not found.
  *       A <code>ValidationException</code> is thrown when parameters of the request are not valid.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OpsWorksCMClient(config);
+ * const command = new CreateBackupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateBackupCommandInput} for command's `input` shape.
+ * @see {@link CreateBackupCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateBackupCommand extends $Command<
   CreateBackupCommandInput,

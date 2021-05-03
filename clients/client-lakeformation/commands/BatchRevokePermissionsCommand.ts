@@ -22,6 +22,18 @@ export interface BatchRevokePermissionsCommandOutput extends BatchRevokePermissi
 
 /**
  * <p>Batch operation to revoke permissions from the principal.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LakeFormationClient(config);
+ * const command = new BatchRevokePermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchRevokePermissionsCommandInput} for command's `input` shape.
+ * @see {@link BatchRevokePermissionsCommandOutput} for command's `response` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchRevokePermissionsCommand extends $Command<
   BatchRevokePermissionsCommandInput,

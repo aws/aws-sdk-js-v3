@@ -22,6 +22,18 @@ export interface ImportComponentCommandOutput extends ImportComponentResponse, _
 
 /**
  * <p>Imports a component and transforms its data into a component document.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new ImportComponentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportComponentCommandInput} for command's `input` shape.
+ * @see {@link ImportComponentCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ImportComponentCommand extends $Command<
   ImportComponentCommandInput,

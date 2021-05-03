@@ -22,6 +22,18 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
 
 /**
  * <p>Updates the data access role used for vending access to the given (registered) resource in AWS Lake Formation. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LakeFormationClient(config);
+ * const command = new UpdateResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateResourceCommandInput} for command's `input` shape.
+ * @see {@link UpdateResourceCommandOutput} for command's `response` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateResourceCommand extends $Command<
   UpdateResourceCommandInput,

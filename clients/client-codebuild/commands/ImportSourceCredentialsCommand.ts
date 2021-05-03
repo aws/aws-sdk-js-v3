@@ -23,6 +23,18 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
 /**
  * <p> Imports the source repository credentials for an AWS CodeBuild project that has its
  *             source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new ImportSourceCredentialsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportSourceCredentialsCommandInput} for command's `input` shape.
+ * @see {@link ImportSourceCredentialsCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ImportSourceCredentialsCommand extends $Command<
   ImportSourceCredentialsCommandInput,

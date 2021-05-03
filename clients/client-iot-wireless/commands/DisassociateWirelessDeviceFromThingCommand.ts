@@ -27,6 +27,18 @@ export interface DisassociateWirelessDeviceFromThingCommandOutput
 
 /**
  * <p>Disassociates a wireless device from its currently associated thing.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new DisassociateWirelessDeviceFromThingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateWirelessDeviceFromThingCommandInput} for command's `input` shape.
+ * @see {@link DisassociateWirelessDeviceFromThingCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateWirelessDeviceFromThingCommand extends $Command<
   DisassociateWirelessDeviceFromThingCommandInput,

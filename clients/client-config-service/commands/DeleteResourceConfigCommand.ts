@@ -23,6 +23,18 @@ export interface DeleteResourceConfigCommandOutput extends __MetadataBearer {}
 /**
  * <p>Records the configuration state for a custom resource that has been deleted.  This API records a new ConfigurationItem with a ResourceDeleted status. You can retrieve the ConfigurationItems recorded for this resource in your AWS Config History.
  * 			 </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DeleteResourceConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteResourceConfigCommandInput} for command's `input` shape.
+ * @see {@link DeleteResourceConfigCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteResourceConfigCommand extends $Command<
   DeleteResourceConfigCommandInput,

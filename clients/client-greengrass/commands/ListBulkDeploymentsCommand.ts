@@ -22,6 +22,18 @@ export interface ListBulkDeploymentsCommandOutput extends ListBulkDeploymentsRes
 
 /**
  * Returns a list of bulk deployments.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new ListBulkDeploymentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBulkDeploymentsCommandInput} for command's `input` shape.
+ * @see {@link ListBulkDeploymentsCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBulkDeploymentsCommand extends $Command<
   ListBulkDeploymentsCommandInput,

@@ -22,6 +22,18 @@ export interface BatchReadCommandOutput extends BatchReadResponse, __MetadataBea
 
 /**
  * <p>Performs all the read operations in a batch. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new BatchReadCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchReadCommandInput} for command's `input` shape.
+ * @see {@link BatchReadCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchReadCommand extends $Command<
   BatchReadCommandInput,

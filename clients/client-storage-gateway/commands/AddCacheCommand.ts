@@ -23,6 +23,18 @@ export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer 
  *
  *          <p>In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to
  *          add cache, and one or more disk IDs that you want to configure as cache.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new AddCacheCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddCacheCommandInput} for command's `input` shape.
+ * @see {@link AddCacheCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddCacheCommand extends $Command<
   AddCacheCommandInput,

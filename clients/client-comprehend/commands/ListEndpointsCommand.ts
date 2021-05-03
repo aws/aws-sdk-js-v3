@@ -22,6 +22,18 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __Met
 
 /**
  * <p>Gets a list of all existing endpoints that you've created.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new ListEndpointsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEndpointsCommandInput} for command's `input` shape.
+ * @see {@link ListEndpointsCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEndpointsCommand extends $Command<
   ListEndpointsCommandInput,

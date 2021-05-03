@@ -31,6 +31,18 @@ export interface CreateReplicationInstanceCommandOutput extends CreateReplicatio
  *       <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole">Creating the IAM Roles to Use With the AWS CLI and AWS DMS API</a>. For
  *          information on the required permissions, see
  *       <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions">IAM Permissions Needed to Use AWS DMS</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new CreateReplicationInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateReplicationInstanceCommandInput} for command's `input` shape.
+ * @see {@link CreateReplicationInstanceCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateReplicationInstanceCommand extends $Command<
   CreateReplicationInstanceCommandInput,

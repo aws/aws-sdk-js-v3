@@ -22,6 +22,18 @@ export interface DescribeFargateProfileCommandOutput extends DescribeFargateProf
 
 /**
  * <p>Returns descriptive information about an AWS Fargate profile.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new DescribeFargateProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFargateProfileCommandInput} for command's `input` shape.
+ * @see {@link DescribeFargateProfileCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFargateProfileCommand extends $Command<
   DescribeFargateProfileCommandInput,

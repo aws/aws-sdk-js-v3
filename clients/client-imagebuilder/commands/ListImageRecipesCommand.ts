@@ -22,6 +22,18 @@ export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse,
 
 /**
  * <p> Returns a list of image recipes.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new ListImageRecipesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListImageRecipesCommandInput} for command's `input` shape.
+ * @see {@link ListImageRecipesCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListImageRecipesCommand extends $Command<
   ListImageRecipesCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateUserHierarchyGroupNameCommandOutput extends __MetadataBea
 
 /**
  * <p>Updates the name of the user hierarchy group. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new UpdateUserHierarchyGroupNameCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateUserHierarchyGroupNameCommandInput} for command's `input` shape.
+ * @see {@link UpdateUserHierarchyGroupNameCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateUserHierarchyGroupNameCommand extends $Command<
   UpdateUserHierarchyGroupNameCommandInput,

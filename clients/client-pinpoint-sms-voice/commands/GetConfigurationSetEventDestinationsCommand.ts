@@ -27,6 +27,18 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
 
 /**
  * Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointSMSVoiceClient(config);
+ * const command = new GetConfigurationSetEventDestinationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetConfigurationSetEventDestinationsCommandInput} for command's `input` shape.
+ * @see {@link GetConfigurationSetEventDestinationsCommandOutput} for command's `response` shape.
+ * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetConfigurationSetEventDestinationsCommand extends $Command<
   GetConfigurationSetEventDestinationsCommandInput,

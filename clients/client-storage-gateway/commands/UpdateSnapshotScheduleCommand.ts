@@ -31,6 +31,18 @@ export interface UpdateSnapshotScheduleCommandOutput extends UpdateSnapshotSched
  *          <p>In the request you must identify the gateway volume whose snapshot schedule you want to
  *          update, and the schedule information, including when you want the snapshot to begin on a
  *          day and the frequency (in hours) of snapshots.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new UpdateSnapshotScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSnapshotScheduleCommandInput} for command's `input` shape.
+ * @see {@link UpdateSnapshotScheduleCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSnapshotScheduleCommand extends $Command<
   UpdateSnapshotScheduleCommandInput,

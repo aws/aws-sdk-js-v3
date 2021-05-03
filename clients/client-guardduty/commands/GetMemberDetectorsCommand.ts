@@ -22,6 +22,18 @@ export interface GetMemberDetectorsCommandOutput extends GetMemberDetectorsRespo
 
 /**
  * <p>Describes which data sources are enabled for the member account's detector.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new GetMemberDetectorsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMemberDetectorsCommandInput} for command's `input` shape.
+ * @see {@link GetMemberDetectorsCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMemberDetectorsCommand extends $Command<
   GetMemberDetectorsCommandInput,

@@ -26,6 +26,18 @@ export interface UpdateApplicationVersionCommandOutput extends ApplicationVersio
  *             <p>If a property (for example, <code>description</code>) is not provided, the value
  *         remains unchanged. To clear properties, specify an empty string.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new UpdateApplicationVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateApplicationVersionCommandInput} for command's `input` shape.
+ * @see {@link UpdateApplicationVersionCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateApplicationVersionCommand extends $Command<
   UpdateApplicationVersionCommandInput,

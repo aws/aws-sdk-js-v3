@@ -22,6 +22,18 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
 
 /**
  * <p>Creates a fleet. A fleet consists of streaming instances that run a specified image.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new CreateFleetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFleetCommandInput} for command's `input` shape.
+ * @see {@link CreateFleetCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFleetCommand extends $Command<
   CreateFleetCommandInput,

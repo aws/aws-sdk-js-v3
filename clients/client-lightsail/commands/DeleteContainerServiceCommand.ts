@@ -22,6 +22,18 @@ export interface DeleteContainerServiceCommandOutput extends DeleteContainerServ
 
 /**
  * <p>Deletes your Amazon Lightsail container service.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new DeleteContainerServiceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteContainerServiceCommandInput} for command's `input` shape.
+ * @see {@link DeleteContainerServiceCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteContainerServiceCommand extends $Command<
   DeleteContainerServiceCommandInput,

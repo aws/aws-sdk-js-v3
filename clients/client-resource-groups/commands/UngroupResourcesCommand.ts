@@ -33,6 +33,18 @@ export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, _
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ResourceGroupsClient(config);
+ * const command = new UngroupResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UngroupResourcesCommandInput} for command's `input` shape.
+ * @see {@link UngroupResourcesCommandOutput} for command's `response` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UngroupResourcesCommand extends $Command<
   UngroupResourcesCommandInput,

@@ -28,6 +28,18 @@ export interface GetHostReservationPurchasePreviewCommandOutput
  *             a reservation.</p>
  *         <p>This is a preview of the <a>PurchaseHostReservation</a> action and does
  *             not result in the offering being purchased.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new GetHostReservationPurchasePreviewCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetHostReservationPurchasePreviewCommandInput} for command's `input` shape.
+ * @see {@link GetHostReservationPurchasePreviewCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetHostReservationPurchasePreviewCommand extends $Command<
   GetHostReservationPurchasePreviewCommandInput,

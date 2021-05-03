@@ -22,6 +22,18 @@ export interface ListPhoneNumberOrdersCommandOutput extends ListPhoneNumberOrder
 
 /**
  * <p>Lists the phone number orders for the administrator's Amazon Chime account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new ListPhoneNumberOrdersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPhoneNumberOrdersCommandInput} for command's `input` shape.
+ * @see {@link ListPhoneNumberOrdersCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPhoneNumberOrdersCommand extends $Command<
   ListPhoneNumberOrdersCommandInput,

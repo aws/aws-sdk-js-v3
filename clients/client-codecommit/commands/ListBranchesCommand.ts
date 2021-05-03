@@ -22,6 +22,18 @@ export interface ListBranchesCommandOutput extends ListBranchesOutput, __Metadat
 
 /**
  * <p>Gets information about one or more branches in a repository.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new ListBranchesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBranchesCommandInput} for command's `input` shape.
+ * @see {@link ListBranchesCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBranchesCommand extends $Command<
   ListBranchesCommandInput,

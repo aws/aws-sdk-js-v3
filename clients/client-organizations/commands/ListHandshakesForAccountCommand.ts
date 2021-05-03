@@ -35,6 +35,18 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  * when there are no more results to display.</p>
  *          </note>
  *         <p>This operation can be called from any account in the organization.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OrganizationsClient(config);
+ * const command = new ListHandshakesForAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListHandshakesForAccountCommandInput} for command's `input` shape.
+ * @see {@link ListHandshakesForAccountCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListHandshakesForAccountCommand extends $Command<
   ListHandshakesForAccountCommandInput,

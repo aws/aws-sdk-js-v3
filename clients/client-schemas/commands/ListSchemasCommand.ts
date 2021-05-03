@@ -22,6 +22,18 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
 
 /**
  * <p>List the schemas.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SchemasClient(config);
+ * const command = new ListSchemasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSchemasCommandInput} for command's `input` shape.
+ * @see {@link ListSchemasCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSchemasCommand extends $Command<
   ListSchemasCommandInput,

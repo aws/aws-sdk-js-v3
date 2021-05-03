@@ -36,6 +36,18 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  *             by specifying a list of authorized AWS account IDs for the <code>ValuesToAdd</code>
  *             parameter. You can't use <code>all</code> as a value for that parameter in this
  *             case.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DocDBClient(config);
+ * const command = new ModifyDBClusterSnapshotAttributeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyDBClusterSnapshotAttributeCommandInput} for command's `input` shape.
+ * @see {@link ModifyDBClusterSnapshotAttributeCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
   ModifyDBClusterSnapshotAttributeCommandInput,

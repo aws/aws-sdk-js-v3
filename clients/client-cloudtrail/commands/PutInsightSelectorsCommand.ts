@@ -25,6 +25,18 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  *          selectors that you want to enable on an existing trail. You also use
  *          <code>PutInsightSelectors</code> to turn off Insights event logging, by passing an empty list of insight types.
  *          In this release, only <code>ApiCallRateInsight</code> is supported as an Insights selector.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudTrailClient(config);
+ * const command = new PutInsightSelectorsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutInsightSelectorsCommandInput} for command's `input` shape.
+ * @see {@link PutInsightSelectorsCommandOutput} for command's `response` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutInsightSelectorsCommand extends $Command<
   PutInsightSelectorsCommandInput,

@@ -25,6 +25,18 @@ export interface DescribePlatformVersionCommandOutput extends DescribePlatformVe
  *       platform versions.</p>
  *          <p>For definitions of platform version and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
  *         Platforms Glossary</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new DescribePlatformVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePlatformVersionCommandInput} for command's `input` shape.
+ * @see {@link DescribePlatformVersionCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePlatformVersionCommand extends $Command<
   DescribePlatformVersionCommandInput,

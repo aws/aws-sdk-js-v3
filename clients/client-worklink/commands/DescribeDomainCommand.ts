@@ -22,6 +22,18 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
 
 /**
  * <p>Provides information about the domain.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkLinkClient(config);
+ * const command = new DescribeDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDomainCommandInput} for command's `input` shape.
+ * @see {@link DescribeDomainCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDomainCommand extends $Command<
   DescribeDomainCommandInput,

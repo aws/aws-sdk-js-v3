@@ -22,6 +22,18 @@ export interface ModifyTransitGatewayCommandOutput extends ModifyTransitGatewayR
 
 /**
  * <p>Modifies the specified transit gateway. When you modify a transit gateway, the modified options are applied to new transit gateway attachments only. Your existing transit gateway attachments are not modified.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyTransitGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyTransitGatewayCommandInput} for command's `input` shape.
+ * @see {@link ModifyTransitGatewayCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyTransitGatewayCommand extends $Command<
   ModifyTransitGatewayCommandInput,

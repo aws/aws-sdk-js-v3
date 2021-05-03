@@ -36,6 +36,18 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *             with usagedata split into buckets by tags that you define (or allow the customer to
  *             define).</p>
  *         <p>BatchMeterUsage requests must be less than 1MB in size.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MarketplaceMeteringClient(config);
+ * const command = new BatchMeterUsageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchMeterUsageCommandInput} for command's `input` shape.
+ * @see {@link BatchMeterUsageCommandOutput} for command's `response` shape.
+ * @see {@link MarketplaceMeteringClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchMeterUsageCommand extends $Command<
   BatchMeterUsageCommandInput,

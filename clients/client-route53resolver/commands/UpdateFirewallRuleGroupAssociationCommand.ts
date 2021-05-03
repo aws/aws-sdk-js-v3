@@ -27,6 +27,18 @@ export interface UpdateFirewallRuleGroupAssociationCommandOutput
 
 /**
  * <p>Changes the association of a <a>FirewallRuleGroup</a> with a VPC. The association enables DNS filtering for the VPC. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new UpdateFirewallRuleGroupAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFirewallRuleGroupAssociationCommandInput} for command's `input` shape.
+ * @see {@link UpdateFirewallRuleGroupAssociationCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFirewallRuleGroupAssociationCommand extends $Command<
   UpdateFirewallRuleGroupAssociationCommandInput,

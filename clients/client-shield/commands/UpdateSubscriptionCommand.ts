@@ -22,6 +22,18 @@ export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionRespo
 
 /**
  * <p>Updates the details of an existing subscription. Only enter values for parameters you want to change. Empty parameters are not updated.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ShieldClient(config);
+ * const command = new UpdateSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link UpdateSubscriptionCommandOutput} for command's `response` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSubscriptionCommand extends $Command<
   UpdateSubscriptionCommandInput,

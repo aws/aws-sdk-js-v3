@@ -24,6 +24,18 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  * <p>Creates a configuration for running a SageMaker image as a KernelGateway app. The
  *         configuration specifies the Amazon Elastic File System (EFS) storage volume on the image, and a list of the
  *         kernels in the image.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateAppImageConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAppImageConfigCommandInput} for command's `input` shape.
+ * @see {@link CreateAppImageConfigCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAppImageConfigCommand extends $Command<
   CreateAppImageConfigCommandInput,

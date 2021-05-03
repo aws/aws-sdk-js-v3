@@ -26,6 +26,18 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
  *          date and time or by status. This call returns a maximum of 50 clusters per call, but
  *          returns a marker to track the paging of the cluster list across multiple ListClusters
  *          calls.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRClient(config);
+ * const command = new ListClustersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListClustersCommandInput} for command's `input` shape.
+ * @see {@link ListClustersCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListClustersCommand extends $Command<
   ListClustersCommandInput,

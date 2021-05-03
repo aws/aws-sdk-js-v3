@@ -26,6 +26,18 @@ export interface ListICD10CMInferenceJobsCommandOutput extends ListICD10CMInfere
 
 /**
  * <p>Gets a list of InferICD10CM jobs that you have submitted.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendMedicalClient(config);
+ * const command = new ListICD10CMInferenceJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListICD10CMInferenceJobsCommandInput} for command's `input` shape.
+ * @see {@link ListICD10CMInferenceJobsCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListICD10CMInferenceJobsCommand extends $Command<
   ListICD10CMInferenceJobsCommandInput,

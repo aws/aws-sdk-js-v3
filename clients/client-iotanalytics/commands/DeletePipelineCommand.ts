@@ -22,6 +22,18 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified pipeline.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTAnalyticsClient(config);
+ * const command = new DeletePipelineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePipelineCommandInput} for command's `input` shape.
+ * @see {@link DeletePipelineCommandOutput} for command's `response` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePipelineCommand extends $Command<
   DeletePipelineCommandInput,

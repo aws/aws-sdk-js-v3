@@ -22,6 +22,18 @@ export interface DeleteContactListCommandOutput extends DeleteContactListRespons
 
 /**
  * <p>Deletes a contact list and all of the contacts on that list.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new DeleteContactListCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteContactListCommandInput} for command's `input` shape.
+ * @see {@link DeleteContactListCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteContactListCommand extends $Command<
   DeleteContactListCommandInput,

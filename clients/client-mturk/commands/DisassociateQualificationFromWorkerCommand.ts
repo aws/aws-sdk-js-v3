@@ -34,6 +34,18 @@ export interface DisassociateQualificationFromWorkerCommandOutput
  *             You can provide a text message explaining why the Qualification was
  *             revoked. The user who had the Qualification can see this message.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MTurkClient(config);
+ * const command = new DisassociateQualificationFromWorkerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateQualificationFromWorkerCommandInput} for command's `input` shape.
+ * @see {@link DisassociateQualificationFromWorkerCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateQualificationFromWorkerCommand extends $Command<
   DisassociateQualificationFromWorkerCommandInput,

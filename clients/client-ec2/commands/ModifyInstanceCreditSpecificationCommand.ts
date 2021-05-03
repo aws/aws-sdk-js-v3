@@ -28,6 +28,18 @@ export interface ModifyInstanceCreditSpecificationCommandOutput
  *             <code>unlimited</code>.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
  *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyInstanceCreditSpecificationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyInstanceCreditSpecificationCommandInput} for command's `input` shape.
+ * @see {@link ModifyInstanceCreditSpecificationCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyInstanceCreditSpecificationCommand extends $Command<
   ModifyInstanceCreditSpecificationCommandInput,

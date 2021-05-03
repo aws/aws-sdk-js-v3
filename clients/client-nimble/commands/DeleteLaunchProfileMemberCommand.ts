@@ -22,6 +22,18 @@ export interface DeleteLaunchProfileMemberCommandOutput extends DeleteLaunchProf
 
 /**
  * <p>Delete a user from launch profile membership.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NimbleClient(config);
+ * const command = new DeleteLaunchProfileMemberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteLaunchProfileMemberCommandInput} for command's `input` shape.
+ * @see {@link DeleteLaunchProfileMemberCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteLaunchProfileMemberCommand extends $Command<
   DeleteLaunchProfileMemberCommandInput,

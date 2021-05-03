@@ -22,6 +22,18 @@ export interface ListCandidatesForAutoMLJobCommandOutput extends ListCandidatesF
 
 /**
  * <p>List the candidates created for the job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListCandidatesForAutoMLJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCandidatesForAutoMLJobCommandInput} for command's `input` shape.
+ * @see {@link ListCandidatesForAutoMLJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCandidatesForAutoMLJobCommand extends $Command<
   ListCandidatesForAutoMLJobCommandInput,

@@ -26,6 +26,18 @@ export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataB
  *          each CancelSteps request. CancelSteps is idempotent but asynchronous; it does not guarantee
  *          that a step will be canceled, even if the request is successfully submitted. You can only
  *          cancel steps that are in a <code>PENDING</code> state.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRClient(config);
+ * const command = new CancelStepsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelStepsCommandInput} for command's `input` shape.
+ * @see {@link CancelStepsCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelStepsCommand extends $Command<
   CancelStepsCommandInput,

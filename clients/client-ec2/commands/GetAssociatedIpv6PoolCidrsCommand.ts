@@ -22,6 +22,18 @@ export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIp
 
 /**
  * <p>Gets information about the IPv6 CIDR block associations for a specified IPv6 address pool.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new GetAssociatedIpv6PoolCidrsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAssociatedIpv6PoolCidrsCommandInput} for command's `input` shape.
+ * @see {@link GetAssociatedIpv6PoolCidrsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAssociatedIpv6PoolCidrsCommand extends $Command<
   GetAssociatedIpv6PoolCidrsCommandInput,

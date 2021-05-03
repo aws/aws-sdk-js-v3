@@ -25,6 +25,18 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
  *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES
  *                 Developer Guide</a>.</p>
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new UpdateEmailTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateEmailTemplateCommandInput} for command's `input` shape.
+ * @see {@link UpdateEmailTemplateCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateEmailTemplateCommand extends $Command<
   UpdateEmailTemplateCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
 
 /**
  * <p>Describes your Elastic IP addresses that are being moved to the EC2-VPC platform, or that are being restored to the EC2-Classic platform. This request does not return information about any other Elastic IP addresses in your account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeMovingAddressesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeMovingAddressesCommandInput} for command's `input` shape.
+ * @see {@link DescribeMovingAddressesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeMovingAddressesCommand extends $Command<
   DescribeMovingAddressesCommandInput,

@@ -34,6 +34,18 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  *             data, the existing data is overwritten. The target snapshot must be in the
  *                 <code>pending</code> state.</p>
  *     	    <p>Data written to a snapshot must be aligned with 512-byte sectors.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EBSClient(config);
+ * const command = new PutSnapshotBlockCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutSnapshotBlockCommandInput} for command's `input` shape.
+ * @see {@link PutSnapshotBlockCommandOutput} for command's `response` shape.
+ * @see {@link EBSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutSnapshotBlockCommand extends $Command<
   PutSnapshotBlockCommandInput,

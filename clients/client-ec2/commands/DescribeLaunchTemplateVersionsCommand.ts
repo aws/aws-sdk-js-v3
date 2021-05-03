@@ -27,6 +27,18 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  *             versions, individual versions, or a range of versions. You can also describe all the
  *             latest versions or all the default versions of all the launch templates in your
  *             account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeLaunchTemplateVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLaunchTemplateVersionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeLaunchTemplateVersionsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLaunchTemplateVersionsCommand extends $Command<
   DescribeLaunchTemplateVersionsCommandInput,

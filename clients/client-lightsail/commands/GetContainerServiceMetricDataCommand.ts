@@ -28,6 +28,18 @@ export interface GetContainerServiceMetricDataCommandOutput
  *
  *          <p>Metrics report the utilization of your resources. Monitor and collect metric data
  *       regularly to maintain the reliability, availability, and performance of your resources.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetContainerServiceMetricDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetContainerServiceMetricDataCommandInput} for command's `input` shape.
+ * @see {@link GetContainerServiceMetricDataCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetContainerServiceMetricDataCommand extends $Command<
   GetContainerServiceMetricDataCommandInput,

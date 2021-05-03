@@ -28,6 +28,18 @@ export interface SetPermissionCommandOutput extends __MetadataBearer {}
  *       level for the stack, or an attached policy that explicitly grants permissions. For more
  *       information on user permissions, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing User
  *         Permissions</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OpsWorksClient(config);
+ * const command = new SetPermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetPermissionCommandInput} for command's `input` shape.
+ * @see {@link SetPermissionCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetPermissionCommand extends $Command<
   SetPermissionCommandInput,

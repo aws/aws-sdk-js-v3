@@ -22,6 +22,18 @@ export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityG
 
 /**
  * Produces a list of Input Security Groups for an account
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaLiveClient(config);
+ * const command = new ListInputSecurityGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListInputSecurityGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListInputSecurityGroupsCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListInputSecurityGroupsCommand extends $Command<
   ListInputSecurityGroupsCommandInput,

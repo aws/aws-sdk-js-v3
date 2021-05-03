@@ -22,6 +22,18 @@ export interface ListClassificationJobsCommandOutput extends ListClassificationJ
 
 /**
  * <p>Retrieves a subset of information about one or more classification jobs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new ListClassificationJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListClassificationJobsCommandInput} for command's `input` shape.
+ * @see {@link ListClassificationJobsCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListClassificationJobsCommand extends $Command<
   ListClassificationJobsCommandInput,

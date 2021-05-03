@@ -23,6 +23,18 @@ export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkRes
 /**
  * <p>Deletes an existing global network. You must first delete all global network objects
  *             (devices, links, and sites) and deregister all transit gateways.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new DeleteGlobalNetworkCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteGlobalNetworkCommandInput} for command's `input` shape.
+ * @see {@link DeleteGlobalNetworkCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteGlobalNetworkCommand extends $Command<
   DeleteGlobalNetworkCommandInput,

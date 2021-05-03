@@ -61,6 +61,18 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  *          <p>This is a stateless API operation. That is, the operation does not persist any data.</p>
  *
  *          <p>This operation requires permissions to perform the <code>rekognition:DetectProtectiveEquipment</code> action. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RekognitionClient(config);
+ * const command = new DetectProtectiveEquipmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetectProtectiveEquipmentCommandInput} for command's `input` shape.
+ * @see {@link DetectProtectiveEquipmentCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetectProtectiveEquipmentCommand extends $Command<
   DetectProtectiveEquipmentCommandInput,

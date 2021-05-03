@@ -22,6 +22,18 @@ export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpo
 
 /**
  * <p>Updates the name of an inbound or an outbound Resolver endpoint.  </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new UpdateResolverEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateResolverEndpointCommandInput} for command's `input` shape.
+ * @see {@link UpdateResolverEndpointCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateResolverEndpointCommand extends $Command<
   UpdateResolverEndpointCommandInput,

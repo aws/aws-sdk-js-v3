@@ -31,6 +31,18 @@ export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamO
  *          continue to accept records, but it doesn't make any guarantees with respect to delivering
  *          the data. Therefore, as a best practice, first stop any applications that are sending
  *          records before you delete a delivery stream.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FirehoseClient(config);
+ * const command = new DeleteDeliveryStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDeliveryStreamCommandInput} for command's `input` shape.
+ * @see {@link DeleteDeliveryStreamCommandOutput} for command's `response` shape.
+ * @see {@link FirehoseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDeliveryStreamCommand extends $Command<
   DeleteDeliveryStreamCommandInput,

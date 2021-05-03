@@ -22,6 +22,18 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
 
 /**
  * Retrieves a list of groups.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new ListGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListGroupsCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListGroupsCommand extends $Command<
   ListGroupsCommandInput,

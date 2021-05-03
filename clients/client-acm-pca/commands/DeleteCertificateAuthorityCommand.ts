@@ -41,6 +41,18 @@ export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBeare
  * 			days. You can set the parameter from 7 to 30 days. The <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DescribeCertificateAuthority.html">DescribeCertificateAuthority</a> action returns the time remaining in the
  * 			restoration window of a private CA in the <code>DELETED</code> state. To restore an
  * 			eligible CA, call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_RestoreCertificateAuthority.html">RestoreCertificateAuthority</a> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ACMPCAClient(config);
+ * const command = new DeleteCertificateAuthorityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCertificateAuthorityCommandInput} for command's `input` shape.
+ * @see {@link DeleteCertificateAuthorityCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCertificateAuthorityCommand extends $Command<
   DeleteCertificateAuthorityCommandInput,

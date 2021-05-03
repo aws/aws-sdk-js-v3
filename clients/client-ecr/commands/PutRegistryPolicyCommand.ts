@@ -24,6 +24,18 @@ export interface PutRegistryPolicyCommandOutput extends PutRegistryPolicyRespons
  * <p>Creates or updates the permissions policy for your registry.</p>
  *         <p>A registry policy is used to specify permissions for another AWS account and is used
  *             when configuring cross-account replication. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html">Registry permissions</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECRClient(config);
+ * const command = new PutRegistryPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutRegistryPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutRegistryPolicyCommandOutput} for command's `response` shape.
+ * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutRegistryPolicyCommand extends $Command<
   PutRegistryPolicyCommandInput,

@@ -29,6 +29,18 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  *          <note>
  *             <p>This action only applies to Aurora DB clusters.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new DeleteDBClusterParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDBClusterParameterGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteDBClusterParameterGroupCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDBClusterParameterGroupCommand extends $Command<
   DeleteDBClusterParameterGroupCommandInput,

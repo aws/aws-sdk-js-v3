@@ -22,6 +22,18 @@ export interface DeleteRobotCommandOutput extends DeleteRobotResponse, __Metadat
 
 /**
  * <p>Deletes a robot.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new DeleteRobotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRobotCommandInput} for command's `input` shape.
+ * @see {@link DeleteRobotCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRobotCommand extends $Command<
   DeleteRobotCommandInput,

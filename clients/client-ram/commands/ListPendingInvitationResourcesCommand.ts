@@ -24,6 +24,18 @@ export interface ListPendingInvitationResourcesCommandOutput
 
 /**
  * <p>Lists the resources in a resource share that is shared with you but that the invitation is still pending for.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RAMClient(config);
+ * const command = new ListPendingInvitationResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPendingInvitationResourcesCommandInput} for command's `input` shape.
+ * @see {@link ListPendingInvitationResourcesCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPendingInvitationResourcesCommand extends $Command<
   ListPendingInvitationResourcesCommandInput,

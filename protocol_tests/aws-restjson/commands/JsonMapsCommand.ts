@@ -22,6 +22,18 @@ export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBe
 
 /**
  * The example tests basic map serialization.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new JsonMapsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link JsonMapsCommandInput} for command's `input` shape.
+ * @see {@link JsonMapsCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class JsonMapsCommand extends $Command<
   JsonMapsCommandInput,

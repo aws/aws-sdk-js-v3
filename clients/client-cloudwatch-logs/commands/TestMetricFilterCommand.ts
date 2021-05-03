@@ -23,6 +23,18 @@ export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse,
 /**
  * <p>Tests the filter pattern of a metric filter against a sample of log event messages. You
  *       can use this operation to validate the correctness of a metric filter pattern.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new TestMetricFilterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TestMetricFilterCommandInput} for command's `input` shape.
+ * @see {@link TestMetricFilterCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TestMetricFilterCommand extends $Command<
   TestMetricFilterCommandInput,

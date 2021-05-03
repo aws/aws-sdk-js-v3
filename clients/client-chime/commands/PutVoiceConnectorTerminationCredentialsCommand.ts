@@ -23,6 +23,18 @@ export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __
 
 /**
  * <p>Adds termination SIP credentials for the specified Amazon Chime Voice Connector.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new PutVoiceConnectorTerminationCredentialsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutVoiceConnectorTerminationCredentialsCommandInput} for command's `input` shape.
+ * @see {@link PutVoiceConnectorTerminationCredentialsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<
   PutVoiceConnectorTerminationCredentialsCommandInput,

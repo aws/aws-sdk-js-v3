@@ -22,6 +22,18 @@ export interface UpdateActionCommandOutput extends UpdateActionResponse, __Metad
 
 /**
  * <p>Updates an action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new UpdateActionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateActionCommandInput} for command's `input` shape.
+ * @see {@link UpdateActionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateActionCommand extends $Command<
   UpdateActionCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeUserProfileCommandOutput extends DescribeUserProfileRes
 
 /**
  * <p>Describes a user in AWS CodeStar and the user attributes across all projects.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeStarClient(config);
+ * const command = new DescribeUserProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeUserProfileCommandInput} for command's `input` shape.
+ * @see {@link DescribeUserProfileCommandOutput} for command's `response` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeUserProfileCommand extends $Command<
   DescribeUserProfileCommandInput,

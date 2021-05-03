@@ -29,6 +29,18 @@ export interface UpdatePipelineNotificationsCommandOutput
 /**
  * <p>With the UpdatePipelineNotifications operation, you can update Amazon Simple Notification Service (Amazon SNS) notifications for a pipeline.</p>
  *         <p>When you update notifications for a pipeline, Elastic Transcoder returns the values that you specified in the request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticTranscoderClient(config);
+ * const command = new UpdatePipelineNotificationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePipelineNotificationsCommandInput} for command's `input` shape.
+ * @see {@link UpdatePipelineNotificationsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePipelineNotificationsCommand extends $Command<
   UpdatePipelineNotificationsCommandInput,

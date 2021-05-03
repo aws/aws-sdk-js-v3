@@ -28,6 +28,18 @@ export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Forgets the device, as an administrator.</p>
  *         <p>Calling this action requires developer credentials.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new AdminForgetDeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdminForgetDeviceCommandInput} for command's `input` shape.
+ * @see {@link AdminForgetDeviceCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdminForgetDeviceCommand extends $Command<
   AdminForgetDeviceCommandInput,

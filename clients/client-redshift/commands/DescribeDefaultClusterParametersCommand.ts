@@ -29,6 +29,18 @@ export interface DescribeDefaultClusterParametersCommandOutput
  * For more information about parameters and parameter groups, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DescribeDefaultClusterParametersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDefaultClusterParametersCommandInput} for command's `input` shape.
+ * @see {@link DescribeDefaultClusterParametersCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDefaultClusterParametersCommand extends $Command<
   DescribeDefaultClusterParametersCommandInput,

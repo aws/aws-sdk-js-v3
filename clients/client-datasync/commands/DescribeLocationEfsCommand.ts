@@ -22,6 +22,18 @@ export interface DescribeLocationEfsCommandOutput extends DescribeLocationEfsRes
 
 /**
  * <p>Returns metadata, such as the path information about an Amazon EFS location.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataSyncClient(config);
+ * const command = new DescribeLocationEfsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLocationEfsCommandInput} for command's `input` shape.
+ * @see {@link DescribeLocationEfsCommandOutput} for command's `response` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLocationEfsCommand extends $Command<
   DescribeLocationEfsCommandInput,

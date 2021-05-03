@@ -22,6 +22,18 @@ export interface DescribeExperimentCommandOutput extends DescribeExperimentRespo
 
 /**
  * <p>Provides a list of an experiment's properties.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeExperimentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeExperimentCommandInput} for command's `input` shape.
+ * @see {@link DescribeExperimentCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeExperimentCommand extends $Command<
   DescribeExperimentCommandInput,

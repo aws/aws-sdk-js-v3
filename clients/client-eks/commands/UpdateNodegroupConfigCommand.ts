@@ -26,6 +26,18 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
  *             to track the status of your node group update with the <a>DescribeUpdate</a>
  *             API operation. Currently you can update the Kubernetes labels for a node group or the
  *             scaling configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new UpdateNodegroupConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateNodegroupConfigCommandInput} for command's `input` shape.
+ * @see {@link UpdateNodegroupConfigCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateNodegroupConfigCommand extends $Command<
   UpdateNodegroupConfigCommandInput,

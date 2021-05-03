@@ -26,6 +26,18 @@ export interface DeleteAccountAuditConfigurationCommandOutput
  * <p>Restores the default settings for Device Defender audits for this account. Any
  *           configuration data you entered is deleted and all audit checks are reset to
  *           disabled.  </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DeleteAccountAuditConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAccountAuditConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteAccountAuditConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAccountAuditConfigurationCommand extends $Command<
   DeleteAccountAuditConfigurationCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateBrokerTypeCommandOutput extends UpdateBrokerTypeResponse,
 
 /**
  * <p>Updates EC2 instance type.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new UpdateBrokerTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateBrokerTypeCommandInput} for command's `input` shape.
+ * @see {@link UpdateBrokerTypeCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateBrokerTypeCommand extends $Command<
   UpdateBrokerTypeCommandInput,

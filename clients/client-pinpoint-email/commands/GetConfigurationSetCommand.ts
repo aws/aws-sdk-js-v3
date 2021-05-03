@@ -29,6 +29,18 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  *             reference to the configuration set in the headers of the email. When you apply a
  *             configuration set to an email, all of the rules in that configuration set are applied to
  *             the email.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointEmailClient(config);
+ * const command = new GetConfigurationSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetConfigurationSetCommandInput} for command's `input` shape.
+ * @see {@link GetConfigurationSetCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetConfigurationSetCommand extends $Command<
   GetConfigurationSetCommandInput,

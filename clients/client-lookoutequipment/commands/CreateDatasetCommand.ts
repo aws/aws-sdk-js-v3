@@ -25,6 +25,18 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *          contains the metadata describing where the data is and what the data actually looks like.
  *          In other words, it contains the location of the data source, the data schema, and other
  *          information. A dataset also contains any tags associated with the ingested data. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutEquipmentClient(config);
+ * const command = new CreateDatasetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDatasetCommandInput} for command's `input` shape.
+ * @see {@link CreateDatasetCommandOutput} for command's `response` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDatasetCommand extends $Command<
   CreateDatasetCommandInput,

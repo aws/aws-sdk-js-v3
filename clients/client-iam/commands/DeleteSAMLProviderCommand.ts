@@ -28,6 +28,18 @@ export interface DeleteSAMLProviderCommandOutput extends __MetadataBearer {}
  *         <note>
  *             <p> This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new DeleteSAMLProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSAMLProviderCommandInput} for command's `input` shape.
+ * @see {@link DeleteSAMLProviderCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSAMLProviderCommand extends $Command<
   DeleteSAMLProviderCommandInput,

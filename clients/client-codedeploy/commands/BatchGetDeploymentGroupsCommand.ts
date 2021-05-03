@@ -22,6 +22,18 @@ export interface BatchGetDeploymentGroupsCommandOutput extends BatchGetDeploymen
 
 /**
  * <p>Gets information about one or more deployment groups.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new BatchGetDeploymentGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetDeploymentGroupsCommandInput} for command's `input` shape.
+ * @see {@link BatchGetDeploymentGroupsCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetDeploymentGroupsCommand extends $Command<
   BatchGetDeploymentGroupsCommandInput,

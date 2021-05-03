@@ -24,6 +24,18 @@ export interface PutAccountSendingAttributesCommandOutput
 
 /**
  * <p>Enable or disable the ability of your account to send email.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new PutAccountSendingAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAccountSendingAttributesCommandInput} for command's `input` shape.
+ * @see {@link PutAccountSendingAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAccountSendingAttributesCommand extends $Command<
   PutAccountSendingAttributesCommandInput,

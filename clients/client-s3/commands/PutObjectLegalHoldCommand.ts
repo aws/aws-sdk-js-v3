@@ -26,6 +26,18 @@ export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutpu
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
  *             Objects</a>.</p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3Client(config);
+ * const command = new PutObjectLegalHoldCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutObjectLegalHoldCommandInput} for command's `input` shape.
+ * @see {@link PutObjectLegalHoldCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutObjectLegalHoldCommand extends $Command<
   PutObjectLegalHoldCommandInput,

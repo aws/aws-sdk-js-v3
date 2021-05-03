@@ -34,6 +34,18 @@ export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesO
  *          parameter value specified in the stack set. Once a stack instance has been updated with the
  *          new parameter, you can then override the parameter value using
  *             <code>UpdateStackInstances</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new UpdateStackInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateStackInstancesCommandInput} for command's `input` shape.
+ * @see {@link UpdateStackInstancesCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateStackInstancesCommand extends $Command<
   UpdateStackInstancesCommandInput,

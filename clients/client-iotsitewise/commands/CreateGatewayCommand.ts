@@ -24,6 +24,18 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * <p>Creates a gateway, which is a virtual or edge device that delivers industrial data streams
  *       from local servers to AWS IoT SiteWise. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/gateway-connector.html">Ingesting data using a gateway</a> in the
  *         <i>AWS IoT SiteWise User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new CreateGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateGatewayCommandInput} for command's `input` shape.
+ * @see {@link CreateGatewayCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateGatewayCommand extends $Command<
   CreateGatewayCommandInput,

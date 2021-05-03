@@ -48,6 +48,18 @@ export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult,
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3ControlClient(config);
+ * const command = new UpdateJobPriorityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateJobPriorityCommandInput} for command's `input` shape.
+ * @see {@link UpdateJobPriorityCommandOutput} for command's `response` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateJobPriorityCommand extends $Command<
   UpdateJobPriorityCommandInput,

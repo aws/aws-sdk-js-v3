@@ -31,6 +31,18 @@ export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __Metadat
  *         <p>
  *             <code>UpdateStream</code> is an asynchronous operation, and takes time to
  *             complete.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisVideoClient(config);
+ * const command = new UpdateStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateStreamCommandInput} for command's `input` shape.
+ * @see {@link UpdateStreamCommandOutput} for command's `response` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateStreamCommand extends $Command<
   UpdateStreamCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeConfigurationCommandOutput extends DescribeConfiguratio
 
 /**
  * <p>Returns a description of this MSK configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new DescribeConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConfigurationCommand extends $Command<
   DescribeConfigurationCommandInput,

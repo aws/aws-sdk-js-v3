@@ -25,6 +25,18 @@ export interface DescribeAccountModificationsCommandOutput
 /**
  * <p>Retrieves a list that describes modifications to the configuration of Bring Your Own
  *          License (BYOL) for the specified account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new DescribeAccountModificationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAccountModificationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccountModificationsCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAccountModificationsCommand extends $Command<
   DescribeAccountModificationsCommandInput,

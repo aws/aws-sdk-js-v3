@@ -27,6 +27,18 @@ export interface RejectInvitationCommandOutput extends RejectInvitationOutput, _
 /**
  * <p>Rejects an invitation to join a network. This action can be called by a principal in an AWS account that has received an invitation to create a member and join a network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ManagedBlockchainClient(config);
+ * const command = new RejectInvitationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RejectInvitationCommandInput} for command's `input` shape.
+ * @see {@link RejectInvitationCommandOutput} for command's `response` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RejectInvitationCommand extends $Command<
   RejectInvitationCommandInput,

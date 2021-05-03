@@ -24,6 +24,18 @@ export interface GetAppValidationConfigurationCommandOutput
 
 /**
  * <p>Retrieves information about a configuration for validating an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SMSClient(config);
+ * const command = new GetAppValidationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAppValidationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetAppValidationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAppValidationConfigurationCommand extends $Command<
   GetAppValidationConfigurationCommandInput,

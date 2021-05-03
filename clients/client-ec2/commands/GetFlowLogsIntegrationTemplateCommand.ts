@@ -41,6 +41,18 @@ export interface GetFlowLogsIntegrationTemplateCommandOutput
  *                 <p>Create a set of named queries in Athena that you can use to get started quickly</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new GetFlowLogsIntegrationTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFlowLogsIntegrationTemplateCommandInput} for command's `input` shape.
+ * @see {@link GetFlowLogsIntegrationTemplateCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFlowLogsIntegrationTemplateCommand extends $Command<
   GetFlowLogsIntegrationTemplateCommandInput,

@@ -23,6 +23,18 @@ export interface ListDataIngestionJobsCommandOutput extends ListDataIngestionJob
 /**
  * <p>Provides a list of all data ingestion jobs, including dataset name and ARN, S3 location
  *          of the input data, status, and so on. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutEquipmentClient(config);
+ * const command = new ListDataIngestionJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDataIngestionJobsCommandInput} for command's `input` shape.
+ * @see {@link ListDataIngestionJobsCommandOutput} for command's `response` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDataIngestionJobsCommand extends $Command<
   ListDataIngestionJobsCommandInput,

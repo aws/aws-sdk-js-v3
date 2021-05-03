@@ -22,6 +22,18 @@ export interface DescribeInputSecurityGroupCommandOutput extends DescribeInputSe
 
 /**
  * Produces a summary of an Input Security Group
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaLiveClient(config);
+ * const command = new DescribeInputSecurityGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeInputSecurityGroupCommandInput} for command's `input` shape.
+ * @see {@link DescribeInputSecurityGroupCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeInputSecurityGroupCommand extends $Command<
   DescribeInputSecurityGroupCommandInput,

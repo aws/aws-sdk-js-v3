@@ -23,6 +23,18 @@ export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __Met
 /**
  * <p>Deletes the specified BGP peer on the specified virtual interface with the specified customer address and ASN.</p>
  *          <p>You cannot delete the last BGP peer from a virtual interface.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new DeleteBGPPeerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBGPPeerCommandInput} for command's `input` shape.
+ * @see {@link DeleteBGPPeerCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBGPPeerCommand extends $Command<
   DeleteBGPPeerCommandInput,

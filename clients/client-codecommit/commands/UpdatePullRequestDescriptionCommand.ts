@@ -24,6 +24,18 @@ export interface UpdatePullRequestDescriptionCommandOutput
 
 /**
  * <p>Replaces the contents of the description of a pull request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new UpdatePullRequestDescriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePullRequestDescriptionCommandInput} for command's `input` shape.
+ * @see {@link UpdatePullRequestDescriptionCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePullRequestDescriptionCommand extends $Command<
   UpdatePullRequestDescriptionCommandInput,

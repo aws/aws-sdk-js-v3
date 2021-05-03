@@ -28,6 +28,18 @@ export interface CreateHyperParameterTuningJobCommandOutput
  *             and values for hyperparameters within ranges that you specify. It then chooses the
  *             hyperparameter values that result in a model that performs the best, as measured by an
  *             objective metric that you choose.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateHyperParameterTuningJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateHyperParameterTuningJobCommandInput} for command's `input` shape.
+ * @see {@link CreateHyperParameterTuningJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateHyperParameterTuningJobCommand extends $Command<
   CreateHyperParameterTuningJobCommandInput,

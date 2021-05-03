@@ -65,6 +65,18 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  *          <p>
  *             <b>Related operations</b>: <a>Verify</a>
  *          </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KMSClient(config);
+ * const command = new SignCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SignCommandInput} for command's `input` shape.
+ * @see {@link SignCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SignCommand extends $Command<SignCommandInput, SignCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties

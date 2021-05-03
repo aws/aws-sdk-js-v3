@@ -26,6 +26,18 @@ export interface AssociateFirewallPolicyCommandOutput extends AssociateFirewallP
  *          collection of inspection rule groups and other settings. Each firewall requires one
  *          firewall policy association, and you can use the same firewall policy for multiple
  *          firewalls. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkFirewallClient(config);
+ * const command = new AssociateFirewallPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateFirewallPolicyCommandInput} for command's `input` shape.
+ * @see {@link AssociateFirewallPolicyCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateFirewallPolicyCommand extends $Command<
   AssociateFirewallPolicyCommandInput,

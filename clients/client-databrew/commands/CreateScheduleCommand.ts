@@ -23,6 +23,18 @@ export interface CreateScheduleCommandOutput extends CreateScheduleResponse, __M
 /**
  * <p>Creates a new schedule for one or more DataBrew jobs. Jobs can be run at a specific
  *             date and time, or at regular intervals.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new CreateScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateScheduleCommandInput} for command's `input` shape.
+ * @see {@link CreateScheduleCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateScheduleCommand extends $Command<
   CreateScheduleCommandInput,

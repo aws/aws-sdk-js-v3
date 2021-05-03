@@ -22,6 +22,18 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
 
 /**
  * <p>Returns a list of all products that match the filter criteria.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PricingClient(config);
+ * const command = new GetProductsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetProductsCommandInput} for command's `input` shape.
+ * @see {@link GetProductsCommandOutput} for command's `response` shape.
+ * @see {@link PricingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetProductsCommand extends $Command<
   GetProductsCommandInput,

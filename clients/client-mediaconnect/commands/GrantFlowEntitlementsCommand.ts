@@ -22,6 +22,18 @@ export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlement
 
 /**
  * Grants entitlements to an existing flow.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConnectClient(config);
+ * const command = new GrantFlowEntitlementsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GrantFlowEntitlementsCommandInput} for command's `input` shape.
+ * @see {@link GrantFlowEntitlementsCommandOutput} for command's `response` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GrantFlowEntitlementsCommand extends $Command<
   GrantFlowEntitlementsCommandInput,

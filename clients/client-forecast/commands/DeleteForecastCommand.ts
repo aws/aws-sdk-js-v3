@@ -26,6 +26,18 @@ export interface DeleteForecastCommandOutput extends __MetadataBearer {}
  *       To get the status, use the <a>DescribeForecast</a> operation.</p>
  *          <p>You can't delete a forecast while it is being exported. After a forecast is deleted, you
  *       can no longer query the forecast.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ForecastClient(config);
+ * const command = new DeleteForecastCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteForecastCommandInput} for command's `input` shape.
+ * @see {@link DeleteForecastCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteForecastCommand extends $Command<
   DeleteForecastCommandInput,

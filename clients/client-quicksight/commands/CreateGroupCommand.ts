@@ -26,6 +26,18 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * 					<code>arn:aws:quicksight:us-east-1:<i><relevant-aws-account-id></i>:group/default/<i><group-name></i>
  *             </code>.</p>
  * 		       <p>The response is a group object.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new CreateGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateGroupCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateGroupCommand extends $Command<
   CreateGroupCommandInput,

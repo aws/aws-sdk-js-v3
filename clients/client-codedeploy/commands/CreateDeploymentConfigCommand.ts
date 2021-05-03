@@ -22,6 +22,18 @@ export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentCon
 
 /**
  * <p> Creates a deployment configuration. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new CreateDeploymentConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDeploymentConfigCommandInput} for command's `input` shape.
+ * @see {@link CreateDeploymentConfigCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDeploymentConfigCommand extends $Command<
   CreateDeploymentConfigCommandInput,

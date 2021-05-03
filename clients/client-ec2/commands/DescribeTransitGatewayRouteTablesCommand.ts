@@ -25,6 +25,18 @@ export interface DescribeTransitGatewayRouteTablesCommandOutput
 /**
  * <p>Describes one or more transit gateway route tables. By default, all transit gateway route tables are described.
  *          Alternatively, you can filter the results.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeTransitGatewayRouteTablesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTransitGatewayRouteTablesCommandInput} for command's `input` shape.
+ * @see {@link DescribeTransitGatewayRouteTablesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTransitGatewayRouteTablesCommand extends $Command<
   DescribeTransitGatewayRouteTablesCommandInput,

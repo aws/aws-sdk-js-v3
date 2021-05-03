@@ -26,6 +26,18 @@ export interface StopActivityStreamCommandOutput extends StopActivityStreamRespo
  *         <p>For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database Activity Streams</a>
  *             in the <i>Amazon Aurora User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new StopActivityStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopActivityStreamCommandInput} for command's `input` shape.
+ * @see {@link StopActivityStreamCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopActivityStreamCommand extends $Command<
   StopActivityStreamCommandInput,

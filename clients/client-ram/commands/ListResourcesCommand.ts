@@ -22,6 +22,18 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
 
 /**
  * <p>Lists the resources that you added to a resource shares or the resources that are shared with you.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RAMClient(config);
+ * const command = new ListResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResourcesCommandInput} for command's `input` shape.
+ * @see {@link ListResourcesCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResourcesCommand extends $Command<
   ListResourcesCommandInput,

@@ -22,6 +22,18 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
 
 /**
  * <p>Attaches a network interface to an instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new AttachNetworkInterfaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AttachNetworkInterfaceCommandInput} for command's `input` shape.
+ * @see {@link AttachNetworkInterfaceCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AttachNetworkInterfaceCommand extends $Command<
   AttachNetworkInterfaceCommandInput,

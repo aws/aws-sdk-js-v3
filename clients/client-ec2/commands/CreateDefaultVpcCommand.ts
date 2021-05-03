@@ -33,6 +33,18 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * 			supports EC2-Classic, see "I really want a default VPC for my existing EC2 account. Is
  * 			that possible?" in the <a href="http://aws.amazon.com/vpc/faqs/#Default_VPCs">Default VPCs
  * 			FAQ</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateDefaultVpcCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDefaultVpcCommandInput} for command's `input` shape.
+ * @see {@link CreateDefaultVpcCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDefaultVpcCommand extends $Command<
   CreateDefaultVpcCommandInput,

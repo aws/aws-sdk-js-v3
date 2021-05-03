@@ -31,6 +31,18 @@ export interface DeleteBotCommandOutput extends DeleteBotResponse, __MetadataBea
  *          a <code>ResourceInUseException</code> exception. If you want to delete
  *          the bot and the alias, set the <code>skipResourceInUseCheck</code>
  *          parameter to <code>true</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelsV2Client(config);
+ * const command = new DeleteBotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBotCommandInput} for command's `input` shape.
+ * @see {@link DeleteBotCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBotCommand extends $Command<
   DeleteBotCommandInput,

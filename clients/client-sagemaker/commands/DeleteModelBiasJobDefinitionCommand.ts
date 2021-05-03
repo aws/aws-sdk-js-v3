@@ -22,6 +22,18 @@ export interface DeleteModelBiasJobDefinitionCommandOutput extends __MetadataBea
 
 /**
  * <p>Deletes an Amazon SageMaker model bias job definition.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteModelBiasJobDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteModelBiasJobDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DeleteModelBiasJobDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteModelBiasJobDefinitionCommand extends $Command<
   DeleteModelBiasJobDefinitionCommandInput,

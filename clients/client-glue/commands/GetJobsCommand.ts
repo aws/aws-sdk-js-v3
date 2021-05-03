@@ -19,6 +19,18 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
 
 /**
  * <p>Retrieves all current job definitions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetJobsCommandInput} for command's `input` shape.
+ * @see {@link GetJobsCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetJobsCommand extends $Command<GetJobsCommandInput, GetJobsCommandOutput, GlueClientResolvedConfig> {
   // Start section: command_properties

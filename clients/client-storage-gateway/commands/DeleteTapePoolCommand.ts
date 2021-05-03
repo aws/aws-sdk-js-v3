@@ -24,6 +24,18 @@ export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __Met
  * <p>Delete a custom tape pool. A custom tape pool can only be deleted if there are no tapes
  *          in the pool and if there are no automatic tape creation policies that reference the custom
  *          tape pool.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new DeleteTapePoolCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTapePoolCommandInput} for command's `input` shape.
+ * @see {@link DeleteTapePoolCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTapePoolCommand extends $Command<
   DeleteTapePoolCommandInput,

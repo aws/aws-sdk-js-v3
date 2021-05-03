@@ -22,6 +22,18 @@ export interface DescribeTagOptionCommandOutput extends DescribeTagOptionOutput,
 
 /**
  * <p>Gets information about the specified TagOption.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DescribeTagOptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTagOptionCommandInput} for command's `input` shape.
+ * @see {@link DescribeTagOptionCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTagOptionCommand extends $Command<
   DescribeTagOptionCommandInput,

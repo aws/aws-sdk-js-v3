@@ -27,6 +27,18 @@ export interface DescribeTransitGatewayConnectPeersCommandOutput
 
 /**
  * <p>Describes one or more Connect peers.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeTransitGatewayConnectPeersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTransitGatewayConnectPeersCommandInput} for command's `input` shape.
+ * @see {@link DescribeTransitGatewayConnectPeersCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTransitGatewayConnectPeersCommand extends $Command<
   DescribeTransitGatewayConnectPeersCommandInput,

@@ -22,6 +22,18 @@ export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __M
 
 /**
  * <p>Runs a command remotely on a container within a task.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new ExecuteCommandCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ExecuteCommandCommandInput} for command's `input` shape.
+ * @see {@link ExecuteCommandCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ExecuteCommandCommand extends $Command<
   ExecuteCommandCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
 
 /**
  * <p>Provides a summary for a dashboard.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new DescribeDashboardCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDashboardCommandInput} for command's `input` shape.
+ * @see {@link DescribeDashboardCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDashboardCommand extends $Command<
   DescribeDashboardCommandInput,

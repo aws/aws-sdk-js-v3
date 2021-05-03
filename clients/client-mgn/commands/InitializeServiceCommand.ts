@@ -22,6 +22,18 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
 
 /**
  * <p>Initialize Application Migration Service.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MgnClient(config);
+ * const command = new InitializeServiceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InitializeServiceCommandInput} for command's `input` shape.
+ * @see {@link InitializeServiceCommandOutput} for command's `response` shape.
+ * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InitializeServiceCommand extends $Command<
   InitializeServiceCommandInput,

@@ -64,6 +64,18 @@ export interface DescribeCertificateAuthorityCommandOutput
  * 					restoration period is also included in this action's output.</p>
  * 			         </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ACMPCAClient(config);
+ * const command = new DescribeCertificateAuthorityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCertificateAuthorityCommandInput} for command's `input` shape.
+ * @see {@link DescribeCertificateAuthorityCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCertificateAuthorityCommand extends $Command<
   DescribeCertificateAuthorityCommandInput,

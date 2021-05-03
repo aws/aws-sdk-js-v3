@@ -28,6 +28,18 @@ export interface GetDiscoverySummaryCommandOutput extends GetDiscoverySummaryRes
  * <p>Retrieves a short summary of discovered assets.</p>
  *          <p>This API operation takes no request parameters and is called as is at the command
  *       prompt as shown in the example.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new GetDiscoverySummaryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDiscoverySummaryCommandInput} for command's `input` shape.
+ * @see {@link GetDiscoverySummaryCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDiscoverySummaryCommand extends $Command<
   GetDiscoverySummaryCommandInput,

@@ -28,6 +28,18 @@ export interface AdminEnableUserCommandOutput extends AdminEnableUserResponse, _
 /**
  * <p>Enables the specified user as an administrator. Works on any user.</p>
  *         <p>Calling this action requires developer credentials.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new AdminEnableUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdminEnableUserCommandInput} for command's `input` shape.
+ * @see {@link AdminEnableUserCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdminEnableUserCommand extends $Command<
   AdminEnableUserCommandInput,

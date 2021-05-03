@@ -25,6 +25,18 @@ export interface UpdateDetectorVersionMetadataCommandOutput
 /**
  * <p>Updates the detector version's description. You can update the metadata for any detector version (<code>DRAFT, ACTIVE,</code> or
  *                 <code>INACTIVE</code>). </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new UpdateDetectorVersionMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDetectorVersionMetadataCommandInput} for command's `input` shape.
+ * @see {@link UpdateDetectorVersionMetadataCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDetectorVersionMetadataCommand extends $Command<
   UpdateDetectorVersionMetadataCommandInput,

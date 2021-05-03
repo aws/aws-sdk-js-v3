@@ -24,6 +24,18 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  * <p>Lists the consumers registered to receive data from a stream using enhanced fan-out,
  *             and provides information about each consumer.</p>
  *         <p>This operation has a limit of 5 transactions per second per stream.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisClient(config);
+ * const command = new ListStreamConsumersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListStreamConsumersCommandInput} for command's `input` shape.
+ * @see {@link ListStreamConsumersCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListStreamConsumersCommand extends $Command<
   ListStreamConsumersCommandInput,

@@ -28,6 +28,18 @@ export interface PutConfigurationSetDeliveryOptionsCommandOutput
 /**
  * <p>Associate a configuration set with a dedicated IP pool. You can use dedicated IP pools
  *             to create groups of dedicated IP addresses for sending specific types of email.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new PutConfigurationSetDeliveryOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutConfigurationSetDeliveryOptionsCommandInput} for command's `input` shape.
+ * @see {@link PutConfigurationSetDeliveryOptionsCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
   PutConfigurationSetDeliveryOptionsCommandInput,

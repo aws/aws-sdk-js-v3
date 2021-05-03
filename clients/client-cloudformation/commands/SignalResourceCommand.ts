@@ -27,6 +27,18 @@ export interface SignalResourceCommandOutput extends __MetadataBearer {}
  *          required number of signals or the timeout period is exceeded. The SignalResource API is
  *          useful in cases where you want to send signals from anywhere other than an Amazon EC2
  *          instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new SignalResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SignalResourceCommandInput} for command's `input` shape.
+ * @see {@link SignalResourceCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SignalResourceCommand extends $Command<
   SignalResourceCommandInput,

@@ -22,6 +22,18 @@ export interface DeleteResourceCommandOutput extends DeleteResourceResponse, __M
 
 /**
  * <p>Deletes the specified resource. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new DeleteResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteResourceCommandInput} for command's `input` shape.
+ * @see {@link DeleteResourceCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteResourceCommand extends $Command<
   DeleteResourceCommandInput,

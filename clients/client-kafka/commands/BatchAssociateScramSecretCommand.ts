@@ -22,6 +22,18 @@ export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateSc
 
 /**
  * <p>Associates one or more Scram Secrets with an Amazon MSK cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new BatchAssociateScramSecretCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchAssociateScramSecretCommandInput} for command's `input` shape.
+ * @see {@link BatchAssociateScramSecretCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchAssociateScramSecretCommand extends $Command<
   BatchAssociateScramSecretCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookResult, __Metad
 
 /**
  * <p> Updates a webhook. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyClient(config);
+ * const command = new UpdateWebhookCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateWebhookCommandInput} for command's `input` shape.
+ * @see {@link UpdateWebhookCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateWebhookCommand extends $Command<
   UpdateWebhookCommandInput,

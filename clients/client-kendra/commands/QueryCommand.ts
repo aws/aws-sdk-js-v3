@@ -40,6 +40,18 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  *          <p>You can specify that the query return only one type of result using
  *          the <code>QueryResultTypeConfig</code> parameter.</p>
  *          <p>Each query returns the 100 most relevant results. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KendraClient(config);
+ * const command = new QueryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link QueryCommandInput} for command's `input` shape.
+ * @see {@link QueryCommandOutput} for command's `response` shape.
+ * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput, KendraClientResolvedConfig> {
   // Start section: command_properties

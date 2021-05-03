@@ -24,6 +24,18 @@ export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttr
  * <p>Describes the specified attribute of the specified volume. You can specify only one
  *       attribute at a time.</p>
  *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeVolumeAttributeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeVolumeAttributeCommandInput} for command's `input` shape.
+ * @see {@link DescribeVolumeAttributeCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeVolumeAttributeCommand extends $Command<
   DescribeVolumeAttributeCommandInput,

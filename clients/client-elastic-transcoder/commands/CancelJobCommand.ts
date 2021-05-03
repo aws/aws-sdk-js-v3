@@ -31,6 +31,18 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  *             pipeline from starting to process a job while you're getting the job identifier, use
  *                 <a>UpdatePipelineStatus</a> to temporarily pause the pipeline.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticTranscoderClient(config);
+ * const command = new CancelJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelJobCommandInput} for command's `input` shape.
+ * @see {@link CancelJobCommandOutput} for command's `response` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelJobCommand extends $Command<
   CancelJobCommandInput,

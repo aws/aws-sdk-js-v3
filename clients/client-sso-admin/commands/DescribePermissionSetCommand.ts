@@ -22,6 +22,18 @@ export interface DescribePermissionSetCommandOutput extends DescribePermissionSe
 
 /**
  * <p>Gets the details of the permission set.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSOAdminClient(config);
+ * const command = new DescribePermissionSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePermissionSetCommandInput} for command's `input` shape.
+ * @see {@link DescribePermissionSetCommandOutput} for command's `response` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePermissionSetCommand extends $Command<
   DescribePermissionSetCommandInput,

@@ -23,6 +23,18 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
 /**
  * <p>Deletes an AWS Device Farm project, given the project ARN.</p>
  *         <p> Deleting this resource does not stop an in-progress run.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new DeleteProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteProjectCommandInput} for command's `input` shape.
+ * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteProjectCommand extends $Command<
   DeleteProjectCommandInput,

@@ -29,6 +29,18 @@ export interface InferICD10CMCommandOutput extends InferICD10CMResponse, __Metad
  *       those entities to normalized concept identifiers in the ICD-10-CM knowledge base from the
  *       Centers for Disease Control. Amazon Comprehend Medical only detects medical entities in
  *       English language texts.  </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendMedicalClient(config);
+ * const command = new InferICD10CMCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InferICD10CMCommandInput} for command's `input` shape.
+ * @see {@link InferICD10CMCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InferICD10CMCommand extends $Command<
   InferICD10CMCommandInput,

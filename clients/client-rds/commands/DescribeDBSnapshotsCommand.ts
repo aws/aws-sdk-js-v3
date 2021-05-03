@@ -22,6 +22,18 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
 
 /**
  * <p>Returns information about DB snapshots. This API action supports pagination.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new DescribeDBSnapshotsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDBSnapshotsCommandInput} for command's `input` shape.
+ * @see {@link DescribeDBSnapshotsCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDBSnapshotsCommand extends $Command<
   DescribeDBSnapshotsCommandInput,

@@ -23,6 +23,18 @@ export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBear
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates an existing configuration for a resource type. This API is idempotent.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new UpdateInstanceStorageConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateInstanceStorageConfigCommandInput} for command's `input` shape.
+ * @see {@link UpdateInstanceStorageConfigCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateInstanceStorageConfigCommand extends $Command<
   UpdateInstanceStorageConfigCommandInput,

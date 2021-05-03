@@ -22,6 +22,18 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates global settings for the administrator's AWS account, such as Amazon Chime Business Calling and Amazon Chime Voice Connector settings.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new UpdateGlobalSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateGlobalSettingsCommandInput} for command's `input` shape.
+ * @see {@link UpdateGlobalSettingsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateGlobalSettingsCommand extends $Command<
   UpdateGlobalSettingsCommandInput,

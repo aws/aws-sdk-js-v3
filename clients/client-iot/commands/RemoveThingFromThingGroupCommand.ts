@@ -27,6 +27,18 @@ export interface RemoveThingFromThingGroupCommandOutput extends RemoveThingFromT
  * 			either a <code>thingArn</code> or a <code>thingName</code> to
  * 			identify the thing to remove from the thing group.
  * 		</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new RemoveThingFromThingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveThingFromThingGroupCommandInput} for command's `input` shape.
+ * @see {@link RemoveThingFromThingGroupCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveThingFromThingGroupCommand extends $Command<
   RemoveThingFromThingGroupCommandInput,

@@ -24,6 +24,18 @@ export interface CreateTransitGatewayRouteTableCommandOutput
 
 /**
  * <p>Creates a route table for the specified transit gateway.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateTransitGatewayRouteTableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTransitGatewayRouteTableCommandInput} for command's `input` shape.
+ * @see {@link CreateTransitGatewayRouteTableCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTransitGatewayRouteTableCommand extends $Command<
   CreateTransitGatewayRouteTableCommandInput,

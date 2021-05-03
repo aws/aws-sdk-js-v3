@@ -48,6 +48,18 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  *                <p>Write status of your file share</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new UpdateNFSFileShareCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateNFSFileShareCommandInput} for command's `input` shape.
+ * @see {@link UpdateNFSFileShareCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateNFSFileShareCommand extends $Command<
   UpdateNFSFileShareCommandInput,

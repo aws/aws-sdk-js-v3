@@ -26,6 +26,18 @@ export interface ListAcceleratorsCommandOutput extends ListAcceleratorsResponse,
 
 /**
  * <p>List the accelerators for an AWS account. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new ListAcceleratorsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAcceleratorsCommandInput} for command's `input` shape.
+ * @see {@link ListAcceleratorsCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAcceleratorsCommand extends $Command<
   ListAcceleratorsCommandInput,

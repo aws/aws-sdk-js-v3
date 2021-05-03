@@ -22,6 +22,18 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
 
 /**
  * <p>Returns a contact from a contact list.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new GetContactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetContactCommandInput} for command's `input` shape.
+ * @see {@link GetContactCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetContactCommand extends $Command<
   GetContactCommandInput,

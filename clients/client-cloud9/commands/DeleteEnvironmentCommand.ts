@@ -22,6 +22,18 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResult,
 
 /**
  * <p>Deletes an AWS Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Cloud9Client(config);
+ * const command = new DeleteEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEnvironmentCommandInput} for command's `input` shape.
+ * @see {@link DeleteEnvironmentCommandOutput} for command's `response` shape.
+ * @see {@link Cloud9ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEnvironmentCommand extends $Command<
   DeleteEnvironmentCommandInput,

@@ -26,6 +26,18 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
 
 /**
  * <p>The ListPipelines operation gets a list of the pipelines associated with the current AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticTranscoderClient(config);
+ * const command = new ListPipelinesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPipelinesCommandInput} for command's `input` shape.
+ * @see {@link ListPipelinesCommandOutput} for command's `response` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPipelinesCommand extends $Command<
   ListPipelinesCommandInput,

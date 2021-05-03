@@ -22,6 +22,18 @@ export interface StartAccessLoggingCommandOutput extends StartAccessLoggingOutpu
 
 /**
  * <p>Starts access logging on the specified container. When you enable access logging on a container, MediaStore delivers access logs for objects stored in that container to Amazon CloudWatch Logs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaStoreClient(config);
+ * const command = new StartAccessLoggingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartAccessLoggingCommandInput} for command's `input` shape.
+ * @see {@link StartAccessLoggingCommandOutput} for command's `response` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartAccessLoggingCommand extends $Command<
   StartAccessLoggingCommandInput,

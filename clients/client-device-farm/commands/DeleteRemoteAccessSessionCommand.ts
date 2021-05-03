@@ -22,6 +22,18 @@ export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAcce
 
 /**
  * <p>Deletes a completed remote access session and its results.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new DeleteRemoteAccessSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRemoteAccessSessionCommandInput} for command's `input` shape.
+ * @see {@link DeleteRemoteAccessSessionCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRemoteAccessSessionCommand extends $Command<
   DeleteRemoteAccessSessionCommandInput,

@@ -32,6 +32,18 @@ export interface DeleteInboundCrossClusterSearchConnectionCommandOutput
 
 /**
  * <p>Allows the destination domain owner to delete an existing inbound cross-cluster search connection.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new DeleteInboundCrossClusterSearchConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteInboundCrossClusterSearchConnectionCommandInput} for command's `input` shape.
+ * @see {@link DeleteInboundCrossClusterSearchConnectionCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteInboundCrossClusterSearchConnectionCommand extends $Command<
   DeleteInboundCrossClusterSearchConnectionCommandInput,

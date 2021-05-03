@@ -24,6 +24,18 @@ export interface GetDedicatedIpCommandOutput extends GetDedicatedIpResponse, __M
  * <p>Get information about a dedicated IP address, including the name of the dedicated IP
  *             pool that it's associated with, as well information about the automatic warm-up process
  *             for the address.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointEmailClient(config);
+ * const command = new GetDedicatedIpCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDedicatedIpCommandInput} for command's `input` shape.
+ * @see {@link GetDedicatedIpCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDedicatedIpCommand extends $Command<
   GetDedicatedIpCommandInput,

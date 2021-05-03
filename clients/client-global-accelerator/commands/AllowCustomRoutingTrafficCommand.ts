@@ -31,6 +31,18 @@ export interface AllowCustomRoutingTrafficCommandOutput extends __MetadataBearer
  * 			outside of the range that you configured for the endpoint group.</p>
  * 		       <p>After you make changes, you can verify that the updates are complete by checking the status of your
  * 			accelerator: the status changes from IN_PROGRESS to DEPLOYED.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new AllowCustomRoutingTrafficCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AllowCustomRoutingTrafficCommandInput} for command's `input` shape.
+ * @see {@link AllowCustomRoutingTrafficCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AllowCustomRoutingTrafficCommand extends $Command<
   AllowCustomRoutingTrafficCommandInput,

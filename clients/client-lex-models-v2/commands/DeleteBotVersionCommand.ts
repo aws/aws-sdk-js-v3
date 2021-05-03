@@ -23,6 +23,18 @@ export interface DeleteBotVersionCommandOutput extends DeleteBotVersionResponse,
 /**
  * <p>Deletes a specific version of a bot. To delete all version of a bot,
  *          use the <a>DeleteBot</a> operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelsV2Client(config);
+ * const command = new DeleteBotVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBotVersionCommandInput} for command's `input` shape.
+ * @see {@link DeleteBotVersionCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBotVersionCommand extends $Command<
   DeleteBotVersionCommandInput,

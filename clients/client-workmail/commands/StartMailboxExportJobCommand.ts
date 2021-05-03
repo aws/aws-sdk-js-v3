@@ -25,6 +25,18 @@ export interface StartMailboxExportJobCommandOutput extends StartMailboxExportJo
  *          from the specified mailbox to the specified Amazon Simple Storage Service (Amazon S3)
  *          bucket. For more information, see <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/mail-export.html">Exporting mailbox content</a> in
  *          the <i>Amazon WorkMail Administrator Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new StartMailboxExportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartMailboxExportJobCommandInput} for command's `input` shape.
+ * @see {@link StartMailboxExportJobCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartMailboxExportJobCommand extends $Command<
   StartMailboxExportJobCommandInput,

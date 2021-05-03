@@ -22,6 +22,18 @@ export interface DeleteLogSubscriptionCommandOutput extends DeleteLogSubscriptio
 
 /**
  * <p>Deletes the specified log subscription.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new DeleteLogSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteLogSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link DeleteLogSubscriptionCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteLogSubscriptionCommand extends $Command<
   DeleteLogSubscriptionCommandInput,

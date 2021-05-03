@@ -23,6 +23,18 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
 /**
  * <p>Deletes the specified lifecycle policy and halts the automated operations that the
  * 			policy specified.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DLMClient(config);
+ * const command = new DeleteLifecyclePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteLifecyclePolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteLifecyclePolicyCommandOutput} for command's `response` shape.
+ * @see {@link DLMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteLifecyclePolicyCommand extends $Command<
   DeleteLifecyclePolicyCommandInput,

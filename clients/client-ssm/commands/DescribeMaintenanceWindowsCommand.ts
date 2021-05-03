@@ -22,6 +22,18 @@ export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMainten
 
 /**
  * <p>Retrieves the maintenance windows in an AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new DescribeMaintenanceWindowsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeMaintenanceWindowsCommandInput} for command's `input` shape.
+ * @see {@link DescribeMaintenanceWindowsCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeMaintenanceWindowsCommand extends $Command<
   DescribeMaintenanceWindowsCommandInput,

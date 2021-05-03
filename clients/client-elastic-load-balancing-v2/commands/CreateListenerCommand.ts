@@ -53,6 +53,18 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  *
  *          <p>This operation is idempotent, which means that it completes at most one time. If you
  *       attempt to create multiple listeners with the same settings, each call succeeds.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new CreateListenerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateListenerCommandInput} for command's `input` shape.
+ * @see {@link CreateListenerCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateListenerCommand extends $Command<
   CreateListenerCommandInput,

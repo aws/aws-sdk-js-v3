@@ -23,6 +23,18 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
 /**
  * <p> Creates a new image pipeline. Image pipelines enable you to automate the creation and
  *       distribution of images.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new CreateImagePipelineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateImagePipelineCommandInput} for command's `input` shape.
+ * @see {@link CreateImagePipelineCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateImagePipelineCommand extends $Command<
   CreateImagePipelineCommandInput,

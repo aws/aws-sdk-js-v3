@@ -47,6 +47,18 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  *          <p>For conceptual information and the underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html">Working
  *             with Archives in Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-list-uploads.html">List Multipart Uploads
  *          </a> in the <i>Amazon Glacier Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlacierClient(config);
+ * const command = new ListMultipartUploadsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMultipartUploadsCommandInput} for command's `input` shape.
+ * @see {@link ListMultipartUploadsCommandOutput} for command's `response` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMultipartUploadsCommand extends $Command<
   ListMultipartUploadsCommandInput,

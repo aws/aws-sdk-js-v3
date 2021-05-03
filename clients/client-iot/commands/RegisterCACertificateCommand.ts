@@ -27,6 +27,18 @@ export interface RegisterCACertificateCommandOutput extends RegisterCACertificat
  *          up to 10 certificate authorities sign your device certificates. If you have more than one
  *          CA certificate registered, make sure you pass the CA certificate when you register your
  *          device certificates with the RegisterCertificate API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new RegisterCACertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterCACertificateCommandInput} for command's `input` shape.
+ * @see {@link RegisterCACertificateCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterCACertificateCommand extends $Command<
   RegisterCACertificateCommandInput,

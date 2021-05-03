@@ -23,6 +23,18 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
 /**
  * <p>Deletes the specified AWS CloudHSM cluster. Before you can delete a cluster, you must
  *       delete all HSMs in the cluster. To see if the cluster contains any HSMs, use <a>DescribeClusters</a>. To delete an HSM, use <a>DeleteHsm</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMV2Client(config);
+ * const command = new DeleteClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteClusterCommandInput} for command's `input` shape.
+ * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,

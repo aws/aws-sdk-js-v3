@@ -28,6 +28,18 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
 /**
  * <p>Creates a new Amazon Cognito user pool and sets the password policy for the
  *             pool.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new CreateUserPoolCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateUserPoolCommandInput} for command's `input` shape.
+ * @see {@link CreateUserPoolCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateUserPoolCommand extends $Command<
   CreateUserPoolCommandInput,

@@ -24,6 +24,18 @@ export interface DeleteForecastExportJobCommandOutput extends __MetadataBearer {
  * <p>Deletes a forecast export job created using the <a>CreateForecastExportJob</a>
  *       operation. You can delete only export jobs that have a status of <code>ACTIVE</code> or
  *         <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeForecastExportJob</a> operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ForecastClient(config);
+ * const command = new DeleteForecastExportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteForecastExportJobCommandInput} for command's `input` shape.
+ * @see {@link DeleteForecastExportJobCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteForecastExportJobCommand extends $Command<
   DeleteForecastExportJobCommandInput,

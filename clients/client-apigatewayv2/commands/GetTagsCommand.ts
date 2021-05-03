@@ -22,6 +22,18 @@ export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer 
 
 /**
  * <p>Gets a collection of Tag resources.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new GetTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTagsCommandInput} for command's `input` shape.
+ * @see {@link GetTagsCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTagsCommand extends $Command<
   GetTagsCommandInput,

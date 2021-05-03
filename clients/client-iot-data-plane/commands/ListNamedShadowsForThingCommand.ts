@@ -22,6 +22,18 @@ export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsF
 
 /**
  * <p>Lists the shadows for the specified thing.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTDataPlaneClient(config);
+ * const command = new ListNamedShadowsForThingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListNamedShadowsForThingCommandInput} for command's `input` shape.
+ * @see {@link ListNamedShadowsForThingCommandOutput} for command's `response` shape.
+ * @see {@link IoTDataPlaneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListNamedShadowsForThingCommand extends $Command<
   ListNamedShadowsForThingCommandInput,

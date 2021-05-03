@@ -22,6 +22,18 @@ export interface ListStudioComponentsCommandOutput extends ListStudioComponentsR
 
 /**
  * <p>Lists the StudioComponents in a studio.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NimbleClient(config);
+ * const command = new ListStudioComponentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListStudioComponentsCommandInput} for command's `input` shape.
+ * @see {@link ListStudioComponentsCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListStudioComponentsCommand extends $Command<
   ListStudioComponentsCommandInput,

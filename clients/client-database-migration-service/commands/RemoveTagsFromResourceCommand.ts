@@ -31,6 +31,18 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  *                <code>Tag</code>
  *             </a>
  *          data type description.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new RemoveTagsFromResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveTagsFromResourceCommandInput} for command's `input` shape.
+ * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveTagsFromResourceCommand extends $Command<
   RemoveTagsFromResourceCommandInput,

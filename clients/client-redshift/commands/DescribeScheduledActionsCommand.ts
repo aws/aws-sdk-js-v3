@@ -23,6 +23,18 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsM
 /**
  * <p>Describes properties of scheduled actions.
  *              </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DescribeScheduledActionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeScheduledActionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeScheduledActionsCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeScheduledActionsCommand extends $Command<
   DescribeScheduledActionsCommandInput,

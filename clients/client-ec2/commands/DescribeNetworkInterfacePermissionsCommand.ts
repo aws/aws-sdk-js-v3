@@ -27,6 +27,18 @@ export interface DescribeNetworkInterfacePermissionsCommandOutput
 
 /**
  * <p>Describes the permissions for your network interfaces. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeNetworkInterfacePermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeNetworkInterfacePermissionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeNetworkInterfacePermissionsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeNetworkInterfacePermissionsCommand extends $Command<
   DescribeNetworkInterfacePermissionsCommandInput,

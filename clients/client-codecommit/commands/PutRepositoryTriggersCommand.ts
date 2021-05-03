@@ -22,6 +22,18 @@ export interface PutRepositoryTriggersCommandOutput extends PutRepositoryTrigger
 
 /**
  * <p>Replaces all triggers for a repository. Used to create or delete triggers.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new PutRepositoryTriggersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutRepositoryTriggersCommandInput} for command's `input` shape.
+ * @see {@link PutRepositoryTriggersCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutRepositoryTriggersCommand extends $Command<
   PutRepositoryTriggersCommandInput,

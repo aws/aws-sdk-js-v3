@@ -27,6 +27,18 @@ export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
  *             message is returned.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging Auto Scaling groups and
  *                 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingClient(config);
+ * const command = new DescribeTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTagsCommandInput} for command's `input` shape.
+ * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandInput,

@@ -26,6 +26,18 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  *       passed to a subsequent <code>DescribeVolumes</code> request to retrieve the remaining
  *       results.</p>
  *          <p>For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html">Amazon EBS volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeVolumesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeVolumesCommandInput} for command's `input` shape.
+ * @see {@link DescribeVolumesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeVolumesCommand extends $Command<
   DescribeVolumesCommandInput,

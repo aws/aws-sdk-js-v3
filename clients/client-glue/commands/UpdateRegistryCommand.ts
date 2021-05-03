@@ -22,6 +22,18 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
 
 /**
  * <p>Updates an existing registry which is used to hold a collection of schemas. The updated properties relate to the registry, and do not modify any of the schemas within the registry. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new UpdateRegistryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRegistryCommandInput} for command's `input` shape.
+ * @see {@link UpdateRegistryCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRegistryCommand extends $Command<
   UpdateRegistryCommandInput,

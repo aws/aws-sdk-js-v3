@@ -36,6 +36,18 @@ export interface StopServerCommandOutput extends __MetadataBearer {}
  *       can indicate an error condition.</p>
  *
  *          <p>No response is returned from this call.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TransferClient(config);
+ * const command = new StopServerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopServerCommandInput} for command's `input` shape.
+ * @see {@link StopServerCommandOutput} for command's `response` shape.
+ * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopServerCommand extends $Command<
   StopServerCommandInput,

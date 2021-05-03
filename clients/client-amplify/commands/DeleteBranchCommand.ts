@@ -22,6 +22,18 @@ export interface DeleteBranchCommandOutput extends DeleteBranchResult, __Metadat
 
 /**
  * <p> Deletes a branch for an Amplify app. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyClient(config);
+ * const command = new DeleteBranchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBranchCommandInput} for command's `input` shape.
+ * @see {@link DeleteBranchCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBranchCommand extends $Command<
   DeleteBranchCommandInput,

@@ -23,6 +23,18 @@ export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGro
 /**
  * <p>Describes the resource groups that are specified by the ARNs of the resource
  *          groups.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new DescribeResourceGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeResourceGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeResourceGroupsCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeResourceGroupsCommand extends $Command<
   DescribeResourceGroupsCommandInput,

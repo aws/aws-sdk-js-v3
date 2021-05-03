@@ -24,6 +24,18 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * <p>Lists the certificates registered in your AWS account.</p>
  *          <p>The results are paginated with a default page size of 25. You can use the returned
  *          marker to retrieve additional results.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ListCertificatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCertificatesCommandInput} for command's `input` shape.
+ * @see {@link ListCertificatesCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCertificatesCommand extends $Command<
   ListCertificatesCommandInput,

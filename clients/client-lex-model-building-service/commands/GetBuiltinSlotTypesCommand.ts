@@ -32,6 +32,18 @@ export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesRes
  *
  *          <p>This operation requires permission for the
  *         <code>lex:GetBuiltInSlotTypes</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new GetBuiltinSlotTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBuiltinSlotTypesCommandInput} for command's `input` shape.
+ * @see {@link GetBuiltinSlotTypesCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBuiltinSlotTypesCommand extends $Command<
   GetBuiltinSlotTypesCommandInput,

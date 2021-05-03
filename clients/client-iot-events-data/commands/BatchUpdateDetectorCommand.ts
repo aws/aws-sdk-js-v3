@@ -23,6 +23,18 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
 /**
  * <p>Updates the state, variable values, and timer settings of one or more detectors (instances)
  *         of a specified detector model.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTEventsDataClient(config);
+ * const command = new BatchUpdateDetectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchUpdateDetectorCommandInput} for command's `input` shape.
+ * @see {@link BatchUpdateDetectorCommandOutput} for command's `response` shape.
+ * @see {@link IoTEventsDataClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchUpdateDetectorCommand extends $Command<
   BatchUpdateDetectorCommandInput,

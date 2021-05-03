@@ -22,6 +22,18 @@ export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansR
 
 /**
  * <p>Describes one or more of your scaling plans.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingPlansClient(config);
+ * const command = new DescribeScalingPlansCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeScalingPlansCommandInput} for command's `input` shape.
+ * @see {@link DescribeScalingPlansCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingPlansClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeScalingPlansCommand extends $Command<
   DescribeScalingPlansCommandInput,

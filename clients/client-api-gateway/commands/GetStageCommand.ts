@@ -22,6 +22,18 @@ export interface GetStageCommandOutput extends Stage, __MetadataBearer {}
 
 /**
  * <p>Gets information about a <a>Stage</a> resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new GetStageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetStageCommandInput} for command's `input` shape.
+ * @see {@link GetStageCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetStageCommand extends $Command<
   GetStageCommandInput,

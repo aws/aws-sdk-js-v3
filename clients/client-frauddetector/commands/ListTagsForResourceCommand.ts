@@ -24,6 +24,18 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Lists all tags associated with the resource. This is a paginated API. To get the next page results, provide the pagination token from the
  *             response as part of your request. A null pagination token
  *          fetches the records from the beginning. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

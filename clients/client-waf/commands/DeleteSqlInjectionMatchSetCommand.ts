@@ -46,6 +46,18 @@ export interface DeleteSqlInjectionMatchSetCommandOutput extends DeleteSqlInject
  *                <p>Submit a <code>DeleteSqlInjectionMatchSet</code> request.</p>
  *             </li>
  *          </ol>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFClient(config);
+ * const command = new DeleteSqlInjectionMatchSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSqlInjectionMatchSetCommandInput} for command's `input` shape.
+ * @see {@link DeleteSqlInjectionMatchSetCommandOutput} for command's `response` shape.
+ * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSqlInjectionMatchSetCommand extends $Command<
   DeleteSqlInjectionMatchSetCommandInput,

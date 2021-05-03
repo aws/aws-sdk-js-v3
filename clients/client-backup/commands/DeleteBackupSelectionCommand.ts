@@ -23,6 +23,18 @@ export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the resource selection associated with a backup plan that is specified by the
  *             <code>SelectionId</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new DeleteBackupSelectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBackupSelectionCommandInput} for command's `input` shape.
+ * @see {@link DeleteBackupSelectionCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBackupSelectionCommand extends $Command<
   DeleteBackupSelectionCommandInput,

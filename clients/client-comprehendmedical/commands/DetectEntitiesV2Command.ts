@@ -35,6 +35,18 @@ export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response,
  *         <code>DetectEntitiesV2</code> operation in all new applications.</p>
  *          <p>The <code>DetectEntitiesV2</code> operation returns the <code>Acuity</code> and
  *         <code>Direction</code> entities as attributes instead of types. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendMedicalClient(config);
+ * const command = new DetectEntitiesV2Command(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetectEntitiesV2CommandInput} for command's `input` shape.
+ * @see {@link DetectEntitiesV2CommandOutput} for command's `response` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetectEntitiesV2Command extends $Command<
   DetectEntitiesV2CommandInput,

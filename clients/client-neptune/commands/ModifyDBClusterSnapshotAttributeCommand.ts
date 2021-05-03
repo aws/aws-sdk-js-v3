@@ -37,6 +37,18 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  *       parameter in this case.</p>
  *          <p>To view which AWS accounts have access to copy or restore a manual DB cluster snapshot, or
  *       whether a manual DB cluster snapshot public or private, use the <a>DescribeDBClusterSnapshotAttributes</a> API action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NeptuneClient(config);
+ * const command = new ModifyDBClusterSnapshotAttributeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyDBClusterSnapshotAttributeCommandInput} for command's `input` shape.
+ * @see {@link ModifyDBClusterSnapshotAttributeCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyDBClusterSnapshotAttributeCommand extends $Command<
   ModifyDBClusterSnapshotAttributeCommandInput,

@@ -25,6 +25,18 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  *       information for a single image, including the image location and the assigned label.</p>
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:ListDatasetEntries</code> operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutVisionClient(config);
+ * const command = new ListDatasetEntriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDatasetEntriesCommandInput} for command's `input` shape.
+ * @see {@link ListDatasetEntriesCommandOutput} for command's `response` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDatasetEntriesCommand extends $Command<
   ListDatasetEntriesCommandInput,

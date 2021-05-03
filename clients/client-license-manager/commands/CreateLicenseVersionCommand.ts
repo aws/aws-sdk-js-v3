@@ -22,6 +22,18 @@ export interface CreateLicenseVersionCommandOutput extends CreateLicenseVersionR
 
 /**
  * <p>Creates a new version of the specified license.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LicenseManagerClient(config);
+ * const command = new CreateLicenseVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLicenseVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateLicenseVersionCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLicenseVersionCommand extends $Command<
   CreateLicenseVersionCommandInput,

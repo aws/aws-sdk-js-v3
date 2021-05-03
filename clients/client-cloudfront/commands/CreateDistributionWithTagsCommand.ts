@@ -22,6 +22,18 @@ export interface CreateDistributionWithTagsCommandOutput extends CreateDistribut
 
 /**
  * <p>Create a new distribution with tags.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new CreateDistributionWithTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDistributionWithTagsCommandInput} for command's `input` shape.
+ * @see {@link CreateDistributionWithTagsCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDistributionWithTagsCommand extends $Command<
   CreateDistributionWithTagsCommandInput,

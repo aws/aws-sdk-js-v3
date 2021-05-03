@@ -22,6 +22,18 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
 
 /**
  * <p>Removes a user from a group so that the user is no longer a member of the group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new DeleteGroupMembershipCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteGroupMembershipCommandInput} for command's `input` shape.
+ * @see {@link DeleteGroupMembershipCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteGroupMembershipCommand extends $Command<
   DeleteGroupMembershipCommandInput,

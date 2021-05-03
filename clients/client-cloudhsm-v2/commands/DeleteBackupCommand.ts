@@ -24,6 +24,18 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * <p>Deletes a specified AWS CloudHSM backup. A backup can be restored up to 7 days
  *             after the DeleteBackup request is made. For more information on restoring a backup, see
  *                 <a>RestoreBackup</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMV2Client(config);
+ * const command = new DeleteBackupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBackupCommandInput} for command's `input` shape.
+ * @see {@link DeleteBackupCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBackupCommand extends $Command<
   DeleteBackupCommandInput,

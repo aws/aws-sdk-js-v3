@@ -26,6 +26,18 @@ export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGr
  * <code>VoiceConnectorItems</code>
  * .
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new GetVoiceConnectorGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetVoiceConnectorGroupCommandInput} for command's `input` shape.
+ * @see {@link GetVoiceConnectorGroupCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetVoiceConnectorGroupCommand extends $Command<
   GetVoiceConnectorGroupCommandInput,

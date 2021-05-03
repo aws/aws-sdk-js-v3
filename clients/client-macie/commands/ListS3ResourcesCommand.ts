@@ -25,6 +25,18 @@ export interface ListS3ResourcesCommandOutput extends ListS3ResourcesResult, __M
  *       isn't specified, the action lists the S3 resources associated with Macie Classic for
  *       the current Macie Classic administrator account. If memberAccountId is specified, the action lists the S3 resources
  *       associated with Macie Classic for the specified member account. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MacieClient(config);
+ * const command = new ListS3ResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListS3ResourcesCommandInput} for command's `input` shape.
+ * @see {@link ListS3ResourcesCommandOutput} for command's `response` shape.
+ * @see {@link MacieClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListS3ResourcesCommand extends $Command<
   ListS3ResourcesCommandInput,

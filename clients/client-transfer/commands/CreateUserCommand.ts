@@ -28,6 +28,18 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *       user's public key, and assign the user's AWS Identity and Access Management (IAM)
  *       role. You can also optionally add a scope-down policy, and assign metadata with tags that can
  *       be used to group and search for users.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TransferClient(config);
+ * const command = new CreateUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateUserCommandInput} for command's `input` shape.
+ * @see {@link CreateUserCommandOutput} for command's `response` shape.
+ * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateUserCommand extends $Command<
   CreateUserCommandInput,

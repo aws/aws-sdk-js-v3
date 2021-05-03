@@ -27,6 +27,18 @@ export interface DeleteNetworkInterfacePermissionCommandOutput
  * 			permission if the account for which you're removing the permission has attached the
  * 			network interface to an instance. However, you can force delete the permission,
  * 			regardless of any attachment.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DeleteNetworkInterfacePermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteNetworkInterfacePermissionCommandInput} for command's `input` shape.
+ * @see {@link DeleteNetworkInterfacePermissionCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteNetworkInterfacePermissionCommand extends $Command<
   DeleteNetworkInterfacePermissionCommandInput,

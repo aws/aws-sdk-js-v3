@@ -25,6 +25,18 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
  * 		       <important>
  * 			         <p>Deleting the last subscriber to a notification also deletes the notification.</p>
  * 		       </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BudgetsClient(config);
+ * const command = new DeleteSubscriberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSubscriberCommandInput} for command's `input` shape.
+ * @see {@link DeleteSubscriberCommandOutput} for command's `response` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSubscriberCommand extends $Command<
   DeleteSubscriberCommandInput,

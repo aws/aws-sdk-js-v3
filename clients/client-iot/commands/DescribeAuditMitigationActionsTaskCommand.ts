@@ -27,6 +27,18 @@ export interface DescribeAuditMitigationActionsTaskCommandOutput
 
 /**
  * <p>Gets information about an audit mitigation task that is used to apply mitigation actions to a set of audit findings. Properties include the actions being applied, the audit checks to which they're being applied, the task status, and aggregated task statistics.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DescribeAuditMitigationActionsTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAuditMitigationActionsTaskCommandInput} for command's `input` shape.
+ * @see {@link DescribeAuditMitigationActionsTaskCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAuditMitigationActionsTaskCommand extends $Command<
   DescribeAuditMitigationActionsTaskCommandInput,

@@ -22,6 +22,18 @@ export interface GetJourneyExecutionMetricsCommandOutput extends GetJourneyExecu
 
 /**
  * <p>Retrieves (queries) pre-aggregated data for a standard execution metric that applies to a journey.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new GetJourneyExecutionMetricsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetJourneyExecutionMetricsCommandInput} for command's `input` shape.
+ * @see {@link GetJourneyExecutionMetricsCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetJourneyExecutionMetricsCommand extends $Command<
   GetJourneyExecutionMetricsCommandInput,

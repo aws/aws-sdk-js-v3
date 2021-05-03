@@ -24,6 +24,18 @@ export interface DeleteAnalyzerCommandOutput extends __MetadataBearer {}
  * <p>Deletes the specified analyzer. When you delete an analyzer, Access Analyzer is disabled for the
  *          account or organization in the current or specific Region. All findings that were generated
  *          by the analyzer are deleted. You cannot undo this action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AccessAnalyzerClient(config);
+ * const command = new DeleteAnalyzerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAnalyzerCommandInput} for command's `input` shape.
+ * @see {@link DeleteAnalyzerCommandOutput} for command's `response` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAnalyzerCommand extends $Command<
   DeleteAnalyzerCommandInput,

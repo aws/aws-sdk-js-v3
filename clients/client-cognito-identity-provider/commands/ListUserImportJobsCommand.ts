@@ -27,6 +27,18 @@ export interface ListUserImportJobsCommandOutput extends ListUserImportJobsRespo
 
 /**
  * <p>Lists the user import jobs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new ListUserImportJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListUserImportJobsCommandInput} for command's `input` shape.
+ * @see {@link ListUserImportJobsCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListUserImportJobsCommand extends $Command<
   ListUserImportJobsCommandInput,

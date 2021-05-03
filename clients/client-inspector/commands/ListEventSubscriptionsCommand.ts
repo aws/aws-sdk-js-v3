@@ -23,6 +23,18 @@ export interface ListEventSubscriptionsCommandOutput extends ListEventSubscripti
 /**
  * <p>Lists all the event subscriptions for the assessment template that is specified by
  *          the ARN of the assessment template. For more information, see <a>SubscribeToEvent</a> and <a>UnsubscribeFromEvent</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new ListEventSubscriptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEventSubscriptionsCommandInput} for command's `input` shape.
+ * @see {@link ListEventSubscriptionsCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEventSubscriptionsCommand extends $Command<
   ListEventSubscriptionsCommandInput,

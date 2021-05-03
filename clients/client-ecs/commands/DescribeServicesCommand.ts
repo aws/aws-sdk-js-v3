@@ -22,6 +22,18 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
 
 /**
  * <p>Describes the specified services running in your cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new DescribeServicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeServicesCommandInput} for command's `input` shape.
+ * @see {@link DescribeServicesCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeServicesCommand extends $Command<
   DescribeServicesCommandInput,

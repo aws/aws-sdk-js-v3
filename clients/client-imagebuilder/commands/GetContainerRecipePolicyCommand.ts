@@ -22,6 +22,18 @@ export interface GetContainerRecipePolicyCommandOutput extends GetContainerRecip
 
 /**
  * <p>Retrieves the policy for a container recipe.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new GetContainerRecipePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetContainerRecipePolicyCommandInput} for command's `input` shape.
+ * @see {@link GetContainerRecipePolicyCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetContainerRecipePolicyCommand extends $Command<
   GetContainerRecipePolicyCommandInput,

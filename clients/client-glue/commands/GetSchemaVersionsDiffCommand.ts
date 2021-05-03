@@ -23,6 +23,18 @@ export interface GetSchemaVersionsDiffCommandOutput extends GetSchemaVersionsDif
 /**
  * <p>Fetches the schema version difference in the specified difference type between two stored schema versions in the Schema Registry.</p>
  *          <p>This API allows you to compare two schema versions between two schema definitions under the same schema.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetSchemaVersionsDiffCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSchemaVersionsDiffCommandInput} for command's `input` shape.
+ * @see {@link GetSchemaVersionsDiffCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSchemaVersionsDiffCommand extends $Command<
   GetSchemaVersionsDiffCommandInput,

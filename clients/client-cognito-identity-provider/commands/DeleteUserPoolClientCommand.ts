@@ -27,6 +27,18 @@ export interface DeleteUserPoolClientCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Allows the developer to delete the user pool client.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new DeleteUserPoolClientCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteUserPoolClientCommandInput} for command's `input` shape.
+ * @see {@link DeleteUserPoolClientCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteUserPoolClientCommand extends $Command<
   DeleteUserPoolClientCommandInput,

@@ -28,6 +28,18 @@ export interface DescribeTapeRecoveryPointsCommandOutput extends DescribeTapeRec
  *          virtual tape is consistent. If your gateway crashes, virtual tapes that have recovery
  *          points can be recovered to a new gateway. This operation is only supported in the tape
  *          gateway type.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new DescribeTapeRecoveryPointsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTapeRecoveryPointsCommandInput} for command's `input` shape.
+ * @see {@link DescribeTapeRecoveryPointsCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTapeRecoveryPointsCommand extends $Command<
   DescribeTapeRecoveryPointsCommandInput,

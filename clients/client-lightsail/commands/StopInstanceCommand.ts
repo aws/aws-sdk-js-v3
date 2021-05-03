@@ -30,6 +30,18 @@ export interface StopInstanceCommandOutput extends StopInstanceResult, __Metadat
  *          <p>The <code>stop instance</code> operation supports tag-based access control via resource
  *       tags applied to the resource identified by <code>instance name</code>. For more information,
  *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new StopInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopInstanceCommandInput} for command's `input` shape.
+ * @see {@link StopInstanceCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopInstanceCommand extends $Command<
   StopInstanceCommandInput,

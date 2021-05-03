@@ -24,6 +24,18 @@ export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWit
  * <p>Associates a device with a given room. This applies all the settings from the room
  *          profile to the device, and all the skills in any skill groups added to that room. This
  *          operation requires the device to be online, or else a manual sync is required. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new AssociateDeviceWithRoomCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateDeviceWithRoomCommandInput} for command's `input` shape.
+ * @see {@link AssociateDeviceWithRoomCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateDeviceWithRoomCommand extends $Command<
   AssociateDeviceWithRoomCommandInput,

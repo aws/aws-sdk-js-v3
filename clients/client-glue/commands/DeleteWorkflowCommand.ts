@@ -22,6 +22,18 @@ export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __M
 
 /**
  * <p>Deletes a workflow.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new DeleteWorkflowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteWorkflowCommandInput} for command's `input` shape.
+ * @see {@link DeleteWorkflowCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteWorkflowCommand extends $Command<
   DeleteWorkflowCommandInput,

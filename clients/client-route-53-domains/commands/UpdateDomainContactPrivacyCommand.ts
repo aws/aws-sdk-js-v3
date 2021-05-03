@@ -36,6 +36,18 @@ export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainCon
  * 			For more information on our privacy practices, see
  * 			<a href="https://aws.amazon.com/privacy/">https://aws.amazon.com/privacy/</a>.</p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53DomainsClient(config);
+ * const command = new UpdateDomainContactPrivacyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDomainContactPrivacyCommandInput} for command's `input` shape.
+ * @see {@link UpdateDomainContactPrivacyCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDomainContactPrivacyCommand extends $Command<
   UpdateDomainContactPrivacyCommandInput,

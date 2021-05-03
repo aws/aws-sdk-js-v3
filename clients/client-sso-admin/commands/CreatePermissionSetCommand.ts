@@ -27,6 +27,18 @@ export interface CreatePermissionSetCommandOutput extends CreatePermissionSetRes
  *                   <a>CreateAccountAssignment</a>
  *                </code>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSOAdminClient(config);
+ * const command = new CreatePermissionSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePermissionSetCommandInput} for command's `input` shape.
+ * @see {@link CreatePermissionSetCommandOutput} for command's `response` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePermissionSetCommand extends $Command<
   CreatePermissionSetCommandInput,

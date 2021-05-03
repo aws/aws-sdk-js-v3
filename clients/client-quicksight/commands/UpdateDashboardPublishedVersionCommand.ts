@@ -24,6 +24,18 @@ export interface UpdateDashboardPublishedVersionCommandOutput
 
 /**
  * <p>Updates the published version of a dashboard.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new UpdateDashboardPublishedVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDashboardPublishedVersionCommandInput} for command's `input` shape.
+ * @see {@link UpdateDashboardPublishedVersionCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDashboardPublishedVersionCommand extends $Command<
   UpdateDashboardPublishedVersionCommandInput,

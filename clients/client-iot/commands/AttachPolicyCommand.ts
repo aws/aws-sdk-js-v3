@@ -22,6 +22,18 @@ export interface AttachPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attaches a policy to the specified target.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new AttachPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AttachPolicyCommandInput} for command's `input` shape.
+ * @see {@link AttachPolicyCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AttachPolicyCommand extends $Command<
   AttachPolicyCommandInput,

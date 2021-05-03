@@ -24,6 +24,18 @@ export interface PutImageScanningConfigurationCommandOutput
 
 /**
  * <p>Updates the image scanning configuration for the specified repository.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECRClient(config);
+ * const command = new PutImageScanningConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutImageScanningConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutImageScanningConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutImageScanningConfigurationCommand extends $Command<
   PutImageScanningConfigurationCommandInput,

@@ -24,6 +24,18 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  * <p>Returns a list of dataset groups. The response provides the properties for each dataset
  *       group, including the Amazon Resource Name (ARN). For more information on dataset groups, see
  *         <a>CreateDatasetGroup</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeClient(config);
+ * const command = new ListDatasetGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDatasetGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListDatasetGroupsCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDatasetGroupsCommand extends $Command<
   ListDatasetGroupsCommandInput,

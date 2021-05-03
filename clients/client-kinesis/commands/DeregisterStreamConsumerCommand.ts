@@ -29,6 +29,18 @@ export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer 
  *             all the consumers that are currently registered with a given data stream. The
  *             description of a consumer contains its name and ARN.</p>
  *         <p>This operation has a limit of five transactions per second per stream.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisClient(config);
+ * const command = new DeregisterStreamConsumerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterStreamConsumerCommandInput} for command's `input` shape.
+ * @see {@link DeregisterStreamConsumerCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterStreamConsumerCommand extends $Command<
   DeregisterStreamConsumerCommandInput,

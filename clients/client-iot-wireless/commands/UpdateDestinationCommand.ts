@@ -22,6 +22,18 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationRespons
 
 /**
  * <p>Updates properties of a destination.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new UpdateDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDestinationCommandInput} for command's `input` shape.
+ * @see {@link UpdateDestinationCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDestinationCommand extends $Command<
   UpdateDestinationCommandInput,

@@ -63,6 +63,18 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *             <p>The <code>Status</code> of a dataset must be <code>ACTIVE</code> before you can import
  *         training data. Use the <a>DescribeDataset</a> operation to get the status.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ForecastClient(config);
+ * const command = new CreateDatasetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDatasetCommandInput} for command's `input` shape.
+ * @see {@link CreateDatasetCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDatasetCommand extends $Command<
   CreateDatasetCommandInput,

@@ -35,6 +35,18 @@ export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingCh
  *             of the viewers on the channel. A <code>VIEWER</code> role results in this API generating
  *             an endpoint that a client can use to communicate only with a
  *                 <code>MASTER</code>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisVideoClient(config);
+ * const command = new GetSignalingChannelEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSignalingChannelEndpointCommandInput} for command's `input` shape.
+ * @see {@link GetSignalingChannelEndpointCommandOutput} for command's `response` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSignalingChannelEndpointCommand extends $Command<
   GetSignalingChannelEndpointCommandInput,

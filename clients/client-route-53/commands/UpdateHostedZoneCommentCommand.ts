@@ -23,6 +23,18 @@ export interface UpdateHostedZoneCommentCommandOutput extends UpdateHostedZoneCo
 
 /**
  * <p>Updates the comment for a specified hosted zone.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new UpdateHostedZoneCommentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateHostedZoneCommentCommandInput} for command's `input` shape.
+ * @see {@link UpdateHostedZoneCommentCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateHostedZoneCommentCommand extends $Command<
   UpdateHostedZoneCommentCommandInput,

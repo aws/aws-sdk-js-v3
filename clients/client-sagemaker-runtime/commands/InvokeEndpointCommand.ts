@@ -41,6 +41,18 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointOutput, __Met
  *                 not contain the account ID, but Amazon SageMaker determines the account ID from the
  *                 authentication token that is supplied by the caller.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerRuntimeClient(config);
+ * const command = new InvokeEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InvokeEndpointCommandInput} for command's `input` shape.
+ * @see {@link InvokeEndpointCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerRuntimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InvokeEndpointCommand extends $Command<
   InvokeEndpointCommandInput,

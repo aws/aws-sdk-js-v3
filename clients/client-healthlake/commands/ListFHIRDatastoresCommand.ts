@@ -23,6 +23,18 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
 /**
  * <p>Lists all FHIR Data Stores that are in the user’s account, regardless of Data Store
  *          status.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new HealthLakeClient(config);
+ * const command = new ListFHIRDatastoresCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFHIRDatastoresCommandInput} for command's `input` shape.
+ * @see {@link ListFHIRDatastoresCommandOutput} for command's `response` shape.
+ * @see {@link HealthLakeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFHIRDatastoresCommand extends $Command<
   ListFHIRDatastoresCommandInput,

@@ -24,6 +24,18 @@ export interface ListDataQualityJobDefinitionsCommandOutput
 
 /**
  * <p>Lists the data quality job definitions in your account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListDataQualityJobDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDataQualityJobDefinitionsCommandInput} for command's `input` shape.
+ * @see {@link ListDataQualityJobDefinitionsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDataQualityJobDefinitionsCommand extends $Command<
   ListDataQualityJobDefinitionsCommandInput,

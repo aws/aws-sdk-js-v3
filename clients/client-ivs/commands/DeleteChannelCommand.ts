@@ -26,6 +26,18 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  *       delete a channel that is live, call <a>StopStream</a>, wait for the Amazon
  *       EventBridge "Stream End" event (to verify that the stream's state was changed from Live to
  *       Offline), then call DeleteChannel. (See <a href="https://docs.aws.amazon.com/ivs/latest/userguide/eventbridge.html"> Using EventBridge with Amazon IVS</a>.) </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IvsClient(config);
+ * const command = new DeleteChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteChannelCommandInput} for command's `input` shape.
+ * @see {@link DeleteChannelCommandOutput} for command's `response` shape.
+ * @see {@link IvsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteChannelCommand extends $Command<
   DeleteChannelCommandInput,

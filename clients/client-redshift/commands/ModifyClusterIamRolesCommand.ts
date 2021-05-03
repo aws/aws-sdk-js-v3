@@ -24,6 +24,18 @@ export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRole
  * <p>Modifies the list of AWS Identity and Access Management (IAM) roles that can be
  *             used by the cluster to access other AWS services.</p>
  *         <p>A cluster can have up to 10 IAM roles associated at any time.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new ModifyClusterIamRolesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyClusterIamRolesCommandInput} for command's `input` shape.
+ * @see {@link ModifyClusterIamRolesCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyClusterIamRolesCommand extends $Command<
   ModifyClusterIamRolesCommandInput,

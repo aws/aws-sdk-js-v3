@@ -23,6 +23,18 @@ export interface DeleteRetentionPolicyCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the specified retention policy.</p>
  *          <p>Log events do not expire if they belong to log groups without a retention policy.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new DeleteRetentionPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRetentionPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteRetentionPolicyCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRetentionPolicyCommand extends $Command<
   DeleteRetentionPolicyCommandInput,

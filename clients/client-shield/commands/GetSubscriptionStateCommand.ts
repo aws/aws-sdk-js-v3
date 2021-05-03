@@ -22,6 +22,18 @@ export interface GetSubscriptionStateCommandOutput extends GetSubscriptionStateR
 
 /**
  * <p>Returns the <code>SubscriptionState</code>, either <code>Active</code> or <code>Inactive</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ShieldClient(config);
+ * const command = new GetSubscriptionStateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSubscriptionStateCommandInput} for command's `input` shape.
+ * @see {@link GetSubscriptionStateCommandOutput} for command's `response` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSubscriptionStateCommand extends $Command<
   GetSubscriptionStateCommandInput,

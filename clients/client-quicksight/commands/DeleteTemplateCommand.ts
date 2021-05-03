@@ -22,6 +22,18 @@ export interface DeleteTemplateCommandOutput extends DeleteTemplateResponse, __M
 
 /**
  * <p>Deletes a template.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new DeleteTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTemplateCommandInput} for command's `input` shape.
+ * @see {@link DeleteTemplateCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTemplateCommand extends $Command<
   DeleteTemplateCommandInput,

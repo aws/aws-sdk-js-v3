@@ -39,6 +39,18 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResult, __Met
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3OutpostsClient(config);
+ * const command = new CreateEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateEndpointCommandInput} for command's `input` shape.
+ * @see {@link CreateEndpointCommandOutput} for command's `response` shape.
+ * @see {@link S3OutpostsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateEndpointCommand extends $Command<
   CreateEndpointCommandInput,

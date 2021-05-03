@@ -22,6 +22,18 @@ export interface GetImageRecipePolicyCommandOutput extends GetImageRecipePolicyR
 
 /**
  * <p> Gets an image recipe policy.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new GetImageRecipePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetImageRecipePolicyCommandInput} for command's `input` shape.
+ * @see {@link GetImageRecipePolicyCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetImageRecipePolicyCommand extends $Command<
   GetImageRecipePolicyCommandInput,

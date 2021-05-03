@@ -23,6 +23,18 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
 /**
  * <p>Permanently ends a session and closes the data connection between the Session Manager client and
  *    SSM Agent on the instance. A terminated session cannot be resumed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new TerminateSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TerminateSessionCommandInput} for command's `input` shape.
+ * @see {@link TerminateSessionCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TerminateSessionCommand extends $Command<
   TerminateSessionCommandInput,

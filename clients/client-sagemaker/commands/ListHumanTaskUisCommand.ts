@@ -22,6 +22,18 @@ export interface ListHumanTaskUisCommandOutput extends ListHumanTaskUisResponse,
 
 /**
  * <p>Returns information about the human task user interfaces in your account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListHumanTaskUisCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListHumanTaskUisCommandInput} for command's `input` shape.
+ * @see {@link ListHumanTaskUisCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListHumanTaskUisCommand extends $Command<
   ListHumanTaskUisCommandInput,

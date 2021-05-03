@@ -29,6 +29,18 @@ export interface UpdateHITTypeOfHITCommandOutput extends UpdateHITTypeOfHITRespo
  *             associates it with the new HITType properties. The HIT takes on the
  *             properties of the new HITType in place of the old ones.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MTurkClient(config);
+ * const command = new UpdateHITTypeOfHITCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateHITTypeOfHITCommandInput} for command's `input` shape.
+ * @see {@link UpdateHITTypeOfHITCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateHITTypeOfHITCommand extends $Command<
   UpdateHITTypeOfHITCommandInput,

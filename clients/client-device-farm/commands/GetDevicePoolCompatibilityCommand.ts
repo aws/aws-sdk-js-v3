@@ -22,6 +22,18 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
 
 /**
  * <p>Gets information about compatibility with a device pool.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new GetDevicePoolCompatibilityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDevicePoolCompatibilityCommandInput} for command's `input` shape.
+ * @see {@link GetDevicePoolCompatibilityCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDevicePoolCompatibilityCommand extends $Command<
   GetDevicePoolCompatibilityCommandInput,

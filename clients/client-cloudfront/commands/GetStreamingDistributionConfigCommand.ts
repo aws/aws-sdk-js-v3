@@ -24,6 +24,18 @@ export interface GetStreamingDistributionConfigCommandOutput
 
 /**
  * <p>Get the configuration information about a streaming distribution. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new GetStreamingDistributionConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetStreamingDistributionConfigCommandInput} for command's `input` shape.
+ * @see {@link GetStreamingDistributionConfigCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetStreamingDistributionConfigCommand extends $Command<
   GetStreamingDistributionConfigCommandInput,

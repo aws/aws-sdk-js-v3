@@ -23,6 +23,18 @@ export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingP
 /**
  * <p>Removes an automatic scaling policy from a specified instance group within an EMR
  *          cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRClient(config);
+ * const command = new RemoveAutoScalingPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveAutoScalingPolicyCommandInput} for command's `input` shape.
+ * @see {@link RemoveAutoScalingPolicyCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveAutoScalingPolicyCommand extends $Command<
   RemoveAutoScalingPolicyCommandInput,

@@ -26,6 +26,18 @@ export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSn
 
 /**
  * <p>Lists information about the current application snapshots.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisAnalyticsV2Client(config);
+ * const command = new ListApplicationSnapshotsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListApplicationSnapshotsCommandInput} for command's `input` shape.
+ * @see {@link ListApplicationSnapshotsCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListApplicationSnapshotsCommand extends $Command<
   ListApplicationSnapshotsCommandInput,

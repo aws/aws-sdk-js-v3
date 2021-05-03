@@ -22,6 +22,18 @@ export interface DescribeAlertCommandOutput extends DescribeAlertResponse, __Met
 
 /**
  * <p>Describes an alert.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutMetricsClient(config);
+ * const command = new DescribeAlertCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAlertCommandInput} for command's `input` shape.
+ * @see {@link DescribeAlertCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAlertCommand extends $Command<
   DescribeAlertCommandInput,

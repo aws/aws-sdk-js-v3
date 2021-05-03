@@ -22,6 +22,18 @@ export interface DeleteMissionProfileCommandOutput extends MissionProfileIdRespo
 
 /**
  * <p>Deletes a mission profile.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GroundStationClient(config);
+ * const command = new DeleteMissionProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMissionProfileCommandInput} for command's `input` shape.
+ * @see {@link DeleteMissionProfileCommandOutput} for command's `response` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMissionProfileCommand extends $Command<
   DeleteMissionProfileCommandInput,

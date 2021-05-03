@@ -25,6 +25,18 @@ export interface DeleteMeetingCommandOutput extends __MetadataBearer {}
  *             also deleted, clients connected to the meeting are disconnected, and clients can no
  *             longer join the meeting. For more information about the Amazon Chime SDK, see <a href="https://docs.aws.amazon.com/chime/latest/dg/meetings-sdk.html">Using the Amazon Chime
  *                 SDK</a> in the <i>Amazon Chime Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new DeleteMeetingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMeetingCommandInput} for command's `input` shape.
+ * @see {@link DeleteMeetingCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMeetingCommand extends $Command<
   DeleteMeetingCommandInput,

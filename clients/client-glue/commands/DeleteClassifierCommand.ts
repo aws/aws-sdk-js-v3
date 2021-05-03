@@ -22,6 +22,18 @@ export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse,
 
 /**
  * <p>Removes a classifier from the Data Catalog.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new DeleteClassifierCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteClassifierCommandInput} for command's `input` shape.
+ * @see {@link DeleteClassifierCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteClassifierCommand extends $Command<
   DeleteClassifierCommandInput,

@@ -25,6 +25,18 @@ export interface UpdateMedicalVocabularyCommandOutput extends UpdateMedicalVocab
  *             the one you used to create the vocabulary. The <code>UpdateMedicalVocabulary</code>
  *             operation overwrites all of the existing information with the values that you provide in
  *             the request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeClient(config);
+ * const command = new UpdateMedicalVocabularyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMedicalVocabularyCommandInput} for command's `input` shape.
+ * @see {@link UpdateMedicalVocabularyCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMedicalVocabularyCommand extends $Command<
   UpdateMedicalVocabularyCommandInput,

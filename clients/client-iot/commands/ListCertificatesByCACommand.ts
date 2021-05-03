@@ -22,6 +22,18 @@ export interface ListCertificatesByCACommandOutput extends ListCertificatesByCAR
 
 /**
  * <p>List the device certificates signed by the specified CA certificate.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ListCertificatesByCACommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCertificatesByCACommandInput} for command's `input` shape.
+ * @see {@link ListCertificatesByCACommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCertificatesByCACommand extends $Command<
   ListCertificatesByCACommandInput,

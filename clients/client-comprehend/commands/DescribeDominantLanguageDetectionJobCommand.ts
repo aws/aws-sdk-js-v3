@@ -28,6 +28,18 @@ export interface DescribeDominantLanguageDetectionJobCommandOutput
 /**
  * <p>Gets the properties associated with a dominant language detection job. Use this operation
  *       to get the status of a detection job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new DescribeDominantLanguageDetectionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDominantLanguageDetectionJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeDominantLanguageDetectionJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDominantLanguageDetectionJobCommand extends $Command<
   DescribeDominantLanguageDetectionJobCommandInput,

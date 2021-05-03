@@ -23,6 +23,18 @@ export interface SyncDeploymentJobCommandOutput extends SyncDeploymentJobRespons
 /**
  * <p>Syncrhonizes robots in a fleet to the latest deployment. This is helpful if robots were
  *          added after a deployment.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new SyncDeploymentJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SyncDeploymentJobCommandInput} for command's `input` shape.
+ * @see {@link SyncDeploymentJobCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SyncDeploymentJobCommand extends $Command<
   SyncDeploymentJobCommandInput,

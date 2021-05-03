@@ -25,6 +25,18 @@ export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __Metad
  *       even if the original query that produced the <code>logRecordPointer</code> retrieved only a
  *       subset of fields. Fields are returned as field name/field value pairs.</p>
  *          <p>The full unparsed log event is returned within <code>@message</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new GetLogRecordCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLogRecordCommandInput} for command's `input` shape.
+ * @see {@link GetLogRecordCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLogRecordCommand extends $Command<
   GetLogRecordCommandInput,

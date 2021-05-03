@@ -25,6 +25,18 @@ export interface DescribeCrossAccountAccessRoleCommandOutput
 /**
  * <p>Describes the IAM role that enables Amazon Inspector to access your AWS
  *          account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new DescribeCrossAccountAccessRoleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCrossAccountAccessRoleCommandInput} for command's `input` shape.
+ * @see {@link DescribeCrossAccountAccessRoleCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCrossAccountAccessRoleCommand extends $Command<
   DescribeCrossAccountAccessRoleCommandInput,

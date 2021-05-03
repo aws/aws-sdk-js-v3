@@ -28,6 +28,18 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  *             launch template or launch configuration that requests Spot Instances.</p>
  *         <p>You can view the instances in the warm pool using the <a>DescribeWarmPool</a> API call. If you are no longer using a warm pool, you can delete it by calling the
  *                 <a>DeleteWarmPool</a> API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingClient(config);
+ * const command = new PutWarmPoolCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutWarmPoolCommandInput} for command's `input` shape.
+ * @see {@link PutWarmPoolCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutWarmPoolCommand extends $Command<
   PutWarmPoolCommandInput,

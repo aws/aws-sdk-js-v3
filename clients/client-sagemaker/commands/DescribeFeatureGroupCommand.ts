@@ -24,6 +24,18 @@ export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupR
  * <p>Use this operation to describe a <code>FeatureGroup</code>. The response includes
  *          information on the creation time, <code>FeatureGroup</code> name, the unique identifier for
  *          each <code>FeatureGroup</code>, and more.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeFeatureGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFeatureGroupCommandInput} for command's `input` shape.
+ * @see {@link DescribeFeatureGroupCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFeatureGroupCommand extends $Command<
   DescribeFeatureGroupCommandInput,

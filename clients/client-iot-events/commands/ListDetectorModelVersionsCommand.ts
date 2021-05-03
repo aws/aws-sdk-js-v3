@@ -23,6 +23,18 @@ export interface ListDetectorModelVersionsCommandOutput extends ListDetectorMode
 /**
  * <p>Lists all the versions of a detector model. Only the metadata associated with each
  *       detector model version is returned.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTEventsClient(config);
+ * const command = new ListDetectorModelVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDetectorModelVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListDetectorModelVersionsCommandOutput} for command's `response` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDetectorModelVersionsCommand extends $Command<
   ListDetectorModelVersionsCommandInput,

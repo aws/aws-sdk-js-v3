@@ -31,6 +31,18 @@ export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBear
  * 				<code>GetResourceConfigHistory</code> action, but you will not
  * 			be able to access this information in the AWS Config console until
  * 			you create a new configuration recorder.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DeleteConfigurationRecorderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConfigurationRecorderCommandInput} for command's `input` shape.
+ * @see {@link DeleteConfigurationRecorderCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConfigurationRecorderCommand extends $Command<
   DeleteConfigurationRecorderCommandInput,

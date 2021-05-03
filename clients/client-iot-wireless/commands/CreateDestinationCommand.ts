@@ -22,6 +22,18 @@ export interface CreateDestinationCommandOutput extends CreateDestinationRespons
 
 /**
  * <p>Creates a new destination that maps a device message to an AWS IoT rule.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new CreateDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDestinationCommandInput} for command's `input` shape.
+ * @see {@link CreateDestinationCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDestinationCommand extends $Command<
   CreateDestinationCommandInput,

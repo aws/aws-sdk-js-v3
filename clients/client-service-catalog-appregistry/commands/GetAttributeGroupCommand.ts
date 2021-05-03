@@ -26,6 +26,18 @@ export interface GetAttributeGroupCommandOutput extends GetAttributeGroupRespons
 
 /**
  * <p>Retrieves an attribute group, either by its name or its ID. The attribute group can be specified either by its unique ID or by its name.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogAppRegistryClient(config);
+ * const command = new GetAttributeGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAttributeGroupCommandInput} for command's `input` shape.
+ * @see {@link GetAttributeGroupCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAttributeGroupCommand extends $Command<
   GetAttributeGroupCommandInput,

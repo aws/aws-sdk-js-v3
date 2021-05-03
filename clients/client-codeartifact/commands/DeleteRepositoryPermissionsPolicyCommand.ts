@@ -33,6 +33,18 @@ export interface DeleteRepositoryPermissionsPolicyCommandOutput
  *          the repository actions granted by the deleted policy.
  *        </p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeartifactClient(config);
+ * const command = new DeleteRepositoryPermissionsPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRepositoryPermissionsPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteRepositoryPermissionsPolicyCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRepositoryPermissionsPolicyCommand extends $Command<
   DeleteRepositoryPermissionsPolicyCommandInput,

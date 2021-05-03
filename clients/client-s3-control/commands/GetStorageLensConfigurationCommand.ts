@@ -32,6 +32,18 @@ export interface GetStorageLensConfigurationCommandOutput extends GetStorageLens
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
  *          <i>Amazon Simple Storage Service User Guide</i>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3ControlClient(config);
+ * const command = new GetStorageLensConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetStorageLensConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetStorageLensConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetStorageLensConfigurationCommand extends $Command<
   GetStorageLensConfigurationCommandInput,

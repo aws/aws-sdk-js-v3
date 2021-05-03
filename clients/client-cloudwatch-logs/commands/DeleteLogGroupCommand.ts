@@ -23,6 +23,18 @@ export interface DeleteLogGroupCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the specified log group and permanently deletes all the archived
  *       log events associated with the log group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new DeleteLogGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteLogGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteLogGroupCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteLogGroupCommand extends $Command<
   DeleteLogGroupCommandInput,

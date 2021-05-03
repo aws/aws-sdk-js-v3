@@ -26,6 +26,18 @@ export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __Metad
 
 /**
  * <p>Reloads the target database table with the source data. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new ReloadTablesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReloadTablesCommandInput} for command's `input` shape.
+ * @see {@link ReloadTablesCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReloadTablesCommand extends $Command<
   ReloadTablesCommandInput,

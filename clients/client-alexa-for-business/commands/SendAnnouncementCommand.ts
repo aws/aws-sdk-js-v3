@@ -23,6 +23,18 @@ export interface SendAnnouncementCommandOutput extends SendAnnouncementResponse,
 /**
  * <p>Triggers an asynchronous flow to send text, SSML, or audio announcements to rooms that
  *          are identified by a search or filter. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new SendAnnouncementCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendAnnouncementCommandInput} for command's `input` shape.
+ * @see {@link SendAnnouncementCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendAnnouncementCommand extends $Command<
   SendAnnouncementCommandInput,

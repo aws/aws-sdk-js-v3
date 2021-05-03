@@ -24,6 +24,18 @@ export interface ModifyTransitGatewayVpcAttachmentCommandOutput
 
 /**
  * <p>Modifies the specified VPC attachment.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyTransitGatewayVpcAttachmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyTransitGatewayVpcAttachmentCommandInput} for command's `input` shape.
+ * @see {@link ModifyTransitGatewayVpcAttachmentCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyTransitGatewayVpcAttachmentCommand extends $Command<
   ModifyTransitGatewayVpcAttachmentCommandInput,

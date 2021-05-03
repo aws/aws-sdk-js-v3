@@ -22,6 +22,18 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
 
 /**
  * Get a channel schedule
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaLiveClient(config);
+ * const command = new DescribeScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeScheduleCommandInput} for command's `input` shape.
+ * @see {@link DescribeScheduleCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeScheduleCommand extends $Command<
   DescribeScheduleCommandInput,

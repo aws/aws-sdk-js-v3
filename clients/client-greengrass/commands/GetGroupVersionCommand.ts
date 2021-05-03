@@ -22,6 +22,18 @@ export interface GetGroupVersionCommandOutput extends GetGroupVersionResponse, _
 
 /**
  * Retrieves information about a group version.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new GetGroupVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetGroupVersionCommandInput} for command's `input` shape.
+ * @see {@link GetGroupVersionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetGroupVersionCommand extends $Command<
   GetGroupVersionCommandInput,

@@ -34,6 +34,18 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  *             <code>GetSampledRequests</code> returns a time range, which is usually the time range that you specified. However, if your resource
  * 			(such as a CloudFront distribution) received 5,000 requests before the specified time range elapsed, <code>GetSampledRequests</code>
  * 			returns an updated time range. This new time range indicates the actual period during which AWS WAF selected the requests in the sample.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFRegionalClient(config);
+ * const command = new GetSampledRequestsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSampledRequestsCommandInput} for command's `input` shape.
+ * @see {@link GetSampledRequestsCommandOutput} for command's `response` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSampledRequestsCommand extends $Command<
   GetSampledRequestsCommandInput,

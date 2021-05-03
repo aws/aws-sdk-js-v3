@@ -22,6 +22,18 @@ export interface GetGatewayGroupCommandOutput extends GetGatewayGroupResponse, _
 
 /**
  * <p>Retrieves the details of a gateway group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new GetGatewayGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetGatewayGroupCommandInput} for command's `input` shape.
+ * @see {@link GetGatewayGroupCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetGatewayGroupCommand extends $Command<
   GetGatewayGroupCommandInput,

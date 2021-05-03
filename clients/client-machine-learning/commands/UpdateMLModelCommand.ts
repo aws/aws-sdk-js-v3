@@ -23,6 +23,18 @@ export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __Metad
 /**
  * <p>Updates the <code>MLModelName</code> and the <code>ScoreThreshold</code> of an <code>MLModel</code>.</p>
  *         <p>You can use the <code>GetMLModel</code> operation to view the contents of the updated data element.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MachineLearningClient(config);
+ * const command = new UpdateMLModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMLModelCommandInput} for command's `input` shape.
+ * @see {@link UpdateMLModelCommandOutput} for command's `response` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMLModelCommand extends $Command<
   UpdateMLModelCommandInput,

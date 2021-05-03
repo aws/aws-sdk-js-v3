@@ -29,6 +29,18 @@ export interface ListAllowedNodeTypeModificationsCommandOutput
  *         <p>When you use the <code>ModifyCacheCluster</code> or <code>ModifyReplicationGroup</code> operations to
  *             scale your cluster or replication group, the value of the <code>CacheNodeType</code> parameter
  *             must be one of the node types returned by this operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new ListAllowedNodeTypeModificationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAllowedNodeTypeModificationsCommandInput} for command's `input` shape.
+ * @see {@link ListAllowedNodeTypeModificationsCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAllowedNodeTypeModificationsCommand extends $Command<
   ListAllowedNodeTypeModificationsCommandInput,

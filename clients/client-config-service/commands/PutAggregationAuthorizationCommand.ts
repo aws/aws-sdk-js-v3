@@ -25,6 +25,18 @@ export interface PutAggregationAuthorizationCommandOutput
 /**
  * <p>Authorizes the aggregator account and region to collect data
  * 			from the source account and region. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new PutAggregationAuthorizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAggregationAuthorizationCommandInput} for command's `input` shape.
+ * @see {@link PutAggregationAuthorizationCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAggregationAuthorizationCommand extends $Command<
   PutAggregationAuthorizationCommandInput,

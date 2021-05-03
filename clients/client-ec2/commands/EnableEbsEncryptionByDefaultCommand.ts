@@ -35,6 +35,18 @@ export interface EnableEbsEncryptionByDefaultCommandOutput
  *          <p>After you enable encryption by default, you can no longer launch instances
  *       using instance types that do not support encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
  *         instance types</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new EnableEbsEncryptionByDefaultCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableEbsEncryptionByDefaultCommandInput} for command's `input` shape.
+ * @see {@link EnableEbsEncryptionByDefaultCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableEbsEncryptionByDefaultCommand extends $Command<
   EnableEbsEncryptionByDefaultCommandInput,

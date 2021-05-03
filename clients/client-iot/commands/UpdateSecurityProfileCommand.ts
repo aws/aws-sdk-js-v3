@@ -22,6 +22,18 @@ export interface UpdateSecurityProfileCommandOutput extends UpdateSecurityProfil
 
 /**
  * <p>Updates a Device Defender security profile.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new UpdateSecurityProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSecurityProfileCommandInput} for command's `input` shape.
+ * @see {@link UpdateSecurityProfileCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSecurityProfileCommand extends $Command<
   UpdateSecurityProfileCommandInput,

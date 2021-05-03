@@ -23,6 +23,18 @@ export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __M
 /**
  * <p>Deletes an artifact. Either <code>ArtifactArn</code> or <code>Source</code> must be
  *         specified.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteArtifactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteArtifactCommandInput} for command's `input` shape.
+ * @see {@link DeleteArtifactCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteArtifactCommand extends $Command<
   DeleteArtifactCommandInput,

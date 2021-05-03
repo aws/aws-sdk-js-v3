@@ -25,6 +25,18 @@ export interface CreateNamedQueryCommandOutput extends CreateNamedQueryOutput, _
  *             workgroup.</p>
  *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
  *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AthenaClient(config);
+ * const command = new CreateNamedQueryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateNamedQueryCommandInput} for command's `input` shape.
+ * @see {@link CreateNamedQueryCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateNamedQueryCommand extends $Command<
   CreateNamedQueryCommandInput,

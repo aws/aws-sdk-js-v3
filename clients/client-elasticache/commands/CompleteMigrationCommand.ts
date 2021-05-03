@@ -22,6 +22,18 @@ export interface CompleteMigrationCommandOutput extends CompleteMigrationRespons
 
 /**
  * <p>Complete the migration of data.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new CompleteMigrationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CompleteMigrationCommandInput} for command's `input` shape.
+ * @see {@link CompleteMigrationCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CompleteMigrationCommand extends $Command<
   CompleteMigrationCommandInput,

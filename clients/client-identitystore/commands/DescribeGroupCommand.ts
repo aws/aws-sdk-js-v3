@@ -22,6 +22,18 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
 
 /**
  * <p>Retrieves the group metadata and attributes from <code>GroupId</code> in an identity store.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IdentitystoreClient(config);
+ * const command = new DescribeGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeGroupCommandInput} for command's `input` shape.
+ * @see {@link DescribeGroupCommandOutput} for command's `response` shape.
+ * @see {@link IdentitystoreClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeGroupCommand extends $Command<
   DescribeGroupCommandInput,

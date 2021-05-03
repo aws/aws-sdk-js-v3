@@ -24,6 +24,18 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  * <p>Updates data for the resource. To have the latest information, it must be preceded by
  *          a <a>DescribeResource</a> call. The dataset in the request should be the one
  *          expected when performing another <code>DescribeResource</code> call.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new UpdateResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateResourceCommandInput} for command's `input` shape.
+ * @see {@link UpdateResourceCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateResourceCommand extends $Command<
   UpdateResourceCommandInput,

@@ -25,6 +25,18 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  *       GuardDuty service. To start using GuardDuty, you must create a detector in each Region where
  *       you enable the service. You can have only one detector per account per Region. All data
  *       sources are enabled in a new detector by default.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new CreateDetectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDetectorCommandInput} for command's `input` shape.
+ * @see {@link CreateDetectorCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDetectorCommand extends $Command<
   CreateDetectorCommandInput,

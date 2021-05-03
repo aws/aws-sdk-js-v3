@@ -31,6 +31,18 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  *       Balancer, or Gateway Load Balancer.</p>
  *          <p>If any of the specified attributes can't be modified as requested, the call fails. Any
  *       existing attributes that you do not modify retain their current values.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new ModifyLoadBalancerAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyLoadBalancerAttributesCommandInput} for command's `input` shape.
+ * @see {@link ModifyLoadBalancerAttributesCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyLoadBalancerAttributesCommand extends $Command<
   ModifyLoadBalancerAttributesCommandInput,

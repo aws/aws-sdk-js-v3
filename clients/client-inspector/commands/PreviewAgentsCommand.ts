@@ -23,6 +23,18 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
 /**
  * <p>Previews the agents installed on the EC2 instances that are part of the specified
  *          assessment target.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new PreviewAgentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PreviewAgentsCommandInput} for command's `input` shape.
+ * @see {@link PreviewAgentsCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PreviewAgentsCommand extends $Command<
   PreviewAgentsCommandInput,

@@ -39,6 +39,18 @@ export interface CreateReservedInstancesListingCommandOutput
  *         <a>DescribeReservedInstancesListings</a> operation.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the
  * 				<i>Amazon EC2 User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateReservedInstancesListingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateReservedInstancesListingCommandInput} for command's `input` shape.
+ * @see {@link CreateReservedInstancesListingCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateReservedInstancesListingCommand extends $Command<
   CreateReservedInstancesListingCommandInput,

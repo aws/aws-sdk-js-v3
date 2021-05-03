@@ -67,6 +67,18 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *          <p>
  *             <b>Related operations</b>: <a>CreateKey</a>
  *          </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KMSClient(config);
+ * const command = new GetPublicKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPublicKeyCommandInput} for command's `input` shape.
+ * @see {@link GetPublicKeyCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPublicKeyCommand extends $Command<
   GetPublicKeyCommandInput,

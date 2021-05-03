@@ -34,6 +34,18 @@ export interface CancelReplicationTaskAssessmentRunCommandOutput
  *          <p>This operation prevents any individual assessments from running if they haven't started
  *          running. It also attempts to cancel any individual assessments that are currently
  *          running.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new CancelReplicationTaskAssessmentRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelReplicationTaskAssessmentRunCommandInput} for command's `input` shape.
+ * @see {@link CancelReplicationTaskAssessmentRunCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelReplicationTaskAssessmentRunCommand extends $Command<
   CancelReplicationTaskAssessmentRunCommandInput,

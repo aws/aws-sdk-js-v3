@@ -22,6 +22,18 @@ export interface ListProxySessionsCommandOutput extends ListProxySessionsRespons
 
 /**
  * <p>Lists the proxy sessions for the specified Amazon Chime Voice Connector.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new ListProxySessionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProxySessionsCommandInput} for command's `input` shape.
+ * @see {@link ListProxySessionsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProxySessionsCommand extends $Command<
   ListProxySessionsCommandInput,

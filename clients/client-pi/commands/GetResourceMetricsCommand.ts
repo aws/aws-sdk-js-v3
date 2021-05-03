@@ -28,6 +28,18 @@ export interface GetResourceMetricsCommandOutput extends GetResourceMetricsRespo
  *             <p>Each response element returns a maximum of 500 bytes. For larger elements, such as SQL statements,
  *                only the first 500 bytes are returned.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PIClient(config);
+ * const command = new GetResourceMetricsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetResourceMetricsCommandInput} for command's `input` shape.
+ * @see {@link GetResourceMetricsCommandOutput} for command's `response` shape.
+ * @see {@link PIClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetResourceMetricsCommand extends $Command<
   GetResourceMetricsCommandInput,

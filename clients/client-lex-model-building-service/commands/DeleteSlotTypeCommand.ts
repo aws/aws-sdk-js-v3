@@ -42,6 +42,18 @@ export interface DeleteSlotTypeCommandOutput extends __MetadataBearer {}
  *          </note>
  *          <p>This operation requires permission for the
  *         <code>lex:DeleteSlotType</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new DeleteSlotTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSlotTypeCommandInput} for command's `input` shape.
+ * @see {@link DeleteSlotTypeCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSlotTypeCommand extends $Command<
   DeleteSlotTypeCommandInput,

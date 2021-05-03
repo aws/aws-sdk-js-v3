@@ -22,6 +22,18 @@ export interface DeleteUsagePlanCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a usage plan of a given plan Id.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new DeleteUsagePlanCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteUsagePlanCommandInput} for command's `input` shape.
+ * @see {@link DeleteUsagePlanCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteUsagePlanCommand extends $Command<
   DeleteUsagePlanCommandInput,

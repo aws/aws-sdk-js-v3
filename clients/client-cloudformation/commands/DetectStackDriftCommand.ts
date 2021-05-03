@@ -42,6 +42,18 @@ export interface DetectStackDriftCommandOutput extends DetectStackDriftOutput, _
  *          <p>When detecting drift on a stack, AWS CloudFormation does not detect drift on any nested stacks
  *          belonging to that stack. Perform <code>DetectStackDrift</code> directly on the nested stack
  *          itself.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new DetectStackDriftCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetectStackDriftCommandInput} for command's `input` shape.
+ * @see {@link DetectStackDriftCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetectStackDriftCommand extends $Command<
   DetectStackDriftCommandInput,

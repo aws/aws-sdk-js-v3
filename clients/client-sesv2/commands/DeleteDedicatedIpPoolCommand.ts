@@ -22,6 +22,18 @@ export interface DeleteDedicatedIpPoolCommandOutput extends DeleteDedicatedIpPoo
 
 /**
  * <p>Delete a dedicated IP pool.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new DeleteDedicatedIpPoolCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDedicatedIpPoolCommandInput} for command's `input` shape.
+ * @see {@link DeleteDedicatedIpPoolCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDedicatedIpPoolCommand extends $Command<
   DeleteDedicatedIpPoolCommandInput,

@@ -23,6 +23,18 @@ export interface ListRobotApplicationsCommandOutput extends ListRobotApplication
 /**
  * <p>Returns a list of robot application. You can optionally provide filters to retrieve
  *          specific robot applications.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new ListRobotApplicationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRobotApplicationsCommandInput} for command's `input` shape.
+ * @see {@link ListRobotApplicationsCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRobotApplicationsCommand extends $Command<
   ListRobotApplicationsCommandInput,

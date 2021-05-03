@@ -22,6 +22,18 @@ export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a logging level.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DeleteV2LoggingLevelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteV2LoggingLevelCommandInput} for command's `input` shape.
+ * @see {@link DeleteV2LoggingLevelCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteV2LoggingLevelCommand extends $Command<
   DeleteV2LoggingLevelCommandInput,

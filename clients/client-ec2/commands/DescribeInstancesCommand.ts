@@ -36,6 +36,18 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  *             not specify any instance IDs at all, the call fails. If you describe instances and
  *             specify only instance IDs that are in an unaffected zone, the call works
  *             normally.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeInstancesCommandInput} for command's `input` shape.
+ * @see {@link DescribeInstancesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeInstancesCommand extends $Command<
   DescribeInstancesCommandInput,

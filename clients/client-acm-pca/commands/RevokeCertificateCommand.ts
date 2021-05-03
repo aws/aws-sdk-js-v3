@@ -41,6 +41,18 @@ export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
  * 		       <note>
  * 			         <p>You cannot revoke a root CA self-signed certificate.</p>
  * 		       </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ACMPCAClient(config);
+ * const command = new RevokeCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RevokeCertificateCommandInput} for command's `input` shape.
+ * @see {@link RevokeCertificateCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RevokeCertificateCommand extends $Command<
   RevokeCertificateCommandInput,

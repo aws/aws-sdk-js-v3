@@ -33,6 +33,18 @@ export interface DescribeOrderableReplicationInstancesCommandOutput
 /**
  * <p>Returns information about the replication instance types that can be created in the
  *          specified region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DescribeOrderableReplicationInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeOrderableReplicationInstancesCommandInput} for command's `input` shape.
+ * @see {@link DescribeOrderableReplicationInstancesCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeOrderableReplicationInstancesCommand extends $Command<
   DescribeOrderableReplicationInstancesCommandInput,

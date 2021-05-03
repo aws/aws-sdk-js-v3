@@ -20,6 +20,18 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
 /**
  * <p>Lists the users for a file transfer protocol-enabled server that you specify by passing
  *       the <code>ServerId</code> parameter.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TransferClient(config);
+ * const command = new ListUsersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListUsersCommandInput} for command's `input` shape.
+ * @see {@link ListUsersCommandOutput} for command's `response` shape.
+ * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListUsersCommand extends $Command<
   ListUsersCommandInput,

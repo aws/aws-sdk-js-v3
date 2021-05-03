@@ -66,6 +66,18 @@ export interface PutMetricDataCommandOutput extends __MetadataBearer {}
  * 					multiplied by <code>SampleCount</code>.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchClient(config);
+ * const command = new PutMetricDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutMetricDataCommandInput} for command's `input` shape.
+ * @see {@link PutMetricDataCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutMetricDataCommand extends $Command<
   PutMetricDataCommandInput,

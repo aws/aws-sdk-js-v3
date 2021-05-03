@@ -25,6 +25,18 @@ export interface CreatePublishingDestinationCommandOutput
 /**
  * <p>Creates a publishing destination to export findings to. The resource to export findings to
  *       must exist before you use this operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new CreatePublishingDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePublishingDestinationCommandInput} for command's `input` shape.
+ * @see {@link CreatePublishingDestinationCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePublishingDestinationCommand extends $Command<
   CreatePublishingDestinationCommandInput,

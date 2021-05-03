@@ -24,6 +24,18 @@ export interface DescribeReservedInstancesCommandOutput extends DescribeReserved
  * <p>Describes one or more of the Reserved Instances that you purchased.</p>
  *          <p>For more information about Reserved Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
  * 				Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeReservedInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeReservedInstancesCommandInput} for command's `input` shape.
+ * @see {@link DescribeReservedInstancesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeReservedInstancesCommand extends $Command<
   DescribeReservedInstancesCommandInput,

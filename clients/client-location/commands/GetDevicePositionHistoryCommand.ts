@@ -26,6 +26,18 @@ export interface GetDevicePositionHistoryCommandOutput extends GetDevicePosition
  *          <note>
  *            <p>Device positions are deleted after 1 year.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LocationClient(config);
+ * const command = new GetDevicePositionHistoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDevicePositionHistoryCommandInput} for command's `input` shape.
+ * @see {@link GetDevicePositionHistoryCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDevicePositionHistoryCommand extends $Command<
   GetDevicePositionHistoryCommandInput,

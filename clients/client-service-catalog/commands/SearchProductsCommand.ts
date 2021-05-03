@@ -22,6 +22,18 @@ export interface SearchProductsCommandOutput extends SearchProductsOutput, __Met
 
 /**
  * <p>Gets information about the products to which the caller has access.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new SearchProductsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchProductsCommandInput} for command's `input` shape.
+ * @see {@link SearchProductsCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchProductsCommand extends $Command<
   SearchProductsCommandInput,

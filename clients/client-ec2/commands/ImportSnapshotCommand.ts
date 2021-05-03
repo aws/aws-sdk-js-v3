@@ -21,6 +21,18 @@ export interface ImportSnapshotCommandOutput extends ImportSnapshotResult, __Met
  * <p>Imports a disk into an EBS snapshot.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-import-snapshot.html">Importing a disk as a snapshot using VM Import/Export</a> in the
  *    <i>VM Import/Export User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ImportSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportSnapshotCommandInput} for command's `input` shape.
+ * @see {@link ImportSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ImportSnapshotCommand extends $Command<
   ImportSnapshotCommandInput,

@@ -27,6 +27,18 @@ export interface DeleteMLTransformCommandOutput extends DeleteMLTransformRespons
  *       by AWS Glue. If you no longer need a transform, you can delete it by calling
  *         <code>DeleteMLTransforms</code>. However, any AWS Glue jobs that still reference the deleted
  *       transform will no longer succeed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new DeleteMLTransformCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMLTransformCommandInput} for command's `input` shape.
+ * @see {@link DeleteMLTransformCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMLTransformCommand extends $Command<
   DeleteMLTransformCommandInput,

@@ -22,6 +22,18 @@ export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutio
 
 /**
  * <p>Returns a list of objects that contain information about events in a flow execution.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTThingsGraphClient(config);
+ * const command = new ListFlowExecutionMessagesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFlowExecutionMessagesCommandInput} for command's `input` shape.
+ * @see {@link ListFlowExecutionMessagesCommandOutput} for command's `response` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFlowExecutionMessagesCommand extends $Command<
   ListFlowExecutionMessagesCommandInput,

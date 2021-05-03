@@ -22,6 +22,18 @@ export interface StartNotebookExecutionCommandOutput extends StartNotebookExecut
 
 /**
  * <p>Starts a notebook execution.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRClient(config);
+ * const command = new StartNotebookExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartNotebookExecutionCommandInput} for command's `input` shape.
+ * @see {@link StartNotebookExecutionCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartNotebookExecutionCommand extends $Command<
   StartNotebookExecutionCommandInput,

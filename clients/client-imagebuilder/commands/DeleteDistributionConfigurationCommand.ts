@@ -24,6 +24,18 @@ export interface DeleteDistributionConfigurationCommandOutput
 
 /**
  * <p> Deletes a distribution configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new DeleteDistributionConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDistributionConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteDistributionConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDistributionConfigurationCommand extends $Command<
   DeleteDistributionConfigurationCommandInput,

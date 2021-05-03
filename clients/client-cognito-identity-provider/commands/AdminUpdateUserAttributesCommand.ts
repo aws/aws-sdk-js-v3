@@ -33,6 +33,18 @@ export interface AdminUpdateUserAttributesCommandOutput extends AdminUpdateUserA
  *         <p>In addition to updating user attributes, this API can also be used to mark phone and
  *             email as verified.</p>
  *         <p>Calling this action requires developer credentials.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new AdminUpdateUserAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdminUpdateUserAttributesCommandInput} for command's `input` shape.
+ * @see {@link AdminUpdateUserAttributesCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdminUpdateUserAttributesCommand extends $Command<
   AdminUpdateUserAttributesCommandInput,

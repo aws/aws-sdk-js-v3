@@ -33,6 +33,18 @@ export interface DescribeReplicationTaskAssessmentResultsCommandOutput
 /**
  * <p>Returns the task assessment results from Amazon S3. This action always returns the
  *          latest results.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DescribeReplicationTaskAssessmentResultsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeReplicationTaskAssessmentResultsCommandInput} for command's `input` shape.
+ * @see {@link DescribeReplicationTaskAssessmentResultsCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeReplicationTaskAssessmentResultsCommand extends $Command<
   DescribeReplicationTaskAssessmentResultsCommandInput,

@@ -22,6 +22,18 @@ export interface GetCustomDataIdentifierCommandOutput extends GetCustomDataIdent
 
 /**
  * <p>Retrieves the criteria and other settings for a custom data identifier.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new GetCustomDataIdentifierCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCustomDataIdentifierCommandInput} for command's `input` shape.
+ * @see {@link GetCustomDataIdentifierCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCustomDataIdentifierCommand extends $Command<
   GetCustomDataIdentifierCommandInput,

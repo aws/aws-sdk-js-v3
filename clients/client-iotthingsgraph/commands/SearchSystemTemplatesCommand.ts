@@ -22,6 +22,18 @@ export interface SearchSystemTemplatesCommandOutput extends SearchSystemTemplate
 
 /**
  * <p>Searches for summary information about systems in the user's account. You can filter by the ID of a workflow to return only systems that use the specified workflow.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTThingsGraphClient(config);
+ * const command = new SearchSystemTemplatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchSystemTemplatesCommandInput} for command's `input` shape.
+ * @see {@link SearchSystemTemplatesCommandOutput} for command's `response` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchSystemTemplatesCommand extends $Command<
   SearchSystemTemplatesCommandInput,

@@ -86,6 +86,18 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3ControlClient(config);
+ * const command = new PutJobTaggingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutJobTaggingCommandInput} for command's `input` shape.
+ * @see {@link PutJobTaggingCommandOutput} for command's `response` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutJobTaggingCommand extends $Command<
   PutJobTaggingCommandInput,

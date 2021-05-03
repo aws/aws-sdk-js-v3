@@ -22,6 +22,18 @@ export interface DeleteFieldLevelEncryptionProfileCommandOutput extends __Metada
 
 /**
  * <p>Remove a field-level encryption profile.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new DeleteFieldLevelEncryptionProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFieldLevelEncryptionProfileCommandInput} for command's `input` shape.
+ * @see {@link DeleteFieldLevelEncryptionProfileCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFieldLevelEncryptionProfileCommand extends $Command<
   DeleteFieldLevelEncryptionProfileCommandInput,

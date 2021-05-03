@@ -23,6 +23,18 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
 /**
  * The example tests how requests and responses are serialized when there is
  * no input or output payload but there are HTTP header bindings.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new InputAndOutputWithHeadersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InputAndOutputWithHeadersCommandInput} for command's `input` shape.
+ * @see {@link InputAndOutputWithHeadersCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InputAndOutputWithHeadersCommand extends $Command<
   InputAndOutputWithHeadersCommandInput,

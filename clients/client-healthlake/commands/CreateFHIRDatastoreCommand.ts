@@ -22,6 +22,18 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
 
 /**
  * <p>Creates a Data Store that can ingest and export FHIR formatted data.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new HealthLakeClient(config);
+ * const command = new CreateFHIRDatastoreCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFHIRDatastoreCommandInput} for command's `input` shape.
+ * @see {@link CreateFHIRDatastoreCommandOutput} for command's `response` shape.
+ * @see {@link HealthLakeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFHIRDatastoreCommand extends $Command<
   CreateFHIRDatastoreCommandInput,

@@ -30,6 +30,18 @@ export interface ResendValidationEmailCommandOutput extends __MetadataBearer {}
  *       ACM certificate. If more than 72 hours have elapsed since your original request or since
  *       your last attempt to resend validation mail, you must request a new certificate. For more
  *       information about setting up your contact email addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/setup-email.html">Configure Email for your Domain</a>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ACMClient(config);
+ * const command = new ResendValidationEmailCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResendValidationEmailCommandInput} for command's `input` shape.
+ * @see {@link ResendValidationEmailCommandOutput} for command's `response` shape.
+ * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResendValidationEmailCommand extends $Command<
   ResendValidationEmailCommandInput,

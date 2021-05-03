@@ -24,6 +24,18 @@ export interface DeregisterManagedInstanceCommandOutput extends DeregisterManage
  * <p>Removes the server or virtual machine from the list of registered servers. You can
  *    reregister the instance again at any time. If you don't plan to use Run Command on the server, we
  *    suggest uninstalling SSM Agent first.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new DeregisterManagedInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterManagedInstanceCommandInput} for command's `input` shape.
+ * @see {@link DeregisterManagedInstanceCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterManagedInstanceCommand extends $Command<
   DeregisterManagedInstanceCommandInput,

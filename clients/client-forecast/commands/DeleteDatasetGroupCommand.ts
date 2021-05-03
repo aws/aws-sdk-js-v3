@@ -25,6 +25,18 @@ export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
  *       You can only delete dataset groups that have a status of <code>ACTIVE</code>,
  *         <code>CREATE_FAILED</code>, or <code>UPDATE_FAILED</code>. To get the status, use the <a>DescribeDatasetGroup</a> operation.</p>
  *          <p>This operation deletes only the dataset group, not the datasets in the group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ForecastClient(config);
+ * const command = new DeleteDatasetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDatasetGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteDatasetGroupCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDatasetGroupCommand extends $Command<
   DeleteDatasetGroupCommandInput,

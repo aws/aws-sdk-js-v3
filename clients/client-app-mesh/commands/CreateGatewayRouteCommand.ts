@@ -26,6 +26,18 @@ export interface CreateGatewayRouteCommandOutput extends CreateGatewayRouteOutpu
  *          virtual service. If a route matches a request, it can distribute traffic to a target
  *          virtual service.</p>
  *          <p>For more information about gateway routes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/gateway-routes.html">Gateway routes</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new CreateGatewayRouteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateGatewayRouteCommandInput} for command's `input` shape.
+ * @see {@link CreateGatewayRouteCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateGatewayRouteCommand extends $Command<
   CreateGatewayRouteCommandInput,

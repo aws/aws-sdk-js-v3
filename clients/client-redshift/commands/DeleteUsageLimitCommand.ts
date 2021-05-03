@@ -22,6 +22,18 @@ export interface DeleteUsageLimitCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a usage limit from a cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DeleteUsageLimitCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteUsageLimitCommandInput} for command's `input` shape.
+ * @see {@link DeleteUsageLimitCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteUsageLimitCommand extends $Command<
   DeleteUsageLimitCommandInput,

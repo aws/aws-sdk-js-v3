@@ -22,6 +22,18 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
 
 /**
  * Deletes an existing configuration set.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointSMSVoiceClient(config);
+ * const command = new DeleteConfigurationSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConfigurationSetCommandInput} for command's `input` shape.
+ * @see {@link DeleteConfigurationSetCommandOutput} for command's `response` shape.
+ * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConfigurationSetCommand extends $Command<
   DeleteConfigurationSetCommandInput,

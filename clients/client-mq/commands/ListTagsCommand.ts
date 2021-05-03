@@ -22,6 +22,18 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
 
 /**
  * Lists tags for a resource.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MqClient(config);
+ * const command = new ListTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsCommandInput} for command's `input` shape.
+ * @see {@link ListTagsCommandOutput} for command's `response` shape.
+ * @see {@link MqClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsCommandOutput, MqClientResolvedConfig> {
   // Start section: command_properties

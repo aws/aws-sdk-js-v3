@@ -25,6 +25,18 @@ export interface CreateIntegrationAssociationCommandOutput
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Create an AppIntegration association with an Amazon Connect instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new CreateIntegrationAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateIntegrationAssociationCommandInput} for command's `input` shape.
+ * @see {@link CreateIntegrationAssociationCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateIntegrationAssociationCommand extends $Command<
   CreateIntegrationAssociationCommandInput,

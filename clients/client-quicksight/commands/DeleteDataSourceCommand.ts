@@ -23,6 +23,18 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
 /**
  * <p>Deletes the data source permanently. This operation breaks
  * 			all the datasets that reference the deleted data source.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new DeleteDataSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDataSourceCommandInput} for command's `input` shape.
+ * @see {@link DeleteDataSourceCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDataSourceCommand extends $Command<
   DeleteDataSourceCommandInput,

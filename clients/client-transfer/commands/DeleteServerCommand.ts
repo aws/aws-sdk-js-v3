@@ -24,6 +24,18 @@ export interface DeleteServerCommandOutput extends __MetadataBearer {}
  * <p>Deletes the file transfer protocol-enabled server that you specify.</p>
  *
  *          <p>No response returns from this operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TransferClient(config);
+ * const command = new DeleteServerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteServerCommandInput} for command's `input` shape.
+ * @see {@link DeleteServerCommandOutput} for command's `response` shape.
+ * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteServerCommand extends $Command<
   DeleteServerCommandInput,

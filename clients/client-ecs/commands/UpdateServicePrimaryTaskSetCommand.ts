@@ -28,6 +28,18 @@ export interface UpdateServicePrimaryTaskSetCommandOutput
  * 			used when a service uses the <code>EXTERNAL</code> deployment controller type. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS Deployment
  * 				Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new UpdateServicePrimaryTaskSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateServicePrimaryTaskSetCommandInput} for command's `input` shape.
+ * @see {@link UpdateServicePrimaryTaskSetCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateServicePrimaryTaskSetCommand extends $Command<
   UpdateServicePrimaryTaskSetCommandInput,

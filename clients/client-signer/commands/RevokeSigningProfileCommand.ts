@@ -24,6 +24,18 @@ export interface RevokeSigningProfileCommandOutput extends __MetadataBearer {}
  * <p>Changes the state of a signing profile to REVOKED. This indicates that signatures
  * 			generated using the signing profile after an effective start date are no longer
  * 			valid.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SignerClient(config);
+ * const command = new RevokeSigningProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RevokeSigningProfileCommandInput} for command's `input` shape.
+ * @see {@link RevokeSigningProfileCommandOutput} for command's `response` shape.
+ * @see {@link SignerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RevokeSigningProfileCommand extends $Command<
   RevokeSigningProfileCommandInput,

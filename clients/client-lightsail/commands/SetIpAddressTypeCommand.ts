@@ -26,6 +26,18 @@ export interface SetIpAddressTypeCommandOutput extends SetIpAddressTypeResult, _
  *          <p>Use this action to enable dual-stack for a resource, which enables IPv4 and IPv6 for the
  *       specified resource. Alternately, you can use this action to disable dual-stack, and enable
  *       IPv4 only.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new SetIpAddressTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetIpAddressTypeCommandInput} for command's `input` shape.
+ * @see {@link SetIpAddressTypeCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetIpAddressTypeCommand extends $Command<
   SetIpAddressTypeCommandInput,

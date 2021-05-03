@@ -24,6 +24,18 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * <p> Disassociates a resource from a list of tags. The resource is identified by the
  *                 <code>ResourceArn</code> input parameter. The tags are identified by the list of
  *             keys in the <code>TagKeys</code> input parameter. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new UntagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UntagResourceCommandInput} for command's `input` shape.
+ * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

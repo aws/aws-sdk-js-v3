@@ -25,6 +25,18 @@ export interface StartLifecyclePolicyPreviewCommandOutput
 /**
  * <p>Starts a preview of a lifecycle policy for the specified repository. This allows you
  *             to see the results before associating the lifecycle policy with the repository.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECRClient(config);
+ * const command = new StartLifecyclePolicyPreviewCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartLifecyclePolicyPreviewCommandInput} for command's `input` shape.
+ * @see {@link StartLifecyclePolicyPreviewCommandOutput} for command's `response` shape.
+ * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartLifecyclePolicyPreviewCommand extends $Command<
   StartLifecyclePolicyPreviewCommandInput,

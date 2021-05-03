@@ -24,6 +24,18 @@ export interface DescribeAnalysisPermissionsCommandOutput
 
 /**
  * <p>Provides the read and write permissions for an analysis.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new DescribeAnalysisPermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAnalysisPermissionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeAnalysisPermissionsCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAnalysisPermissionsCommand extends $Command<
   DescribeAnalysisPermissionsCommandInput,

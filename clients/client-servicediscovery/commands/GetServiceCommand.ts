@@ -22,6 +22,18 @@ export interface GetServiceCommandOutput extends GetServiceResponse, __MetadataB
 
 /**
  * <p>Gets the settings for a specified service.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceDiscoveryClient(config);
+ * const command = new GetServiceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetServiceCommandInput} for command's `input` shape.
+ * @see {@link GetServiceCommandOutput} for command's `response` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetServiceCommand extends $Command<
   GetServiceCommandInput,

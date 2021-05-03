@@ -22,6 +22,18 @@ export interface ListTestGridProjectsCommandOutput extends ListTestGridProjectsR
 
 /**
  * <p>Gets a list of all Selenium testing projects in your account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new ListTestGridProjectsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTestGridProjectsCommandInput} for command's `input` shape.
+ * @see {@link ListTestGridProjectsCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTestGridProjectsCommand extends $Command<
   ListTestGridProjectsCommandInput,

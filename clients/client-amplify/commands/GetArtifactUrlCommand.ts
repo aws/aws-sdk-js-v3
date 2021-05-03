@@ -22,6 +22,18 @@ export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __Met
 
 /**
  * <p> Returns the artifact info that corresponds to an artifact id. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyClient(config);
+ * const command = new GetArtifactUrlCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetArtifactUrlCommandInput} for command's `input` shape.
+ * @see {@link GetArtifactUrlCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetArtifactUrlCommand extends $Command<
   GetArtifactUrlCommandInput,

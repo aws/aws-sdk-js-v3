@@ -22,6 +22,18 @@ export interface DeleteSipMediaApplicationCommandOutput extends __MetadataBearer
 
 /**
  * <p>Deletes a SIP media application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new DeleteSipMediaApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSipMediaApplicationCommandInput} for command's `input` shape.
+ * @see {@link DeleteSipMediaApplicationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSipMediaApplicationCommand extends $Command<
   DeleteSipMediaApplicationCommandInput,

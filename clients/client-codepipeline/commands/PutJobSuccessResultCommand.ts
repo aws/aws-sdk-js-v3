@@ -23,6 +23,18 @@ export interface PutJobSuccessResultCommandOutput extends __MetadataBearer {}
 /**
  * <p>Represents the success of a job as returned to the pipeline by a job worker. Used
  *             for custom actions only.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new PutJobSuccessResultCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutJobSuccessResultCommandInput} for command's `input` shape.
+ * @see {@link PutJobSuccessResultCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutJobSuccessResultCommand extends $Command<
   PutJobSuccessResultCommandInput,

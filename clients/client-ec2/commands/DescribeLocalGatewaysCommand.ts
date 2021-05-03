@@ -23,6 +23,18 @@ export interface DescribeLocalGatewaysCommandOutput extends DescribeLocalGateway
 /**
  * <p>Describes one or more local gateways. By default, all local gateways are described.
  *         Alternatively, you can filter the results.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeLocalGatewaysCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLocalGatewaysCommandInput} for command's `input` shape.
+ * @see {@link DescribeLocalGatewaysCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLocalGatewaysCommand extends $Command<
   DescribeLocalGatewaysCommandInput,

@@ -24,6 +24,18 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  * <p>Sets the list of data lake administrators who have admin privileges on all resources managed by Lake Formation. For more information on admin privileges, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/lake-formation-permissions.html">Granting Lake Formation Permissions</a>.</p>
  *
  * 	        <p>This API replaces the current list of data lake admins with the new list being passed. To add an admin, fetch the current list and add the new admin to that list and pass that list in this API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LakeFormationClient(config);
+ * const command = new PutDataLakeSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutDataLakeSettingsCommandInput} for command's `input` shape.
+ * @see {@link PutDataLakeSettingsCommandOutput} for command's `response` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutDataLakeSettingsCommand extends $Command<
   PutDataLakeSettingsCommandInput,

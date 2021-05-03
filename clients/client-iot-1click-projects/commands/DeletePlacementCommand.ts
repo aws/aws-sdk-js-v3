@@ -30,6 +30,18 @@ export interface DeletePlacementCommandOutput extends DeletePlacementResponse, _
  *          <note>
  *             <p>When you delete a placement, all associated data becomes irretrievable.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoT1ClickProjectsClient(config);
+ * const command = new DeletePlacementCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePlacementCommandInput} for command's `input` shape.
+ * @see {@link DeletePlacementCommandOutput} for command's `response` shape.
+ * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePlacementCommand extends $Command<
   DeletePlacementCommandInput,

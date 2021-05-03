@@ -23,6 +23,18 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
 /**
  * <p>Returns information about DB cluster snapshots. This API action supports
  *       pagination.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NeptuneClient(config);
+ * const command = new DescribeDBClusterSnapshotsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDBClusterSnapshotsCommandInput} for command's `input` shape.
+ * @see {@link DescribeDBClusterSnapshotsCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDBClusterSnapshotsCommand extends $Command<
   DescribeDBClusterSnapshotsCommandInput,

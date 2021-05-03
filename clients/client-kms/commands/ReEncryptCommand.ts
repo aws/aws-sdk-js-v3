@@ -114,6 +114,18 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KMSClient(config);
+ * const command = new ReEncryptCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReEncryptCommandInput} for command's `input` shape.
+ * @see {@link ReEncryptCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReEncryptCommand extends $Command<ReEncryptCommandInput, ReEncryptCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties

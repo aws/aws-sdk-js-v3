@@ -32,6 +32,18 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  *             application stops processing data, and there is no output written to the destination. </p>
  *         <p>This operation requires permissions to perform the
  *             <code>kinesisanalytics:StopApplication</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisAnalyticsClient(config);
+ * const command = new StopApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopApplicationCommandInput} for command's `input` shape.
+ * @see {@link StopApplicationCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopApplicationCommand extends $Command<
   StopApplicationCommandInput,

@@ -23,6 +23,18 @@ export interface StartProjectSessionCommandOutput extends StartProjectSessionRes
 /**
  * <p>Creates an interactive session, enabling you to manipulate data in a DataBrew
  *             project.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new StartProjectSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartProjectSessionCommandInput} for command's `input` shape.
+ * @see {@link StartProjectSessionCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartProjectSessionCommand extends $Command<
   StartProjectSessionCommandInput,

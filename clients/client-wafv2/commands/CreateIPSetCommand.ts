@@ -22,6 +22,18 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
 
 /**
  * <p>Creates an <a>IPSet</a>, which you use to identify web requests that originate from specific IP addresses or ranges of IP addresses. For example, if you're receiving a lot of requests from a ranges of IP addresses, you can configure AWS WAF to block them using an IPSet that lists those IP addresses. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFV2Client(config);
+ * const command = new CreateIPSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateIPSetCommandInput} for command's `input` shape.
+ * @see {@link CreateIPSetCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateIPSetCommand extends $Command<
   CreateIPSetCommandInput,

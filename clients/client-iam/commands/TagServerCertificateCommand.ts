@@ -69,6 +69,18 @@ export interface TagServerCertificateCommandOutput extends __MetadataBearer {}
  *                </li>
  *             </ul>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new TagServerCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagServerCertificateCommandInput} for command's `input` shape.
+ * @see {@link TagServerCertificateCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagServerCertificateCommand extends $Command<
   TagServerCertificateCommandInput,

@@ -22,6 +22,18 @@ export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __M
 
 /**
  * <p>Retrieves a list of data stores.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTAnalyticsClient(config);
+ * const command = new ListDatastoresCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDatastoresCommandInput} for command's `input` shape.
+ * @see {@link ListDatastoresCommandOutput} for command's `response` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDatastoresCommand extends $Command<
   ListDatastoresCommandInput,

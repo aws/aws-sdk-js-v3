@@ -24,6 +24,18 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  *          <p>For more information about creating an update template, updating a stack, and
  *          monitoring the progress of the update, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html">Updating a
  *             Stack</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new UpdateStackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateStackCommandInput} for command's `input` shape.
+ * @see {@link UpdateStackCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateStackCommand extends $Command<
   UpdateStackCommandInput,

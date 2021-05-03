@@ -22,6 +22,18 @@ export interface MarkAsArchivedCommandOutput extends SourceServer, __MetadataBea
 
 /**
  * <p>Archives specific Source Servers by setting the SourceServer.isArchived property to true for specified SourceServers by ID. This command only works for SourceServers with a lifecycle.state which equals DISCONNECTED or CUTOVER.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MgnClient(config);
+ * const command = new MarkAsArchivedCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link MarkAsArchivedCommandInput} for command's `input` shape.
+ * @see {@link MarkAsArchivedCommandOutput} for command's `response` shape.
+ * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class MarkAsArchivedCommand extends $Command<
   MarkAsArchivedCommandInput,

@@ -27,6 +27,18 @@ export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __Metad
 /**
  * <p>Creates a new blockchain network using Amazon Managed Blockchain.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ManagedBlockchainClient(config);
+ * const command = new CreateNetworkCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateNetworkCommandInput} for command's `input` shape.
+ * @see {@link CreateNetworkCommandOutput} for command's `response` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateNetworkCommand extends $Command<
   CreateNetworkCommandInput,

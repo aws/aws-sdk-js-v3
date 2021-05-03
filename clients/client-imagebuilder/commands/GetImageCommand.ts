@@ -22,6 +22,18 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
 
 /**
  * <p> Gets an image.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new GetImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetImageCommandInput} for command's `input` shape.
+ * @see {@link GetImageCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetImageCommand extends $Command<
   GetImageCommandInput,

@@ -25,6 +25,18 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  *    SuspendContactRecording, this API resumes recording the call.</p>
  *
  *          <p>Only voice recordings are supported at this time.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new ResumeContactRecordingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResumeContactRecordingCommandInput} for command's `input` shape.
+ * @see {@link ResumeContactRecordingCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResumeContactRecordingCommand extends $Command<
   ResumeContactRecordingCommandInput,

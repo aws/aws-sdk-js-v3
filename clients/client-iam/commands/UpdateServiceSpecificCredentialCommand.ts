@@ -25,6 +25,18 @@ export interface UpdateServiceSpecificCredentialCommandOutput extends __Metadata
  *                 <code>Inactive</code>. Service-specific credentials that are inactive cannot be used
  *             for authentication to the service. This operation can be used to disable a user's
  *             service-specific credential as part of a credential rotation work flow.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new UpdateServiceSpecificCredentialCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateServiceSpecificCredentialCommandInput} for command's `input` shape.
+ * @see {@link UpdateServiceSpecificCredentialCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateServiceSpecificCredentialCommand extends $Command<
   UpdateServiceSpecificCredentialCommandInput,

@@ -24,6 +24,18 @@ export interface GetPipelineExecutionCommandOutput extends GetPipelineExecutionO
  * <p>Returns information about an execution of a pipeline, including details about
  *             artifacts, the pipeline execution ID, and the name, version, and status of the
  *             pipeline.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new GetPipelineExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPipelineExecutionCommandInput} for command's `input` shape.
+ * @see {@link GetPipelineExecutionCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPipelineExecutionCommand extends $Command<
   GetPipelineExecutionCommandInput,

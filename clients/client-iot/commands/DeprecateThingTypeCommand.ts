@@ -23,6 +23,18 @@ export interface DeprecateThingTypeCommandOutput extends DeprecateThingTypeRespo
 /**
  * <p>Deprecates a thing type. You can not associate new things with deprecated thing
  * 			type.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DeprecateThingTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeprecateThingTypeCommandInput} for command's `input` shape.
+ * @see {@link DeprecateThingTypeCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeprecateThingTypeCommand extends $Command<
   DeprecateThingTypeCommandInput,

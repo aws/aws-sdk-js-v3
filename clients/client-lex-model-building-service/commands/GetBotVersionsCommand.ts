@@ -36,6 +36,18 @@ export interface GetBotVersionsCommandOutput extends GetBotVersionsResponse, __M
  *       one version, the <code>$LATEST</code> version.</p>
  *          <p>This operation requires permissions for the
  *         <code>lex:GetBotVersions</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new GetBotVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBotVersionsCommandInput} for command's `input` shape.
+ * @see {@link GetBotVersionsCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBotVersionsCommand extends $Command<
   GetBotVersionsCommandInput,

@@ -22,6 +22,18 @@ export interface EnableTopicRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Enables the rule.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new EnableTopicRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableTopicRuleCommandInput} for command's `input` shape.
+ * @see {@link EnableTopicRuleCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableTopicRuleCommand extends $Command<
   EnableTopicRuleCommandInput,

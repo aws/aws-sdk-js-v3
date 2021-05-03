@@ -23,6 +23,18 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
 /**
  * <p>Ends a SQL transaction started with the <code>BeginTransaction</code> operation and
  *             commits the changes.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSDataClient(config);
+ * const command = new CommitTransactionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CommitTransactionCommandInput} for command's `input` shape.
+ * @see {@link CommitTransactionCommandOutput} for command's `response` shape.
+ * @see {@link RDSDataClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CommitTransactionCommand extends $Command<
   CommitTransactionCommandInput,

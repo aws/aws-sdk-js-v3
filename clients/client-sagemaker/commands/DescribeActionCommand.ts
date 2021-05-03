@@ -22,6 +22,18 @@ export interface DescribeActionCommandOutput extends DescribeActionResponse, __M
 
 /**
  * <p>Describes an action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeActionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeActionCommandInput} for command's `input` shape.
+ * @see {@link DescribeActionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeActionCommand extends $Command<
   DescribeActionCommandInput,

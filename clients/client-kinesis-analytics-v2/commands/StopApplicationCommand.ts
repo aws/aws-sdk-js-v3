@@ -32,6 +32,18 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  *        </p>
  *          <p>Kinesis Data Analytics takes a snapshot when the application is stopped, unless <code>Force</code> is set
  *           to <code>true</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisAnalyticsV2Client(config);
+ * const command = new StopApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopApplicationCommandInput} for command's `input` shape.
+ * @see {@link StopApplicationCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopApplicationCommand extends $Command<
   StopApplicationCommandInput,

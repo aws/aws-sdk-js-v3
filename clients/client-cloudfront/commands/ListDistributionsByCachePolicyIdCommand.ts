@@ -30,6 +30,18 @@ export interface ListDistributionsByCachePolicyIdCommandOutput
  * 			default maximum, the response is paginated. To get the next page of items, send a
  * 			subsequent request that specifies the <code>NextMarker</code> value from the current
  * 			response as the <code>Marker</code> value in the subsequent request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new ListDistributionsByCachePolicyIdCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDistributionsByCachePolicyIdCommandInput} for command's `input` shape.
+ * @see {@link ListDistributionsByCachePolicyIdCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDistributionsByCachePolicyIdCommand extends $Command<
   ListDistributionsByCachePolicyIdCommandInput,

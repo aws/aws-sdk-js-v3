@@ -28,6 +28,18 @@ export interface ListPermissionSetsProvisionedToAccountCommandOutput
 
 /**
  * <p>Lists all the permission sets that are provisioned to a specified AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSOAdminClient(config);
+ * const command = new ListPermissionSetsProvisionedToAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPermissionSetsProvisionedToAccountCommandInput} for command's `input` shape.
+ * @see {@link ListPermissionSetsProvisionedToAccountCommandOutput} for command's `response` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPermissionSetsProvisionedToAccountCommand extends $Command<
   ListPermissionSetsProvisionedToAccountCommandInput,

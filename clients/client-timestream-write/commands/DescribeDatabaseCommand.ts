@@ -24,6 +24,18 @@ export interface DescribeDatabaseCommandOutput extends DescribeDatabaseResponse,
  * <p>Returns information about the database, including the database name, time that the database was created,
  *          and the total number of tables found within the database.
  *          Service quotas apply. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access Management</a> in the Timestream Developer Guide.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TimestreamWriteClient(config);
+ * const command = new DescribeDatabaseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDatabaseCommandInput} for command's `input` shape.
+ * @see {@link DescribeDatabaseCommandOutput} for command's `response` shape.
+ * @see {@link TimestreamWriteClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDatabaseCommand extends $Command<
   DescribeDatabaseCommandInput,

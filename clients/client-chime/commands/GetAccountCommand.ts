@@ -23,6 +23,18 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
 /**
  * <p>Retrieves details for the specified Amazon Chime account, such as account type and supported
  *             licenses.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new GetAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAccountCommandInput} for command's `input` shape.
+ * @see {@link GetAccountCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAccountCommand extends $Command<
   GetAccountCommandInput,

@@ -22,6 +22,18 @@ export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSe
 
 /**
  * <p>Ends a specified remote access session.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new StopRemoteAccessSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopRemoteAccessSessionCommandInput} for command's `input` shape.
+ * @see {@link StopRemoteAccessSessionCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopRemoteAccessSessionCommand extends $Command<
   StopRemoteAccessSessionCommandInput,

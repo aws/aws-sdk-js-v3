@@ -22,6 +22,18 @@ export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrinci
 
 /**
  * <p>Deletes a user identified by its principal ID. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new DeleteUserByPrincipalIdCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteUserByPrincipalIdCommandInput} for command's `input` shape.
+ * @see {@link DeleteUserByPrincipalIdCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteUserByPrincipalIdCommand extends $Command<
   DeleteUserByPrincipalIdCommandInput,

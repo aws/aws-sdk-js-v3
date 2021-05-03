@@ -22,6 +22,18 @@ export interface UpdateCoreDefinitionCommandOutput extends UpdateCoreDefinitionR
 
 /**
  * Updates a core definition.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new UpdateCoreDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateCoreDefinitionCommandInput} for command's `input` shape.
+ * @see {@link UpdateCoreDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateCoreDefinitionCommand extends $Command<
   UpdateCoreDefinitionCommandInput,

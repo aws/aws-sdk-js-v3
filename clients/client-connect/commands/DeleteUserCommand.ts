@@ -25,6 +25,18 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  *          <p>For information about what happens to a user's data when their account is deleted, see
  *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from
  *     Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new DeleteUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteUserCommandInput} for command's `input` shape.
+ * @see {@link DeleteUserCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteUserCommand extends $Command<
   DeleteUserCommandInput,

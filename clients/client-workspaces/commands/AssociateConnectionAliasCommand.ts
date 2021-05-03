@@ -29,6 +29,18 @@ export interface AssociateConnectionAliasCommandOutput extends AssociateConnecti
  *             <p>Before performing this operation, call <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html">
  *             DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new AssociateConnectionAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateConnectionAliasCommandInput} for command's `input` shape.
+ * @see {@link AssociateConnectionAliasCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateConnectionAliasCommand extends $Command<
   AssociateConnectionAliasCommandInput,

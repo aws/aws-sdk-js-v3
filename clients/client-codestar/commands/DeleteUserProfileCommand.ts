@@ -24,6 +24,18 @@ export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult,
  * <p>Deletes a user profile in AWS CodeStar, including all personal preference data associated with
  *       that profile, such as display name and email address. It does not delete the history of that
  *       user, for example the history of commits made by that user.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeStarClient(config);
+ * const command = new DeleteUserProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteUserProfileCommandInput} for command's `input` shape.
+ * @see {@link DeleteUserProfileCommandOutput} for command's `response` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteUserProfileCommand extends $Command<
   DeleteUserProfileCommandInput,

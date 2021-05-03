@@ -22,6 +22,18 @@ export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __M
 
 /**
  * <p>Tells the search domain to start indexing its documents using the latest indexing options. This operation must be invoked to activate options whose <a>OptionStatus</a> is  <code>RequiresIndexDocuments</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudSearchClient(config);
+ * const command = new IndexDocumentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link IndexDocumentsCommandInput} for command's `input` shape.
+ * @see {@link IndexDocumentsCommandOutput} for command's `response` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class IndexDocumentsCommand extends $Command<
   IndexDocumentsCommandInput,

@@ -25,6 +25,18 @@ export interface GetDistributionLatestCacheResetCommandOutput
 /**
  * <p>Returns the timestamp and status of the last cache reset of a specific Amazon Lightsail
  *       content delivery network (CDN) distribution.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetDistributionLatestCacheResetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDistributionLatestCacheResetCommandInput} for command's `input` shape.
+ * @see {@link GetDistributionLatestCacheResetCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDistributionLatestCacheResetCommand extends $Command<
   GetDistributionLatestCacheResetCommandInput,

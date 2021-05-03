@@ -22,6 +22,18 @@ export interface DisassociateRepositoryCommandOutput extends DisassociateReposit
 
 /**
  * <p>Removes the association between Amazon CodeGuru Reviewer and a repository.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeGuruReviewerClient(config);
+ * const command = new DisassociateRepositoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateRepositoryCommandInput} for command's `input` shape.
+ * @see {@link DisassociateRepositoryCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateRepositoryCommand extends $Command<
   DisassociateRepositoryCommandInput,

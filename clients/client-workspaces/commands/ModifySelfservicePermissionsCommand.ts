@@ -25,6 +25,18 @@ export interface ModifySelfservicePermissionsCommandOutput
 /**
  * <p>Modifies the self-service WorkSpace management capabilities for your users. For more
  *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html">Enable Self-Service WorkSpace Management Capabilities for Your Users</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new ModifySelfservicePermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifySelfservicePermissionsCommandInput} for command's `input` shape.
+ * @see {@link ModifySelfservicePermissionsCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifySelfservicePermissionsCommand extends $Command<
   ModifySelfservicePermissionsCommandInput,

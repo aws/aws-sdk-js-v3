@@ -27,6 +27,18 @@ export interface DisassociateResourceSharePermissionCommandOutput
 
 /**
  * <p>Disassociates an AWS RAM permission from a resource share.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RAMClient(config);
+ * const command = new DisassociateResourceSharePermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateResourceSharePermissionCommandInput} for command's `input` shape.
+ * @see {@link DisassociateResourceSharePermissionCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateResourceSharePermissionCommand extends $Command<
   DisassociateResourceSharePermissionCommandInput,

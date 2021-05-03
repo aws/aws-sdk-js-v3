@@ -22,6 +22,18 @@ export interface DeleteHsmClientCertificateCommandOutput extends __MetadataBeare
 
 /**
  * <p>Deletes the specified HSM client certificate.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DeleteHsmClientCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteHsmClientCertificateCommandInput} for command's `input` shape.
+ * @see {@link DeleteHsmClientCertificateCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteHsmClientCertificateCommand extends $Command<
   DeleteHsmClientCertificateCommandInput,

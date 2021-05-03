@@ -26,6 +26,18 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
  * <p>Revokes ingress from a cache security group.
  *             Use this operation to disallow access from an Amazon EC2 security group
  *             that had been previously authorized.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new RevokeCacheSecurityGroupIngressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RevokeCacheSecurityGroupIngressCommandInput} for command's `input` shape.
+ * @see {@link RevokeCacheSecurityGroupIngressCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RevokeCacheSecurityGroupIngressCommand extends $Command<
   RevokeCacheSecurityGroupIngressCommandInput,

@@ -23,6 +23,18 @@ export interface GetResourcesCommandOutput extends GetResourcesResponse, __Metad
 /**
  * <p>Retrieves a collection of resources, including folders and documents. The only
  *             <code>CollectionType</code> supported is <code>SHARED_WITH_ME</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new GetResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetResourcesCommandInput} for command's `input` shape.
+ * @see {@link GetResourcesCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetResourcesCommand extends $Command<
   GetResourcesCommandInput,

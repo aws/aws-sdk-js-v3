@@ -22,6 +22,18 @@ export interface CreateModelPackageGroupCommandOutput extends CreateModelPackage
 
 /**
  * <p>Creates a model group. A model group contains a group of model versions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateModelPackageGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateModelPackageGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateModelPackageGroupCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateModelPackageGroupCommand extends $Command<
   CreateModelPackageGroupCommandInput,

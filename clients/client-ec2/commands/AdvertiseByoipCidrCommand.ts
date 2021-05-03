@@ -32,6 +32,18 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResul
  *          <p>It can take a few minutes before traffic to the specified addresses starts routing to AWS
  *          because of BGP propagation delays.</p>
  *          <p>To stop advertising the BYOIP CIDR, use <a>WithdrawByoipCidr</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new AdvertiseByoipCidrCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdvertiseByoipCidrCommandInput} for command's `input` shape.
+ * @see {@link AdvertiseByoipCidrCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdvertiseByoipCidrCommand extends $Command<
   AdvertiseByoipCidrCommandInput,

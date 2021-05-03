@@ -22,6 +22,18 @@ export interface PutIntegrationCommandOutput extends Integration, __MetadataBear
 
 /**
  * <p>Sets up a method's integration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new PutIntegrationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutIntegrationCommandInput} for command's `input` shape.
+ * @see {@link PutIntegrationCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutIntegrationCommand extends $Command<
   PutIntegrationCommandInput,

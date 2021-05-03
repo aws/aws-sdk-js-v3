@@ -22,6 +22,18 @@ export interface GetRequestValidatorCommandOutput extends RequestValidator, __Me
 
 /**
  * <p>Gets a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new GetRequestValidatorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRequestValidatorCommandInput} for command's `input` shape.
+ * @see {@link GetRequestValidatorCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRequestValidatorCommand extends $Command<
   GetRequestValidatorCommandInput,

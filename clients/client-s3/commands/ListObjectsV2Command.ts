@@ -61,6 +61,18 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3Client(config);
+ * const command = new ListObjectsV2Command(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListObjectsV2CommandInput} for command's `input` shape.
+ * @see {@link ListObjectsV2CommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListObjectsV2Command extends $Command<
   ListObjectsV2CommandInput,

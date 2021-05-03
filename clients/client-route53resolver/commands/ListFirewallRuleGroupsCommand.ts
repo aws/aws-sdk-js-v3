@@ -23,6 +23,18 @@ export interface ListFirewallRuleGroupsCommandOutput extends ListFirewallRuleGro
 /**
  * <p>Retrieves the minimal high-level information for the rule groups that you have defined.  </p>
  *          <p>A single call might return only a partial list of the rule groups. For information, see <code>MaxResults</code>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new ListFirewallRuleGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFirewallRuleGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListFirewallRuleGroupsCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFirewallRuleGroupsCommand extends $Command<
   ListFirewallRuleGroupsCommandInput,

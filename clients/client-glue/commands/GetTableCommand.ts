@@ -20,6 +20,18 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
 /**
  * <p>Retrieves the <code>Table</code> definition in a Data Catalog for
  *       a specified table.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetTableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTableCommandInput} for command's `input` shape.
+ * @see {@link GetTableCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTableCommand extends $Command<GetTableCommandInput, GetTableCommandOutput, GlueClientResolvedConfig> {
   // Start section: command_properties

@@ -43,6 +43,18 @@ export interface CancelDomainTransferToAnotherAwsAccountCommandOutput
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
  * 			provides additional information, for example, <code>Domain Transfer from Aws Account 111122223333 has been cancelled</code>.
  * 		</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53DomainsClient(config);
+ * const command = new CancelDomainTransferToAnotherAwsAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelDomainTransferToAnotherAwsAccountCommandInput} for command's `input` shape.
+ * @see {@link CancelDomainTransferToAnotherAwsAccountCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelDomainTransferToAnotherAwsAccountCommand extends $Command<
   CancelDomainTransferToAnotherAwsAccountCommandInput,

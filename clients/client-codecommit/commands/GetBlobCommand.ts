@@ -19,6 +19,18 @@ export interface GetBlobCommandOutput extends GetBlobOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the base-64 encoded content of an individual blob in a repository.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new GetBlobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBlobCommandInput} for command's `input` shape.
+ * @see {@link GetBlobCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBlobCommand extends $Command<
   GetBlobCommandInput,

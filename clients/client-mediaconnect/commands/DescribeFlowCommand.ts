@@ -22,6 +22,18 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
 
 /**
  * Displays the details of a flow. The response includes the flow ARN, name, and Availability Zone, as well as details about the source, outputs, and entitlements.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConnectClient(config);
+ * const command = new DescribeFlowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFlowCommandInput} for command's `input` shape.
+ * @see {@link DescribeFlowCommandOutput} for command's `response` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFlowCommand extends $Command<
   DescribeFlowCommandInput,

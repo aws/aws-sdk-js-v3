@@ -22,6 +22,18 @@ export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __M
 
 /**
  * <p>Creates a new event stream for an application or updates the settings of an existing event stream for an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new PutEventStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutEventStreamCommandInput} for command's `input` shape.
+ * @see {@link PutEventStreamCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutEventStreamCommand extends $Command<
   PutEventStreamCommandInput,

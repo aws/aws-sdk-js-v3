@@ -22,6 +22,18 @@ export interface GetBulkPublishDetailsCommandOutput extends GetBulkPublishDetail
 
 /**
  * <p>Get the status of the last BulkPublish operation for an identity pool.</p><p>This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoSyncClient(config);
+ * const command = new GetBulkPublishDetailsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBulkPublishDetailsCommandInput} for command's `input` shape.
+ * @see {@link GetBulkPublishDetailsCommandOutput} for command's `response` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBulkPublishDetailsCommand extends $Command<
   GetBulkPublishDetailsCommandInput,

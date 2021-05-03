@@ -22,6 +22,18 @@ export interface UpdateFindingsFilterCommandOutput extends UpdateFindingsFilterR
 
 /**
  * <p>Updates the criteria and other settings for a findings filter.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new UpdateFindingsFilterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFindingsFilterCommandInput} for command's `input` shape.
+ * @see {@link UpdateFindingsFilterCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFindingsFilterCommand extends $Command<
   UpdateFindingsFilterCommandInput,

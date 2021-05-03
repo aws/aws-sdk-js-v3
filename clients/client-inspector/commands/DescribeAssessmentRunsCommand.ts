@@ -23,6 +23,18 @@ export interface DescribeAssessmentRunsCommandOutput extends DescribeAssessmentR
 /**
  * <p>Describes the assessment runs that are specified by the ARNs of the assessment
  *          runs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new DescribeAssessmentRunsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAssessmentRunsCommandInput} for command's `input` shape.
+ * @see {@link DescribeAssessmentRunsCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAssessmentRunsCommand extends $Command<
   DescribeAssessmentRunsCommandInput,

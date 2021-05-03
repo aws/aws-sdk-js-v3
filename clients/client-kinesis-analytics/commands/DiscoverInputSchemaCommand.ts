@@ -36,6 +36,18 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  *             This operation requires permissions to perform the
  *             <code>kinesisanalytics:DiscoverInputSchema</code> action.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisAnalyticsClient(config);
+ * const command = new DiscoverInputSchemaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DiscoverInputSchemaCommandInput} for command's `input` shape.
+ * @see {@link DiscoverInputSchemaCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DiscoverInputSchemaCommand extends $Command<
   DiscoverInputSchemaCommandInput,

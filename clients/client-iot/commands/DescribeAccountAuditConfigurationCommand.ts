@@ -29,6 +29,18 @@ export interface DescribeAccountAuditConfigurationCommandOutput
  * <p>Gets information about the Device Defender audit settings for this account.
  *           Settings include how audit notifications are sent and which audit checks are
  *           enabled or disabled.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DescribeAccountAuditConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAccountAuditConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccountAuditConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAccountAuditConfigurationCommand extends $Command<
   DescribeAccountAuditConfigurationCommandInput,

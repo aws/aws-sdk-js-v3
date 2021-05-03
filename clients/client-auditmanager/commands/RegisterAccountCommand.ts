@@ -24,6 +24,18 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  * <p>
  *  Enables AWS Audit Manager for the specified AWS account.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new RegisterAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterAccountCommandInput} for command's `input` shape.
+ * @see {@link RegisterAccountCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterAccountCommand extends $Command<
   RegisterAccountCommandInput,

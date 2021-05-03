@@ -26,6 +26,18 @@ export interface ReadPipelineCommandOutput extends ReadPipelineResponse, __Metad
 
 /**
  * <p>The ReadPipeline operation gets detailed information about a pipeline.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticTranscoderClient(config);
+ * const command = new ReadPipelineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReadPipelineCommandInput} for command's `input` shape.
+ * @see {@link ReadPipelineCommandOutput} for command's `response` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReadPipelineCommand extends $Command<
   ReadPipelineCommandInput,

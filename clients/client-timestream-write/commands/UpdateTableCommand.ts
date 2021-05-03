@@ -28,6 +28,18 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *          be populated with 24 hours of data 22 hours after this change was made.
  *          Timestream does not retrieve data from the magnetic store to populate the memory store. </p>
  *          <p>Service quotas apply. For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html">Access Management</a> in the Timestream Developer Guide.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TimestreamWriteClient(config);
+ * const command = new UpdateTableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTableCommandInput} for command's `input` shape.
+ * @see {@link UpdateTableCommandOutput} for command's `response` shape.
+ * @see {@link TimestreamWriteClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTableCommand extends $Command<
   UpdateTableCommandInput,

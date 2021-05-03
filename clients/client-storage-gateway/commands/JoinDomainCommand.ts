@@ -23,6 +23,18 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
 /**
  * <p>Adds a file gateway to an Active Directory domain. This operation is only supported for
  *          file gateways that support the SMB file protocol.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new JoinDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link JoinDomainCommandInput} for command's `input` shape.
+ * @see {@link JoinDomainCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class JoinDomainCommand extends $Command<
   JoinDomainCommandInput,

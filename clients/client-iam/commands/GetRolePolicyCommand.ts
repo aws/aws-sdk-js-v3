@@ -38,6 +38,18 @@ export interface GetRolePolicyCommandOutput extends GetRolePolicyResponse, __Met
  *                 policies</a> in the <i>IAM User Guide</i>.</p>
  *         <p>For more information about roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using roles to delegate permissions and
  *                 federate identities</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new GetRolePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRolePolicyCommandInput} for command's `input` shape.
+ * @see {@link GetRolePolicyCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRolePolicyCommand extends $Command<
   GetRolePolicyCommandInput,

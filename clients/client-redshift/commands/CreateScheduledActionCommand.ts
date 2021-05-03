@@ -24,6 +24,18 @@ export interface CreateScheduledActionCommandOutput extends ScheduledAction, __M
  * <p>Creates a scheduled action. A scheduled action contains a schedule and an Amazon Redshift API action.
  *             For example, you can create a schedule of when to run the <code>ResizeCluster</code> API operation.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new CreateScheduledActionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateScheduledActionCommandInput} for command's `input` shape.
+ * @see {@link CreateScheduledActionCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateScheduledActionCommand extends $Command<
   CreateScheduledActionCommandInput,

@@ -22,6 +22,18 @@ export interface DeleteProgramCommandOutput extends DeleteProgramResponse, __Met
 
 /**
  * <p>Deletes a specific program on a specific channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaTailorClient(config);
+ * const command = new DeleteProgramCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteProgramCommandInput} for command's `input` shape.
+ * @see {@link DeleteProgramCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteProgramCommand extends $Command<
   DeleteProgramCommandInput,

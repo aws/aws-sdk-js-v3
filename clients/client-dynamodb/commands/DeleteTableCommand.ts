@@ -38,6 +38,18 @@ export interface DeleteTableCommandOutput extends DeleteTableOutput, __MetadataB
  *       into the <code>DISABLED</code> state, and the stream is automatically deleted after 24 hours.</p>
  *
  *          <p>Use the <code>DescribeTable</code> action to check the status of the table. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new DeleteTableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTableCommandInput} for command's `input` shape.
+ * @see {@link DeleteTableCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTableCommand extends $Command<
   DeleteTableCommandInput,

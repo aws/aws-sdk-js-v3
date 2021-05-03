@@ -22,6 +22,18 @@ export interface UpdateVirtualNodeCommandOutput extends UpdateVirtualNodeOutput,
 
 /**
  * <p>Updates an existing virtual node in a specified service mesh.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new UpdateVirtualNodeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateVirtualNodeCommandInput} for command's `input` shape.
+ * @see {@link UpdateVirtualNodeCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateVirtualNodeCommand extends $Command<
   UpdateVirtualNodeCommandInput,

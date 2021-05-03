@@ -22,6 +22,18 @@ export interface ListVirtualNodesCommandOutput extends ListVirtualNodesOutput, _
 
 /**
  * <p>Returns a list of existing virtual nodes.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new ListVirtualNodesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListVirtualNodesCommandInput} for command's `input` shape.
+ * @see {@link ListVirtualNodesCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListVirtualNodesCommand extends $Command<
   ListVirtualNodesCommandInput,

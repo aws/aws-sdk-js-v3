@@ -27,6 +27,18 @@ export interface ListProposalsCommandOutput extends ListProposalsOutput, __Metad
 /**
  * <p>Returns a list of proposals for the network.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ManagedBlockchainClient(config);
+ * const command = new ListProposalsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProposalsCommandInput} for command's `input` shape.
+ * @see {@link ListProposalsCommandOutput} for command's `response` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProposalsCommand extends $Command<
   ListProposalsCommandInput,

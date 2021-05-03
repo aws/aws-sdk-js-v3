@@ -22,6 +22,18 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
 
 /**
  * <p>Gets information about the specified certificate.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DescribeCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCertificateCommandInput} for command's `input` shape.
+ * @see {@link DescribeCertificateCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCertificateCommand extends $Command<
   DescribeCertificateCommandInput,

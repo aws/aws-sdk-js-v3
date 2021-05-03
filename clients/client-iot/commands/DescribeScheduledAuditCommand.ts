@@ -22,6 +22,18 @@ export interface DescribeScheduledAuditCommandOutput extends DescribeScheduledAu
 
 /**
  * <p>Gets information about a scheduled audit.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DescribeScheduledAuditCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeScheduledAuditCommandInput} for command's `input` shape.
+ * @see {@link DescribeScheduledAuditCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeScheduledAuditCommand extends $Command<
   DescribeScheduledAuditCommandInput,

@@ -35,6 +35,18 @@ export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
  *          <p>This operation is idempotent. You can successfully invoke this operation multiple
  *          times, if the vault lock is in the <code>InProgress</code> state or if there is no policy
  *          associated with the vault.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlacierClient(config);
+ * const command = new AbortVaultLockCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AbortVaultLockCommandInput} for command's `input` shape.
+ * @see {@link AbortVaultLockCommandOutput} for command's `response` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AbortVaultLockCommand extends $Command<
   AbortVaultLockCommandInput,

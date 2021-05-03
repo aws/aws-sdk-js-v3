@@ -27,6 +27,18 @@ export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataB
  *          it is not recorded in Synthetics as a completed run.</p>
  *          <p>You can use <code>StartCanary</code> to start it running again
  *          with the canary’s current schedule at any point in the future.  </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SyntheticsClient(config);
+ * const command = new StopCanaryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopCanaryCommandInput} for command's `input` shape.
+ * @see {@link StopCanaryCommandOutput} for command's `response` shape.
+ * @see {@link SyntheticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopCanaryCommand extends $Command<
   StopCanaryCommandInput,

@@ -33,6 +33,18 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
  *       for the already-existing discovered server is updated. When you delete an import task that
  *       contains records that were used to match, the information in those matched records that comes
  *       from the deleted records will also be deleted.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new BatchDeleteImportDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDeleteImportDataCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteImportDataCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDeleteImportDataCommand extends $Command<
   BatchDeleteImportDataCommandInput,

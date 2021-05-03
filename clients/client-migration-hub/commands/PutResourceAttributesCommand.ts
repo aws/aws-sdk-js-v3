@@ -47,6 +47,18 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  *             association occurs or not. To confirm if an association was found based on the provided
  *             details, call <code>ListDiscoveredResources</code>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MigrationHubClient(config);
+ * const command = new PutResourceAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutResourceAttributesCommandInput} for command's `input` shape.
+ * @see {@link PutResourceAttributesCommandOutput} for command's `response` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutResourceAttributesCommand extends $Command<
   PutResourceAttributesCommandInput,

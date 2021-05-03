@@ -31,6 +31,18 @@ export interface GetAccountLimitCommandOutput extends GetAccountLimitResponse, _
  * 			<a href="https://console.aws.amazon.com/trustedadvisor">https://console.aws.amazon.com/trustedadvisor/</a>. Then choose
  * 			<b>Service limits</b> in the navigation pane.</p>
  * 		       </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new GetAccountLimitCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAccountLimitCommandInput} for command's `input` shape.
+ * @see {@link GetAccountLimitCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAccountLimitCommand extends $Command<
   GetAccountLimitCommandInput,

@@ -83,6 +83,18 @@ export interface DescribePipelinesCommandOutput extends DescribePipelinesOutput,
  * }
  * </response>
  *         </examples>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataPipelineClient(config);
+ * const command = new DescribePipelinesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePipelinesCommandInput} for command's `input` shape.
+ * @see {@link DescribePipelinesCommandOutput} for command's `response` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePipelinesCommand extends $Command<
   DescribePipelinesCommandInput,

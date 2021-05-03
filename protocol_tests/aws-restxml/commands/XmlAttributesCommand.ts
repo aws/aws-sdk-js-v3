@@ -22,6 +22,18 @@ export interface XmlAttributesCommandOutput extends XmlAttributesInputOutput, __
 
 /**
  * This example serializes an XML attributes on synthesized document.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestXmlProtocolClient(config);
+ * const command = new XmlAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link XmlAttributesCommandInput} for command's `input` shape.
+ * @see {@link XmlAttributesCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class XmlAttributesCommand extends $Command<
   XmlAttributesCommandInput,

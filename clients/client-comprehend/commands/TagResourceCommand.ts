@@ -25,6 +25,18 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *       that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with
  *       "Sales" as the key might be added to a resource to indicate its use by the sales department.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

@@ -65,6 +65,18 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  *             lifecycle state is still <code>CREATING</code>. You can check the backup creation
  *             status by calling the <a>DescribeBackups</a> operation, which returns the
  *             backup state along with other information.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FSxClient(config);
+ * const command = new CreateBackupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateBackupCommandInput} for command's `input` shape.
+ * @see {@link CreateBackupCommandOutput} for command's `response` shape.
+ * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateBackupCommand extends $Command<
   CreateBackupCommandInput,

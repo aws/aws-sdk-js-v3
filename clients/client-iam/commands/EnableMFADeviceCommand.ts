@@ -24,6 +24,18 @@ export interface EnableMFADeviceCommandOutput extends __MetadataBearer {}
  * <p>Enables the specified MFA device and associates it with the specified IAM user. When
  *             enabled, the MFA device is required for every subsequent login by the IAM user
  *             associated with the device.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new EnableMFADeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableMFADeviceCommandInput} for command's `input` shape.
+ * @see {@link EnableMFADeviceCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableMFADeviceCommand extends $Command<
   EnableMFADeviceCommandInput,

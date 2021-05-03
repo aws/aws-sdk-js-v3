@@ -27,6 +27,18 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
  *         <p>When you detach a load balancer, it enters the <code>Removing</code> state while
  *             deregistering the instances in the group. When all instances are deregistered, then you
  *             can no longer describe the load balancer using the <a>DescribeLoadBalancers</a> API call. The instances remain running.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingClient(config);
+ * const command = new DetachLoadBalancersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetachLoadBalancersCommandInput} for command's `input` shape.
+ * @see {@link DetachLoadBalancersCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetachLoadBalancersCommand extends $Command<
   DetachLoadBalancersCommandInput,

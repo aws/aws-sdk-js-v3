@@ -22,6 +22,18 @@ export interface DescribeDeploymentJobCommandOutput extends DescribeDeploymentJo
 
 /**
  * <p>Describes a deployment job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new DescribeDeploymentJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDeploymentJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeDeploymentJobCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDeploymentJobCommand extends $Command<
   DescribeDeploymentJobCommandInput,

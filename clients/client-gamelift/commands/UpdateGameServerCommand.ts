@@ -67,6 +67,18 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  *                     <a>DeregisterGameServer</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
  *          </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GameLiftClient(config);
+ * const command = new UpdateGameServerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateGameServerCommandInput} for command's `input` shape.
+ * @see {@link UpdateGameServerCommandOutput} for command's `response` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateGameServerCommand extends $Command<
   UpdateGameServerCommandInput,

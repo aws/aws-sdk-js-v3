@@ -22,6 +22,18 @@ export interface UpdateVocabularyFilterCommandOutput extends UpdateVocabularyFil
 
 /**
  * <p>Updates a vocabulary filter with a new list of filtered words.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeClient(config);
+ * const command = new UpdateVocabularyFilterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateVocabularyFilterCommandInput} for command's `input` shape.
+ * @see {@link UpdateVocabularyFilterCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateVocabularyFilterCommand extends $Command<
   UpdateVocabularyFilterCommandInput,

@@ -29,6 +29,18 @@ export interface StartMaintenanceCommandOutput extends StartMaintenanceResponse,
  *       Maintenance can only be started on servers in <code>HEALTHY</code> and <code>UNHEALTHY</code> states. Otherwise, an <code>InvalidStateException</code> is thrown.
  *       A <code>ResourceNotFoundException</code> is thrown when the server does not exist. A <code>ValidationException</code> is raised when parameters of the request are not valid.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OpsWorksCMClient(config);
+ * const command = new StartMaintenanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartMaintenanceCommandInput} for command's `input` shape.
+ * @see {@link StartMaintenanceCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartMaintenanceCommand extends $Command<
   StartMaintenanceCommandInput,

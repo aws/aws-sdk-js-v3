@@ -30,6 +30,18 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
  * <p>Disassociates a website authorization provider from a specified fleet. After the
  *             disassociation, users can't load any associated websites that require this authorization
  *             provider.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkLinkClient(config);
+ * const command = new DisassociateWebsiteAuthorizationProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateWebsiteAuthorizationProviderCommandInput} for command's `input` shape.
+ * @see {@link DisassociateWebsiteAuthorizationProviderCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<
   DisassociateWebsiteAuthorizationProviderCommandInput,

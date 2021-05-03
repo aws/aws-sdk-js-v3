@@ -24,6 +24,18 @@ export interface TestRenderTemplateCommandOutput extends TestRenderTemplateRespo
  * <p>Creates a preview of the MIME content of an email when provided with a template and a
  *             set of replacement data.</p>
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESClient(config);
+ * const command = new TestRenderTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TestRenderTemplateCommandInput} for command's `input` shape.
+ * @see {@link TestRenderTemplateCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TestRenderTemplateCommand extends $Command<
   TestRenderTemplateCommandInput,

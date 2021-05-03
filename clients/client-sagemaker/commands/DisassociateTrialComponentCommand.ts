@@ -27,6 +27,18 @@ export interface DisassociateTrialComponentCommandOutput extends DisassociateTri
  *       call the <a>AssociateTrialComponent</a> API.</p>
  *          <p>To get a list of the trials a component is associated with, use the <a>Search</a> API. Specify <code>ExperimentTrialComponent</code> for the <code>Resource</code> parameter.
  *       The list appears in the response under <code>Results.TrialComponent.Parents</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DisassociateTrialComponentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateTrialComponentCommandInput} for command's `input` shape.
+ * @see {@link DisassociateTrialComponentCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateTrialComponentCommand extends $Command<
   DisassociateTrialComponentCommandInput,

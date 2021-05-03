@@ -23,6 +23,18 @@ export interface GetBackupSelectionCommandOutput extends GetBackupSelectionOutpu
 /**
  * <p>Returns selection metadata and a document in JSON format that specifies a list of
  *          resources that are associated with a backup plan.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new GetBackupSelectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBackupSelectionCommandInput} for command's `input` shape.
+ * @see {@link GetBackupSelectionCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBackupSelectionCommand extends $Command<
   GetBackupSelectionCommandInput,

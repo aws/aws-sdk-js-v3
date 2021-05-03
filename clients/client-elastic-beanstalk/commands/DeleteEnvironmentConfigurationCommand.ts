@@ -27,6 +27,18 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  *       fails. The <code>DeploymentStatus</code> for the draft configuration indicates whether the
  *       deployment is in process or has failed. The draft configuration remains in existence until it
  *       is deleted with this action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new DeleteEnvironmentConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEnvironmentConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteEnvironmentConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEnvironmentConfigurationCommand extends $Command<
   DeleteEnvironmentConfigurationCommandInput,

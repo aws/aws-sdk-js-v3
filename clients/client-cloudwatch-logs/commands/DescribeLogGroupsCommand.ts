@@ -23,6 +23,18 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
 /**
  * <p>Lists the specified log groups. You can list all your log groups or filter the results by prefix.
  *       The results are ASCII-sorted by log group name.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new DescribeLogGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLogGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeLogGroupsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLogGroupsCommand extends $Command<
   DescribeLogGroupsCommandInput,

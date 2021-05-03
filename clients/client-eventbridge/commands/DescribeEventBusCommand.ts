@@ -28,6 +28,18 @@ export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse,
  *          <p> To enable your account to receive events from other accounts on its default event bus,
  *       use <a>PutPermission</a>.</p>
  *          <p>For more information about partner event buses, see <a>CreateEventBus</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EventBridgeClient(config);
+ * const command = new DescribeEventBusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEventBusCommandInput} for command's `input` shape.
+ * @see {@link DescribeEventBusCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEventBusCommand extends $Command<
   DescribeEventBusCommandInput,

@@ -24,6 +24,18 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  * <p>Returns a list of all of the email identities that are associated with your Amazon Pinpoint
  *             account. An identity can be either an email address or a domain. This operation returns
  *             identities that are verified as well as those that aren't.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointEmailClient(config);
+ * const command = new ListEmailIdentitiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEmailIdentitiesCommandInput} for command's `input` shape.
+ * @see {@link ListEmailIdentitiesCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEmailIdentitiesCommand extends $Command<
   ListEmailIdentitiesCommandInput,

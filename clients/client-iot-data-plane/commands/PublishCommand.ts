@@ -24,6 +24,18 @@ export interface PublishCommandOutput extends __MetadataBearer {}
  * <p>Publishes state information.</p>
  *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the
  *        AWS IoT Developer Guide.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTDataPlaneClient(config);
+ * const command = new PublishCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PublishCommandInput} for command's `input` shape.
+ * @see {@link PublishCommandOutput} for command's `response` shape.
+ * @see {@link IoTDataPlaneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PublishCommand extends $Command<
   PublishCommandInput,

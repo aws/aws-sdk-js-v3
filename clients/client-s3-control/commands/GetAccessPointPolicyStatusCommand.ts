@@ -23,6 +23,18 @@ export interface GetAccessPointPolicyStatusCommandOutput extends GetAccessPointP
 
 /**
  * <p>Indicates whether the specified access point currently has a policy that allows public access. For more information about public access through access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing Data Access with Amazon S3 Access Points</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3ControlClient(config);
+ * const command = new GetAccessPointPolicyStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAccessPointPolicyStatusCommandInput} for command's `input` shape.
+ * @see {@link GetAccessPointPolicyStatusCommandOutput} for command's `response` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAccessPointPolicyStatusCommand extends $Command<
   GetAccessPointPolicyStatusCommandInput,

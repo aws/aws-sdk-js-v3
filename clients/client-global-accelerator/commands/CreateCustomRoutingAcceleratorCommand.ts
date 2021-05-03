@@ -37,6 +37,18 @@ export interface CreateCustomRoutingAcceleratorCommandOutput
  * 		          <p>Global Accelerator is a global service that supports endpoints in multiple AWS Regions but you must specify the
  * 			US West (Oregon) Region to create or update accelerators.</p>
  * 	        </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new CreateCustomRoutingAcceleratorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCustomRoutingAcceleratorCommandInput} for command's `input` shape.
+ * @see {@link CreateCustomRoutingAcceleratorCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCustomRoutingAcceleratorCommand extends $Command<
   CreateCustomRoutingAcceleratorCommandInput,

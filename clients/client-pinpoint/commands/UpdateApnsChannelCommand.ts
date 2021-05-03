@@ -22,6 +22,18 @@ export interface UpdateApnsChannelCommandOutput extends UpdateApnsChannelRespons
 
 /**
  * <p>Enables the APNs channel for an application or updates the status and settings of the APNs channel for an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new UpdateApnsChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateApnsChannelCommandInput} for command's `input` shape.
+ * @see {@link UpdateApnsChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateApnsChannelCommand extends $Command<
   UpdateApnsChannelCommandInput,

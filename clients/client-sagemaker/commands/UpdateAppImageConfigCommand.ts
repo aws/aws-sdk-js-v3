@@ -22,6 +22,18 @@ export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigR
 
 /**
  * <p>Updates the properties of an AppImageConfig.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new UpdateAppImageConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAppImageConfigCommandInput} for command's `input` shape.
+ * @see {@link UpdateAppImageConfigCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAppImageConfigCommand extends $Command<
   UpdateAppImageConfigCommandInput,

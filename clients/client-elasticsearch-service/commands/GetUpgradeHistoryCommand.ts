@@ -26,6 +26,18 @@ export interface GetUpgradeHistoryCommandOutput extends GetUpgradeHistoryRespons
 
 /**
  * <p>Retrieves the complete history of the last 10 upgrades that were performed on the domain.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new GetUpgradeHistoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetUpgradeHistoryCommandInput} for command's `input` shape.
+ * @see {@link GetUpgradeHistoryCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetUpgradeHistoryCommand extends $Command<
   GetUpgradeHistoryCommandInput,

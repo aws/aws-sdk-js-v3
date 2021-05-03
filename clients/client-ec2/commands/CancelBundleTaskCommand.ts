@@ -22,6 +22,18 @@ export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, _
 
 /**
  * <p>Cancels a bundling operation for an instance store-backed Windows instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CancelBundleTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelBundleTaskCommandInput} for command's `input` shape.
+ * @see {@link CancelBundleTaskCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelBundleTaskCommand extends $Command<
   CancelBundleTaskCommandInput,

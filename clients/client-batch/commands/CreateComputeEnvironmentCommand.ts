@@ -62,6 +62,18 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *                </li>
  *             </ol>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BatchClient(config);
+ * const command = new CreateComputeEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateComputeEnvironmentCommandInput} for command's `input` shape.
+ * @see {@link CreateComputeEnvironmentCommandOutput} for command's `response` shape.
+ * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateComputeEnvironmentCommand extends $Command<
   CreateComputeEnvironmentCommandInput,

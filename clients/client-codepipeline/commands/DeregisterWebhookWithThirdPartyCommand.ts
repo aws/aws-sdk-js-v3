@@ -26,6 +26,18 @@ export interface DeregisterWebhookWithThirdPartyCommandOutput
  * <p>Removes the connection between the webhook that was created by CodePipeline and the
  *             external tool with events to be detected. Currently supported only for webhooks that
  *             target an action type of GitHub.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new DeregisterWebhookWithThirdPartyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterWebhookWithThirdPartyCommandInput} for command's `input` shape.
+ * @see {@link DeregisterWebhookWithThirdPartyCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterWebhookWithThirdPartyCommand extends $Command<
   DeregisterWebhookWithThirdPartyCommandInput,

@@ -61,6 +61,18 @@ export interface StartImportTaskCommandOutput extends StartImportTaskResponse, _
  *           Discovery Service Limits</a> in the <i>AWS Application Discovery Service User
  *           Guide</i>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new StartImportTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartImportTaskCommandInput} for command's `input` shape.
+ * @see {@link StartImportTaskCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartImportTaskCommand extends $Command<
   StartImportTaskCommandInput,

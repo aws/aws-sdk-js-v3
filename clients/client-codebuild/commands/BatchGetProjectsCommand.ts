@@ -22,6 +22,18 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
 
 /**
  * <p>Gets information about one or more build projects.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new BatchGetProjectsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetProjectsCommandInput} for command's `input` shape.
+ * @see {@link BatchGetProjectsCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetProjectsCommand extends $Command<
   BatchGetProjectsCommandInput,

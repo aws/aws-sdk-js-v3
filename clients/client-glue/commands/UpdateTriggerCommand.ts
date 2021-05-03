@@ -22,6 +22,18 @@ export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __Met
 
 /**
  * <p>Updates a trigger definition.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new UpdateTriggerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTriggerCommandInput} for command's `input` shape.
+ * @see {@link UpdateTriggerCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTriggerCommand extends $Command<
   UpdateTriggerCommandInput,

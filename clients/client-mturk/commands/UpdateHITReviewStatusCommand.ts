@@ -26,6 +26,18 @@ export interface UpdateHITReviewStatusCommandOutput extends UpdateHITReviewStatu
  *             If the status is Reviewable, this operation can update the status to Reviewing,
  *             or it can revert a Reviewing HIT back to the Reviewable status.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MTurkClient(config);
+ * const command = new UpdateHITReviewStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateHITReviewStatusCommandInput} for command's `input` shape.
+ * @see {@link UpdateHITReviewStatusCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateHITReviewStatusCommand extends $Command<
   UpdateHITReviewStatusCommandInput,

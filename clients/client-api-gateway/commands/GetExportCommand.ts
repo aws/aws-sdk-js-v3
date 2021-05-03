@@ -22,6 +22,18 @@ export interface GetExportCommandOutput extends ExportResponse, __MetadataBearer
 
 /**
  * <p>Exports a deployed version of a <a>RestApi</a> in a specified format.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new GetExportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetExportCommandInput} for command's `input` shape.
+ * @see {@link GetExportCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetExportCommand extends $Command<
   GetExportCommandInput,

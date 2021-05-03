@@ -24,6 +24,18 @@ export interface DescribeEmergencyContactSettingsCommandOutput
 
 /**
  * <p>A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ShieldClient(config);
+ * const command = new DescribeEmergencyContactSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEmergencyContactSettingsCommandInput} for command's `input` shape.
+ * @see {@link DescribeEmergencyContactSettingsCommandOutput} for command's `response` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEmergencyContactSettingsCommand extends $Command<
   DescribeEmergencyContactSettingsCommandInput,

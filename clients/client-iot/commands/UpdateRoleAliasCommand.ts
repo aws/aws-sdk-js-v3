@@ -22,6 +22,18 @@ export interface UpdateRoleAliasCommandOutput extends UpdateRoleAliasResponse, _
 
 /**
  * <p>Updates a role alias.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new UpdateRoleAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRoleAliasCommandInput} for command's `input` shape.
+ * @see {@link UpdateRoleAliasCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRoleAliasCommand extends $Command<
   UpdateRoleAliasCommandInput,

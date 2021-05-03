@@ -26,6 +26,18 @@ export interface UntagCertificateAuthorityCommandOutput extends __MetadataBearer
  * 			be removed regardless of value. If you specify a value, the tag is removed only if it is
  * 			associated with the specified value. To add tags to a private CA, use the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_TagCertificateAuthority.html">TagCertificateAuthority</a>. Call the <a href="https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListTags.html">ListTags</a> action to see what tags are
  * 			associated with your CA. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ACMPCAClient(config);
+ * const command = new UntagCertificateAuthorityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UntagCertificateAuthorityCommandInput} for command's `input` shape.
+ * @see {@link UntagCertificateAuthorityCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UntagCertificateAuthorityCommand extends $Command<
   UntagCertificateAuthorityCommandInput,

@@ -52,6 +52,18 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  *                     the responses of a multi-call iteration is unspecified.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FSxClient(config);
+ * const command = new DescribeBackupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeBackupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeBackupsCommandOutput} for command's `response` shape.
+ * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeBackupsCommand extends $Command<
   DescribeBackupsCommandInput,

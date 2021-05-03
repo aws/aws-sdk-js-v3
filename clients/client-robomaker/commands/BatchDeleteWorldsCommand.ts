@@ -22,6 +22,18 @@ export interface BatchDeleteWorldsCommandOutput extends BatchDeleteWorldsRespons
 
 /**
  * <p>Deletes one or more worlds in a batch operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new BatchDeleteWorldsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDeleteWorldsCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteWorldsCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDeleteWorldsCommand extends $Command<
   BatchDeleteWorldsCommandInput,

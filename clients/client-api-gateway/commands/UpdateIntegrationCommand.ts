@@ -22,6 +22,18 @@ export interface UpdateIntegrationCommandOutput extends Integration, __MetadataB
 
 /**
  * <p>Represents an update integration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new UpdateIntegrationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateIntegrationCommandInput} for command's `input` shape.
+ * @see {@link UpdateIntegrationCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateIntegrationCommand extends $Command<
   UpdateIntegrationCommandInput,

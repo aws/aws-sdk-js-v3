@@ -22,6 +22,18 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
 
 /**
  * <p>Creates a Stage for an API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new CreateStageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateStageCommandInput} for command's `input` shape.
+ * @see {@link CreateStageCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateStageCommand extends $Command<
   CreateStageCommandInput,

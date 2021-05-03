@@ -27,6 +27,18 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  *
  *          <p>The response returns the <code>ServerId</code> and the <code>UserName</code> for the
  *       updated user.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TransferClient(config);
+ * const command = new UpdateUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateUserCommandInput} for command's `input` shape.
+ * @see {@link UpdateUserCommandOutput} for command's `response` shape.
+ * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateUserCommand extends $Command<
   UpdateUserCommandInput,

@@ -34,6 +34,18 @@ export interface AssociateResolverQueryLogConfigCommandOutput
  * 		       <p>To remove a VPC from a query logging configuration, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverQueryLogConfig.html">DisassociateResolverQueryLogConfig</a>.
  * 			</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new AssociateResolverQueryLogConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateResolverQueryLogConfigCommandInput} for command's `input` shape.
+ * @see {@link AssociateResolverQueryLogConfigCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateResolverQueryLogConfigCommand extends $Command<
   AssociateResolverQueryLogConfigCommandInput,

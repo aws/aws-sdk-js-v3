@@ -22,6 +22,18 @@ export interface StartThingRegistrationTaskCommandOutput extends StartThingRegis
 
 /**
  * <p>Creates a bulk thing provisioning task.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new StartThingRegistrationTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartThingRegistrationTaskCommandInput} for command's `input` shape.
+ * @see {@link StartThingRegistrationTaskCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartThingRegistrationTaskCommand extends $Command<
   StartThingRegistrationTaskCommandInput,

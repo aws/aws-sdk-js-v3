@@ -29,6 +29,18 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
 /**
  * <p>Retrieves the current snapshot for the patch baseline the instance uses. This API is
  *    primarily used by the AWS-RunPatchBaseline Systems Manager document. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new GetDeployablePatchSnapshotForInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDeployablePatchSnapshotForInstanceCommandInput} for command's `input` shape.
+ * @see {@link GetDeployablePatchSnapshotForInstanceCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
   GetDeployablePatchSnapshotForInstanceCommandInput,

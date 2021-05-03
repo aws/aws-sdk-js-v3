@@ -26,6 +26,18 @@ export interface ListDatasetExportJobsCommandOutput extends ListDatasetExportJob
  *       provides the properties for each dataset export job, including the Amazon Resource Name (ARN).
  *       For more information on dataset export jobs, see <a>CreateDatasetExportJob</a>. For
  *       more information on datasets, see <a>CreateDataset</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeClient(config);
+ * const command = new ListDatasetExportJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDatasetExportJobsCommandInput} for command's `input` shape.
+ * @see {@link ListDatasetExportJobsCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDatasetExportJobsCommand extends $Command<
   ListDatasetExportJobsCommandInput,

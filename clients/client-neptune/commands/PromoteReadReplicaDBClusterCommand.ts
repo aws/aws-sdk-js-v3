@@ -22,6 +22,18 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
 
 /**
  * <p>Not supported.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NeptuneClient(config);
+ * const command = new PromoteReadReplicaDBClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PromoteReadReplicaDBClusterCommandInput} for command's `input` shape.
+ * @see {@link PromoteReadReplicaDBClusterCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PromoteReadReplicaDBClusterCommand extends $Command<
   PromoteReadReplicaDBClusterCommandInput,

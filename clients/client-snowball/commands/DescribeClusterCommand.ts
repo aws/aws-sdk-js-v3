@@ -23,6 +23,18 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResult, __M
 /**
  * <p>Returns information about a specific cluster including shipping information, cluster
  *       status, and other important metadata.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SnowballClient(config);
+ * const command = new DescribeClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeClusterCommandInput} for command's `input` shape.
+ * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeClusterCommand extends $Command<
   DescribeClusterCommandInput,

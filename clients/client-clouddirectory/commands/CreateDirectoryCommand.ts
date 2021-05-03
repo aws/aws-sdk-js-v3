@@ -25,6 +25,18 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResponse, _
  *       directory. A directory cannot be created without a schema.</p>
  *          <p>You can also quickly create a directory using a managed schema, called the
  *         <code>QuickStartSchema</code>. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_managed.html">Managed Schema</a> in the <i>Amazon Cloud Directory Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new CreateDirectoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDirectoryCommandInput} for command's `input` shape.
+ * @see {@link CreateDirectoryCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDirectoryCommand extends $Command<
   CreateDirectoryCommandInput,

@@ -23,6 +23,18 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResult, __M
 /**
  * <p> Starts a deployment for a manually deployed app. Manually deployed apps are not
  *             connected to a repository. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyClient(config);
+ * const command = new StartDeploymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartDeploymentCommandInput} for command's `input` shape.
+ * @see {@link StartDeploymentCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartDeploymentCommand extends $Command<
   StartDeploymentCommandInput,

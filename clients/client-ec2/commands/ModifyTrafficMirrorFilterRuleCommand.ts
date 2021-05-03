@@ -27,6 +27,18 @@ export interface ModifyTrafficMirrorFilterRuleCommandOutput
  *          <p>
  *             <code>DestinationCidrBlock</code> and <code>SourceCidrBlock</code> must both be an IPv4
  *          range or an IPv6 range.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyTrafficMirrorFilterRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyTrafficMirrorFilterRuleCommandInput} for command's `input` shape.
+ * @see {@link ModifyTrafficMirrorFilterRuleCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyTrafficMirrorFilterRuleCommand extends $Command<
   ModifyTrafficMirrorFilterRuleCommandInput,

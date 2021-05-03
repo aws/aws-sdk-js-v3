@@ -22,6 +22,18 @@ export interface StopAccessLoggingCommandOutput extends StopAccessLoggingOutput,
 
 /**
  * <p>Stops access logging on the specified container. When you stop access logging on a container, MediaStore stops sending access logs to Amazon CloudWatch Logs. These access logs are not saved and are not retrievable.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaStoreClient(config);
+ * const command = new StopAccessLoggingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopAccessLoggingCommandInput} for command's `input` shape.
+ * @see {@link StopAccessLoggingCommandOutput} for command's `response` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopAccessLoggingCommand extends $Command<
   StopAccessLoggingCommandInput,

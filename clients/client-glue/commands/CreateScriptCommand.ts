@@ -22,6 +22,18 @@ export interface CreateScriptCommandOutput extends CreateScriptResponse, __Metad
 
 /**
  * <p>Transforms a directed acyclic graph (DAG) into code.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new CreateScriptCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateScriptCommandInput} for command's `input` shape.
+ * @see {@link CreateScriptCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateScriptCommand extends $Command<
   CreateScriptCommandInput,

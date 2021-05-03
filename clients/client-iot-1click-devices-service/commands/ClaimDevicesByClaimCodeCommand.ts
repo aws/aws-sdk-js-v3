@@ -27,6 +27,18 @@ export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClai
 /**
  * <p>Adds device(s) to your account (i.e., claim one or more devices) if and only if you
  *  received a claim code with the device(s).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoT1ClickDevicesServiceClient(config);
+ * const command = new ClaimDevicesByClaimCodeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ClaimDevicesByClaimCodeCommandInput} for command's `input` shape.
+ * @see {@link ClaimDevicesByClaimCodeCommandOutput} for command's `response` shape.
+ * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ClaimDevicesByClaimCodeCommand extends $Command<
   ClaimDevicesByClaimCodeCommandInput,

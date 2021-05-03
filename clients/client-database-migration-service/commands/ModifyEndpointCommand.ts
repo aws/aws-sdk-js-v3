@@ -26,6 +26,18 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
 
 /**
  * <p>Modifies the specified endpoint.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new ModifyEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyEndpointCommandInput} for command's `input` shape.
+ * @see {@link ModifyEndpointCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyEndpointCommand extends $Command<
   ModifyEndpointCommandInput,

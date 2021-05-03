@@ -22,6 +22,18 @@ export interface CreateDynamicThingGroupCommandOutput extends CreateDynamicThing
 
 /**
  * <p>Creates a dynamic thing group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new CreateDynamicThingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDynamicThingGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateDynamicThingGroupCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDynamicThingGroupCommand extends $Command<
   CreateDynamicThingGroupCommandInput,

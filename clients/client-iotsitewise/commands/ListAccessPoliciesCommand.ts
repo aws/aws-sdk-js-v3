@@ -23,6 +23,18 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
 /**
  * <p>Retrieves a paginated list of access policies for an identity (an AWS SSO user, an AWS SSO
  *       group, or an IAM user) or an AWS IoT SiteWise Monitor resource (a portal or project).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new ListAccessPoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAccessPoliciesCommandInput} for command's `input` shape.
+ * @see {@link ListAccessPoliciesCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAccessPoliciesCommand extends $Command<
   ListAccessPoliciesCommandInput,

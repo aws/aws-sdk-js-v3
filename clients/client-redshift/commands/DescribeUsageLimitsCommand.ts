@@ -41,6 +41,18 @@ export interface DescribeUsageLimitsCommandOutput extends UsageLimitList, __Meta
  *                 then all usage limit objects for the combination of cluster and feature are returned.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DescribeUsageLimitsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeUsageLimitsCommandInput} for command's `input` shape.
+ * @see {@link DescribeUsageLimitsCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeUsageLimitsCommand extends $Command<
   DescribeUsageLimitsCommandInput,

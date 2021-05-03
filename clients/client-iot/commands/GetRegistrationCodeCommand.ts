@@ -22,6 +22,18 @@ export interface GetRegistrationCodeCommandOutput extends GetRegistrationCodeRes
 
 /**
  * <p>Gets a registration code used to register a CA certificate with AWS IoT.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new GetRegistrationCodeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRegistrationCodeCommandInput} for command's `input` shape.
+ * @see {@link GetRegistrationCodeCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRegistrationCodeCommand extends $Command<
   GetRegistrationCodeCommandInput,

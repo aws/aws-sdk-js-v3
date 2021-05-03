@@ -24,6 +24,18 @@ export interface DescribeDirectConnectGatewaysCommandOutput
 
 /**
  * <p>Lists all your Direct Connect gateways or only the specified Direct Connect gateway. Deleted Direct Connect gateways are not returned.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new DescribeDirectConnectGatewaysCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDirectConnectGatewaysCommandInput} for command's `input` shape.
+ * @see {@link DescribeDirectConnectGatewaysCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDirectConnectGatewaysCommand extends $Command<
   DescribeDirectConnectGatewaysCommandInput,

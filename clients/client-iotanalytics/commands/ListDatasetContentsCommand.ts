@@ -22,6 +22,18 @@ export interface ListDatasetContentsCommandOutput extends ListDatasetContentsRes
 
 /**
  * <p>Lists information about data set contents that have been created.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTAnalyticsClient(config);
+ * const command = new ListDatasetContentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDatasetContentsCommandInput} for command's `input` shape.
+ * @see {@link ListDatasetContentsCommandOutput} for command's `response` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDatasetContentsCommand extends $Command<
   ListDatasetContentsCommandInput,

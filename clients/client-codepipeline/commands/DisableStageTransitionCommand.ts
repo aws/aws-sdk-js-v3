@@ -23,6 +23,18 @@ export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
 /**
  * <p>Prevents artifacts in a pipeline from transitioning to the next stage in the
  *             pipeline.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new DisableStageTransitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableStageTransitionCommandInput} for command's `input` shape.
+ * @see {@link DisableStageTransitionCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableStageTransitionCommand extends $Command<
   DisableStageTransitionCommandInput,

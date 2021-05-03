@@ -23,6 +23,18 @@ export interface StartSimulationJobBatchCommandOutput extends StartSimulationJob
 /**
  * <p>Starts a new simulation job batch. The batch is defined using one or more
  *             <code>SimulationJobRequest</code> objects. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new StartSimulationJobBatchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartSimulationJobBatchCommandInput} for command's `input` shape.
+ * @see {@link StartSimulationJobBatchCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartSimulationJobBatchCommand extends $Command<
   StartSimulationJobBatchCommandInput,

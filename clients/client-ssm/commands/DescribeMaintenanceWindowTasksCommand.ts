@@ -30,6 +30,18 @@ export interface DescribeMaintenanceWindowTasksCommandOutput
  *     placeholder value of <code>1</code>, which may be reported in the response to this command.
  *     These values do not affect the running of your task and can be ignored.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new DescribeMaintenanceWindowTasksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeMaintenanceWindowTasksCommandInput} for command's `input` shape.
+ * @see {@link DescribeMaintenanceWindowTasksCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeMaintenanceWindowTasksCommand extends $Command<
   DescribeMaintenanceWindowTasksCommandInput,

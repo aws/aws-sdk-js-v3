@@ -31,6 +31,18 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  * 					<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon ECS Container Agent Configuration</a> in the
  * 					<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new StopTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopTaskCommandInput} for command's `input` shape.
+ * @see {@link StopTaskCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopTaskCommand extends $Command<StopTaskCommandInput, StopTaskCommandOutput, ECSClientResolvedConfig> {
   // Start section: command_properties

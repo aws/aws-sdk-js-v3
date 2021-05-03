@@ -28,6 +28,18 @@ export interface CreateHsmConfigurationCommandOutput extends CreateHsmConfigurat
  *         <p>In addition to creating an HSM configuration, you must also create an HSM client
  *             certificate. For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware Security Modules</a>
  *             in the Amazon Redshift Cluster Management Guide.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new CreateHsmConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateHsmConfigurationCommandInput} for command's `input` shape.
+ * @see {@link CreateHsmConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateHsmConfigurationCommand extends $Command<
   CreateHsmConfigurationCommandInput,

@@ -29,6 +29,18 @@ export interface XmlListsCommandOutput extends XmlListsOutput, __MetadataBearer 
  * 6. Flattened XML lists with @xmlName.
  * 7. Flattened XML lists with @xmlNamespace.
  * 8. Lists of structures.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2ProtocolClient(config);
+ * const command = new XmlListsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link XmlListsCommandInput} for command's `input` shape.
+ * @see {@link XmlListsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class XmlListsCommand extends $Command<
   XmlListsCommandInput,

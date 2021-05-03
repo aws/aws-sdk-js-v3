@@ -23,6 +23,18 @@ export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer 
 /**
  * <p>Deletes a monitoring schedule. Also stops the schedule had not already been stopped.
  *          This does not delete the job execution history of the monitoring schedule. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteMonitoringScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMonitoringScheduleCommandInput} for command's `input` shape.
+ * @see {@link DeleteMonitoringScheduleCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMonitoringScheduleCommand extends $Command<
   DeleteMonitoringScheduleCommandInput,

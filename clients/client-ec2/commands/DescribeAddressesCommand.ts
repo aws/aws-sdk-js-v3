@@ -24,6 +24,18 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * <p>Describes the specified Elastic IP addresses or all of your Elastic IP addresses.</p>
  *          <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC.
  * 				For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeAddressesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAddressesCommandInput} for command's `input` shape.
+ * @see {@link DescribeAddressesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAddressesCommand extends $Command<
   DescribeAddressesCommandInput,

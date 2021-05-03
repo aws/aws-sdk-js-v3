@@ -24,6 +24,18 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * <p>Provides the details for the Security Hub administrator account for the current member account.</p>
  *          <p>Can be used by both member accounts that are managed using Organizations and accounts that were
  *          invited manually.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecurityHubClient(config);
+ * const command = new GetAdministratorAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAdministratorAccountCommandInput} for command's `input` shape.
+ * @see {@link GetAdministratorAccountCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAdministratorAccountCommand extends $Command<
   GetAdministratorAccountCommandInput,

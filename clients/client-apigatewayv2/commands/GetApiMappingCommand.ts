@@ -22,6 +22,18 @@ export interface GetApiMappingCommandOutput extends GetApiMappingResponse, __Met
 
 /**
  * <p>Gets an API mapping.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new GetApiMappingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetApiMappingCommandInput} for command's `input` shape.
+ * @see {@link GetApiMappingCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetApiMappingCommand extends $Command<
   GetApiMappingCommandInput,

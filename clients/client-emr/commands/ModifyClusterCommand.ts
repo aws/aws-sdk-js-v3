@@ -23,6 +23,18 @@ export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __Metad
 /**
  * <p>Modifies the number of steps that can be executed concurrently for the cluster specified
  *          using ClusterID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRClient(config);
+ * const command = new ModifyClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyClusterCommandInput} for command's `input` shape.
+ * @see {@link ModifyClusterCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyClusterCommand extends $Command<
   ModifyClusterCommandInput,

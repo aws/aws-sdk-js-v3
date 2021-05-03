@@ -57,6 +57,18 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html">Replacing Auto Scaling instances
  *                 based on an instance refresh</a> in the
  *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingClient(config);
+ * const command = new DescribeInstanceRefreshesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeInstanceRefreshesCommandInput} for command's `input` shape.
+ * @see {@link DescribeInstanceRefreshesCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeInstanceRefreshesCommand extends $Command<
   DescribeInstanceRefreshesCommandInput,

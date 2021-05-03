@@ -25,6 +25,18 @@ export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, _
  *           <note>
  *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new ListGlobalTablesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListGlobalTablesCommandInput} for command's `input` shape.
+ * @see {@link ListGlobalTablesCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListGlobalTablesCommand extends $Command<
   ListGlobalTablesCommandInput,

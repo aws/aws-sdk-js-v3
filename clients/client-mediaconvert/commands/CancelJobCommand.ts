@@ -22,6 +22,18 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
 
 /**
  * Permanently cancel a job. Once you have canceled a job, you can't start it again.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConvertClient(config);
+ * const command = new CancelJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelJobCommandInput} for command's `input` shape.
+ * @see {@link CancelJobCommandOutput} for command's `response` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelJobCommand extends $Command<
   CancelJobCommandInput,

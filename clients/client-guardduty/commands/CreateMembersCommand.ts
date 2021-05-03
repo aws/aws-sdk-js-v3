@@ -33,6 +33,18 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *                <code>Invite
  *         Members</code>
  *             </a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new CreateMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMembersCommandInput} for command's `input` shape.
+ * @see {@link CreateMembersCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMembersCommand extends $Command<
   CreateMembersCommandInput,

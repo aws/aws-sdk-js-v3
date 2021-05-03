@@ -27,6 +27,18 @@ export interface ListDominantLanguageDetectionJobsCommandOutput
 
 /**
  * <p>Gets a list of the dominant language detection jobs that you have submitted.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new ListDominantLanguageDetectionJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDominantLanguageDetectionJobsCommandInput} for command's `input` shape.
+ * @see {@link ListDominantLanguageDetectionJobsCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDominantLanguageDetectionJobsCommand extends $Command<
   ListDominantLanguageDetectionJobsCommandInput,

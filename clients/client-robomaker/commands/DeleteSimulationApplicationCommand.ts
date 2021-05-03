@@ -24,6 +24,18 @@ export interface DeleteSimulationApplicationCommandOutput
 
 /**
  * <p>Deletes a simulation application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new DeleteSimulationApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSimulationApplicationCommandInput} for command's `input` shape.
+ * @see {@link DeleteSimulationApplicationCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSimulationApplicationCommand extends $Command<
   DeleteSimulationApplicationCommandInput,

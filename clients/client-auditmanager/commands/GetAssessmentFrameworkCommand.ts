@@ -24,6 +24,18 @@ export interface GetAssessmentFrameworkCommandOutput extends GetAssessmentFramew
  * <p>
  * Returns a framework from AWS Audit Manager.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new GetAssessmentFrameworkCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAssessmentFrameworkCommandInput} for command's `input` shape.
+ * @see {@link GetAssessmentFrameworkCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAssessmentFrameworkCommand extends $Command<
   GetAssessmentFrameworkCommandInput,

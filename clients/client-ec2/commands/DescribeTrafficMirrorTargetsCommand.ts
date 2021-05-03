@@ -24,6 +24,18 @@ export interface DescribeTrafficMirrorTargetsCommandOutput
 
 /**
  * <p>Information about one or more Traffic Mirror targets.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeTrafficMirrorTargetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTrafficMirrorTargetsCommandInput} for command's `input` shape.
+ * @see {@link DescribeTrafficMirrorTargetsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTrafficMirrorTargetsCommand extends $Command<
   DescribeTrafficMirrorTargetsCommandInput,

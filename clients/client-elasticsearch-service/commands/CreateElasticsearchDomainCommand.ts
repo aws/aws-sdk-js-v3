@@ -27,6 +27,18 @@ export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsea
 /**
  * <p>Creates a new Elasticsearch domain. For more information,
  *           see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains" target="_blank">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new CreateElasticsearchDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateElasticsearchDomainCommandInput} for command's `input` shape.
+ * @see {@link CreateElasticsearchDomainCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateElasticsearchDomainCommand extends $Command<
   CreateElasticsearchDomainCommandInput,

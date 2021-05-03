@@ -23,6 +23,18 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
 /**
  * <p>Updates the <code>DataSourceName</code> of a <code>DataSource</code>.</p>
  *         <p>You can use the <code>GetDataSource</code> operation to view the contents of the updated data element.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MachineLearningClient(config);
+ * const command = new UpdateDataSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDataSourceCommandInput} for command's `input` shape.
+ * @see {@link UpdateDataSourceCommandOutput} for command's `response` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDataSourceCommand extends $Command<
   UpdateDataSourceCommandInput,

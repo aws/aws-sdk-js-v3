@@ -24,6 +24,18 @@ export interface ListResolverRuleAssociationsCommandOutput
 
 /**
  * <p>Lists the associations that were created between Resolver rules and VPCs using the current AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new ListResolverRuleAssociationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResolverRuleAssociationsCommandInput} for command's `input` shape.
+ * @see {@link ListResolverRuleAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResolverRuleAssociationsCommand extends $Command<
   ListResolverRuleAssociationsCommandInput,

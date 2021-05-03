@@ -62,6 +62,18 @@ export interface TagUserCommandOutput extends __MetadataBearer {}
  *          </note>
  *          <p>For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM identities</a> in the
  *         <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new TagUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagUserCommandInput} for command's `input` shape.
+ * @see {@link TagUserCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagUserCommand extends $Command<TagUserCommandInput, TagUserCommandOutput, IAMClientResolvedConfig> {
   // Start section: command_properties

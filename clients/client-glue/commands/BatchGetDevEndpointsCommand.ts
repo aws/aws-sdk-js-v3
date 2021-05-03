@@ -25,6 +25,18 @@ export interface BatchGetDevEndpointsCommandOutput extends BatchGetDevEndpointsR
  *       calling the <code>ListDevEndpoints</code> operation, you can call this operation to access the
  *       data to which you have been granted permissions. This operation supports all IAM permissions,
  *       including permission conditions that uses tags.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new BatchGetDevEndpointsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetDevEndpointsCommandInput} for command's `input` shape.
+ * @see {@link BatchGetDevEndpointsCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetDevEndpointsCommand extends $Command<
   BatchGetDevEndpointsCommandInput,

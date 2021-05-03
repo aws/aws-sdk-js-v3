@@ -24,6 +24,18 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  * <p>Creates a standard profile.</p>
  *          <p>A standard profile represents the following attributes for a customer profile in a
  *          domain.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CustomerProfilesClient(config);
+ * const command = new CreateProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateProfileCommandInput} for command's `input` shape.
+ * @see {@link CreateProfileCommandOutput} for command's `response` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateProfileCommand extends $Command<
   CreateProfileCommandInput,

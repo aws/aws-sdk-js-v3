@@ -22,6 +22,18 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
 
 /**
  * <p>Creates a project.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new CreateProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateProjectCommandInput} for command's `input` shape.
+ * @see {@link CreateProjectCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,

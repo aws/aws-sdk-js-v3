@@ -28,6 +28,18 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * 			AWS Fargate use the <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers
  * 			which are already created and available to all accounts in Regions supported by
  * 			AWS Fargate.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new CreateCapacityProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCapacityProviderCommandInput} for command's `input` shape.
+ * @see {@link CreateCapacityProviderCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCapacityProviderCommand extends $Command<
   CreateCapacityProviderCommandInput,

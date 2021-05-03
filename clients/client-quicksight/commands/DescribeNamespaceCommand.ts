@@ -22,6 +22,18 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
 
 /**
  * <p>Describes the current namespace.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new DescribeNamespaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeNamespaceCommandInput} for command's `input` shape.
+ * @see {@link DescribeNamespaceCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeNamespaceCommand extends $Command<
   DescribeNamespaceCommandInput,

@@ -22,6 +22,18 @@ export interface DisableEnhancedMonitoringCommandOutput extends EnhancedMonitori
 
 /**
  * <p>Disables enhanced monitoring.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisClient(config);
+ * const command = new DisableEnhancedMonitoringCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableEnhancedMonitoringCommandInput} for command's `input` shape.
+ * @see {@link DisableEnhancedMonitoringCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableEnhancedMonitoringCommand extends $Command<
   DisableEnhancedMonitoringCommandInput,

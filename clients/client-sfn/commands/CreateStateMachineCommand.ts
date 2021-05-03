@@ -40,6 +40,18 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  *         treat it as an idempotent request of the previous. In this case, <code>roleArn</code> and
  *           <code>tags</code> will not be updated, even if they are different.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SFNClient(config);
+ * const command = new CreateStateMachineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateStateMachineCommandInput} for command's `input` shape.
+ * @see {@link CreateStateMachineCommandOutput} for command's `response` shape.
+ * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateStateMachineCommand extends $Command<
   CreateStateMachineCommandInput,

@@ -37,6 +37,18 @@ export interface UpdateOpenIDConnectProviderThumbprintCommandOutput extends __Me
  *                     <code>UpdateOpenIDConnectProviderThumbprint</code> operation to highly
  *                 privileged users.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new UpdateOpenIDConnectProviderThumbprintCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateOpenIDConnectProviderThumbprintCommandInput} for command's `input` shape.
+ * @see {@link UpdateOpenIDConnectProviderThumbprintCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateOpenIDConnectProviderThumbprintCommand extends $Command<
   UpdateOpenIDConnectProviderThumbprintCommandInput,

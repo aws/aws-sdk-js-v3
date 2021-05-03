@@ -22,6 +22,18 @@ export interface DeleteEventsConfigurationCommandOutput extends __MetadataBearer
 
 /**
  * <p>Deletes the events configuration that allows a bot to receive outgoing events.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new DeleteEventsConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEventsConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteEventsConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEventsConfigurationCommand extends $Command<
   DeleteEventsConfigurationCommandInput,

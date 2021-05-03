@@ -28,6 +28,18 @@ export interface DeleteSolutionCommandOutput extends __MetadataBearer {}
  *       You can't delete a solution if an associated <code>SolutionVersion</code> is in the
  *       CREATE PENDING or IN PROGRESS state.
  *       For more information on solutions, see <a>CreateSolution</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeClient(config);
+ * const command = new DeleteSolutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSolutionCommandInput} for command's `input` shape.
+ * @see {@link DeleteSolutionCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSolutionCommand extends $Command<
   DeleteSolutionCommandInput,

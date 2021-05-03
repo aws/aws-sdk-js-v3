@@ -72,6 +72,18 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3ControlClient(config);
+ * const command = new CreateBucketCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateBucketCommandInput} for command's `input` shape.
+ * @see {@link CreateBucketCommandOutput} for command's `response` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateBucketCommand extends $Command<
   CreateBucketCommandInput,

@@ -28,6 +28,18 @@ export interface DeregisterTransitGatewayMulticastGroupMembersCommandOutput
 
 /**
  * <p>Deregisters the specified members (network interfaces) from the  transit gateway multicast group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DeregisterTransitGatewayMulticastGroupMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterTransitGatewayMulticastGroupMembersCommandInput} for command's `input` shape.
+ * @see {@link DeregisterTransitGatewayMulticastGroupMembersCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterTransitGatewayMulticastGroupMembersCommand extends $Command<
   DeregisterTransitGatewayMulticastGroupMembersCommandInput,

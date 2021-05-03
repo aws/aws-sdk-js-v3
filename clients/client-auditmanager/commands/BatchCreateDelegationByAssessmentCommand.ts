@@ -29,6 +29,18 @@ export interface BatchCreateDelegationByAssessmentCommandOutput
  * <p>
  *    Create a batch of delegations for a specified assessment in AWS Audit Manager.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new BatchCreateDelegationByAssessmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchCreateDelegationByAssessmentCommandInput} for command's `input` shape.
+ * @see {@link BatchCreateDelegationByAssessmentCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchCreateDelegationByAssessmentCommand extends $Command<
   BatchCreateDelegationByAssessmentCommandInput,

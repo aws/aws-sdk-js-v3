@@ -39,6 +39,18 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  *             AWS account. If you do not specify either the SourceType nor the SourceIdentifier, you
  *             will be notified of events generated from all Amazon Redshift sources belonging to your AWS
  *             account. You must specify a source type if you specify a source ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new CreateEventSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateEventSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateEventSubscriptionCommand extends $Command<
   CreateEventSubscriptionCommandInput,

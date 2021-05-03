@@ -22,6 +22,18 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
 
 /**
  * <p>Deletes the MSK cluster specified by the Amazon Resource Name (ARN) in the request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new DeleteClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteClusterCommandInput} for command's `input` shape.
+ * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,

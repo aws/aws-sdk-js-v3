@@ -22,6 +22,18 @@ export interface DeleteProfileKeyCommandOutput extends DeleteProfileKeyResponse,
 
 /**
  * <p>Removes a searchable key from a customer profile.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CustomerProfilesClient(config);
+ * const command = new DeleteProfileKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteProfileKeyCommandInput} for command's `input` shape.
+ * @see {@link DeleteProfileKeyCommandOutput} for command's `response` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteProfileKeyCommand extends $Command<
   DeleteProfileKeyCommandInput,

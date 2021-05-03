@@ -22,6 +22,18 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
 
 /**
  * <p>Creates an analyzer for your account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AccessAnalyzerClient(config);
+ * const command = new CreateAnalyzerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAnalyzerCommandInput} for command's `input` shape.
+ * @see {@link CreateAnalyzerCommandOutput} for command's `response` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAnalyzerCommand extends $Command<
   CreateAnalyzerCommandInput,

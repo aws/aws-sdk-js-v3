@@ -19,6 +19,18 @@ export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBeare
 
 /**
  * <p>Attempts to stop running a build.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new StopBuildCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopBuildCommandInput} for command's `input` shape.
+ * @see {@link StopBuildCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopBuildCommand extends $Command<
   StopBuildCommandInput,

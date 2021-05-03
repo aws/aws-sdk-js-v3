@@ -24,6 +24,18 @@ export interface DeletePredictorCommandOutput extends __MetadataBearer {}
  * <p>Deletes a predictor created using the <a>CreatePredictor</a> operation. You can
  *       delete only predictor that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
  *       To get the status, use the <a>DescribePredictor</a> operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ForecastClient(config);
+ * const command = new DeletePredictorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePredictorCommandInput} for command's `input` shape.
+ * @see {@link DeletePredictorCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePredictorCommand extends $Command<
   DeletePredictorCommandInput,

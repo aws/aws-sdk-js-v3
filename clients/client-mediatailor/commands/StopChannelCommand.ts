@@ -22,6 +22,18 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
 
 /**
  * <p>Stops a specific channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaTailorClient(config);
+ * const command = new StopChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopChannelCommandInput} for command's `input` shape.
+ * @see {@link StopChannelCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopChannelCommand extends $Command<
   StopChannelCommandInput,

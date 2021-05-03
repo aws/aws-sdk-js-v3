@@ -26,6 +26,18 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
 
 /**
  * <p>The CreatePipeline operation creates a pipeline with settings that you specify.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticTranscoderClient(config);
+ * const command = new CreatePipelineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePipelineCommandInput} for command's `input` shape.
+ * @see {@link CreatePipelineCommandOutput} for command's `response` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePipelineCommand extends $Command<
   CreatePipelineCommandInput,

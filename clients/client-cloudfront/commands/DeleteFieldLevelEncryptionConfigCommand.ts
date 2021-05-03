@@ -22,6 +22,18 @@ export interface DeleteFieldLevelEncryptionConfigCommandOutput extends __Metadat
 
 /**
  * <p>Remove a field-level encryption configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new DeleteFieldLevelEncryptionConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFieldLevelEncryptionConfigCommandInput} for command's `input` shape.
+ * @see {@link DeleteFieldLevelEncryptionConfigCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
   DeleteFieldLevelEncryptionConfigCommandInput,

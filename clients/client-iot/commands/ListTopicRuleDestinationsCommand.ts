@@ -22,6 +22,18 @@ export interface ListTopicRuleDestinationsCommandOutput extends ListTopicRuleDes
 
 /**
  * <p>Lists all the topic rule destinations in your AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ListTopicRuleDestinationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTopicRuleDestinationsCommandInput} for command's `input` shape.
+ * @see {@link ListTopicRuleDestinationsCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTopicRuleDestinationsCommand extends $Command<
   ListTopicRuleDestinationsCommandInput,

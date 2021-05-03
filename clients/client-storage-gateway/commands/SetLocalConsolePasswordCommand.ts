@@ -25,6 +25,18 @@ export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePas
  *          the first time, you log in to the VM with the default credentials. We recommend that you
  *          set a new password. You don't need to know the default password to set a new
  *          password.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new SetLocalConsolePasswordCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetLocalConsolePasswordCommandInput} for command's `input` shape.
+ * @see {@link SetLocalConsolePasswordCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetLocalConsolePasswordCommand extends $Command<
   SetLocalConsolePasswordCommandInput,

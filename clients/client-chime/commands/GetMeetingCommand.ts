@@ -28,6 +28,18 @@ export interface GetMeetingCommandOutput extends GetMeetingResponse, __MetadataB
  * <i>Amazon Chime Developer Guide</i>
  * .
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new GetMeetingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMeetingCommandInput} for command's `input` shape.
+ * @see {@link GetMeetingCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMeetingCommand extends $Command<
   GetMeetingCommandInput,

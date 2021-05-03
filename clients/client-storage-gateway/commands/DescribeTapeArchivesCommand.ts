@@ -26,6 +26,18 @@ export interface DescribeTapeArchivesCommandOutput extends DescribeTapeArchivesO
  *
  *          <p>If a specific <code>TapeARN</code> is not specified, AWS Storage Gateway returns a
  *          description of all virtual tapes found in the VTS associated with your account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new DescribeTapeArchivesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTapeArchivesCommandInput} for command's `input` shape.
+ * @see {@link DescribeTapeArchivesCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTapeArchivesCommand extends $Command<
   DescribeTapeArchivesCommandInput,

@@ -22,6 +22,18 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
 
 /**
  * <p>Deletes the specified token. Must be called in the license home Region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LicenseManagerClient(config);
+ * const command = new DeleteTokenCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTokenCommandInput} for command's `input` shape.
+ * @see {@link DeleteTokenCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTokenCommand extends $Command<
   DeleteTokenCommandInput,

@@ -34,6 +34,18 @@ export interface StartExportTaskCommandOutput extends StartExportTaskResponse, _
  *          <p> If you do not include an <code>agentIds</code> filter, summary data is exported that
  *       includes both AWS Agentless Discovery Connector data and summary data from AWS Discovery
  *       Agents. Export of summary data is limited to two exports per day. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new StartExportTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartExportTaskCommandInput} for command's `input` shape.
+ * @see {@link StartExportTaskCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartExportTaskCommand extends $Command<
   StartExportTaskCommandInput,

@@ -24,6 +24,18 @@ export interface DeleteVirtualNodeCommandOutput extends DeleteVirtualNodeOutput,
  * <p>Deletes an existing virtual node.</p>
  *          <p>You must delete any virtual services that list a virtual node as a service provider
  *          before you can delete the virtual node itself.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new DeleteVirtualNodeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVirtualNodeCommandInput} for command's `input` shape.
+ * @see {@link DeleteVirtualNodeCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVirtualNodeCommand extends $Command<
   DeleteVirtualNodeCommandInput,

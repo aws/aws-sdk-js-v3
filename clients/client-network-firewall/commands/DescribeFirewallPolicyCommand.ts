@@ -22,6 +22,18 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
 
 /**
  * <p>Returns the data objects for the specified firewall policy. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkFirewallClient(config);
+ * const command = new DescribeFirewallPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFirewallPolicyCommandInput} for command's `input` shape.
+ * @see {@link DescribeFirewallPolicyCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFirewallPolicyCommand extends $Command<
   DescribeFirewallPolicyCommandInput,

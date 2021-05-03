@@ -22,6 +22,18 @@ export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __M
 
 /**
  * <p>Returns information about the contents of one or more commits in a repository.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new BatchGetCommitsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetCommitsCommandInput} for command's `input` shape.
+ * @see {@link BatchGetCommitsCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetCommitsCommand extends $Command<
   BatchGetCommitsCommandInput,

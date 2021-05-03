@@ -23,6 +23,18 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
 /**
  * <p>Returns information about a specific job including shipping information, job status,
  *       and other important metadata. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SnowballClient(config);
+ * const command = new DescribeJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeJobCommandOutput} for command's `response` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeJobCommand extends $Command<
   DescribeJobCommandInput,

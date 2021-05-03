@@ -23,6 +23,18 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
 /**
  * <p>Creates an asset from an existing asset model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-assets.html">Creating assets</a> in the
  *         <i>AWS IoT SiteWise User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new CreateAssetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAssetCommandInput} for command's `input` shape.
+ * @see {@link CreateAssetCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAssetCommand extends $Command<
   CreateAssetCommandInput,

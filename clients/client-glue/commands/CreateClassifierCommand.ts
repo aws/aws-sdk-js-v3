@@ -24,6 +24,18 @@ export interface CreateClassifierCommandOutput extends CreateClassifierResponse,
  * <p>Creates a classifier in the user's account. This can be a <code>GrokClassifier</code>, an
  *         <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>,
  *       depending on which field of the request is present.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new CreateClassifierCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateClassifierCommandInput} for command's `input` shape.
+ * @see {@link CreateClassifierCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateClassifierCommand extends $Command<
   CreateClassifierCommandInput,

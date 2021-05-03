@@ -23,6 +23,18 @@ export interface DeleteThingCommandOutput extends DeleteThingResponse, __Metadat
 /**
  * <p>Deletes the specified thing. Returns successfully with no error if the deletion is
  * 			successful or you specify a thing that doesn't exist.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DeleteThingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteThingCommandInput} for command's `input` shape.
+ * @see {@link DeleteThingCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteThingCommand extends $Command<
   DeleteThingCommandInput,

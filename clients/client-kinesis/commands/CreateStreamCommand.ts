@@ -62,6 +62,18 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  *         <p>
  *             <a>CreateStream</a> has a limit of five transactions per second per
  *             account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisClient(config);
+ * const command = new CreateStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateStreamCommandInput} for command's `input` shape.
+ * @see {@link CreateStreamCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateStreamCommand extends $Command<
   CreateStreamCommandInput,

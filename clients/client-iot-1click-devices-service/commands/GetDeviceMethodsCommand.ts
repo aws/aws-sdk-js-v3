@@ -26,6 +26,18 @@ export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse,
 
 /**
  * <p>Given a device ID, returns the invokable methods associated with the device.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoT1ClickDevicesServiceClient(config);
+ * const command = new GetDeviceMethodsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDeviceMethodsCommandInput} for command's `input` shape.
+ * @see {@link GetDeviceMethodsCommandOutput} for command's `response` shape.
+ * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDeviceMethodsCommand extends $Command<
   GetDeviceMethodsCommandInput,

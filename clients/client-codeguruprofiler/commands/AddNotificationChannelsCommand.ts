@@ -22,6 +22,18 @@ export interface AddNotificationChannelsCommandOutput extends AddNotificationCha
 
 /**
  * <p>Add up to 2 anomaly notifications channels for a profiling group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeGuruProfilerClient(config);
+ * const command = new AddNotificationChannelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddNotificationChannelsCommandInput} for command's `input` shape.
+ * @see {@link AddNotificationChannelsCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddNotificationChannelsCommand extends $Command<
   AddNotificationChannelsCommandInput,

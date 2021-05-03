@@ -104,6 +104,18 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * 		       <p>For information about the limits on a <code>ChangeResourceRecordSets</code> request, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
  * 			<i>Amazon Route 53 Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new ChangeResourceRecordSetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ChangeResourceRecordSetsCommandInput} for command's `input` shape.
+ * @see {@link ChangeResourceRecordSetsCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ChangeResourceRecordSetsCommand extends $Command<
   ChangeResourceRecordSetsCommandInput,

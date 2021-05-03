@@ -23,6 +23,18 @@ export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdP
 /**
  * <p>Confirms a job worker has received the specified job. Used for partner actions
  *             only.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new AcknowledgeThirdPartyJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AcknowledgeThirdPartyJobCommandInput} for command's `input` shape.
+ * @see {@link AcknowledgeThirdPartyJobCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AcknowledgeThirdPartyJobCommand extends $Command<
   AcknowledgeThirdPartyJobCommandInput,

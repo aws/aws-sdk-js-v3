@@ -24,6 +24,18 @@ export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __M
  * <p>Used by activity workers and task states using the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token">callback</a>
  *       pattern to report that the task identified by the <code>taskToken</code> completed
  *       successfully.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SFNClient(config);
+ * const command = new SendTaskSuccessCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendTaskSuccessCommandInput} for command's `input` shape.
+ * @see {@link SendTaskSuccessCommandOutput} for command's `response` shape.
+ * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendTaskSuccessCommand extends $Command<
   SendTaskSuccessCommandInput,

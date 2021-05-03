@@ -23,6 +23,18 @@ export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRule
 /**
  * <p>Lists all approval rule templates in the specified AWS Region in your AWS account. If
  *             an AWS Region is not specified, the AWS Region where you are signed in is used.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new ListApprovalRuleTemplatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListApprovalRuleTemplatesCommandInput} for command's `input` shape.
+ * @see {@link ListApprovalRuleTemplatesCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListApprovalRuleTemplatesCommand extends $Command<
   ListApprovalRuleTemplatesCommandInput,

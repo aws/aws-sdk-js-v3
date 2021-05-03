@@ -22,6 +22,18 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
 
 /**
  * <p>Retrieves the <a>WebACL</a> for the specified resource. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFV2Client(config);
+ * const command = new GetWebACLForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetWebACLForResourceCommandInput} for command's `input` shape.
+ * @see {@link GetWebACLForResourceCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetWebACLForResourceCommand extends $Command<
   GetWebACLForResourceCommandInput,

@@ -26,6 +26,18 @@ export interface UpdateLocationObjectStorageCommandOutput
  * <p>Updates some of the parameters of a previously created location for self-managed object
  *       storage server access. For information about creating a self-managed object storage location,
  *       see <a>create-object-location</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataSyncClient(config);
+ * const command = new UpdateLocationObjectStorageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateLocationObjectStorageCommandInput} for command's `input` shape.
+ * @see {@link UpdateLocationObjectStorageCommandOutput} for command's `response` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateLocationObjectStorageCommand extends $Command<
   UpdateLocationObjectStorageCommandInput,

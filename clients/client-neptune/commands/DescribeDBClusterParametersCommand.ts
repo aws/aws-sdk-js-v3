@@ -22,6 +22,18 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
 
 /**
  * <p>Returns the detailed parameter list for a particular DB cluster parameter group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NeptuneClient(config);
+ * const command = new DescribeDBClusterParametersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDBClusterParametersCommandInput} for command's `input` shape.
+ * @see {@link DescribeDBClusterParametersCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDBClusterParametersCommand extends $Command<
   DescribeDBClusterParametersCommandInput,

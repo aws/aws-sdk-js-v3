@@ -22,6 +22,18 @@ export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResul
 
 /**
  * <p>Creates a temporary URL to start an AppStream 2.0 streaming session for the specified user. A streaming URL enables application streaming to be tested without user setup. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new CreateStreamingURLCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateStreamingURLCommandInput} for command's `input` shape.
+ * @see {@link CreateStreamingURLCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateStreamingURLCommand extends $Command<
   CreateStreamingURLCommandInput,

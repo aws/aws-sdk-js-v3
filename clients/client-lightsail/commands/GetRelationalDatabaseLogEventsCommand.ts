@@ -24,6 +24,18 @@ export interface GetRelationalDatabaseLogEventsCommandOutput
 
 /**
  * <p>Returns a list of log events for a database in Amazon Lightsail.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetRelationalDatabaseLogEventsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRelationalDatabaseLogEventsCommandInput} for command's `input` shape.
+ * @see {@link GetRelationalDatabaseLogEventsCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRelationalDatabaseLogEventsCommand extends $Command<
   GetRelationalDatabaseLogEventsCommandInput,

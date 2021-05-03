@@ -24,6 +24,18 @@ export interface AssociateTagOptionWithResourceCommandOutput
 
 /**
  * <p>Associate the specified TagOption with the specified portfolio or product.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new AssociateTagOptionWithResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateTagOptionWithResourceCommandInput} for command's `input` shape.
+ * @see {@link AssociateTagOptionWithResourceCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateTagOptionWithResourceCommand extends $Command<
   AssociateTagOptionWithResourceCommandInput,

@@ -47,6 +47,18 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  *             it's no longer a read replica. After the promotion completes, then call the
  *                 <code>DeleteDBInstance</code> API action to delete the final instance in the DB
  *             cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new DeleteDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDBInstanceCommandInput} for command's `input` shape.
+ * @see {@link DeleteDBInstanceCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDBInstanceCommand extends $Command<
   DeleteDBInstanceCommandInput,

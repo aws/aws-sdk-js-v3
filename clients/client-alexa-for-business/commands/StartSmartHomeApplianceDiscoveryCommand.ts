@@ -25,6 +25,18 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
 /**
  * <p>Initiates the discovery of any smart home appliances associated with the
  *          room.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new StartSmartHomeApplianceDiscoveryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartSmartHomeApplianceDiscoveryCommandInput} for command's `input` shape.
+ * @see {@link StartSmartHomeApplianceDiscoveryCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartSmartHomeApplianceDiscoveryCommand extends $Command<
   StartSmartHomeApplianceDiscoveryCommandInput,

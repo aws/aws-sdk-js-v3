@@ -24,6 +24,18 @@ export interface DeleteVoiceConnectorCommandOutput extends __MetadataBearer {}
  * <p>Deletes the specified Amazon Chime Voice Connector. Any phone numbers associated with the
  *             Amazon Chime Voice Connector must be disassociated from it before it can be
  *             deleted.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new DeleteVoiceConnectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVoiceConnectorCommandInput} for command's `input` shape.
+ * @see {@link DeleteVoiceConnectorCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVoiceConnectorCommand extends $Command<
   DeleteVoiceConnectorCommandInput,

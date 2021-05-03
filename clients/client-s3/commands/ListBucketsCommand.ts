@@ -22,6 +22,18 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
 
 /**
  * <p>Returns a list of all buckets owned by the authenticated sender of the request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3Client(config);
+ * const command = new ListBucketsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBucketsCommandInput} for command's `input` shape.
+ * @see {@link ListBucketsCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBucketsCommand extends $Command<
   ListBucketsCommandInput,

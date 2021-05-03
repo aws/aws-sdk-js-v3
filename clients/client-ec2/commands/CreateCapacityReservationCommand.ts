@@ -38,6 +38,18 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  * 			increase your On-Demand Instance limit for the required instance type and try again. For
  * 			more information about increasing your instance limits, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon EC2 Service
  * 				Quotas</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateCapacityReservationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCapacityReservationCommandInput} for command's `input` shape.
+ * @see {@link CreateCapacityReservationCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCapacityReservationCommand extends $Command<
   CreateCapacityReservationCommandInput,

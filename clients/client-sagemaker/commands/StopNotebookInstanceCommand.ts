@@ -30,6 +30,18 @@ export interface StopNotebookInstanceCommandOutput extends __MetadataBearer {}
  *                 <code>StartNotebookInstance</code> launches another ML compute instance, configures
  *             it, and attaches the preserved ML storage volume so you can continue your work.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new StopNotebookInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopNotebookInstanceCommandInput} for command's `input` shape.
+ * @see {@link StopNotebookInstanceCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopNotebookInstanceCommand extends $Command<
   StopNotebookInstanceCommandInput,

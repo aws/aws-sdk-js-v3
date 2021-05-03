@@ -22,6 +22,18 @@ export interface ListInstalledComponentsCommandOutput extends ListInstalledCompo
 
 /**
  * <p>Retrieves a paginated list of the components that a AWS IoT Greengrass core device runs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassV2Client(config);
+ * const command = new ListInstalledComponentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListInstalledComponentsCommandInput} for command's `input` shape.
+ * @see {@link ListInstalledComponentsCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListInstalledComponentsCommand extends $Command<
   ListInstalledComponentsCommandInput,

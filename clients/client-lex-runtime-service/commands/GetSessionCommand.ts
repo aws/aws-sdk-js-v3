@@ -27,6 +27,18 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
 /**
  * <p>Returns session information for a specified bot, alias, and user
  *       ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexRuntimeServiceClient(config);
+ * const command = new GetSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSessionCommandInput} for command's `input` shape.
+ * @see {@link GetSessionCommandOutput} for command's `response` shape.
+ * @see {@link LexRuntimeServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSessionCommand extends $Command<
   GetSessionCommandInput,

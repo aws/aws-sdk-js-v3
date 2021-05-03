@@ -23,6 +23,18 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
 /**
  * <p>Creates a new document classification request to analyze a single document in real-time,
  *       using a previously created and trained custom model and an endpoint.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new ClassifyDocumentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ClassifyDocumentCommandInput} for command's `input` shape.
+ * @see {@link ClassifyDocumentCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ClassifyDocumentCommand extends $Command<
   ClassifyDocumentCommandInput,

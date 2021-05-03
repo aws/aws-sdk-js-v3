@@ -27,6 +27,18 @@ export interface CreateReplaceRootVolumeTaskCommandOutput extends CreateReplaceR
  *
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/">Replace a root volume</a>
  *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateReplaceRootVolumeTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateReplaceRootVolumeTaskCommandInput} for command's `input` shape.
+ * @see {@link CreateReplaceRootVolumeTaskCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateReplaceRootVolumeTaskCommand extends $Command<
   CreateReplaceRootVolumeTaskCommandInput,

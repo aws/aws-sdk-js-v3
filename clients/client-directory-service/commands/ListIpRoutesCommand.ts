@@ -22,6 +22,18 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
 
 /**
  * <p>Lists the address blocks that you have added to a directory.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new ListIpRoutesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListIpRoutesCommandInput} for command's `input` shape.
+ * @see {@link ListIpRoutesCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListIpRoutesCommand extends $Command<
   ListIpRoutesCommandInput,

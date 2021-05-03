@@ -23,6 +23,18 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
 /**
  * <p>Deletes the specified tags associated with an ML object. After this operation is complete, you can't recover deleted tags.</p>
  * 		       <p>If you specify a tag that doesn't exist, Amazon ML ignores it.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MachineLearningClient(config);
+ * const command = new DeleteTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTagsCommandInput} for command's `input` shape.
+ * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTagsCommand extends $Command<
   DeleteTagsCommandInput,

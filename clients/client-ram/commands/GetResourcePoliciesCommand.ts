@@ -22,6 +22,18 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
 
 /**
  * <p>Gets the policies for the specified resources that you own and have shared.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RAMClient(config);
+ * const command = new GetResourcePoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetResourcePoliciesCommandInput} for command's `input` shape.
+ * @see {@link GetResourcePoliciesCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetResourcePoliciesCommand extends $Command<
   GetResourcePoliciesCommandInput,

@@ -22,6 +22,18 @@ export interface DeleteSmsChannelCommandOutput extends DeleteSmsChannelResponse,
 
 /**
  * <p>Disables the SMS channel for an application and deletes any existing settings for the channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new DeleteSmsChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSmsChannelCommandInput} for command's `input` shape.
+ * @see {@link DeleteSmsChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSmsChannelCommand extends $Command<
   DeleteSmsChannelCommandInput,

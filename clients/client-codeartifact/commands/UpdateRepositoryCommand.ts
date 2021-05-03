@@ -24,6 +24,18 @@ export interface UpdateRepositoryCommandOutput extends UpdateRepositoryResult, _
  * <p>
  *          Update the properties of a repository.
  *        </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeartifactClient(config);
+ * const command = new UpdateRepositoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRepositoryCommandInput} for command's `input` shape.
+ * @see {@link UpdateRepositoryCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRepositoryCommand extends $Command<
   UpdateRepositoryCommandInput,

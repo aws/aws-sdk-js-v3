@@ -28,6 +28,18 @@ export interface DescribePermissionSetProvisioningStatusCommandOutput
 
 /**
  * <p>Describes the status for the given permission set provisioning request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSOAdminClient(config);
+ * const command = new DescribePermissionSetProvisioningStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePermissionSetProvisioningStatusCommandInput} for command's `input` shape.
+ * @see {@link DescribePermissionSetProvisioningStatusCommandOutput} for command's `response` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePermissionSetProvisioningStatusCommand extends $Command<
   DescribePermissionSetProvisioningStatusCommandInput,

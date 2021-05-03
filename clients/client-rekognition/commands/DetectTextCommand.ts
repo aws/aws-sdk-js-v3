@@ -43,6 +43,18 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  *          <p>To be detected, text must be within +/- 90 degrees orientation of the horizontal axis.</p>
  *
  *          <p>For more information, see DetectText in the Amazon Rekognition Developer Guide.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RekognitionClient(config);
+ * const command = new DetectTextCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetectTextCommandInput} for command's `input` shape.
+ * @see {@link DetectTextCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetectTextCommand extends $Command<
   DetectTextCommandInput,

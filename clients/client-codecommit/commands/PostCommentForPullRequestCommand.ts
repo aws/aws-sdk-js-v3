@@ -22,6 +22,18 @@ export interface PostCommentForPullRequestCommandOutput extends PostCommentForPu
 
 /**
  * <p>Posts a comment on a pull request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new PostCommentForPullRequestCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PostCommentForPullRequestCommandInput} for command's `input` shape.
+ * @see {@link PostCommentForPullRequestCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PostCommentForPullRequestCommand extends $Command<
   PostCommentForPullRequestCommandInput,

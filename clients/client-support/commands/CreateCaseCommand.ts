@@ -54,6 +54,18 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  *                 </li>
  *             </ul>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SupportClient(config);
+ * const command = new CreateCaseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCaseCommandInput} for command's `input` shape.
+ * @see {@link CreateCaseCommandOutput} for command's `response` shape.
+ * @see {@link SupportClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCaseCommand extends $Command<
   CreateCaseCommandInput,

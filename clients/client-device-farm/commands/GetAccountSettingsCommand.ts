@@ -23,6 +23,18 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsResul
 /**
  * <p>Returns the number of unmetered iOS or unmetered Android devices that have been purchased by the
  *             account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new GetAccountSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAccountSettingsCommandInput} for command's `input` shape.
+ * @see {@link GetAccountSettingsCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAccountSettingsCommand extends $Command<
   GetAccountSettingsCommandInput,

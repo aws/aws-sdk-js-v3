@@ -27,6 +27,18 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  *             emails you send. You apply a configuration set to an email by including a reference to
  *             the configuration set in the headers of the email. When you apply a configuration set to
  *             an email, all of the rules in that configuration set are applied to the email.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new DeleteConfigurationSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConfigurationSetCommandInput} for command's `input` shape.
+ * @see {@link DeleteConfigurationSetCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConfigurationSetCommand extends $Command<
   DeleteConfigurationSetCommandInput,

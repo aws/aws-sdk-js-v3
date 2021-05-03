@@ -24,6 +24,18 @@ export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse,
  * <p>Modifies an existing classifier (a <code>GrokClassifier</code>,
  *       an <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>, depending on
  *       which field is present).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new UpdateClassifierCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateClassifierCommandInput} for command's `input` shape.
+ * @see {@link UpdateClassifierCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateClassifierCommand extends $Command<
   UpdateClassifierCommandInput,

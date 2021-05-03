@@ -22,6 +22,18 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
 
 /**
  * <p>Returns the definition of a specific DataBrew project.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new DescribeProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeProjectCommandInput} for command's `input` shape.
+ * @see {@link DescribeProjectCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeProjectCommand extends $Command<
   DescribeProjectCommandInput,

@@ -30,6 +30,18 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  *
  *          <p>For detailed information, see the Task Execution section in the Components and
  *       Terminology topic in the <i>AWS DataSync User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataSyncClient(config);
+ * const command = new StartTaskExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartTaskExecutionCommandInput} for command's `input` shape.
+ * @see {@link StartTaskExecutionCommandOutput} for command's `response` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartTaskExecutionCommand extends $Command<
   StartTaskExecutionCommandInput,

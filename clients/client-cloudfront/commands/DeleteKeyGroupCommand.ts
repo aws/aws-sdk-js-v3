@@ -28,6 +28,18 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
  * 		       <p>To delete a key group, you must provide the key group’s identifier and version. To get
  * 			these values, use <code>ListKeyGroups</code> followed by <code>GetKeyGroup</code> or
  * 			<code>GetKeyGroupConfig</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new DeleteKeyGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteKeyGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteKeyGroupCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteKeyGroupCommand extends $Command<
   DeleteKeyGroupCommandInput,

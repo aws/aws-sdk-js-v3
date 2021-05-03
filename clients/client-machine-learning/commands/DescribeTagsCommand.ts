@@ -22,6 +22,18 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
 
 /**
  * <p>Describes one or more of the tags for your Amazon ML object.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MachineLearningClient(config);
+ * const command = new DescribeTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTagsCommandInput} for command's `input` shape.
+ * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandInput,

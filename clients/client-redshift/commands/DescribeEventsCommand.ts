@@ -25,6 +25,18 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  *             groups for the past 14 days. Events specific to a particular cluster, security group,
  *             snapshot or parameter group can be obtained by providing the name as a parameter. By
  *             default, the past hour of events are returned.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DescribeEventsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEventsCommandInput} for command's `input` shape.
+ * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEventsCommand extends $Command<
   DescribeEventsCommandInput,

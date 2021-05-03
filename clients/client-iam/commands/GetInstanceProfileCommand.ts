@@ -25,6 +25,18 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileRespo
  *             profile's path, GUID, ARN, and role. For more information about instance profiles, see
  *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
  *                 instance profiles</a> in the <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new GetInstanceProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetInstanceProfileCommandInput} for command's `input` shape.
+ * @see {@link GetInstanceProfileCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetInstanceProfileCommand extends $Command<
   GetInstanceProfileCommandInput,

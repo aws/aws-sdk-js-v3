@@ -22,6 +22,18 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
 
 /**
  * <p>Creates a message template for messages that are sent through a push notification channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new CreatePushTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePushTemplateCommandInput} for command's `input` shape.
+ * @see {@link CreatePushTemplateCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePushTemplateCommand extends $Command<
   CreatePushTemplateCommandInput,

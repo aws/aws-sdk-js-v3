@@ -23,6 +23,18 @@ export interface DeleteTagsForDomainCommandOutput extends DeleteTagsForDomainRes
 /**
  * <p>This operation deletes the specified tags for a domain.</p>
  * 		       <p>All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53DomainsClient(config);
+ * const command = new DeleteTagsForDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTagsForDomainCommandInput} for command's `input` shape.
+ * @see {@link DeleteTagsForDomainCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTagsForDomainCommand extends $Command<
   DeleteTagsForDomainCommandInput,

@@ -39,6 +39,18 @@ export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTa
  *                namespace for each migration tool.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MigrationHubClient(config);
+ * const command = new NotifyMigrationTaskStateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link NotifyMigrationTaskStateCommandInput} for command's `input` shape.
+ * @see {@link NotifyMigrationTaskStateCommandOutput} for command's `response` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class NotifyMigrationTaskStateCommand extends $Command<
   NotifyMigrationTaskStateCommandInput,

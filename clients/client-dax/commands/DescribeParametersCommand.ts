@@ -22,6 +22,18 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
 
 /**
  * <p>Returns the detailed parameter list for a particular parameter group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DAXClient(config);
+ * const command = new DescribeParametersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeParametersCommandInput} for command's `input` shape.
+ * @see {@link DescribeParametersCommandOutput} for command's `response` shape.
+ * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeParametersCommand extends $Command<
   DescribeParametersCommandInput,

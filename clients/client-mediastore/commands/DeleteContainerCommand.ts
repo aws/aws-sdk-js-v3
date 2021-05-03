@@ -24,6 +24,18 @@ export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __M
  * <p>Deletes the specified container. Before you make a <code>DeleteContainer</code>
  *          request, delete any objects in the container or in any folders in the container. You can
  *          delete only empty containers. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaStoreClient(config);
+ * const command = new DeleteContainerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteContainerCommandInput} for command's `input` shape.
+ * @see {@link DeleteContainerCommandOutput} for command's `response` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteContainerCommand extends $Command<
   DeleteContainerCommandInput,

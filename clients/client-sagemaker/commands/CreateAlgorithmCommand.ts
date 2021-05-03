@@ -23,6 +23,18 @@ export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __M
 /**
  * <p>Create a machine learning algorithm that you can use in Amazon SageMaker and list in the AWS
  *             Marketplace.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateAlgorithmCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAlgorithmCommandInput} for command's `input` shape.
+ * @see {@link CreateAlgorithmCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAlgorithmCommand extends $Command<
   CreateAlgorithmCommandInput,

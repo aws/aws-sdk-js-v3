@@ -22,6 +22,18 @@ export interface CreateDatastoreCommandOutput extends CreateDatastoreResponse, _
 
 /**
  * <p>Creates a data store, which is a repository for messages.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTAnalyticsClient(config);
+ * const command = new CreateDatastoreCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDatastoreCommandInput} for command's `input` shape.
+ * @see {@link CreateDatastoreCommandOutput} for command's `response` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDatastoreCommand extends $Command<
   CreateDatastoreCommandInput,

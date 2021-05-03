@@ -22,6 +22,18 @@ export interface CreateDetectorVersionCommandOutput extends CreateDetectorVersio
 
 /**
  * <p>Creates a detector version. The detector version starts in a <code>DRAFT</code> status.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new CreateDetectorVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDetectorVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateDetectorVersionCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDetectorVersionCommand extends $Command<
   CreateDetectorVersionCommandInput,

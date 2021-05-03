@@ -22,6 +22,18 @@ export interface UpdateArchiveCommandOutput extends UpdateArchiveResponse, __Met
 
 /**
  * <p>Updates the specified archive.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchEventsClient(config);
+ * const command = new UpdateArchiveCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateArchiveCommandInput} for command's `input` shape.
+ * @see {@link UpdateArchiveCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateArchiveCommand extends $Command<
   UpdateArchiveCommandInput,

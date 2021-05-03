@@ -22,6 +22,18 @@ export interface DeleteMailboxPermissionsCommandOutput extends DeleteMailboxPerm
 
 /**
  * <p>Deletes permissions granted to a member (user or group).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new DeleteMailboxPermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMailboxPermissionsCommandInput} for command's `input` shape.
+ * @see {@link DeleteMailboxPermissionsCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMailboxPermissionsCommand extends $Command<
   DeleteMailboxPermissionsCommandInput,

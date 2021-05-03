@@ -22,6 +22,18 @@ export interface DescribeEvaluationsCommandOutput extends DescribeEvaluationsOut
 
 /**
  * <p>Returns a list of <code>DescribeEvaluations</code> that match the search criteria in the request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MachineLearningClient(config);
+ * const command = new DescribeEvaluationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEvaluationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeEvaluationsCommandOutput} for command's `response` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEvaluationsCommand extends $Command<
   DescribeEvaluationsCommandInput,

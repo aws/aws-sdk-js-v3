@@ -25,6 +25,18 @@ export interface GetItemCommandOutput extends GetItemOutput, __MetadataBearer {}
  *       requires a strongly consistent read, set <code>ConsistentRead</code> to <code>true</code>. Although
  *       a strongly consistent read might take more time than an eventually consistent read, it always
  *       returns the last updated value.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new GetItemCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetItemCommandInput} for command's `input` shape.
+ * @see {@link GetItemCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetItemCommand extends $Command<GetItemCommandInput, GetItemCommandOutput, DynamoDBClientResolvedConfig> {
   // Start section: command_properties

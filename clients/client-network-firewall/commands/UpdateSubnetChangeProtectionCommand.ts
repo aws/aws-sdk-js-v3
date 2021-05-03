@@ -24,6 +24,18 @@ export interface UpdateSubnetChangeProtectionCommandOutput
 
 /**
  * <p></p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkFirewallClient(config);
+ * const command = new UpdateSubnetChangeProtectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSubnetChangeProtectionCommandInput} for command's `input` shape.
+ * @see {@link UpdateSubnetChangeProtectionCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSubnetChangeProtectionCommand extends $Command<
   UpdateSubnetChangeProtectionCommandInput,

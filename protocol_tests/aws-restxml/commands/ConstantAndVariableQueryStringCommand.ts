@@ -24,6 +24,18 @@ export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataB
  * This example uses fixed query string params and variable query string params.
  * The fixed query string parameters and variable parameters must both be
  * serialized (implementations may need to merge them together).
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestXmlProtocolClient(config);
+ * const command = new ConstantAndVariableQueryStringCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ConstantAndVariableQueryStringCommandInput} for command's `input` shape.
+ * @see {@link ConstantAndVariableQueryStringCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ConstantAndVariableQueryStringCommand extends $Command<
   ConstantAndVariableQueryStringCommandInput,

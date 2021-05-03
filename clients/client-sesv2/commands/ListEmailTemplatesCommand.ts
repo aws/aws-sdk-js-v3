@@ -25,6 +25,18 @@ export interface ListEmailTemplatesCommandOutput extends ListEmailTemplatesRespo
  *             Region.</p>
  *
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new ListEmailTemplatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEmailTemplatesCommandInput} for command's `input` shape.
+ * @see {@link ListEmailTemplatesCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEmailTemplatesCommand extends $Command<
   ListEmailTemplatesCommandInput,

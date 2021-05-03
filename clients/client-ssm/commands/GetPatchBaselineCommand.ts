@@ -22,6 +22,18 @@ export interface GetPatchBaselineCommandOutput extends GetPatchBaselineResult, _
 
 /**
  * <p>Retrieves information about a patch baseline.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new GetPatchBaselineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPatchBaselineCommandInput} for command's `input` shape.
+ * @see {@link GetPatchBaselineCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPatchBaselineCommand extends $Command<
   GetPatchBaselineCommandInput,

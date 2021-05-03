@@ -23,6 +23,18 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
 /**
  * <p>Returns information about all of the operations that return an operation ID and that have ever been
  * 			performed on domains that were registered by the current account. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53DomainsClient(config);
+ * const command = new ListOperationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListOperationsCommandInput} for command's `input` shape.
+ * @see {@link ListOperationsCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListOperationsCommand extends $Command<
   ListOperationsCommandInput,

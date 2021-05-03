@@ -23,6 +23,18 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
 /**
  * <p>Describes the rules packages that are specified by the ARNs of the rules
  *          packages.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new DescribeRulesPackagesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRulesPackagesCommandInput} for command's `input` shape.
+ * @see {@link DescribeRulesPackagesCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRulesPackagesCommand extends $Command<
   DescribeRulesPackagesCommandInput,

@@ -24,6 +24,18 @@ export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageR
  * <p>Deletes the specified image from your account. To delete an image, you must first delete
  *          any bundles that are associated with the image and unshare the image if it is shared with
  *          other accounts. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new DeleteWorkspaceImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteWorkspaceImageCommandInput} for command's `input` shape.
+ * @see {@link DeleteWorkspaceImageCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteWorkspaceImageCommand extends $Command<
   DeleteWorkspaceImageCommandInput,

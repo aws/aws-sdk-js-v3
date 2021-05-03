@@ -25,6 +25,18 @@ export interface ListLedgersCommandOutput extends ListLedgersResponse, __Metadat
  *          and Region.</p>
  *          <p>This action returns a maximum of 100 items and is paginated so that you can
  *          retrieve all the items by calling <code>ListLedgers</code> multiple times.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QLDBClient(config);
+ * const command = new ListLedgersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListLedgersCommandInput} for command's `input` shape.
+ * @see {@link ListLedgersCommandOutput} for command's `response` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListLedgersCommand extends $Command<
   ListLedgersCommandInput,

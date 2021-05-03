@@ -22,6 +22,18 @@ export interface PutAppLaunchConfigurationCommandOutput extends PutAppLaunchConf
 
 /**
  * <p>Creates or updates the launch configuration for the specified application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SMSClient(config);
+ * const command = new PutAppLaunchConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAppLaunchConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutAppLaunchConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAppLaunchConfigurationCommand extends $Command<
   PutAppLaunchConfigurationCommandInput,

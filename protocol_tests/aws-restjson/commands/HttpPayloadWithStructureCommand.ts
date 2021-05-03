@@ -25,6 +25,18 @@ export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithSt
  *
  * Note that serializing a structure changes the wrapper element name
  * to match the targeted structure.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new HttpPayloadWithStructureCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link HttpPayloadWithStructureCommandInput} for command's `input` shape.
+ * @see {@link HttpPayloadWithStructureCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class HttpPayloadWithStructureCommand extends $Command<
   HttpPayloadWithStructureCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateDiscovererCommandOutput extends UpdateDiscovererResponse,
 
 /**
  * <p>Updates the discoverer</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SchemasClient(config);
+ * const command = new UpdateDiscovererCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDiscovererCommandInput} for command's `input` shape.
+ * @see {@link UpdateDiscovererCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDiscovererCommand extends $Command<
   UpdateDiscovererCommandInput,

@@ -26,6 +26,18 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
 
 /**
  * <p>Lists the connections associated with your account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeStarConnectionsClient(config);
+ * const command = new ListConnectionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListConnectionsCommandInput} for command's `input` shape.
+ * @see {@link ListConnectionsCommandOutput} for command's `response` shape.
+ * @see {@link CodeStarConnectionsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListConnectionsCommand extends $Command<
   ListConnectionsCommandInput,

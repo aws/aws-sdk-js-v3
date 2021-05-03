@@ -25,6 +25,18 @@ export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityG
  *             descriptions. If a cache security group name is specified, the list contains only
  *             the description of that group. This applicable only when you have ElastiCache in Classic setup
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new DescribeCacheSecurityGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCacheSecurityGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeCacheSecurityGroupsCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCacheSecurityGroupsCommand extends $Command<
   DescribeCacheSecurityGroupsCommandInput,

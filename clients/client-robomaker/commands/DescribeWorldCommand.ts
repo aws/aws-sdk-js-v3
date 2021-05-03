@@ -22,6 +22,18 @@ export interface DescribeWorldCommandOutput extends DescribeWorldResponse, __Met
 
 /**
  * <p>Describes a world.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new DescribeWorldCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeWorldCommandInput} for command's `input` shape.
+ * @see {@link DescribeWorldCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeWorldCommand extends $Command<
   DescribeWorldCommandInput,

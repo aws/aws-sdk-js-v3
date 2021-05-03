@@ -32,6 +32,18 @@ export interface GetIdentityNotificationAttributesCommandOutput
  *             attributes for up to 100 identities at a time.</p>
  *         <p>For more information about using notifications with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES
  *                 Developer Guide</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESClient(config);
+ * const command = new GetIdentityNotificationAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetIdentityNotificationAttributesCommandInput} for command's `input` shape.
+ * @see {@link GetIdentityNotificationAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetIdentityNotificationAttributesCommand extends $Command<
   GetIdentityNotificationAttributesCommandInput,

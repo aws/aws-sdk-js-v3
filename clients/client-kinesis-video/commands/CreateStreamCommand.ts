@@ -30,6 +30,18 @@ export interface CreateStreamCommandOutput extends CreateStreamOutput, __Metadat
  *         <p>For information about how the service works, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How it Works</a>. </p>
  *         <p>You must have permissions for the <code>KinesisVideo:CreateStream</code>
  *             action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisVideoClient(config);
+ * const command = new CreateStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateStreamCommandInput} for command's `input` shape.
+ * @see {@link CreateStreamCommandOutput} for command's `response` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateStreamCommand extends $Command<
   CreateStreamCommandInput,

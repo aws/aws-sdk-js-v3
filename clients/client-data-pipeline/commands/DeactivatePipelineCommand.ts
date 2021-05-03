@@ -25,6 +25,18 @@ export interface DeactivatePipelineCommandOutput extends DeactivatePipelineOutpu
  *           state until the deactivation process completes.</p>
  *         <p>To resume a deactivated pipeline, use <a>ActivatePipeline</a>. By default, the pipeline resumes from the last completed execution.
  *           Optionally, you can specify the date and time to resume the pipeline.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataPipelineClient(config);
+ * const command = new DeactivatePipelineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeactivatePipelineCommandInput} for command's `input` shape.
+ * @see {@link DeactivatePipelineCommandOutput} for command's `response` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeactivatePipelineCommand extends $Command<
   DeactivatePipelineCommandInput,

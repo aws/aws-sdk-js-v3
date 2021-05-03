@@ -33,6 +33,18 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  *       to contain no log groups.</p>
  *          <p>You must have the <code>logs:PutQueryDefinition</code> permission to be able to perform
  *     this operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new PutQueryDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutQueryDefinitionCommandInput} for command's `input` shape.
+ * @see {@link PutQueryDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutQueryDefinitionCommand extends $Command<
   PutQueryDefinitionCommandInput,

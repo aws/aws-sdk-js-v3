@@ -22,6 +22,18 @@ export interface GetSegmentsCommandOutput extends GetSegmentsResponse, __Metadat
 
 /**
  * <p>Retrieves information about the configuration, dimension, and other settings for all the segments that are associated with an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new GetSegmentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSegmentsCommandInput} for command's `input` shape.
+ * @see {@link GetSegmentsCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSegmentsCommand extends $Command<
   GetSegmentsCommandInput,

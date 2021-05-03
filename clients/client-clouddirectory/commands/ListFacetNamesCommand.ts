@@ -22,6 +22,18 @@ export interface ListFacetNamesCommandOutput extends ListFacetNamesResponse, __M
 
 /**
  * <p>Retrieves the names of facets that exist in a schema.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new ListFacetNamesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFacetNamesCommandInput} for command's `input` shape.
+ * @see {@link ListFacetNamesCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFacetNamesCommand extends $Command<
   ListFacetNamesCommandInput,

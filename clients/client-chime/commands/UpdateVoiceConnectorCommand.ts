@@ -22,6 +22,18 @@ export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorR
 
 /**
  * <p>Updates details for the specified Amazon Chime Voice Connector.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new UpdateVoiceConnectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateVoiceConnectorCommandInput} for command's `input` shape.
+ * @see {@link UpdateVoiceConnectorCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateVoiceConnectorCommand extends $Command<
   UpdateVoiceConnectorCommandInput,

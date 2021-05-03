@@ -27,6 +27,18 @@ export interface DescribeRemediationConfigurationsCommandOutput
 
 /**
  * <p>Returns the details of one or more remediation configurations.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DescribeRemediationConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRemediationConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeRemediationConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRemediationConfigurationsCommand extends $Command<
   DescribeRemediationConfigurationsCommandInput,

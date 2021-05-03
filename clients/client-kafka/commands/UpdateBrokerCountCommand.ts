@@ -22,6 +22,18 @@ export interface UpdateBrokerCountCommandOutput extends UpdateBrokerCountRespons
 
 /**
  * <p>Updates the number of broker nodes in the cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new UpdateBrokerCountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateBrokerCountCommandInput} for command's `input` shape.
+ * @see {@link UpdateBrokerCountCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateBrokerCountCommand extends $Command<
   UpdateBrokerCountCommandInput,

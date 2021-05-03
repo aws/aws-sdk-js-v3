@@ -29,6 +29,18 @@ export interface ModifyReplicationTaskCommandOutput extends ModifyReplicationTas
  *          <p>You can't modify the task endpoints. The task must be stopped before you can modify it. </p>
  *          <p>For more information about AWS DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working with Migration Tasks</a> in the
  *             <i>AWS Database Migration Service User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new ModifyReplicationTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyReplicationTaskCommandInput} for command's `input` shape.
+ * @see {@link ModifyReplicationTaskCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyReplicationTaskCommand extends $Command<
   ModifyReplicationTaskCommandInput,

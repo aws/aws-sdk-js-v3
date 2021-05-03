@@ -50,6 +50,18 @@ export interface UpdateMaintenanceWindowTargetCommandOutput
  *          <note>
  *             <p>If a parameter is null, then the corresponding field is not modified.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new UpdateMaintenanceWindowTargetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMaintenanceWindowTargetCommandInput} for command's `input` shape.
+ * @see {@link UpdateMaintenanceWindowTargetCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMaintenanceWindowTargetCommand extends $Command<
   UpdateMaintenanceWindowTargetCommandInput,

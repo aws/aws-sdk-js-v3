@@ -27,6 +27,18 @@ export interface UpdateGroupCertificateConfigurationCommandOutput
 
 /**
  * Updates the Certificate expiry time for a group.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new UpdateGroupCertificateConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateGroupCertificateConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateGroupCertificateConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateGroupCertificateConfigurationCommand extends $Command<
   UpdateGroupCertificateConfigurationCommandInput,

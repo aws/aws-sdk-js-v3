@@ -55,6 +55,18 @@ export interface CreateHostedZoneCommandOutput extends CreateHostedZoneResponse,
  * 			For public hosted zones, this means that the NS and SOA records are not yet available on all Route 53 DNS servers. When the
  * 			NS and SOA records are available, the status of the zone changes to <code>INSYNC</code>.</p>
  * 		       <p>The <code>CreateHostedZone</code> request requires the caller to have an <code>ec2:DescribeVpcs</code> permission.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new CreateHostedZoneCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateHostedZoneCommandInput} for command's `input` shape.
+ * @see {@link CreateHostedZoneCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateHostedZoneCommand extends $Command<
   CreateHostedZoneCommandInput,

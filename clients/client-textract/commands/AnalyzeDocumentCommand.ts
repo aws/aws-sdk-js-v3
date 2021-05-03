@@ -52,6 +52,18 @@ export interface AnalyzeDocumentCommandOutput extends AnalyzeDocumentResponse, _
  *             <code>AnalyzeDocument</code> is a synchronous operation. To analyze documents
  *       asynchronously, use <a>StartDocumentAnalysis</a>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document Text Analysis</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TextractClient(config);
+ * const command = new AnalyzeDocumentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AnalyzeDocumentCommandInput} for command's `input` shape.
+ * @see {@link AnalyzeDocumentCommandOutput} for command's `response` shape.
+ * @see {@link TextractClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AnalyzeDocumentCommand extends $Command<
   AnalyzeDocumentCommandInput,

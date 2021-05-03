@@ -22,6 +22,18 @@ export interface GetKeyPairsCommandOutput extends GetKeyPairsResult, __MetadataB
 
 /**
  * <p>Returns information about all key pairs in the user's account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetKeyPairsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetKeyPairsCommandInput} for command's `input` shape.
+ * @see {@link GetKeyPairsCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetKeyPairsCommand extends $Command<
   GetKeyPairsCommandInput,

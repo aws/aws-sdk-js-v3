@@ -22,6 +22,18 @@ export interface DisassociateSubnetCidrBlockCommandOutput extends DisassociateSu
 
 /**
  * <p>Disassociates a CIDR block from a subnet. Currently, you can disassociate an IPv6 CIDR block only. You must detach or delete all gateways and resources that are associated with the CIDR block before you can disassociate it. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DisassociateSubnetCidrBlockCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateSubnetCidrBlockCommandInput} for command's `input` shape.
+ * @see {@link DisassociateSubnetCidrBlockCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateSubnetCidrBlockCommand extends $Command<
   DisassociateSubnetCidrBlockCommandInput,

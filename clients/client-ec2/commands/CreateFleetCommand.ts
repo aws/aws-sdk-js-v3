@@ -22,6 +22,18 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *          <p>You can create a single EC2 Fleet that includes multiple launch specifications that vary by
  *          instance type, AMI, Availability Zone, or subnet.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html">Launching an EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateFleetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFleetCommandInput} for command's `input` shape.
+ * @see {@link CreateFleetCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFleetCommand extends $Command<
   CreateFleetCommandInput,

@@ -36,6 +36,18 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
  *                 <p>PercentChangeInCapacity</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingClient(config);
+ * const command = new DescribeAdjustmentTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAdjustmentTypesCommandInput} for command's `input` shape.
+ * @see {@link DescribeAdjustmentTypesCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAdjustmentTypesCommand extends $Command<
   DescribeAdjustmentTypesCommandInput,

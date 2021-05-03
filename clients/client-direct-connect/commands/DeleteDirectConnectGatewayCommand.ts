@@ -24,6 +24,18 @@ export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectCon
  * <p>Deletes the specified Direct Connect gateway. You must first delete all virtual interfaces that are
  *       attached to the Direct Connect gateway and disassociate all virtual private gateways associated
  *       with the Direct Connect gateway.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new DeleteDirectConnectGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDirectConnectGatewayCommandInput} for command's `input` shape.
+ * @see {@link DeleteDirectConnectGatewayCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDirectConnectGatewayCommand extends $Command<
   DeleteDirectConnectGatewayCommandInput,

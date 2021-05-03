@@ -20,6 +20,18 @@ export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __Metad
 /**
  * <p>Lists the tags that are attached to the specified IAM user. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new ListUserTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListUserTagsCommandInput} for command's `input` shape.
+ * @see {@link ListUserTagsCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListUserTagsCommand extends $Command<
   ListUserTagsCommandInput,

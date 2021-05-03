@@ -25,6 +25,18 @@ export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __Metad
  *          <p>The <code>delete key pair</code> operation supports tag-based access control via resource
  *       tags applied to the resource identified by <code>key pair name</code>. For more information,
  *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new DeleteKeyPairCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteKeyPairCommandInput} for command's `input` shape.
+ * @see {@link DeleteKeyPairCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteKeyPairCommand extends $Command<
   DeleteKeyPairCommandInput,

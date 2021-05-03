@@ -22,6 +22,18 @@ export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBeare
 
 /**
  * <p>Updates the properties associated with a set of queues for a routing profile.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new UpdateRoutingProfileQueuesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRoutingProfileQueuesCommandInput} for command's `input` shape.
+ * @see {@link UpdateRoutingProfileQueuesCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRoutingProfileQueuesCommand extends $Command<
   UpdateRoutingProfileQueuesCommandInput,

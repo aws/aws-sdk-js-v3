@@ -23,6 +23,18 @@ export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __M
 
 /**
  * <p>Lists the history of SPICE ingestions for a dataset.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new ListIngestionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListIngestionsCommandInput} for command's `input` shape.
+ * @see {@link ListIngestionsCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListIngestionsCommand extends $Command<
   ListIngestionsCommandInput,

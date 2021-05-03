@@ -22,6 +22,18 @@ export interface UpdateSystemTemplateCommandOutput extends UpdateSystemTemplateR
 
 /**
  * <p>Updates the specified system. You don't need to run this action after updating a workflow. Any deployment that uses the system will see the changes in the system when it is redeployed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTThingsGraphClient(config);
+ * const command = new UpdateSystemTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSystemTemplateCommandInput} for command's `input` shape.
+ * @see {@link UpdateSystemTemplateCommandOutput} for command's `response` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSystemTemplateCommand extends $Command<
   UpdateSystemTemplateCommandInput,

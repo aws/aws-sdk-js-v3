@@ -31,6 +31,18 @@ export interface DescribePendingMaintenanceActionsCommandOutput
 
 /**
  * <p>For internal use only</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DescribePendingMaintenanceActionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePendingMaintenanceActionsCommandInput} for command's `input` shape.
+ * @see {@link DescribePendingMaintenanceActionsCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePendingMaintenanceActionsCommand extends $Command<
   DescribePendingMaintenanceActionsCommandInput,

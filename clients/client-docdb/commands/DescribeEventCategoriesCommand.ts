@@ -23,6 +23,18 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
 /**
  * <p>Displays a list of categories for all event source types, or, if specified, for a
  *             specified source type. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DocDBClient(config);
+ * const command = new DescribeEventCategoriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEventCategoriesCommandInput} for command's `input` shape.
+ * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEventCategoriesCommand extends $Command<
   DescribeEventCategoriesCommandInput,

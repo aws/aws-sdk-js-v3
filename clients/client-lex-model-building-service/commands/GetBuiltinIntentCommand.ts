@@ -28,6 +28,18 @@ export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse,
  * <p>Returns information about a built-in intent.</p>
  *          <p>This operation requires permission for the
  *         <code>lex:GetBuiltinIntent</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new GetBuiltinIntentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBuiltinIntentCommandInput} for command's `input` shape.
+ * @see {@link GetBuiltinIntentCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBuiltinIntentCommand extends $Command<
   GetBuiltinIntentCommandInput,

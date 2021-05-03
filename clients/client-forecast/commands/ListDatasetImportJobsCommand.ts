@@ -25,6 +25,18 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  *       summary of its properties, including its Amazon Resource Name (ARN). You can retrieve the
  *       complete set of properties by using the ARN with the <a>DescribeDatasetImportJob</a> operation. You can filter the list by providing an array of <a>Filter</a>
  *       objects.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ForecastClient(config);
+ * const command = new ListDatasetImportJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDatasetImportJobsCommandInput} for command's `input` shape.
+ * @see {@link ListDatasetImportJobsCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDatasetImportJobsCommand extends $Command<
   ListDatasetImportJobsCommandInput,

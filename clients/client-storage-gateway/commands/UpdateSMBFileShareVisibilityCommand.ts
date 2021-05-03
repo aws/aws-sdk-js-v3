@@ -25,6 +25,18 @@ export interface UpdateSMBFileShareVisibilityCommandOutput
 /**
  * <p>Controls whether the shares on a gateway are visible in a net view or browse
  *          list.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new UpdateSMBFileShareVisibilityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSMBFileShareVisibilityCommandInput} for command's `input` shape.
+ * @see {@link UpdateSMBFileShareVisibilityCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSMBFileShareVisibilityCommand extends $Command<
   UpdateSMBFileShareVisibilityCommandInput,

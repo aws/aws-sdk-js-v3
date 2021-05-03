@@ -25,6 +25,18 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
 
 /**
  * <p>Updates multiple ReplicationConfigurationTemplates by ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MgnClient(config);
+ * const command = new UpdateReplicationConfigurationTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateReplicationConfigurationTemplateCommandInput} for command's `input` shape.
+ * @see {@link UpdateReplicationConfigurationTemplateCommandOutput} for command's `response` shape.
+ * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateReplicationConfigurationTemplateCommand extends $Command<
   UpdateReplicationConfigurationTemplateCommandInput,

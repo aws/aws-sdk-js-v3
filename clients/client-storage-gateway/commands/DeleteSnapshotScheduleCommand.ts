@@ -36,6 +36,18 @@ export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotSched
  *             go to <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSnapshots.html">DescribeSnapshots</a>
  *             in the <i>Amazon Elastic Compute Cloud API Reference</i>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new DeleteSnapshotScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSnapshotScheduleCommandInput} for command's `input` shape.
+ * @see {@link DeleteSnapshotScheduleCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSnapshotScheduleCommand extends $Command<
   DeleteSnapshotScheduleCommandInput,

@@ -22,6 +22,18 @@ export interface GenerateClientCertificateCommandOutput extends ClientCertificat
 
 /**
  * <p>Generates a <a>ClientCertificate</a> resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new GenerateClientCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GenerateClientCertificateCommandInput} for command's `input` shape.
+ * @see {@link GenerateClientCertificateCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GenerateClientCertificateCommand extends $Command<
   GenerateClientCertificateCommandInput,

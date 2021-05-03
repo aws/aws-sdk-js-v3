@@ -33,6 +33,18 @@ export interface GetDeliverabilityDashboardOptionsCommandOutput
  *         <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
  *             to any other fees that you accrue by using Amazon Pinpoint. For more information about the
  *             features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/pinpoint/pricing/">Amazon Pinpoint Pricing</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointEmailClient(config);
+ * const command = new GetDeliverabilityDashboardOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDeliverabilityDashboardOptionsCommandInput} for command's `input` shape.
+ * @see {@link GetDeliverabilityDashboardOptionsCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDeliverabilityDashboardOptionsCommand extends $Command<
   GetDeliverabilityDashboardOptionsCommandInput,

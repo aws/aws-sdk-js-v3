@@ -24,6 +24,18 @@ export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpoin
  * <p>Deletes a <code>DBProxyEndpoint</code>. Doing so removes the ability to access the DB proxy using the
  *         endpoint that you defined. The endpoint that you delete might have provided capabilities such as read/write
  *         or read-only operations, or using a different VPC than the DB proxy's default VPC.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new DeleteDBProxyEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDBProxyEndpointCommandInput} for command's `input` shape.
+ * @see {@link DeleteDBProxyEndpointCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDBProxyEndpointCommand extends $Command<
   DeleteDBProxyEndpointCommandInput,

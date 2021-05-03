@@ -22,6 +22,18 @@ export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaRes
 
 /**
  * <p>Get the discovered schema that was generated based on sampled events.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SchemasClient(config);
+ * const command = new GetDiscoveredSchemaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDiscoveredSchemaCommandInput} for command's `input` shape.
+ * @see {@link GetDiscoveredSchemaCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDiscoveredSchemaCommand extends $Command<
   GetDiscoveredSchemaCommandInput,

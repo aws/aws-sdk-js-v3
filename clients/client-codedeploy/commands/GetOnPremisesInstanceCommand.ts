@@ -22,6 +22,18 @@ export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanc
 
 /**
  * <p> Gets information about an on-premises instance. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new GetOnPremisesInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOnPremisesInstanceCommandInput} for command's `input` shape.
+ * @see {@link GetOnPremisesInstanceCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOnPremisesInstanceCommand extends $Command<
   GetOnPremisesInstanceCommandInput,

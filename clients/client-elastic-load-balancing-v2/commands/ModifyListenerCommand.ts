@@ -33,6 +33,18 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  *          <p>To add an item to a list, remove an item from a list, or update an item in a list, you
  *       must provide the entire list. For example, to add an action, specify a list with the current
  *       actions plus the new action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new ModifyListenerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyListenerCommandInput} for command's `input` shape.
+ * @see {@link ModifyListenerCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyListenerCommand extends $Command<
   ModifyListenerCommandInput,

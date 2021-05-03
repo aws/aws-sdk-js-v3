@@ -27,6 +27,18 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  *          type (licensing by instance, socket, CPU, or vCPU), allowed tenancy (shared tenancy,
  *          Dedicated Instance, Dedicated Host, or all of these), license affinity  to host (how long a
  *          license must be associated with a host), and the number of licenses purchased and used.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LicenseManagerClient(config);
+ * const command = new CreateLicenseConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLicenseConfigurationCommandInput} for command's `input` shape.
+ * @see {@link CreateLicenseConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLicenseConfigurationCommand extends $Command<
   CreateLicenseConfigurationCommandInput,

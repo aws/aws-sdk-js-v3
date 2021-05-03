@@ -22,6 +22,18 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
 
 /**
  * <p> Stops a job that is in progress for a branch of an Amplify app. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyClient(config);
+ * const command = new StopJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopJobCommandInput} for command's `input` shape.
+ * @see {@link StopJobCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopJobCommand extends $Command<StopJobCommandInput, StopJobCommandOutput, AmplifyClientResolvedConfig> {
   // Start section: command_properties

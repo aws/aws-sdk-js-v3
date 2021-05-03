@@ -37,6 +37,18 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  *          <note>
  *             <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterFromSnapshot</code>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new RestoreDBInstanceFromDBSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RestoreDBInstanceFromDBSnapshotCommandInput} for command's `input` shape.
+ * @see {@link RestoreDBInstanceFromDBSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RestoreDBInstanceFromDBSnapshotCommand extends $Command<
   RestoreDBInstanceFromDBSnapshotCommandInput,

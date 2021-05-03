@@ -22,6 +22,18 @@ export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataB
 
 /**
  * <p>Get an existing workload.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WellArchitectedClient(config);
+ * const command = new GetWorkloadCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetWorkloadCommandInput} for command's `input` shape.
+ * @see {@link GetWorkloadCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetWorkloadCommand extends $Command<
   GetWorkloadCommandInput,

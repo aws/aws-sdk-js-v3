@@ -22,6 +22,18 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
 
 /**
  * <p>Creates a new subnet group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DAXClient(config);
+ * const command = new CreateSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSubnetGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateSubnetGroupCommandOutput} for command's `response` shape.
+ * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSubnetGroupCommand extends $Command<
   CreateSubnetGroupCommandInput,

@@ -77,6 +77,18 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  *      the resource. Specify the time by using the following format: yyyy-MM-dd'T'HH:mm:ss'Z'</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new PutComplianceItemsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutComplianceItemsCommandInput} for command's `input` shape.
+ * @see {@link PutComplianceItemsCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutComplianceItemsCommand extends $Command<
   PutComplianceItemsCommandInput,

@@ -25,6 +25,18 @@ export interface DeleteClientVpnRouteCommandOutput extends DeleteClientVpnRouteR
  * 			the <b>CreateClientVpnRoute</b> action. You cannot delete routes that were
  * 			automatically added when associating a subnet. To remove routes that have been automatically added,
  * 			disassociate the target subnet from the Client VPN endpoint.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DeleteClientVpnRouteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteClientVpnRouteCommandInput} for command's `input` shape.
+ * @see {@link DeleteClientVpnRouteCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteClientVpnRouteCommand extends $Command<
   DeleteClientVpnRouteCommandInput,

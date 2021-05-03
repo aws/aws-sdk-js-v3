@@ -24,6 +24,18 @@ export interface HttpPayloadWithXmlNamespaceCommandOutput
 
 /**
  * The following example serializes a payload that uses an XML namespace.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestXmlProtocolClient(config);
+ * const command = new HttpPayloadWithXmlNamespaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link HttpPayloadWithXmlNamespaceCommandInput} for command's `input` shape.
+ * @see {@link HttpPayloadWithXmlNamespaceCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class HttpPayloadWithXmlNamespaceCommand extends $Command<
   HttpPayloadWithXmlNamespaceCommandInput,

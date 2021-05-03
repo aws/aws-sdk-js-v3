@@ -24,6 +24,18 @@ export interface ListAssessmentsCommandOutput extends ListAssessmentsResponse, _
  * <p>
  * Returns a list of current and past assessments from AWS Audit Manager.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new ListAssessmentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAssessmentsCommandInput} for command's `input` shape.
+ * @see {@link ListAssessmentsCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAssessmentsCommand extends $Command<
   ListAssessmentsCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateAppInstanceCommandOutput extends UpdateAppInstanceRespons
 
 /**
  * <p>Updates <code>AppInstance</code> metadata.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new UpdateAppInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAppInstanceCommandInput} for command's `input` shape.
+ * @see {@link UpdateAppInstanceCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAppInstanceCommand extends $Command<
   UpdateAppInstanceCommandInput,

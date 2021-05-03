@@ -26,6 +26,18 @@ export interface AcceptReservedNodeExchangeCommandOutput
  * <p>Exchanges a DC1 Reserved Node for a DC2 Reserved Node with no changes to the
  *             configuration (term, payment type, or number of nodes) and no additional costs.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new AcceptReservedNodeExchangeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AcceptReservedNodeExchangeCommandInput} for command's `input` shape.
+ * @see {@link AcceptReservedNodeExchangeCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AcceptReservedNodeExchangeCommand extends $Command<
   AcceptReservedNodeExchangeCommandInput,

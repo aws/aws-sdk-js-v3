@@ -31,6 +31,18 @@ export interface DeleteReplicationInstanceCommandOutput extends DeleteReplicatio
  *             before you can delete it.</p>
  *          </note>
  *          <p></p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DeleteReplicationInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteReplicationInstanceCommandInput} for command's `input` shape.
+ * @see {@link DeleteReplicationInstanceCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteReplicationInstanceCommand extends $Command<
   DeleteReplicationInstanceCommandInput,

@@ -39,6 +39,18 @@ export interface CreateHITWithHITTypeCommandOutput extends CreateHITWithHITTypeR
  *                 For more information, see <a href="https://requester.mturk.com/pricing">Amazon Mechanical Turk Pricing</a>.
  *             </p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MTurkClient(config);
+ * const command = new CreateHITWithHITTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateHITWithHITTypeCommandInput} for command's `input` shape.
+ * @see {@link CreateHITWithHITTypeCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateHITWithHITTypeCommand extends $Command<
   CreateHITWithHITTypeCommandInput,

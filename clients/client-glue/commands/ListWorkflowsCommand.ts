@@ -22,6 +22,18 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
 
 /**
  * <p>Lists names of workflows created in the account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new ListWorkflowsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListWorkflowsCommandInput} for command's `input` shape.
+ * @see {@link ListWorkflowsCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListWorkflowsCommand extends $Command<
   ListWorkflowsCommandInput,

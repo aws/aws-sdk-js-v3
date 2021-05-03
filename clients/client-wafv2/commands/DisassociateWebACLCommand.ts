@@ -23,6 +23,18 @@ export interface DisassociateWebACLCommandOutput extends DisassociateWebACLRespo
 /**
  * <p>Disassociates a Web ACL from a regional application resource. A regional application can be an Application Load Balancer (ALB), an API Gateway REST API, or an AppSync GraphQL API.  </p>
  *          <p>For AWS CloudFront, don't use this call. Instead, use your CloudFront distribution configuration. To disassociate a Web ACL, provide an empty web ACL ID in the CloudFront call <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFV2Client(config);
+ * const command = new DisassociateWebACLCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateWebACLCommandInput} for command's `input` shape.
+ * @see {@link DisassociateWebACLCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateWebACLCommand extends $Command<
   DisassociateWebACLCommandInput,

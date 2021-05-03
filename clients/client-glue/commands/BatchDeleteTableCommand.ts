@@ -32,6 +32,18 @@ export interface BatchDeleteTableCommandOutput extends BatchDeleteTableResponse,
  *           <code>BatchDeletePartition</code>, to delete any resources that belong to the
  *         table.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new BatchDeleteTableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDeleteTableCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteTableCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDeleteTableCommand extends $Command<
   BatchDeleteTableCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeDomainControllersCommandOutput extends DescribeDomainCo
 
 /**
  * <p>Provides information about any domain controllers in your directory.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new DescribeDomainControllersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDomainControllersCommandInput} for command's `input` shape.
+ * @see {@link DescribeDomainControllersCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDomainControllersCommand extends $Command<
   DescribeDomainControllersCommandInput,

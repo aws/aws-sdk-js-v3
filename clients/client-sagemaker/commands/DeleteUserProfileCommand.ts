@@ -23,6 +23,18 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes a user profile. When a user profile is deleted, the user loses access to their EFS
  *      volume, including data, notebooks, and other artifacts.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteUserProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteUserProfileCommandInput} for command's `input` shape.
+ * @see {@link DeleteUserProfileCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteUserProfileCommand extends $Command<
   DeleteUserProfileCommandInput,

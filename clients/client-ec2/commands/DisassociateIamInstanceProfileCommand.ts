@@ -26,6 +26,18 @@ export interface DisassociateIamInstanceProfileCommandOutput
  * <p>Disassociates an IAM instance profile from a running or stopped instance.</p>
  *         <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
  *             ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DisassociateIamInstanceProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateIamInstanceProfileCommandInput} for command's `input` shape.
+ * @see {@link DisassociateIamInstanceProfileCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateIamInstanceProfileCommand extends $Command<
   DisassociateIamInstanceProfileCommandInput,

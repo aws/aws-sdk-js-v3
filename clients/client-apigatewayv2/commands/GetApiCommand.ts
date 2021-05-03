@@ -19,6 +19,18 @@ export interface GetApiCommandOutput extends GetApiResponse, __MetadataBearer {}
 
 /**
  * <p>Gets an Api resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new GetApiCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetApiCommandInput} for command's `input` shape.
+ * @see {@link GetApiCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetApiCommand extends $Command<GetApiCommandInput, GetApiCommandOutput, ApiGatewayV2ClientResolvedConfig> {
   // Start section: command_properties

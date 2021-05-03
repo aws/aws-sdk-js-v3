@@ -28,6 +28,18 @@ export interface JsonListsCommandOutput extends JsonListsInputOutput, __Metadata
  * 2. Normal JSON sets.
  * 3. JSON lists of lists.
  * 4. Lists of structures.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new JsonListsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link JsonListsCommandInput} for command's `input` shape.
+ * @see {@link JsonListsCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class JsonListsCommand extends $Command<
   JsonListsCommandInput,

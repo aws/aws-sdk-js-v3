@@ -22,6 +22,18 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
 
 /**
  * <p>Creates a pipeline using a JSON pipeline definition.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreatePipelineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePipelineCommandInput} for command's `input` shape.
+ * @see {@link CreatePipelineCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePipelineCommand extends $Command<
   CreatePipelineCommandInput,

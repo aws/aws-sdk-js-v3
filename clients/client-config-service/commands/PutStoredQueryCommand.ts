@@ -23,6 +23,18 @@ export interface PutStoredQueryCommandOutput extends PutStoredQueryResponse, __M
 /**
  * <p>Saves a new query or updates an existing saved query. The <code>QueryName</code> must be unique for a single AWS account and a single AWS Region.
  * 			You can create upto 300 queries in a single AWS account and a single AWS Region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new PutStoredQueryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutStoredQueryCommandInput} for command's `input` shape.
+ * @see {@link PutStoredQueryCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutStoredQueryCommand extends $Command<
   PutStoredQueryCommandInput,

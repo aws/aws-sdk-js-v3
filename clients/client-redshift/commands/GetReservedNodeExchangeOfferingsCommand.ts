@@ -28,6 +28,18 @@ export interface GetReservedNodeExchangeOfferingsCommandOutput
 /**
  * <p>Returns an array of DC2 ReservedNodeOfferings that matches the payment type, term,
  *             and usage price of the given DC1 reserved node.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new GetReservedNodeExchangeOfferingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetReservedNodeExchangeOfferingsCommandInput} for command's `input` shape.
+ * @see {@link GetReservedNodeExchangeOfferingsCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetReservedNodeExchangeOfferingsCommand extends $Command<
   GetReservedNodeExchangeOfferingsCommandInput,

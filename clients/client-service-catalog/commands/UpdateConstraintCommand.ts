@@ -22,6 +22,18 @@ export interface UpdateConstraintCommandOutput extends UpdateConstraintOutput, _
 
 /**
  * <p>Updates the specified constraint.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new UpdateConstraintCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateConstraintCommandInput} for command's `input` shape.
+ * @see {@link UpdateConstraintCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateConstraintCommand extends $Command<
   UpdateConstraintCommandInput,

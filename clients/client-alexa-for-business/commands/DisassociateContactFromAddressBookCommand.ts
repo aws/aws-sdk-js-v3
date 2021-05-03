@@ -27,6 +27,18 @@ export interface DisassociateContactFromAddressBookCommandOutput
 
 /**
  * <p>Disassociates a contact from a given address book.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new DisassociateContactFromAddressBookCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateContactFromAddressBookCommandInput} for command's `input` shape.
+ * @see {@link DisassociateContactFromAddressBookCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateContactFromAddressBookCommand extends $Command<
   DisassociateContactFromAddressBookCommandInput,

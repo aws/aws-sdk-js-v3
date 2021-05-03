@@ -25,6 +25,18 @@ export interface DeleteFileSystemPolicyCommandOutput extends __MetadataBearer {}
  *       The default <code>FileSystemPolicy</code> goes into effect once the existing policy is deleted.
  *       For more information about the default file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/res-based-policies-efs.html">Using Resource-based Policies with EFS</a>.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:DeleteFileSystemPolicy</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EFSClient(config);
+ * const command = new DeleteFileSystemPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFileSystemPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteFileSystemPolicyCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFileSystemPolicyCommand extends $Command<
   DeleteFileSystemPolicyCommandInput,

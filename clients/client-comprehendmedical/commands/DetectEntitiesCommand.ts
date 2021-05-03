@@ -31,6 +31,18 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  *          <p> Inspects the clinical text for a variety of medical entities and returns specific
  *       information about them such as entity category, location, and confidence score on that
  *       information .</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendMedicalClient(config);
+ * const command = new DetectEntitiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetectEntitiesCommandInput} for command's `input` shape.
+ * @see {@link DetectEntitiesCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetectEntitiesCommand extends $Command<
   DetectEntitiesCommandInput,

@@ -27,6 +27,18 @@ export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
  *          Backup does not try to protect that service's resources in this Region. Use the
  *             <code>DescribeRegionSettings</code> API to determine the resource types that are
  *          supported.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new UpdateRegionSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRegionSettingsCommandInput} for command's `input` shape.
+ * @see {@link UpdateRegionSettingsCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRegionSettingsCommand extends $Command<
   UpdateRegionSettingsCommandInput,

@@ -26,6 +26,18 @@ export interface StopReplicationTaskCommandOutput extends StopReplicationTaskRes
 
 /**
  * <p>Stops the replication task.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new StopReplicationTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopReplicationTaskCommandInput} for command's `input` shape.
+ * @see {@link StopReplicationTaskCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopReplicationTaskCommand extends $Command<
   StopReplicationTaskCommandInput,

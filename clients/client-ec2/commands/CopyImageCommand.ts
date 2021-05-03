@@ -40,6 +40,18 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  *
  *          <p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying an AMI</a>
  *         in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CopyImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CopyImageCommandInput} for command's `input` shape.
+ * @see {@link CopyImageCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CopyImageCommand extends $Command<CopyImageCommandInput, CopyImageCommandOutput, EC2ClientResolvedConfig> {
   // Start section: command_properties

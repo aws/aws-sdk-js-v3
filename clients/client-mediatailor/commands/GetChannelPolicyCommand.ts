@@ -22,6 +22,18 @@ export interface GetChannelPolicyCommandOutput extends GetChannelPolicyResponse,
 
 /**
  * <p>Retrieves information about a channel's IAM policy.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaTailorClient(config);
+ * const command = new GetChannelPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetChannelPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetChannelPolicyCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetChannelPolicyCommand extends $Command<
   GetChannelPolicyCommandInput,

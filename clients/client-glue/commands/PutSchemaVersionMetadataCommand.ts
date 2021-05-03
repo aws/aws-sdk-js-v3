@@ -22,6 +22,18 @@ export interface PutSchemaVersionMetadataCommandOutput extends PutSchemaVersionM
 
 /**
  * <p>Puts the metadata key value pair for a specified schema version ID. A maximum of 10 key value pairs will be allowed per schema version. They can be added over one or more calls.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new PutSchemaVersionMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutSchemaVersionMetadataCommandInput} for command's `input` shape.
+ * @see {@link PutSchemaVersionMetadataCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutSchemaVersionMetadataCommand extends $Command<
   PutSchemaVersionMetadataCommandInput,

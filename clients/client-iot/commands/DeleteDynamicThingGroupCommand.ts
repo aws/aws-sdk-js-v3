@@ -22,6 +22,18 @@ export interface DeleteDynamicThingGroupCommandOutput extends DeleteDynamicThing
 
 /**
  * <p>Deletes a dynamic thing group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DeleteDynamicThingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDynamicThingGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteDynamicThingGroupCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDynamicThingGroupCommand extends $Command<
   DeleteDynamicThingGroupCommandInput,

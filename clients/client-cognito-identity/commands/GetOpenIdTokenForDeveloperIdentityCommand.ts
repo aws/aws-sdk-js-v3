@@ -40,6 +40,18 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
  *             <code>IdentityId</code>. This API will create the identity in the specified
  *             <code>IdentityPoolId</code>.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityClient(config);
+ * const command = new GetOpenIdTokenForDeveloperIdentityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOpenIdTokenForDeveloperIdentityCommandInput} for command's `input` shape.
+ * @see {@link GetOpenIdTokenForDeveloperIdentityCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command<
   GetOpenIdTokenForDeveloperIdentityCommandInput,

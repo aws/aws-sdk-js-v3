@@ -22,6 +22,18 @@ export interface ListInventoryEntriesCommandOutput extends ListInventoryEntriesR
 
 /**
  * <p>A list of inventory items returned by the request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new ListInventoryEntriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListInventoryEntriesCommandInput} for command's `input` shape.
+ * @see {@link ListInventoryEntriesCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListInventoryEntriesCommand extends $Command<
   ListInventoryEntriesCommandInput,

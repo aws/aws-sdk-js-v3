@@ -22,6 +22,18 @@ export interface ListImagePackagesCommandOutput extends ListImagePackagesRespons
 
 /**
  * <p>List the Packages that are associated with an Image Build Version, as determined by AWS Systems Manager Inventory at build time.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new ListImagePackagesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListImagePackagesCommandInput} for command's `input` shape.
+ * @see {@link ListImagePackagesCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListImagePackagesCommand extends $Command<
   ListImagePackagesCommandInput,

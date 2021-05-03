@@ -22,6 +22,18 @@ export interface DeleteBackendCommandOutput extends DeleteBackendResponse, __Met
 
 /**
  * <p>Removes an existing environment from your Amplify project.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyBackendClient(config);
+ * const command = new DeleteBackendCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBackendCommandInput} for command's `input` shape.
+ * @see {@link DeleteBackendCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBackendCommand extends $Command<
   DeleteBackendCommandInput,

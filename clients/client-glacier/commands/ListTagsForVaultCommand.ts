@@ -24,6 +24,18 @@ export interface ListTagsForVaultCommandOutput extends ListTagsForVaultOutput, _
  * <p>This operation lists all the tags attached to a vault. The operation returns an empty
  *          map if there are no tags. For more information about tags, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html">Tagging Amazon S3 Glacier
  *          Resources</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlacierClient(config);
+ * const command = new ListTagsForVaultCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsForVaultCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForVaultCommandOutput} for command's `response` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsForVaultCommand extends $Command<
   ListTagsForVaultCommandInput,

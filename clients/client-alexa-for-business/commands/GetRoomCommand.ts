@@ -19,6 +19,18 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
 
 /**
  * <p>Gets room details by room ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new GetRoomCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRoomCommandInput} for command's `input` shape.
+ * @see {@link GetRoomCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRoomCommand extends $Command<
   GetRoomCommandInput,

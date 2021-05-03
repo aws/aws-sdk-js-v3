@@ -29,6 +29,18 @@ export interface UpdateBandwidthRateLimitScheduleCommandOutput
  *          Use this to initiate or update a gateway's bandwidth rate limit schedule.
  *          This operation is supported in the volume and tape gateway types.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new UpdateBandwidthRateLimitScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateBandwidthRateLimitScheduleCommandInput} for command's `input` shape.
+ * @see {@link UpdateBandwidthRateLimitScheduleCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateBandwidthRateLimitScheduleCommand extends $Command<
   UpdateBandwidthRateLimitScheduleCommandInput,

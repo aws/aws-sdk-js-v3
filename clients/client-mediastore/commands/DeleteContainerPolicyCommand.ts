@@ -22,6 +22,18 @@ export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolic
 
 /**
  * <p>Deletes the access policy that is associated with the specified container.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaStoreClient(config);
+ * const command = new DeleteContainerPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteContainerPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteContainerPolicyCommandOutput} for command's `response` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteContainerPolicyCommand extends $Command<
   DeleteContainerPolicyCommandInput,

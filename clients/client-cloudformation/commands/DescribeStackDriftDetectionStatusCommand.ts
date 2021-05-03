@@ -36,6 +36,18 @@ export interface DescribeStackDriftDetectionStatusCommandOutput
  *             <code>DescribeStackDriftDetectionStatus</code>. Once the drift detection operation has
  *          completed, use <a>DescribeStackResourceDrifts</a> to return drift information
  *          about the stack and its resources.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new DescribeStackDriftDetectionStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeStackDriftDetectionStatusCommandInput} for command's `input` shape.
+ * @see {@link DescribeStackDriftDetectionStatusCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeStackDriftDetectionStatusCommand extends $Command<
   DescribeStackDriftDetectionStatusCommandInput,

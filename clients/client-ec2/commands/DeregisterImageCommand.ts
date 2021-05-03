@@ -26,6 +26,18 @@ export interface DeregisterImageCommandOutput extends __MetadataBearer {}
  * 			created for the root volume of the instance during the AMI creation process. When you
  * 			deregister an instance store-backed AMI, it doesn't affect the files that you uploaded
  * 			to Amazon S3 when you created the AMI.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DeregisterImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterImageCommandInput} for command's `input` shape.
+ * @see {@link DeregisterImageCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterImageCommand extends $Command<
   DeregisterImageCommandInput,

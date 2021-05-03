@@ -22,6 +22,18 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
 
 /**
  * <p>Updates the specified lifecycle policy.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DLMClient(config);
+ * const command = new UpdateLifecyclePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateLifecyclePolicyCommandInput} for command's `input` shape.
+ * @see {@link UpdateLifecyclePolicyCommandOutput} for command's `response` shape.
+ * @see {@link DLMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateLifecyclePolicyCommand extends $Command<
   UpdateLifecyclePolicyCommandInput,

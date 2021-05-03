@@ -24,6 +24,18 @@ export interface DescribeDataSourcePermissionsCommandOutput
 
 /**
  * <p>Describes the resource permissions for a data source.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new DescribeDataSourcePermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDataSourcePermissionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeDataSourcePermissionsCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDataSourcePermissionsCommand extends $Command<
   DescribeDataSourcePermissionsCommandInput,

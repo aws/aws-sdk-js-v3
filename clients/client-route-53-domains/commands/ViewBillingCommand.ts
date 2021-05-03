@@ -22,6 +22,18 @@ export interface ViewBillingCommandOutput extends ViewBillingResponse, __Metadat
 
 /**
  * <p>Returns all the domain-related billing records for the current AWS account for a specified period</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53DomainsClient(config);
+ * const command = new ViewBillingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ViewBillingCommandInput} for command's `input` shape.
+ * @see {@link ViewBillingCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ViewBillingCommand extends $Command<
   ViewBillingCommandInput,

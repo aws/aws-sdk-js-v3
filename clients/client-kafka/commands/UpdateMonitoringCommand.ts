@@ -22,6 +22,18 @@ export interface UpdateMonitoringCommandOutput extends UpdateMonitoringResponse,
 
 /**
  * <p>Updates the monitoring settings for the cluster. You can use this operation to specify which Apache Kafka metrics you want Amazon MSK to send to Amazon CloudWatch. You can also specify settings for open monitoring with Prometheus.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new UpdateMonitoringCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMonitoringCommandInput} for command's `input` shape.
+ * @see {@link UpdateMonitoringCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMonitoringCommand extends $Command<
   UpdateMonitoringCommandInput,

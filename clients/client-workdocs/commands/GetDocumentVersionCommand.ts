@@ -22,6 +22,18 @@ export interface GetDocumentVersionCommandOutput extends GetDocumentVersionRespo
 
 /**
  * <p>Retrieves version metadata for the specified document.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new GetDocumentVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDocumentVersionCommandInput} for command's `input` shape.
+ * @see {@link GetDocumentVersionCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDocumentVersionCommand extends $Command<
   GetDocumentVersionCommandInput,

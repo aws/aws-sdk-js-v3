@@ -34,6 +34,18 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeOutput, __Metadat
  *
  *          <p>In the request, you must provide the Amazon Resource Name (ARN) of the storage volume
  *          you want to delete.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new DeleteVolumeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVolumeCommandInput} for command's `input` shape.
+ * @see {@link DeleteVolumeCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVolumeCommand extends $Command<
   DeleteVolumeCommandInput,

@@ -28,6 +28,18 @@ export interface StopLoggingCommandOutput extends StopLoggingResponse, __Metadat
  *          was created, or an <code>InvalidHomeRegionException</code> will occur. This operation
  *          cannot be called on the shadow trails (replicated trails in other regions) of a trail
  *          enabled in all regions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudTrailClient(config);
+ * const command = new StopLoggingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopLoggingCommandInput} for command's `input` shape.
+ * @see {@link StopLoggingCommandOutput} for command's `response` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopLoggingCommand extends $Command<
   StopLoggingCommandInput,

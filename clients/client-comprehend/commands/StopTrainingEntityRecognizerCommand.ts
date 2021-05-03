@@ -29,6 +29,18 @@ export interface StopTrainingEntityRecognizerCommandOutput
  *       stopped, it is put into the <code>TRAINED</code>; otherwise the training job is stopped and
  *       putted into the <code>STOPPED</code> state and the service sends back an HTTP 200 response
  *       with an empty HTTP body.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new StopTrainingEntityRecognizerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopTrainingEntityRecognizerCommandInput} for command's `input` shape.
+ * @see {@link StopTrainingEntityRecognizerCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopTrainingEntityRecognizerCommand extends $Command<
   StopTrainingEntityRecognizerCommandInput,

@@ -23,6 +23,18 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *       a job for a Snow device. If you're creating a job for a node in a cluster, you only need to provide
  *       the <code>clusterId</code> value; the other job attributes are inherited from the cluster.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SnowballClient(config);
+ * const command = new CreateJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateJobCommandInput} for command's `input` shape.
+ * @see {@link CreateJobCommandOutput} for command's `response` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateJobCommand extends $Command<
   CreateJobCommandInput,

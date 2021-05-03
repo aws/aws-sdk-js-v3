@@ -38,6 +38,18 @@ export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyRespons
  *         <p>For more information about using the policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing IAM policies
  *                 with the IAM policy simulator </a>in the
  *             <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new SimulateCustomPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SimulateCustomPolicyCommandInput} for command's `input` shape.
+ * @see {@link SimulateCustomPolicyCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SimulateCustomPolicyCommand extends $Command<
   SimulateCustomPolicyCommandInput,

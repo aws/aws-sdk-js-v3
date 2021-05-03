@@ -22,6 +22,18 @@ export interface GetStaticIpCommandOutput extends GetStaticIpResult, __MetadataB
 
 /**
  * <p>Returns information about a specific static IP.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetStaticIpCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetStaticIpCommandInput} for command's `input` shape.
+ * @see {@link GetStaticIpCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetStaticIpCommand extends $Command<
   GetStaticIpCommandInput,

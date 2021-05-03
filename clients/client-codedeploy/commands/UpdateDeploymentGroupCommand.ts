@@ -22,6 +22,18 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
 
 /**
  * <p>Changes information about a deployment group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new UpdateDeploymentGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDeploymentGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateDeploymentGroupCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDeploymentGroupCommand extends $Command<
   UpdateDeploymentGroupCommandInput,

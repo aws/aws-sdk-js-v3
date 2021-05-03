@@ -19,6 +19,18 @@ export interface GetTestCommandOutput extends GetTestResult, __MetadataBearer {}
 
 /**
  * <p>Gets information about a test.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new GetTestCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTestCommandInput} for command's `input` shape.
+ * @see {@link GetTestCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTestCommand extends $Command<
   GetTestCommandInput,

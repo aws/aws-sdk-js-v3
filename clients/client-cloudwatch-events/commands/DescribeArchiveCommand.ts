@@ -22,6 +22,18 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
 
 /**
  * <p>Retrieves details about an archive.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchEventsClient(config);
+ * const command = new DescribeArchiveCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeArchiveCommandInput} for command's `input` shape.
+ * @see {@link DescribeArchiveCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeArchiveCommand extends $Command<
   DescribeArchiveCommandInput,

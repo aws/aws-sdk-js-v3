@@ -22,6 +22,18 @@ export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermi
 
 /**
  * <p>Removes cross-account permissions from a signing profile.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SignerClient(config);
+ * const command = new RemoveProfilePermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveProfilePermissionCommandInput} for command's `input` shape.
+ * @see {@link RemoveProfilePermissionCommandOutput} for command's `response` shape.
+ * @see {@link SignerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveProfilePermissionCommand extends $Command<
   RemoveProfilePermissionCommandInput,

@@ -27,6 +27,18 @@ export interface GetDevEndpointCommandOutput extends GetDevEndpointResponse, __M
  *         a private IP address, and the public IP address field is not populated. When you create a
  *         non-VPC development endpoint, AWS Glue returns only a public IP address.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetDevEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDevEndpointCommandInput} for command's `input` shape.
+ * @see {@link GetDevEndpointCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDevEndpointCommand extends $Command<
   GetDevEndpointCommandInput,

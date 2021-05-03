@@ -26,6 +26,18 @@ export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {
  *             <p>By default, when you successfully create a new schedule, the status of a monitoring
  *             schedule is <code>scheduled</code>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new StartMonitoringScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartMonitoringScheduleCommandInput} for command's `input` shape.
+ * @see {@link StartMonitoringScheduleCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartMonitoringScheduleCommand extends $Command<
   StartMonitoringScheduleCommandInput,

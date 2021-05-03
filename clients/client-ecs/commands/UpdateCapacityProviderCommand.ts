@@ -22,6 +22,18 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
 
 /**
  * <p>Modifies the parameters for a capacity provider.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new UpdateCapacityProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateCapacityProviderCommandInput} for command's `input` shape.
+ * @see {@link UpdateCapacityProviderCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateCapacityProviderCommand extends $Command<
   UpdateCapacityProviderCommandInput,

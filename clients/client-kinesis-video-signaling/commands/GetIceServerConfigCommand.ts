@@ -39,6 +39,18 @@ export interface GetIceServerConfigCommandOutput extends GetIceServerConfigRespo
  *             is unable to establish a direct peer-to-peer connection over a signaling channel. You
  *             must specify either a signaling channel ARN or the client ID in order to invoke this
  *             API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisVideoSignalingClient(config);
+ * const command = new GetIceServerConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetIceServerConfigCommandInput} for command's `input` shape.
+ * @see {@link GetIceServerConfigCommandOutput} for command's `response` shape.
+ * @see {@link KinesisVideoSignalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetIceServerConfigCommand extends $Command<
   GetIceServerConfigCommandInput,

@@ -24,6 +24,18 @@ export interface ListProtectedResourcesCommandOutput extends ListProtectedResour
  * <p>Returns an array of resources successfully backed up by AWS Backup, including the time
  *          the resource was saved, an Amazon Resource Name (ARN) of the resource, and a resource
  *          type.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new ListProtectedResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProtectedResourcesCommandInput} for command's `input` shape.
+ * @see {@link ListProtectedResourcesCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProtectedResourcesCommand extends $Command<
   ListProtectedResourcesCommandInput,

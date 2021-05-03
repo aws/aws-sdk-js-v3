@@ -23,6 +23,18 @@ export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResul
 /**
  * <p>Returns an Amazon S3 presigned URL for an update file associated with a specified
  *       <code>JobId</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SnowballClient(config);
+ * const command = new GetSoftwareUpdatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSoftwareUpdatesCommandInput} for command's `input` shape.
+ * @see {@link GetSoftwareUpdatesCommandOutput} for command's `response` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSoftwareUpdatesCommand extends $Command<
   GetSoftwareUpdatesCommandInput,

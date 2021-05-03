@@ -22,6 +22,18 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
 
 /**
  * <p>Creates a <a>RegexPatternSet</a>, which you reference in a <a>RegexPatternSetReferenceStatement</a>, to have AWS WAF inspect a web request component for the specified patterns.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFV2Client(config);
+ * const command = new CreateRegexPatternSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRegexPatternSetCommandInput} for command's `input` shape.
+ * @see {@link CreateRegexPatternSetCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRegexPatternSetCommand extends $Command<
   CreateRegexPatternSetCommandInput,

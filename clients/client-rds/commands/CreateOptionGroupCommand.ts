@@ -22,6 +22,18 @@ export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult,
 
 /**
  * <p>Creates a new option group. You can create up to 20 option groups.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new CreateOptionGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateOptionGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateOptionGroupCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateOptionGroupCommand extends $Command<
   CreateOptionGroupCommandInput,

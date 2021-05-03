@@ -22,6 +22,18 @@ export interface ListPreparedStatementsCommandOutput extends ListPreparedStateme
 
 /**
  * <p>Lists the prepared statements in the specfied workgroup.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AthenaClient(config);
+ * const command = new ListPreparedStatementsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPreparedStatementsCommandInput} for command's `input` shape.
+ * @see {@link ListPreparedStatementsCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPreparedStatementsCommand extends $Command<
   ListPreparedStatementsCommandInput,

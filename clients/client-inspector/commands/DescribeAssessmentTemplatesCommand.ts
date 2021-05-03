@@ -25,6 +25,18 @@ export interface DescribeAssessmentTemplatesCommandOutput
 /**
  * <p>Describes the assessment templates that are specified by the ARNs of the assessment
  *          templates.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new DescribeAssessmentTemplatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAssessmentTemplatesCommandInput} for command's `input` shape.
+ * @see {@link DescribeAssessmentTemplatesCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAssessmentTemplatesCommand extends $Command<
   DescribeAssessmentTemplatesCommandInput,

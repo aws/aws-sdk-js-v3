@@ -23,6 +23,18 @@ export interface DescribeDatasetExportJobCommandOutput extends DescribeDatasetEx
 /**
  * <p>Describes the dataset export job created by <a>CreateDatasetExportJob</a>,
  *       including the export job status.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeClient(config);
+ * const command = new DescribeDatasetExportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDatasetExportJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeDatasetExportJobCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDatasetExportJobCommand extends $Command<
   DescribeDatasetExportJobCommandInput,

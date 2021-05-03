@@ -27,6 +27,18 @@ export interface DeleteProvisioningTemplateVersionCommandOutput
 
 /**
  * <p>Deletes a fleet provisioning template version.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DeleteProvisioningTemplateVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteProvisioningTemplateVersionCommandInput} for command's `input` shape.
+ * @see {@link DeleteProvisioningTemplateVersionCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteProvisioningTemplateVersionCommand extends $Command<
   DeleteProvisioningTemplateVersionCommandInput,

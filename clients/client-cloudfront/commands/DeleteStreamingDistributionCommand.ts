@@ -69,6 +69,18 @@ export interface DeleteStreamingDistributionCommandOutput extends __MetadataBear
  *          </ol>
  * 		       <p>For information about deleting a distribution using the CloudFront console, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html">Deleting a Distribution</a> in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new DeleteStreamingDistributionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteStreamingDistributionCommandInput} for command's `input` shape.
+ * @see {@link DeleteStreamingDistributionCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteStreamingDistributionCommand extends $Command<
   DeleteStreamingDistributionCommandInput,

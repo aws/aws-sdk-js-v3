@@ -25,6 +25,18 @@ export interface CreateNetworkInsightsPathCommandOutput extends CreateNetworkIns
  *          <p>Reachability Analyzer enables you to analyze and debug network reachability between
  *           two resources in your virtual private cloud (VPC). For more information, see
  *           <a href="https://docs.aws.amazon.com/vpc/latest/reachability/">What is Reachability Analyzer</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateNetworkInsightsPathCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateNetworkInsightsPathCommandInput} for command's `input` shape.
+ * @see {@link CreateNetworkInsightsPathCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateNetworkInsightsPathCommand extends $Command<
   CreateNetworkInsightsPathCommandInput,

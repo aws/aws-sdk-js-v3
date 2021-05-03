@@ -22,6 +22,18 @@ export interface CreateRoomMembershipCommandOutput extends CreateRoomMembershipR
 
 /**
  * <p>Adds a member to a chat room in an Amazon Chime Enterprise account. A member can be either a user or a bot. The member role designates whether the member is a chat room administrator or a general chat room member.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new CreateRoomMembershipCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRoomMembershipCommandInput} for command's `input` shape.
+ * @see {@link CreateRoomMembershipCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRoomMembershipCommand extends $Command<
   CreateRoomMembershipCommandInput,

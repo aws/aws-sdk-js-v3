@@ -23,6 +23,18 @@ export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __M
 
 /**
  * <p>Returns information on a job bookmark entry.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetJobBookmarkCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetJobBookmarkCommandInput} for command's `input` shape.
+ * @see {@link GetJobBookmarkCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetJobBookmarkCommand extends $Command<
   GetJobBookmarkCommandInput,

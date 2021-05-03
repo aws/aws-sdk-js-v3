@@ -22,6 +22,18 @@ export interface ModifyVpnTunnelCertificateCommandOutput extends ModifyVpnTunnel
 
 /**
  * <p>Modifies the VPN tunnel endpoint certificate.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyVpnTunnelCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyVpnTunnelCertificateCommandInput} for command's `input` shape.
+ * @see {@link ModifyVpnTunnelCertificateCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyVpnTunnelCertificateCommand extends $Command<
   ModifyVpnTunnelCertificateCommandInput,

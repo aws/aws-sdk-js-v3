@@ -22,6 +22,18 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
 
 /**
  * <p>Initiates device authorization by requesting a pair of verification codes from the authorization service.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSOOIDCClient(config);
+ * const command = new StartDeviceAuthorizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartDeviceAuthorizationCommandInput} for command's `input` shape.
+ * @see {@link StartDeviceAuthorizationCommandOutput} for command's `response` shape.
+ * @see {@link SSOOIDCClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartDeviceAuthorizationCommand extends $Command<
   StartDeviceAuthorizationCommandInput,

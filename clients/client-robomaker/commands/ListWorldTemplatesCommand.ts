@@ -22,6 +22,18 @@ export interface ListWorldTemplatesCommandOutput extends ListWorldTemplatesRespo
 
 /**
  * <p>Lists world templates.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new ListWorldTemplatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListWorldTemplatesCommandInput} for command's `input` shape.
+ * @see {@link ListWorldTemplatesCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListWorldTemplatesCommand extends $Command<
   ListWorldTemplatesCommandInput,

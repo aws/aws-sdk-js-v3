@@ -22,6 +22,18 @@ export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsRes
 
 /**
  * <p>Lists logging levels.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ListV2LoggingLevelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListV2LoggingLevelsCommandInput} for command's `input` shape.
+ * @see {@link ListV2LoggingLevelsCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListV2LoggingLevelsCommand extends $Command<
   ListV2LoggingLevelsCommandInput,

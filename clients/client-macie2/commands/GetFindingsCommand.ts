@@ -22,6 +22,18 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
 
 /**
  * <p>Retrieves the details of one or more findings.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new GetFindingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFindingsCommandInput} for command's `input` shape.
+ * @see {@link GetFindingsCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFindingsCommand extends $Command<
   GetFindingsCommandInput,

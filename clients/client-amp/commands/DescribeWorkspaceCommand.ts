@@ -22,6 +22,18 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
 
 /**
  * Describes an existing AMP workspace.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmpClient(config);
+ * const command = new DescribeWorkspaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeWorkspaceCommandInput} for command's `input` shape.
+ * @see {@link DescribeWorkspaceCommandOutput} for command's `response` shape.
+ * @see {@link AmpClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeWorkspaceCommand extends $Command<
   DescribeWorkspaceCommandInput,

@@ -22,6 +22,18 @@ export interface PutActionRevisionCommandOutput extends PutActionRevisionOutput,
 
 /**
  * <p>Provides information to AWS CodePipeline about new revisions to a source.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new PutActionRevisionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutActionRevisionCommandInput} for command's `input` shape.
+ * @see {@link PutActionRevisionCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutActionRevisionCommand extends $Command<
   PutActionRevisionCommandInput,

@@ -22,6 +22,18 @@ export interface StopProcessingJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a processing job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new StopProcessingJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopProcessingJobCommandInput} for command's `input` shape.
+ * @see {@link StopProcessingJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopProcessingJobCommand extends $Command<
   StopProcessingJobCommandInput,

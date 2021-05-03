@@ -22,6 +22,18 @@ export interface CancelBatchPredictionJobCommandOutput extends CancelBatchPredic
 
 /**
  * <p>Cancels the specified batch prediction job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new CancelBatchPredictionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelBatchPredictionJobCommandInput} for command's `input` shape.
+ * @see {@link CancelBatchPredictionJobCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelBatchPredictionJobCommand extends $Command<
   CancelBatchPredictionJobCommandInput,

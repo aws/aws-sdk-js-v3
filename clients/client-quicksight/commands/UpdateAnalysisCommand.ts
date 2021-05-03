@@ -22,6 +22,18 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
 
 /**
  * <p>Updates an analysis in Amazon QuickSight</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new UpdateAnalysisCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAnalysisCommandInput} for command's `input` shape.
+ * @see {@link UpdateAnalysisCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAnalysisCommand extends $Command<
   UpdateAnalysisCommandInput,

@@ -49,6 +49,18 @@ export interface CreateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  *          </ul>
  *
  *          <p>You must use AWS Developer credentials to call this API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityClient(config);
+ * const command = new CreateIdentityPoolCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateIdentityPoolCommandInput} for command's `input` shape.
+ * @see {@link CreateIdentityPoolCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateIdentityPoolCommand extends $Command<
   CreateIdentityPoolCommandInput,

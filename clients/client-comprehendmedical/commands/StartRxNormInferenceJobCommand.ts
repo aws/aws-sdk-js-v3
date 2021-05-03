@@ -28,6 +28,18 @@ export interface StartRxNormInferenceJobCommandOutput extends StartRxNormInferen
  * <p>Starts an asynchronous job to detect medication entities and link them to the RxNorm
  *       ontology. Use the <code>DescribeRxNormInferenceJob</code> operation to track the status of a
  *       job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendMedicalClient(config);
+ * const command = new StartRxNormInferenceJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartRxNormInferenceJobCommandInput} for command's `input` shape.
+ * @see {@link StartRxNormInferenceJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartRxNormInferenceJobCommand extends $Command<
   StartRxNormInferenceJobCommandInput,

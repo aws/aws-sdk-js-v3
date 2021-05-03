@@ -22,6 +22,18 @@ export interface ListInvalidationsCommandOutput extends ListInvalidationsResult,
 
 /**
  * <p>Lists invalidation batches. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new ListInvalidationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListInvalidationsCommandInput} for command's `input` shape.
+ * @see {@link ListInvalidationsCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListInvalidationsCommand extends $Command<
   ListInvalidationsCommandInput,

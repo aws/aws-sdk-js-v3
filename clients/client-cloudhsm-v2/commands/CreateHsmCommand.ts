@@ -20,6 +20,18 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
 /**
  * <p>Creates a new hardware security module (HSM) in the specified AWS CloudHSM
  *       cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMV2Client(config);
+ * const command = new CreateHsmCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateHsmCommandInput} for command's `input` shape.
+ * @see {@link CreateHsmCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateHsmCommand extends $Command<
   CreateHsmCommandInput,

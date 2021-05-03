@@ -22,6 +22,18 @@ export interface GetJourneyCommandOutput extends GetJourneyResponse, __MetadataB
 
 /**
  * <p>Retrieves information about the status, configuration, and other settings for a journey.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new GetJourneyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetJourneyCommandInput} for command's `input` shape.
+ * @see {@link GetJourneyCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetJourneyCommand extends $Command<
   GetJourneyCommandInput,

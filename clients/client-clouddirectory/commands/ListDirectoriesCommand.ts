@@ -22,6 +22,18 @@ export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, _
 
 /**
  * <p>Lists directories created within an account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new ListDirectoriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDirectoriesCommandInput} for command's `input` shape.
+ * @see {@link ListDirectoriesCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDirectoriesCommand extends $Command<
   ListDirectoriesCommandInput,

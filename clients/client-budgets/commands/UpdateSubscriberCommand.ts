@@ -22,6 +22,18 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
 
 /**
  * <p>Updates a subscriber.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BudgetsClient(config);
+ * const command = new UpdateSubscriberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSubscriberCommandInput} for command's `input` shape.
+ * @see {@link UpdateSubscriberCommandOutput} for command's `response` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSubscriberCommand extends $Command<
   UpdateSubscriberCommandInput,

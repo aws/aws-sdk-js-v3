@@ -22,6 +22,18 @@ export interface DeleteClusterSubnetGroupCommandOutput extends __MetadataBearer 
 
 /**
  * <p>Deletes the specified cluster subnet group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DeleteClusterSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteClusterSubnetGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteClusterSubnetGroupCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteClusterSubnetGroupCommand extends $Command<
   DeleteClusterSubnetGroupCommandInput,

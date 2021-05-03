@@ -38,6 +38,18 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  *             correct AWS account. To determine if an image has been shared and to see the AWS
  *             account ID that owns an image, use the <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html">DescribeWorkSpaceImages</a> and <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html">DescribeWorkspaceImagePermissions</a> API operations. </p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new CopyWorkspaceImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CopyWorkspaceImageCommandInput} for command's `input` shape.
+ * @see {@link CopyWorkspaceImageCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CopyWorkspaceImageCommand extends $Command<
   CopyWorkspaceImageCommandInput,

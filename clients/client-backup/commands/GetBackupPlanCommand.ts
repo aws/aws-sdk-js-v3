@@ -23,6 +23,18 @@ export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __Metad
 /**
  * <p>Returns <code>BackupPlan</code> details for the specified <code>BackupPlanId</code>. The
  *          details are the body of a backup plan in JSON format, in addition to plan metadata.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new GetBackupPlanCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBackupPlanCommandInput} for command's `input` shape.
+ * @see {@link GetBackupPlanCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBackupPlanCommand extends $Command<
   GetBackupPlanCommandInput,

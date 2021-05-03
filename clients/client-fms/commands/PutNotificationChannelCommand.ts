@@ -26,6 +26,18 @@ export interface PutNotificationChannelCommandOutput extends __MetadataBearer {}
  *          <p>To perform this action outside of the console, you must configure the SNS topic to allow the Firewall Manager
  *       role <code>AWSServiceRoleForFMS</code> to publish SNS logs. For more information, see
  *       <a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html">Firewall Manager required permissions for API actions</a> in the <i>AWS Firewall Manager Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FMSClient(config);
+ * const command = new PutNotificationChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutNotificationChannelCommandInput} for command's `input` shape.
+ * @see {@link PutNotificationChannelCommandOutput} for command's `response` shape.
+ * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutNotificationChannelCommand extends $Command<
   PutNotificationChannelCommandInput,

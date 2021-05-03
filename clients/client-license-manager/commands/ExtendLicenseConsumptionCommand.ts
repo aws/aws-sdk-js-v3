@@ -22,6 +22,18 @@ export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseCons
 
 /**
  * <p>Extends the expiration date for license consumption.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LicenseManagerClient(config);
+ * const command = new ExtendLicenseConsumptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ExtendLicenseConsumptionCommandInput} for command's `input` shape.
+ * @see {@link ExtendLicenseConsumptionCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ExtendLicenseConsumptionCommand extends $Command<
   ExtendLicenseConsumptionCommandInput,

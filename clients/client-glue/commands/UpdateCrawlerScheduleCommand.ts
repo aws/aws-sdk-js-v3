@@ -22,6 +22,18 @@ export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerSchedul
 
 /**
  * <p>Updates the schedule of a crawler using a <code>cron</code> expression. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new UpdateCrawlerScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateCrawlerScheduleCommandInput} for command's `input` shape.
+ * @see {@link UpdateCrawlerScheduleCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateCrawlerScheduleCommand extends $Command<
   UpdateCrawlerScheduleCommandInput,

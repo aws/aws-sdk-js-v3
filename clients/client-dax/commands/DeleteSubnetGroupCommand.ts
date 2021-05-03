@@ -26,6 +26,18 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  *             <p>You cannot delete a subnet group if it is associated with any DAX
  *                 clusters.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DAXClient(config);
+ * const command = new DeleteSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSubnetGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteSubnetGroupCommandOutput} for command's `response` shape.
+ * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSubnetGroupCommand extends $Command<
   DeleteSubnetGroupCommandInput,

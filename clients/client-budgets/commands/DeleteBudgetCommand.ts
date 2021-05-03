@@ -25,6 +25,18 @@ export interface DeleteBudgetCommandOutput extends DeleteBudgetResponse, __Metad
  * 		       <important>
  * 			         <p>Deleting a budget also deletes the notifications and subscribers that are associated with that budget.</p>
  * 		       </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BudgetsClient(config);
+ * const command = new DeleteBudgetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBudgetCommandInput} for command's `input` shape.
+ * @see {@link DeleteBudgetCommandOutput} for command's `response` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBudgetCommand extends $Command<
   DeleteBudgetCommandInput,

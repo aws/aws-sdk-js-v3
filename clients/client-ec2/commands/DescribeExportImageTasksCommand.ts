@@ -22,6 +22,18 @@ export interface DescribeExportImageTasksCommandOutput extends DescribeExportIma
 
 /**
  * <p>Describes the specified export image tasks or all of your export image tasks.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeExportImageTasksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeExportImageTasksCommandInput} for command's `input` shape.
+ * @see {@link DescribeExportImageTasksCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeExportImageTasksCommand extends $Command<
   DescribeExportImageTasksCommandInput,

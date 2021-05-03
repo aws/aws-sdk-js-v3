@@ -22,6 +22,18 @@ export interface ListLaunchProfileMembersCommandOutput extends ListLaunchProfile
 
 /**
  * <p>Get all users in a given launch profile membership.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NimbleClient(config);
+ * const command = new ListLaunchProfileMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListLaunchProfileMembersCommandInput} for command's `input` shape.
+ * @see {@link ListLaunchProfileMembersCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListLaunchProfileMembersCommand extends $Command<
   ListLaunchProfileMembersCommandInput,

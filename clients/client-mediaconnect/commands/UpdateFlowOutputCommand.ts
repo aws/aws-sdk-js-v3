@@ -22,6 +22,18 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
 
 /**
  * Updates an existing flow output.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConnectClient(config);
+ * const command = new UpdateFlowOutputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFlowOutputCommandInput} for command's `input` shape.
+ * @see {@link UpdateFlowOutputCommandOutput} for command's `response` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFlowOutputCommand extends $Command<
   UpdateFlowOutputCommandInput,

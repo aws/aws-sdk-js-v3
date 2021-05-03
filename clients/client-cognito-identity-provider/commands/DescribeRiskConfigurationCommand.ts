@@ -27,6 +27,18 @@ export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConf
 
 /**
  * <p>Describes the risk configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new DescribeRiskConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRiskConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeRiskConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRiskConfigurationCommand extends $Command<
   DescribeRiskConfigurationCommandInput,

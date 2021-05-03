@@ -22,6 +22,18 @@ export interface TestInvokeMethodCommandOutput extends TestInvokeMethodResponse,
 
 /**
  * <p>Simulate the execution of a <a>Method</a> in your <a>RestApi</a> with headers, parameters, and an incoming request body.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new TestInvokeMethodCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TestInvokeMethodCommandInput} for command's `input` shape.
+ * @see {@link TestInvokeMethodCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TestInvokeMethodCommand extends $Command<
   TestInvokeMethodCommandInput,

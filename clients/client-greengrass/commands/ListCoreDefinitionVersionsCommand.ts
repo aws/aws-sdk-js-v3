@@ -22,6 +22,18 @@ export interface ListCoreDefinitionVersionsCommandOutput extends ListCoreDefinit
 
 /**
  * Lists the versions of a core definition.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new ListCoreDefinitionVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCoreDefinitionVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListCoreDefinitionVersionsCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCoreDefinitionVersionsCommand extends $Command<
   ListCoreDefinitionVersionsCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateConditionalForwarderCommandOutput extends UpdateCondition
 
 /**
  * <p>Updates a conditional forwarder that has been set up for your AWS directory.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new UpdateConditionalForwarderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateConditionalForwarderCommandInput} for command's `input` shape.
+ * @see {@link UpdateConditionalForwarderCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateConditionalForwarderCommand extends $Command<
   UpdateConditionalForwarderCommandInput,

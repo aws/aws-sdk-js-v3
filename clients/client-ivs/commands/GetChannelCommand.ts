@@ -22,6 +22,18 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
 
 /**
  * <p>Gets the channel configuration for the specified channel ARN. See also <a>BatchGetChannel</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IvsClient(config);
+ * const command = new GetChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetChannelCommandInput} for command's `input` shape.
+ * @see {@link GetChannelCommandOutput} for command's `response` shape.
+ * @see {@link IvsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetChannelCommand extends $Command<
   GetChannelCommandInput,

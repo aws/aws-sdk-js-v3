@@ -56,6 +56,18 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  *           allocate for use with EC2-VPC.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeAccountAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAccountAttributesCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAccountAttributesCommand extends $Command<
   DescribeAccountAttributesCommandInput,

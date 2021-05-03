@@ -35,6 +35,18 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  *          <p>If the locale doesn't exist in the bot, or if the locale hasn't been
  *          enables for the alias, you receive a
  *          <code>BadRequestException</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexRuntimeV2Client(config);
+ * const command = new DeleteSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSessionCommandInput} for command's `input` shape.
+ * @see {@link DeleteSessionCommandOutput} for command's `response` shape.
+ * @see {@link LexRuntimeV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSessionCommand extends $Command<
   DeleteSessionCommandInput,

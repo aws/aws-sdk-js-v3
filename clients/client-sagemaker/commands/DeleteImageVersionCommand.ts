@@ -23,6 +23,18 @@ export interface DeleteImageVersionCommandOutput extends DeleteImageVersionRespo
 /**
  * <p>Deletes a version of a SageMaker image. The container image the version represents isn't
  *         deleted.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteImageVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteImageVersionCommandInput} for command's `input` shape.
+ * @see {@link DeleteImageVersionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteImageVersionCommand extends $Command<
   DeleteImageVersionCommandInput,

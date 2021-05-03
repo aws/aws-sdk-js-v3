@@ -23,6 +23,18 @@ export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __Metadat
 /**
  * <p>Lists the updates associated with an Amazon EKS cluster or managed node group in your AWS
  *             account, in the specified Region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new ListUpdatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListUpdatesCommandInput} for command's `input` shape.
+ * @see {@link ListUpdatesCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListUpdatesCommand extends $Command<
   ListUpdatesCommandInput,

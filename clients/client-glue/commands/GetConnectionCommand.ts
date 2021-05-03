@@ -22,6 +22,18 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
 
 /**
  * <p>Retrieves a connection definition from the Data Catalog.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetConnectionCommandInput} for command's `input` shape.
+ * @see {@link GetConnectionCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetConnectionCommand extends $Command<
   GetConnectionCommandInput,

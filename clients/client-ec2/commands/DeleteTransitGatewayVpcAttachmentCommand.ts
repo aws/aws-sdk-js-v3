@@ -24,6 +24,18 @@ export interface DeleteTransitGatewayVpcAttachmentCommandOutput
 
 /**
  * <p>Deletes the specified VPC attachment.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DeleteTransitGatewayVpcAttachmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTransitGatewayVpcAttachmentCommandInput} for command's `input` shape.
+ * @see {@link DeleteTransitGatewayVpcAttachmentCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTransitGatewayVpcAttachmentCommand extends $Command<
   DeleteTransitGatewayVpcAttachmentCommandInput,

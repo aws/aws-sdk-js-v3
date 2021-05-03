@@ -23,6 +23,18 @@ export interface CreateLocationNfsCommandOutput extends CreateLocationNfsRespons
 /**
  * <p>Defines a file system on a Network File System (NFS) server that can be read from or
  *       written to.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataSyncClient(config);
+ * const command = new CreateLocationNfsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLocationNfsCommandInput} for command's `input` shape.
+ * @see {@link CreateLocationNfsCommandOutput} for command's `response` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLocationNfsCommand extends $Command<
   CreateLocationNfsCommandInput,

@@ -28,6 +28,18 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
 
 /**
  * Update an event destination in a configuration set. An event destination is a location that you publish information about your voice calls to. For example, you can log an event to an Amazon CloudWatch destination when a call fails.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointSMSVoiceClient(config);
+ * const command = new UpdateConfigurationSetEventDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
+ * @see {@link UpdateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
+ * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateConfigurationSetEventDestinationCommand extends $Command<
   UpdateConfigurationSetEventDestinationCommandInput,

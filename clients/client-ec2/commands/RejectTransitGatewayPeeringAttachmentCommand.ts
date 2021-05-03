@@ -28,6 +28,18 @@ export interface RejectTransitGatewayPeeringAttachmentCommandOutput
 
 /**
  * <p>Rejects a transit gateway peering attachment request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new RejectTransitGatewayPeeringAttachmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RejectTransitGatewayPeeringAttachmentCommandInput} for command's `input` shape.
+ * @see {@link RejectTransitGatewayPeeringAttachmentCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RejectTransitGatewayPeeringAttachmentCommand extends $Command<
   RejectTransitGatewayPeeringAttachmentCommandInput,

@@ -22,6 +22,18 @@ export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfig
 
 /**
  * <p>Returns the playback configuration for the specified name.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaTailorClient(config);
+ * const command = new GetPlaybackConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPlaybackConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetPlaybackConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPlaybackConfigurationCommand extends $Command<
   GetPlaybackConfigurationCommandInput,

@@ -26,6 +26,18 @@ export interface InvokeScreenAutomationCommandOutput extends InvokeScreenAutomat
  *             The API allows setting local variables, which can then be used in the automation being invoked.
  *             This allows automating the Honeycode app interactions to write, update or delete data in the workbook.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new HoneycodeClient(config);
+ * const command = new InvokeScreenAutomationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InvokeScreenAutomationCommandInput} for command's `input` shape.
+ * @see {@link InvokeScreenAutomationCommandOutput} for command's `response` shape.
+ * @see {@link HoneycodeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InvokeScreenAutomationCommand extends $Command<
   InvokeScreenAutomationCommandInput,

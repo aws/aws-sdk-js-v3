@@ -29,6 +29,18 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  *       primary instance for testing. Because each instance in a DB cluster has its own endpoint
  *       address, you will need to clean up and re-establish any existing connections that use those
  *       endpoint addresses when the failover is complete.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NeptuneClient(config);
+ * const command = new FailoverDBClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link FailoverDBClusterCommandInput} for command's `input` shape.
+ * @see {@link FailoverDBClusterCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class FailoverDBClusterCommand extends $Command<
   FailoverDBClusterCommandInput,

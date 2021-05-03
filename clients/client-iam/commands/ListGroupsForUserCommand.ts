@@ -24,6 +24,18 @@ export interface ListGroupsForUserCommandOutput extends ListGroupsForUserRespons
  * <p>Lists the IAM groups that the specified IAM user belongs to.</p>
  *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new ListGroupsForUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListGroupsForUserCommandInput} for command's `input` shape.
+ * @see {@link ListGroupsForUserCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListGroupsForUserCommand extends $Command<
   ListGroupsForUserCommandInput,

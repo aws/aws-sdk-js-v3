@@ -66,6 +66,18 @@ export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromData
  *                </response>
  *          </example>
  *       </examples>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoSyncClient(config);
+ * const command = new UnsubscribeFromDatasetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UnsubscribeFromDatasetCommandInput} for command's `input` shape.
+ * @see {@link UnsubscribeFromDatasetCommandOutput} for command's `response` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UnsubscribeFromDatasetCommand extends $Command<
   UnsubscribeFromDatasetCommandInput,

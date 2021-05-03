@@ -22,6 +22,18 @@ export interface DescribeCodeCoveragesCommandOutput extends DescribeCodeCoverage
 
 /**
  * <p>Retrieves one or more code coverage reports.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new DescribeCodeCoveragesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCodeCoveragesCommandInput} for command's `input` shape.
+ * @see {@link DescribeCodeCoveragesCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCodeCoveragesCommand extends $Command<
   DescribeCodeCoveragesCommandInput,

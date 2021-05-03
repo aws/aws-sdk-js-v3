@@ -27,6 +27,18 @@ export interface DescribeFolderContentsCommandOutput extends DescribeFolderConte
  *             metadata items. If there are more results, the response includes a marker that you can
  *             use to request the next set of results. You can also request initialized
  *             documents.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new DescribeFolderContentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFolderContentsCommandInput} for command's `input` shape.
+ * @see {@link DescribeFolderContentsCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFolderContentsCommand extends $Command<
   DescribeFolderContentsCommandInput,

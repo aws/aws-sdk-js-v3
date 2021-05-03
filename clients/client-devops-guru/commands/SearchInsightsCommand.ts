@@ -30,6 +30,18 @@ export interface SearchInsightsCommandOutput extends SearchInsightsResponse, __M
  *    		Use the <code>Filters</code> parameter to specify status and severity
  *    		search parameters. Use the <code>Type</code> parameter to specify <code>REACTIVE</code> or <code>PROACTIVE</code> in your search.
  *    	</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DevOpsGuruClient(config);
+ * const command = new SearchInsightsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchInsightsCommandInput} for command's `input` shape.
+ * @see {@link SearchInsightsCommandOutput} for command's `response` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchInsightsCommand extends $Command<
   SearchInsightsCommandInput,

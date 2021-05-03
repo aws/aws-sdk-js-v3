@@ -22,6 +22,18 @@ export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssoci
 
 /**
  * <p> Deletes a domain association for an Amplify app. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyClient(config);
+ * const command = new DeleteDomainAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDomainAssociationCommandInput} for command's `input` shape.
+ * @see {@link DeleteDomainAssociationCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDomainAssociationCommand extends $Command<
   DeleteDomainAssociationCommandInput,

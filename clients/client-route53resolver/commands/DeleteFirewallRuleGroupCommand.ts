@@ -22,6 +22,18 @@ export interface DeleteFirewallRuleGroupCommandOutput extends DeleteFirewallRule
 
 /**
  * <p>Deletes the specified firewall rule group. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new DeleteFirewallRuleGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFirewallRuleGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteFirewallRuleGroupCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFirewallRuleGroupCommand extends $Command<
   DeleteFirewallRuleGroupCommandInput,

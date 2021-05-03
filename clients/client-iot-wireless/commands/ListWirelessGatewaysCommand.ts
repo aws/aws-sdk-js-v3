@@ -22,6 +22,18 @@ export interface ListWirelessGatewaysCommandOutput extends ListWirelessGatewaysR
 
 /**
  * <p>Lists the wireless gateways registered to your AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new ListWirelessGatewaysCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListWirelessGatewaysCommandInput} for command's `input` shape.
+ * @see {@link ListWirelessGatewaysCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListWirelessGatewaysCommand extends $Command<
   ListWirelessGatewaysCommandInput,

@@ -22,6 +22,18 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
 
 /**
  * <p>Lists all of the DataBrew datasets.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new ListDatasetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDatasetsCommandInput} for command's `input` shape.
+ * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDatasetsCommand extends $Command<
   ListDatasetsCommandInput,

@@ -22,6 +22,18 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
 
 /**
  * <p>Retrieves information about the Amazon Macie administrator account for an account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new GetAdministratorAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAdministratorAccountCommandInput} for command's `input` shape.
+ * @see {@link GetAdministratorAccountCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAdministratorAccountCommand extends $Command<
   GetAdministratorAccountCommandInput,

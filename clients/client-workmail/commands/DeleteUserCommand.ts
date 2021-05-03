@@ -26,6 +26,18 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  *          action to confirm the user state.</p>
  *          <p>Deleting a user is permanent and cannot be undone. WorkMail archives user mailboxes for
  *          30 days before they are permanently removed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new DeleteUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteUserCommandInput} for command's `input` shape.
+ * @see {@link DeleteUserCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteUserCommand extends $Command<
   DeleteUserCommandInput,

@@ -22,6 +22,18 @@ export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataB
 
 /**
  * <p>Gets information about unique device types.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new ListDevicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDevicesCommandInput} for command's `input` shape.
+ * @see {@link ListDevicesCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDevicesCommand extends $Command<
   ListDevicesCommandInput,

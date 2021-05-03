@@ -22,6 +22,18 @@ export interface AssociateIpGroupsCommandOutput extends AssociateIpGroupsResult,
 
 /**
  * <p>Associates the specified IP access control group with the specified directory.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new AssociateIpGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateIpGroupsCommandInput} for command's `input` shape.
+ * @see {@link AssociateIpGroupsCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateIpGroupsCommand extends $Command<
   AssociateIpGroupsCommandInput,

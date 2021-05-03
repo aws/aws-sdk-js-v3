@@ -49,6 +49,18 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *     </p>
  *          <p>To specify your own domain for a server, and provide your own self-signed or CA-signed certificate and private key, specify values for <code>CustomDomain</code>,
  *       <code>CustomCertificate</code>, and <code>CustomPrivateKey</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OpsWorksCMClient(config);
+ * const command = new CreateServerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateServerCommandInput} for command's `input` shape.
+ * @see {@link CreateServerCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateServerCommand extends $Command<
   CreateServerCommandInput,

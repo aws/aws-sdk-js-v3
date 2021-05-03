@@ -22,6 +22,18 @@ export interface CreateHarvestJobCommandOutput extends CreateHarvestJobResponse,
 
 /**
  * Creates a new HarvestJob record.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaPackageClient(config);
+ * const command = new CreateHarvestJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateHarvestJobCommandInput} for command's `input` shape.
+ * @see {@link CreateHarvestJobCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateHarvestJobCommand extends $Command<
   CreateHarvestJobCommandInput,

@@ -22,6 +22,18 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
 
 /**
  * <p>Retrieve information about a configuration deployment.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppConfigClient(config);
+ * const command = new GetDeploymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDeploymentCommandInput} for command's `input` shape.
+ * @see {@link GetDeploymentCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDeploymentCommand extends $Command<
   GetDeploymentCommandInput,

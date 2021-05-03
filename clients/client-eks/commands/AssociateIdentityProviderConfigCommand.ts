@@ -31,6 +31,18 @@ export interface AssociateIdentityProviderConfigCommandOutput
  *             roles to the identities using Kubernetes <code>rolebindings</code> and
  *                 <code>clusterrolebindings</code>. For more information see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using RBAC
  *                 Authorization</a> in the Kubernetes documentation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new AssociateIdentityProviderConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateIdentityProviderConfigCommandInput} for command's `input` shape.
+ * @see {@link AssociateIdentityProviderConfigCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateIdentityProviderConfigCommand extends $Command<
   AssociateIdentityProviderConfigCommandInput,

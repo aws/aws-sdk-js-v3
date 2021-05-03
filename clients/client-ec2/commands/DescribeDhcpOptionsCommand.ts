@@ -24,6 +24,18 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  * <p>Describes one or more of your DHCP options sets.</p>
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the
  * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeDhcpOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDhcpOptionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeDhcpOptionsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDhcpOptionsCommand extends $Command<
   DescribeDhcpOptionsCommandInput,

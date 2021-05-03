@@ -22,6 +22,18 @@ export interface CreateImportJobCommandOutput extends CreateImportJobResponse, _
 
 /**
  * <p>Creates an import job for a data destination.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new CreateImportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateImportJobCommandInput} for command's `input` shape.
+ * @see {@link CreateImportJobCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateImportJobCommand extends $Command<
   CreateImportJobCommandInput,

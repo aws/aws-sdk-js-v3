@@ -23,6 +23,18 @@ export interface DescribeInstanceAttributeCommandOutput extends DescribeInstance
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Describes the specified instance attribute.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new DescribeInstanceAttributeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeInstanceAttributeCommandInput} for command's `input` shape.
+ * @see {@link DescribeInstanceAttributeCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeInstanceAttributeCommand extends $Command<
   DescribeInstanceAttributeCommandInput,

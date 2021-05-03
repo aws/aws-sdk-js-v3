@@ -25,6 +25,18 @@ export interface DescribeServiceAccessPoliciesCommandOutput
 /**
  * <p>Gets information about the access policies that control access to the domain's document and search endpoints. By default, shows the configuration with any pending changes. Set the <code>Deployed</code> option to <code>true</code> to show the active configuration and exclude pending changes. For more information,
  *       see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html" target="_blank">Configuring Access for a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudSearchClient(config);
+ * const command = new DescribeServiceAccessPoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeServiceAccessPoliciesCommandInput} for command's `input` shape.
+ * @see {@link DescribeServiceAccessPoliciesCommandOutput} for command's `response` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeServiceAccessPoliciesCommand extends $Command<
   DescribeServiceAccessPoliciesCommandInput,

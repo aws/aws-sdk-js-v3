@@ -24,6 +24,18 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * <p>Returns the list of datasets contained in the given dataset group. The response provides
  *       the properties for each dataset, including the Amazon Resource Name (ARN). For more
  *       information on datasets, see <a>CreateDataset</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeClient(config);
+ * const command = new ListDatasetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDatasetsCommandInput} for command's `input` shape.
+ * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDatasetsCommand extends $Command<
   ListDatasetsCommandInput,

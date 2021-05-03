@@ -24,6 +24,18 @@ export interface DescribeFpgaImagesCommandOutput extends DescribeFpgaImagesResul
  * <p>Describes the Amazon FPGA Images (AFIs) available to you. These include public AFIs,
  * 			private AFIs that you own, and AFIs owned by other AWS accounts for which you have load
  * 			permissions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeFpgaImagesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFpgaImagesCommandInput} for command's `input` shape.
+ * @see {@link DescribeFpgaImagesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFpgaImagesCommand extends $Command<
   DescribeFpgaImagesCommandInput,

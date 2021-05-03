@@ -24,6 +24,18 @@ export interface ListDocumentClassificationJobsCommandOutput
 
 /**
  * <p>Gets a list of the documentation classification jobs that you have submitted.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new ListDocumentClassificationJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDocumentClassificationJobsCommandInput} for command's `input` shape.
+ * @see {@link ListDocumentClassificationJobsCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDocumentClassificationJobsCommand extends $Command<
   ListDocumentClassificationJobsCommandInput,

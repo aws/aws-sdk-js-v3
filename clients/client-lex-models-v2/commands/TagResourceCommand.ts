@@ -24,6 +24,18 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>Adds the specified tags to the specified resource. If a tag key
  *          already exists, the existing value is replaced with the new
  *          value.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelsV2Client(config);
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

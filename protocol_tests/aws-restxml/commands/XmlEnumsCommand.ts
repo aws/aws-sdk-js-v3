@@ -19,6 +19,18 @@ export interface XmlEnumsCommandOutput extends XmlEnumsInputOutput, __MetadataBe
 
 /**
  * This example serializes enums as top level properties, in lists, sets, and maps.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestXmlProtocolClient(config);
+ * const command = new XmlEnumsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link XmlEnumsCommandInput} for command's `input` shape.
+ * @see {@link XmlEnumsCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class XmlEnumsCommand extends $Command<
   XmlEnumsCommandInput,

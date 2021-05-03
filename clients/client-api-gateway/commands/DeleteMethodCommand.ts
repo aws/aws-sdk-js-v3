@@ -22,6 +22,18 @@ export interface DeleteMethodCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an existing <a>Method</a> resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new DeleteMethodCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMethodCommandInput} for command's `input` shape.
+ * @see {@link DeleteMethodCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMethodCommand extends $Command<
   DeleteMethodCommandInput,

@@ -24,6 +24,18 @@ export interface ListDeviceDefinitionVersionsCommandOutput
 
 /**
  * Lists the versions of a device definition.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new ListDeviceDefinitionVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDeviceDefinitionVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListDeviceDefinitionVersionsCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDeviceDefinitionVersionsCommand extends $Command<
   ListDeviceDefinitionVersionsCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __
 
 /**
  * <p>Returns a list of all the available maintenance tracks.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DescribeClusterTracksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeClusterTracksCommandInput} for command's `input` shape.
+ * @see {@link DescribeClusterTracksCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeClusterTracksCommand extends $Command<
   DescribeClusterTracksCommandInput,

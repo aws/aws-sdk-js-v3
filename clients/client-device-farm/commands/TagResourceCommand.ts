@@ -24,6 +24,18 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>Associates the specified tags to a resource with the specified <code>resourceArn</code>. If existing tags
  *             on a resource are not specified in the request parameters, they are not changed. When a resource is deleted,
  *             the tags associated with that resource are also deleted.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

@@ -26,6 +26,18 @@ export interface DeleteVoiceConnectorGroupCommandOutput extends __MetadataBearer
  * <code>VoiceConnectorItems</code>
  * and phone numbers associated with the group must be removed before it can be deleted.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new DeleteVoiceConnectorGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVoiceConnectorGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteVoiceConnectorGroupCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVoiceConnectorGroupCommand extends $Command<
   DeleteVoiceConnectorGroupCommandInput,

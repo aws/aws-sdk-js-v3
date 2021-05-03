@@ -22,6 +22,18 @@ export interface BatchGetBuildBatchesCommandOutput extends BatchGetBuildBatchesO
 
 /**
  * <p>Retrieves information about one or more batch builds.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new BatchGetBuildBatchesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetBuildBatchesCommandInput} for command's `input` shape.
+ * @see {@link BatchGetBuildBatchesCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetBuildBatchesCommand extends $Command<
   BatchGetBuildBatchesCommandInput,

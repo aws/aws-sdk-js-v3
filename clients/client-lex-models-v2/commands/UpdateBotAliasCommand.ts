@@ -22,6 +22,18 @@ export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __M
 
 /**
  * <p>Updates the configuration of an existing bot alias.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelsV2Client(config);
+ * const command = new UpdateBotAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateBotAliasCommandInput} for command's `input` shape.
+ * @see {@link UpdateBotAliasCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateBotAliasCommand extends $Command<
   UpdateBotAliasCommandInput,

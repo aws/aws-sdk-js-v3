@@ -23,6 +23,18 @@ export interface GetLinkAssociationsCommandOutput extends GetLinkAssociationsRes
 /**
  * <p>Gets the link associations for a device or a link. Either the device ID or the link ID
  *             must be specified.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new GetLinkAssociationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLinkAssociationsCommandInput} for command's `input` shape.
+ * @see {@link GetLinkAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLinkAssociationsCommand extends $Command<
   GetLinkAssociationsCommandInput,

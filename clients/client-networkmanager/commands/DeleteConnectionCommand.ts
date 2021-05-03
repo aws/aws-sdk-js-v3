@@ -22,6 +22,18 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
 
 /**
  * <p>Deletes the specified connection in your global network.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new DeleteConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConnectionCommandInput} for command's `input` shape.
+ * @see {@link DeleteConnectionCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConnectionCommand extends $Command<
   DeleteConnectionCommandInput,

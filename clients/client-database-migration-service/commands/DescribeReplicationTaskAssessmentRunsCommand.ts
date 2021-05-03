@@ -40,6 +40,18 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
  *             information, see the <code>DescribeReplicationTaskIndividualAssessments</code>
  *             operation. </p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DescribeReplicationTaskAssessmentRunsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeReplicationTaskAssessmentRunsCommandInput} for command's `input` shape.
+ * @see {@link DescribeReplicationTaskAssessmentRunsCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<
   DescribeReplicationTaskAssessmentRunsCommandInput,

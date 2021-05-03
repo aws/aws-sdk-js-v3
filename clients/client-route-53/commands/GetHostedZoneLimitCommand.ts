@@ -27,6 +27,18 @@ export interface GetHostedZoneLimitCommandOutput extends GetHostedZoneLimitRespo
  * 		       <p>For the default limit, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a>
  * 			in the <i>Amazon Route 53 Developer Guide</i>. To request a higher limit,
  * 			<a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53">open a case</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new GetHostedZoneLimitCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetHostedZoneLimitCommandInput} for command's `input` shape.
+ * @see {@link GetHostedZoneLimitCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetHostedZoneLimitCommand extends $Command<
   GetHostedZoneLimitCommandInput,

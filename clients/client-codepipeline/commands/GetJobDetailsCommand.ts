@@ -28,6 +28,18 @@ export interface GetJobDetailsCommandOutput extends GetJobDetailsOutput, __Metad
  *                 that S3 bucket for input or output artifacts. This API also returns any secret
  *                 values defined for the action.</p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new GetJobDetailsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetJobDetailsCommandInput} for command's `input` shape.
+ * @see {@link GetJobDetailsCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetJobDetailsCommand extends $Command<
   GetJobDetailsCommandInput,

@@ -31,6 +31,18 @@ export interface GetCustomVerificationEmailTemplateCommandOutput
  *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
  *                 Guide</i>.</p>
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new GetCustomVerificationEmailTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCustomVerificationEmailTemplateCommandInput} for command's `input` shape.
+ * @see {@link GetCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCustomVerificationEmailTemplateCommand extends $Command<
   GetCustomVerificationEmailTemplateCommandInput,

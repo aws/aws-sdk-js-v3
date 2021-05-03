@@ -22,6 +22,18 @@ export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProf
 
 /**
  * <p>Describes the specified routing profile.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new DescribeRoutingProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRoutingProfileCommandInput} for command's `input` shape.
+ * @see {@link DescribeRoutingProfileCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRoutingProfileCommand extends $Command<
   DescribeRoutingProfileCommandInput,

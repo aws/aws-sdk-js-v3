@@ -25,6 +25,18 @@ export interface ListMedicalTranscriptionJobsCommandOutput
 /**
  * <p>Lists medical transcription jobs with a specified status or substring that matches
  *             their names.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeClient(config);
+ * const command = new ListMedicalTranscriptionJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMedicalTranscriptionJobsCommandInput} for command's `input` shape.
+ * @see {@link ListMedicalTranscriptionJobsCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMedicalTranscriptionJobsCommand extends $Command<
   ListMedicalTranscriptionJobsCommandInput,

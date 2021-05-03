@@ -24,6 +24,18 @@ export interface DeleteDashboardsCommandOutput extends DeleteDashboardsOutput, _
  * <p>Deletes all dashboards that you specify. You
  * 			can specify up to 100 dashboards to delete. If there is an error during this call, no dashboards are
  * 			deleted.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchClient(config);
+ * const command = new DeleteDashboardsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDashboardsCommandInput} for command's `input` shape.
+ * @see {@link DeleteDashboardsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDashboardsCommand extends $Command<
   DeleteDashboardsCommandInput,

@@ -47,6 +47,18 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *             policies that prevent accounts from leaving the organization. Ensure that your account
  *             administrators are aware of this.</p>
  *         <p>This operation can be called only from the organization's management account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OrganizationsClient(config);
+ * const command = new EnableAllFeaturesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableAllFeaturesCommandInput} for command's `input` shape.
+ * @see {@link EnableAllFeaturesCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableAllFeaturesCommand extends $Command<
   EnableAllFeaturesCommandInput,

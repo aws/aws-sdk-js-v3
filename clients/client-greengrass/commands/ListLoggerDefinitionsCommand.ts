@@ -22,6 +22,18 @@ export interface ListLoggerDefinitionsCommandOutput extends ListLoggerDefinition
 
 /**
  * Retrieves a list of logger definitions.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new ListLoggerDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListLoggerDefinitionsCommandInput} for command's `input` shape.
+ * @see {@link ListLoggerDefinitionsCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListLoggerDefinitionsCommand extends $Command<
   ListLoggerDefinitionsCommandInput,

@@ -25,6 +25,18 @@ export interface BatchDisableStandardsCommandOutput extends BatchDisableStandard
  *          <code>StandardsSubscriptionArns</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html">Security Standards</a> section of the <i>AWS Security Hub User
  *          Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecurityHubClient(config);
+ * const command = new BatchDisableStandardsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDisableStandardsCommandInput} for command's `input` shape.
+ * @see {@link BatchDisableStandardsCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDisableStandardsCommand extends $Command<
   BatchDisableStandardsCommandInput,

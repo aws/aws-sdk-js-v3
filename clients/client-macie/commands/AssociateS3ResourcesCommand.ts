@@ -26,6 +26,18 @@ export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesR
  *       resources with Macie Classic for the current Macie Classic administrator account. If memberAccountId is specified,
  *       the action associates specified S3 resources with Macie Classic for the specified member
  *       account. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MacieClient(config);
+ * const command = new AssociateS3ResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateS3ResourcesCommandInput} for command's `input` shape.
+ * @see {@link AssociateS3ResourcesCommandOutput} for command's `response` shape.
+ * @see {@link MacieClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateS3ResourcesCommand extends $Command<
   AssociateS3ResourcesCommandInput,

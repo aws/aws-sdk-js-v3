@@ -24,6 +24,18 @@ export interface BatchDisassociateScramSecretCommandOutput
 
 /**
  * <p>Disassociates one or more Scram Secrets from an Amazon MSK cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new BatchDisassociateScramSecretCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDisassociateScramSecretCommandInput} for command's `input` shape.
+ * @see {@link BatchDisassociateScramSecretCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDisassociateScramSecretCommand extends $Command<
   BatchDisassociateScramSecretCommandInput,

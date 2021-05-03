@@ -29,6 +29,18 @@ export interface DescribeRepositoryAssociationCommandOutput
  *             </a> object
  *          that contains information about the requested repository association.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeGuruReviewerClient(config);
+ * const command = new DescribeRepositoryAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRepositoryAssociationCommandInput} for command's `input` shape.
+ * @see {@link DescribeRepositoryAssociationCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRepositoryAssociationCommand extends $Command<
   DescribeRepositoryAssociationCommandInput,

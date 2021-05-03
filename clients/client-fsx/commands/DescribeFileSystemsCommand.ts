@@ -53,6 +53,18 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  *                     across the responses of a multicall iteration is unspecified.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FSxClient(config);
+ * const command = new DescribeFileSystemsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFileSystemsCommandInput} for command's `input` shape.
+ * @see {@link DescribeFileSystemsCommandOutput} for command's `response` shape.
+ * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFileSystemsCommand extends $Command<
   DescribeFileSystemsCommandInput,

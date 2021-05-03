@@ -23,6 +23,18 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
 /**
  * <p>Deletes an existing device. You must first disassociate the device from any links and
  *             customer gateways.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new DeleteDeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDeviceCommandInput} for command's `input` shape.
+ * @see {@link DeleteDeviceCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDeviceCommand extends $Command<
   DeleteDeviceCommandInput,

@@ -29,6 +29,18 @@ export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopy
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon Redshift Database Encryption</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new CreateSnapshotCopyGrantCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSnapshotCopyGrantCommandInput} for command's `input` shape.
+ * @see {@link CreateSnapshotCopyGrantCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSnapshotCopyGrantCommand extends $Command<
   CreateSnapshotCopyGrantCommandInput,

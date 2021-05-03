@@ -22,6 +22,18 @@ export interface TerminateAppCommandOutput extends TerminateAppResponse, __Metad
 
 /**
  * <p>Terminates the stack for the specified application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SMSClient(config);
+ * const command = new TerminateAppCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TerminateAppCommandInput} for command's `input` shape.
+ * @see {@link TerminateAppCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TerminateAppCommand extends $Command<
   TerminateAppCommandInput,

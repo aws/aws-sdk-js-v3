@@ -35,6 +35,18 @@ export interface RestoreTableFromClusterSnapshotCommandOutput
  *                 <code>NewTableName</code> parameter value in the call to
  *                 <code>RestoreTableFromClusterSnapshot</code>. This way, you can replace the original
  *             table with the table created from the snapshot.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new RestoreTableFromClusterSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RestoreTableFromClusterSnapshotCommandInput} for command's `input` shape.
+ * @see {@link RestoreTableFromClusterSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RestoreTableFromClusterSnapshotCommand extends $Command<
   RestoreTableFromClusterSnapshotCommandInput,

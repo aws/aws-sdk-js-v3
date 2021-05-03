@@ -22,6 +22,18 @@ export interface GetAccountCommandOutput extends Account, __MetadataBearer {}
 
 /**
  * <p>Gets information about the current <a>Account</a> resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new GetAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAccountCommandInput} for command's `input` shape.
+ * @see {@link GetAccountCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAccountCommand extends $Command<
   GetAccountCommandInput,

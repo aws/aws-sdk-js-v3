@@ -22,6 +22,18 @@ export interface DeleteFolderContentsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the contents of the specified folder.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new DeleteFolderContentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFolderContentsCommandInput} for command's `input` shape.
+ * @see {@link DeleteFolderContentsCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFolderContentsCommand extends $Command<
   DeleteFolderContentsCommandInput,

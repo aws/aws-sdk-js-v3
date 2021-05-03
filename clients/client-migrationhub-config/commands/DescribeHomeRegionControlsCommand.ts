@@ -27,6 +27,18 @@ export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeReg
 /**
  * <p>This API permits filtering on the <code>ControlId</code> and <code>HomeRegion</code>
  *       fields.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MigrationHubConfigClient(config);
+ * const command = new DescribeHomeRegionControlsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeHomeRegionControlsCommandInput} for command's `input` shape.
+ * @see {@link DescribeHomeRegionControlsCommandOutput} for command's `response` shape.
+ * @see {@link MigrationHubConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeHomeRegionControlsCommand extends $Command<
   DescribeHomeRegionControlsCommandInput,

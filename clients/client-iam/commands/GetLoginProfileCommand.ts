@@ -24,6 +24,18 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  * <p>Retrieves the user name and password creation date for the specified IAM user. If
  *             the user has not been assigned a password, the operation returns a 404
  *                 (<code>NoSuchEntity</code>) error.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new GetLoginProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLoginProfileCommandInput} for command's `input` shape.
+ * @see {@link GetLoginProfileCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLoginProfileCommand extends $Command<
   GetLoginProfileCommandInput,

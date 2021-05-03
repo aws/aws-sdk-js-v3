@@ -22,6 +22,18 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
 
 /**
  * <p>Retrieves the content and settings of a message template for messages that are sent through the email channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new GetEmailTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEmailTemplateCommandInput} for command's `input` shape.
+ * @see {@link GetEmailTemplateCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEmailTemplateCommand extends $Command<
   GetEmailTemplateCommandInput,

@@ -25,6 +25,18 @@ export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __Met
  *          <p>You cannot stop a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
  *          state of <code>AVAILABLE</code>, <code>IMPAIRED</code>, <code>UNHEALTHY</code>, or
  *             <code>ERROR</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new StopWorkspacesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopWorkspacesCommandInput} for command's `input` shape.
+ * @see {@link StopWorkspacesCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopWorkspacesCommand extends $Command<
   StopWorkspacesCommandInput,

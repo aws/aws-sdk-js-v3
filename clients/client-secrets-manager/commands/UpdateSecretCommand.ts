@@ -106,6 +106,18 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  *                <p>To list the versions contained in a secret, use <a>ListSecretVersionIds</a>.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecretsManagerClient(config);
+ * const command = new UpdateSecretCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSecretCommandInput} for command's `input` shape.
+ * @see {@link UpdateSecretCommandOutput} for command's `response` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSecretCommand extends $Command<
   UpdateSecretCommandInput,

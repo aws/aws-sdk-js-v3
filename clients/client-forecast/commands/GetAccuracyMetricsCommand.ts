@@ -41,6 +41,18 @@ export interface GetAccuracyMetricsCommandOutput extends GetAccuracyMetricsRespo
  *         <code>ACTIVE</code>, signifying that training has completed.
  *         To get the status, use the <a>DescribePredictor</a> operation.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ForecastClient(config);
+ * const command = new GetAccuracyMetricsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAccuracyMetricsCommandInput} for command's `input` shape.
+ * @see {@link GetAccuracyMetricsCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAccuracyMetricsCommand extends $Command<
   GetAccuracyMetricsCommandInput,

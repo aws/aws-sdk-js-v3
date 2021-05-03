@@ -25,6 +25,18 @@ export interface DisassociateSubnetsCommandOutput extends DisassociateSubnetsRes
  *           firewall endpoints from the subnets and removes any network filtering protections that the endpoints
  *           were providing.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkFirewallClient(config);
+ * const command = new DisassociateSubnetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateSubnetsCommandInput} for command's `input` shape.
+ * @see {@link DisassociateSubnetsCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateSubnetsCommand extends $Command<
   DisassociateSubnetsCommandInput,

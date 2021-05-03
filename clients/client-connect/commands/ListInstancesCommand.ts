@@ -25,6 +25,18 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  *          <p>Return a list of instances which are in active state, creation-in-progress state, and failed
  *    state. Instances that aren't successfully created (they are in a failed state) are returned only
  *    for 24 hours after the CreateInstance API was invoked.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new ListInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListInstancesCommandInput} for command's `input` shape.
+ * @see {@link ListInstancesCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListInstancesCommand extends $Command<
   ListInstancesCommandInput,

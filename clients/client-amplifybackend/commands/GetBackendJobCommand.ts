@@ -22,6 +22,18 @@ export interface GetBackendJobCommandOutput extends GetBackendJobResponse, __Met
 
 /**
  * <p>Returns information about a specific job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyBackendClient(config);
+ * const command = new GetBackendJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBackendJobCommandInput} for command's `input` shape.
+ * @see {@link GetBackendJobCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBackendJobCommand extends $Command<
   GetBackendJobCommandInput,

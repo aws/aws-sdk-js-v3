@@ -26,6 +26,18 @@ export interface DescribeCreateAccountStatusCommandOutput
  * <p>Retrieves the current status of an asynchronous request to create an account.</p>
  *         <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an AWS service.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OrganizationsClient(config);
+ * const command = new DescribeCreateAccountStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCreateAccountStatusCommandInput} for command's `input` shape.
+ * @see {@link DescribeCreateAccountStatusCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCreateAccountStatusCommand extends $Command<
   DescribeCreateAccountStatusCommandInput,

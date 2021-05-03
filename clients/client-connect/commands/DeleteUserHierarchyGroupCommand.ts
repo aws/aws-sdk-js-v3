@@ -23,6 +23,18 @@ export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer 
 /**
  * <p>Deletes an existing user hierarchy group. It must not be associated with any agents or have
  *    any active child groups.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new DeleteUserHierarchyGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteUserHierarchyGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteUserHierarchyGroupCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteUserHierarchyGroupCommand extends $Command<
   DeleteUserHierarchyGroupCommandInput,

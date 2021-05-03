@@ -29,6 +29,18 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  *          <p>Once a tape is successfully retrieved to a gateway, it cannot be retrieved again to
  *          another gateway. You must archive the tape again before you can retrieve it to another
  *          gateway. This operation is only supported in the tape gateway type.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new RetrieveTapeArchiveCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RetrieveTapeArchiveCommandInput} for command's `input` shape.
+ * @see {@link RetrieveTapeArchiveCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RetrieveTapeArchiveCommand extends $Command<
   RetrieveTapeArchiveCommandInput,

@@ -22,6 +22,18 @@ export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineR
 
 /**
  * <p>Cancels the reprocessing of data through the pipeline.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTAnalyticsClient(config);
+ * const command = new CancelPipelineReprocessingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelPipelineReprocessingCommandInput} for command's `input` shape.
+ * @see {@link CancelPipelineReprocessingCommandOutput} for command's `response` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelPipelineReprocessingCommand extends $Command<
   CancelPipelineReprocessingCommandInput,

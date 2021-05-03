@@ -26,6 +26,18 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  *       However, EventBridge uses an exact match in event patterns and rules. Be sure to use the
  *       correct ARN characters when creating event patterns so that they match the ARN syntax in the
  *       event you want to match.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EventBridgeClient(config);
+ * const command = new TestEventPatternCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TestEventPatternCommandInput} for command's `input` shape.
+ * @see {@link TestEventPatternCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TestEventPatternCommand extends $Command<
   TestEventPatternCommandInput,

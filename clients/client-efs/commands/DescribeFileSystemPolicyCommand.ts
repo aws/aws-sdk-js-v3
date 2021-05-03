@@ -23,6 +23,18 @@ export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyD
 /**
  * <p>Returns the <code>FileSystemPolicy</code> for the specified EFS file system.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeFileSystemPolicy</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EFSClient(config);
+ * const command = new DescribeFileSystemPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFileSystemPolicyCommandInput} for command's `input` shape.
+ * @see {@link DescribeFileSystemPolicyCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFileSystemPolicyCommand extends $Command<
   DescribeFileSystemPolicyCommandInput,

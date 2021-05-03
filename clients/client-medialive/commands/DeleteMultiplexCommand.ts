@@ -22,6 +22,18 @@ export interface DeleteMultiplexCommandOutput extends DeleteMultiplexResponse, _
 
 /**
  * Delete a multiplex. The multiplex must be idle.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaLiveClient(config);
+ * const command = new DeleteMultiplexCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMultiplexCommandInput} for command's `input` shape.
+ * @see {@link DeleteMultiplexCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMultiplexCommand extends $Command<
   DeleteMultiplexCommandInput,

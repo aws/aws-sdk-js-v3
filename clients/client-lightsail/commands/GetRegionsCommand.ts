@@ -24,6 +24,18 @@ export interface GetRegionsCommandOutput extends GetRegionsResult, __MetadataBea
  * <p>Returns a list of all valid regions for Amazon Lightsail. Use the <code>include
  *         availability zones</code> parameter to also return the Availability Zones in a
  *       region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetRegionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRegionsCommandInput} for command's `input` shape.
+ * @see {@link GetRegionsCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRegionsCommand extends $Command<
   GetRegionsCommandInput,

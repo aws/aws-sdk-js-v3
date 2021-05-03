@@ -22,6 +22,18 @@ export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexR
 
 /**
  * <p>Creates a specified partition index in an existing table.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new CreatePartitionIndexCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePartitionIndexCommandInput} for command's `input` shape.
+ * @see {@link CreatePartitionIndexCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePartitionIndexCommand extends $Command<
   CreatePartitionIndexCommandInput,

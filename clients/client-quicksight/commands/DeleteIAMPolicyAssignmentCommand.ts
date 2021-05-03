@@ -22,6 +22,18 @@ export interface DeleteIAMPolicyAssignmentCommandOutput extends DeleteIAMPolicyA
 
 /**
  * <p>Deletes an existing IAM policy assignment.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new DeleteIAMPolicyAssignmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteIAMPolicyAssignmentCommandInput} for command's `input` shape.
+ * @see {@link DeleteIAMPolicyAssignmentCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteIAMPolicyAssignmentCommand extends $Command<
   DeleteIAMPolicyAssignmentCommandInput,

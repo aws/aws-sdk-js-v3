@@ -35,6 +35,18 @@ export interface GetAssetPropertyValueHistoryCommandOutput
  *           <code>/company/windfarm/3/turbine/7/temperature</code>). To define an asset property's alias, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html">UpdateAssetProperty</a>.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new GetAssetPropertyValueHistoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAssetPropertyValueHistoryCommandInput} for command's `input` shape.
+ * @see {@link GetAssetPropertyValueHistoryCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAssetPropertyValueHistoryCommand extends $Command<
   GetAssetPropertyValueHistoryCommandInput,

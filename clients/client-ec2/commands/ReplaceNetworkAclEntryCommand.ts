@@ -23,6 +23,18 @@ export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
 /**
  * <p>Replaces an entry (rule) in a network ACL. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the
  * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ReplaceNetworkAclEntryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReplaceNetworkAclEntryCommandInput} for command's `input` shape.
+ * @see {@link ReplaceNetworkAclEntryCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReplaceNetworkAclEntryCommand extends $Command<
   ReplaceNetworkAclEntryCommandInput,

@@ -22,6 +22,18 @@ export interface ListScramSecretsCommandOutput extends ListScramSecretsResponse,
 
 /**
  * <p>Returns a list of the Scram Secrets associated with an Amazon MSK cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new ListScramSecretsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListScramSecretsCommandInput} for command's `input` shape.
+ * @see {@link ListScramSecretsCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListScramSecretsCommand extends $Command<
   ListScramSecretsCommandInput,

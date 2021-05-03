@@ -23,6 +23,18 @@ export interface CreateStageCommandOutput extends Stage, __MetadataBearer {}
 /**
  * <p>Creates a new <a>Stage</a> resource that references a pre-existing <a>Deployment</a> for the API. </p>
  *         <!--   <p>Creates a <a>Stage</a> resource.</p>  -->
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new CreateStageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateStageCommandInput} for command's `input` shape.
+ * @see {@link CreateStageCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateStageCommand extends $Command<
   CreateStageCommandInput,

@@ -28,6 +28,18 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * <p>Describes the current Elastic Load Balancing resource limits for your AWS account.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits for Your Classic Load Balancer</a>
  *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingClient(config);
+ * const command = new DescribeAccountLimitsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAccountLimitsCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccountLimitsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAccountLimitsCommand extends $Command<
   DescribeAccountLimitsCommandInput,

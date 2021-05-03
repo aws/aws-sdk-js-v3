@@ -22,6 +22,18 @@ export interface GetResourceDefinitionCommandOutput extends GetResourceDefinitio
 
 /**
  * Retrieves information about a resource definition, including its creation time and latest version.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new GetResourceDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetResourceDefinitionCommandInput} for command's `input` shape.
+ * @see {@link GetResourceDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetResourceDefinitionCommand extends $Command<
   GetResourceDefinitionCommandInput,

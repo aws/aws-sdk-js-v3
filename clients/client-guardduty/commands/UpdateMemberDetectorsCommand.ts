@@ -22,6 +22,18 @@ export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetector
 
 /**
  * <p>Contains information on member accounts to be updated.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new UpdateMemberDetectorsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMemberDetectorsCommandInput} for command's `input` shape.
+ * @see {@link UpdateMemberDetectorsCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMemberDetectorsCommand extends $Command<
   UpdateMemberDetectorsCommandInput,

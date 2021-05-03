@@ -23,6 +23,18 @@ export interface GetInvitationConfigurationCommandOutput extends GetInvitationCo
 /**
  * <p>Retrieves the configured values for the user enrollment invitation email
  *          template.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new GetInvitationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetInvitationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetInvitationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetInvitationConfigurationCommand extends $Command<
   GetInvitationConfigurationCommandInput,

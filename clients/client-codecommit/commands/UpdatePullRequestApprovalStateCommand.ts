@@ -22,6 +22,18 @@ export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataB
 
 /**
  * <p>Updates the state of a user's approval on a pull request. The user is derived from the signed-in account when the request is made.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new UpdatePullRequestApprovalStateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePullRequestApprovalStateCommandInput} for command's `input` shape.
+ * @see {@link UpdatePullRequestApprovalStateCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePullRequestApprovalStateCommand extends $Command<
   UpdatePullRequestApprovalStateCommandInput,

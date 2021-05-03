@@ -22,6 +22,18 @@ export interface CreateHostedConfigurationVersionCommandOutput extends HostedCon
 
 /**
  * <p>Create a new configuration in the AppConfig configuration store.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppConfigClient(config);
+ * const command = new CreateHostedConfigurationVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateHostedConfigurationVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateHostedConfigurationVersionCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateHostedConfigurationVersionCommand extends $Command<
   CreateHostedConfigurationVersionCommandInput,

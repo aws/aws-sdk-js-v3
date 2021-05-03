@@ -42,6 +42,18 @@ export interface CreateCachePolicyCommandOutput extends CreateCachePolicyResult,
  * 			<code>OriginRequestPolicy</code>.</p>
  * 		       <p>For more information about cache policies, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html">Controlling the cache key</a> in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new CreateCachePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCachePolicyCommandInput} for command's `input` shape.
+ * @see {@link CreateCachePolicyCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCachePolicyCommand extends $Command<
   CreateCachePolicyCommandInput,

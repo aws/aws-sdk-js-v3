@@ -38,6 +38,18 @@ export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
  *                <p>The ':' (colon) and '*' (asterisk) characters are not allowed.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new CreateLogStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLogStreamCommandInput} for command's `input` shape.
+ * @see {@link CreateLogStreamCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLogStreamCommand extends $Command<
   CreateLogStreamCommandInput,

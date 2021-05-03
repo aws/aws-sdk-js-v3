@@ -43,6 +43,18 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  *
  *          <p> This operation requires permission for the
  *         <code>lex:DeleteIntent</code> action. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new DeleteIntentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteIntentCommandInput} for command's `input` shape.
+ * @see {@link DeleteIntentCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteIntentCommand extends $Command<
   DeleteIntentCommandInput,

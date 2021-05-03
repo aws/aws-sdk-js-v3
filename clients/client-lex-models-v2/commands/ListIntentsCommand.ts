@@ -22,6 +22,18 @@ export interface ListIntentsCommandOutput extends ListIntentsResponse, __Metadat
 
 /**
  * <p>Get a list of intents that meet the specified criteria.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelsV2Client(config);
+ * const command = new ListIntentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListIntentsCommandInput} for command's `input` shape.
+ * @see {@link ListIntentsCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListIntentsCommand extends $Command<
   ListIntentsCommandInput,

@@ -24,6 +24,18 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
  * <p>Returns a revision data object for a specified document ID and block address. Also
  *          returns a proof of the specified revision for verification if <code>DigestTipAddress</code>
  *          is provided.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QLDBClient(config);
+ * const command = new GetRevisionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRevisionCommandInput} for command's `input` shape.
+ * @see {@link GetRevisionCommandOutput} for command's `response` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRevisionCommand extends $Command<
   GetRevisionCommandInput,

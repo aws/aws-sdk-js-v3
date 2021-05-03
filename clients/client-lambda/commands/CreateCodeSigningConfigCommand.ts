@@ -24,6 +24,18 @@ export interface CreateCodeSigningConfigCommandOutput extends CreateCodeSigningC
  * <p>Creates a code signing configuration. A <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html">code signing configuration</a> defines a list of
  *       allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment
  *       validation checks fail). </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new CreateCodeSigningConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCodeSigningConfigCommandInput} for command's `input` shape.
+ * @see {@link CreateCodeSigningConfigCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCodeSigningConfigCommand extends $Command<
   CreateCodeSigningConfigCommandInput,

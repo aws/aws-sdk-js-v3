@@ -25,6 +25,18 @@ export interface DeregisterFromWorkMailCommandOutput extends DeregisterFromWorkM
  *          disassociates the mailbox and schedules it for clean-up. WorkMail keeps mailboxes for 30 days
  *          before they are permanently removed. The functionality in the console is
  *             <i>Disable</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new DeregisterFromWorkMailCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterFromWorkMailCommandInput} for command's `input` shape.
+ * @see {@link DeregisterFromWorkMailCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterFromWorkMailCommand extends $Command<
   DeregisterFromWorkMailCommandInput,

@@ -22,6 +22,18 @@ export interface GetBaiduChannelCommandOutput extends GetBaiduChannelResponse, _
 
 /**
  * <p>Retrieves information about the status and settings of the Baidu channel for an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new GetBaiduChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBaiduChannelCommandInput} for command's `input` shape.
+ * @see {@link GetBaiduChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBaiduChannelCommand extends $Command<
   GetBaiduChannelCommandInput,

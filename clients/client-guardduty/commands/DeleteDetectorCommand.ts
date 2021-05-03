@@ -22,6 +22,18 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResponse, __M
 
 /**
  * <p>Deletes an Amazon GuardDuty detector that is specified by the detector ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new DeleteDetectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDetectorCommandInput} for command's `input` shape.
+ * @see {@link DeleteDetectorCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDetectorCommand extends $Command<
   DeleteDetectorCommandInput,

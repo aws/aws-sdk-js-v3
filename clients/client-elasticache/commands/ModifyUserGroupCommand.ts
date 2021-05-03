@@ -22,6 +22,18 @@ export interface ModifyUserGroupCommandOutput extends UserGroup, __MetadataBeare
 
 /**
  * <p>Changes the list of users that belong to the user group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new ModifyUserGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyUserGroupCommandInput} for command's `input` shape.
+ * @see {@link ModifyUserGroupCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyUserGroupCommand extends $Command<
   ModifyUserGroupCommandInput,

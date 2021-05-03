@@ -24,6 +24,18 @@ export interface DisassociateMemberFromGroupCommandOutput
 
 /**
  * <p>Removes a member from a group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new DisassociateMemberFromGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateMemberFromGroupCommandInput} for command's `input` shape.
+ * @see {@link DisassociateMemberFromGroupCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateMemberFromGroupCommand extends $Command<
   DisassociateMemberFromGroupCommandInput,

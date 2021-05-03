@@ -23,6 +23,18 @@ export interface AssociateTrialComponentCommandOutput extends AssociateTrialComp
 /**
  * <p>Associates a trial component with a trial. A trial component can be associated with
  *       multiple trials. To disassociate a trial component from a trial, call the <a>DisassociateTrialComponent</a> API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new AssociateTrialComponentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateTrialComponentCommandInput} for command's `input` shape.
+ * @see {@link AssociateTrialComponentCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateTrialComponentCommand extends $Command<
   AssociateTrialComponentCommandInput,

@@ -23,6 +23,18 @@ export interface GetOperationCommandOutput extends GetOperationResult, __Metadat
 /**
  * <p>Returns information about a specific operation. Operations include events such as when you
  *       create an instance, allocate a static IP, attach a static IP, and so on.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetOperationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOperationCommandInput} for command's `input` shape.
+ * @see {@link GetOperationCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOperationCommand extends $Command<
   GetOperationCommandInput,

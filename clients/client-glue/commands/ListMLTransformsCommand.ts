@@ -26,6 +26,18 @@ export interface ListMLTransformsCommandOutput extends ListMLTransformsResponse,
  *        a filter of the responses so that tagged resources can be retrieved as a group. If you choose to use tag
  *        filtering, only resources with the tags are retrieved.
  *      </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new ListMLTransformsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMLTransformsCommandInput} for command's `input` shape.
+ * @see {@link ListMLTransformsCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMLTransformsCommand extends $Command<
   ListMLTransformsCommandInput,

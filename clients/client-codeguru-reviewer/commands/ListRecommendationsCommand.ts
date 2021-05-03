@@ -24,6 +24,18 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  * <p>
  *          Returns the list of all recommendations for a completed code review.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeGuruReviewerClient(config);
+ * const command = new ListRecommendationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRecommendationsCommandInput} for command's `input` shape.
+ * @see {@link ListRecommendationsCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRecommendationsCommand extends $Command<
   ListRecommendationsCommandInput,

@@ -29,6 +29,18 @@ export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBala
  *         <p>The load balancer evenly distributes requests across all registered subnets.
  *             For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-manage-subnets.html">Add or Remove Subnets for Your Load Balancer in a VPC</a>
  *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingClient(config);
+ * const command = new AttachLoadBalancerToSubnetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AttachLoadBalancerToSubnetsCommandInput} for command's `input` shape.
+ * @see {@link AttachLoadBalancerToSubnetsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AttachLoadBalancerToSubnetsCommand extends $Command<
   AttachLoadBalancerToSubnetsCommandInput,

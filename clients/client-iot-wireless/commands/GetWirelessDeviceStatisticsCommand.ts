@@ -24,6 +24,18 @@ export interface GetWirelessDeviceStatisticsCommandOutput
 
 /**
  * <p>Gets operating information about a wireless device.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new GetWirelessDeviceStatisticsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetWirelessDeviceStatisticsCommandInput} for command's `input` shape.
+ * @see {@link GetWirelessDeviceStatisticsCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetWirelessDeviceStatisticsCommand extends $Command<
   GetWirelessDeviceStatisticsCommandInput,

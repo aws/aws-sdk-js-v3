@@ -25,6 +25,18 @@ export interface ResetDistributionCacheCommandOutput extends ResetDistributionCa
  *       distribution.</p>
  *          <p>After resetting the cache, the next time a content request is made, your distribution
  *       pulls, serves, and caches it from the origin.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new ResetDistributionCacheCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResetDistributionCacheCommandInput} for command's `input` shape.
+ * @see {@link ResetDistributionCacheCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResetDistributionCacheCommand extends $Command<
   ResetDistributionCacheCommandInput,

@@ -52,6 +52,18 @@ export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFro
  *             the variable be included or excluded from training? Will the variable be manipulated;
  *             for example, will it be combined with another variable or will it be split apart into
  *             word combinations? The recipe provides answers to these questions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MachineLearningClient(config);
+ * const command = new CreateDataSourceFromS3Command(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDataSourceFromS3CommandInput} for command's `input` shape.
+ * @see {@link CreateDataSourceFromS3CommandOutput} for command's `response` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDataSourceFromS3Command extends $Command<
   CreateDataSourceFromS3CommandInput,

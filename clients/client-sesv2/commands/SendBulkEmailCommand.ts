@@ -22,6 +22,18 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
 
 /**
  * <p>Composes an email message to multiple destinations.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new SendBulkEmailCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendBulkEmailCommandInput} for command's `input` shape.
+ * @see {@link SendBulkEmailCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendBulkEmailCommand extends $Command<
   SendBulkEmailCommandInput,

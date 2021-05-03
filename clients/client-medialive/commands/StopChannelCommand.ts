@@ -22,6 +22,18 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
 
 /**
  * Stops a running channel
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaLiveClient(config);
+ * const command = new StopChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopChannelCommandInput} for command's `input` shape.
+ * @see {@link StopChannelCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopChannelCommand extends $Command<
   StopChannelCommandInput,

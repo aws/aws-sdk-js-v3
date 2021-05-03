@@ -22,6 +22,18 @@ export interface ListDiscoverersCommandOutput extends ListDiscoverersResponse, _
 
 /**
  * <p>List the discoverers.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SchemasClient(config);
+ * const command = new ListDiscoverersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDiscoverersCommandInput} for command's `input` shape.
+ * @see {@link ListDiscoverersCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDiscoverersCommand extends $Command<
   ListDiscoverersCommandInput,

@@ -22,6 +22,18 @@ export interface CreateAliasCommandOutput extends CreateAliasResponse, __Metadat
 
 /**
  * <p>Adds an alias to the set of a given member (user or group) of Amazon WorkMail.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new CreateAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAliasCommandInput} for command's `input` shape.
+ * @see {@link CreateAliasCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAliasCommand extends $Command<
   CreateAliasCommandInput,

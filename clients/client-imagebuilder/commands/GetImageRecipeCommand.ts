@@ -22,6 +22,18 @@ export interface GetImageRecipeCommandOutput extends GetImageRecipeResponse, __M
 
 /**
  * <p> Gets an image recipe.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new GetImageRecipeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetImageRecipeCommandInput} for command's `input` shape.
+ * @see {@link GetImageRecipeCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetImageRecipeCommand extends $Command<
   GetImageRecipeCommandInput,

@@ -25,6 +25,18 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * no request or response payload because the operation has no input and the
  * output is empty. While this should be rare, code generators must support
  * this.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new NoInputAndOutputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link NoInputAndOutputCommandInput} for command's `input` shape.
+ * @see {@link NoInputAndOutputCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class NoInputAndOutputCommand extends $Command<
   NoInputAndOutputCommandInput,

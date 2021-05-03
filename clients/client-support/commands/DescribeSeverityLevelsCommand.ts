@@ -38,6 +38,18 @@ export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLev
  *                 </li>
  *             </ul>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SupportClient(config);
+ * const command = new DescribeSeverityLevelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSeverityLevelsCommandInput} for command's `input` shape.
+ * @see {@link DescribeSeverityLevelsCommandOutput} for command's `response` shape.
+ * @see {@link SupportClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSeverityLevelsCommand extends $Command<
   DescribeSeverityLevelsCommandInput,

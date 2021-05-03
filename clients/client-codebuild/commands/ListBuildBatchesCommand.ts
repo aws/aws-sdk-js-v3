@@ -22,6 +22,18 @@ export interface ListBuildBatchesCommandOutput extends ListBuildBatchesOutput, _
 
 /**
  * <p>Retrieves the identifiers of your build batches in the current region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new ListBuildBatchesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBuildBatchesCommandInput} for command's `input` shape.
+ * @see {@link ListBuildBatchesCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBuildBatchesCommand extends $Command<
   ListBuildBatchesCommandInput,

@@ -28,6 +28,18 @@ export interface DisassociateWebsiteCertificateAuthorityCommandOutput
 
 /**
  * <p>Removes a certificate authority (CA).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkLinkClient(config);
+ * const command = new DisassociateWebsiteCertificateAuthorityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateWebsiteCertificateAuthorityCommandInput} for command's `input` shape.
+ * @see {@link DisassociateWebsiteCertificateAuthorityCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
   DisassociateWebsiteCertificateAuthorityCommandInput,

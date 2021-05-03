@@ -22,6 +22,18 @@ export interface DeleteSipRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a SIP rule. You must disable a SIP rule before you can delete it.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new DeleteSipRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSipRuleCommandInput} for command's `input` shape.
+ * @see {@link DeleteSipRuleCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSipRuleCommand extends $Command<
   DeleteSipRuleCommandInput,

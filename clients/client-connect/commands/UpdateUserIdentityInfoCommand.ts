@@ -30,6 +30,18 @@ export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
  *     password through email. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html">Best Practices for
  *      Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new UpdateUserIdentityInfoCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateUserIdentityInfoCommandInput} for command's `input` shape.
+ * @see {@link UpdateUserIdentityInfoCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateUserIdentityInfoCommand extends $Command<
   UpdateUserIdentityInfoCommandInput,

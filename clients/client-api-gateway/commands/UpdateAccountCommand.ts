@@ -22,6 +22,18 @@ export interface UpdateAccountCommandOutput extends Account, __MetadataBearer {}
 
 /**
  * <p>Changes information about the current <a>Account</a> resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new UpdateAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAccountCommandInput} for command's `input` shape.
+ * @see {@link UpdateAccountCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAccountCommand extends $Command<
   UpdateAccountCommandInput,

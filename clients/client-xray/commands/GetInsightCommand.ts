@@ -24,6 +24,18 @@ export interface GetInsightCommandOutput extends GetInsightResult, __MetadataBea
  * <p>Retrieves the summary information of an insight. This includes impact to clients and
  *          root cause services, the top anomalous services, the category, the state of the insight,
  *          and the start and end time of the insight.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new XRayClient(config);
+ * const command = new GetInsightCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetInsightCommandInput} for command's `input` shape.
+ * @see {@link GetInsightCommandOutput} for command's `response` shape.
+ * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetInsightCommand extends $Command<
   GetInsightCommandInput,

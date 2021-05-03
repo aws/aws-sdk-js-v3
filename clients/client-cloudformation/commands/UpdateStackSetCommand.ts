@@ -27,6 +27,18 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  *          or partially, below or above a specified failure tolerance), the stack set is updated with
  *          your changes. Subsequent <a>CreateStackInstances</a> calls on the specified
  *          stack set use the updated stack set.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new UpdateStackSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateStackSetCommandInput} for command's `input` shape.
+ * @see {@link UpdateStackSetCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateStackSetCommand extends $Command<
   UpdateStackSetCommandInput,

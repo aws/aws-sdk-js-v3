@@ -21,6 +21,18 @@ export interface AddPartnerCommandOutput extends PartnerIntegrationOutputMessage
  * <p>Adds a partner integration to a cluster.
  *             This operation authorizes a partner to push status updates for the specified database.
  *             To complete the integration, you also set up the integration on the partner website.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new AddPartnerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddPartnerCommandInput} for command's `input` shape.
+ * @see {@link AddPartnerCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddPartnerCommand extends $Command<
   AddPartnerCommandInput,

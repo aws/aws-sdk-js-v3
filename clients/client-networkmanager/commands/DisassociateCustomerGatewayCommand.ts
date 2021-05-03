@@ -24,6 +24,18 @@ export interface DisassociateCustomerGatewayCommandOutput
 
 /**
  * <p>Disassociates a customer gateway from a device and a link.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new DisassociateCustomerGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateCustomerGatewayCommandInput} for command's `input` shape.
+ * @see {@link DisassociateCustomerGatewayCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateCustomerGatewayCommand extends $Command<
   DisassociateCustomerGatewayCommandInput,

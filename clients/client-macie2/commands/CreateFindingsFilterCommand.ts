@@ -22,6 +22,18 @@ export interface CreateFindingsFilterCommandOutput extends CreateFindingsFilterR
 
 /**
  * <p>Creates and defines the criteria and other settings for a findings filter.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new CreateFindingsFilterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFindingsFilterCommandInput} for command's `input` shape.
+ * @see {@link CreateFindingsFilterCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFindingsFilterCommand extends $Command<
   CreateFindingsFilterCommandInput,

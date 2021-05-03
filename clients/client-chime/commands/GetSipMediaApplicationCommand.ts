@@ -22,6 +22,18 @@ export interface GetSipMediaApplicationCommandOutput extends GetSipMediaApplicat
 
 /**
  * <p>Retrieves the information for a SIP media application, including name, AWS Region, and endpoints.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new GetSipMediaApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSipMediaApplicationCommandInput} for command's `input` shape.
+ * @see {@link GetSipMediaApplicationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSipMediaApplicationCommand extends $Command<
   GetSipMediaApplicationCommandInput,

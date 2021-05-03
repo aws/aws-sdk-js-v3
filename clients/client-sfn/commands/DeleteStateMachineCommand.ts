@@ -28,6 +28,18 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
  *         less than a minute). Running executions may emit logs after <code>DeleteStateMachine</code>
  *         API is called.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SFNClient(config);
+ * const command = new DeleteStateMachineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteStateMachineCommandInput} for command's `input` shape.
+ * @see {@link DeleteStateMachineCommandOutput} for command's `response` shape.
+ * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteStateMachineCommand extends $Command<
   DeleteStateMachineCommandInput,

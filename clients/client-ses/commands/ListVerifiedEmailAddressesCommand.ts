@@ -23,6 +23,18 @@ export interface ListVerifiedEmailAddressesCommandOutput extends ListVerifiedEma
 /**
  * <p>Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses
  *             and domains associated with your account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESClient(config);
+ * const command = new ListVerifiedEmailAddressesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListVerifiedEmailAddressesCommandInput} for command's `input` shape.
+ * @see {@link ListVerifiedEmailAddressesCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListVerifiedEmailAddressesCommand extends $Command<
   ListVerifiedEmailAddressesCommandInput,

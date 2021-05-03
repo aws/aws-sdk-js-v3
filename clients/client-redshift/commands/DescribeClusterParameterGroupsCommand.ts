@@ -38,6 +38,18 @@ export interface DescribeClusterParameterGroupsCommandOutput extends ClusterPara
  *         <p>If both tag keys and values are omitted from the request, parameter groups are
  *             returned regardless of whether they have tag keys or values associated with
  *             them.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DescribeClusterParameterGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeClusterParameterGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeClusterParameterGroupsCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeClusterParameterGroupsCommand extends $Command<
   DescribeClusterParameterGroupsCommandInput,

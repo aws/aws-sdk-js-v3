@@ -23,6 +23,18 @@ export interface RemoveResourcePermissionCommandOutput extends __MetadataBearer 
 /**
  * <p>Removes the permission for the specified principal from the specified
  *             resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new RemoveResourcePermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveResourcePermissionCommandInput} for command's `input` shape.
+ * @see {@link RemoveResourcePermissionCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveResourcePermissionCommand extends $Command<
   RemoveResourcePermissionCommandInput,

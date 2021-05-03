@@ -22,6 +22,18 @@ export interface DeleteGraphqlApiCommandOutput extends DeleteGraphqlApiResponse,
 
 /**
  * <p>Deletes a <code>GraphqlApi</code> object.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppSyncClient(config);
+ * const command = new DeleteGraphqlApiCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteGraphqlApiCommandInput} for command's `input` shape.
+ * @see {@link DeleteGraphqlApiCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteGraphqlApiCommand extends $Command<
   DeleteGraphqlApiCommandInput,

@@ -26,6 +26,18 @@ export interface DeleteElasticsearchDomainCommandOutput extends DeleteElasticsea
 
 /**
  * <p>Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new DeleteElasticsearchDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteElasticsearchDomainCommandInput} for command's `input` shape.
+ * @see {@link DeleteElasticsearchDomainCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteElasticsearchDomainCommand extends $Command<
   DeleteElasticsearchDomainCommandInput,

@@ -40,6 +40,18 @@ export interface GetIntentsCommandOutput extends GetIntentsResponse, __MetadataB
  *          </ul>
  *          <p> The operation requires permission for the
  *         <code>lex:GetIntents</code> action. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new GetIntentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetIntentsCommandInput} for command's `input` shape.
+ * @see {@link GetIntentsCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetIntentsCommand extends $Command<
   GetIntentsCommandInput,

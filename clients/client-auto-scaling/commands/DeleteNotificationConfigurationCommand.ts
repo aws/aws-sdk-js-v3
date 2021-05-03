@@ -22,6 +22,18 @@ export interface DeleteNotificationConfigurationCommandOutput extends __Metadata
 
 /**
  * <p>Deletes the specified notification.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingClient(config);
+ * const command = new DeleteNotificationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteNotificationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteNotificationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteNotificationConfigurationCommand extends $Command<
   DeleteNotificationConfigurationCommandInput,

@@ -27,6 +27,18 @@ export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnaps
  *       To disable fast snapshot restores, use <a>DisableFastSnapshotRestores</a>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-fast-snapshot-restore.html">Amazon EBS fast snapshot
  *       restore</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new EnableFastSnapshotRestoresCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableFastSnapshotRestoresCommandInput} for command's `input` shape.
+ * @see {@link EnableFastSnapshotRestoresCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableFastSnapshotRestoresCommand extends $Command<
   EnableFastSnapshotRestoresCommandInput,

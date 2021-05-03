@@ -37,6 +37,18 @@ export interface UpdateContactAttributesCommandOutput extends UpdateContactAttri
  *    you attempt to update attributes for a contact that occurred prior to the release of the API, a
  *    400 error is returned. This applies also to queued callbacks that were initiated prior to the
  *    release of the API but are still active in your instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new UpdateContactAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateContactAttributesCommandInput} for command's `input` shape.
+ * @see {@link UpdateContactAttributesCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateContactAttributesCommand extends $Command<
   UpdateContactAttributesCommandInput,

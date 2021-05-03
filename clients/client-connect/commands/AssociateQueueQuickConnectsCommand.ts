@@ -23,6 +23,18 @@ export interface AssociateQueueQuickConnectsCommandOutput extends __MetadataBear
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Associates a set of quick connects with a queue.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new AssociateQueueQuickConnectsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateQueueQuickConnectsCommandInput} for command's `input` shape.
+ * @see {@link AssociateQueueQuickConnectsCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateQueueQuickConnectsCommand extends $Command<
   AssociateQueueQuickConnectsCommandInput,

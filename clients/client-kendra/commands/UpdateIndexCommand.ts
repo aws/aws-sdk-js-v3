@@ -22,6 +22,18 @@ export interface UpdateIndexCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates an existing Amazon Kendra index.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KendraClient(config);
+ * const command = new UpdateIndexCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateIndexCommandInput} for command's `input` shape.
+ * @see {@link UpdateIndexCommandOutput} for command's `response` shape.
+ * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateIndexCommand extends $Command<
   UpdateIndexCommandInput,

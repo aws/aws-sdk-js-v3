@@ -19,6 +19,18 @@ export interface CopyImageCommandOutput extends CopyImageResponse, __MetadataBea
 
 /**
  * <p>Copies the image within the same region or to a new region within the same AWS account. Note that any tags you added to the image will not be copied.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new CopyImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CopyImageCommandInput} for command's `input` shape.
+ * @see {@link CopyImageCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CopyImageCommand extends $Command<
   CopyImageCommandInput,

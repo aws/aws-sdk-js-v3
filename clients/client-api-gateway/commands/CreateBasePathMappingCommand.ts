@@ -22,6 +22,18 @@ export interface CreateBasePathMappingCommandOutput extends BasePathMapping, __M
 
 /**
  * <p>Creates a new <a>BasePathMapping</a> resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new CreateBasePathMappingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateBasePathMappingCommandInput} for command's `input` shape.
+ * @see {@link CreateBasePathMappingCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateBasePathMappingCommand extends $Command<
   CreateBasePathMappingCommandInput,

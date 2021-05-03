@@ -34,6 +34,18 @@ export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataB
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ResourceGroupsClient(config);
+ * const command = new UpdateGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateGroupCommand extends $Command<
   UpdateGroupCommandInput,

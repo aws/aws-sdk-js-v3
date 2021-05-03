@@ -22,6 +22,18 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
 
 /**
  * Starts a flow.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConnectClient(config);
+ * const command = new StartFlowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartFlowCommandInput} for command's `input` shape.
+ * @see {@link StartFlowCommandOutput} for command's `response` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartFlowCommand extends $Command<
   StartFlowCommandInput,

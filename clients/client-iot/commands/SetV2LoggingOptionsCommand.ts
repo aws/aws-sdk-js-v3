@@ -22,6 +22,18 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the logging options for the V2 logging service.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new SetV2LoggingOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetV2LoggingOptionsCommandInput} for command's `input` shape.
+ * @see {@link SetV2LoggingOptionsCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetV2LoggingOptionsCommand extends $Command<
   SetV2LoggingOptionsCommandInput,

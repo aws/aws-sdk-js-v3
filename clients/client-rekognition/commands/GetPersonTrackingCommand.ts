@@ -51,6 +51,18 @@ export interface GetPersonTrackingCommandOutput extends GetPersonTrackingRespons
  *    specified in <code>MaxResults</code>, the value of <code>NextToken</code> in the operation response contains a pagination token for getting the next set
  *    of results. To get the next page of results, call <code>GetPersonTracking</code> and populate the <code>NextToken</code> request parameter with the token
  *     value returned from the previous call to <code>GetPersonTracking</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RekognitionClient(config);
+ * const command = new GetPersonTrackingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPersonTrackingCommandInput} for command's `input` shape.
+ * @see {@link GetPersonTrackingCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPersonTrackingCommand extends $Command<
   GetPersonTrackingCommandInput,

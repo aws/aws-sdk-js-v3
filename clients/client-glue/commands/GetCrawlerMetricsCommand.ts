@@ -22,6 +22,18 @@ export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsRespons
 
 /**
  * <p>Retrieves metrics about specified crawlers.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetCrawlerMetricsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCrawlerMetricsCommandInput} for command's `input` shape.
+ * @see {@link GetCrawlerMetricsCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCrawlerMetricsCommand extends $Command<
   GetCrawlerMetricsCommandInput,

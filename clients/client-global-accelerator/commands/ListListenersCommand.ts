@@ -26,6 +26,18 @@ export interface ListListenersCommandOutput extends ListListenersResponse, __Met
 
 /**
  * <p>List the listeners for an accelerator. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new ListListenersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListListenersCommandInput} for command's `input` shape.
+ * @see {@link ListListenersCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListListenersCommand extends $Command<
   ListListenersCommandInput,

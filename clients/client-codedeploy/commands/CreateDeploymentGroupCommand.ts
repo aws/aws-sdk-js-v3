@@ -22,6 +22,18 @@ export interface CreateDeploymentGroupCommandOutput extends CreateDeploymentGrou
 
 /**
  * <p>Creates a deployment group to which application revisions are deployed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new CreateDeploymentGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDeploymentGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateDeploymentGroupCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDeploymentGroupCommand extends $Command<
   CreateDeploymentGroupCommandInput,

@@ -24,6 +24,18 @@ export interface GetLabelsCommandOutput extends GetLabelsResult, __MetadataBeare
  *          To get the next page results, provide the pagination token from the
  *          <code>GetGetLabelsResponse</code> as part of your request. A null pagination token
  *          fetches the records from the beginning. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new GetLabelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLabelsCommandInput} for command's `input` shape.
+ * @see {@link GetLabelsCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLabelsCommand extends $Command<
   GetLabelsCommandInput,

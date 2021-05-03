@@ -22,6 +22,18 @@ export interface ListAnomalyGroupTimeSeriesCommandOutput extends ListAnomalyGrou
 
 /**
  * <p>Gets a list of anomalous metrics for a measure in an anomaly group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutMetricsClient(config);
+ * const command = new ListAnomalyGroupTimeSeriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAnomalyGroupTimeSeriesCommandInput} for command's `input` shape.
+ * @see {@link ListAnomalyGroupTimeSeriesCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAnomalyGroupTimeSeriesCommand extends $Command<
   ListAnomalyGroupTimeSeriesCommandInput,

@@ -26,6 +26,18 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateResult,
  *          <p>Certificates that are currently attached to a distribution cannot be deleted. Use the
  *         <code>DetachCertificateFromDistribution</code> action to detach a certificate from a
  *       distribution.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new DeleteCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCertificateCommandInput} for command's `input` shape.
+ * @see {@link DeleteCertificateCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCertificateCommand extends $Command<
   DeleteCertificateCommandInput,

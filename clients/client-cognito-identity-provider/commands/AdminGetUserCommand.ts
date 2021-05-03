@@ -29,6 +29,18 @@ export interface AdminGetUserCommandOutput extends AdminGetUserResponse, __Metad
  * <p>Gets the specified user by user name in a user pool as an administrator. Works on any
  *             user.</p>
  *         <p>Calling this action requires developer credentials.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new AdminGetUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdminGetUserCommandInput} for command's `input` shape.
+ * @see {@link AdminGetUserCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdminGetUserCommand extends $Command<
   AdminGetUserCommandInput,

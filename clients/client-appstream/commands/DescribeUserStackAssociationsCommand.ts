@@ -32,6 +32,18 @@ export interface DescribeUserStackAssociationsCommandOutput
  *                <p>The user name (email address of the user associated with the stack) and the authentication type for the user</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new DescribeUserStackAssociationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeUserStackAssociationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeUserStackAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeUserStackAssociationsCommand extends $Command<
   DescribeUserStackAssociationsCommandInput,

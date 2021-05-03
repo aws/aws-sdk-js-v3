@@ -37,6 +37,18 @@ export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectio
  *
  *
  *          <p>For more information, see Detecting Video Segments in Stored Video in the Amazon Rekognition Developer Guide.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RekognitionClient(config);
+ * const command = new StartSegmentDetectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartSegmentDetectionCommandInput} for command's `input` shape.
+ * @see {@link StartSegmentDetectionCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartSegmentDetectionCommand extends $Command<
   StartSegmentDetectionCommandInput,

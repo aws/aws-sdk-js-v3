@@ -22,6 +22,18 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
 
 /**
  * <p>Creates a contact with the specified details.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new CreateContactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateContactCommandInput} for command's `input` shape.
+ * @see {@link CreateContactCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateContactCommand extends $Command<
   CreateContactCommandInput,

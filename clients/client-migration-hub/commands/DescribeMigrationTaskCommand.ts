@@ -22,6 +22,18 @@ export interface DescribeMigrationTaskCommandOutput extends DescribeMigrationTas
 
 /**
  * <p>Retrieves a list of all attributes associated with a specific migration task.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MigrationHubClient(config);
+ * const command = new DescribeMigrationTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeMigrationTaskCommandInput} for command's `input` shape.
+ * @see {@link DescribeMigrationTaskCommandOutput} for command's `response` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeMigrationTaskCommand extends $Command<
   DescribeMigrationTaskCommandInput,

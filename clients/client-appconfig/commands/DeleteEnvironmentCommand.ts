@@ -23,6 +23,18 @@ export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
 /**
  * <p>Delete an environment. Deleting an environment does not delete a configuration from a
  *          host.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppConfigClient(config);
+ * const command = new DeleteEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEnvironmentCommandInput} for command's `input` shape.
+ * @see {@link DeleteEnvironmentCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEnvironmentCommand extends $Command<
   DeleteEnvironmentCommandInput,

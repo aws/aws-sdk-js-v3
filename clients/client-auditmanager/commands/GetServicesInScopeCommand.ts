@@ -24,6 +24,18 @@ export interface GetServicesInScopeCommandOutput extends GetServicesInScopeRespo
  * <p>
  *    Returns a list of the in-scope AWS services for the specified assessment.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new GetServicesInScopeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetServicesInScopeCommandInput} for command's `input` shape.
+ * @see {@link GetServicesInScopeCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetServicesInScopeCommand extends $Command<
   GetServicesInScopeCommandInput,

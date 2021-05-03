@@ -23,6 +23,18 @@ export interface MergePullRequestByThreeWayCommandOutput extends MergePullReques
 /**
  * <p>Attempts to merge the source commit of a pull request into the specified destination
  *             branch for that pull request at the specified commit using the three-way merge strategy. If the merge is successful, it closes the pull request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new MergePullRequestByThreeWayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link MergePullRequestByThreeWayCommandInput} for command's `input` shape.
+ * @see {@link MergePullRequestByThreeWayCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class MergePullRequestByThreeWayCommand extends $Command<
   MergePullRequestByThreeWayCommandInput,

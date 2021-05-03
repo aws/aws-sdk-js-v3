@@ -26,6 +26,18 @@ export interface ListResourceComplianceSummariesCommandOutput
  * <p>Returns a resource-level summary count. The summary includes information about compliant and
  *    non-compliant statuses and detailed compliance-item severity counts, according to the filter
  *    criteria you specify.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new ListResourceComplianceSummariesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResourceComplianceSummariesCommandInput} for command's `input` shape.
+ * @see {@link ListResourceComplianceSummariesCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResourceComplianceSummariesCommand extends $Command<
   ListResourceComplianceSummariesCommandInput,

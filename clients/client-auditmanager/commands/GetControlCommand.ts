@@ -24,6 +24,18 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
  * <p>
  * Returns a control from AWS Audit Manager.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new GetControlCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetControlCommandInput} for command's `input` shape.
+ * @see {@link GetControlCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetControlCommand extends $Command<
   GetControlCommandInput,

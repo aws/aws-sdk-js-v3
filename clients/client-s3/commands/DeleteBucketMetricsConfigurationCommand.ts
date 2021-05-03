@@ -58,6 +58,18 @@ export interface DeleteBucketMetricsConfigurationCommandOutput extends __Metadat
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3Client(config);
+ * const command = new DeleteBucketMetricsConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBucketMetricsConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteBucketMetricsConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBucketMetricsConfigurationCommand extends $Command<
   DeleteBucketMetricsConfigurationCommandInput,

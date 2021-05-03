@@ -22,6 +22,18 @@ export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationS
 
 /**
  * <p>Retrieves the current status of a schema creation operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppSyncClient(config);
+ * const command = new GetSchemaCreationStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSchemaCreationStatusCommandInput} for command's `input` shape.
+ * @see {@link GetSchemaCreationStatusCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSchemaCreationStatusCommand extends $Command<
   GetSchemaCreationStatusCommandInput,

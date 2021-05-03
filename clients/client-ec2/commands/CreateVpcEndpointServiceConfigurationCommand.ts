@@ -47,6 +47,18 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
  *             name. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html">VPC Endpoint Service
  *                 Private DNS Name Verification</a> in the
  *             <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateVpcEndpointServiceConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVpcEndpointServiceConfigurationCommandInput} for command's `input` shape.
+ * @see {@link CreateVpcEndpointServiceConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateVpcEndpointServiceConfigurationCommand extends $Command<
   CreateVpcEndpointServiceConfigurationCommandInput,

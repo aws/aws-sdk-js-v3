@@ -41,6 +41,18 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  *         <p>For the limits on the number of application inputs and outputs
  *             you can configure, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html">Limits</a>.</p>
  *         <p>This operation requires permissions to perform the <code>kinesisanalytics:AddApplicationOutput</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisAnalyticsClient(config);
+ * const command = new AddApplicationOutputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddApplicationOutputCommandInput} for command's `input` shape.
+ * @see {@link AddApplicationOutputCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddApplicationOutputCommand extends $Command<
   AddApplicationOutputCommandInput,

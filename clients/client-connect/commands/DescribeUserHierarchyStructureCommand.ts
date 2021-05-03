@@ -24,6 +24,18 @@ export interface DescribeUserHierarchyStructureCommandOutput
 
 /**
  * <p>Describes the hierarchy structure of the specified Amazon Connect instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new DescribeUserHierarchyStructureCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeUserHierarchyStructureCommandInput} for command's `input` shape.
+ * @see {@link DescribeUserHierarchyStructureCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeUserHierarchyStructureCommand extends $Command<
   DescribeUserHierarchyStructureCommandInput,

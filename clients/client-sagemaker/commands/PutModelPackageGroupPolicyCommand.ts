@@ -24,6 +24,18 @@ export interface PutModelPackageGroupPolicyCommandOutput extends PutModelPackage
  * <p>Adds a resouce policy to control access to a model group. For information about
  *             resoure policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based
  *                 policies and resource-based policies</a> in the <i>AWS Identity and Access Management User Guide.</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new PutModelPackageGroupPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutModelPackageGroupPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutModelPackageGroupPolicyCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutModelPackageGroupPolicyCommand extends $Command<
   PutModelPackageGroupPolicyCommandInput,

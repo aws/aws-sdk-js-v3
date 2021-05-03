@@ -22,6 +22,18 @@ export interface GetStoredQueryCommandOutput extends GetStoredQueryResponse, __M
 
 /**
  * <p>Returns the details of a specific stored query.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new GetStoredQueryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetStoredQueryCommandInput} for command's `input` shape.
+ * @see {@link GetStoredQueryCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetStoredQueryCommand extends $Command<
   GetStoredQueryCommandInput,

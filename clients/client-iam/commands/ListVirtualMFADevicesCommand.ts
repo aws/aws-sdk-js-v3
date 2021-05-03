@@ -32,6 +32,18 @@ export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevice
  *         </note>
  *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new ListVirtualMFADevicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListVirtualMFADevicesCommandInput} for command's `input` shape.
+ * @see {@link ListVirtualMFADevicesCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListVirtualMFADevicesCommand extends $Command<
   ListVirtualMFADevicesCommandInput,

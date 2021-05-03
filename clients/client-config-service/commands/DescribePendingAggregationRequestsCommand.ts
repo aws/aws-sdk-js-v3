@@ -27,6 +27,18 @@ export interface DescribePendingAggregationRequestsCommandOutput
 
 /**
  * <p>Returns a list of all pending aggregation requests.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DescribePendingAggregationRequestsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePendingAggregationRequestsCommandInput} for command's `input` shape.
+ * @see {@link DescribePendingAggregationRequestsCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePendingAggregationRequestsCommand extends $Command<
   DescribePendingAggregationRequestsCommandInput,

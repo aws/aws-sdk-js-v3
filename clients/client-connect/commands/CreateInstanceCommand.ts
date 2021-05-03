@@ -25,6 +25,18 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  *          <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any
  *    storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It also does not
  *    allow for any configurations on features, such as Contact Lens for Amazon Connect. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new CreateInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateInstanceCommandInput} for command's `input` shape.
+ * @see {@link CreateInstanceCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateInstanceCommand extends $Command<
   CreateInstanceCommandInput,

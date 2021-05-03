@@ -27,6 +27,18 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
 
 /**
  * <p>Lists the devices.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new ListDevicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDevicesCommandInput} for command's `input` shape.
+ * @see {@link ListDevicesCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDevicesCommand extends $Command<
   ListDevicesCommandInput,

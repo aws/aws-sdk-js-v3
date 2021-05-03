@@ -24,6 +24,18 @@ export interface GetWirelessGatewayTaskDefinitionCommandOutput
 
 /**
  * <p>Gets information about a wireless gateway task definition.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new GetWirelessGatewayTaskDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetWirelessGatewayTaskDefinitionCommandInput} for command's `input` shape.
+ * @see {@link GetWirelessGatewayTaskDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetWirelessGatewayTaskDefinitionCommand extends $Command<
   GetWirelessGatewayTaskDefinitionCommandInput,

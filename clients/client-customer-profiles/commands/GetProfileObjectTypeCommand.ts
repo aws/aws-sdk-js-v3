@@ -22,6 +22,18 @@ export interface GetProfileObjectTypeCommandOutput extends GetProfileObjectTypeR
 
 /**
  * <p>Returns the object types for a specific domain.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CustomerProfilesClient(config);
+ * const command = new GetProfileObjectTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetProfileObjectTypeCommandInput} for command's `input` shape.
+ * @see {@link GetProfileObjectTypeCommandOutput} for command's `response` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetProfileObjectTypeCommand extends $Command<
   GetProfileObjectTypeCommandInput,

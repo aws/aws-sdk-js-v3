@@ -22,6 +22,18 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
 
 /**
  * <p>Gets information about one or more of your connections in a global network.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new GetConnectionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetConnectionsCommandInput} for command's `input` shape.
+ * @see {@link GetConnectionsCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetConnectionsCommand extends $Command<
   GetConnectionsCommandInput,

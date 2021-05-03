@@ -22,6 +22,18 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
 
 /**
  * <p>Retrieves a paginated list of gateways.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new ListGatewaysCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListGatewaysCommandInput} for command's `input` shape.
+ * @see {@link ListGatewaysCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListGatewaysCommand extends $Command<
   ListGatewaysCommandInput,

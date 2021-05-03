@@ -27,6 +27,18 @@ export interface DeleteRecordingConfigurationCommandOutput extends __MetadataBea
  *       recording configuration, first use <a>UpdateChannel</a> to set the
  *         <code>recordingConfigurationArn</code> field to an empty string, then use
  *       DeleteRecordingConfiguration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IvsClient(config);
+ * const command = new DeleteRecordingConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRecordingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteRecordingConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link IvsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRecordingConfigurationCommand extends $Command<
   DeleteRecordingConfigurationCommandInput,

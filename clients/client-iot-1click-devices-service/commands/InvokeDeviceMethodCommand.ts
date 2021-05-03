@@ -27,6 +27,18 @@ export interface InvokeDeviceMethodCommandOutput extends InvokeDeviceMethodRespo
 /**
  * <p>Given a device ID, issues a request to invoke a named device method (with possible
  *  parameters). See the "Example POST" code snippet below.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoT1ClickDevicesServiceClient(config);
+ * const command = new InvokeDeviceMethodCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InvokeDeviceMethodCommandInput} for command's `input` shape.
+ * @see {@link InvokeDeviceMethodCommandOutput} for command's `response` shape.
+ * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InvokeDeviceMethodCommand extends $Command<
   InvokeDeviceMethodCommandInput,

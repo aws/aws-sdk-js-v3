@@ -24,6 +24,18 @@ export interface RestoreBackupCommandOutput extends RestoreBackupResponse, __Met
  * <p>Restores a specified AWS CloudHSM backup that is in the
  *                 <code>PENDING_DELETION</code> state. For mor information on deleting a backup, see
  *                 <a>DeleteBackup</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMV2Client(config);
+ * const command = new RestoreBackupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RestoreBackupCommandInput} for command's `input` shape.
+ * @see {@link RestoreBackupCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RestoreBackupCommand extends $Command<
   RestoreBackupCommandInput,

@@ -22,6 +22,18 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
 
 /**
  * <p>Lists the names and codes for the services integrated with Service Quotas.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceQuotasClient(config);
+ * const command = new ListServicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListServicesCommandInput} for command's `input` shape.
+ * @see {@link ListServicesCommandOutput} for command's `response` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListServicesCommand extends $Command<
   ListServicesCommandInput,

@@ -24,6 +24,18 @@ export interface ListLayerVersionsCommandOutput extends ListLayerVersionsRespons
  * <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
  *         layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only
  *       versions that indicate that they're compatible with that runtime.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new ListLayerVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListLayerVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListLayerVersionsCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListLayerVersionsCommand extends $Command<
   ListLayerVersionsCommandInput,

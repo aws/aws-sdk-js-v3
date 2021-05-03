@@ -27,6 +27,18 @@ export interface DescribeWorkspacesConnectionStatusCommandOutput
 
 /**
  * <p>Describes the connection status of the specified WorkSpaces.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new DescribeWorkspacesConnectionStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeWorkspacesConnectionStatusCommandInput} for command's `input` shape.
+ * @see {@link DescribeWorkspacesConnectionStatusCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeWorkspacesConnectionStatusCommand extends $Command<
   DescribeWorkspacesConnectionStatusCommandInput,

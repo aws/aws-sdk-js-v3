@@ -139,6 +139,18 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  * 					<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteQueryLoggingConfig.html">DeleteQueryLoggingConfig</a>.</p>
  * 				        </dd>
  *          </dl>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new CreateQueryLoggingConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateQueryLoggingConfigCommandInput} for command's `input` shape.
+ * @see {@link CreateQueryLoggingConfigCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateQueryLoggingConfigCommand extends $Command<
   CreateQueryLoggingConfigCommandInput,

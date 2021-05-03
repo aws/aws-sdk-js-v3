@@ -22,6 +22,18 @@ export interface DeleteFilterCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a filter.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeClient(config);
+ * const command = new DeleteFilterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFilterCommandInput} for command's `input` shape.
+ * @see {@link DeleteFilterCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFilterCommand extends $Command<
   DeleteFilterCommandInput,

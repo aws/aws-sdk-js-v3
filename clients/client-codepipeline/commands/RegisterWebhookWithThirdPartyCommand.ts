@@ -25,6 +25,18 @@ export interface RegisterWebhookWithThirdPartyCommandOutput
 /**
  * <p>Configures a connection between the webhook that was created and the external tool
  *             with events to be detected.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new RegisterWebhookWithThirdPartyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterWebhookWithThirdPartyCommandInput} for command's `input` shape.
+ * @see {@link RegisterWebhookWithThirdPartyCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterWebhookWithThirdPartyCommand extends $Command<
   RegisterWebhookWithThirdPartyCommandInput,

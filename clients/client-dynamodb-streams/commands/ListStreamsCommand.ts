@@ -27,6 +27,18 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  *          <note>
  *             <p>You can call <code>ListStreams</code> at a maximum rate of 5 times per second.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBStreamsClient(config);
+ * const command = new ListStreamsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListStreamsCommandInput} for command's `input` shape.
+ * @see {@link ListStreamsCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBStreamsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListStreamsCommand extends $Command<
   ListStreamsCommandInput,

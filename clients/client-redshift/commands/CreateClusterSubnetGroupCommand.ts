@@ -28,6 +28,18 @@ export interface CreateClusterSubnetGroupCommandOutput extends CreateClusterSubn
  * For information about subnet groups, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html">Amazon Redshift Cluster Subnet Groups</a> in the
  * <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new CreateClusterSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateClusterSubnetGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateClusterSubnetGroupCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateClusterSubnetGroupCommand extends $Command<
   CreateClusterSubnetGroupCommandInput,

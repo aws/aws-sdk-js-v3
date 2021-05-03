@@ -30,6 +30,18 @@ export interface GetOriginRequestPolicyConfigCommandOutput
  * 			<code>GetDistribution</code>. If the origin request policy is not attached to a cache
  * 			behavior, you can get the identifier using
  * 			<code>ListOriginRequestPolicies</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new GetOriginRequestPolicyConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOriginRequestPolicyConfigCommandInput} for command's `input` shape.
+ * @see {@link GetOriginRequestPolicyConfigCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOriginRequestPolicyConfigCommand extends $Command<
   GetOriginRequestPolicyConfigCommandInput,

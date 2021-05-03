@@ -28,6 +28,18 @@ export interface DeleteReplicationSubnetGroupCommandOutput
 
 /**
  * <p>Deletes a subnet group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DeleteReplicationSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteReplicationSubnetGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteReplicationSubnetGroupCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteReplicationSubnetGroupCommand extends $Command<
   DeleteReplicationSubnetGroupCommandInput,

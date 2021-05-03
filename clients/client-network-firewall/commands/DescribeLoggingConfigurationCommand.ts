@@ -24,6 +24,18 @@ export interface DescribeLoggingConfigurationCommandOutput
 
 /**
  * <p>Returns the logging configuration for the specified firewall. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkFirewallClient(config);
+ * const command = new DescribeLoggingConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLoggingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeLoggingConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLoggingConfigurationCommand extends $Command<
   DescribeLoggingConfigurationCommandInput,

@@ -22,6 +22,18 @@ export interface DeleteSlotCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified slot from an intent.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelsV2Client(config);
+ * const command = new DeleteSlotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSlotCommandInput} for command's `input` shape.
+ * @see {@link DeleteSlotCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSlotCommand extends $Command<
   DeleteSlotCommandInput,

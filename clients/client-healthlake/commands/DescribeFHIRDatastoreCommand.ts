@@ -24,6 +24,18 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  * <p>Gets the properties associated with the FHIR Data Store, including the Data Store ID,
  *          Data Store ARN, Data Store name, Data Store status, created at, Data Store type version, and
  *          Data Store endpoint.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new HealthLakeClient(config);
+ * const command = new DescribeFHIRDatastoreCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFHIRDatastoreCommandInput} for command's `input` shape.
+ * @see {@link DescribeFHIRDatastoreCommandOutput} for command's `response` shape.
+ * @see {@link HealthLakeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFHIRDatastoreCommand extends $Command<
   DescribeFHIRDatastoreCommandInput,

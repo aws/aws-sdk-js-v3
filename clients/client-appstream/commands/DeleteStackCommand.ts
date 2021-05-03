@@ -22,6 +22,18 @@ export interface DeleteStackCommandOutput extends DeleteStackResult, __MetadataB
 
 /**
  * <p>Deletes the specified stack. After the stack is deleted, the application streaming environment provided by the stack is no longer available to users. Also, any reservations made for application streaming sessions for the stack are released.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new DeleteStackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteStackCommandInput} for command's `input` shape.
+ * @see {@link DeleteStackCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteStackCommand extends $Command<
   DeleteStackCommandInput,

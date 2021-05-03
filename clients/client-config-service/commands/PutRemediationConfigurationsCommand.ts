@@ -34,6 +34,18 @@ export interface PutRemediationConfigurationsCommandOutput
  * 			         <p>This API does not support adding remediation configurations for service-linked AWS Config Rules such as Organization Config rules,
  * 				the rules deployed by conformance packs, and rules deployed by AWS Security Hub.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new PutRemediationConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutRemediationConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link PutRemediationConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutRemediationConfigurationsCommand extends $Command<
   PutRemediationConfigurationsCommandInput,

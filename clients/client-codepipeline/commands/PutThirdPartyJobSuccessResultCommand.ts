@@ -23,6 +23,18 @@ export interface PutThirdPartyJobSuccessResultCommandOutput extends __MetadataBe
 /**
  * <p>Represents the success of a third party job as returned to the pipeline by a job
  *             worker. Used for partner actions only.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new PutThirdPartyJobSuccessResultCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutThirdPartyJobSuccessResultCommandInput} for command's `input` shape.
+ * @see {@link PutThirdPartyJobSuccessResultCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutThirdPartyJobSuccessResultCommand extends $Command<
   PutThirdPartyJobSuccessResultCommandInput,

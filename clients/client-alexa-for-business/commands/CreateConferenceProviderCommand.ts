@@ -22,6 +22,18 @@ export interface CreateConferenceProviderCommandOutput extends CreateConferenceP
 
 /**
  * <p>Adds a new conference provider under the user's AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new CreateConferenceProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateConferenceProviderCommandInput} for command's `input` shape.
+ * @see {@link CreateConferenceProviderCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateConferenceProviderCommand extends $Command<
   CreateConferenceProviderCommandInput,

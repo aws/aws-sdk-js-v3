@@ -22,6 +22,18 @@ export interface DeleteRetentionPolicyCommandOutput extends DeleteRetentionPolic
 
 /**
  * <p>Deletes the specified retention policy from the specified organization.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new DeleteRetentionPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRetentionPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteRetentionPolicyCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRetentionPolicyCommand extends $Command<
   DeleteRetentionPolicyCommandInput,

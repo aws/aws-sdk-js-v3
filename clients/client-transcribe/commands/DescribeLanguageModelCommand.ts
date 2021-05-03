@@ -27,6 +27,18 @@ export interface DescribeLanguageModelCommandOutput extends DescribeLanguageMode
  *             updated the base model, you can create a new custom language model using the updated
  *             base model. If the language model wasn't created, you can use this operation to
  *             understand why Amazon Transcribe couldn't create it. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeClient(config);
+ * const command = new DescribeLanguageModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLanguageModelCommandInput} for command's `input` shape.
+ * @see {@link DescribeLanguageModelCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLanguageModelCommand extends $Command<
   DescribeLanguageModelCommandInput,

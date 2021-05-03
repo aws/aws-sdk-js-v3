@@ -24,6 +24,18 @@ export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInf
  * <p>Gets the properties of a batch inference job including name, Amazon Resource Name (ARN),
  *       status, input and output configurations, and the ARN of the solution version used to generate
  *       the recommendations.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeClient(config);
+ * const command = new DescribeBatchInferenceJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeBatchInferenceJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeBatchInferenceJobCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeBatchInferenceJobCommand extends $Command<
   DescribeBatchInferenceJobCommandInput,

@@ -23,6 +23,18 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
 /**
  * <p>Retrieves the firewall rules that you have defined for the specified firewall rule group. DNS Firewall uses the rules in a rule group to filter DNS network traffic for a VPC. </p>
  *          <p>A single call might return only a partial list of the rules. For information, see <code>MaxResults</code>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new ListFirewallRulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFirewallRulesCommandInput} for command's `input` shape.
+ * @see {@link ListFirewallRulesCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFirewallRulesCommand extends $Command<
   ListFirewallRulesCommandInput,

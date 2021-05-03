@@ -23,6 +23,18 @@ export interface DescribeParameterGroupsCommandOutput extends DescribeParameterG
 /**
  * <p>Returns a list of parameter group descriptions. If a parameter group name is
  *             specified, the list will contain only the descriptions for that group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DAXClient(config);
+ * const command = new DescribeParameterGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeParameterGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeParameterGroupsCommandOutput} for command's `response` shape.
+ * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeParameterGroupsCommand extends $Command<
   DescribeParameterGroupsCommandInput,

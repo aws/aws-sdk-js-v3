@@ -27,6 +27,18 @@ export interface DisassociateWirelessGatewayFromThingCommandOutput
 
 /**
  * <p>Disassociates a wireless gateway from its currently associated thing.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new DisassociateWirelessGatewayFromThingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateWirelessGatewayFromThingCommandInput} for command's `input` shape.
+ * @see {@link DisassociateWirelessGatewayFromThingCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateWirelessGatewayFromThingCommand extends $Command<
   DisassociateWirelessGatewayFromThingCommandInput,

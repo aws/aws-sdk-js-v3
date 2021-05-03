@@ -38,6 +38,18 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  *                 being created or updated you may lose visibility into the instance type the endpoint
  *                 is using. The endpoint must be deleted in order to stop incurring charges.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new UpdateEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateEndpointCommandInput} for command's `input` shape.
+ * @see {@link UpdateEndpointCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateEndpointCommand extends $Command<
   UpdateEndpointCommandInput,

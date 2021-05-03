@@ -33,6 +33,18 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  *             you can send information about these events to. For example, you can send event data to
  *             Amazon SNS to receive notifications when you receive bounces or complaints, or you can use
  *             Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointEmailClient(config);
+ * const command = new DeleteConfigurationSetEventDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConfigurationSetEventDestinationCommandInput} for command's `input` shape.
+ * @see {@link DeleteConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConfigurationSetEventDestinationCommand extends $Command<
   DeleteConfigurationSetEventDestinationCommandInput,

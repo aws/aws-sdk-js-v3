@@ -28,6 +28,18 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileRespons
  *      automatically created. A user profile is the primary holder of settings for an individual
  *      user and has a reference to the user's private Amazon Elastic File System (EFS) home directory.
  *    </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateUserProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateUserProfileCommandInput} for command's `input` shape.
+ * @see {@link CreateUserProfileCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateUserProfileCommand extends $Command<
   CreateUserProfileCommandInput,

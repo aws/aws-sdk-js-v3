@@ -22,6 +22,18 @@ export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedu
 
 /**
  * <p>Stops an inference scheduler. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutEquipmentClient(config);
+ * const command = new StopInferenceSchedulerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopInferenceSchedulerCommandInput} for command's `input` shape.
+ * @see {@link StopInferenceSchedulerCommandOutput} for command's `response` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopInferenceSchedulerCommand extends $Command<
   StopInferenceSchedulerCommandInput,

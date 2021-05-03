@@ -22,6 +22,18 @@ export interface GetCoreDefinitionCommandOutput extends GetCoreDefinitionRespons
 
 /**
  * Retrieves information about a core definition version.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new GetCoreDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCoreDefinitionCommandInput} for command's `input` shape.
+ * @see {@link GetCoreDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCoreDefinitionCommand extends $Command<
   GetCoreDefinitionCommandInput,

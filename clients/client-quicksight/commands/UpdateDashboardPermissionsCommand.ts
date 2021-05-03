@@ -22,6 +22,18 @@ export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboard
 
 /**
  * <p>Updates read and write permissions on a dashboard.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new UpdateDashboardPermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDashboardPermissionsCommandInput} for command's `input` shape.
+ * @see {@link UpdateDashboardPermissionsCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDashboardPermissionsCommand extends $Command<
   UpdateDashboardPermissionsCommandInput,

@@ -39,6 +39,18 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  * 				so we use that route to determine where to target the traffic.</p>
  *          <p>For more information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the
  *          <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateRouteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRouteCommandInput} for command's `input` shape.
+ * @see {@link CreateRouteCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRouteCommand extends $Command<
   CreateRouteCommandInput,

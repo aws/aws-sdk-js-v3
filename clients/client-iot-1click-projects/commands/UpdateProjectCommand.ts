@@ -29,6 +29,18 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  *       device template names, you can pass just the values that need to be updated because the update
  *       request will change only the values that are provided. To clear a value, pass the empty string
  *       (i.e., <code>""</code>).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoT1ClickProjectsClient(config);
+ * const command = new UpdateProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateProjectCommandInput} for command's `input` shape.
+ * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
+ * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateProjectCommand extends $Command<
   UpdateProjectCommandInput,

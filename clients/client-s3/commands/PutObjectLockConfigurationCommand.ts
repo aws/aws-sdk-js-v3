@@ -43,6 +43,18 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
  *                </li>
  *             </ul>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3Client(config);
+ * const command = new PutObjectLockConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutObjectLockConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutObjectLockConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutObjectLockConfigurationCommand extends $Command<
   PutObjectLockConfigurationCommandInput,

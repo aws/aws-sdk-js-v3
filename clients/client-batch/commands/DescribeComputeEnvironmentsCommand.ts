@@ -27,6 +27,18 @@ export interface DescribeComputeEnvironmentsCommandOutput
  *          <p>If you're using an unmanaged compute environment, you can use the <code>DescribeComputeEnvironment</code>
  *    operation to determine the <code>ecsClusterArn</code> that you should launch your Amazon ECS container instances
  *    into.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BatchClient(config);
+ * const command = new DescribeComputeEnvironmentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeComputeEnvironmentsCommandInput} for command's `input` shape.
+ * @see {@link DescribeComputeEnvironmentsCommandOutput} for command's `response` shape.
+ * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeComputeEnvironmentsCommand extends $Command<
   DescribeComputeEnvironmentsCommandInput,

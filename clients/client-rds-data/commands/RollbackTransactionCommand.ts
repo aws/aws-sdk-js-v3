@@ -22,6 +22,18 @@ export interface RollbackTransactionCommandOutput extends RollbackTransactionRes
 
 /**
  * <p>Performs a rollback of a transaction. Rolling back a transaction cancels its changes.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSDataClient(config);
+ * const command = new RollbackTransactionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RollbackTransactionCommandInput} for command's `input` shape.
+ * @see {@link RollbackTransactionCommandOutput} for command's `response` shape.
+ * @see {@link RDSDataClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RollbackTransactionCommand extends $Command<
   RollbackTransactionCommandInput,

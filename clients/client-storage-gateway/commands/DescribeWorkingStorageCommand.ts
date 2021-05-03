@@ -32,6 +32,18 @@ export interface DescribeWorkingStorageCommandOutput extends DescribeWorkingStor
  *
  *          <p>The response includes disk IDs that are configured as working storage, and it includes
  *          the amount of working storage allocated and used.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new DescribeWorkingStorageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeWorkingStorageCommandInput} for command's `input` shape.
+ * @see {@link DescribeWorkingStorageCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeWorkingStorageCommand extends $Command<
   DescribeWorkingStorageCommandInput,

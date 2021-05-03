@@ -25,6 +25,18 @@ export interface UpdateServiceIntegrationCommandOutput extends UpdateServiceInte
  * 			Enables or disables integration with a service that can be integrated with DevOps Guru. The one service that can be integrated with
  * 			DevOps Guru is AWS Systems Manager, which can be used to create an OpsItem for each generated insight.
  * 		</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DevOpsGuruClient(config);
+ * const command = new UpdateServiceIntegrationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateServiceIntegrationCommandInput} for command's `input` shape.
+ * @see {@link UpdateServiceIntegrationCommandOutput} for command's `response` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateServiceIntegrationCommand extends $Command<
   UpdateServiceIntegrationCommandInput,

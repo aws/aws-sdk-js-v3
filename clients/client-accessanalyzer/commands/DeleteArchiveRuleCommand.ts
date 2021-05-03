@@ -22,6 +22,18 @@ export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified archive rule.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AccessAnalyzerClient(config);
+ * const command = new DeleteArchiveRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteArchiveRuleCommandInput} for command's `input` shape.
+ * @see {@link DeleteArchiveRuleCommandOutput} for command's `response` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteArchiveRuleCommand extends $Command<
   DeleteArchiveRuleCommandInput,

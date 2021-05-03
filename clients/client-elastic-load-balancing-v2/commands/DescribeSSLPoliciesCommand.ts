@@ -28,6 +28,18 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  * <p>Describes the specified policies or all policies used for SSL negotiation.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security policies</a> in the <i>Application Load Balancers Guide</i> or
  *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new DescribeSSLPoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSSLPoliciesCommandInput} for command's `input` shape.
+ * @see {@link DescribeSSLPoliciesCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSSLPoliciesCommand extends $Command<
   DescribeSSLPoliciesCommandInput,

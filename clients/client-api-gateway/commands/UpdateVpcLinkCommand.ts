@@ -22,6 +22,18 @@ export interface UpdateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
 
 /**
  * <p>Updates an existing <a>VpcLink</a> of a specified identifier.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new UpdateVpcLinkCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateVpcLinkCommandInput} for command's `input` shape.
+ * @see {@link UpdateVpcLinkCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateVpcLinkCommand extends $Command<
   UpdateVpcLinkCommandInput,

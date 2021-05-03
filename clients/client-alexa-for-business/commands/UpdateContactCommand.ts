@@ -22,6 +22,18 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
 
 /**
  * <p>Updates the contact details by the contact ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new UpdateContactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateContactCommandInput} for command's `input` shape.
+ * @see {@link UpdateContactCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateContactCommand extends $Command<
   UpdateContactCommandInput,

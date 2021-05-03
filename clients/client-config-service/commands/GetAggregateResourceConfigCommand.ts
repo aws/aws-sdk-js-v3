@@ -22,6 +22,18 @@ export interface GetAggregateResourceConfigCommandOutput extends GetAggregateRes
 
 /**
  * <p>Returns configuration item that is aggregated for your specific resource in a specific source account and region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new GetAggregateResourceConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAggregateResourceConfigCommandInput} for command's `input` shape.
+ * @see {@link GetAggregateResourceConfigCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAggregateResourceConfigCommand extends $Command<
   GetAggregateResourceConfigCommandInput,

@@ -31,6 +31,18 @@ export interface StartMedicalStreamTranscriptionCommandOutput
 /**
  * <p>Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon Transcribe Medical and the
  *             transcription results are streamed to your application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeStreamingClient(config);
+ * const command = new StartMedicalStreamTranscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartMedicalStreamTranscriptionCommandInput} for command's `input` shape.
+ * @see {@link StartMedicalStreamTranscriptionCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeStreamingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartMedicalStreamTranscriptionCommand extends $Command<
   StartMedicalStreamTranscriptionCommandInput,

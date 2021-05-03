@@ -24,6 +24,18 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  * <p>Returns an array of table names associated with the current account and endpoint. The output
  *       from <code>ListTables</code> is paginated, with each page returning a maximum of 100 table
  *       names.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new ListTablesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTablesCommandInput} for command's `input` shape.
+ * @see {@link ListTablesCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTablesCommand extends $Command<
   ListTablesCommandInput,

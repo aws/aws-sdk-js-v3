@@ -52,6 +52,18 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  *          <p>For an example, see Recognizing Celebrities in an Image in the Amazon Rekognition Developer Guide.</p>
  *          <p>This operation requires permissions to perform the
  *         <code>rekognition:RecognizeCelebrities</code> operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RekognitionClient(config);
+ * const command = new RecognizeCelebritiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RecognizeCelebritiesCommandInput} for command's `input` shape.
+ * @see {@link RecognizeCelebritiesCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RecognizeCelebritiesCommand extends $Command<
   RecognizeCelebritiesCommandInput,

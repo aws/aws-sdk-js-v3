@@ -22,6 +22,18 @@ export interface MediaTypeHeaderCommandOutput extends MediaTypeHeaderOutput, __M
 
 /**
  * This example ensures that mediaType strings are base64 encoded in headers.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new MediaTypeHeaderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link MediaTypeHeaderCommandInput} for command's `input` shape.
+ * @see {@link MediaTypeHeaderCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class MediaTypeHeaderCommand extends $Command<
   MediaTypeHeaderCommandInput,

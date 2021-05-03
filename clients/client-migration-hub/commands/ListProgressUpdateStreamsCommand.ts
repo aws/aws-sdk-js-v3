@@ -22,6 +22,18 @@ export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpda
 
 /**
  * <p>Lists progress update streams associated with the user account making this call.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MigrationHubClient(config);
+ * const command = new ListProgressUpdateStreamsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProgressUpdateStreamsCommandInput} for command's `input` shape.
+ * @see {@link ListProgressUpdateStreamsCommandOutput} for command's `response` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProgressUpdateStreamsCommand extends $Command<
   ListProgressUpdateStreamsCommandInput,

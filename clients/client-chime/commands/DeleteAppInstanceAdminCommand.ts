@@ -22,6 +22,18 @@ export interface DeleteAppInstanceAdminCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Demotes an <code>AppInstanceAdmin</code> to an <code>AppInstanceUser</code>. This action does not delete the user.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new DeleteAppInstanceAdminCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAppInstanceAdminCommandInput} for command's `input` shape.
+ * @see {@link DeleteAppInstanceAdminCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAppInstanceAdminCommand extends $Command<
   DeleteAppInstanceAdminCommandInput,

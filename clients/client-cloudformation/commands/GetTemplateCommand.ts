@@ -26,6 +26,18 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  *             <p> If the template does not exist, a <code>ValidationError</code> is returned.
  *          </p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new GetTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTemplateCommandInput} for command's `input` shape.
+ * @see {@link GetTemplateCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTemplateCommand extends $Command<
   GetTemplateCommandInput,

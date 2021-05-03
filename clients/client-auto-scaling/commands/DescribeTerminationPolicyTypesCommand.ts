@@ -27,6 +27,18 @@ export interface DescribeTerminationPolicyTypesCommandOutput
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling which Auto Scaling
  *                 instances terminate during scale in</a> in the
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingClient(config);
+ * const command = new DescribeTerminationPolicyTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTerminationPolicyTypesCommandInput} for command's `input` shape.
+ * @see {@link DescribeTerminationPolicyTypesCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTerminationPolicyTypesCommand extends $Command<
   DescribeTerminationPolicyTypesCommandInput,

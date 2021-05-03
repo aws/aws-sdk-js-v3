@@ -22,6 +22,18 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookResult, __Metad
 
 /**
  * <p> Deletes a webhook. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyClient(config);
+ * const command = new DeleteWebhookCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteWebhookCommandInput} for command's `input` shape.
+ * @see {@link DeleteWebhookCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteWebhookCommand extends $Command<
   DeleteWebhookCommandInput,

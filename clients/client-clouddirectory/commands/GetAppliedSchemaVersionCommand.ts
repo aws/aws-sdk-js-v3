@@ -22,6 +22,18 @@ export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVe
 
 /**
  * <p>Returns current applied schema version ARN, including the minor version in use.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new GetAppliedSchemaVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAppliedSchemaVersionCommandInput} for command's `input` shape.
+ * @see {@link GetAppliedSchemaVersionCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAppliedSchemaVersionCommand extends $Command<
   GetAppliedSchemaVersionCommandInput,

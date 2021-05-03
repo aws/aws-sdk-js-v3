@@ -27,6 +27,18 @@ export interface DeleteIdentityProviderCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an identity provider for a user pool.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new DeleteIdentityProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteIdentityProviderCommandInput} for command's `input` shape.
+ * @see {@link DeleteIdentityProviderCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteIdentityProviderCommand extends $Command<
   DeleteIdentityProviderCommandInput,

@@ -22,6 +22,18 @@ export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfil
 
 /**
  * <p>Lists the queues associated with a routing profile.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new ListRoutingProfileQueuesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRoutingProfileQueuesCommandInput} for command's `input` shape.
+ * @see {@link ListRoutingProfileQueuesCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRoutingProfileQueuesCommand extends $Command<
   ListRoutingProfileQueuesCommandInput,

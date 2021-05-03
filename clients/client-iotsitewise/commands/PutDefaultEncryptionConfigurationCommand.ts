@@ -29,6 +29,18 @@ export interface PutDefaultEncryptionConfigurationCommandOutput
  * <p>Sets the default encryption configuration for the AWS
  *       account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a>
  *       in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new PutDefaultEncryptionConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutDefaultEncryptionConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutDefaultEncryptionConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutDefaultEncryptionConfigurationCommand extends $Command<
   PutDefaultEncryptionConfigurationCommandInput,

@@ -22,6 +22,18 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResult, __Met
 
 /**
  * <p>List all public keys that have been added to CloudFront for this account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new ListPublicKeysCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPublicKeysCommandInput} for command's `input` shape.
+ * @see {@link ListPublicKeysCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPublicKeysCommand extends $Command<
   ListPublicKeysCommandInput,

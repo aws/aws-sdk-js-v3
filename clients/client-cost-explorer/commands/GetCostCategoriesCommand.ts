@@ -25,6 +25,18 @@ export interface GetCostCategoriesCommandOutput extends GetCostCategoriesRespons
  * 	        <note>
  *             <p>If some Cost Category names and values are not associated with any cost, they will not be returned by this API.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CostExplorerClient(config);
+ * const command = new GetCostCategoriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCostCategoriesCommandInput} for command's `input` shape.
+ * @see {@link GetCostCategoriesCommandOutput} for command's `response` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCostCategoriesCommand extends $Command<
   GetCostCategoriesCommandInput,

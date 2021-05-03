@@ -33,6 +33,18 @@ export interface DetectStackResourceDriftCommandOutput extends DetectStackResour
  *          that support drift detection.</p>
  *          <p>Resources that do not currently support drift detection cannot be checked. For a list
  *          of resources that support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources that Support Drift Detection</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new DetectStackResourceDriftCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetectStackResourceDriftCommandInput} for command's `input` shape.
+ * @see {@link DetectStackResourceDriftCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetectStackResourceDriftCommand extends $Command<
   DetectStackResourceDriftCommandInput,

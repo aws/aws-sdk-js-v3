@@ -28,6 +28,18 @@ export interface DescribeAggregationAuthorizationsCommandOutput
 /**
  * <p>Returns a list of authorizations granted to various aggregator
  * 			accounts and regions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DescribeAggregationAuthorizationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAggregationAuthorizationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeAggregationAuthorizationsCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAggregationAuthorizationsCommand extends $Command<
   DescribeAggregationAuthorizationsCommandInput,

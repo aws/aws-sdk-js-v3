@@ -24,6 +24,18 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * <p>Lists all Security Hub membership invitations that were sent to the current AWS account.</p>
  *          <p>This operation is only used by accounts that are managed by invitation.
  *          Accounts that are managed using the integration with AWS Organizations do not receive invitations.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecurityHubClient(config);
+ * const command = new ListInvitationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListInvitationsCommandInput} for command's `input` shape.
+ * @see {@link ListInvitationsCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListInvitationsCommand extends $Command<
   ListInvitationsCommandInput,

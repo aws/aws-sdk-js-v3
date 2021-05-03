@@ -23,6 +23,18 @@ export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityRes
 /**
  * <p>Deletes an email identity that you previously verified for use with Amazon Pinpoint. An identity
  *             can be either an email address or a domain name.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointEmailClient(config);
+ * const command = new DeleteEmailIdentityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEmailIdentityCommandInput} for command's `input` shape.
+ * @see {@link DeleteEmailIdentityCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEmailIdentityCommand extends $Command<
   DeleteEmailIdentityCommandInput,

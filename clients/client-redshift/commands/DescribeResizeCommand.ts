@@ -27,6 +27,18 @@ export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __Me
  *             status of the resize remains as <code>SUCCEEDED</code> until the next resize. </p>
  *         <p>A resize operation can be requested using <a>ModifyCluster</a> and
  *             specifying a different number or type of nodes for the cluster. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DescribeResizeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeResizeCommandInput} for command's `input` shape.
+ * @see {@link DescribeResizeCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeResizeCommand extends $Command<
   DescribeResizeCommandInput,

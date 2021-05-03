@@ -22,6 +22,18 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
 
 /**
  * <p>Updates room details by room ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new UpdateRoomCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRoomCommandInput} for command's `input` shape.
+ * @see {@link UpdateRoomCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRoomCommand extends $Command<
   UpdateRoomCommandInput,

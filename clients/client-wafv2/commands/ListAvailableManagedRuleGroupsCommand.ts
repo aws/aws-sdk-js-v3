@@ -24,6 +24,18 @@ export interface ListAvailableManagedRuleGroupsCommandOutput
 
 /**
  * <p>Retrieves an array of managed rule groups that are available for you to use. This list includes all AWS Managed Rules rule groups and the AWS Marketplace managed rule groups that you're subscribed to.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFV2Client(config);
+ * const command = new ListAvailableManagedRuleGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAvailableManagedRuleGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListAvailableManagedRuleGroupsCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAvailableManagedRuleGroupsCommand extends $Command<
   ListAvailableManagedRuleGroupsCommandInput,

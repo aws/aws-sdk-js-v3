@@ -28,6 +28,18 @@ export interface AdminGetDeviceCommandOutput extends AdminGetDeviceResponse, __M
 /**
  * <p>Gets the device, as an administrator.</p>
  *         <p>Calling this action requires developer credentials.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new AdminGetDeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdminGetDeviceCommandInput} for command's `input` shape.
+ * @see {@link AdminGetDeviceCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdminGetDeviceCommand extends $Command<
   AdminGetDeviceCommandInput,

@@ -25,6 +25,18 @@ export interface DescribeSecurityConfigurationCommandOutput
 /**
  * <p>Provides the details of a security configuration by returning the configuration
  *          JSON.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRClient(config);
+ * const command = new DescribeSecurityConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSecurityConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeSecurityConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSecurityConfigurationCommand extends $Command<
   DescribeSecurityConfigurationCommandInput,

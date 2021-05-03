@@ -23,6 +23,18 @@ export interface ListNodegroupsCommandOutput extends ListNodegroupsResponse, __M
 /**
  * <p>Lists the Amazon EKS managed node groups associated with the specified cluster in your
  *             AWS account in the specified Region. Self-managed node groups are not listed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new ListNodegroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListNodegroupsCommandInput} for command's `input` shape.
+ * @see {@link ListNodegroupsCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListNodegroupsCommand extends $Command<
   ListNodegroupsCommandInput,

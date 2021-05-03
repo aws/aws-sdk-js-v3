@@ -19,6 +19,18 @@ export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
 
 /**
  * <p>Returns the base-64 encoded contents of a specified file and its metadata.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new GetFileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFileCommandInput} for command's `input` shape.
+ * @see {@link GetFileCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFileCommand extends $Command<
   GetFileCommandInput,

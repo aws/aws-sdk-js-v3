@@ -23,6 +23,18 @@ export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __M
 /**
  * <p>Systems Manager calls this API action when displaying all Application Manager OpsMetadata objects or
  *    blobs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new ListOpsMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListOpsMetadataCommandInput} for command's `input` shape.
+ * @see {@link ListOpsMetadataCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListOpsMetadataCommand extends $Command<
   ListOpsMetadataCommandInput,

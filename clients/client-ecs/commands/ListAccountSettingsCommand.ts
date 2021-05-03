@@ -22,6 +22,18 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
 
 /**
  * <p>Lists the account settings for a specified principal.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new ListAccountSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAccountSettingsCommandInput} for command's `input` shape.
+ * @see {@link ListAccountSettingsCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAccountSettingsCommand extends $Command<
   ListAccountSettingsCommandInput,

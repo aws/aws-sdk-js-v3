@@ -26,6 +26,18 @@ export interface PostToConnectionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sends the provided data to the specified connection.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApiGatewayManagementApiClient(config);
+ * const command = new PostToConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PostToConnectionCommandInput} for command's `input` shape.
+ * @see {@link PostToConnectionCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayManagementApiClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PostToConnectionCommand extends $Command<
   PostToConnectionCommandInput,

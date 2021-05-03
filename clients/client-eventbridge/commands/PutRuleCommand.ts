@@ -65,6 +65,18 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  *       budgeting, which alerts you when charges exceed your specified limit. For more information,
  *       see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html">Managing Your Costs with
  *         Budgets</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EventBridgeClient(config);
+ * const command = new PutRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutRuleCommandInput} for command's `input` shape.
+ * @see {@link PutRuleCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutRuleCommand extends $Command<
   PutRuleCommandInput,

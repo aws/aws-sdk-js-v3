@@ -28,6 +28,18 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  *         consistent query, and the metadata for your table might not be available at that moment.
  *         Wait for a few seconds, and then try the <code>DescribeTable</code> request again.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new DescribeTableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTableCommandInput} for command's `input` shape.
+ * @see {@link DescribeTableCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTableCommand extends $Command<
   DescribeTableCommandInput,

@@ -29,6 +29,18 @@ export interface DescribeConnectionAliasPermissionsCommandOutput
  * <p>Describes the permissions that the owner of a connection alias has granted to another AWS account for
  *          the specified connection alias. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
  *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new DescribeConnectionAliasPermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConnectionAliasPermissionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeConnectionAliasPermissionsCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConnectionAliasPermissionsCommand extends $Command<
   DescribeConnectionAliasPermissionsCommandInput,

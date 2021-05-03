@@ -24,6 +24,18 @@ export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesH
  * <p>Retrieves detailed information about the health of instances in your AWS Elastic
  *       Beanstalk. This operation requires <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced health
  *       reporting</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new DescribeInstancesHealthCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeInstancesHealthCommandInput} for command's `input` shape.
+ * @see {@link DescribeInstancesHealthCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeInstancesHealthCommand extends $Command<
   DescribeInstancesHealthCommandInput,

@@ -42,6 +42,18 @@ export interface DeleteBotCommandOutput extends __MetadataBearer {}
  *
  *          <p>This operation requires permissions for the
  *         <code>lex:DeleteBot</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new DeleteBotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBotCommandInput} for command's `input` shape.
+ * @see {@link DeleteBotCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBotCommand extends $Command<
   DeleteBotCommandInput,

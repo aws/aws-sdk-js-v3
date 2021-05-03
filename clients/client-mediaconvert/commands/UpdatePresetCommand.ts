@@ -22,6 +22,18 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
 
 /**
  * Modify one of your existing presets.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConvertClient(config);
+ * const command = new UpdatePresetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePresetCommandInput} for command's `input` shape.
+ * @see {@link UpdatePresetCommandOutput} for command's `response` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePresetCommand extends $Command<
   UpdatePresetCommandInput,

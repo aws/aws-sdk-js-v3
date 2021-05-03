@@ -24,6 +24,18 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * <p>
  * This operation allows you to perform batch reads and writes on data stored in DynamoDB, using PartiQL.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new BatchExecuteStatementCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchExecuteStatementCommandInput} for command's `input` shape.
+ * @see {@link BatchExecuteStatementCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchExecuteStatementCommand extends $Command<
   BatchExecuteStatementCommandInput,

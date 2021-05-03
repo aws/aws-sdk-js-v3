@@ -24,6 +24,18 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  * <p>Updates a crawler. If a crawler is
  *       running, you must stop it using <code>StopCrawler</code> before updating
  *       it.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new UpdateCrawlerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateCrawlerCommandInput} for command's `input` shape.
+ * @see {@link UpdateCrawlerCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateCrawlerCommand extends $Command<
   UpdateCrawlerCommandInput,

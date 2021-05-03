@@ -22,6 +22,18 @@ export interface DescribeServiceActionCommandOutput extends DescribeServiceActio
 
 /**
  * <p>Describes a self-service action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DescribeServiceActionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeServiceActionCommandInput} for command's `input` shape.
+ * @see {@link DescribeServiceActionCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeServiceActionCommand extends $Command<
   DescribeServiceActionCommandInput,

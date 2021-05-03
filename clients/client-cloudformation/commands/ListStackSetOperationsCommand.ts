@@ -22,6 +22,18 @@ export interface ListStackSetOperationsCommandOutput extends ListStackSetOperati
 
 /**
  * <p>Returns summary information about operations performed on a stack set. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new ListStackSetOperationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListStackSetOperationsCommandInput} for command's `input` shape.
+ * @see {@link ListStackSetOperationsCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListStackSetOperationsCommand extends $Command<
   ListStackSetOperationsCommandInput,

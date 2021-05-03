@@ -22,6 +22,18 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
 
 /**
  * Creates a broker. Note: This API is asynchronous.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MqClient(config);
+ * const command = new CreateBrokerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateBrokerCommandInput} for command's `input` shape.
+ * @see {@link CreateBrokerCommandOutput} for command's `response` shape.
+ * @see {@link MqClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateBrokerCommand extends $Command<
   CreateBrokerCommandInput,

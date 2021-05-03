@@ -22,6 +22,18 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
 
 /**
  * <p>Describes the details of a DDoS attack. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ShieldClient(config);
+ * const command = new DescribeAttackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAttackCommandInput} for command's `input` shape.
+ * @see {@link DescribeAttackCommandOutput} for command's `response` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAttackCommand extends $Command<
   DescribeAttackCommandInput,

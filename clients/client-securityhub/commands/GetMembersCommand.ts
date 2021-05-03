@@ -26,6 +26,18 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  *          organization or an administrator account that enabled Security Hub manually.</p>
  *          <p>The results include both member accounts that are managed using Organizations and accounts that
  *          were invited manually.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecurityHubClient(config);
+ * const command = new GetMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMembersCommandInput} for command's `input` shape.
+ * @see {@link GetMembersCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMembersCommand extends $Command<
   GetMembersCommandInput,

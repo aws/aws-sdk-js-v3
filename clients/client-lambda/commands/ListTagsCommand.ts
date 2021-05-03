@@ -23,6 +23,18 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
 /**
  * <p>Returns a function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. You can
  *       also view tags with <a>GetFunction</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new ListTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsCommandInput} for command's `input` shape.
+ * @see {@link ListTagsCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsCommandOutput, LambdaClientResolvedConfig> {
   // Start section: command_properties

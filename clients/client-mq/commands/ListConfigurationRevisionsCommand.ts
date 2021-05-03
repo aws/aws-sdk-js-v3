@@ -22,6 +22,18 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
 
 /**
  * Returns a list of all revisions for the specified configuration.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MqClient(config);
+ * const command = new ListConfigurationRevisionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListConfigurationRevisionsCommandInput} for command's `input` shape.
+ * @see {@link ListConfigurationRevisionsCommandOutput} for command's `response` shape.
+ * @see {@link MqClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListConfigurationRevisionsCommand extends $Command<
   ListConfigurationRevisionsCommandInput,

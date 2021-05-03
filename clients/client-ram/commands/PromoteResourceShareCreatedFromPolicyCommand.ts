@@ -40,6 +40,18 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
  *     			        <p>Modifiable in AWS RAM.</p>
  *     		      </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RAMClient(config);
+ * const command = new PromoteResourceShareCreatedFromPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PromoteResourceShareCreatedFromPolicyCommandInput} for command's `input` shape.
+ * @see {@link PromoteResourceShareCreatedFromPolicyCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
   PromoteResourceShareCreatedFromPolicyCommandInput,

@@ -26,6 +26,18 @@ export interface ListProblemsCommandOutput extends ListProblemsResponse, __Metad
 
 /**
  * <p>Lists the problems with your application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationInsightsClient(config);
+ * const command = new ListProblemsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProblemsCommandInput} for command's `input` shape.
+ * @see {@link ListProblemsCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProblemsCommand extends $Command<
   ListProblemsCommandInput,

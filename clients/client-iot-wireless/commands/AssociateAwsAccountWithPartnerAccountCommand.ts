@@ -28,6 +28,18 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
 
 /**
  * <p>Associates a partner account with your AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new AssociateAwsAccountWithPartnerAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateAwsAccountWithPartnerAccountCommandInput} for command's `input` shape.
+ * @see {@link AssociateAwsAccountWithPartnerAccountCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateAwsAccountWithPartnerAccountCommand extends $Command<
   AssociateAwsAccountWithPartnerAccountCommandInput,

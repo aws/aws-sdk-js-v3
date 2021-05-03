@@ -28,6 +28,18 @@ export interface DescribeVpcEndpointServiceConfigurationsCommandOutput
 
 /**
  * <p>Describes the VPC endpoint service configurations in your account (your services).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeVpcEndpointServiceConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeVpcEndpointServiceConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeVpcEndpointServiceConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
   DescribeVpcEndpointServiceConfigurationsCommandInput,

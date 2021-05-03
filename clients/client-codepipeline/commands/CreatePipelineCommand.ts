@@ -28,6 +28,18 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  *                 create a cross-region action in your pipeline, you must use
  *                     <code>artifactStores</code>.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new CreatePipelineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePipelineCommandInput} for command's `input` shape.
+ * @see {@link CreatePipelineCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePipelineCommand extends $Command<
   CreatePipelineCommandInput,

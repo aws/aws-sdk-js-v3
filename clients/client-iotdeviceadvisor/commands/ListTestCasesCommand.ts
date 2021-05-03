@@ -22,6 +22,18 @@ export interface ListTestCasesCommandOutput extends ListTestCasesResponse, __Met
 
 /**
  * <p>Lists all the test cases in the test suite.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IotDeviceAdvisorClient(config);
+ * const command = new ListTestCasesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTestCasesCommandInput} for command's `input` shape.
+ * @see {@link ListTestCasesCommandOutput} for command's `response` shape.
+ * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTestCasesCommand extends $Command<
   ListTestCasesCommandInput,

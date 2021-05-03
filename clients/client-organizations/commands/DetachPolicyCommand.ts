@@ -36,6 +36,18 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  *             the <code>FullAWSAccess</code> policy (or any other attached SCP), you're using the
  *             authorization strategy of a "<a href="https://docs.aws.amazon.com/organizations/latest/userguide/SCP_strategies.html#orgs_policies_denylist">deny list</a>".</p>
  *         <p>This operation can be called only from the organization's management account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OrganizationsClient(config);
+ * const command = new DetachPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetachPolicyCommandInput} for command's `input` shape.
+ * @see {@link DetachPolicyCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetachPolicyCommand extends $Command<
   DetachPolicyCommandInput,

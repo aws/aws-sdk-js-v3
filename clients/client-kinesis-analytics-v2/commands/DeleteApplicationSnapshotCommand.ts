@@ -26,6 +26,18 @@ export interface DeleteApplicationSnapshotCommandOutput extends DeleteApplicatio
 
 /**
  * <p>Deletes a snapshot of application state.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisAnalyticsV2Client(config);
+ * const command = new DeleteApplicationSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteApplicationSnapshotCommandInput} for command's `input` shape.
+ * @see {@link DeleteApplicationSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteApplicationSnapshotCommand extends $Command<
   DeleteApplicationSnapshotCommandInput,

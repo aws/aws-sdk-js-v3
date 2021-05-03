@@ -22,6 +22,18 @@ export interface GetIndexingConfigurationCommandOutput extends GetIndexingConfig
 
 /**
  * <p>Gets the indexing configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new GetIndexingConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetIndexingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetIndexingConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetIndexingConfigurationCommand extends $Command<
   GetIndexingConfigurationCommandInput,

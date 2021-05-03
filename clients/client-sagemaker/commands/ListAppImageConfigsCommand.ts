@@ -24,6 +24,18 @@ export interface ListAppImageConfigsCommandOutput extends ListAppImageConfigsRes
  * <p>Lists the AppImageConfigs in your account and their properties. The list can be
  *         filtered by creation time or modified time, and whether the AppImageConfig name contains
  *         a specified string.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListAppImageConfigsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAppImageConfigsCommandInput} for command's `input` shape.
+ * @see {@link ListAppImageConfigsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAppImageConfigsCommand extends $Command<
   ListAppImageConfigsCommandInput,

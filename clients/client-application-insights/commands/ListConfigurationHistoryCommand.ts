@@ -39,6 +39,18 @@ export interface ListConfigurationHistoryCommandOutput extends ListConfiguration
  *                <p>ERROR: alarm not created due to permission errors or exceeding quotas. </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationInsightsClient(config);
+ * const command = new ListConfigurationHistoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListConfigurationHistoryCommandInput} for command's `input` shape.
+ * @see {@link ListConfigurationHistoryCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListConfigurationHistoryCommand extends $Command<
   ListConfigurationHistoryCommandInput,

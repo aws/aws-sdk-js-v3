@@ -22,6 +22,18 @@ export interface DeleteVocabularyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a vocabulary from Amazon Transcribe. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeClient(config);
+ * const command = new DeleteVocabularyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVocabularyCommandInput} for command's `input` shape.
+ * @see {@link DeleteVocabularyCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVocabularyCommand extends $Command<
   DeleteVocabularyCommandInput,

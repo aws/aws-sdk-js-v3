@@ -23,6 +23,18 @@ export interface GetDistributionsCommandOutput extends GetDistributionsResult, _
 /**
  * <p>Returns information about one or more of your Amazon Lightsail content delivery network
  *       (CDN) distributions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetDistributionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDistributionsCommandInput} for command's `input` shape.
+ * @see {@link GetDistributionsCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDistributionsCommand extends $Command<
   GetDistributionsCommandInput,

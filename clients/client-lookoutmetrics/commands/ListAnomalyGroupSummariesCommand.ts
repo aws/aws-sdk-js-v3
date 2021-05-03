@@ -22,6 +22,18 @@ export interface ListAnomalyGroupSummariesCommandOutput extends ListAnomalyGroup
 
 /**
  * <p>Returns a list of anomaly groups.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutMetricsClient(config);
+ * const command = new ListAnomalyGroupSummariesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAnomalyGroupSummariesCommandInput} for command's `input` shape.
+ * @see {@link ListAnomalyGroupSummariesCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAnomalyGroupSummariesCommand extends $Command<
   ListAnomalyGroupSummariesCommandInput,

@@ -28,6 +28,18 @@ export interface StopDataCollectionByAgentIdsCommandOutput
 
 /**
  * <p>Instructs the specified agents or connectors to stop collecting data.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new StopDataCollectionByAgentIdsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopDataCollectionByAgentIdsCommandInput} for command's `input` shape.
+ * @see {@link StopDataCollectionByAgentIdsCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopDataCollectionByAgentIdsCommand extends $Command<
   StopDataCollectionByAgentIdsCommandInput,

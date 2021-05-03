@@ -23,6 +23,18 @@ export interface DescribeAddressCommandOutput extends DescribeAddressResult, __M
 /**
  * <p>Takes an <code>AddressId</code> and returns specific details about that address in the
  *       form of an <code>Address</code> object.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SnowballClient(config);
+ * const command = new DescribeAddressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAddressCommandInput} for command's `input` shape.
+ * @see {@link DescribeAddressCommandOutput} for command's `response` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAddressCommand extends $Command<
   DescribeAddressCommandInput,

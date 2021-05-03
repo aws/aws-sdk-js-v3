@@ -50,6 +50,18 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  *          <p>To apply a <code>LifecycleConfiguration</code> object to an encrypted file system, you
  *       need the same AWS Key Management Service (AWS KMS) permissions as when you created the encrypted
  *       file system. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EFSClient(config);
+ * const command = new PutLifecycleConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutLifecycleConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutLifecycleConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutLifecycleConfigurationCommand extends $Command<
   PutLifecycleConfigurationCommandInput,

@@ -26,6 +26,18 @@ export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, _
  *          <p>To use this operation, you must have permission to perform the
  *             <code>MediaStore:DeleteCorsPolicy</code> action. The container owner has this permission
  *          by default and can grant this permission to others.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaStoreClient(config);
+ * const command = new DeleteCorsPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCorsPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteCorsPolicyCommandOutput} for command's `response` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCorsPolicyCommand extends $Command<
   DeleteCorsPolicyCommandInput,

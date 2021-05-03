@@ -26,6 +26,18 @@ export interface ListPlacementsCommandOutput extends ListPlacementsResponse, __M
 
 /**
  * <p>Lists the placement(s) of a project.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoT1ClickProjectsClient(config);
+ * const command = new ListPlacementsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPlacementsCommandInput} for command's `input` shape.
+ * @see {@link ListPlacementsCommandOutput} for command's `response` shape.
+ * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPlacementsCommand extends $Command<
   ListPlacementsCommandInput,

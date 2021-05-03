@@ -22,6 +22,18 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
 
 /**
  * <p>Updates an existing room profile by room profile ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new UpdateProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateProfileCommandInput} for command's `input` shape.
+ * @see {@link UpdateProfileCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateProfileCommand extends $Command<
   UpdateProfileCommandInput,

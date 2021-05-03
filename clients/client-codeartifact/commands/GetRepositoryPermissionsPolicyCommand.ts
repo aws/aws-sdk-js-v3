@@ -26,6 +26,18 @@ export interface GetRepositoryPermissionsPolicyCommandOutput
  * <p>
  *         Returns the resource policy that is set on a repository.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeartifactClient(config);
+ * const command = new GetRepositoryPermissionsPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRepositoryPermissionsPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetRepositoryPermissionsPolicyCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRepositoryPermissionsPolicyCommand extends $Command<
   GetRepositoryPermissionsPolicyCommandInput,

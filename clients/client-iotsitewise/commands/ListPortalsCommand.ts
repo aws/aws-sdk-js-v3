@@ -22,6 +22,18 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
 
 /**
  * <p>Retrieves a paginated list of AWS IoT SiteWise Monitor portals.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new ListPortalsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPortalsCommandInput} for command's `input` shape.
+ * @see {@link ListPortalsCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPortalsCommand extends $Command<
   ListPortalsCommandInput,

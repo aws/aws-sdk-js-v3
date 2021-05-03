@@ -22,6 +22,18 @@ export interface DeleteFindingsFilterCommandOutput extends DeleteFindingsFilterR
 
 /**
  * <p>Deletes a findings filter.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new DeleteFindingsFilterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFindingsFilterCommandInput} for command's `input` shape.
+ * @see {@link DeleteFindingsFilterCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFindingsFilterCommand extends $Command<
   DeleteFindingsFilterCommandInput,

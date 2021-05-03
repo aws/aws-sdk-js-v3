@@ -35,6 +35,18 @@ export interface DescribeOrganizationConformancePackStatusesCommandOutput
  * 				Limit and next token are not applicable if you specify organization conformance pack names.
  * 				They are only applicable, when you request all the organization conformance packs.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DescribeOrganizationConformancePackStatusesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeOrganizationConformancePackStatusesCommandInput} for command's `input` shape.
+ * @see {@link DescribeOrganizationConformancePackStatusesCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeOrganizationConformancePackStatusesCommand extends $Command<
   DescribeOrganizationConformancePackStatusesCommandInput,

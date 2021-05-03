@@ -24,6 +24,18 @@ export interface ListSubscribedWorkteamsCommandOutput extends ListSubscribedWork
  * <p>Gets a list of the work teams that you are subscribed to in the AWS Marketplace. The
  *             list may be empty if no work team satisfies the filter specified in the
  *                 <code>NameContains</code> parameter.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListSubscribedWorkteamsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSubscribedWorkteamsCommandInput} for command's `input` shape.
+ * @see {@link ListSubscribedWorkteamsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSubscribedWorkteamsCommand extends $Command<
   ListSubscribedWorkteamsCommandInput,

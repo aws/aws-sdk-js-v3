@@ -28,6 +28,18 @@ export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckO
  * <p>Specifies the health check settings to use when evaluating the health state of your EC2 instances.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html">Configure Health Checks for Your Load Balancer</a>
  *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingClient(config);
+ * const command = new ConfigureHealthCheckCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ConfigureHealthCheckCommandInput} for command's `input` shape.
+ * @see {@link ConfigureHealthCheckCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ConfigureHealthCheckCommand extends $Command<
   ConfigureHealthCheckCommandInput,

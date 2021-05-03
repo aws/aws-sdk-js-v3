@@ -22,6 +22,18 @@ export interface DescribeDataSourcesCommandOutput extends DescribeDataSourcesOut
 
 /**
  * <p>Returns a list of <code>DataSource</code> that match the search criteria in the request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MachineLearningClient(config);
+ * const command = new DescribeDataSourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDataSourcesCommandInput} for command's `input` shape.
+ * @see {@link DescribeDataSourcesCommandOutput} for command's `response` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDataSourcesCommand extends $Command<
   DescribeDataSourcesCommandInput,

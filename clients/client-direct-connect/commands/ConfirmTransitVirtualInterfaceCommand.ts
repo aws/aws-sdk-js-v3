@@ -26,6 +26,18 @@ export interface ConfirmTransitVirtualInterfaceCommandOutput
  * <p>Accepts ownership of a transit virtual interface created by another AWS account.</p>
  *
  *          <p> After the owner of the transit virtual interface makes this call, the specified transit virtual interface is created and made available to handle traffic.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new ConfirmTransitVirtualInterfaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ConfirmTransitVirtualInterfaceCommandInput} for command's `input` shape.
+ * @see {@link ConfirmTransitVirtualInterfaceCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ConfirmTransitVirtualInterfaceCommand extends $Command<
   ConfirmTransitVirtualInterfaceCommandInput,

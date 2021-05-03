@@ -25,6 +25,18 @@ export interface UnlinkIdentityCommandOutput extends __MetadataBearer {}
  *          considered new identities next time they are seen. Removing the last linked login will make
  *          this identity inaccessible.</p>
  *          <p>This is a public API. You do not need any credentials to call this API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityClient(config);
+ * const command = new UnlinkIdentityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UnlinkIdentityCommandInput} for command's `input` shape.
+ * @see {@link UnlinkIdentityCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UnlinkIdentityCommand extends $Command<
   UnlinkIdentityCommandInput,

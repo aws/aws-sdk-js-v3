@@ -35,6 +35,18 @@ export interface DisableHealthServiceAccessForOrganizationCommandOutput extends 
  *             an error. AWS Health continues to aggregate health events for your AWS
  *             account.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new HealthClient(config);
+ * const command = new DisableHealthServiceAccessForOrganizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableHealthServiceAccessForOrganizationCommandInput} for command's `input` shape.
+ * @see {@link DisableHealthServiceAccessForOrganizationCommandOutput} for command's `response` shape.
+ * @see {@link HealthClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableHealthServiceAccessForOrganizationCommand extends $Command<
   DisableHealthServiceAccessForOrganizationCommandInput,

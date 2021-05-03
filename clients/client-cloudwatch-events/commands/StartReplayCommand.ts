@@ -30,6 +30,18 @@ export interface StartReplayCommandOutput extends StartReplayResponse, __Metadat
  *       determine the progress of a replay. The value returned for <code>EventLastReplayedTime</code>
  *       indicates the time within the specified time range associated with the last event
  *       replayed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchEventsClient(config);
+ * const command = new StartReplayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartReplayCommandInput} for command's `input` shape.
+ * @see {@link StartReplayCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartReplayCommand extends $Command<
   StartReplayCommandInput,

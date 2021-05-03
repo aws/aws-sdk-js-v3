@@ -25,6 +25,18 @@ export interface ImportInstanceCommandOutput extends ImportInstanceResult, __Met
  *    information about using the Amazon EC2 CLI, which is deprecated, see
  *    <a href="https://awsdocs.s3.amazonaws.com/EC2/ec2-clt.pdf#UsingVirtualMachinesinAmazonEC2">Importing a VM to Amazon EC2</a> in the <i>Amazon EC2 CLI Reference</i> PDF file.</p>
  *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ImportInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportInstanceCommandInput} for command's `input` shape.
+ * @see {@link ImportInstanceCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ImportInstanceCommand extends $Command<
   ImportInstanceCommandInput,

@@ -27,6 +27,18 @@ export interface ListJobsByStatusCommandOutput extends ListJobsByStatusResponse,
 /**
  * <p>The ListJobsByStatus operation gets a list of jobs that have a specified status. The response
  *             body contains one element for each job that satisfies the search criteria.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticTranscoderClient(config);
+ * const command = new ListJobsByStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListJobsByStatusCommandInput} for command's `input` shape.
+ * @see {@link ListJobsByStatusCommandOutput} for command's `response` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListJobsByStatusCommand extends $Command<
   ListJobsByStatusCommandInput,

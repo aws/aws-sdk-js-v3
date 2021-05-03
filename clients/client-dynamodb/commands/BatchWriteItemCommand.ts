@@ -96,6 +96,18 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  *                <p>The total request size exceeds 16 MB.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new BatchWriteItemCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchWriteItemCommandInput} for command's `input` shape.
+ * @see {@link BatchWriteItemCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchWriteItemCommand extends $Command<
   BatchWriteItemCommandInput,

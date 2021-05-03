@@ -22,6 +22,18 @@ export interface DeleteProtectionCommandOutput extends DeleteProtectionResponse,
 
 /**
  * <p>Deletes an AWS Shield Advanced <a>Protection</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ShieldClient(config);
+ * const command = new DeleteProtectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteProtectionCommandInput} for command's `input` shape.
+ * @see {@link DeleteProtectionCommandOutput} for command's `response` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteProtectionCommand extends $Command<
   DeleteProtectionCommandInput,

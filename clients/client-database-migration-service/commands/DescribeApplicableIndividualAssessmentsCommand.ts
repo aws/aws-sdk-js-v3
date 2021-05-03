@@ -46,6 +46,18 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput
  *          The only parameter that you can specify alone is for an existing migration task. The specified task
  *          definition then determines the default list of individual assessments that you can specify in an
  *          assessment run for the task.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DescribeApplicableIndividualAssessmentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeApplicableIndividualAssessmentsCommandInput} for command's `input` shape.
+ * @see {@link DescribeApplicableIndividualAssessmentsCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeApplicableIndividualAssessmentsCommand extends $Command<
   DescribeApplicableIndividualAssessmentsCommandInput,

@@ -29,6 +29,18 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  *                 it separately at the root level with <a>DisablePolicyType</a>. Use <a>ListRoots</a> to see the status of policy types for a specified
  *                 root.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OrganizationsClient(config);
+ * const command = new DescribeOrganizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeOrganizationCommandInput} for command's `input` shape.
+ * @see {@link DescribeOrganizationCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeOrganizationCommand extends $Command<
   DescribeOrganizationCommandInput,

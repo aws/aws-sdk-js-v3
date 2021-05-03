@@ -22,6 +22,18 @@ export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __Metad
 
 /**
  * <p>Describes the available option groups.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new DescribeOptionGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeOptionGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeOptionGroupsCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeOptionGroupsCommand extends $Command<
   DescribeOptionGroupsCommandInput,

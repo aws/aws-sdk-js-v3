@@ -22,6 +22,18 @@ export interface CancelJobExecutionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Cancels the execution of a job for a given thing.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new CancelJobExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelJobExecutionCommandInput} for command's `input` shape.
+ * @see {@link CancelJobExecutionCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelJobExecutionCommand extends $Command<
   CancelJobExecutionCommandInput,

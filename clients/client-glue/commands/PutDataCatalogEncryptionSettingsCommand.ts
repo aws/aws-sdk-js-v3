@@ -25,6 +25,18 @@ export interface PutDataCatalogEncryptionSettingsCommandOutput
 /**
  * <p>Sets the security configuration for a specified catalog. After the configuration has been
  *       set, the specified encryption is applied to every catalog write thereafter.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new PutDataCatalogEncryptionSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutDataCatalogEncryptionSettingsCommandInput} for command's `input` shape.
+ * @see {@link PutDataCatalogEncryptionSettingsCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutDataCatalogEncryptionSettingsCommand extends $Command<
   PutDataCatalogEncryptionSettingsCommandInput,

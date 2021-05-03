@@ -40,6 +40,18 @@ export interface DeregisterWorkspaceDirectoryCommandOutput
  *             Simple AD or AD Connector directory, you can always create a new one when you want to start using
  *             WorkSpaces again.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new DeregisterWorkspaceDirectoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterWorkspaceDirectoryCommandInput} for command's `input` shape.
+ * @see {@link DeregisterWorkspaceDirectoryCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterWorkspaceDirectoryCommand extends $Command<
   DeregisterWorkspaceDirectoryCommandInput,

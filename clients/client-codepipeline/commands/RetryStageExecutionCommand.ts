@@ -25,6 +25,18 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  *             can retry a stage immediately if any of the actions in the stage fail. When you retry,
  *             all actions that are still in progress continue working, and failed actions are
  *             triggered again.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new RetryStageExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RetryStageExecutionCommandInput} for command's `input` shape.
+ * @see {@link RetryStageExecutionCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RetryStageExecutionCommand extends $Command<
   RetryStageExecutionCommandInput,

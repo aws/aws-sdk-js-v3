@@ -31,6 +31,18 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  *    the software is not installed, then State Manager installs it. If the software is installed, but
  *    the service is not running, then the association might instruct State Manager to start the
  *    service. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new CreateAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAssociationCommandInput} for command's `input` shape.
+ * @see {@link CreateAssociationCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAssociationCommand extends $Command<
   CreateAssociationCommandInput,

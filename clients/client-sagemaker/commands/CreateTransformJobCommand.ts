@@ -56,6 +56,18 @@ export interface CreateTransformJobCommandOutput extends CreateTransformJobRespo
  *          </ul>
  *         <p>For more information about how batch transformation works, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Batch
  *                 Transform</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateTransformJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTransformJobCommandInput} for command's `input` shape.
+ * @see {@link CreateTransformJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTransformJobCommand extends $Command<
   CreateTransformJobCommandInput,

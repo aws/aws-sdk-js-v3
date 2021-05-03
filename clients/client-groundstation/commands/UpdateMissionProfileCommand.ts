@@ -24,6 +24,18 @@ export interface UpdateMissionProfileCommandOutput extends MissionProfileIdRespo
  * <p>Updates a mission profile.</p>
  *          <p>Updating a mission profile will not update the execution parameters
  *          for existing future contacts.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GroundStationClient(config);
+ * const command = new UpdateMissionProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMissionProfileCommandInput} for command's `input` shape.
+ * @see {@link UpdateMissionProfileCommandOutput} for command's `response` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMissionProfileCommand extends $Command<
   UpdateMissionProfileCommandInput,

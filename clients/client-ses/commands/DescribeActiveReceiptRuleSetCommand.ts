@@ -28,6 +28,18 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  *         <p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES
  *                 Developer Guide</a>.</p>
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESClient(config);
+ * const command = new DescribeActiveReceiptRuleSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeActiveReceiptRuleSetCommandInput} for command's `input` shape.
+ * @see {@link DescribeActiveReceiptRuleSetCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeActiveReceiptRuleSetCommand extends $Command<
   DescribeActiveReceiptRuleSetCommandInput,

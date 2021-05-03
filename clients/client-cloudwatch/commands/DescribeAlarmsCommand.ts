@@ -23,6 +23,18 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
 /**
  * <p>Retrieves the specified alarms. You can filter the results by specifying a prefix for the alarm
  * 			name, the alarm state, or a prefix for any action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchClient(config);
+ * const command = new DescribeAlarmsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAlarmsCommandInput} for command's `input` shape.
+ * @see {@link DescribeAlarmsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAlarmsCommand extends $Command<
   DescribeAlarmsCommandInput,

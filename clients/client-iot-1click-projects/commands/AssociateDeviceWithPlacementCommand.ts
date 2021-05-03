@@ -28,6 +28,18 @@ export interface AssociateDeviceWithPlacementCommandOutput
 
 /**
  * <p>Associates a physical device with a placement.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoT1ClickProjectsClient(config);
+ * const command = new AssociateDeviceWithPlacementCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateDeviceWithPlacementCommandInput} for command's `input` shape.
+ * @see {@link AssociateDeviceWithPlacementCommandOutput} for command's `response` shape.
+ * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateDeviceWithPlacementCommand extends $Command<
   AssociateDeviceWithPlacementCommandInput,

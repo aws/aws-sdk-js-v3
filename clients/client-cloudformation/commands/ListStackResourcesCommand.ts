@@ -24,6 +24,18 @@ export interface ListStackResourcesCommandOutput extends ListStackResourcesOutpu
  * <p>Returns descriptions of all resources of the specified stack.</p>
  *          <p>For deleted stacks, ListStackResources returns resource information for up to 90 days
  *          after the stack has been deleted.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new ListStackResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListStackResourcesCommandInput} for command's `input` shape.
+ * @see {@link ListStackResourcesCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListStackResourcesCommand extends $Command<
   ListStackResourcesCommandInput,

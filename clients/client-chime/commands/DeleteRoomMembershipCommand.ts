@@ -22,6 +22,18 @@ export interface DeleteRoomMembershipCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes a member from a chat room in an Amazon Chime Enterprise account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new DeleteRoomMembershipCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRoomMembershipCommandInput} for command's `input` shape.
+ * @see {@link DeleteRoomMembershipCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRoomMembershipCommand extends $Command<
   DeleteRoomMembershipCommandInput,

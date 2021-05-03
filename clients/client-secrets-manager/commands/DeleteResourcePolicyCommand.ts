@@ -45,6 +45,18 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  *                <p>To list all of the currently available secrets, use <a>ListSecrets</a>.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecretsManagerClient(config);
+ * const command = new DeleteResourcePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteResourcePolicyCommand extends $Command<
   DeleteResourcePolicyCommandInput,

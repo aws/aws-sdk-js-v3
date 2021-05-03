@@ -22,6 +22,18 @@ export interface UpdateAddressBookCommandOutput extends UpdateAddressBookRespons
 
 /**
  * <p>Updates address book details by the address book ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new UpdateAddressBookCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAddressBookCommandInput} for command's `input` shape.
+ * @see {@link UpdateAddressBookCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAddressBookCommand extends $Command<
   UpdateAddressBookCommandInput,

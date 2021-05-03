@@ -35,6 +35,18 @@ export interface UpdateServiceSettingCommandOutput extends UpdateServiceSettingR
  *    original value defined by the AWS service team.</p>
  *
  *          <p>Update the service setting for the account. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new UpdateServiceSettingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateServiceSettingCommandInput} for command's `input` shape.
+ * @see {@link UpdateServiceSettingCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateServiceSettingCommand extends $Command<
   UpdateServiceSettingCommandInput,

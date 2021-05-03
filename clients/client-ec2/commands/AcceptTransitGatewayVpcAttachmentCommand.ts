@@ -27,6 +27,18 @@ export interface AcceptTransitGatewayVpcAttachmentCommandOutput
  *          <p>The VPC attachment must be in the <code>pendingAcceptance</code> state.
  *          Use <a>DescribeTransitGatewayVpcAttachments</a> to view your pending VPC attachment requests.
  *          Use <a>RejectTransitGatewayVpcAttachment</a> to reject a VPC attachment request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new AcceptTransitGatewayVpcAttachmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AcceptTransitGatewayVpcAttachmentCommandInput} for command's `input` shape.
+ * @see {@link AcceptTransitGatewayVpcAttachmentCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AcceptTransitGatewayVpcAttachmentCommand extends $Command<
   AcceptTransitGatewayVpcAttachmentCommandInput,

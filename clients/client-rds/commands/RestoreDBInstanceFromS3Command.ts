@@ -29,6 +29,18 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html">Importing Data into an Amazon RDS MySQL DB Instance</a>
  *             in the <i>Amazon RDS User Guide.</i>
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new RestoreDBInstanceFromS3Command(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RestoreDBInstanceFromS3CommandInput} for command's `input` shape.
+ * @see {@link RestoreDBInstanceFromS3CommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RestoreDBInstanceFromS3Command extends $Command<
   RestoreDBInstanceFromS3CommandInput,

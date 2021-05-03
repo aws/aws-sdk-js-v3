@@ -22,6 +22,18 @@ export interface ListBranchesCommandOutput extends ListBranchesResult, __Metadat
 
 /**
  * <p> Lists the branches of an Amplify app. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyClient(config);
+ * const command = new ListBranchesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBranchesCommandInput} for command's `input` shape.
+ * @see {@link ListBranchesCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBranchesCommand extends $Command<
   ListBranchesCommandInput,

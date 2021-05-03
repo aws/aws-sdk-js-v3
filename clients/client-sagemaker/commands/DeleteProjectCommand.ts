@@ -22,6 +22,18 @@ export interface DeleteProjectCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete the specified project.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteProjectCommandInput} for command's `input` shape.
+ * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteProjectCommand extends $Command<
   DeleteProjectCommandInput,

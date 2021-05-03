@@ -22,6 +22,18 @@ export interface GetServiceEndpointCommandOutput extends GetServiceEndpointRespo
 
 /**
  * <p>Gets the account-specific endpoint for Configuration and Update Server (CUPS) protocol or LoRaWAN Network Server (LNS) connections.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new GetServiceEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetServiceEndpointCommandInput} for command's `input` shape.
+ * @see {@link GetServiceEndpointCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetServiceEndpointCommand extends $Command<
   GetServiceEndpointCommandInput,

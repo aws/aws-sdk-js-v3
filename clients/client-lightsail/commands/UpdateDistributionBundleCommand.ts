@@ -31,6 +31,18 @@ export interface UpdateDistributionBundleCommandOutput extends UpdateDistributio
  *       cycle. To determine if you can update your distribution's bundle, use the
  *         <code>GetDistributions</code> action. The <code>ableToUpdateBundle</code> parameter in the
  *       result will indicate whether you can currently update your distribution's bundle.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new UpdateDistributionBundleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDistributionBundleCommandInput} for command's `input` shape.
+ * @see {@link UpdateDistributionBundleCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDistributionBundleCommand extends $Command<
   UpdateDistributionBundleCommandInput,

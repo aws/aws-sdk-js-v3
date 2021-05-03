@@ -24,6 +24,18 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
  * <p>Starts the specified WorkSpaces.</p>
  *          <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
  *          state of <code>STOPPED</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new StartWorkspacesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartWorkspacesCommandInput} for command's `input` shape.
+ * @see {@link StartWorkspacesCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartWorkspacesCommand extends $Command<
   StartWorkspacesCommandInput,

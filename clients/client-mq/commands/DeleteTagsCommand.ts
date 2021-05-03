@@ -22,6 +22,18 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**
  * Removes a tag from a resource.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MqClient(config);
+ * const command = new DeleteTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTagsCommandInput} for command's `input` shape.
+ * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
+ * @see {@link MqClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTagsCommand extends $Command<
   DeleteTagsCommandInput,

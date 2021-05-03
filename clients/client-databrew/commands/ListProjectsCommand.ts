@@ -22,6 +22,18 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
 
 /**
  * <p>Lists all of the DataBrew projects that are defined.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new ListProjectsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProjectsCommandInput} for command's `input` shape.
+ * @see {@link ListProjectsCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProjectsCommand extends $Command<
   ListProjectsCommandInput,

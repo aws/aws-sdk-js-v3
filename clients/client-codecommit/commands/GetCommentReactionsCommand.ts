@@ -22,6 +22,18 @@ export interface GetCommentReactionsCommandOutput extends GetCommentReactionsOut
 
 /**
  * <p>Returns information about reactions to a specified comment ID. Reactions from users who have been deleted will not be included in the count.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new GetCommentReactionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCommentReactionsCommandInput} for command's `input` shape.
+ * @see {@link GetCommentReactionsCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCommentReactionsCommand extends $Command<
   GetCommentReactionsCommandInput,

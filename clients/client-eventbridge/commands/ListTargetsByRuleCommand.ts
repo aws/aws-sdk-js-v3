@@ -22,6 +22,18 @@ export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleRespons
 
 /**
  * <p>Lists the targets assigned to the specified rule.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EventBridgeClient(config);
+ * const command = new ListTargetsByRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTargetsByRuleCommandInput} for command's `input` shape.
+ * @see {@link ListTargetsByRuleCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTargetsByRuleCommand extends $Command<
   ListTargetsByRuleCommandInput,

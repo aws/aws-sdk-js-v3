@@ -26,6 +26,18 @@ export interface DescribeAssociationCommandOutput extends DescribeAssociationRes
  *    by using the association ID. If you created the association by specifying an instance ID and a
  *    Systems Manager document, then you retrieve the association by specifying the document name and the
  *    instance ID. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new DescribeAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAssociationCommandInput} for command's `input` shape.
+ * @see {@link DescribeAssociationCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAssociationCommand extends $Command<
   DescribeAssociationCommandInput,

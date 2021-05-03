@@ -30,6 +30,18 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  *             </code> action to create the member account in Security Hub.</p>
  *          <p>When the account owner enables Security Hub and accepts the invitation to become a member
  *          account, the administrator account can view the findings generated from the member account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecurityHubClient(config);
+ * const command = new InviteMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InviteMembersCommandInput} for command's `input` shape.
+ * @see {@link InviteMembersCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InviteMembersCommand extends $Command<
   InviteMembersCommandInput,

@@ -25,6 +25,18 @@ export interface GetCustomerGatewayAssociationsCommandOutput
 /**
  * <p>Gets the association information for customer gateways that are associated with
  *             devices and links in your global network.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new GetCustomerGatewayAssociationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCustomerGatewayAssociationsCommandInput} for command's `input` shape.
+ * @see {@link GetCustomerGatewayAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCustomerGatewayAssociationsCommand extends $Command<
   GetCustomerGatewayAssociationsCommandInput,

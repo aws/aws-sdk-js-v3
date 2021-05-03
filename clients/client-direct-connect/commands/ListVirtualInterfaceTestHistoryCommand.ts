@@ -24,6 +24,18 @@ export interface ListVirtualInterfaceTestHistoryCommandOutput
 
 /**
  * <p>Lists the virtual interface failover test history.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new ListVirtualInterfaceTestHistoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListVirtualInterfaceTestHistoryCommandInput} for command's `input` shape.
+ * @see {@link ListVirtualInterfaceTestHistoryCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListVirtualInterfaceTestHistoryCommand extends $Command<
   ListVirtualInterfaceTestHistoryCommandInput,

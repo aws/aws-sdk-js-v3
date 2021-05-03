@@ -22,6 +22,18 @@ export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
 
 /**
  * <p>Describes all your link aggregation groups (LAG) or the specified LAG.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new DescribeLagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLagsCommandInput} for command's `input` shape.
+ * @see {@link DescribeLagsCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLagsCommand extends $Command<
   DescribeLagsCommandInput,

@@ -24,6 +24,18 @@ export interface DescribeAcceleratorTypesCommandOutput extends DescribeAccelerat
  * <p>
  *             Describes the accelerator types available in a given region, as well as their characteristics, such as memory and throughput.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticInferenceClient(config);
+ * const command = new DescribeAcceleratorTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAcceleratorTypesCommandInput} for command's `input` shape.
+ * @see {@link DescribeAcceleratorTypesCommandOutput} for command's `response` shape.
+ * @see {@link ElasticInferenceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAcceleratorTypesCommand extends $Command<
   DescribeAcceleratorTypesCommandInput,

@@ -24,6 +24,18 @@ export interface DescribeDashboardPermissionsCommandOutput
 
 /**
  * <p>Describes read and write permissions for a dashboard.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new DescribeDashboardPermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDashboardPermissionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeDashboardPermissionsCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDashboardPermissionsCommand extends $Command<
   DescribeDashboardPermissionsCommandInput,

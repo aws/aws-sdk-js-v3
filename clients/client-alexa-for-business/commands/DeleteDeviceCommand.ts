@@ -22,6 +22,18 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
 
 /**
  * <p>Removes a device from Alexa For Business.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new DeleteDeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDeviceCommandInput} for command's `input` shape.
+ * @see {@link DeleteDeviceCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDeviceCommand extends $Command<
   DeleteDeviceCommandInput,

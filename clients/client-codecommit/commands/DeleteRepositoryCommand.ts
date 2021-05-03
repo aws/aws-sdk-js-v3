@@ -27,6 +27,18 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryOutput, _
  *             <p>Deleting a repository also deletes all associated objects and metadata. After a repository is
  *                 deleted, all future push calls to the deleted repository fail.</p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new DeleteRepositoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRepositoryCommandInput} for command's `input` shape.
+ * @see {@link DeleteRepositoryCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRepositoryCommand extends $Command<
   DeleteRepositoryCommandInput,

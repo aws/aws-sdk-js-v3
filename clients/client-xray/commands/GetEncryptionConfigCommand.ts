@@ -22,6 +22,18 @@ export interface GetEncryptionConfigCommandOutput extends GetEncryptionConfigRes
 
 /**
  * <p>Retrieves the current encryption configuration for X-Ray data.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new XRayClient(config);
+ * const command = new GetEncryptionConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEncryptionConfigCommandInput} for command's `input` shape.
+ * @see {@link GetEncryptionConfigCommandOutput} for command's `response` shape.
+ * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEncryptionConfigCommand extends $Command<
   GetEncryptionConfigCommandInput,

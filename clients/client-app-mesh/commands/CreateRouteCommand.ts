@@ -25,6 +25,18 @@ export interface CreateRouteCommandOutput extends CreateRouteOutput, __MetadataB
  *          <p> You can route several different protocols and define a retry policy for a route.
  *          Traffic can be routed to one or more virtual nodes.</p>
  *          <p>For more information about routes, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/routes.html">Routes</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new CreateRouteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRouteCommandInput} for command's `input` shape.
+ * @see {@link CreateRouteCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRouteCommand extends $Command<
   CreateRouteCommandInput,

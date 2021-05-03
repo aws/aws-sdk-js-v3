@@ -22,6 +22,18 @@ export interface StopReplicationToReplicaCommandOutput extends StopReplicationTo
 
 /**
  * <p>Removes the secret from replication and promotes the secret to a regional secret in the replica Region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecretsManagerClient(config);
+ * const command = new StopReplicationToReplicaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopReplicationToReplicaCommandInput} for command's `input` shape.
+ * @see {@link StopReplicationToReplicaCommandOutput} for command's `response` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopReplicationToReplicaCommand extends $Command<
   StopReplicationToReplicaCommandInput,

@@ -28,6 +28,18 @@ export interface GetVoiceConnectorLoggingConfigurationCommandOutput
 
 /**
  * <p>Retrieves the logging configuration details for the specified Amazon Chime Voice Connector. Shows whether SIP message logs are enabled for sending to Amazon CloudWatch Logs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new GetVoiceConnectorLoggingConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetVoiceConnectorLoggingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetVoiceConnectorLoggingConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetVoiceConnectorLoggingConfigurationCommand extends $Command<
   GetVoiceConnectorLoggingConfigurationCommandInput,

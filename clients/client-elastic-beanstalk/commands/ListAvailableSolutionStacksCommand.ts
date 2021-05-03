@@ -25,6 +25,18 @@ export interface ListAvailableSolutionStacksCommandOutput
 /**
  * <p>Returns a list of the available solution stack names, with the public version first and
  *       then in reverse chronological order.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new ListAvailableSolutionStacksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAvailableSolutionStacksCommandInput} for command's `input` shape.
+ * @see {@link ListAvailableSolutionStacksCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAvailableSolutionStacksCommand extends $Command<
   ListAvailableSolutionStacksCommandInput,

@@ -26,6 +26,18 @@ export interface GetColumnStatisticsForTableCommandOutput
  * <p>Retrieves table statistics of columns.</p>
  *
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetTable</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetColumnStatisticsForTableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetColumnStatisticsForTableCommandInput} for command's `input` shape.
+ * @see {@link GetColumnStatisticsForTableCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetColumnStatisticsForTableCommand extends $Command<
   GetColumnStatisticsForTableCommandInput,

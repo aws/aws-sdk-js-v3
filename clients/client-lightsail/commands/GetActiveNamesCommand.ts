@@ -22,6 +22,18 @@ export interface GetActiveNamesCommandOutput extends GetActiveNamesResult, __Met
 
 /**
  * <p>Returns the names of all active (not deleted) resources.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetActiveNamesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetActiveNamesCommandInput} for command's `input` shape.
+ * @see {@link GetActiveNamesCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetActiveNamesCommand extends $Command<
   GetActiveNamesCommandInput,

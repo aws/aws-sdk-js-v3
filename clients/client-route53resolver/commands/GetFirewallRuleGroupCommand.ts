@@ -22,6 +22,18 @@ export interface GetFirewallRuleGroupCommandOutput extends GetFirewallRuleGroupR
 
 /**
  * <p>Retrieves the specified firewall rule group. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new GetFirewallRuleGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFirewallRuleGroupCommandInput} for command's `input` shape.
+ * @see {@link GetFirewallRuleGroupCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFirewallRuleGroupCommand extends $Command<
   GetFirewallRuleGroupCommandInput,

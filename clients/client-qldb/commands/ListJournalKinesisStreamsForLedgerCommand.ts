@@ -32,6 +32,18 @@ export interface ListJournalKinesisStreamsForLedgerCommandOutput
  *          <p>This action returns a maximum of <code>MaxResults</code> items. It is paginated so that
  *          you can retrieve all the items by calling <code>ListJournalKinesisStreamsForLedger</code>
  *          multiple times.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QLDBClient(config);
+ * const command = new ListJournalKinesisStreamsForLedgerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListJournalKinesisStreamsForLedgerCommandInput} for command's `input` shape.
+ * @see {@link ListJournalKinesisStreamsForLedgerCommandOutput} for command's `response` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListJournalKinesisStreamsForLedgerCommand extends $Command<
   ListJournalKinesisStreamsForLedgerCommandInput,

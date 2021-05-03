@@ -26,6 +26,18 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  *       recommend that you call this operation to test your authentication method as soon as you
  *       create your server. By doing so, you can troubleshoot issues with the API Gateway integration
  *       to ensure that your users can successfully use the service.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TransferClient(config);
+ * const command = new TestIdentityProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TestIdentityProviderCommandInput} for command's `input` shape.
+ * @see {@link TestIdentityProviderCommandOutput} for command's `response` shape.
+ * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TestIdentityProviderCommand extends $Command<
   TestIdentityProviderCommandInput,

@@ -22,6 +22,18 @@ export interface DeregisterDBProxyTargetsCommandOutput extends DeregisterDBProxy
 
 /**
  * <p>Remove the association between one or more <code>DBProxyTarget</code> data structures and a <code>DBProxyTargetGroup</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new DeregisterDBProxyTargetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterDBProxyTargetsCommandInput} for command's `input` shape.
+ * @see {@link DeregisterDBProxyTargetsCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterDBProxyTargetsCommand extends $Command<
   DeregisterDBProxyTargetsCommandInput,

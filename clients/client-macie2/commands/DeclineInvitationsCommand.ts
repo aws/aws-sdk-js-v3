@@ -22,6 +22,18 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
 
 /**
  * <p>Declines Amazon Macie membership invitations that were received from specific accounts.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new DeclineInvitationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeclineInvitationsCommandInput} for command's `input` shape.
+ * @see {@link DeclineInvitationsCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeclineInvitationsCommand extends $Command<
   DeclineInvitationsCommandInput,

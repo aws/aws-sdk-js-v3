@@ -26,6 +26,18 @@ export interface DescribeObservationCommandOutput extends DescribeObservationRes
 
 /**
  * <p>Describes an anomaly or error with the application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationInsightsClient(config);
+ * const command = new DescribeObservationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeObservationCommandInput} for command's `input` shape.
+ * @see {@link DescribeObservationCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeObservationCommand extends $Command<
   DescribeObservationCommandInput,

@@ -173,6 +173,18 @@ export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelin
  *             </response>
  *                 </example>
  *         </examples>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataPipelineClient(config);
+ * const command = new ValidatePipelineDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ValidatePipelineDefinitionCommandInput} for command's `input` shape.
+ * @see {@link ValidatePipelineDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ValidatePipelineDefinitionCommand extends $Command<
   ValidatePipelineDefinitionCommandInput,

@@ -22,6 +22,18 @@ export interface CreateGatewayGroupCommandOutput extends CreateGatewayGroupRespo
 
 /**
  * <p>Creates a gateway group with the specified details.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new CreateGatewayGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateGatewayGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateGatewayGroupCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateGatewayGroupCommand extends $Command<
   CreateGatewayGroupCommandInput,

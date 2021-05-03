@@ -33,6 +33,18 @@ export interface ExportConfigurationsCommandOutput extends ExportConfigurationsR
  *       connections, servers, and system performance. This API returns an export ID that you can query
  *       using the <i>DescribeExportConfigurations</i> API. The system imposes a limit of
  *       two configuration exports in six hours.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new ExportConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ExportConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link ExportConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ExportConfigurationsCommand extends $Command<
   ExportConfigurationsCommandInput,

@@ -37,6 +37,18 @@ export interface CreateGraphCommandOutput extends CreateGraphResponse, __Metadat
  *          <p>An account can only be the administrator account for one behavior graph within a Region.
  *          If the same account calls <code>CreateGraph</code> with the same administrator account, it
  *          always returns the same behavior graph ARN. It does not create a new behavior graph.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DetectiveClient(config);
+ * const command = new CreateGraphCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateGraphCommandInput} for command's `input` shape.
+ * @see {@link CreateGraphCommandOutput} for command's `response` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateGraphCommand extends $Command<
   CreateGraphCommandInput,

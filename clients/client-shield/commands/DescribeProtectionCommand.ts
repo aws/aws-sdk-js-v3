@@ -22,6 +22,18 @@ export interface DescribeProtectionCommandOutput extends DescribeProtectionRespo
 
 /**
  * <p>Lists the details of a <a>Protection</a> object.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ShieldClient(config);
+ * const command = new DescribeProtectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeProtectionCommandInput} for command's `input` shape.
+ * @see {@link DescribeProtectionCommandOutput} for command's `response` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeProtectionCommand extends $Command<
   DescribeProtectionCommandInput,

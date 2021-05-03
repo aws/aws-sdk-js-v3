@@ -22,6 +22,18 @@ export interface ListApplicationsCommandOutput extends Applications, __MetadataB
 
 /**
  * <p>List all applications in your AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppConfigClient(config);
+ * const command = new ListApplicationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListApplicationsCommandInput} for command's `input` shape.
+ * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListApplicationsCommand extends $Command<
   ListApplicationsCommandInput,

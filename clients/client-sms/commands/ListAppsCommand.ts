@@ -19,6 +19,18 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
 
 /**
  * <p>Retrieves summaries for all applications.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SMSClient(config);
+ * const command = new ListAppsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAppsCommandInput} for command's `input` shape.
+ * @see {@link ListAppsCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAppsCommand extends $Command<ListAppsCommandInput, ListAppsCommandOutput, SMSClientResolvedConfig> {
   // Start section: command_properties

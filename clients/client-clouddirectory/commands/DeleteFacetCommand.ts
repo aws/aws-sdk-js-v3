@@ -24,6 +24,18 @@ export interface DeleteFacetCommandOutput extends DeleteFacetResponse, __Metadat
  * <p>Deletes a given <a>Facet</a>. All attributes and <a>Rule</a>s
  *       that are associated with the facet will be deleted. Only development schema facets are allowed
  *       deletion.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new DeleteFacetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFacetCommandInput} for command's `input` shape.
+ * @see {@link DeleteFacetCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFacetCommand extends $Command<
   DeleteFacetCommandInput,

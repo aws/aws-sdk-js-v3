@@ -22,6 +22,18 @@ export interface GetStreamingImageCommandOutput extends GetStreamingImageRespons
 
 /**
  * <p>Get streaming image.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NimbleClient(config);
+ * const command = new GetStreamingImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetStreamingImageCommandInput} for command's `input` shape.
+ * @see {@link GetStreamingImageCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetStreamingImageCommand extends $Command<
   GetStreamingImageCommandInput,

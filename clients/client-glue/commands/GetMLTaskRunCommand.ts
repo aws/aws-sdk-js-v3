@@ -26,6 +26,18 @@ export interface GetMLTaskRunCommandOutput extends GetMLTaskRunResponse, __Metad
  *       learning workflows. You can check the stats of any task run by calling
  *         <code>GetMLTaskRun</code> with the <code>TaskRunID</code> and its parent transform's
  *         <code>TransformID</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetMLTaskRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMLTaskRunCommandInput} for command's `input` shape.
+ * @see {@link GetMLTaskRunCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMLTaskRunCommand extends $Command<
   GetMLTaskRunCommandInput,

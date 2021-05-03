@@ -24,6 +24,18 @@ export interface CreateRobotApplicationVersionCommandOutput
 
 /**
  * <p>Creates a version of a robot application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new CreateRobotApplicationVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRobotApplicationVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateRobotApplicationVersionCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRobotApplicationVersionCommand extends $Command<
   CreateRobotApplicationVersionCommandInput,

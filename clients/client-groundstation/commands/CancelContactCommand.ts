@@ -22,6 +22,18 @@ export interface CancelContactCommandOutput extends ContactIdResponse, __Metadat
 
 /**
  * <p>Cancels a contact with a specified contact ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GroundStationClient(config);
+ * const command = new CancelContactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelContactCommandInput} for command's `input` shape.
+ * @see {@link CancelContactCommandOutput} for command's `response` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelContactCommand extends $Command<
   CancelContactCommandInput,

@@ -22,6 +22,18 @@ export interface GetFeedbackCommandOutput extends GetFeedbackResponse, __Metadat
 
 /**
  * <p>Get feedback for an anomaly group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutMetricsClient(config);
+ * const command = new GetFeedbackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFeedbackCommandInput} for command's `input` shape.
+ * @see {@link GetFeedbackCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFeedbackCommand extends $Command<
   GetFeedbackCommandInput,

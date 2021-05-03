@@ -27,6 +27,18 @@ export interface GetDocumentPathCommandOutput extends GetDocumentPathResponse, _
  *             requested document and only includes the IDs of the parent folders in the path. You can
  *             limit the maximum number of levels. You can also request the names of the parent
  *             folders.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new GetDocumentPathCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDocumentPathCommandInput} for command's `input` shape.
+ * @see {@link GetDocumentPathCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDocumentPathCommand extends $Command<
   GetDocumentPathCommandInput,

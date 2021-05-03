@@ -24,6 +24,18 @@ export interface BatchModifyClusterSnapshotsCommandOutput
 
 /**
  * <p>Modifies the settings for a set of cluster snapshots.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new BatchModifyClusterSnapshotsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchModifyClusterSnapshotsCommandInput} for command's `input` shape.
+ * @see {@link BatchModifyClusterSnapshotsCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchModifyClusterSnapshotsCommand extends $Command<
   BatchModifyClusterSnapshotsCommandInput,

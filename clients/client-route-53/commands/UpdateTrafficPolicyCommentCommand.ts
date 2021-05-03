@@ -23,6 +23,18 @@ export interface UpdateTrafficPolicyCommentCommandOutput extends UpdateTrafficPo
 
 /**
  * <p>Updates the comment for a specified traffic policy version.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new UpdateTrafficPolicyCommentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTrafficPolicyCommentCommandInput} for command's `input` shape.
+ * @see {@link UpdateTrafficPolicyCommentCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTrafficPolicyCommentCommand extends $Command<
   UpdateTrafficPolicyCommentCommandInput,

@@ -23,6 +23,18 @@ export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParamete
 /**
  * <p>Updates room skill parameter details by room, skill, and parameter key ID. Not all
  *          skills have a room skill parameter.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new PutRoomSkillParameterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutRoomSkillParameterCommandInput} for command's `input` shape.
+ * @see {@link PutRoomSkillParameterCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutRoomSkillParameterCommand extends $Command<
   PutRoomSkillParameterCommandInput,

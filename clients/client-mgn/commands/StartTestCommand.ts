@@ -22,6 +22,18 @@ export interface StartTestCommandOutput extends StartTestResponse, __MetadataBea
 
 /**
  * <p>Lauches a Test Instance for specific Source Servers. This command starts a LAUNCH job whose initiatedBy property is StartTest and changes the SourceServer.lifeCycle.state property to TESTING.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MgnClient(config);
+ * const command = new StartTestCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartTestCommandInput} for command's `input` shape.
+ * @see {@link StartTestCommandOutput} for command's `response` shape.
+ * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartTestCommand extends $Command<StartTestCommandInput, StartTestCommandOutput, MgnClientResolvedConfig> {
   // Start section: command_properties

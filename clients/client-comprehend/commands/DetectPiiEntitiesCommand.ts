@@ -23,6 +23,18 @@ export interface DetectPiiEntitiesCommandOutput extends DetectPiiEntitiesRespons
 /**
  * <p>Inspects the input text for entities that contain personally identifiable information
  *       (PII) and returns information about them.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new DetectPiiEntitiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetectPiiEntitiesCommandInput} for command's `input` shape.
+ * @see {@link DetectPiiEntitiesCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetectPiiEntitiesCommand extends $Command<
   DetectPiiEntitiesCommandInput,

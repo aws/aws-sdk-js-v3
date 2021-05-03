@@ -31,6 +31,18 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput
  *         <p>After a subnet is removed, all EC2 instances registered with the load balancer
  *             in the removed subnet go into the <code>OutOfService</code> state. Then,
  *             the load balancer balances the traffic among the remaining routable subnets.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingClient(config);
+ * const command = new DetachLoadBalancerFromSubnetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetachLoadBalancerFromSubnetsCommandInput} for command's `input` shape.
+ * @see {@link DetachLoadBalancerFromSubnetsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetachLoadBalancerFromSubnetsCommand extends $Command<
   DetachLoadBalancerFromSubnetsCommandInput,

@@ -26,6 +26,18 @@ export interface ResetClusterParameterGroupCommandOutput extends ClusterParamete
  *             values and sets the source values of the parameters to "engine-default". To reset the
  *             entire parameter group specify the <i>ResetAllParameters</i> parameter.
  *             For parameter changes to take effect you must reboot any associated clusters. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new ResetClusterParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResetClusterParameterGroupCommandInput} for command's `input` shape.
+ * @see {@link ResetClusterParameterGroupCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResetClusterParameterGroupCommand extends $Command<
   ResetClusterParameterGroupCommandInput,

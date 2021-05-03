@@ -32,6 +32,18 @@ export interface UpdateApplicationMaintenanceConfigurationCommandOutput
 
 /**
  * <p>Updates the configuration for the automatic maintenance that Kinesis Data Analytics performs on the application. For information about automatic application maintenance, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/maintenance.html">Kinesis Data Analytics for Apache Flink Maintenance</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisAnalyticsV2Client(config);
+ * const command = new UpdateApplicationMaintenanceConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateApplicationMaintenanceConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateApplicationMaintenanceConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateApplicationMaintenanceConfigurationCommand extends $Command<
   UpdateApplicationMaintenanceConfigurationCommandInput,

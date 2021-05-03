@@ -22,6 +22,18 @@ export interface GetApprovalRuleTemplateCommandOutput extends GetApprovalRuleTem
 
 /**
  * <p>Returns information about a specified approval rule template.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new GetApprovalRuleTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetApprovalRuleTemplateCommandInput} for command's `input` shape.
+ * @see {@link GetApprovalRuleTemplateCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetApprovalRuleTemplateCommand extends $Command<
   GetApprovalRuleTemplateCommandInput,

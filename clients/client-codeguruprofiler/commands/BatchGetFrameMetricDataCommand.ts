@@ -24,6 +24,18 @@ export interface BatchGetFrameMetricDataCommandOutput extends BatchGetFrameMetri
  * <p>
  *          Returns the time series of values for a requested list
  *          of frame metrics from a time period.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeGuruProfilerClient(config);
+ * const command = new BatchGetFrameMetricDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetFrameMetricDataCommandInput} for command's `input` shape.
+ * @see {@link BatchGetFrameMetricDataCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetFrameMetricDataCommand extends $Command<
   BatchGetFrameMetricDataCommandInput,

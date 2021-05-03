@@ -38,6 +38,18 @@ export interface DeleteServiceLinkedRoleCommandOutput extends DeleteServiceLinke
  *             service.</p>
  *         <p>For more information about service-linked roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Roles terms and concepts: AWS service-linked role</a> in the
  *                 <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new DeleteServiceLinkedRoleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteServiceLinkedRoleCommandInput} for command's `input` shape.
+ * @see {@link DeleteServiceLinkedRoleCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteServiceLinkedRoleCommand extends $Command<
   DeleteServiceLinkedRoleCommandInput,

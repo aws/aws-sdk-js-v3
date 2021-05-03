@@ -54,6 +54,18 @@ export interface GetBucketAnalyticsConfigurationCommandOutput
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3Client(config);
+ * const command = new GetBucketAnalyticsConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBucketAnalyticsConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetBucketAnalyticsConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBucketAnalyticsConfigurationCommand extends $Command<
   GetBucketAnalyticsConfigurationCommandInput,

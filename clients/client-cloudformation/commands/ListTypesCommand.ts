@@ -19,6 +19,18 @@ export interface ListTypesCommandOutput extends ListTypesOutput, __MetadataBeare
 
 /**
  * <p>Returns summary information about extension that have been registered with CloudFormation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new ListTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTypesCommandInput} for command's `input` shape.
+ * @see {@link ListTypesCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTypesCommand extends $Command<
   ListTypesCommandInput,

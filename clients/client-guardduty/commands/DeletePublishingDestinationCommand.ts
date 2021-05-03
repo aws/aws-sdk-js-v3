@@ -24,6 +24,18 @@ export interface DeletePublishingDestinationCommandOutput
 
 /**
  * <p>Deletes the publishing definition with the specified <code>destinationId</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new DeletePublishingDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePublishingDestinationCommandInput} for command's `input` shape.
+ * @see {@link DeletePublishingDestinationCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePublishingDestinationCommand extends $Command<
   DeletePublishingDestinationCommandInput,

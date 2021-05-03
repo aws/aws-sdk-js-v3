@@ -24,6 +24,18 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * <p>
  * Returns a list of controls from AWS Audit Manager.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new ListControlsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListControlsCommandInput} for command's `input` shape.
+ * @see {@link ListControlsCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListControlsCommand extends $Command<
   ListControlsCommandInput,

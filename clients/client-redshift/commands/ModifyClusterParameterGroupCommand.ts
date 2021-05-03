@@ -27,6 +27,18 @@ export interface ModifyClusterParameterGroupCommandOutput extends ClusterParamet
  * For more information about parameters and parameter groups, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new ModifyClusterParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyClusterParameterGroupCommandInput} for command's `input` shape.
+ * @see {@link ModifyClusterParameterGroupCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyClusterParameterGroupCommand extends $Command<
   ModifyClusterParameterGroupCommandInput,

@@ -22,6 +22,18 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
 
 /**
  * <p>Starts a pipeline execution.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new StartPipelineExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartPipelineExecutionCommandInput} for command's `input` shape.
+ * @see {@link StartPipelineExecutionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartPipelineExecutionCommand extends $Command<
   StartPipelineExecutionCommandInput,

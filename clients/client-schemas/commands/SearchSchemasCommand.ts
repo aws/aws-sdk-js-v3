@@ -22,6 +22,18 @@ export interface SearchSchemasCommandOutput extends SearchSchemasResponse, __Met
 
 /**
  * <p>Search the schemas</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SchemasClient(config);
+ * const command = new SearchSchemasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchSchemasCommandInput} for command's `input` shape.
+ * @see {@link SearchSchemasCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchSchemasCommand extends $Command<
   SearchSchemasCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateUserRoutingProfileCommandOutput extends __MetadataBearer 
 
 /**
  * <p>Assigns the specified routing profile to the specified user.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new UpdateUserRoutingProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateUserRoutingProfileCommandInput} for command's `input` shape.
+ * @see {@link UpdateUserRoutingProfileCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateUserRoutingProfileCommand extends $Command<
   UpdateUserRoutingProfileCommandInput,

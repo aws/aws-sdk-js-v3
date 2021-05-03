@@ -23,6 +23,18 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
 /**
  * <p>Creates a policy to manage the lifecycle of the specified AWS resources. You can
  * 			create up to 100 lifecycle policies.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DLMClient(config);
+ * const command = new CreateLifecyclePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLifecyclePolicyCommandInput} for command's `input` shape.
+ * @see {@link CreateLifecyclePolicyCommandOutput} for command's `response` shape.
+ * @see {@link DLMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLifecyclePolicyCommand extends $Command<
   CreateLifecyclePolicyCommandInput,

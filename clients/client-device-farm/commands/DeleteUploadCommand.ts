@@ -22,6 +22,18 @@ export interface DeleteUploadCommandOutput extends DeleteUploadResult, __Metadat
 
 /**
  * <p>Deletes an upload given the upload ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new DeleteUploadCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteUploadCommandInput} for command's `input` shape.
+ * @see {@link DeleteUploadCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteUploadCommand extends $Command<
   DeleteUploadCommandInput,

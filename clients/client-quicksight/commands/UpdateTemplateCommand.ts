@@ -22,6 +22,18 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
 
 /**
  * <p>Updates a template from an existing Amazon QuickSight analysis or another template.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new UpdateTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTemplateCommandInput} for command's `input` shape.
+ * @see {@link UpdateTemplateCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTemplateCommand extends $Command<
   UpdateTemplateCommandInput,

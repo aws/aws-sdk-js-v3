@@ -26,6 +26,18 @@ export interface CreateDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  *          to specify which endpoints to use during a contact.</p>
  *          <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code>Config</code>
  *          must match a <code>DataflowEndpoint</code> in the same group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GroundStationClient(config);
+ * const command = new CreateDataflowEndpointGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDataflowEndpointGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateDataflowEndpointGroupCommandOutput} for command's `response` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDataflowEndpointGroupCommand extends $Command<
   CreateDataflowEndpointGroupCommandInput,

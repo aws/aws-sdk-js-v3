@@ -22,6 +22,18 @@ export interface RetryBuildBatchCommandOutput extends RetryBuildBatchOutput, __M
 
 /**
  * <p>Restarts a failed batch build. Only batch builds that have failed can be retried.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new RetryBuildBatchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RetryBuildBatchCommandInput} for command's `input` shape.
+ * @see {@link RetryBuildBatchCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RetryBuildBatchCommand extends $Command<
   RetryBuildBatchCommandInput,

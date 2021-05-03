@@ -21,6 +21,18 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  * <p>Deletes the specified HSM. To specify an HSM, you can use its identifier (ID), the IP
  *       address of the HSM's elastic network interface (ENI), or the ID of the HSM's ENI. You need to
  *       specify only one of these values. To find these values, use <a>DescribeClusters</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMV2Client(config);
+ * const command = new DeleteHsmCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteHsmCommandInput} for command's `input` shape.
+ * @see {@link DeleteHsmCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteHsmCommand extends $Command<
   DeleteHsmCommandInput,

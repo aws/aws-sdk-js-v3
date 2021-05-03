@@ -27,6 +27,18 @@ export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecuri
  *             Virtual Private Cloud (Amazon VPC). If you are creating a cluster inside of a VPC, use a cache
  *             subnet group instead. For more information,
  *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html">CreateCacheSubnetGroup</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new CreateCacheSecurityGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCacheSecurityGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateCacheSecurityGroupCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCacheSecurityGroupCommand extends $Command<
   CreateCacheSecurityGroupCommandInput,

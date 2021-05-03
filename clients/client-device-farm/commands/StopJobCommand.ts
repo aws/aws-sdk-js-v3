@@ -22,6 +22,18 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  *             where tests have not started. You are not billed for this device. On the device where tests have started,
  *             setup suite and teardown suite tests run to completion on the device. You are billed for setup, teardown,
  *             and any tests that were in progress or already completed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new StopJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopJobCommandInput} for command's `input` shape.
+ * @see {@link StopJobCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopJobCommand extends $Command<
   StopJobCommandInput,

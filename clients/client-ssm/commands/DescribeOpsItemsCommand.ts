@@ -28,6 +28,18 @@ export interface DescribeOpsItemsCommandOutput extends DescribeOpsItemsResponse,
  *    operational issues impacting the performance and health of their AWS resources. For more
  *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
  *     <i>AWS Systems Manager User Guide</i>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new DescribeOpsItemsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeOpsItemsCommandInput} for command's `input` shape.
+ * @see {@link DescribeOpsItemsCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeOpsItemsCommand extends $Command<
   DescribeOpsItemsCommandInput,

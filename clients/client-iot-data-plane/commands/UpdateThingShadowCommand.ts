@@ -24,6 +24,18 @@ export interface UpdateThingShadowCommandOutput extends UpdateThingShadowRespons
  * <p>Updates the shadow for the specified thing.</p>
  *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the
  *         AWS IoT Developer Guide.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTDataPlaneClient(config);
+ * const command = new UpdateThingShadowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateThingShadowCommandInput} for command's `input` shape.
+ * @see {@link UpdateThingShadowCommandOutput} for command's `response` shape.
+ * @see {@link IoTDataPlaneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateThingShadowCommand extends $Command<
   UpdateThingShadowCommandInput,

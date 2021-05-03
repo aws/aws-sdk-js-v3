@@ -22,6 +22,18 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
 
 /**
  * <p>Deletes the specified DataBrew job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new DeleteJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteJobCommandInput} for command's `input` shape.
+ * @see {@link DeleteJobCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteJobCommand extends $Command<
   DeleteJobCommandInput,

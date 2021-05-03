@@ -38,6 +38,18 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  *       view an experiment's properties, call the <a>DescribeExperiment</a> API. To get a
  *       list of all the trials associated with an experiment, call the <a>ListTrials</a>
  *       API. To create a trial call the <a>CreateTrial</a> API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateExperimentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateExperimentCommandInput} for command's `input` shape.
+ * @see {@link CreateExperimentCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateExperimentCommand extends $Command<
   CreateExperimentCommandInput,

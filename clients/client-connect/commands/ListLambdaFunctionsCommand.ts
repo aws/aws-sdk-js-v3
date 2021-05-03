@@ -24,6 +24,18 @@ export interface ListLambdaFunctionsCommandOutput extends ListLambdaFunctionsRes
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of all Lambda functions that display in the dropdown options in the
  *    relevant contact flow blocks.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new ListLambdaFunctionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListLambdaFunctionsCommandInput} for command's `input` shape.
+ * @see {@link ListLambdaFunctionsCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListLambdaFunctionsCommand extends $Command<
   ListLambdaFunctionsCommandInput,

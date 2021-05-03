@@ -32,6 +32,18 @@ export interface ListAvailableManagementCidrRangesCommandOutput
  *          <p>The management network interface is connected to a secure Amazon WorkSpaces management
  *          network. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces
  *          clients, and to allow Amazon WorkSpaces to manage the WorkSpace.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new ListAvailableManagementCidrRangesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAvailableManagementCidrRangesCommandInput} for command's `input` shape.
+ * @see {@link ListAvailableManagementCidrRangesCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAvailableManagementCidrRangesCommand extends $Command<
   ListAvailableManagementCidrRangesCommandInput,

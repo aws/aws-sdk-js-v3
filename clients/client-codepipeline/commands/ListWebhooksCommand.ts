@@ -24,6 +24,18 @@ export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __Metadat
  * <p>Gets a listing of all the webhooks in this AWS Region for this account. The output
  *             lists all webhooks and includes the webhook URL and ARN and the configuration for each
  *             webhook.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new ListWebhooksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListWebhooksCommandInput} for command's `input` shape.
+ * @see {@link ListWebhooksCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListWebhooksCommand extends $Command<
   ListWebhooksCommandInput,

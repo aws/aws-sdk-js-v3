@@ -31,6 +31,18 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  *             <p>The <code>Status</code> of a dataset group must be <code>ACTIVE</code> before you can
  *          use the dataset group to create a predictor. To get the status, use the <a>DescribeDatasetGroup</a> operation.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ForecastClient(config);
+ * const command = new CreateDatasetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDatasetGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateDatasetGroupCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDatasetGroupCommand extends $Command<
   CreateDatasetGroupCommandInput,

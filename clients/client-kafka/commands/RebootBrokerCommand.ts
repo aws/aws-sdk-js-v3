@@ -22,6 +22,18 @@ export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __Metad
 
 /**
  * Reboots brokers.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new RebootBrokerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RebootBrokerCommandInput} for command's `input` shape.
+ * @see {@link RebootBrokerCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RebootBrokerCommand extends $Command<
   RebootBrokerCommandInput,

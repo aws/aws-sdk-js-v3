@@ -35,6 +35,18 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *                 job by specifying them in the <code>Tags</code> parameter of <a>CreateHyperParameterTuningJob</a>
  *             </p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new AddTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddTagsCommandInput} for command's `input` shape.
+ * @see {@link AddTagsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddTagsCommand extends $Command<AddTagsCommandInput, AddTagsCommandOutput, SageMakerClientResolvedConfig> {
   // Start section: command_properties

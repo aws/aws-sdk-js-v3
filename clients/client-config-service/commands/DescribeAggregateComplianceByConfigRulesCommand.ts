@@ -35,6 +35,18 @@ export interface DescribeAggregateComplianceByConfigRulesCommandOutput
  * 				have a <code>nextToken</code>, the results are displayed on the next
  * 				page.</p>
  * 		       </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DescribeAggregateComplianceByConfigRulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAggregateComplianceByConfigRulesCommandInput} for command's `input` shape.
+ * @see {@link DescribeAggregateComplianceByConfigRulesCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<
   DescribeAggregateComplianceByConfigRulesCommandInput,

@@ -24,6 +24,18 @@ export interface GetFieldLevelEncryptionProfileCommandOutput
 
 /**
  * <p>Get the field-level encryption profile information.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new GetFieldLevelEncryptionProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFieldLevelEncryptionProfileCommandInput} for command's `input` shape.
+ * @see {@link GetFieldLevelEncryptionProfileCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFieldLevelEncryptionProfileCommand extends $Command<
   GetFieldLevelEncryptionProfileCommandInput,

@@ -22,6 +22,18 @@ export interface DisassociateDomainCommandOutput extends DisassociateDomainRespo
 
 /**
  * <p>Disassociates a domain from Amazon WorkLink. End users lose the ability to access the domain with Amazon WorkLink. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkLinkClient(config);
+ * const command = new DisassociateDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateDomainCommandInput} for command's `input` shape.
+ * @see {@link DisassociateDomainCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateDomainCommand extends $Command<
   DisassociateDomainCommandInput,

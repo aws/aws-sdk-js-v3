@@ -28,6 +28,18 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
  * 		       <p>To delete an origin request policy, you must provide the policy’s identifier and version. To
  * 			get the identifier, you can use <code>ListOriginRequestPolicies</code> or
  * 			<code>GetOriginRequestPolicy</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new DeleteOriginRequestPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteOriginRequestPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteOriginRequestPolicyCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteOriginRequestPolicyCommand extends $Command<
   DeleteOriginRequestPolicyCommandInput,

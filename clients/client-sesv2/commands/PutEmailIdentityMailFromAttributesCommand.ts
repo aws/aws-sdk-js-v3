@@ -28,6 +28,18 @@ export interface PutEmailIdentityMailFromAttributesCommandOutput
 /**
  * <p>Used to enable or disable the custom Mail-From domain configuration for an email
  *             identity.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new PutEmailIdentityMailFromAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutEmailIdentityMailFromAttributesCommandInput} for command's `input` shape.
+ * @see {@link PutEmailIdentityMailFromAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutEmailIdentityMailFromAttributesCommand extends $Command<
   PutEmailIdentityMailFromAttributesCommandInput,

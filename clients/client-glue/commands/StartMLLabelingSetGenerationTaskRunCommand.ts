@@ -40,6 +40,18 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
  *         <code>StartImportLabelsTaskRun</code>. After <code>StartImportLabelsTaskRun</code> finishes,
  *       all future runs of the machine learning transform will use the new and improved labels and
  *       perform a higher-quality transformation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new StartMLLabelingSetGenerationTaskRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartMLLabelingSetGenerationTaskRunCommandInput} for command's `input` shape.
+ * @see {@link StartMLLabelingSetGenerationTaskRunCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<
   StartMLLabelingSetGenerationTaskRunCommandInput,

@@ -22,6 +22,18 @@ export interface ListPoliciesCommandOutput extends ListPoliciesResponse, __Metad
 
 /**
  * <p>Returns an array of <code>PolicySummary</code> objects.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FMSClient(config);
+ * const command = new ListPoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPoliciesCommandInput} for command's `input` shape.
+ * @see {@link ListPoliciesCommandOutput} for command's `response` shape.
+ * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPoliciesCommand extends $Command<
   ListPoliciesCommandInput,

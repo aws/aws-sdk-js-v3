@@ -22,6 +22,18 @@ export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __M
 
 /**
  * <p>Checks in the specified license. Check in a license when it is no longer in use.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LicenseManagerClient(config);
+ * const command = new CheckInLicenseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CheckInLicenseCommandInput} for command's `input` shape.
+ * @see {@link CheckInLicenseCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CheckInLicenseCommand extends $Command<
   CheckInLicenseCommandInput,

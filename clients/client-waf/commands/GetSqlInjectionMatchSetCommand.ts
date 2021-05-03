@@ -30,6 +30,18 @@ export interface GetSqlInjectionMatchSetCommandOutput extends GetSqlInjectionMat
  *       WAF</b>, use the AWS WAFV2 API and see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF Developer Guide</a>. With the latest version, AWS WAF has a single set of endpoints for regional and global use. </p>
  *          </note>
  * 		       <p>Returns the <a>SqlInjectionMatchSet</a> that is specified by <code>SqlInjectionMatchSetId</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFClient(config);
+ * const command = new GetSqlInjectionMatchSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSqlInjectionMatchSetCommandInput} for command's `input` shape.
+ * @see {@link GetSqlInjectionMatchSetCommandOutput} for command's `response` shape.
+ * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSqlInjectionMatchSetCommand extends $Command<
   GetSqlInjectionMatchSetCommandInput,

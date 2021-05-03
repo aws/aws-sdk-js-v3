@@ -22,6 +22,18 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, _
 
 /**
  * <p>Gets information about one or more repositories.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new ListRepositoriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRepositoriesCommandInput} for command's `input` shape.
+ * @see {@link ListRepositoriesCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRepositoriesCommand extends $Command<
   ListRepositoriesCommandInput,

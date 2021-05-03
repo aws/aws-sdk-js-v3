@@ -24,6 +24,18 @@ export interface GetDataRetrievalPolicyCommandOutput extends GetDataRetrievalPol
  * <p>This operation returns the current data retrieval policy for the account and region
  *          specified in the GET request. For more information about data retrieval policies, see
  *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html">Amazon Glacier Data Retrieval Policies</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlacierClient(config);
+ * const command = new GetDataRetrievalPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDataRetrievalPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetDataRetrievalPolicyCommandOutput} for command's `response` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDataRetrievalPolicyCommand extends $Command<
   GetDataRetrievalPolicyCommandInput,

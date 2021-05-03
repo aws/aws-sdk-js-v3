@@ -22,6 +22,18 @@ export interface NotifyAppValidationOutputCommandOutput extends NotifyAppValidat
 
 /**
  * <p>Provides information to AWS SMS about whether application validation is successful.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SMSClient(config);
+ * const command = new NotifyAppValidationOutputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link NotifyAppValidationOutputCommandInput} for command's `input` shape.
+ * @see {@link NotifyAppValidationOutputCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class NotifyAppValidationOutputCommand extends $Command<
   NotifyAppValidationOutputCommandInput,

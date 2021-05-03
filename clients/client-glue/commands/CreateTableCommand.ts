@@ -22,6 +22,18 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
 
 /**
  * <p>Creates a new table definition in the Data Catalog.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new CreateTableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTableCommandInput} for command's `input` shape.
+ * @see {@link CreateTableCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTableCommand extends $Command<
   CreateTableCommandInput,

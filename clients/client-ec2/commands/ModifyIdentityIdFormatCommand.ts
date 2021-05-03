@@ -43,6 +43,18 @@ export interface ModifyIdentityIdFormatCommandOutput extends __MetadataBearer {}
  *          <p>Resources created with longer IDs are visible to all IAM roles and users, regardless of these
  *       settings and provided that they have permission to use the relevant <code>Describe</code>
  *       command for the resource type.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyIdentityIdFormatCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyIdentityIdFormatCommandInput} for command's `input` shape.
+ * @see {@link ModifyIdentityIdFormatCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyIdentityIdFormatCommand extends $Command<
   ModifyIdentityIdFormatCommandInput,

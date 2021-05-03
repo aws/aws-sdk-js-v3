@@ -22,6 +22,18 @@ export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreRes
 
 /**
  * <p>Deletes a Data Store. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new HealthLakeClient(config);
+ * const command = new DeleteFHIRDatastoreCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFHIRDatastoreCommandInput} for command's `input` shape.
+ * @see {@link DeleteFHIRDatastoreCommandOutput} for command's `response` shape.
+ * @see {@link HealthLakeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFHIRDatastoreCommand extends $Command<
   DeleteFHIRDatastoreCommandInput,

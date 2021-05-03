@@ -22,6 +22,18 @@ export interface CreateSmsTemplateCommandOutput extends CreateSmsTemplateRespons
 
 /**
  * <p>Creates a message template for messages that are sent through the SMS channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new CreateSmsTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSmsTemplateCommandInput} for command's `input` shape.
+ * @see {@link CreateSmsTemplateCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSmsTemplateCommand extends $Command<
   CreateSmsTemplateCommandInput,

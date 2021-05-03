@@ -28,6 +28,18 @@ export interface UpdateElasticsearchDomainConfigCommandOutput
 
 /**
  * <p>Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new UpdateElasticsearchDomainConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateElasticsearchDomainConfigCommandInput} for command's `input` shape.
+ * @see {@link UpdateElasticsearchDomainConfigCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateElasticsearchDomainConfigCommand extends $Command<
   UpdateElasticsearchDomainConfigCommandInput,

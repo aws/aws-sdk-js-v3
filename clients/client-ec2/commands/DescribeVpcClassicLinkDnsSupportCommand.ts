@@ -28,6 +28,18 @@ export interface DescribeVpcClassicLinkDnsSupportCommandOutput
  *             addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname
  *             of an instance in a VPC resolves to its private IP address when addressed from a linked
  *             EC2-Classic instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeVpcClassicLinkDnsSupportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeVpcClassicLinkDnsSupportCommandInput} for command's `input` shape.
+ * @see {@link DescribeVpcClassicLinkDnsSupportCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
   DescribeVpcClassicLinkDnsSupportCommandInput,

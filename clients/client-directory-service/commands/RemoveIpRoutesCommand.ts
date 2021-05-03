@@ -22,6 +22,18 @@ export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __Met
 
 /**
  * <p>Removes IP address blocks from a directory.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new RemoveIpRoutesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveIpRoutesCommandInput} for command's `input` shape.
+ * @see {@link RemoveIpRoutesCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveIpRoutesCommand extends $Command<
   RemoveIpRoutesCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeVirtualGatewayCommandOutput extends DescribeVirtualGate
 
 /**
  * <p>Describes an existing virtual gateway.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new DescribeVirtualGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeVirtualGatewayCommandInput} for command's `input` shape.
+ * @see {@link DescribeVirtualGatewayCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeVirtualGatewayCommand extends $Command<
   DescribeVirtualGatewayCommandInput,

@@ -24,6 +24,18 @@ export interface GetLaunchProfileInitializationCommandOutput
 
 /**
  * <p>Get a launch profile initialization.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NimbleClient(config);
+ * const command = new GetLaunchProfileInitializationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLaunchProfileInitializationCommandInput} for command's `input` shape.
+ * @see {@link GetLaunchProfileInitializationCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLaunchProfileInitializationCommand extends $Command<
   GetLaunchProfileInitializationCommandInput,

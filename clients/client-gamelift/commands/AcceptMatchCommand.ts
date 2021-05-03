@@ -60,6 +60,18 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  *                     <a>StartMatchBackfill</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GameLiftClient(config);
+ * const command = new AcceptMatchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AcceptMatchCommandInput} for command's `input` shape.
+ * @see {@link AcceptMatchCommandOutput} for command's `response` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AcceptMatchCommand extends $Command<
   AcceptMatchCommandInput,

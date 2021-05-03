@@ -116,6 +116,18 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KMSClient(config);
+ * const command = new GenerateDataKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GenerateDataKeyCommandInput} for command's `input` shape.
+ * @see {@link GenerateDataKeyCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GenerateDataKeyCommand extends $Command<
   GenerateDataKeyCommandInput,

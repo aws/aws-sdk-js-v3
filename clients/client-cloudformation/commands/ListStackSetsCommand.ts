@@ -34,6 +34,18 @@ export interface ListStackSetsCommandOutput extends ListStackSetsOutput, __Metad
  *                <p>[Service-managed permissions] If you set the <code>CallAs</code> parameter to <code>DELEGATED_ADMIN</code> while signed in to your member account, <code>ListStackSets</code> returns all stack sets with service-managed permissions in the management account.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new ListStackSetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListStackSetsCommandInput} for command's `input` shape.
+ * @see {@link ListStackSetsCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListStackSetsCommand extends $Command<
   ListStackSetsCommandInput,

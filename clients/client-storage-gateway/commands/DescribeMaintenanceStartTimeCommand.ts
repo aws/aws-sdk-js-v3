@@ -25,6 +25,18 @@ export interface DescribeMaintenanceStartTimeCommandOutput
 /**
  * <p>Returns your gateway's weekly maintenance start time including the day and time of
  *          the week. Note that values are in terms of the gateway's time zone.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new DescribeMaintenanceStartTimeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeMaintenanceStartTimeCommandInput} for command's `input` shape.
+ * @see {@link DescribeMaintenanceStartTimeCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeMaintenanceStartTimeCommand extends $Command<
   DescribeMaintenanceStartTimeCommandInput,

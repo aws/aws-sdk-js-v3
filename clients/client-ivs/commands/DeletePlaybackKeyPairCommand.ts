@@ -24,6 +24,18 @@ export interface DeletePlaybackKeyPairCommandOutput extends DeletePlaybackKeyPai
  * <p>Deletes a specified authorization key pair. This invalidates future viewer tokens
  *       generated using the key pair’s <code>privateKey</code>. For more information, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up Private
  *         Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IvsClient(config);
+ * const command = new DeletePlaybackKeyPairCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePlaybackKeyPairCommandInput} for command's `input` shape.
+ * @see {@link DeletePlaybackKeyPairCommandOutput} for command's `response` shape.
+ * @see {@link IvsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePlaybackKeyPairCommand extends $Command<
   DeletePlaybackKeyPairCommandInput,

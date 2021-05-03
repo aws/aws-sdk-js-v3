@@ -22,6 +22,18 @@ export interface UpdateAddonCommandOutput extends UpdateAddonResponse, __Metadat
 
 /**
  * <p>Updates an Amazon EKS add-on.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new UpdateAddonCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAddonCommandInput} for command's `input` shape.
+ * @see {@link UpdateAddonCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAddonCommand extends $Command<
   UpdateAddonCommandInput,

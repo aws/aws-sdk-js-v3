@@ -22,6 +22,18 @@ export interface DeleteVpnConnectionRouteCommandOutput extends __MetadataBearer 
 
 /**
  * <p>Deletes the specified static route associated with a VPN connection between an existing virtual private gateway and a VPN customer gateway. The static route allows traffic to be routed from the virtual private gateway to the VPN customer gateway.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DeleteVpnConnectionRouteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVpnConnectionRouteCommandInput} for command's `input` shape.
+ * @see {@link DeleteVpnConnectionRouteCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVpnConnectionRouteCommand extends $Command<
   DeleteVpnConnectionRouteCommandInput,

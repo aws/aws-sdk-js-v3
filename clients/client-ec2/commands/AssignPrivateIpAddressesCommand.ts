@@ -33,6 +33,18 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  *             interface to another, check <code>network/interfaces/macs/mac/local-ipv4s</code> in the instance
  *             metadata to confirm that the remapping is complete.</p>
  *         <p>You must specify either the IP addresses or the IP address count in the request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new AssignPrivateIpAddressesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssignPrivateIpAddressesCommandInput} for command's `input` shape.
+ * @see {@link AssignPrivateIpAddressesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssignPrivateIpAddressesCommand extends $Command<
   AssignPrivateIpAddressesCommandInput,

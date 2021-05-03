@@ -22,6 +22,18 @@ export interface PutOutcomeCommandOutput extends PutOutcomeResult, __MetadataBea
 
 /**
  * <p>Creates or updates an outcome. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new PutOutcomeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutOutcomeCommandInput} for command's `input` shape.
+ * @see {@link PutOutcomeCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutOutcomeCommand extends $Command<
   PutOutcomeCommandInput,

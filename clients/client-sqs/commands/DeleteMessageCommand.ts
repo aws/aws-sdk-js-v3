@@ -41,6 +41,18 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  *                 receive request. You should ensure that your application is idempotent, so that
  *                 receiving a message more than once does not cause issues.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SQSClient(config);
+ * const command = new DeleteMessageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMessageCommandInput} for command's `input` shape.
+ * @see {@link DeleteMessageCommandOutput} for command's `response` shape.
+ * @see {@link SQSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMessageCommand extends $Command<
   DeleteMessageCommandInput,

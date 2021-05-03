@@ -23,6 +23,18 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
 /**
  * <p>Gets information about one or more on-premises instances. The maximum number of
  *             on-premises instances that can be returned is 25.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new BatchGetOnPremisesInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetOnPremisesInstancesCommandInput} for command's `input` shape.
+ * @see {@link BatchGetOnPremisesInstancesCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetOnPremisesInstancesCommand extends $Command<
   BatchGetOnPremisesInstancesCommandInput,

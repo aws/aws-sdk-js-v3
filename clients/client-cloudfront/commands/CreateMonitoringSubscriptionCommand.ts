@@ -27,6 +27,18 @@ export interface CreateMonitoringSubscriptionCommandOutput
  * 			additional metrics incur an additional cost.</p>
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional">Viewing additional CloudFront distribution metrics</a> in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new CreateMonitoringSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMonitoringSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link CreateMonitoringSubscriptionCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMonitoringSubscriptionCommand extends $Command<
   CreateMonitoringSubscriptionCommandInput,

@@ -26,6 +26,18 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  *     you must specify the database name and the identifier of the new KMS key to be used (<code>KmsKeyId</code>).
  *     If there are any concurrent <code>UpdateDatabase</code> requests, first writer wins.
  *    </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TimestreamWriteClient(config);
+ * const command = new UpdateDatabaseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDatabaseCommandInput} for command's `input` shape.
+ * @see {@link UpdateDatabaseCommandOutput} for command's `response` shape.
+ * @see {@link TimestreamWriteClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDatabaseCommand extends $Command<
   UpdateDatabaseCommandInput,

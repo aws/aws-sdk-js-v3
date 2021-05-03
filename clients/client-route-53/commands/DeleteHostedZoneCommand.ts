@@ -61,6 +61,18 @@ export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse,
  * 				AWS account.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new DeleteHostedZoneCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteHostedZoneCommandInput} for command's `input` shape.
+ * @see {@link DeleteHostedZoneCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteHostedZoneCommand extends $Command<
   DeleteHostedZoneCommandInput,

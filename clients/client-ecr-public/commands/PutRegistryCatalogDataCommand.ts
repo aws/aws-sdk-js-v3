@@ -22,6 +22,18 @@ export interface PutRegistryCatalogDataCommandOutput extends PutRegistryCatalogD
 
 /**
  * <p>Create or updates the catalog data for a public registry.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECRPUBLICClient(config);
+ * const command = new PutRegistryCatalogDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutRegistryCatalogDataCommandInput} for command's `input` shape.
+ * @see {@link PutRegistryCatalogDataCommandOutput} for command's `response` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutRegistryCatalogDataCommand extends $Command<
   PutRegistryCatalogDataCommandInput,

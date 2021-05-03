@@ -25,6 +25,18 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  *          dates and times, and their names. This call returns a maximum of 50 clusters per call, but
  *          returns a marker to track the paging of the cluster list across multiple
  *          ListSecurityConfigurations calls.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRClient(config);
+ * const command = new ListSecurityConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSecurityConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link ListSecurityConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSecurityConfigurationsCommand extends $Command<
   ListSecurityConfigurationsCommandInput,

@@ -22,6 +22,18 @@ export interface AddThingToThingGroupCommandOutput extends AddThingToThingGroupR
 
 /**
  * <p>Adds a thing to a thing group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new AddThingToThingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddThingToThingGroupCommandInput} for command's `input` shape.
+ * @see {@link AddThingToThingGroupCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddThingToThingGroupCommand extends $Command<
   AddThingToThingGroupCommandInput,

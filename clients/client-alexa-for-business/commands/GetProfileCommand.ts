@@ -22,6 +22,18 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
 
 /**
  * <p>Gets the details of a room profile by profile ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new GetProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetProfileCommandInput} for command's `input` shape.
+ * @see {@link GetProfileCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetProfileCommand extends $Command<
   GetProfileCommandInput,

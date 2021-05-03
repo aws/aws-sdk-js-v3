@@ -19,6 +19,18 @@ export interface XmlMapsCommandOutput extends XmlMapsInputOutput, __MetadataBear
 
 /**
  * The example tests basic map serialization.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestXmlProtocolClient(config);
+ * const command = new XmlMapsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link XmlMapsCommandInput} for command's `input` shape.
+ * @see {@link XmlMapsCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class XmlMapsCommand extends $Command<
   XmlMapsCommandInput,

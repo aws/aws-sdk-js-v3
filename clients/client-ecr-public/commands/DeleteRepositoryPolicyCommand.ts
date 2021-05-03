@@ -22,6 +22,18 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
 
 /**
  * <p>Deletes the repository policy associated with the specified repository.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECRPUBLICClient(config);
+ * const command = new DeleteRepositoryPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRepositoryPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteRepositoryPolicyCommandOutput} for command's `response` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRepositoryPolicyCommand extends $Command<
   DeleteRepositoryPolicyCommandInput,

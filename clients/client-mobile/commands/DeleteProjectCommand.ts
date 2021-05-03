@@ -24,6 +24,18 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * <p>
  *             Delets a project in AWS Mobile Hub.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MobileClient(config);
+ * const command = new DeleteProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteProjectCommandInput} for command's `input` shape.
+ * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
+ * @see {@link MobileClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteProjectCommand extends $Command<
   DeleteProjectCommandInput,

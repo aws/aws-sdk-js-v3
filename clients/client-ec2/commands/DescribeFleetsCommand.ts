@@ -20,6 +20,18 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
 /**
  * <p>Describes the specified EC2 Fleets or all of your EC2 Fleets.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html#monitor-ec2-fleet">Monitoring your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeFleetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFleetsCommandInput} for command's `input` shape.
+ * @see {@link DescribeFleetsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFleetsCommand extends $Command<
   DescribeFleetsCommandInput,

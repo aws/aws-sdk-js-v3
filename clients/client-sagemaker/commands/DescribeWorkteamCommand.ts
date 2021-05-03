@@ -25,6 +25,18 @@ export interface DescribeWorkteamCommandOutput extends DescribeWorkteamResponse,
  * <p>Gets information about a specific work team. You can see information such as the
  *             create date, the last updated date, membership information, and the work team's Amazon
  *             Resource Name (ARN).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeWorkteamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeWorkteamCommandInput} for command's `input` shape.
+ * @see {@link DescribeWorkteamCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeWorkteamCommand extends $Command<
   DescribeWorkteamCommandInput,

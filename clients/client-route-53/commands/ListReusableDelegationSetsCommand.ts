@@ -22,6 +22,18 @@ export interface ListReusableDelegationSetsCommandOutput extends ListReusableDel
 
 /**
  * <p>Retrieves a list of the reusable delegation sets that are associated with the current AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new ListReusableDelegationSetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListReusableDelegationSetsCommandInput} for command's `input` shape.
+ * @see {@link ListReusableDelegationSetsCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListReusableDelegationSetsCommand extends $Command<
   ListReusableDelegationSetsCommandInput,

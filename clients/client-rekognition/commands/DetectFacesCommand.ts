@@ -44,6 +44,18 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  *
  *          <p>This operation requires permissions to perform the
  *       <code>rekognition:DetectFaces</code> action. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RekognitionClient(config);
+ * const command = new DetectFacesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetectFacesCommandInput} for command's `input` shape.
+ * @see {@link DetectFacesCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetectFacesCommand extends $Command<
   DetectFacesCommandInput,

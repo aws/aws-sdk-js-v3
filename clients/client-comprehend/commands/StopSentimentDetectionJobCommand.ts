@@ -31,6 +31,18 @@ export interface StopSentimentDetectionJobCommandOutput extends StopSentimentDet
  *       Internal Request Exception. </p>
  *          <p>When a job is stopped, any documents already processed are written to the output
  *       location.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new StopSentimentDetectionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopSentimentDetectionJobCommandInput} for command's `input` shape.
+ * @see {@link StopSentimentDetectionJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopSentimentDetectionJobCommand extends $Command<
   StopSentimentDetectionJobCommandInput,

@@ -29,6 +29,18 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  *         delete a certificate that is in use, the certificate association must first be
  *         removed.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ACMClient(config);
+ * const command = new DeleteCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCertificateCommandInput} for command's `input` shape.
+ * @see {@link DeleteCertificateCommandOutput} for command's `response` shape.
+ * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCertificateCommand extends $Command<
   DeleteCertificateCommandInput,

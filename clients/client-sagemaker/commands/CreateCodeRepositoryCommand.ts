@@ -28,6 +28,18 @@ export interface CreateCodeRepositoryCommandOutput extends CreateCodeRepositoryO
  *             the lifecycle of any notebook instances it is associated with.</p>
  *         <p>The repository can be hosted either in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any
  *             other Git repository.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateCodeRepositoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCodeRepositoryCommandInput} for command's `input` shape.
+ * @see {@link CreateCodeRepositoryCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCodeRepositoryCommand extends $Command<
   CreateCodeRepositoryCommandInput,

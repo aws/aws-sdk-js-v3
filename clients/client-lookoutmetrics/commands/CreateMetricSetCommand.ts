@@ -22,6 +22,18 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
 
 /**
  * <p>Creates a dataset.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutMetricsClient(config);
+ * const command = new CreateMetricSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMetricSetCommandInput} for command's `input` shape.
+ * @see {@link CreateMetricSetCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMetricSetCommand extends $Command<
   CreateMetricSetCommandInput,

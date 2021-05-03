@@ -22,6 +22,18 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
 
 /**
  * <p>Deletes Amazon Macie membership invitations that were received from specific accounts.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new DeleteInvitationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteInvitationsCommandInput} for command's `input` shape.
+ * @see {@link DeleteInvitationsCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteInvitationsCommand extends $Command<
   DeleteInvitationsCommandInput,

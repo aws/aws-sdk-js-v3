@@ -20,6 +20,18 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
 /**
  * <p>List all of the tags for a DAX cluster. You can call <code>ListTags</code> up to
  *             10 times per second, per account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DAXClient(config);
+ * const command = new ListTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsCommandInput} for command's `input` shape.
+ * @see {@link ListTagsCommandOutput} for command's `response` shape.
+ * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsCommandOutput, DAXClientResolvedConfig> {
   // Start section: command_properties

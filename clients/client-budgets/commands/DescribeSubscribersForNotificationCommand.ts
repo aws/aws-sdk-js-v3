@@ -27,6 +27,18 @@ export interface DescribeSubscribersForNotificationCommandOutput
 
 /**
  * <p>Lists the subscribers that are associated with a notification.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BudgetsClient(config);
+ * const command = new DescribeSubscribersForNotificationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSubscribersForNotificationCommandInput} for command's `input` shape.
+ * @see {@link DescribeSubscribersForNotificationCommandOutput} for command's `response` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSubscribersForNotificationCommand extends $Command<
   DescribeSubscribersForNotificationCommandInput,

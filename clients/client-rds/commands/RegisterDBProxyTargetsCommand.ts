@@ -22,6 +22,18 @@ export interface RegisterDBProxyTargetsCommandOutput extends RegisterDBProxyTarg
 
 /**
  * <p>Associate one or more <code>DBProxyTarget</code> data structures with a <code>DBProxyTargetGroup</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new RegisterDBProxyTargetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterDBProxyTargetsCommandInput} for command's `input` shape.
+ * @see {@link RegisterDBProxyTargetsCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterDBProxyTargetsCommand extends $Command<
   RegisterDBProxyTargetsCommandInput,

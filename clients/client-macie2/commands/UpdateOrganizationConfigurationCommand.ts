@@ -24,6 +24,18 @@ export interface UpdateOrganizationConfigurationCommandOutput
 
 /**
  * <p>Updates the Amazon Macie configuration settings for an AWS organization.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new UpdateOrganizationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateOrganizationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateOrganizationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateOrganizationConfigurationCommand extends $Command<
   UpdateOrganizationConfigurationCommandInput,

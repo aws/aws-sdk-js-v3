@@ -23,6 +23,18 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
 /**
  * <p>Returns the membership details for specified member accounts for a behavior
  *          graph.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DetectiveClient(config);
+ * const command = new GetMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMembersCommandInput} for command's `input` shape.
+ * @see {@link GetMembersCommandOutput} for command's `response` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMembersCommand extends $Command<
   GetMembersCommandInput,

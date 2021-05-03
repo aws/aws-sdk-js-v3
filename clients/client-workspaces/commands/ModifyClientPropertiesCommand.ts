@@ -22,6 +22,18 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
 
 /**
  * <p>Modifies the properties of the specified Amazon WorkSpaces clients.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new ModifyClientPropertiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyClientPropertiesCommandInput} for command's `input` shape.
+ * @see {@link ModifyClientPropertiesCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyClientPropertiesCommand extends $Command<
   ModifyClientPropertiesCommandInput,

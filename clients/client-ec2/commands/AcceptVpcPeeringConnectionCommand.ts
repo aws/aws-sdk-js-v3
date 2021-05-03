@@ -27,6 +27,18 @@ export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeerin
  *       peering connection requests.</p>
  *   	      <p>For an inter-Region VPC peering connection request, you must accept the VPC peering
  *       connection in the Region of the accepter VPC.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new AcceptVpcPeeringConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AcceptVpcPeeringConnectionCommandInput} for command's `input` shape.
+ * @see {@link AcceptVpcPeeringConnectionCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AcceptVpcPeeringConnectionCommand extends $Command<
   AcceptVpcPeeringConnectionCommandInput,

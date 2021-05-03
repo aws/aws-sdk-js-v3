@@ -22,6 +22,18 @@ export interface GenerateBackendAPIModelsCommandOutput extends GenerateBackendAP
 
 /**
  * <p>Generates a model schema for an existing backend API resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyBackendClient(config);
+ * const command = new GenerateBackendAPIModelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GenerateBackendAPIModelsCommandInput} for command's `input` shape.
+ * @see {@link GenerateBackendAPIModelsCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GenerateBackendAPIModelsCommand extends $Command<
   GenerateBackendAPIModelsCommandInput,

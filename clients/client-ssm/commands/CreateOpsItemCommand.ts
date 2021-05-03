@@ -28,6 +28,18 @@ export interface CreateOpsItemCommandOutput extends CreateOpsItemResponse, __Met
  *    operational issues impacting the performance and health of their AWS resources. For more
  *    information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">AWS Systems Manager OpsCenter</a> in the
  *     <i>AWS Systems Manager User Guide</i>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new CreateOpsItemCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateOpsItemCommandInput} for command's `input` shape.
+ * @see {@link CreateOpsItemCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateOpsItemCommand extends $Command<
   CreateOpsItemCommandInput,

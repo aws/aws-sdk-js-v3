@@ -22,6 +22,18 @@ export interface GetEventsConfigurationCommandOutput extends GetEventsConfigurat
 
 /**
  * <p>Gets details for an events configuration that allows a bot to receive outgoing events, such as an HTTPS endpoint or Lambda function ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new GetEventsConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEventsConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetEventsConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEventsConfigurationCommand extends $Command<
   GetEventsConfigurationCommandInput,

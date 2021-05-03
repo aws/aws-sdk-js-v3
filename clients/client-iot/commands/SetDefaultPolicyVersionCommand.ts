@@ -25,6 +25,18 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  *          (operative) version. This action affects all certificates to which the policy is attached.
  *          To list the principals the policy is attached to, use the ListPrincipalPolicy
  *          API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new SetDefaultPolicyVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetDefaultPolicyVersionCommandInput} for command's `input` shape.
+ * @see {@link SetDefaultPolicyVersionCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetDefaultPolicyVersionCommand extends $Command<
   SetDefaultPolicyVersionCommandInput,

@@ -25,6 +25,18 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  *       ID. For newly enabled detectors or data sources the cost returned will include only the usage
  *       so far under 30 days, this may differ from the cost metrics in the console, which projects
  *       usage over 30 days to provide a monthly cost estimate. For more information see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html#usage-calculations">Understanding How Usage Costs are Calculated</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new GetUsageStatisticsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetUsageStatisticsCommandInput} for command's `input` shape.
+ * @see {@link GetUsageStatisticsCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetUsageStatisticsCommand extends $Command<
   GetUsageStatisticsCommandInput,

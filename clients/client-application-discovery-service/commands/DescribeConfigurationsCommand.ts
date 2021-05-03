@@ -51,6 +51,18 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
  *             <p>For a complete list of outputs for each asset type, see <a href="https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#DescribeConfigurations">Using the DescribeConfigurations Action</a> in the <i>AWS Application
  *           Discovery Service User Guide</i>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new DescribeConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConfigurationsCommand extends $Command<
   DescribeConfigurationsCommandInput,

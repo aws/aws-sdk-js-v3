@@ -24,6 +24,18 @@ export interface CreateControlCommandOutput extends CreateControlResponse, __Met
  * <p>
  * Creates a new custom control in AWS Audit Manager.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new CreateControlCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateControlCommandInput} for command's `input` shape.
+ * @see {@link CreateControlCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateControlCommand extends $Command<
   CreateControlCommandInput,

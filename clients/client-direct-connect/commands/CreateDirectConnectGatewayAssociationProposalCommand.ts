@@ -29,6 +29,18 @@ export interface CreateDirectConnectGatewayAssociationProposalCommandOutput
 /**
  * <p>Creates a proposal to associate the specified virtual private gateway or transit gateway with the specified Direct Connect gateway.</p>
  *          <p>You can associate a Direct Connect gateway and virtual private gateway or transit gateway that is owned by any AWS account. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new CreateDirectConnectGatewayAssociationProposalCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDirectConnectGatewayAssociationProposalCommandInput} for command's `input` shape.
+ * @see {@link CreateDirectConnectGatewayAssociationProposalCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDirectConnectGatewayAssociationProposalCommand extends $Command<
   CreateDirectConnectGatewayAssociationProposalCommandInput,

@@ -28,6 +28,18 @@ export interface CreateModelExplainabilityJobDefinitionCommandOutput
 
 /**
  * <p>Creates the definition for a model explainability job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateModelExplainabilityJobDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateModelExplainabilityJobDefinitionCommandInput} for command's `input` shape.
+ * @see {@link CreateModelExplainabilityJobDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateModelExplainabilityJobDefinitionCommand extends $Command<
   CreateModelExplainabilityJobDefinitionCommandInput,

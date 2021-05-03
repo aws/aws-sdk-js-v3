@@ -23,6 +23,18 @@ export interface GetSuppressedDestinationCommandOutput extends GetSuppressedDest
 /**
  * <p>Retrieves information about a specific email address that's on the suppression list
  *             for your account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new GetSuppressedDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSuppressedDestinationCommandInput} for command's `input` shape.
+ * @see {@link GetSuppressedDestinationCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSuppressedDestinationCommand extends $Command<
   GetSuppressedDestinationCommandInput,

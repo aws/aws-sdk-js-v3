@@ -38,6 +38,18 @@ export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapsho
  * 					failed.</p>
  * 			         </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DeliverConfigSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeliverConfigSnapshotCommandInput} for command's `input` shape.
+ * @see {@link DeliverConfigSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeliverConfigSnapshotCommand extends $Command<
   DeliverConfigSnapshotCommandInput,

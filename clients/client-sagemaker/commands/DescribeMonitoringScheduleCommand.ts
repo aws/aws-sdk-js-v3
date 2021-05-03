@@ -22,6 +22,18 @@ export interface DescribeMonitoringScheduleCommandOutput extends DescribeMonitor
 
 /**
  * <p>Describes the schedule for a monitoring job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeMonitoringScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeMonitoringScheduleCommandInput} for command's `input` shape.
+ * @see {@link DescribeMonitoringScheduleCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeMonitoringScheduleCommand extends $Command<
   DescribeMonitoringScheduleCommandInput,

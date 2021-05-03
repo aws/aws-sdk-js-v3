@@ -23,6 +23,18 @@ export interface ListMailboxExportJobsCommandOutput extends ListMailboxExportJob
 /**
  * <p>Lists the mailbox export jobs started for the specified organization within the last
  *          seven days.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new ListMailboxExportJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMailboxExportJobsCommandInput} for command's `input` shape.
+ * @see {@link ListMailboxExportJobsCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMailboxExportJobsCommand extends $Command<
   ListMailboxExportJobsCommandInput,

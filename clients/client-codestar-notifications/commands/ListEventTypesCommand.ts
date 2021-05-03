@@ -26,6 +26,18 @@ export interface ListEventTypesCommandOutput extends ListEventTypesResult, __Met
 
 /**
  * <p>Returns information about the event types available for configuring notifications.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodestarNotificationsClient(config);
+ * const command = new ListEventTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEventTypesCommandInput} for command's `input` shape.
+ * @see {@link ListEventTypesCommandOutput} for command's `response` shape.
+ * @see {@link CodestarNotificationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEventTypesCommand extends $Command<
   ListEventTypesCommandInput,

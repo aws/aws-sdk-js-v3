@@ -30,6 +30,18 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  *         <code>EndingSequenceNumber</code>, then the shard is still open (able to receive more stream
  *       records). If both <code>StartingSequenceNumber</code> and <code>EndingSequenceNumber</code>
  *       are present, then that shard is closed and can no longer receive more data.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBStreamsClient(config);
+ * const command = new DescribeStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeStreamCommandInput} for command's `input` shape.
+ * @see {@link DescribeStreamCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBStreamsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeStreamCommand extends $Command<
   DescribeStreamCommandInput,

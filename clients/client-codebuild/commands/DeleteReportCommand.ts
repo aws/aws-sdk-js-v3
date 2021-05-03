@@ -24,6 +24,18 @@ export interface DeleteReportCommandOutput extends DeleteReportOutput, __Metadat
  * <p>
  *       Deletes a report.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new DeleteReportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteReportCommandInput} for command's `input` shape.
+ * @see {@link DeleteReportCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteReportCommand extends $Command<
   DeleteReportCommandInput,

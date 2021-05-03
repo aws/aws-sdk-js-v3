@@ -22,6 +22,18 @@ export interface DisableRadiusCommandOutput extends DisableRadiusResult, __Metad
 
 /**
  * <p>Disables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector or Microsoft AD directory.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new DisableRadiusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableRadiusCommandInput} for command's `input` shape.
+ * @see {@link DisableRadiusCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableRadiusCommand extends $Command<
   DisableRadiusCommandInput,

@@ -24,6 +24,18 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  *                <a>AddPermission</a>
  *             </code> or see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue">Allow Developers to Write Messages to a Shared Queue</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SQSClient(config);
+ * const command = new GetQueueUrlCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetQueueUrlCommandInput} for command's `input` shape.
+ * @see {@link GetQueueUrlCommandOutput} for command's `response` shape.
+ * @see {@link SQSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetQueueUrlCommand extends $Command<
   GetQueueUrlCommandInput,

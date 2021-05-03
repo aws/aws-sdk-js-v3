@@ -23,6 +23,18 @@ export interface DeleteVirtualGatewayCommandOutput extends DeleteVirtualGatewayO
 /**
  * <p>Deletes an existing virtual gateway. You cannot delete a virtual gateway if any gateway
  *          routes are associated to it.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new DeleteVirtualGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVirtualGatewayCommandInput} for command's `input` shape.
+ * @see {@link DeleteVirtualGatewayCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVirtualGatewayCommand extends $Command<
   DeleteVirtualGatewayCommandInput,

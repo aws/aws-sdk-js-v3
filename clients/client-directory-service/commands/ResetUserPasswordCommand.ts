@@ -40,6 +40,18 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  *             Guide</i>.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new ResetUserPasswordCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResetUserPasswordCommandInput} for command's `input` shape.
+ * @see {@link ResetUserPasswordCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResetUserPasswordCommand extends $Command<
   ResetUserPasswordCommandInput,

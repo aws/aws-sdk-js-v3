@@ -22,6 +22,18 @@ export interface UpdateLoggerDefinitionCommandOutput extends UpdateLoggerDefinit
 
 /**
  * Updates a logger definition.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new UpdateLoggerDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateLoggerDefinitionCommandInput} for command's `input` shape.
+ * @see {@link UpdateLoggerDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateLoggerDefinitionCommand extends $Command<
   UpdateLoggerDefinitionCommandInput,

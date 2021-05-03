@@ -22,6 +22,18 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
 
 /**
  * <p>Updates an input.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTEventsClient(config);
+ * const command = new UpdateInputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateInputCommandInput} for command's `input` shape.
+ * @see {@link UpdateInputCommandOutput} for command's `response` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateInputCommand extends $Command<
   UpdateInputCommandInput,

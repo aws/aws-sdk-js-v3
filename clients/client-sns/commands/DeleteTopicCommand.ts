@@ -22,6 +22,18 @@ export interface DeleteTopicCommandOutput extends __MetadataBearer {}
  *             messages previously sent to the topic from being delivered to subscribers. This action
  *             is idempotent, so deleting a topic that does not exist does not result in an
  *             error.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SNSClient(config);
+ * const command = new DeleteTopicCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTopicCommandInput} for command's `input` shape.
+ * @see {@link DeleteTopicCommandOutput} for command's `response` shape.
+ * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTopicCommand extends $Command<
   DeleteTopicCommandInput,

@@ -27,6 +27,18 @@ export interface UpdateDeviceStatusCommandOutput extends UpdateDeviceStatusRespo
 
 /**
  * <p>Updates the device status.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new UpdateDeviceStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDeviceStatusCommandInput} for command's `input` shape.
+ * @see {@link UpdateDeviceStatusCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDeviceStatusCommand extends $Command<
   UpdateDeviceStatusCommandInput,

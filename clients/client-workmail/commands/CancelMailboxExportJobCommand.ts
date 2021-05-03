@@ -26,6 +26,18 @@ export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExport
  *             <p>If the mailbox export job is near completion, it might not be possible to cancel
  *             it.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new CancelMailboxExportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelMailboxExportJobCommandInput} for command's `input` shape.
+ * @see {@link CancelMailboxExportJobCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelMailboxExportJobCommand extends $Command<
   CancelMailboxExportJobCommandInput,

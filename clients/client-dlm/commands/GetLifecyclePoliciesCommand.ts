@@ -23,6 +23,18 @@ export interface GetLifecyclePoliciesCommandOutput extends GetLifecyclePoliciesR
 /**
  * <p>Gets summary information about all or the specified data lifecycle policies.</p>
  * 		       <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DLMClient(config);
+ * const command = new GetLifecyclePoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLifecyclePoliciesCommandInput} for command's `input` shape.
+ * @see {@link GetLifecyclePoliciesCommandOutput} for command's `response` shape.
+ * @see {@link DLMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLifecyclePoliciesCommand extends $Command<
   GetLifecyclePoliciesCommandInput,

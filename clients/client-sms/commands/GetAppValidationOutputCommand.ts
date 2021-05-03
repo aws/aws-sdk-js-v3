@@ -22,6 +22,18 @@ export interface GetAppValidationOutputCommandOutput extends GetAppValidationOut
 
 /**
  * <p>Retrieves output from validating an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SMSClient(config);
+ * const command = new GetAppValidationOutputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAppValidationOutputCommandInput} for command's `input` shape.
+ * @see {@link GetAppValidationOutputCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAppValidationOutputCommand extends $Command<
   GetAppValidationOutputCommandInput,

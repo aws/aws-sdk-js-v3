@@ -22,6 +22,18 @@ export interface GetParameterHistoryCommandOutput extends GetParameterHistoryRes
 
 /**
  * <p>Retrieves the history of all changes to a parameter.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new GetParameterHistoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetParameterHistoryCommandInput} for command's `input` shape.
+ * @see {@link GetParameterHistoryCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetParameterHistoryCommand extends $Command<
   GetParameterHistoryCommandInput,

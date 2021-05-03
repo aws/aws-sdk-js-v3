@@ -22,6 +22,18 @@ export interface GetBackendAPICommandOutput extends GetBackendAPIResponse, __Met
 
 /**
  * <p>Gets the details for a backend API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyBackendClient(config);
+ * const command = new GetBackendAPICommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBackendAPICommandInput} for command's `input` shape.
+ * @see {@link GetBackendAPICommandOutput} for command's `response` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBackendAPICommand extends $Command<
   GetBackendAPICommandInput,

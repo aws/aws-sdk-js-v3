@@ -22,6 +22,18 @@ export interface ListAttendeeTagsCommandOutput extends ListAttendeeTagsResponse,
 
 /**
  * <p>Lists the tags applied to an Amazon Chime SDK attendee resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new ListAttendeeTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAttendeeTagsCommandInput} for command's `input` shape.
+ * @see {@link ListAttendeeTagsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAttendeeTagsCommand extends $Command<
   ListAttendeeTagsCommandInput,

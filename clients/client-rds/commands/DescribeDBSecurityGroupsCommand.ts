@@ -25,6 +25,18 @@ export interface DescribeDBSecurityGroupsCommandOutput extends DBSecurityGroupMe
  *         Returns a list of <code>DBSecurityGroup</code> descriptions. If a <code>DBSecurityGroupName</code> is specified,
  *             the list will contain only the descriptions of the specified DB security group.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new DescribeDBSecurityGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDBSecurityGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeDBSecurityGroupsCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDBSecurityGroupsCommand extends $Command<
   DescribeDBSecurityGroupsCommandInput,

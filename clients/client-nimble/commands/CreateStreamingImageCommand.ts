@@ -22,6 +22,18 @@ export interface CreateStreamingImageCommandOutput extends CreateStreamingImageR
 
 /**
  * <p>Creates a streaming image resource in a studio.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NimbleClient(config);
+ * const command = new CreateStreamingImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateStreamingImageCommandInput} for command's `input` shape.
+ * @see {@link CreateStreamingImageCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateStreamingImageCommand extends $Command<
   CreateStreamingImageCommandInput,

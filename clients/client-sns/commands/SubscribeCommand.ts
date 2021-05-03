@@ -24,6 +24,18 @@ export interface SubscribeCommandOutput extends SubscribeResponse, __MetadataBea
  *          <p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response.
  *       Confirmation tokens are valid for three days.</p>
  *         <p>This action is throttled at 100 transactions per second (TPS).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SNSClient(config);
+ * const command = new SubscribeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SubscribeCommandInput} for command's `input` shape.
+ * @see {@link SubscribeCommandOutput} for command's `response` shape.
+ * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SubscribeCommand extends $Command<SubscribeCommandInput, SubscribeCommandOutput, SNSClientResolvedConfig> {
   // Start section: command_properties

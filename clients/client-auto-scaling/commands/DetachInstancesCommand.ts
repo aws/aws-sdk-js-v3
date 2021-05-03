@@ -31,6 +31,18 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  *             group, the instances are deregistered from the target groups.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/detach-instance-asg.html">Detach EC2 instances from
  *                 your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingClient(config);
+ * const command = new DetachInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetachInstancesCommandInput} for command's `input` shape.
+ * @see {@link DetachInstancesCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetachInstancesCommand extends $Command<
   DetachInstancesCommandInput,

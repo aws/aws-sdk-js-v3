@@ -28,6 +28,18 @@ export interface PollForThirdPartyJobsCommandOutput extends PollForThirdPartyJob
  *                 S3 bucket used to store artifacts for the pipeline, if the action requires access to
  *                 that S3 bucket for input or output artifacts.</p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new PollForThirdPartyJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PollForThirdPartyJobsCommandInput} for command's `input` shape.
+ * @see {@link PollForThirdPartyJobsCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PollForThirdPartyJobsCommand extends $Command<
   PollForThirdPartyJobsCommandInput,

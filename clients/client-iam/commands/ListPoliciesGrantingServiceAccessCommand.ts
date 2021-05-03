@@ -66,6 +66,18 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  *             returned. To view which managed policy is currently used to set the permissions boundary
  *             for a user or role, use the <a>GetUser</a> or <a>GetRole</a>
  *             operations.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new ListPoliciesGrantingServiceAccessCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPoliciesGrantingServiceAccessCommandInput} for command's `input` shape.
+ * @see {@link ListPoliciesGrantingServiceAccessCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPoliciesGrantingServiceAccessCommand extends $Command<
   ListPoliciesGrantingServiceAccessCommandInput,

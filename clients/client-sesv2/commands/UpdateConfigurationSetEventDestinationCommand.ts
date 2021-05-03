@@ -34,6 +34,18 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  *             information about these events to. For example, you can send event data to Amazon SNS to
  *             receive notifications when you receive bounces or complaints, or you can use Amazon Kinesis Data Firehose to
  *             stream data to Amazon S3 for long-term storage.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new UpdateConfigurationSetEventDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
+ * @see {@link UpdateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateConfigurationSetEventDestinationCommand extends $Command<
   UpdateConfigurationSetEventDestinationCommandInput,

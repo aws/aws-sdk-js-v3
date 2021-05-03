@@ -25,6 +25,18 @@ export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __Metad
  *             registered for the specified IAM OpenID Connect (OIDC) provider resource.</p>
  *         <p>This operation is idempotent; it does not fail or return an error if you add an
  *             existing client ID to the provider.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new AddClientIDToOpenIDConnectProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddClientIDToOpenIDConnectProviderCommandInput} for command's `input` shape.
+ * @see {@link AddClientIDToOpenIDConnectProviderCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddClientIDToOpenIDConnectProviderCommand extends $Command<
   AddClientIDToOpenIDConnectProviderCommandInput,

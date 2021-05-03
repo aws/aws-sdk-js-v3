@@ -24,6 +24,18 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
 
 /**
  * <p>Returns detailed information about the recovery points stored in a backup vault.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new ListRecoveryPointsByBackupVaultCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRecoveryPointsByBackupVaultCommandInput} for command's `input` shape.
+ * @see {@link ListRecoveryPointsByBackupVaultCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRecoveryPointsByBackupVaultCommand extends $Command<
   ListRecoveryPointsByBackupVaultCommandInput,

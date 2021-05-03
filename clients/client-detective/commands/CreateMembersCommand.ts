@@ -43,6 +43,18 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *                graph.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DetectiveClient(config);
+ * const command = new CreateMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMembersCommandInput} for command's `input` shape.
+ * @see {@link CreateMembersCommandOutput} for command's `response` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMembersCommand extends $Command<
   CreateMembersCommandInput,

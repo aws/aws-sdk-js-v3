@@ -26,6 +26,18 @@ export interface CreateApplicationSnapshotCommandOutput extends CreateApplicatio
 
 /**
  * <p>Creates a snapshot of the application's state data.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisAnalyticsV2Client(config);
+ * const command = new CreateApplicationSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateApplicationSnapshotCommandInput} for command's `input` shape.
+ * @see {@link CreateApplicationSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateApplicationSnapshotCommand extends $Command<
   CreateApplicationSnapshotCommandInput,

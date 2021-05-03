@@ -25,6 +25,18 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  *         <p>
  *             <code>GetDataSource</code> provides results in normal or verbose format. The verbose format
  *             adds the schema description and the list of files pointed to by the DataSource to the normal format.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MachineLearningClient(config);
+ * const command = new GetDataSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDataSourceCommandInput} for command's `input` shape.
+ * @see {@link GetDataSourceCommandOutput} for command's `response` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDataSourceCommand extends $Command<
   GetDataSourceCommandInput,

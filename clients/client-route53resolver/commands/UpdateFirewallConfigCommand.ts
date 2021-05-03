@@ -22,6 +22,18 @@ export interface UpdateFirewallConfigCommandOutput extends UpdateFirewallConfigR
 
 /**
  * <p>Updates the configuration of the firewall behavior provided by DNS Firewall for a single Amazon virtual private cloud (VPC). </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new UpdateFirewallConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFirewallConfigCommandInput} for command's `input` shape.
+ * @see {@link UpdateFirewallConfigCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFirewallConfigCommand extends $Command<
   UpdateFirewallConfigCommandInput,

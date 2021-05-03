@@ -28,6 +28,18 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  *             to return only <code>UNTAGGED</code> images and then pipe that result to a <a>BatchDeleteImage</a> operation to delete them. Or, you can filter your
  *             results to return only <code>TAGGED</code> images to list all of the tags in your
  *             repository.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECRClient(config);
+ * const command = new ListImagesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListImagesCommandInput} for command's `input` shape.
+ * @see {@link ListImagesCommandOutput} for command's `response` shape.
+ * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListImagesCommand extends $Command<
   ListImagesCommandInput,

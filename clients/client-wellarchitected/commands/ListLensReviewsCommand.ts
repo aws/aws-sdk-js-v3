@@ -22,6 +22,18 @@ export interface ListLensReviewsCommandOutput extends ListLensReviewsOutput, __M
 
 /**
  * <p>List lens reviews.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WellArchitectedClient(config);
+ * const command = new ListLensReviewsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListLensReviewsCommandInput} for command's `input` shape.
+ * @see {@link ListLensReviewsCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListLensReviewsCommand extends $Command<
   ListLensReviewsCommandInput,

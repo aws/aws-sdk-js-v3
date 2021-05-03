@@ -26,6 +26,18 @@ export interface ListPartnerEventSourceAccountsCommandOutput
  * <p>An SaaS partner can use this operation to display the AWS account ID that a particular
  *       partner event source name is associated with. This operation is not used by AWS
  *       customers.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EventBridgeClient(config);
+ * const command = new ListPartnerEventSourceAccountsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPartnerEventSourceAccountsCommandInput} for command's `input` shape.
+ * @see {@link ListPartnerEventSourceAccountsCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPartnerEventSourceAccountsCommand extends $Command<
   ListPartnerEventSourceAccountsCommandInput,

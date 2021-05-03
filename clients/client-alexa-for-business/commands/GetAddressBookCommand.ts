@@ -22,6 +22,18 @@ export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __M
 
 /**
  * <p>Gets address the book details by the address book ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new GetAddressBookCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAddressBookCommandInput} for command's `input` shape.
+ * @see {@link GetAddressBookCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAddressBookCommand extends $Command<
   GetAddressBookCommandInput,

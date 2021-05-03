@@ -22,6 +22,18 @@ export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __Met
 
 /**
  * <p>Lists geofences stored in a given geofence collection.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LocationClient(config);
+ * const command = new ListGeofencesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListGeofencesCommandInput} for command's `input` shape.
+ * @see {@link ListGeofencesCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListGeofencesCommand extends $Command<
   ListGeofencesCommandInput,

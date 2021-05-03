@@ -22,6 +22,18 @@ export interface CreateWorldExportJobCommandOutput extends CreateWorldExportJobR
 
 /**
  * <p>Creates a world export job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new CreateWorldExportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateWorldExportJobCommandInput} for command's `input` shape.
+ * @see {@link CreateWorldExportJobCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateWorldExportJobCommand extends $Command<
   CreateWorldExportJobCommandInput,

@@ -22,6 +22,18 @@ export interface GetAppsListCommandOutput extends GetAppsListResponse, __Metadat
 
 /**
  * <p>Returns information about the specified AWS Firewall Manager applications list.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FMSClient(config);
+ * const command = new GetAppsListCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAppsListCommandInput} for command's `input` shape.
+ * @see {@link GetAppsListCommandOutput} for command's `response` shape.
+ * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAppsListCommand extends $Command<
   GetAppsListCommandInput,

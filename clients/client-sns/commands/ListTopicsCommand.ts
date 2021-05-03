@@ -23,6 +23,18 @@ export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataB
  *                 <code>NextToken</code> parameter in a new <code>ListTopics</code> call to get
  *             further results.</p>
  *         <p>This action is throttled at 30 transactions per second (TPS).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SNSClient(config);
+ * const command = new ListTopicsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTopicsCommandInput} for command's `input` shape.
+ * @see {@link ListTopicsCommandOutput} for command's `response` shape.
+ * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTopicsCommand extends $Command<
   ListTopicsCommandInput,

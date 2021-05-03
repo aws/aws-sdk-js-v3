@@ -41,6 +41,18 @@ export interface GetOrganizationsAccessReportCommandOutput
  *             most recent attempt to access the service. If the operation fails, it returns the reason
  *             that it failed.</p>
  *         <p>By default, the list is sorted by service namespace.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new GetOrganizationsAccessReportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOrganizationsAccessReportCommandInput} for command's `input` shape.
+ * @see {@link GetOrganizationsAccessReportCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOrganizationsAccessReportCommand extends $Command<
   GetOrganizationsAccessReportCommandInput,

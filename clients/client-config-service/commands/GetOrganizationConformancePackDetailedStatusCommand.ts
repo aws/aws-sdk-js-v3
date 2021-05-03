@@ -28,6 +28,18 @@ export interface GetOrganizationConformancePackDetailedStatusCommandOutput
 
 /**
  * <p>Returns detailed status for each member account within an organization for a given organization conformance pack.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new GetOrganizationConformancePackDetailedStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOrganizationConformancePackDetailedStatusCommandInput} for command's `input` shape.
+ * @see {@link GetOrganizationConformancePackDetailedStatusCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOrganizationConformancePackDetailedStatusCommand extends $Command<
   GetOrganizationConformancePackDetailedStatusCommandInput,

@@ -22,6 +22,18 @@ export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __Metada
 
 /**
  * <p>Removes one or more tags from one or more on-premises instances.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new RemoveTagsFromOnPremisesInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveTagsFromOnPremisesInstancesCommandInput} for command's `input` shape.
+ * @see {@link RemoveTagsFromOnPremisesInstancesCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveTagsFromOnPremisesInstancesCommand extends $Command<
   RemoveTagsFromOnPremisesInstancesCommandInput,

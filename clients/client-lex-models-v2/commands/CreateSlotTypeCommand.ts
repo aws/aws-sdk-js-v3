@@ -25,6 +25,18 @@ export interface CreateSlotTypeCommandOutput extends CreateSlotTypeResponse, __M
  *          <p> To create a custom slot type, specify a name for the slot type and
  *          a set of enumeration values, the values that a slot of this type can
  *          assume. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelsV2Client(config);
+ * const command = new CreateSlotTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSlotTypeCommandInput} for command's `input` shape.
+ * @see {@link CreateSlotTypeCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSlotTypeCommand extends $Command<
   CreateSlotTypeCommandInput,

@@ -22,6 +22,18 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
 
 /**
  * An operation for publishing metrics from the customers to the Ops plane.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MWAAClient(config);
+ * const command = new PublishMetricsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PublishMetricsCommandInput} for command's `input` shape.
+ * @see {@link PublishMetricsCommandOutput} for command's `response` shape.
+ * @see {@link MWAAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PublishMetricsCommand extends $Command<
   PublishMetricsCommandInput,

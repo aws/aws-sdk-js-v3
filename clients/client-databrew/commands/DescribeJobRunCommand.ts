@@ -22,6 +22,18 @@ export interface DescribeJobRunCommandOutput extends DescribeJobRunResponse, __M
 
 /**
  * <p>Represents one run of a DataBrew job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new DescribeJobRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeJobRunCommandInput} for command's `input` shape.
+ * @see {@link DescribeJobRunCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeJobRunCommand extends $Command<
   DescribeJobRunCommandInput,

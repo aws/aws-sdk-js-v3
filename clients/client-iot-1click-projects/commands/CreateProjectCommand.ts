@@ -27,6 +27,18 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
 /**
  * <p>Creates an empty project with a placement template. A project contains zero or more
  *       placements that adhere to the placement template defined in the project.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoT1ClickProjectsClient(config);
+ * const command = new CreateProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateProjectCommandInput} for command's `input` shape.
+ * @see {@link CreateProjectCommandOutput} for command's `response` shape.
+ * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,

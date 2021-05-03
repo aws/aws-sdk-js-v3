@@ -22,6 +22,18 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
 
 /**
  * <p>Creates a snapshot of a cluster. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DocDBClient(config);
+ * const command = new CreateDBClusterSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDBClusterSnapshotCommandInput} for command's `input` shape.
+ * @see {@link CreateDBClusterSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDBClusterSnapshotCommand extends $Command<
   CreateDBClusterSnapshotCommandInput,

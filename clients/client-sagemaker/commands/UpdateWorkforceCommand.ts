@@ -43,6 +43,18 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  *         <important>
  *             <p>This operation only applies to private workforces.</p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new UpdateWorkforceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateWorkforceCommandInput} for command's `input` shape.
+ * @see {@link UpdateWorkforceCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateWorkforceCommand extends $Command<
   UpdateWorkforceCommandInput,

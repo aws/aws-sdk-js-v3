@@ -23,6 +23,18 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
 /**
  * <p>Inspects text for named entities, and returns information about them. For more
  *       information, about named entities, see <a>how-entities</a>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new DetectEntitiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetectEntitiesCommandInput} for command's `input` shape.
+ * @see {@link DetectEntitiesCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetectEntitiesCommand extends $Command<
   DetectEntitiesCommandInput,

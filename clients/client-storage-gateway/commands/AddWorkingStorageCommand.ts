@@ -34,6 +34,18 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  *          <p>In the request, you specify the gateway Amazon Resource Name (ARN) to which you want to
  *          add working storage, and one or more disk IDs that you want to configure as working
  *          storage.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new AddWorkingStorageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddWorkingStorageCommandInput} for command's `input` shape.
+ * @see {@link AddWorkingStorageCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddWorkingStorageCommand extends $Command<
   AddWorkingStorageCommandInput,

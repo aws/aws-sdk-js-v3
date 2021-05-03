@@ -22,6 +22,18 @@ export interface DescribeEndpointAccessCommandOutput extends EndpointAccessList,
 
 /**
  * <p>Describes a Redshift-managed VPC endpoint.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DescribeEndpointAccessCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEndpointAccessCommandInput} for command's `input` shape.
+ * @see {@link DescribeEndpointAccessCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEndpointAccessCommand extends $Command<
   DescribeEndpointAccessCommandInput,

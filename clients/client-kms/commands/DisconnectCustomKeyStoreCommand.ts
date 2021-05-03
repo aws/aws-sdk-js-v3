@@ -74,6 +74,18 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KMSClient(config);
+ * const command = new DisconnectCustomKeyStoreCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisconnectCustomKeyStoreCommandInput} for command's `input` shape.
+ * @see {@link DisconnectCustomKeyStoreCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisconnectCustomKeyStoreCommand extends $Command<
   DisconnectCustomKeyStoreCommandInput,

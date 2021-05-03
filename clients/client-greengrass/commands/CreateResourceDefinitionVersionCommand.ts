@@ -24,6 +24,18 @@ export interface CreateResourceDefinitionVersionCommandOutput
 
 /**
  * Creates a version of a resource definition that has already been defined.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new CreateResourceDefinitionVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateResourceDefinitionVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateResourceDefinitionVersionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateResourceDefinitionVersionCommand extends $Command<
   CreateResourceDefinitionVersionCommandInput,

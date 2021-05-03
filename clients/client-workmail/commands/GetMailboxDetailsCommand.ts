@@ -22,6 +22,18 @@ export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsRespons
 
 /**
  * <p>Requests a user's mailbox details for a specified organization and user.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new GetMailboxDetailsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMailboxDetailsCommandInput} for command's `input` shape.
+ * @see {@link GetMailboxDetailsCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMailboxDetailsCommand extends $Command<
   GetMailboxDetailsCommandInput,

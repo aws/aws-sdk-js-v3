@@ -24,6 +24,18 @@ export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySub
  * <p>Adds a subscription to a cost anomaly detection monitor. You can use each subscription to
  *       define subscribers with email or SNS notifications. Email subscribers can set a dollar
  *       threshold and a time frequency for receiving notifications. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CostExplorerClient(config);
+ * const command = new CreateAnomalySubscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAnomalySubscriptionCommandInput} for command's `input` shape.
+ * @see {@link CreateAnomalySubscriptionCommandOutput} for command's `response` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAnomalySubscriptionCommand extends $Command<
   CreateAnomalySubscriptionCommandInput,

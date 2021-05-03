@@ -25,6 +25,18 @@ export interface ApplyPendingMaintenanceActionCommandOutput
 /**
  * <p>Applies a pending maintenance action to a resource (for example,
  *             to an Amazon DocumentDB instance).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DocDBClient(config);
+ * const command = new ApplyPendingMaintenanceActionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ApplyPendingMaintenanceActionCommandInput} for command's `input` shape.
+ * @see {@link ApplyPendingMaintenanceActionCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ApplyPendingMaintenanceActionCommand extends $Command<
   ApplyPendingMaintenanceActionCommandInput,

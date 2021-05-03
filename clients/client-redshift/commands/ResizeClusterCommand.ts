@@ -65,6 +65,18 @@ export interface ResizeClusterCommandOutput extends ResizeClusterResult, __Metad
  *                     cluster.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new ResizeClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResizeClusterCommandInput} for command's `input` shape.
+ * @see {@link ResizeClusterCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResizeClusterCommand extends $Command<
   ResizeClusterCommandInput,

@@ -22,6 +22,18 @@ export interface ListTestGridSessionActionsCommandOutput extends ListTestGridSes
 
 /**
  * <p>Returns a list of the actions taken in a <a>TestGridSession</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new ListTestGridSessionActionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTestGridSessionActionsCommandInput} for command's `input` shape.
+ * @see {@link ListTestGridSessionActionsCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTestGridSessionActionsCommand extends $Command<
   ListTestGridSessionActionsCommandInput,

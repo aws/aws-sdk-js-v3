@@ -56,6 +56,18 @@ export interface DescribeComplianceByConfigRuleCommandOutput
  * 					the rule's scope.</p>
  * 			         </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DescribeComplianceByConfigRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeComplianceByConfigRuleCommandInput} for command's `input` shape.
+ * @see {@link DescribeComplianceByConfigRuleCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeComplianceByConfigRuleCommand extends $Command<
   DescribeComplianceByConfigRuleCommandInput,

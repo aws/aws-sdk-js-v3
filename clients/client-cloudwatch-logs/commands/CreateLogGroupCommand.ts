@@ -48,6 +48,18 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  *         your log group. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric
  *           Keys</a>.</p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new CreateLogGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLogGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateLogGroupCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLogGroupCommand extends $Command<
   CreateLogGroupCommandInput,

@@ -27,6 +27,18 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
  *             <p>AWS Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
  * 			Remediation exceptions blocks auto-remediation until the exception is cleared.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new PutRemediationExceptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutRemediationExceptionsCommandInput} for command's `input` shape.
+ * @see {@link PutRemediationExceptionsCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutRemediationExceptionsCommand extends $Command<
   PutRemediationExceptionsCommandInput,

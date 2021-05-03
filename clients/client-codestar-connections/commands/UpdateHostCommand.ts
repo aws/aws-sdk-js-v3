@@ -26,6 +26,18 @@ export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBea
 
 /**
  * <p>Updates a specified host with the provided configurations.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeStarConnectionsClient(config);
+ * const command = new UpdateHostCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateHostCommandInput} for command's `input` shape.
+ * @see {@link UpdateHostCommandOutput} for command's `response` shape.
+ * @see {@link CodeStarConnectionsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateHostCommand extends $Command<
   UpdateHostCommandInput,

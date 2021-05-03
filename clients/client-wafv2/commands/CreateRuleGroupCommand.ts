@@ -23,6 +23,18 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
 /**
  * <p>Creates a <a>RuleGroup</a> per the specifications provided. </p>
  *          <p> A rule group defines a collection of rules to inspect and control web requests that you can use in a <a>WebACL</a>. When you create a rule group, you define an immutable capacity limit. If you update a rule group, you must stay within the capacity. This allows others to reuse the rule group with confidence in its capacity requirements. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFV2Client(config);
+ * const command = new CreateRuleGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRuleGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateRuleGroupCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRuleGroupCommand extends $Command<
   CreateRuleGroupCommandInput,

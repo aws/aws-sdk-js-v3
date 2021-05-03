@@ -24,6 +24,18 @@ export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __M
  * <p>Deletes the specified identity (an email address or a domain) from the list of
  *             verified identities.</p>
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESClient(config);
+ * const command = new DeleteIdentityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteIdentityCommandInput} for command's `input` shape.
+ * @see {@link DeleteIdentityCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteIdentityCommand extends $Command<
   DeleteIdentityCommandInput,

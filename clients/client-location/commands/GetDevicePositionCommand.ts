@@ -25,6 +25,18 @@ export interface GetDevicePositionCommandOutput extends GetDevicePositionRespons
  *          <note>
  *             <p>Device positions are deleted after one year.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LocationClient(config);
+ * const command = new GetDevicePositionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDevicePositionCommandInput} for command's `input` shape.
+ * @see {@link GetDevicePositionCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDevicePositionCommand extends $Command<
   GetDevicePositionCommandInput,

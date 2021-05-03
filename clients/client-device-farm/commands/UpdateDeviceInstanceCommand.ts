@@ -22,6 +22,18 @@ export interface UpdateDeviceInstanceCommandOutput extends UpdateDeviceInstanceR
 
 /**
  * <p>Updates information about a private device instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new UpdateDeviceInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDeviceInstanceCommandInput} for command's `input` shape.
+ * @see {@link UpdateDeviceInstanceCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDeviceInstanceCommand extends $Command<
   UpdateDeviceInstanceCommandInput,

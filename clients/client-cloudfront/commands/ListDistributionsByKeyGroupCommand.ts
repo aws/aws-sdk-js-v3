@@ -28,6 +28,18 @@ export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributi
  * 			default maximum, the response is paginated. To get the next page of items, send a
  * 			subsequent request that specifies the <code>NextMarker</code> value from the current
  * 			response as the <code>Marker</code> value in the subsequent request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new ListDistributionsByKeyGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDistributionsByKeyGroupCommandInput} for command's `input` shape.
+ * @see {@link ListDistributionsByKeyGroupCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDistributionsByKeyGroupCommand extends $Command<
   ListDistributionsByKeyGroupCommandInput,

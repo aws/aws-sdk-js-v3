@@ -22,6 +22,18 @@ export interface DeleteProfilingGroupCommandOutput extends DeleteProfilingGroupR
 
 /**
  * <p>Deletes a profiling group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeGuruProfilerClient(config);
+ * const command = new DeleteProfilingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteProfilingGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteProfilingGroupCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteProfilingGroupCommand extends $Command<
   DeleteProfilingGroupCommandInput,

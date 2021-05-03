@@ -23,6 +23,18 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
 /**
  * <p>Updates some of the parameters of a previously created location for Server Message Block
  *       (SMB) file system access. For information about creating an SMB location, see <a>create-smb-location</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataSyncClient(config);
+ * const command = new UpdateLocationSmbCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateLocationSmbCommandInput} for command's `input` shape.
+ * @see {@link UpdateLocationSmbCommandOutput} for command's `response` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateLocationSmbCommand extends $Command<
   UpdateLocationSmbCommandInput,

@@ -33,6 +33,18 @@ export interface ListHapgsCommandOutput extends ListHapgsResponse, __MetadataBea
  *       If more results are available, the <code>NextToken</code> member of the response contains a
  *       token that you pass in the next call to <code>ListHapgs</code> to retrieve the next set of
  *       items.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMClient(config);
+ * const command = new ListHapgsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListHapgsCommandInput} for command's `input` shape.
+ * @see {@link ListHapgsCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListHapgsCommand extends $Command<
   ListHapgsCommandInput,

@@ -28,6 +28,18 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily removing
  *                 instances from your Auto Scaling group</a> in the
  *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingClient(config);
+ * const command = new EnterStandbyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnterStandbyCommandInput} for command's `input` shape.
+ * @see {@link EnterStandbyCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnterStandbyCommand extends $Command<
   EnterStandbyCommandInput,

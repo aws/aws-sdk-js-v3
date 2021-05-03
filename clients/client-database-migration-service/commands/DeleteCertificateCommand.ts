@@ -26,6 +26,18 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateRespons
 
 /**
  * <p>Deletes the specified certificate. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DeleteCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCertificateCommandInput} for command's `input` shape.
+ * @see {@link DeleteCertificateCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCertificateCommand extends $Command<
   DeleteCertificateCommandInput,

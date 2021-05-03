@@ -24,6 +24,18 @@ export interface DescribeProvisioningArtifactCommandOutput
 
 /**
  * <p>Gets information about the specified provisioning artifact (also known as a version) for the specified product.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DescribeProvisioningArtifactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeProvisioningArtifactCommandInput} for command's `input` shape.
+ * @see {@link DescribeProvisioningArtifactCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeProvisioningArtifactCommand extends $Command<
   DescribeProvisioningArtifactCommandInput,

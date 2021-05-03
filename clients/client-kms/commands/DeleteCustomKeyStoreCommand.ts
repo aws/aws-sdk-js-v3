@@ -77,6 +77,18 @@ export interface DeleteCustomKeyStoreCommandOutput extends DeleteCustomKeyStoreR
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KMSClient(config);
+ * const command = new DeleteCustomKeyStoreCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCustomKeyStoreCommandInput} for command's `input` shape.
+ * @see {@link DeleteCustomKeyStoreCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCustomKeyStoreCommand extends $Command<
   DeleteCustomKeyStoreCommandInput,

@@ -22,6 +22,18 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
 
 /**
  * <p>Defines a ProfileObjectType.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CustomerProfilesClient(config);
+ * const command = new PutProfileObjectTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutProfileObjectTypeCommandInput} for command's `input` shape.
+ * @see {@link PutProfileObjectTypeCommandOutput} for command's `response` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutProfileObjectTypeCommand extends $Command<
   PutProfileObjectTypeCommandInput,

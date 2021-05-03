@@ -29,6 +29,18 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
  *         <p>
  *             <a>DescribeStreamSummary</a> has a limit of 20 transactions per second
  *             per account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisClient(config);
+ * const command = new DescribeStreamSummaryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeStreamSummaryCommandInput} for command's `input` shape.
+ * @see {@link DescribeStreamSummaryCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeStreamSummaryCommand extends $Command<
   DescribeStreamSummaryCommandInput,

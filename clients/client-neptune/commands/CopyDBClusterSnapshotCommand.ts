@@ -26,6 +26,18 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  *          <p>To copy a DB cluster snapshot from a shared manual DB cluster snapshot,
  *       <code>SourceDBClusterSnapshotIdentifier</code> must be the Amazon Resource Name (ARN) of the
  *       shared DB cluster snapshot.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NeptuneClient(config);
+ * const command = new CopyDBClusterSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CopyDBClusterSnapshotCommandInput} for command's `input` shape.
+ * @see {@link CopyDBClusterSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CopyDBClusterSnapshotCommand extends $Command<
   CopyDBClusterSnapshotCommandInput,

@@ -31,6 +31,18 @@ export interface StartVpcEndpointServicePrivateDnsVerificationCommandOutput
  *             DNS name domain for the endpoint service.</p>
  *         <p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p>
  *         <p>Before the service provider runs this command, they must add a record to the DNS server. For more information, see  <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html#add-dns-txt-record">Adding a TXT Record to Your Domain's DNS Server </a> in the <i>Amazon VPC User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new StartVpcEndpointServicePrivateDnsVerificationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartVpcEndpointServicePrivateDnsVerificationCommandInput} for command's `input` shape.
+ * @see {@link StartVpcEndpointServicePrivateDnsVerificationCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartVpcEndpointServicePrivateDnsVerificationCommand extends $Command<
   StartVpcEndpointServicePrivateDnsVerificationCommandInput,

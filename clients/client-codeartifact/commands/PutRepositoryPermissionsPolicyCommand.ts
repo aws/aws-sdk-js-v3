@@ -31,6 +31,18 @@ export interface PutRepositoryPermissionsPolicyCommandOutput
  *        This ensures that the owner of a repository cannot lock themselves out of the repository, which would prevent them from being
  *        able to update the resource policy.
  *      </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeartifactClient(config);
+ * const command = new PutRepositoryPermissionsPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutRepositoryPermissionsPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutRepositoryPermissionsPolicyCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutRepositoryPermissionsPolicyCommand extends $Command<
   PutRepositoryPermissionsPolicyCommandInput,

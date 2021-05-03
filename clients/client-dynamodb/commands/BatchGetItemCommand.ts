@@ -67,6 +67,18 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  *             nonexistent items consume the minimum read capacity units according to the type of read.
  *             For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations">Working with Tables</a> in the <i>Amazon DynamoDB Developer
  *                 Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new BatchGetItemCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetItemCommandInput} for command's `input` shape.
+ * @see {@link BatchGetItemCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetItemCommand extends $Command<
   BatchGetItemCommandInput,

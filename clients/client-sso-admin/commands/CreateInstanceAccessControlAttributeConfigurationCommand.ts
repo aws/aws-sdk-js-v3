@@ -28,6 +28,18 @@ export interface CreateInstanceAccessControlAttributeConfigurationCommandOutput
 
 /**
  * <p>Enables the attributes-based access control (ABAC) feature for the specified AWS SSO instance. You can also specify new attributes to add to your ABAC configuration during the enabling process. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>AWS SSO User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSOAdminClient(config);
+ * const command = new CreateInstanceAccessControlAttributeConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateInstanceAccessControlAttributeConfigurationCommandInput} for command's `input` shape.
+ * @see {@link CreateInstanceAccessControlAttributeConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateInstanceAccessControlAttributeConfigurationCommand extends $Command<
   CreateInstanceAccessControlAttributeConfigurationCommandInput,

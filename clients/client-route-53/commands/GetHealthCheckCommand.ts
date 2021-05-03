@@ -22,6 +22,18 @@ export interface GetHealthCheckCommandOutput extends GetHealthCheckResponse, __M
 
 /**
  * <p>Gets information about a specified health check.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new GetHealthCheckCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetHealthCheckCommandInput} for command's `input` shape.
+ * @see {@link GetHealthCheckCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetHealthCheckCommand extends $Command<
   GetHealthCheckCommandInput,

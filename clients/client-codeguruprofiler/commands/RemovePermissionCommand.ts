@@ -30,6 +30,18 @@ export interface RemovePermissionCommandOutput extends RemovePermissionResponse,
  *             </a>, and <a href="https://docs.aws.amazon.com/codeguru/latest/profiler-api/API_PostAgentProfile.html">
  *                <code>PostAgentProfile</code>
  *             </a>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeGuruProfilerClient(config);
+ * const command = new RemovePermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemovePermissionCommandInput} for command's `input` shape.
+ * @see {@link RemovePermissionCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemovePermissionCommand extends $Command<
   RemovePermissionCommandInput,

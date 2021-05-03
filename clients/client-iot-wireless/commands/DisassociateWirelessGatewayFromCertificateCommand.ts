@@ -28,6 +28,18 @@ export interface DisassociateWirelessGatewayFromCertificateCommandOutput
 
 /**
  * <p>Disassociates a wireless gateway from its currently associated certificate.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new DisassociateWirelessGatewayFromCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateWirelessGatewayFromCertificateCommandInput} for command's `input` shape.
+ * @see {@link DisassociateWirelessGatewayFromCertificateCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateWirelessGatewayFromCertificateCommand extends $Command<
   DisassociateWirelessGatewayFromCertificateCommandInput,

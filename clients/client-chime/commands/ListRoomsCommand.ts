@@ -22,6 +22,18 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
 
 /**
  * <p>Lists the room details for the specified Amazon Chime Enterprise account. Optionally, filter the results by a member ID (user ID or bot ID) to see a list of rooms that the member belongs to.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new ListRoomsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRoomsCommandInput} for command's `input` shape.
+ * @see {@link ListRoomsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRoomsCommand extends $Command<
   ListRoomsCommandInput,

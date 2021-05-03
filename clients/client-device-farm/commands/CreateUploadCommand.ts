@@ -22,6 +22,18 @@ export interface CreateUploadCommandOutput extends CreateUploadResult, __Metadat
 
 /**
  * <p>Uploads an app or test scripts.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new CreateUploadCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateUploadCommandInput} for command's `input` shape.
+ * @see {@link CreateUploadCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateUploadCommand extends $Command<
   CreateUploadCommandInput,

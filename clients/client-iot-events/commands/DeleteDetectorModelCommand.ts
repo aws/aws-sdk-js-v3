@@ -23,6 +23,18 @@ export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelRes
 /**
  * <p>Deletes a detector model. Any active instances of the detector model are also
  *       deleted.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTEventsClient(config);
+ * const command = new DeleteDetectorModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDetectorModelCommandInput} for command's `input` shape.
+ * @see {@link DeleteDetectorModelCommandOutput} for command's `response` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDetectorModelCommand extends $Command<
   DeleteDetectorModelCommandInput,

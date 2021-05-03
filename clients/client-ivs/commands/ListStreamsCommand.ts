@@ -23,6 +23,18 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
 /**
  * <p>Gets summary information about live streams in your account, in the AWS region where the
  *       API request is processed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IvsClient(config);
+ * const command = new ListStreamsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListStreamsCommandInput} for command's `input` shape.
+ * @see {@link ListStreamsCommandOutput} for command's `response` shape.
+ * @see {@link IvsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListStreamsCommand extends $Command<
   ListStreamsCommandInput,

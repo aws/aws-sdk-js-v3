@@ -34,6 +34,18 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  *             receive bounces or complaints, or you can use Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term
  *             storage.</p>
  *         <p>A single configuration set can include more than one event destination.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointEmailClient(config);
+ * const command = new CreateConfigurationSetEventDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
+ * @see {@link CreateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateConfigurationSetEventDestinationCommand extends $Command<
   CreateConfigurationSetEventDestinationCommandInput,

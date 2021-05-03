@@ -23,6 +23,18 @@ export interface DescribeDataIngestionJobCommandOutput extends DescribeDataInges
 /**
  * <p>Provides information on a specific data ingestion job such as creation time, dataset
  *          ARN, status, and so on. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutEquipmentClient(config);
+ * const command = new DescribeDataIngestionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDataIngestionJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeDataIngestionJobCommandOutput} for command's `response` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDataIngestionJobCommand extends $Command<
   DescribeDataIngestionJobCommandInput,

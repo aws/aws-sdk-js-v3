@@ -22,6 +22,18 @@ export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBeare
 
 /**
  * <p>Assigns the specified security profiles to the specified user.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new UpdateUserSecurityProfilesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateUserSecurityProfilesCommandInput} for command's `input` shape.
+ * @see {@link UpdateUserSecurityProfilesCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateUserSecurityProfilesCommand extends $Command<
   UpdateUserSecurityProfilesCommandInput,

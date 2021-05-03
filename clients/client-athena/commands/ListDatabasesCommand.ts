@@ -22,6 +22,18 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
 
 /**
  * <p>Lists the databases in the specified data catalog.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AthenaClient(config);
+ * const command = new ListDatabasesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDatabasesCommandInput} for command's `input` shape.
+ * @see {@link ListDatabasesCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDatabasesCommand extends $Command<
   ListDatabasesCommandInput,

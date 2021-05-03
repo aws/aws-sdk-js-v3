@@ -24,6 +24,18 @@ export interface DescribeFeedbackCommandOutput extends DescribeFeedbackResponse,
  * <p>
  * 			Returns the most recent feedback submitted in the current AWS account and Region.
  * 		</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DevOpsGuruClient(config);
+ * const command = new DescribeFeedbackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFeedbackCommandInput} for command's `input` shape.
+ * @see {@link DescribeFeedbackCommandOutput} for command's `response` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFeedbackCommand extends $Command<
   DescribeFeedbackCommandInput,

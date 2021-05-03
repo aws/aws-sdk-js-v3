@@ -25,6 +25,18 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  *       event bus. Specify the account to revoke by the <code>StatementId</code> value that you
  *       associated with the account when you granted it permission with <code>PutPermission</code>.
  *       You can find the <code>StatementId</code> by using <a>DescribeEventBus</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EventBridgeClient(config);
+ * const command = new RemovePermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemovePermissionCommandInput} for command's `input` shape.
+ * @see {@link RemovePermissionCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemovePermissionCommand extends $Command<
   RemovePermissionCommandInput,

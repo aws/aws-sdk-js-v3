@@ -22,6 +22,18 @@ export interface ImportAppCatalogCommandOutput extends ImportAppCatalogResponse,
 
 /**
  * <p>Allows application import from AWS Migration Hub.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SMSClient(config);
+ * const command = new ImportAppCatalogCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportAppCatalogCommandInput} for command's `input` shape.
+ * @see {@link ImportAppCatalogCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ImportAppCatalogCommand extends $Command<
   ImportAppCatalogCommandInput,

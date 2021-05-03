@@ -22,6 +22,18 @@ export interface ListDistributionsCommandOutput extends ListDistributionsResult,
 
 /**
  * <p>List CloudFront distributions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new ListDistributionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDistributionsCommandInput} for command's `input` shape.
+ * @see {@link ListDistributionsCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDistributionsCommand extends $Command<
   ListDistributionsCommandInput,

@@ -31,6 +31,18 @@ export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse,
  *    request are closed, the status returned is <code>CLOSED</code>.</p>
  *          <p>For more information about Systems Manager Change Calendar, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">AWS Systems Manager Change
  *     Calendar</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new GetCalendarStateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCalendarStateCommandInput} for command's `input` shape.
+ * @see {@link GetCalendarStateCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCalendarStateCommand extends $Command<
   GetCalendarStateCommandInput,

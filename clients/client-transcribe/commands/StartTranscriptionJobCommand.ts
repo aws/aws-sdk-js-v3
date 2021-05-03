@@ -22,6 +22,18 @@ export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJo
 
 /**
  * <p>Starts an asynchronous job to transcribe speech to text. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeClient(config);
+ * const command = new StartTranscriptionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartTranscriptionJobCommandInput} for command's `input` shape.
+ * @see {@link StartTranscriptionJobCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartTranscriptionJobCommand extends $Command<
   StartTranscriptionJobCommandInput,

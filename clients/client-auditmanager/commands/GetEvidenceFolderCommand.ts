@@ -24,6 +24,18 @@ export interface GetEvidenceFolderCommandOutput extends GetEvidenceFolderRespons
  * <p>
  * Returns an evidence folder from the specified assessment in AWS Audit Manager.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new GetEvidenceFolderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEvidenceFolderCommandInput} for command's `input` shape.
+ * @see {@link GetEvidenceFolderCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEvidenceFolderCommand extends $Command<
   GetEvidenceFolderCommandInput,

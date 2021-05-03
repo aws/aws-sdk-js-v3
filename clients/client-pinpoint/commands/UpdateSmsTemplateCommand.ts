@@ -22,6 +22,18 @@ export interface UpdateSmsTemplateCommandOutput extends UpdateSmsTemplateRespons
 
 /**
  * <p>Updates an existing message template for messages that are sent through the SMS channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new UpdateSmsTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSmsTemplateCommandInput} for command's `input` shape.
+ * @see {@link UpdateSmsTemplateCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSmsTemplateCommand extends $Command<
   UpdateSmsTemplateCommandInput,

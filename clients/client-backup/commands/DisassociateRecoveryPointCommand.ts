@@ -26,6 +26,18 @@ export interface DisassociateRecoveryPointCommandOutput extends __MetadataBearer
  *          service will continue to create and retain continuous backups using the lifecycle that you
  *          specified in your original backup plan.</p>
  *          <p>Does not support snapshot backup recovery points.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new DisassociateRecoveryPointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateRecoveryPointCommandInput} for command's `input` shape.
+ * @see {@link DisassociateRecoveryPointCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateRecoveryPointCommand extends $Command<
   DisassociateRecoveryPointCommandInput,

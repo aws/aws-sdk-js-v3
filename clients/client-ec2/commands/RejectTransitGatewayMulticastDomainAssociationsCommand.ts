@@ -28,6 +28,18 @@ export interface RejectTransitGatewayMulticastDomainAssociationsCommandOutput
 
 /**
  * <p>Rejects a request to associate cross-account subnets with a transit gateway multicast domain.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new RejectTransitGatewayMulticastDomainAssociationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RejectTransitGatewayMulticastDomainAssociationsCommandInput} for command's `input` shape.
+ * @see {@link RejectTransitGatewayMulticastDomainAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RejectTransitGatewayMulticastDomainAssociationsCommand extends $Command<
   RejectTransitGatewayMulticastDomainAssociationsCommandInput,

@@ -22,6 +22,18 @@ export interface ListProtocolsListsCommandOutput extends ListProtocolsListsRespo
 
 /**
  * <p>Returns an array of <code>ProtocolsListDataSummary</code> objects.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FMSClient(config);
+ * const command = new ListProtocolsListsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProtocolsListsCommandInput} for command's `input` shape.
+ * @see {@link ListProtocolsListsCommandOutput} for command's `response` shape.
+ * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProtocolsListsCommand extends $Command<
   ListProtocolsListsCommandInput,

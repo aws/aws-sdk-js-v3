@@ -37,6 +37,18 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  *         <note>
  *             <p>In the current release, a child can have only a single parent.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OrganizationsClient(config);
+ * const command = new ListParentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListParentsCommandInput} for command's `input` shape.
+ * @see {@link ListParentsCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListParentsCommand extends $Command<
   ListParentsCommandInput,

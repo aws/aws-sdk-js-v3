@@ -22,6 +22,18 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
 
 /**
  * <p>Deletes the insight specified by the <code>InsightArn</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecurityHubClient(config);
+ * const command = new DeleteInsightCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteInsightCommandInput} for command's `input` shape.
+ * @see {@link DeleteInsightCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteInsightCommand extends $Command<
   DeleteInsightCommandInput,

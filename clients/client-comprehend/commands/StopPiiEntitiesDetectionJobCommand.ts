@@ -24,6 +24,18 @@ export interface StopPiiEntitiesDetectionJobCommandOutput
 
 /**
  * <p>Stops a PII entities detection job in progress.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new StopPiiEntitiesDetectionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopPiiEntitiesDetectionJobCommandInput} for command's `input` shape.
+ * @see {@link StopPiiEntitiesDetectionJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopPiiEntitiesDetectionJobCommand extends $Command<
   StopPiiEntitiesDetectionJobCommandInput,

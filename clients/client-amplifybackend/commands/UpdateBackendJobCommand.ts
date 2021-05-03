@@ -22,6 +22,18 @@ export interface UpdateBackendJobCommandOutput extends UpdateBackendJobResponse,
 
 /**
  * <p>Updates a specific job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyBackendClient(config);
+ * const command = new UpdateBackendJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateBackendJobCommandInput} for command's `input` shape.
+ * @see {@link UpdateBackendJobCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateBackendJobCommand extends $Command<
   UpdateBackendJobCommandInput,

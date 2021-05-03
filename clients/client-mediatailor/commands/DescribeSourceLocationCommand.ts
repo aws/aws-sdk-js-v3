@@ -22,6 +22,18 @@ export interface DescribeSourceLocationCommandOutput extends DescribeSourceLocat
 
 /**
  * <p>Retrieves the properties of the requested source location.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaTailorClient(config);
+ * const command = new DescribeSourceLocationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSourceLocationCommandInput} for command's `input` shape.
+ * @see {@link DescribeSourceLocationCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSourceLocationCommand extends $Command<
   DescribeSourceLocationCommandInput,

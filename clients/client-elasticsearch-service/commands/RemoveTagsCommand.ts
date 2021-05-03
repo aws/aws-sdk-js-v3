@@ -26,6 +26,18 @@ export interface RemoveTagsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified set of tags from the specified Elasticsearch domain.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new RemoveTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveTagsCommandInput} for command's `input` shape.
+ * @see {@link RemoveTagsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveTagsCommand extends $Command<
   RemoveTagsCommandInput,

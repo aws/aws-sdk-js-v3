@@ -24,6 +24,18 @@ export interface ListServiceQuotasCommandOutput extends ListServiceQuotasRespons
  * <p>Lists the applied quota values for the specified AWS service. For some quotas, only the
  *       default values are available. If the applied quota value is not available for a quota, the
  *       quota is not retrieved.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceQuotasClient(config);
+ * const command = new ListServiceQuotasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListServiceQuotasCommandInput} for command's `input` shape.
+ * @see {@link ListServiceQuotasCommandOutput} for command's `response` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListServiceQuotasCommand extends $Command<
   ListServiceQuotasCommandInput,

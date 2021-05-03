@@ -22,6 +22,18 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
 
 /**
  * <p>Lists Amazon GuardDuty findings statistics for the specified detector ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new GetFindingsStatisticsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFindingsStatisticsCommandInput} for command's `input` shape.
+ * @see {@link GetFindingsStatisticsCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFindingsStatisticsCommand extends $Command<
   GetFindingsStatisticsCommandInput,

@@ -35,6 +35,18 @@ export interface ExportServerEngineAttributeCommandOutput
  *       An <code>InvalidStateException</code> is thrown when the server is in any of the following states: CREATING, TERMINATED,
  *       FAILED or DELETING.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OpsWorksCMClient(config);
+ * const command = new ExportServerEngineAttributeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ExportServerEngineAttributeCommandInput} for command's `input` shape.
+ * @see {@link ExportServerEngineAttributeCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ExportServerEngineAttributeCommand extends $Command<
   ExportServerEngineAttributeCommandInput,

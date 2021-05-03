@@ -22,6 +22,18 @@ export interface ListTextTranslationJobsCommandOutput extends ListTextTranslatio
 
 /**
  * <p>Gets a list of the batch translation jobs that you have submitted.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranslateClient(config);
+ * const command = new ListTextTranslationJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTextTranslationJobsCommandInput} for command's `input` shape.
+ * @see {@link ListTextTranslationJobsCommandOutput} for command's `response` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTextTranslationJobsCommand extends $Command<
   ListTextTranslationJobsCommandInput,

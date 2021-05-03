@@ -22,6 +22,18 @@ export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedSc
 
 /**
  * <p> Removes a managed scaling policy from a specified EMR cluster. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRClient(config);
+ * const command = new RemoveManagedScalingPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveManagedScalingPolicyCommandInput} for command's `input` shape.
+ * @see {@link RemoveManagedScalingPolicyCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveManagedScalingPolicyCommand extends $Command<
   RemoveManagedScalingPolicyCommandInput,

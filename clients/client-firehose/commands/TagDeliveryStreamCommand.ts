@@ -30,6 +30,18 @@ export interface TagDeliveryStreamCommandOutput extends TagDeliveryStreamOutput,
  *             User Guide</i>. </p>
  *          <p>Each delivery stream can have up to 50 tags. </p>
  *          <p>This operation has a limit of five transactions per second per account. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FirehoseClient(config);
+ * const command = new TagDeliveryStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagDeliveryStreamCommandInput} for command's `input` shape.
+ * @see {@link TagDeliveryStreamCommandOutput} for command's `response` shape.
+ * @see {@link FirehoseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagDeliveryStreamCommand extends $Command<
   TagDeliveryStreamCommandInput,

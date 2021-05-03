@@ -22,6 +22,18 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
 
 /**
  * <p>Retrieves a list that describes one or more specified users in the user pool.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new DescribeUsersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeUsersCommandInput} for command's `input` shape.
+ * @see {@link DescribeUsersCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeUsersCommand extends $Command<
   DescribeUsersCommandInput,

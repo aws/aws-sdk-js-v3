@@ -25,6 +25,18 @@ export interface DescribeKeyPhrasesDetectionJobCommandOutput
 /**
  * <p>Gets the properties associated with a key phrases detection job. Use this operation to get
  *       the status of a detection job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new DescribeKeyPhrasesDetectionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeKeyPhrasesDetectionJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeKeyPhrasesDetectionJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeKeyPhrasesDetectionJobCommand extends $Command<
   DescribeKeyPhrasesDetectionJobCommandInput,

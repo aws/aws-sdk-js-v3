@@ -26,6 +26,18 @@ export interface ConfirmPublicVirtualInterfaceCommandOutput
  * <p>Accepts ownership of a public virtual interface created by another AWS account.</p>
  *          <p>After the virtual interface owner makes this call, the specified virtual interface is
  *       created and made available to handle traffic.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new ConfirmPublicVirtualInterfaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ConfirmPublicVirtualInterfaceCommandInput} for command's `input` shape.
+ * @see {@link ConfirmPublicVirtualInterfaceCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ConfirmPublicVirtualInterfaceCommand extends $Command<
   ConfirmPublicVirtualInterfaceCommandInput,

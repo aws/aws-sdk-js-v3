@@ -30,6 +30,18 @@ export interface RemoveTargetsCommandOutput extends RemoveTargetsResponse, __Met
  *          <p>This action can partially fail if too many requests are made at the same time. If that
  *       happens, <code>FailedEntryCount</code> is non-zero in the response and each entry in
  *         <code>FailedEntries</code> provides the ID of the failed target and the error code.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EventBridgeClient(config);
+ * const command = new RemoveTargetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveTargetsCommandInput} for command's `input` shape.
+ * @see {@link RemoveTargetsCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveTargetsCommand extends $Command<
   RemoveTargetsCommandInput,

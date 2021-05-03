@@ -25,6 +25,18 @@ export interface UpdateIAMPolicyAssignmentCommandOutput extends UpdateIAMPolicyA
  * 			parameter or parameters that are specified in the request.
  * 		    This overwrites all of the users included in <code>Identities</code>.
  * 		</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new UpdateIAMPolicyAssignmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateIAMPolicyAssignmentCommandInput} for command's `input` shape.
+ * @see {@link UpdateIAMPolicyAssignmentCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateIAMPolicyAssignmentCommand extends $Command<
   UpdateIAMPolicyAssignmentCommandInput,

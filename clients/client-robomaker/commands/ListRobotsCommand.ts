@@ -23,6 +23,18 @@ export interface ListRobotsCommandOutput extends ListRobotsResponse, __MetadataB
 /**
  * <p>Returns a list of robots. You can optionally provide filters to retrieve specific
  *          robots.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new ListRobotsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRobotsCommandInput} for command's `input` shape.
+ * @see {@link ListRobotsCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRobotsCommand extends $Command<
   ListRobotsCommandInput,

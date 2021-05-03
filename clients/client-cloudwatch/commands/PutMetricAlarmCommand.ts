@@ -55,6 +55,18 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  * 			are called <code>AWSServiceRoleForCloudWatchEvents</code> and
  * 			<code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>.
  * 			For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">AWS service-linked role</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchClient(config);
+ * const command = new PutMetricAlarmCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutMetricAlarmCommandInput} for command's `input` shape.
+ * @see {@link PutMetricAlarmCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutMetricAlarmCommand extends $Command<
   PutMetricAlarmCommandInput,

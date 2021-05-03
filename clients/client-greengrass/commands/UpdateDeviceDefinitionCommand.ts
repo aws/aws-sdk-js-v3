@@ -22,6 +22,18 @@ export interface UpdateDeviceDefinitionCommandOutput extends UpdateDeviceDefinit
 
 /**
  * Updates a device definition.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new UpdateDeviceDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDeviceDefinitionCommandInput} for command's `input` shape.
+ * @see {@link UpdateDeviceDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDeviceDefinitionCommand extends $Command<
   UpdateDeviceDefinitionCommandInput,

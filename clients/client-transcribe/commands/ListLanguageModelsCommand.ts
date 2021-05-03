@@ -25,6 +25,18 @@ export interface ListLanguageModelsCommandOutput extends ListLanguageModelsRespo
  *             the information in this list to find a specific custom language model. You can then use
  *             the  operation to get more information about
  *             it.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeClient(config);
+ * const command = new ListLanguageModelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListLanguageModelsCommandInput} for command's `input` shape.
+ * @see {@link ListLanguageModelsCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListLanguageModelsCommand extends $Command<
   ListLanguageModelsCommandInput,

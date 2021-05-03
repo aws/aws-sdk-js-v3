@@ -23,6 +23,18 @@ export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBea
 /**
  * <p>Returns the list of bundles that are available for purchase. A bundle describes the specs
  *       for your virtual private server (or <i>instance</i>).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetBundlesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBundlesCommandInput} for command's `input` shape.
+ * @see {@link GetBundlesCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBundlesCommand extends $Command<
   GetBundlesCommandInput,

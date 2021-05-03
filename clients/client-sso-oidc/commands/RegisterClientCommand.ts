@@ -23,6 +23,18 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
 /**
  * <p>Registers a client with AWS SSO. This allows clients to initiate device authorization.
  *       The output should be persisted for reuse through many authentication requests.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSOOIDCClient(config);
+ * const command = new RegisterClientCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterClientCommandInput} for command's `input` shape.
+ * @see {@link RegisterClientCommandOutput} for command's `response` shape.
+ * @see {@link SSOOIDCClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterClientCommand extends $Command<
   RegisterClientCommandInput,

@@ -22,6 +22,18 @@ export interface GetUsagePlanKeysCommandOutput extends UsagePlanKeys, __Metadata
 
 /**
  * <p>Gets all the usage plan keys representing the API keys added to a specified usage plan.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new GetUsagePlanKeysCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetUsagePlanKeysCommandInput} for command's `input` shape.
+ * @see {@link GetUsagePlanKeysCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetUsagePlanKeysCommand extends $Command<
   GetUsagePlanKeysCommandInput,

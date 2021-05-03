@@ -26,6 +26,18 @@ export interface DescribeRecommendationFeedbackCommandOutput
  * <p>
  *          Describes the customer feedback for a CodeGuru Reviewer recommendation.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeGuruReviewerClient(config);
+ * const command = new DescribeRecommendationFeedbackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRecommendationFeedbackCommandInput} for command's `input` shape.
+ * @see {@link DescribeRecommendationFeedbackCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRecommendationFeedbackCommand extends $Command<
   DescribeRecommendationFeedbackCommandInput,

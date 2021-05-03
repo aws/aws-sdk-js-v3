@@ -22,6 +22,18 @@ export interface UpdateDeviceFleetCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates a fleet of devices.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new UpdateDeviceFleetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDeviceFleetCommandInput} for command's `input` shape.
+ * @see {@link UpdateDeviceFleetCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDeviceFleetCommand extends $Command<
   UpdateDeviceFleetCommandInput,

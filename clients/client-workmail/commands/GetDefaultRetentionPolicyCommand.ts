@@ -22,6 +22,18 @@ export interface GetDefaultRetentionPolicyCommandOutput extends GetDefaultRetent
 
 /**
  * <p>Gets the default retention policy details for the specified organization.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new GetDefaultRetentionPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDefaultRetentionPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetDefaultRetentionPolicyCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDefaultRetentionPolicyCommand extends $Command<
   GetDefaultRetentionPolicyCommandInput,

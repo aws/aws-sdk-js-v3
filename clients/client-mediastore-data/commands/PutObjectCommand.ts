@@ -31,6 +31,18 @@ export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBea
 
 /**
  * <p>Uploads an object to the specified path. Object sizes are limited to 25 MB for standard upload availability and 10 MB for streaming upload availability.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaStoreDataClient(config);
+ * const command = new PutObjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutObjectCommandInput} for command's `input` shape.
+ * @see {@link PutObjectCommandOutput} for command's `response` shape.
+ * @see {@link MediaStoreDataClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutObjectCommand extends $Command<
   PutObjectCommandInput,

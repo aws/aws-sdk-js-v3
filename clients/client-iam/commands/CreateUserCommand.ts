@@ -21,6 +21,18 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  * <p>Creates a new IAM user for your AWS account.</p>
  *         <p> For information about quotas for the number of IAM users you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html">IAM and STS
  *                 quotas</a> in the <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new CreateUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateUserCommandInput} for command's `input` shape.
+ * @see {@link CreateUserCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateUserCommand extends $Command<
   CreateUserCommandInput,

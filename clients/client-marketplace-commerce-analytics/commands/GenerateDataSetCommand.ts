@@ -33,6 +33,18 @@ export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __M
  *         be overwritten by the new file.
  *         Requires a Role with an attached permissions policy providing Allow permissions for the following actions:
  *         s3:PutObject, s3:GetBucketLocation, sns:GetTopicAttributes, sns:Publish, iam:GetRolePolicy.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MarketplaceCommerceAnalyticsClient(config);
+ * const command = new GenerateDataSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GenerateDataSetCommandInput} for command's `input` shape.
+ * @see {@link GenerateDataSetCommandOutput} for command's `response` shape.
+ * @see {@link MarketplaceCommerceAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GenerateDataSetCommand extends $Command<
   GenerateDataSetCommandInput,

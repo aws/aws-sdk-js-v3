@@ -28,6 +28,18 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput
 
 /**
  * <p>Decreases the number of node groups in a Global datastore</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new DecreaseNodeGroupsInGlobalReplicationGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DecreaseNodeGroupsInGlobalReplicationGroupCommandInput} for command's `input` shape.
+ * @see {@link DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<
   DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,

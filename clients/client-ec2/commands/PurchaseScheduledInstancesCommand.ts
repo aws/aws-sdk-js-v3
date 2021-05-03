@@ -27,6 +27,18 @@ export interface PurchaseScheduledInstancesCommandOutput extends PurchaseSchedul
  *          to check for available schedules and obtain a purchase token. After you purchase a Scheduled Instance,
  *          you must call <a>RunScheduledInstances</a> during each scheduled time period.</p>
  *          <p>After you purchase a Scheduled Instance, you can't cancel, modify, or resell your purchase.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new PurchaseScheduledInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PurchaseScheduledInstancesCommandInput} for command's `input` shape.
+ * @see {@link PurchaseScheduledInstancesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PurchaseScheduledInstancesCommand extends $Command<
   PurchaseScheduledInstancesCommandInput,

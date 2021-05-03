@@ -27,6 +27,18 @@ export interface DeleteNodeCommandOutput extends DeleteNodeOutput, __MetadataBea
 /**
  * <p>Deletes a node that your AWS account owns. All data on the node is lost and cannot be recovered.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ManagedBlockchainClient(config);
+ * const command = new DeleteNodeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteNodeCommandInput} for command's `input` shape.
+ * @see {@link DeleteNodeCommandOutput} for command's `response` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteNodeCommand extends $Command<
   DeleteNodeCommandInput,

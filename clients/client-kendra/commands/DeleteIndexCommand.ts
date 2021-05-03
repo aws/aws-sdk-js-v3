@@ -26,6 +26,18 @@ export interface DeleteIndexCommandOutput extends __MetadataBearer {}
  *         <code>Status</code> field returned by a call to the
  *         <code>DescribeIndex</code> operation is set to
  *       <code>DELETING</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KendraClient(config);
+ * const command = new DeleteIndexCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteIndexCommandInput} for command's `input` shape.
+ * @see {@link DeleteIndexCommandOutput} for command's `response` shape.
+ * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteIndexCommand extends $Command<
   DeleteIndexCommandInput,

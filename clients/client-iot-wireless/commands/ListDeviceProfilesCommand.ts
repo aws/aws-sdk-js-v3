@@ -22,6 +22,18 @@ export interface ListDeviceProfilesCommandOutput extends ListDeviceProfilesRespo
 
 /**
  * <p>Lists the device profiles registered to your AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new ListDeviceProfilesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDeviceProfilesCommandInput} for command's `input` shape.
+ * @see {@link ListDeviceProfilesCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDeviceProfilesCommand extends $Command<
   ListDeviceProfilesCommandInput,

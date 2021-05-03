@@ -28,6 +28,18 @@ export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __Metadat
  * <p>Closes a tunnel identified by the unique tunnel id. When a <code>CloseTunnel</code>
  * 			request is received, we close the WebSocket connections between the client and proxy
  * 			server so no data can be transmitted.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSecureTunnelingClient(config);
+ * const command = new CloseTunnelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CloseTunnelCommandInput} for command's `input` shape.
+ * @see {@link CloseTunnelCommandOutput} for command's `response` shape.
+ * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CloseTunnelCommand extends $Command<
   CloseTunnelCommandInput,

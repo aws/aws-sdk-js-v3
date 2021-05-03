@@ -26,6 +26,18 @@ export interface UpdateAssessmentControlSetStatusCommandOutput
  * <p>
  *    Updates the status of a control set in an AWS Audit Manager assessment.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new UpdateAssessmentControlSetStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAssessmentControlSetStatusCommandInput} for command's `input` shape.
+ * @see {@link UpdateAssessmentControlSetStatusCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAssessmentControlSetStatusCommand extends $Command<
   UpdateAssessmentControlSetStatusCommandInput,

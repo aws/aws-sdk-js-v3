@@ -30,6 +30,18 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ResourceGroupsClient(config);
+ * const command = new UntagCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UntagCommandInput} for command's `input` shape.
+ * @see {@link UntagCommandOutput} for command's `response` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput, ResourceGroupsClientResolvedConfig> {
   // Start section: command_properties

@@ -23,6 +23,18 @@ export interface SampleChannelDataCommandOutput extends SampleChannelDataRespons
 /**
  * <p>Retrieves a sample of messages from the specified channel ingested during the specified
  *       timeframe. Up to 10 messages can be retrieved.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTAnalyticsClient(config);
+ * const command = new SampleChannelDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SampleChannelDataCommandInput} for command's `input` shape.
+ * @see {@link SampleChannelDataCommandOutput} for command's `response` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SampleChannelDataCommand extends $Command<
   SampleChannelDataCommandInput,

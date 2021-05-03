@@ -23,6 +23,18 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes a resource policy from this account. This revokes
  *     the access of the identities in that policy to put log events to this account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new DeleteResourcePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteResourcePolicyCommand extends $Command<
   DeleteResourcePolicyCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeFleetCommandOutput extends DescribeFleetResponse, __Met
 
 /**
  * <p>Describes a fleet.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new DescribeFleetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFleetCommandInput} for command's `input` shape.
+ * @see {@link DescribeFleetCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFleetCommand extends $Command<
   DescribeFleetCommandInput,

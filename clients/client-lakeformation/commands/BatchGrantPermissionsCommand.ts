@@ -22,6 +22,18 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
 
 /**
  * <p>Batch operation to grant permissions to the principal.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LakeFormationClient(config);
+ * const command = new BatchGrantPermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGrantPermissionsCommandInput} for command's `input` shape.
+ * @see {@link BatchGrantPermissionsCommandOutput} for command's `response` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGrantPermissionsCommand extends $Command<
   BatchGrantPermissionsCommandInput,

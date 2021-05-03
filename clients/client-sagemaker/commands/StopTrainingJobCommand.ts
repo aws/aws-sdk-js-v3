@@ -28,6 +28,18 @@ export interface StopTrainingJobCommandOutput extends __MetadataBearer {}
  *         <p>When it receives a <code>StopTrainingJob</code> request, Amazon SageMaker changes the status of
  *             the job to <code>Stopping</code>. After Amazon SageMaker stops the job, it sets the status to
  *                 <code>Stopped</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new StopTrainingJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopTrainingJobCommandInput} for command's `input` shape.
+ * @see {@link StopTrainingJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopTrainingJobCommand extends $Command<
   StopTrainingJobCommandInput,

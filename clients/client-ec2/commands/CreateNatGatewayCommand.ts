@@ -27,6 +27,18 @@ export interface CreateNatGatewayCommandOutput extends CreateNatGatewayResult, _
  *             gateway, therefore enabling instances in the private subnet to connect to the internet.
  *             For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">NAT Gateways</a> in the
  *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateNatGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateNatGatewayCommandInput} for command's `input` shape.
+ * @see {@link CreateNatGatewayCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateNatGatewayCommand extends $Command<
   CreateNatGatewayCommandInput,

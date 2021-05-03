@@ -23,6 +23,18 @@ export interface GetDigestCommandOutput extends GetDigestResponse, __MetadataBea
 /**
  * <p>Returns the digest of a ledger at the latest committed block in the journal. The
  *          response includes a 256-bit hash value and a block address.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QLDBClient(config);
+ * const command = new GetDigestCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDigestCommandInput} for command's `input` shape.
+ * @see {@link GetDigestCommandOutput} for command's `response` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDigestCommand extends $Command<
   GetDigestCommandInput,

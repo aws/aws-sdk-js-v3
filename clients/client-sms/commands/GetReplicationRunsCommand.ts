@@ -22,6 +22,18 @@ export interface GetReplicationRunsCommandOutput extends GetReplicationRunsRespo
 
 /**
  * <p>Describes the replication runs for the specified replication job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SMSClient(config);
+ * const command = new GetReplicationRunsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetReplicationRunsCommandInput} for command's `input` shape.
+ * @see {@link GetReplicationRunsCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetReplicationRunsCommand extends $Command<
   GetReplicationRunsCommandInput,

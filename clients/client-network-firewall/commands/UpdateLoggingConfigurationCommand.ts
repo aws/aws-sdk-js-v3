@@ -47,6 +47,18 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  *             <code>LogDestinationConfig</code>. To change these settings, delete the existing
  *             <code>LogDestinationConfig</code> object and create a new one, using two separate calls
  *          to this update operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkFirewallClient(config);
+ * const command = new UpdateLoggingConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateLoggingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateLoggingConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateLoggingConfigurationCommand extends $Command<
   UpdateLoggingConfigurationCommandInput,

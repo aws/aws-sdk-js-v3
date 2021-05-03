@@ -29,6 +29,18 @@ export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileR
  *         <p>Only one Fargate profile in a cluster can be in the <code>DELETING</code> status at a
  *             time. You must wait for a Fargate profile to finish deleting before you can delete any
  *             other profiles in that cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new DeleteFargateProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFargateProfileCommandInput} for command's `input` shape.
+ * @see {@link DeleteFargateProfileCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFargateProfileCommand extends $Command<
   DeleteFargateProfileCommandInput,

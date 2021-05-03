@@ -32,6 +32,18 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  *       This operation returns the revision number of the new deployment when you create it.</p>
  *          <p>For more information, see the <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html">Create deployments</a> in the
  *         <i>AWS IoT Greengrass V2 Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassV2Client(config);
+ * const command = new CreateDeploymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDeploymentCommandInput} for command's `input` shape.
+ * @see {@link CreateDeploymentCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDeploymentCommand extends $Command<
   CreateDeploymentCommandInput,

@@ -25,6 +25,18 @@ export interface InitializeClusterCommandOutput extends InitializeClusterRespons
  *       issuing certificate authority (CA) and the CA's root certificate. Before you can claim a
  *       cluster, you must sign the cluster's certificate signing request (CSR) with your issuing CA.
  *       To get the cluster's CSR, use <a>DescribeClusters</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMV2Client(config);
+ * const command = new InitializeClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InitializeClusterCommandInput} for command's `input` shape.
+ * @see {@link InitializeClusterCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InitializeClusterCommand extends $Command<
   InitializeClusterCommandInput,

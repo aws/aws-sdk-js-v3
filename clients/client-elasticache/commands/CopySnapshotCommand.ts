@@ -112,6 +112,18 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *                 For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access">Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the ElastiCache User Guide.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new CopySnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CopySnapshotCommandInput} for command's `input` shape.
+ * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CopySnapshotCommand extends $Command<
   CopySnapshotCommandInput,

@@ -22,6 +22,18 @@ export interface DeleteNatGatewayCommandOutput extends DeleteNatGatewayResult, _
 
 /**
  * <p>Deletes the specified NAT gateway. Deleting a NAT gateway disassociates its Elastic IP address, but does not release the address from your account. Deleting a NAT gateway does not delete any NAT gateway routes in your route tables.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DeleteNatGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteNatGatewayCommandInput} for command's `input` shape.
+ * @see {@link DeleteNatGatewayCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteNatGatewayCommand extends $Command<
   DeleteNatGatewayCommandInput,

@@ -22,6 +22,18 @@ export interface DeleteVpcLinkCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes an existing <a>VpcLink</a> of a specified identifier.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new DeleteVpcLinkCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVpcLinkCommandInput} for command's `input` shape.
+ * @see {@link DeleteVpcLinkCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVpcLinkCommand extends $Command<
   DeleteVpcLinkCommandInput,

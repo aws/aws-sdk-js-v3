@@ -26,6 +26,18 @@ export interface DescribeFlowExecutionRecordsCommandOutput
  * <p>
  * Fetches the execution history of the flow.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppflowClient(config);
+ * const command = new DescribeFlowExecutionRecordsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFlowExecutionRecordsCommandInput} for command's `input` shape.
+ * @see {@link DescribeFlowExecutionRecordsCommandOutput} for command's `response` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFlowExecutionRecordsCommand extends $Command<
   DescribeFlowExecutionRecordsCommandInput,

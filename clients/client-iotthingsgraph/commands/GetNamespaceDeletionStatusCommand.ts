@@ -22,6 +22,18 @@ export interface GetNamespaceDeletionStatusCommandOutput extends GetNamespaceDel
 
 /**
  * <p>Gets the status of a namespace deletion task.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTThingsGraphClient(config);
+ * const command = new GetNamespaceDeletionStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetNamespaceDeletionStatusCommandInput} for command's `input` shape.
+ * @see {@link GetNamespaceDeletionStatusCommandOutput} for command's `response` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetNamespaceDeletionStatusCommand extends $Command<
   GetNamespaceDeletionStatusCommandInput,

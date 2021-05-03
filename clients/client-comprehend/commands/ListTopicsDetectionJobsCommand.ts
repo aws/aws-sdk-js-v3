@@ -22,6 +22,18 @@ export interface ListTopicsDetectionJobsCommandOutput extends ListTopicsDetectio
 
 /**
  * <p>Gets a list of the topic detection jobs that you have submitted.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new ListTopicsDetectionJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTopicsDetectionJobsCommandInput} for command's `input` shape.
+ * @see {@link ListTopicsDetectionJobsCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTopicsDetectionJobsCommand extends $Command<
   ListTopicsDetectionJobsCommandInput,

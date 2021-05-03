@@ -24,6 +24,18 @@ export interface RegisterTaskWithMaintenanceWindowCommandOutput
 
 /**
  * <p>Adds a new task to a maintenance window.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new RegisterTaskWithMaintenanceWindowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterTaskWithMaintenanceWindowCommandInput} for command's `input` shape.
+ * @see {@link RegisterTaskWithMaintenanceWindowCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterTaskWithMaintenanceWindowCommand extends $Command<
   RegisterTaskWithMaintenanceWindowCommandInput,

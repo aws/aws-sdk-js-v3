@@ -25,6 +25,18 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  *          <note>
  *             <p>This operation completely replaces any IP address specifications that you already have in the IP set with the ones that you provide to this call. If you want to add to or modify the addresses that are already in the IP set, retrieve those by calling <a>GetIPSet</a>, update them, and provide the complete updated array of IP addresses to this call.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFV2Client(config);
+ * const command = new UpdateIPSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateIPSetCommandInput} for command's `input` shape.
+ * @see {@link UpdateIPSetCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateIPSetCommand extends $Command<
   UpdateIPSetCommandInput,

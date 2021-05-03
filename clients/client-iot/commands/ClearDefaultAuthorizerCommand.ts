@@ -22,6 +22,18 @@ export interface ClearDefaultAuthorizerCommandOutput extends ClearDefaultAuthori
 
 /**
  * <p>Clears the default authorizer.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ClearDefaultAuthorizerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ClearDefaultAuthorizerCommandInput} for command's `input` shape.
+ * @see {@link ClearDefaultAuthorizerCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ClearDefaultAuthorizerCommand extends $Command<
   ClearDefaultAuthorizerCommandInput,

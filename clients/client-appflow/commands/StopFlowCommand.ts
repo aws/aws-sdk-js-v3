@@ -24,6 +24,18 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  * <p>
  * Deactivates the existing flow. For on-demand flows, this operation returns an <code>unsupportedOperationException</code> error message. For schedule and event-triggered flows, this operation deactivates the flow.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppflowClient(config);
+ * const command = new StopFlowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopFlowCommandInput} for command's `input` shape.
+ * @see {@link StopFlowCommandOutput} for command's `response` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopFlowCommand extends $Command<
   StopFlowCommandInput,

@@ -38,6 +38,18 @@ export interface DeletePublicAccessBlockCommandOutput extends __MetadataBearer {
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3ControlClient(config);
+ * const command = new DeletePublicAccessBlockCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePublicAccessBlockCommandInput} for command's `input` shape.
+ * @see {@link DeletePublicAccessBlockCommandOutput} for command's `response` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePublicAccessBlockCommand extends $Command<
   DeletePublicAccessBlockCommandInput,

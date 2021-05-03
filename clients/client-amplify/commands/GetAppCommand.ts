@@ -19,6 +19,18 @@ export interface GetAppCommandOutput extends GetAppResult, __MetadataBearer {}
 
 /**
  * <p> Returns an existing Amplify app by appID. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyClient(config);
+ * const command = new GetAppCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAppCommandInput} for command's `input` shape.
+ * @see {@link GetAppCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOutput, AmplifyClientResolvedConfig> {
   // Start section: command_properties

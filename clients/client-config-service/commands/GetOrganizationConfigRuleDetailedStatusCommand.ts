@@ -28,6 +28,18 @@ export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
 
 /**
  * <p>Returns detailed status for each member account within an organization for a given organization config rule.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new GetOrganizationConfigRuleDetailedStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOrganizationConfigRuleDetailedStatusCommandInput} for command's `input` shape.
+ * @see {@link GetOrganizationConfigRuleDetailedStatusCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command<
   GetOrganizationConfigRuleDetailedStatusCommandInput,

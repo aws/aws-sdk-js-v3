@@ -53,6 +53,18 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  *
  *             </response>
  *         </examples>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataPipelineClient(config);
+ * const command = new DeletePipelineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePipelineCommandInput} for command's `input` shape.
+ * @see {@link DeletePipelineCommandOutput} for command's `response` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePipelineCommand extends $Command<
   DeletePipelineCommandInput,

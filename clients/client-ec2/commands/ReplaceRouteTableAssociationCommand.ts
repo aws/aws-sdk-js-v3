@@ -28,6 +28,18 @@ export interface ReplaceRouteTableAssociationCommandOutput
  *       information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route
  *         Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  *          <p>You can also use this operation to change which table is the main route table in the VPC. Specify the main route table's association ID and the route table ID of the new main route table.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ReplaceRouteTableAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReplaceRouteTableAssociationCommandInput} for command's `input` shape.
+ * @see {@link ReplaceRouteTableAssociationCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReplaceRouteTableAssociationCommand extends $Command<
   ReplaceRouteTableAssociationCommandInput,

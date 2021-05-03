@@ -44,6 +44,18 @@ export interface DescribeJobFlowsCommandOutput extends DescribeJobFlowsOutput, _
  *             </li>
  *          </ul>
  *          <p>Amazon EMR can return a maximum of 512 job flow descriptions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRClient(config);
+ * const command = new DescribeJobFlowsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeJobFlowsCommandInput} for command's `input` shape.
+ * @see {@link DescribeJobFlowsCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeJobFlowsCommand extends $Command<
   DescribeJobFlowsCommandInput,

@@ -28,6 +28,18 @@ export interface ListElasticsearchInstanceTypesCommandOutput
 
 /**
  * <p>List all Elasticsearch instance types that are supported for given ElasticsearchVersion</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new ListElasticsearchInstanceTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListElasticsearchInstanceTypesCommandInput} for command's `input` shape.
+ * @see {@link ListElasticsearchInstanceTypesCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListElasticsearchInstanceTypesCommand extends $Command<
   ListElasticsearchInstanceTypesCommandInput,

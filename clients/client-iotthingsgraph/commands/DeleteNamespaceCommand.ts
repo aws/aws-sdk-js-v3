@@ -22,6 +22,18 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
 
 /**
  * <p>Deletes the specified namespace. This action deletes all of the entities in the namespace. Delete the systems and flows that use entities in the namespace before performing this action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTThingsGraphClient(config);
+ * const command = new DeleteNamespaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteNamespaceCommandInput} for command's `input` shape.
+ * @see {@link DeleteNamespaceCommandOutput} for command's `response` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteNamespaceCommand extends $Command<
   DeleteNamespaceCommandInput,

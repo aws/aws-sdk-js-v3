@@ -25,6 +25,18 @@ export interface DescribeFileSystemAssociationsCommandOutput
 /**
  * <p>Gets the file system association information. This operation is only supported for
  *          Amazon FSx file gateways.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new DescribeFileSystemAssociationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFileSystemAssociationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeFileSystemAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFileSystemAssociationsCommand extends $Command<
   DescribeFileSystemAssociationsCommandInput,

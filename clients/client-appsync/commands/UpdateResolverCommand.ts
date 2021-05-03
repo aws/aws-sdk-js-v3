@@ -22,6 +22,18 @@ export interface UpdateResolverCommandOutput extends UpdateResolverResponse, __M
 
 /**
  * <p>Updates a <code>Resolver</code> object.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppSyncClient(config);
+ * const command = new UpdateResolverCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateResolverCommandInput} for command's `input` shape.
+ * @see {@link UpdateResolverCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateResolverCommand extends $Command<
   UpdateResolverCommandInput,

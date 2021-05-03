@@ -22,6 +22,18 @@ export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataB
 
 /**
  * <p>Gets the contents of the specified Systems Manager document.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new GetDocumentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDocumentCommandInput} for command's `input` shape.
+ * @see {@link GetDocumentCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDocumentCommand extends $Command<
   GetDocumentCommandInput,

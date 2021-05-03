@@ -22,6 +22,18 @@ export interface DescribeThemeAliasCommandOutput extends DescribeThemeAliasRespo
 
 /**
  * <p>Describes the alias for a theme.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new DescribeThemeAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeThemeAliasCommandInput} for command's `input` shape.
+ * @see {@link DescribeThemeAliasCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeThemeAliasCommand extends $Command<
   DescribeThemeAliasCommandInput,

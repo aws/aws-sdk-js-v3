@@ -27,6 +27,18 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *       listeners, and rules.</p>
  *          <p>Each tag consists of a key and an optional value. If a resource already has a tag with the
  *       same key, <code>AddTags</code> updates its value.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new AddTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddTagsCommandInput} for command's `input` shape.
+ * @see {@link AddTagsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddTagsCommand extends $Command<
   AddTagsCommandInput,

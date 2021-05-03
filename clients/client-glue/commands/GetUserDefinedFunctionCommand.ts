@@ -22,6 +22,18 @@ export interface GetUserDefinedFunctionCommandOutput extends GetUserDefinedFunct
 
 /**
  * <p>Retrieves a specified function definition from the Data Catalog.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetUserDefinedFunctionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetUserDefinedFunctionCommandInput} for command's `input` shape.
+ * @see {@link GetUserDefinedFunctionCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetUserDefinedFunctionCommand extends $Command<
   GetUserDefinedFunctionCommandInput,

@@ -22,6 +22,18 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
 
 /**
  * <p>Returns a list of all the MSK configurations in this Region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new ListConfigurationRevisionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListConfigurationRevisionsCommandInput} for command's `input` shape.
+ * @see {@link ListConfigurationRevisionsCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListConfigurationRevisionsCommand extends $Command<
   ListConfigurationRevisionsCommandInput,

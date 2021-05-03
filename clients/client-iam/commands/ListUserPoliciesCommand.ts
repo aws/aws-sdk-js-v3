@@ -29,6 +29,18 @@ export interface ListUserPoliciesCommandOutput extends ListUserPoliciesResponse,
  *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters. If there are no inline policies embedded with the specified user, the
  *             operation returns an empty list.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new ListUserPoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListUserPoliciesCommandInput} for command's `input` shape.
+ * @see {@link ListUserPoliciesCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListUserPoliciesCommand extends $Command<
   ListUserPoliciesCommandInput,

@@ -22,6 +22,18 @@ export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __Met
 
 /**
  * <p>Attempts to stop an ongoing deployment.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new StopDeploymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopDeploymentCommandInput} for command's `input` shape.
+ * @see {@link StopDeploymentCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopDeploymentCommand extends $Command<
   StopDeploymentCommandInput,

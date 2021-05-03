@@ -22,6 +22,18 @@ export interface DescribeVodSourceCommandOutput extends DescribeVodSourceRespons
 
 /**
  * <p>Provides details about a specific VOD source in a specific source location.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaTailorClient(config);
+ * const command = new DescribeVodSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeVodSourceCommandInput} for command's `input` shape.
+ * @see {@link DescribeVodSourceCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeVodSourceCommand extends $Command<
   DescribeVodSourceCommandInput,

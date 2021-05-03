@@ -49,6 +49,18 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  *                     blue/green deployments initiated by a CloudFormation stack update.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new BatchGetDeploymentTargetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetDeploymentTargetsCommandInput} for command's `input` shape.
+ * @see {@link BatchGetDeploymentTargetsCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetDeploymentTargetsCommand extends $Command<
   BatchGetDeploymentTargetsCommandInput,

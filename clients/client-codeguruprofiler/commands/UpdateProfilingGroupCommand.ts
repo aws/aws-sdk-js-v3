@@ -22,6 +22,18 @@ export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupR
 
 /**
  * <p>Updates a profiling group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeGuruProfilerClient(config);
+ * const command = new UpdateProfilingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateProfilingGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateProfilingGroupCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateProfilingGroupCommand extends $Command<
   UpdateProfilingGroupCommandInput,

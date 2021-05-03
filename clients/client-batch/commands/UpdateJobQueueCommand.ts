@@ -22,6 +22,18 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
 
 /**
  * <p>Updates a job queue.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BatchClient(config);
+ * const command = new UpdateJobQueueCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateJobQueueCommandInput} for command's `input` shape.
+ * @see {@link UpdateJobQueueCommandOutput} for command's `response` shape.
+ * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateJobQueueCommand extends $Command<
   UpdateJobQueueCommandInput,

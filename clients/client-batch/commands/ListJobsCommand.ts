@@ -36,6 +36,18 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  *          </ul>
  *          <p>You can filter the results by job status with the <code>jobStatus</code> parameter. If you don't specify a
  *    status, only <code>RUNNING</code> jobs are returned.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BatchClient(config);
+ * const command = new ListJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListJobsCommandInput} for command's `input` shape.
+ * @see {@link ListJobsCommandOutput} for command's `response` shape.
+ * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsCommandOutput, BatchClientResolvedConfig> {
   // Start section: command_properties

@@ -28,6 +28,18 @@ export interface ModifyTransitGatewayPrefixListReferenceCommandOutput
 
 /**
  * <p>Modifies a reference (route) to a prefix list in a specified transit gateway route table.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyTransitGatewayPrefixListReferenceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyTransitGatewayPrefixListReferenceCommandInput} for command's `input` shape.
+ * @see {@link ModifyTransitGatewayPrefixListReferenceCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyTransitGatewayPrefixListReferenceCommand extends $Command<
   ModifyTransitGatewayPrefixListReferenceCommandInput,

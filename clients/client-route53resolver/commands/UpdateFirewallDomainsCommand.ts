@@ -22,6 +22,18 @@ export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomain
 
 /**
  * <p>Updates the firewall domain list from an array of domain specifications. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new UpdateFirewallDomainsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFirewallDomainsCommandInput} for command's `input` shape.
+ * @see {@link UpdateFirewallDomainsCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFirewallDomainsCommand extends $Command<
   UpdateFirewallDomainsCommandInput,

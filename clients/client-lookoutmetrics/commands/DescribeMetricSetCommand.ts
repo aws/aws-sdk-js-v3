@@ -22,6 +22,18 @@ export interface DescribeMetricSetCommandOutput extends DescribeMetricSetRespons
 
 /**
  * <p>Describes a dataset.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutMetricsClient(config);
+ * const command = new DescribeMetricSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeMetricSetCommandInput} for command's `input` shape.
+ * @see {@link DescribeMetricSetCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeMetricSetCommand extends $Command<
   DescribeMetricSetCommandInput,

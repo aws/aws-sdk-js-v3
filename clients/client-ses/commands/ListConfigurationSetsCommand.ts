@@ -31,6 +31,18 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  *             You can then execute the <code>ListConfigurationSets</code> operation again, passing the
  *                 <code>NextToken</code> parameter and the value of the NextToken element to retrieve
  *             additional results.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESClient(config);
+ * const command = new ListConfigurationSetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListConfigurationSetsCommandInput} for command's `input` shape.
+ * @see {@link ListConfigurationSetsCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListConfigurationSetsCommand extends $Command<
   ListConfigurationSetsCommandInput,

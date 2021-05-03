@@ -24,6 +24,18 @@ export interface UpdateVocabularyCommandOutput extends UpdateVocabularyResponse,
  * <p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code>
  *             operation overwrites all of the existing information with the values that you provide in
  *             the request. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeClient(config);
+ * const command = new UpdateVocabularyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateVocabularyCommandInput} for command's `input` shape.
+ * @see {@link UpdateVocabularyCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateVocabularyCommand extends $Command<
   UpdateVocabularyCommandInput,

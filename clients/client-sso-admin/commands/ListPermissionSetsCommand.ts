@@ -22,6 +22,18 @@ export interface ListPermissionSetsCommandOutput extends ListPermissionSetsRespo
 
 /**
  * <p>Lists the <a>PermissionSet</a>s in an SSO instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSOAdminClient(config);
+ * const command = new ListPermissionSetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPermissionSetsCommandInput} for command's `input` shape.
+ * @see {@link ListPermissionSetsCommandOutput} for command's `response` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPermissionSetsCommand extends $Command<
   ListPermissionSetsCommandInput,

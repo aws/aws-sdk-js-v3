@@ -37,6 +37,18 @@ export interface StreamingTraitsRequireLengthCommandOutput
  *
  * In this example, no JSON document is synthesized because the payload is
  * not a structure or a union type.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new StreamingTraitsRequireLengthCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StreamingTraitsRequireLengthCommandInput} for command's `input` shape.
+ * @see {@link StreamingTraitsRequireLengthCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StreamingTraitsRequireLengthCommand extends $Command<
   StreamingTraitsRequireLengthCommandInput,

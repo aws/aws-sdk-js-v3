@@ -32,6 +32,18 @@ export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput
 
 /**
  * <p>Allows you to purchase reserved Elasticsearch instances.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new PurchaseReservedElasticsearchInstanceOfferingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PurchaseReservedElasticsearchInstanceOfferingCommandInput} for command's `input` shape.
+ * @see {@link PurchaseReservedElasticsearchInstanceOfferingCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Command<
   PurchaseReservedElasticsearchInstanceOfferingCommandInput,

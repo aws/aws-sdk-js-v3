@@ -25,6 +25,18 @@ export interface PutResolverQueryLogConfigPolicyCommandOutput
 /**
  * <p>Specifies an AWS account that you want to share a query logging configuration with, the query logging configuration that you want to share,
  * 			and the operations that you want the account to be able to perform on the configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new PutResolverQueryLogConfigPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutResolverQueryLogConfigPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutResolverQueryLogConfigPolicyCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutResolverQueryLogConfigPolicyCommand extends $Command<
   PutResolverQueryLogConfigPolicyCommandInput,

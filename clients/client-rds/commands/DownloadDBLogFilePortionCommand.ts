@@ -22,6 +22,18 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
 
 /**
  * <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new DownloadDBLogFilePortionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DownloadDBLogFilePortionCommandInput} for command's `input` shape.
+ * @see {@link DownloadDBLogFilePortionCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DownloadDBLogFilePortionCommand extends $Command<
   DownloadDBLogFilePortionCommandInput,

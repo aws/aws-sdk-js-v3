@@ -22,6 +22,18 @@ export interface ModifyDBProxyEndpointCommandOutput extends ModifyDBProxyEndpoin
 
 /**
  * <p>Changes the settings for an existing DB proxy endpoint.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new ModifyDBProxyEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyDBProxyEndpointCommandInput} for command's `input` shape.
+ * @see {@link ModifyDBProxyEndpointCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyDBProxyEndpointCommand extends $Command<
   ModifyDBProxyEndpointCommandInput,

@@ -22,6 +22,18 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
 
 /**
  * Retrieves the service role that is attached to your account.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new GetServiceRoleForAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetServiceRoleForAccountCommandInput} for command's `input` shape.
+ * @see {@link GetServiceRoleForAccountCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetServiceRoleForAccountCommand extends $Command<
   GetServiceRoleForAccountCommandInput,

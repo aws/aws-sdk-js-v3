@@ -22,6 +22,18 @@ export interface CreateBackendAPICommandOutput extends CreateBackendAPIResponse,
 
 /**
  * <p>Creates a new backend API resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyBackendClient(config);
+ * const command = new CreateBackendAPICommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateBackendAPICommandInput} for command's `input` shape.
+ * @see {@link CreateBackendAPICommandOutput} for command's `response` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateBackendAPICommand extends $Command<
   CreateBackendAPICommandInput,

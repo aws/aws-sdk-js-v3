@@ -22,6 +22,18 @@ export interface GetOutpostInstanceTypesCommandOutput extends GetOutpostInstance
 
 /**
  * <p>Lists the instance types for the specified Outpost.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OutpostsClient(config);
+ * const command = new GetOutpostInstanceTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOutpostInstanceTypesCommandInput} for command's `input` shape.
+ * @see {@link GetOutpostInstanceTypesCommandOutput} for command's `response` shape.
+ * @see {@link OutpostsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOutpostInstanceTypesCommand extends $Command<
   GetOutpostInstanceTypesCommandInput,

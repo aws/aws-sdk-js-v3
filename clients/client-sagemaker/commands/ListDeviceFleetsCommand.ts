@@ -22,6 +22,18 @@ export interface ListDeviceFleetsCommandOutput extends ListDeviceFleetsResponse,
 
 /**
  * <p>Returns a list of devices in the fleet.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListDeviceFleetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDeviceFleetsCommandInput} for command's `input` shape.
+ * @see {@link ListDeviceFleetsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDeviceFleetsCommand extends $Command<
   ListDeviceFleetsCommandInput,

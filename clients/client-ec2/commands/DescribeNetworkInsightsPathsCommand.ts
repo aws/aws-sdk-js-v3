@@ -24,6 +24,18 @@ export interface DescribeNetworkInsightsPathsCommandOutput
 
 /**
  * <p>Describes one or more of your paths.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeNetworkInsightsPathsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeNetworkInsightsPathsCommandInput} for command's `input` shape.
+ * @see {@link DescribeNetworkInsightsPathsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeNetworkInsightsPathsCommand extends $Command<
   DescribeNetworkInsightsPathsCommandInput,

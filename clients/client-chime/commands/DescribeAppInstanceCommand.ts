@@ -22,6 +22,18 @@ export interface DescribeAppInstanceCommandOutput extends DescribeAppInstanceRes
 
 /**
  * <p>Returns the full details of an <code>AppInstance</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new DescribeAppInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAppInstanceCommandInput} for command's `input` shape.
+ * @see {@link DescribeAppInstanceCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAppInstanceCommand extends $Command<
   DescribeAppInstanceCommandInput,

@@ -22,6 +22,18 @@ export interface CreateProfilingGroupCommandOutput extends CreateProfilingGroupR
 
 /**
  * <p>Creates a profiling group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeGuruProfilerClient(config);
+ * const command = new CreateProfilingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateProfilingGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateProfilingGroupCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateProfilingGroupCommand extends $Command<
   CreateProfilingGroupCommandInput,

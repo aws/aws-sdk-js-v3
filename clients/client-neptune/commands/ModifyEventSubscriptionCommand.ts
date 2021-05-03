@@ -26,6 +26,18 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  *       <a>AddSourceIdentifierToSubscription</a> and <a>RemoveSourceIdentifierFromSubscription</a> calls.</p>
  *          <p>You can see a list of the event categories for a given SourceType
  *       by using the <b>DescribeEventCategories</b> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NeptuneClient(config);
+ * const command = new ModifyEventSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyEventSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyEventSubscriptionCommand extends $Command<
   ModifyEventSubscriptionCommandInput,

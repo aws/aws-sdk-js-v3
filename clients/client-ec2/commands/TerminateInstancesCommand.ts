@@ -38,6 +38,18 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  *             differences between stopping and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a>
  *             in the <i>Amazon EC2 User Guide</i>.</p>
  *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new TerminateInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TerminateInstancesCommandInput} for command's `input` shape.
+ * @see {@link TerminateInstancesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TerminateInstancesCommand extends $Command<
   TerminateInstancesCommandInput,

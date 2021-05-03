@@ -23,6 +23,18 @@ export interface ModifyClusterSubnetGroupCommandOutput extends ModifyClusterSubn
 /**
  * <p>Modifies a cluster subnet group to include the specified list of VPC subnets. The
  *             operation replaces the existing list of subnets with the new list of subnets.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new ModifyClusterSubnetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyClusterSubnetGroupCommandInput} for command's `input` shape.
+ * @see {@link ModifyClusterSubnetGroupCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyClusterSubnetGroupCommand extends $Command<
   ModifyClusterSubnetGroupCommandInput,

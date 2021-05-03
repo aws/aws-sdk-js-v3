@@ -22,6 +22,18 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
 
 /**
  * <p>Returns a list of the broker nodes in the cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new ListNodesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListNodesCommandInput} for command's `input` shape.
+ * @see {@link ListNodesCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListNodesCommand extends $Command<
   ListNodesCommandInput,

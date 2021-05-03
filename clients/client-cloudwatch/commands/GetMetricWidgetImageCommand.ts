@@ -39,6 +39,18 @@ export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageO
  * 				           <p>Up to 100 KB uncompressed payload.</p>
  * 			         </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchClient(config);
+ * const command = new GetMetricWidgetImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMetricWidgetImageCommandInput} for command's `input` shape.
+ * @see {@link GetMetricWidgetImageCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMetricWidgetImageCommand extends $Command<
   GetMetricWidgetImageCommandInput,

@@ -51,6 +51,18 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  *          <p>Example 2: PII Redaction - This Lambda function uses Amazon Comprehend, a natural language processing (NLP) service using machine learning to find insights and relationships in text. It automatically redacts personally identifiable information (PII) such as names, addresses, dates, credit card numbers, and social security numbers from documents in your Amazon S3 bucket. </p>
  *          <p>Example 3: Decompression - The Lambda function S3ObjectLambdaDecompression, is equipped to decompress objects stored in S3 in one of six compressed file formats including bzip2, gzip, snappy, zlib, zstandard and ZIP. </p>
  *          <p>For information on how to view and use these functions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-examples.html">Using AWS built Lambda functions</a> in the <i>Amazon S3 User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3Client(config);
+ * const command = new WriteGetObjectResponseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link WriteGetObjectResponseCommandInput} for command's `input` shape.
+ * @see {@link WriteGetObjectResponseCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class WriteGetObjectResponseCommand extends $Command<
   WriteGetObjectResponseCommandInput,

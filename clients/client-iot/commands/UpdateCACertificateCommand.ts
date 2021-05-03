@@ -22,6 +22,18 @@ export interface UpdateCACertificateCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates a registered CA certificate.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new UpdateCACertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateCACertificateCommandInput} for command's `input` shape.
+ * @see {@link UpdateCACertificateCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateCACertificateCommand extends $Command<
   UpdateCACertificateCommandInput,

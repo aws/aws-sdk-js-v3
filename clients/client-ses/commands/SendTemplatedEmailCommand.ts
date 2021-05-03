@@ -71,6 +71,18 @@ export interface SendTemplatedEmailCommandOutput extends SendTemplatedEmailRespo
  *                     Personalized Email Using the Amazon SES API</a> in the <i>Amazon Simple Email Service
  *                     Developer Guide</i>.</p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESClient(config);
+ * const command = new SendTemplatedEmailCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendTemplatedEmailCommandInput} for command's `input` shape.
+ * @see {@link SendTemplatedEmailCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendTemplatedEmailCommand extends $Command<
   SendTemplatedEmailCommandInput,

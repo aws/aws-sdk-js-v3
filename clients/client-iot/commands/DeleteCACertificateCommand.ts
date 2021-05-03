@@ -22,6 +22,18 @@ export interface DeleteCACertificateCommandOutput extends DeleteCACertificateRes
 
 /**
  * <p>Deletes a registered CA certificate.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DeleteCACertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCACertificateCommandInput} for command's `input` shape.
+ * @see {@link DeleteCACertificateCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCACertificateCommand extends $Command<
   DeleteCACertificateCommandInput,

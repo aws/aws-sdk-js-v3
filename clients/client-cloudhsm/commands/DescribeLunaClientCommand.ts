@@ -32,6 +32,18 @@ export interface DescribeLunaClientCommandOutput extends DescribeLunaClientRespo
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
  *          <p>Retrieves information about an HSM client.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMClient(config);
+ * const command = new DescribeLunaClientCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLunaClientCommandInput} for command's `input` shape.
+ * @see {@link DescribeLunaClientCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLunaClientCommand extends $Command<
   DescribeLunaClientCommandInput,

@@ -74,6 +74,18 @@ export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersio
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeClient(config);
+ * const command = new CreateSolutionVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSolutionVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateSolutionVersionCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSolutionVersionCommand extends $Command<
   CreateSolutionVersionCommandInput,

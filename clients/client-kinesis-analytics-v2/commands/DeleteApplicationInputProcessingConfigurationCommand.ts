@@ -32,6 +32,18 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput
 
 /**
  * <p>Deletes an <a>InputProcessingConfiguration</a> from an input.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisAnalyticsV2Client(config);
+ * const command = new DeleteApplicationInputProcessingConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteApplicationInputProcessingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteApplicationInputProcessingConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteApplicationInputProcessingConfigurationCommand extends $Command<
   DeleteApplicationInputProcessingConfigurationCommandInput,

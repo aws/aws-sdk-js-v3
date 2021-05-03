@@ -24,6 +24,18 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * <p>Deletes the Amazon QuickSight user that is associated with the identity of the AWS
  * 			Identity and Access Management (IAM) user or role that's making the call. The IAM user
  * 			isn't deleted as a result of this call. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new DeleteUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteUserCommandInput} for command's `input` shape.
+ * @see {@link DeleteUserCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteUserCommand extends $Command<
   DeleteUserCommandInput,

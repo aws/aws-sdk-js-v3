@@ -22,6 +22,18 @@ export interface GetTopicRuleDestinationCommandOutput extends GetTopicRuleDestin
 
 /**
  * <p>Gets information about a topic rule destination.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new GetTopicRuleDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTopicRuleDestinationCommandInput} for command's `input` shape.
+ * @see {@link GetTopicRuleDestinationCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTopicRuleDestinationCommand extends $Command<
   GetTopicRuleDestinationCommandInput,

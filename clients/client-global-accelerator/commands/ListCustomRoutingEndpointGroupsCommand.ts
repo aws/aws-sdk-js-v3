@@ -28,6 +28,18 @@ export interface ListCustomRoutingEndpointGroupsCommandOutput
 
 /**
  * <p>List the endpoint groups that are associated with a listener for a custom routing accelerator. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new ListCustomRoutingEndpointGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCustomRoutingEndpointGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListCustomRoutingEndpointGroupsCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCustomRoutingEndpointGroupsCommand extends $Command<
   ListCustomRoutingEndpointGroupsCommandInput,

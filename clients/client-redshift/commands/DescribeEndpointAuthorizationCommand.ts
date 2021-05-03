@@ -22,6 +22,18 @@ export interface DescribeEndpointAuthorizationCommandOutput extends EndpointAuth
 
 /**
  * <p>Describes an endpoint authorization.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DescribeEndpointAuthorizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEndpointAuthorizationCommandInput} for command's `input` shape.
+ * @see {@link DescribeEndpointAuthorizationCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEndpointAuthorizationCommand extends $Command<
   DescribeEndpointAuthorizationCommandInput,

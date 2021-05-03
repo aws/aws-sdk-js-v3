@@ -24,6 +24,18 @@ export interface StartAuditMitigationActionsTaskCommandOutput
 
 /**
  * <p>Starts a task that applies a set of mitigation actions to the specified target.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new StartAuditMitigationActionsTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartAuditMitigationActionsTaskCommandInput} for command's `input` shape.
+ * @see {@link StartAuditMitigationActionsTaskCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartAuditMitigationActionsTaskCommand extends $Command<
   StartAuditMitigationActionsTaskCommandInput,

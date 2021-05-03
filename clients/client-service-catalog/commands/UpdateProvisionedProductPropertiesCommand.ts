@@ -24,6 +24,18 @@ export interface UpdateProvisionedProductPropertiesCommandOutput
 
 /**
  * <p>Requests updates to the properties of the specified provisioned product.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new UpdateProvisionedProductPropertiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateProvisionedProductPropertiesCommandInput} for command's `input` shape.
+ * @see {@link UpdateProvisionedProductPropertiesCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateProvisionedProductPropertiesCommand extends $Command<
   UpdateProvisionedProductPropertiesCommandInput,

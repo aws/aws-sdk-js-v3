@@ -23,6 +23,18 @@ export interface GetAWSDefaultServiceQuotaCommandOutput extends GetAWSDefaultSer
 /**
  * <p>Retrieves the default value for the specified quota. The default value does not reflect
  *       any quota increases.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceQuotasClient(config);
+ * const command = new GetAWSDefaultServiceQuotaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAWSDefaultServiceQuotaCommandInput} for command's `input` shape.
+ * @see {@link GetAWSDefaultServiceQuotaCommandOutput} for command's `response` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAWSDefaultServiceQuotaCommand extends $Command<
   GetAWSDefaultServiceQuotaCommandInput,

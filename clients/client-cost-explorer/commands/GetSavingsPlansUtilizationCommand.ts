@@ -25,6 +25,18 @@ export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlans
  * 	        <note>
  *             <p>You cannot group by any dimension values for <code>GetSavingsPlansUtilization</code>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CostExplorerClient(config);
+ * const command = new GetSavingsPlansUtilizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSavingsPlansUtilizationCommandInput} for command's `input` shape.
+ * @see {@link GetSavingsPlansUtilizationCommandOutput} for command's `response` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSavingsPlansUtilizationCommand extends $Command<
   GetSavingsPlansUtilizationCommandInput,

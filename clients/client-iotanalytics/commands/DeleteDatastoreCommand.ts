@@ -22,6 +22,18 @@ export interface DeleteDatastoreCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified data store.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTAnalyticsClient(config);
+ * const command = new DeleteDatastoreCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDatastoreCommandInput} for command's `input` shape.
+ * @see {@link DeleteDatastoreCommandOutput} for command's `response` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDatastoreCommand extends $Command<
   DeleteDatastoreCommandInput,

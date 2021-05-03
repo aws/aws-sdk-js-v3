@@ -94,6 +94,18 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KMSClient(config);
+ * const command = new GenerateDataKeyWithoutPlaintextCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GenerateDataKeyWithoutPlaintextCommandInput} for command's `input` shape.
+ * @see {@link GenerateDataKeyWithoutPlaintextCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GenerateDataKeyWithoutPlaintextCommand extends $Command<
   GenerateDataKeyWithoutPlaintextCommandInput,

@@ -23,6 +23,18 @@ export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Sets tags (key and value pairs) to the assessment template that is specified by the
  *          ARN of the assessment template.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new SetTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link SetTagsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetTagsForResourceCommand extends $Command<
   SetTagsForResourceCommandInput,

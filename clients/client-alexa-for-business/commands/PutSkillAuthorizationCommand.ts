@@ -24,6 +24,18 @@ export interface PutSkillAuthorizationCommandOutput extends PutSkillAuthorizatio
  * <p>Links a user's account to a third-party skill provider. If this API operation is
  *          called by an assumed IAM role, the skill being linked must be a private skill. Also, the
  *          skill must be owned by the AWS account that assumed the IAM role.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new PutSkillAuthorizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutSkillAuthorizationCommandInput} for command's `input` shape.
+ * @see {@link PutSkillAuthorizationCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutSkillAuthorizationCommand extends $Command<
   PutSkillAuthorizationCommandInput,

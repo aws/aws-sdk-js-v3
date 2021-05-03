@@ -22,6 +22,18 @@ export interface GetDeviceDefinitionCommandOutput extends GetDeviceDefinitionRes
 
 /**
  * Retrieves information about a device definition.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new GetDeviceDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDeviceDefinitionCommandInput} for command's `input` shape.
+ * @see {@link GetDeviceDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDeviceDefinitionCommand extends $Command<
   GetDeviceDefinitionCommandInput,

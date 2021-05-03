@@ -27,6 +27,18 @@ export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBear
  *             references a deleted provider fails.</p>
  *         <p>This operation is idempotent; it does not fail or return an error if you call the
  *             operation for a provider that does not exist.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new DeleteOpenIDConnectProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteOpenIDConnectProviderCommandInput} for command's `input` shape.
+ * @see {@link DeleteOpenIDConnectProviderCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteOpenIDConnectProviderCommand extends $Command<
   DeleteOpenIDConnectProviderCommandInput,

@@ -36,6 +36,18 @@ export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordR
  *             by an administrator. </p>
  *         <p>Once the user has set a new password, or the password is permanent, the user status
  *             will be set to <code>Confirmed</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new AdminSetUserPasswordCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdminSetUserPasswordCommandInput} for command's `input` shape.
+ * @see {@link AdminSetUserPasswordCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdminSetUserPasswordCommand extends $Command<
   AdminSetUserPasswordCommandInput,

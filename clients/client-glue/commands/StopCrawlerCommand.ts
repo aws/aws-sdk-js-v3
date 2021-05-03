@@ -22,6 +22,18 @@ export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __Metadat
 
 /**
  * <p>If the specified crawler is running, stops the crawl.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new StopCrawlerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopCrawlerCommandInput} for command's `input` shape.
+ * @see {@link StopCrawlerCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopCrawlerCommand extends $Command<
   StopCrawlerCommandInput,

@@ -22,6 +22,18 @@ export interface StopAutomationExecutionCommandOutput extends StopAutomationExec
 
 /**
  * <p>Stop an Automation that is currently running.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new StopAutomationExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopAutomationExecutionCommandInput} for command's `input` shape.
+ * @see {@link StopAutomationExecutionCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopAutomationExecutionCommand extends $Command<
   StopAutomationExecutionCommandInput,

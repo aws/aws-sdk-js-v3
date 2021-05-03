@@ -47,6 +47,18 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * 					minutes of wait time.</p>
  * 			         </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new RunTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RunTaskCommandInput} for command's `input` shape.
+ * @see {@link RunTaskCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommandOutput, ECSClientResolvedConfig> {
   // Start section: command_properties

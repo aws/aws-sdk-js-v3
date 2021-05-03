@@ -46,6 +46,18 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KMSClient(config);
+ * const command = new UpdateKeyDescriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateKeyDescriptionCommandInput} for command's `input` shape.
+ * @see {@link UpdateKeyDescriptionCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateKeyDescriptionCommand extends $Command<
   UpdateKeyDescriptionCommandInput,

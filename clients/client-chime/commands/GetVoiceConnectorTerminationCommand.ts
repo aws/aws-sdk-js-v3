@@ -24,6 +24,18 @@ export interface GetVoiceConnectorTerminationCommandOutput
 
 /**
  * <p>Retrieves termination setting details for the specified Amazon Chime Voice Connector.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new GetVoiceConnectorTerminationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetVoiceConnectorTerminationCommandInput} for command's `input` shape.
+ * @see {@link GetVoiceConnectorTerminationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetVoiceConnectorTerminationCommand extends $Command<
   GetVoiceConnectorTerminationCommandInput,

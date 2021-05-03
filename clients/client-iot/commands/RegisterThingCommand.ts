@@ -26,6 +26,18 @@ export interface RegisterThingCommandOutput extends RegisterThingResponse, __Met
  *          plane APIs. These calls might exceed your account level <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_iot">
  *             AWS IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">AWS Customer Support</a> to raise
  *          your throttling limits if necessary.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new RegisterThingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterThingCommandInput} for command's `input` shape.
+ * @see {@link RegisterThingCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterThingCommand extends $Command<
   RegisterThingCommandInput,

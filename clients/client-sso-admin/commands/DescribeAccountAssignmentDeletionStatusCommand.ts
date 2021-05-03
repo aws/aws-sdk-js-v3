@@ -28,6 +28,18 @@ export interface DescribeAccountAssignmentDeletionStatusCommandOutput
 
 /**
  * <p>Describes the status of the assignment deletion request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSOAdminClient(config);
+ * const command = new DescribeAccountAssignmentDeletionStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAccountAssignmentDeletionStatusCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccountAssignmentDeletionStatusCommandOutput} for command's `response` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAccountAssignmentDeletionStatusCommand extends $Command<
   DescribeAccountAssignmentDeletionStatusCommandInput,

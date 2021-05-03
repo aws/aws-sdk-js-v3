@@ -22,6 +22,18 @@ export interface CreateHumanTaskUiCommandOutput extends CreateHumanTaskUiRespons
 
 /**
  * <p>Defines the settings you will use for the human review workflow user interface. Reviewers will see a three-panel interface with an instruction area, the item to review, and an input area.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateHumanTaskUiCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateHumanTaskUiCommandInput} for command's `input` shape.
+ * @see {@link CreateHumanTaskUiCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateHumanTaskUiCommand extends $Command<
   CreateHumanTaskUiCommandInput,

@@ -26,6 +26,18 @@ export interface CreateThingGroupCommandOutput extends CreateThingGroupResponse,
  * 			         <p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-authorization.html">Authorization</a> for
  * 				information about authorizing control plane actions.</p>
  * 		       </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new CreateThingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateThingGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateThingGroupCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateThingGroupCommand extends $Command<
   CreateThingGroupCommandInput,

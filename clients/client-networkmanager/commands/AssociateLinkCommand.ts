@@ -22,6 +22,18 @@ export interface AssociateLinkCommandOutput extends AssociateLinkResponse, __Met
 
 /**
  * <p>Associates a link to a device. A device can be associated to multiple links and a link can be associated to multiple devices. The device and link must be in the same global network and the same site.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new AssociateLinkCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateLinkCommandInput} for command's `input` shape.
+ * @see {@link AssociateLinkCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateLinkCommand extends $Command<
   AssociateLinkCommandInput,

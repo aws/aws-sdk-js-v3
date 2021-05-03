@@ -42,6 +42,18 @@ export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __M
  *             <code>GET /2013-04-01/geolocation?countrycode=<i>two-character country code</i>&subdivisioncode=<i>subdivision code</i>
  *             </code>
  *          </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new GetGeoLocationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetGeoLocationCommandInput} for command's `input` shape.
+ * @see {@link GetGeoLocationCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetGeoLocationCommand extends $Command<
   GetGeoLocationCommandInput,

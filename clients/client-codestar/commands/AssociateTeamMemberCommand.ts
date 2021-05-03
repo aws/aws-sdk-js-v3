@@ -22,6 +22,18 @@ export interface AssociateTeamMemberCommandOutput extends AssociateTeamMemberRes
 
 /**
  * <p>Adds an IAM user to the team for an AWS CodeStar project.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeStarClient(config);
+ * const command = new AssociateTeamMemberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateTeamMemberCommandInput} for command's `input` shape.
+ * @see {@link AssociateTeamMemberCommandOutput} for command's `response` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateTeamMemberCommand extends $Command<
   AssociateTeamMemberCommandInput,

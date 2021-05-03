@@ -36,6 +36,18 @@ export interface ExportSnapshotCommandOutput extends ExportSnapshotResult, __Met
  *             <p>Use the <code>get instance snapshots</code> or <code>get disk snapshots</code>
  *         operations to get a list of snapshots that you can export to Amazon EC2.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new ExportSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ExportSnapshotCommandInput} for command's `input` shape.
+ * @see {@link ExportSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ExportSnapshotCommand extends $Command<
   ExportSnapshotCommandInput,

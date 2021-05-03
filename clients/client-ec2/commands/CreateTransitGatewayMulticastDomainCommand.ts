@@ -28,6 +28,18 @@ export interface CreateTransitGatewayMulticastDomainCommandOutput
 /**
  * <p>Creates a multicast domain using the specified transit gateway.</p>
  *         <p>The transit gateway  must be in the available state before you create a domain. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html">DescribeTransitGateways</a> to see the state of transit gateway.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateTransitGatewayMulticastDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTransitGatewayMulticastDomainCommandInput} for command's `input` shape.
+ * @see {@link CreateTransitGatewayMulticastDomainCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTransitGatewayMulticastDomainCommand extends $Command<
   CreateTransitGatewayMulticastDomainCommandInput,

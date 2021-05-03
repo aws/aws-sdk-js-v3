@@ -38,6 +38,18 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  *             they sign in and change their password.</p>
  *         <p>
  *             <code>AdminCreateUser</code> requires developer credentials.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new AdminCreateUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdminCreateUserCommandInput} for command's `input` shape.
+ * @see {@link AdminCreateUserCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdminCreateUserCommand extends $Command<
   AdminCreateUserCommandInput,

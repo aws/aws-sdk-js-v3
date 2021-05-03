@@ -29,6 +29,18 @@ export interface DescribeMaintenanceWindowExecutionsCommandOutput
  * <p>Lists the executions of a maintenance window. This includes information about when the
  *    maintenance window was scheduled to be active, and information about tasks registered and run
  *    with the maintenance window.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new DescribeMaintenanceWindowExecutionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeMaintenanceWindowExecutionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeMaintenanceWindowExecutionsCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeMaintenanceWindowExecutionsCommand extends $Command<
   DescribeMaintenanceWindowExecutionsCommandInput,

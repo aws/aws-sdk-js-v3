@@ -23,6 +23,18 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
 /**
  * <p>Adds a statement to a topic's access control policy, granting access for the specified
  *             AWS accounts to the specified actions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SNSClient(config);
+ * const command = new AddPermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddPermissionCommandInput} for command's `input` shape.
+ * @see {@link AddPermissionCommandOutput} for command's `response` shape.
+ * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddPermissionCommand extends $Command<
   AddPermissionCommandInput,

@@ -27,6 +27,18 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
 /**
  * <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to
  *             S3.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectParticipantClient(config);
+ * const command = new StartAttachmentUploadCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartAttachmentUploadCommandInput} for command's `input` shape.
+ * @see {@link StartAttachmentUploadCommandOutput} for command's `response` shape.
+ * @see {@link ConnectParticipantClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartAttachmentUploadCommand extends $Command<
   StartAttachmentUploadCommandInput,

@@ -27,6 +27,18 @@ export interface RunScheduledInstancesCommandOutput extends RunScheduledInstance
  *          but you can terminate it as needed. If you terminate a Scheduled Instance before the current scheduled time period ends,
  *          you can launch it again after a few minutes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html">Scheduled Instances</a>
  *          in the <i>Amazon EC2 User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new RunScheduledInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RunScheduledInstancesCommandInput} for command's `input` shape.
+ * @see {@link RunScheduledInstancesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RunScheduledInstancesCommand extends $Command<
   RunScheduledInstancesCommandInput,

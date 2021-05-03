@@ -30,6 +30,18 @@ export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceW
  *     value you specify for <code>Cutoff</code> is one hour, no maintenance window tasks can start
  *     after 5 PM.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new CreateMaintenanceWindowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateMaintenanceWindowCommandInput} for command's `input` shape.
+ * @see {@link CreateMaintenanceWindowCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateMaintenanceWindowCommand extends $Command<
   CreateMaintenanceWindowCommandInput,

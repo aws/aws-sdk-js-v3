@@ -25,6 +25,18 @@ export interface CreateResourceGroupCommandOutput extends CreateResourceGroupRes
  *          are used to select the EC2 instances to be included in an Amazon Inspector assessment
  *          target. The created resource group is then used to create an Amazon Inspector assessment
  *          target. For more information, see <a>CreateAssessmentTarget</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new CreateResourceGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateResourceGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateResourceGroupCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateResourceGroupCommand extends $Command<
   CreateResourceGroupCommandInput,

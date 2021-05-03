@@ -25,6 +25,18 @@ export interface CreateHttpNamespaceCommandOutput extends CreateHttpNamespaceRes
  *     <code>DiscoverInstances</code> request but can't be discovered using DNS. </p>
  *          <p>For the current quota on the number of namespaces that you can create using the same AWS account, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS Cloud Map quotas</a> in the
  *     <i>AWS Cloud Map Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceDiscoveryClient(config);
+ * const command = new CreateHttpNamespaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateHttpNamespaceCommandInput} for command's `input` shape.
+ * @see {@link CreateHttpNamespaceCommandOutput} for command's `response` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateHttpNamespaceCommand extends $Command<
   CreateHttpNamespaceCommandInput,

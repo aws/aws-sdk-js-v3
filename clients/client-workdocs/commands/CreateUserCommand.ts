@@ -23,6 +23,18 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
 /**
  * <p>Creates a user in a Simple AD or Microsoft AD directory. The status of a newly
  *             created user is "ACTIVE". New users can access Amazon WorkDocs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new CreateUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateUserCommandInput} for command's `input` shape.
+ * @see {@link CreateUserCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateUserCommand extends $Command<
   CreateUserCommandInput,

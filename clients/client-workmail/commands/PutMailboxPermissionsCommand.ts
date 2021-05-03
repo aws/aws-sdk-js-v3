@@ -23,6 +23,18 @@ export interface PutMailboxPermissionsCommandOutput extends PutMailboxPermission
 /**
  * <p>Sets permissions for a user, group, or resource. This replaces any pre-existing
  *          permissions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new PutMailboxPermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutMailboxPermissionsCommandInput} for command's `input` shape.
+ * @see {@link PutMailboxPermissionsCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutMailboxPermissionsCommand extends $Command<
   PutMailboxPermissionsCommandInput,

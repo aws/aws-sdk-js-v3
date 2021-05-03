@@ -30,6 +30,18 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  *       group also deletes any associated health checks. Deleting a target group does not affect its
  *       registered targets. For example, any EC2 instances continue to run until you stop or terminate
  *       them.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new DeleteTargetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTargetGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteTargetGroupCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTargetGroupCommand extends $Command<
   DeleteTargetGroupCommandInput,

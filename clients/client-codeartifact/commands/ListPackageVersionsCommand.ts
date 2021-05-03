@@ -28,6 +28,18 @@ export interface ListPackageVersionsCommandOutput extends ListPackageVersionsRes
  *             </a>
  *         objects for package versions in a repository that match the request parameters.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeartifactClient(config);
+ * const command = new ListPackageVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPackageVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListPackageVersionsCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPackageVersionsCommand extends $Command<
   ListPackageVersionsCommandInput,

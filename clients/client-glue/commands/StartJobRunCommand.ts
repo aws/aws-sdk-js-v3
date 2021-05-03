@@ -22,6 +22,18 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
 
 /**
  * <p>Starts a job run using a job definition.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new StartJobRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartJobRunCommandInput} for command's `input` shape.
+ * @see {@link StartJobRunCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartJobRunCommand extends $Command<
   StartJobRunCommandInput,

@@ -29,6 +29,18 @@ export interface ModifyVpcEndpointConnectionNotificationCommandOutput
 /**
  * <p>Modifies a connection notification for VPC endpoint or VPC endpoint service. You
  *             can change the SNS topic for the notification, or the events for which to be notified. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyVpcEndpointConnectionNotificationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyVpcEndpointConnectionNotificationCommandInput} for command's `input` shape.
+ * @see {@link ModifyVpcEndpointConnectionNotificationCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyVpcEndpointConnectionNotificationCommand extends $Command<
   ModifyVpcEndpointConnectionNotificationCommandInput,

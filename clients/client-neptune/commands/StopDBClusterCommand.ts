@@ -27,6 +27,18 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  *
  *          <p>Neptune also retains the transaction logs so you can do a point-in-time
  *       restore if necessary.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NeptuneClient(config);
+ * const command = new StopDBClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopDBClusterCommandInput} for command's `input` shape.
+ * @see {@link StopDBClusterCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopDBClusterCommand extends $Command<
   StopDBClusterCommandInput,

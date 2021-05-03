@@ -77,6 +77,18 @@ export interface ListRecordsCommandOutput extends ListRecordsResponse, __Metadat
  *                </response>
  *          </example>
  *       </examples>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoSyncClient(config);
+ * const command = new ListRecordsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRecordsCommandInput} for command's `input` shape.
+ * @see {@link ListRecordsCommandOutput} for command's `response` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRecordsCommand extends $Command<
   ListRecordsCommandInput,

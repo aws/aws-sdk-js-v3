@@ -24,6 +24,18 @@ export interface DeleteSubscriptionCommandOutput extends DeleteSubscriptionRespo
  * @deprecated
  *
  * <p>Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year subscription commitment. You cannot delete a subscription prior to the completion of that commitment. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ShieldClient(config);
+ * const command = new DeleteSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link DeleteSubscriptionCommandOutput} for command's `response` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSubscriptionCommand extends $Command<
   DeleteSubscriptionCommandInput,

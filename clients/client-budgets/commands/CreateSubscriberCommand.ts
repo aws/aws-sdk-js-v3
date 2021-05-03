@@ -22,6 +22,18 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
 
 /**
  * <p>Creates a subscriber. You must create the associated budget and notification before you create the subscriber.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BudgetsClient(config);
+ * const command = new CreateSubscriberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSubscriberCommandInput} for command's `input` shape.
+ * @see {@link CreateSubscriberCommandOutput} for command's `response` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSubscriberCommand extends $Command<
   CreateSubscriberCommandInput,

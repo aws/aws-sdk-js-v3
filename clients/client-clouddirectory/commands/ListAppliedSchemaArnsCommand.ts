@@ -22,6 +22,18 @@ export interface ListAppliedSchemaArnsCommandOutput extends ListAppliedSchemaArn
 
 /**
  * <p>Lists schema major versions applied to a directory. If <code>SchemaArn</code> is provided, lists the minor version.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new ListAppliedSchemaArnsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAppliedSchemaArnsCommandInput} for command's `input` shape.
+ * @see {@link ListAppliedSchemaArnsCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAppliedSchemaArnsCommand extends $Command<
   ListAppliedSchemaArnsCommandInput,

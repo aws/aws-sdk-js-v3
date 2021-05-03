@@ -23,6 +23,18 @@ export interface GetSystemTemplateRevisionsCommandOutput extends GetSystemTempla
 /**
  * <p>Gets revisions made to the specified system template. Only the previous 100 revisions are stored. If the system has been deprecated, this action will return
  *       the revisions that occurred before its deprecation. This action won't work with systems that have been deleted.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTThingsGraphClient(config);
+ * const command = new GetSystemTemplateRevisionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSystemTemplateRevisionsCommandInput} for command's `input` shape.
+ * @see {@link GetSystemTemplateRevisionsCommandOutput} for command's `response` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSystemTemplateRevisionsCommand extends $Command<
   GetSystemTemplateRevisionsCommandInput,

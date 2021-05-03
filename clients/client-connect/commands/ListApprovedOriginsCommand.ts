@@ -23,6 +23,18 @@ export interface ListApprovedOriginsCommandOutput extends ListApprovedOriginsRes
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Returns a paginated list of all approved origins associated with the instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new ListApprovedOriginsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListApprovedOriginsCommandInput} for command's `input` shape.
+ * @see {@link ListApprovedOriginsCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListApprovedOriginsCommand extends $Command<
   ListApprovedOriginsCommandInput,

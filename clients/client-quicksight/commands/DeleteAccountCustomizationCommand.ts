@@ -23,6 +23,18 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
 /**
  * <p>Deletes all Amazon QuickSight customizations in this AWS Region for the specified AWS
  *             account and QuickSight namespace.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new DeleteAccountCustomizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAccountCustomizationCommandInput} for command's `input` shape.
+ * @see {@link DeleteAccountCustomizationCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAccountCustomizationCommand extends $Command<
   DeleteAccountCustomizationCommandInput,

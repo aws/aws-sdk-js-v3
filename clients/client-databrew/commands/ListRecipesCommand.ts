@@ -22,6 +22,18 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
 
 /**
  * <p>Lists all of the DataBrew recipes that are defined.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new ListRecipesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRecipesCommandInput} for command's `input` shape.
+ * @see {@link ListRecipesCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRecipesCommand extends $Command<
   ListRecipesCommandInput,

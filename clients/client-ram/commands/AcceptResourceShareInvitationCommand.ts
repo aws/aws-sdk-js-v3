@@ -24,6 +24,18 @@ export interface AcceptResourceShareInvitationCommandOutput
 
 /**
  * <p>Accepts an invitation to a resource share from another AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RAMClient(config);
+ * const command = new AcceptResourceShareInvitationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AcceptResourceShareInvitationCommandInput} for command's `input` shape.
+ * @see {@link AcceptResourceShareInvitationCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AcceptResourceShareInvitationCommand extends $Command<
   AcceptResourceShareInvitationCommandInput,

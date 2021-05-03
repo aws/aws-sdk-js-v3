@@ -29,6 +29,18 @@ export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataB
  * 		       <note>
  * 			         <p>You will not be charged for calling this API if an <code>Access denied</code> error is returned. You will also not be charged if no attributes or pagination token was provided in request and no pagination token and no results were returned.</p>
  * 		       </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ListThingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListThingsCommandInput} for command's `input` shape.
+ * @see {@link ListThingsCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListThingsCommand extends $Command<
   ListThingsCommandInput,

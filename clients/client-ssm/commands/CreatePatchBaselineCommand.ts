@@ -26,6 +26,18 @@ export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineRes
  *             <p>For information about valid key and value pairs in <code>PatchFilters</code> for each
  *     supported operating system type, see <a href="http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">PatchFilter</a>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new CreatePatchBaselineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePatchBaselineCommandInput} for command's `input` shape.
+ * @see {@link CreatePatchBaselineCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePatchBaselineCommand extends $Command<
   CreatePatchBaselineCommandInput,

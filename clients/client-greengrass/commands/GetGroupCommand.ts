@@ -22,6 +22,18 @@ export interface GetGroupCommandOutput extends GetGroupResponse, __MetadataBeare
 
 /**
  * Retrieves information about a group.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new GetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetGroupCommandInput} for command's `input` shape.
+ * @see {@link GetGroupCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetGroupCommand extends $Command<
   GetGroupCommandInput,

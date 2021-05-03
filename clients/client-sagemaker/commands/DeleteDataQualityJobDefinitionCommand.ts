@@ -22,6 +22,18 @@ export interface DeleteDataQualityJobDefinitionCommandOutput extends __MetadataB
 
 /**
  * <p>Deletes a data quality monitoring job definition.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteDataQualityJobDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDataQualityJobDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DeleteDataQualityJobDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDataQualityJobDefinitionCommand extends $Command<
   DeleteDataQualityJobDefinitionCommandInput,

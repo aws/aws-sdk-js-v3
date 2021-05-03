@@ -22,6 +22,18 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
 
 /**
  * Creates a new channel
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaLiveClient(config);
+ * const command = new CreateChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateChannelCommandInput} for command's `input` shape.
+ * @see {@link CreateChannelCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateChannelCommand extends $Command<
   CreateChannelCommandInput,

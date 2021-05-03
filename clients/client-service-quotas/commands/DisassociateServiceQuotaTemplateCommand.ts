@@ -26,6 +26,18 @@ export interface DisassociateServiceQuotaTemplateCommandOutput
  * <p>Disables your quota request template. After a template is disabled, the quota increase
  *       requests in the template are not applied to new accounts in your organization. Disabling a
  *       quota request template does not apply its quota increase requests.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceQuotasClient(config);
+ * const command = new DisassociateServiceQuotaTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateServiceQuotaTemplateCommandInput} for command's `input` shape.
+ * @see {@link DisassociateServiceQuotaTemplateCommandOutput} for command's `response` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateServiceQuotaTemplateCommand extends $Command<
   DisassociateServiceQuotaTemplateCommandInput,

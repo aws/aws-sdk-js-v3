@@ -31,6 +31,18 @@ export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface
  *       must own either the virtual interface itself or the connection to which the virtual
  *       interface is currently associated. Additionally, the requester must own the connection
  *       or LAG for the association.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new AssociateVirtualInterfaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateVirtualInterfaceCommandInput} for command's `input` shape.
+ * @see {@link AssociateVirtualInterfaceCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateVirtualInterfaceCommand extends $Command<
   AssociateVirtualInterfaceCommandInput,

@@ -22,6 +22,18 @@ export interface ModifyFpgaImageAttributeCommandOutput extends ModifyFpgaImageAt
 
 /**
  * <p>Modifies the specified attribute of the specified Amazon FPGA Image (AFI).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyFpgaImageAttributeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyFpgaImageAttributeCommandInput} for command's `input` shape.
+ * @see {@link ModifyFpgaImageAttributeCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyFpgaImageAttributeCommand extends $Command<
   ModifyFpgaImageAttributeCommandInput,

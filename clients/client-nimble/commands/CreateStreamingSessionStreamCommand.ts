@@ -24,6 +24,18 @@ export interface CreateStreamingSessionStreamCommandOutput
 
 /**
  * <p>Creates a streaming session stream for a streaming session.</p> <p>After invoking this API, invoke GetStreamingSessionStream with the returned streamId to poll the resource until it is in state READY.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NimbleClient(config);
+ * const command = new CreateStreamingSessionStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateStreamingSessionStreamCommandInput} for command's `input` shape.
+ * @see {@link CreateStreamingSessionStreamCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateStreamingSessionStreamCommand extends $Command<
   CreateStreamingSessionStreamCommandInput,

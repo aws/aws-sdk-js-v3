@@ -23,6 +23,18 @@ export interface CreateRecipeJobCommandOutput extends CreateRecipeJobResponse, _
 /**
  * <p>Creates a new job to transform input data, using steps defined in an existing AWS Glue
  *             DataBrew recipe</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new CreateRecipeJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRecipeJobCommandInput} for command's `input` shape.
+ * @see {@link CreateRecipeJobCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRecipeJobCommand extends $Command<
   CreateRecipeJobCommandInput,

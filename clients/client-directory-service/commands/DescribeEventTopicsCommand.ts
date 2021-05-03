@@ -23,6 +23,18 @@ export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsRes
 /**
  * <p>Obtains information about which SNS topics receive status messages from the specified directory.</p>
  *          <p>If no input parameters are provided, such as DirectoryId or TopicName, this request describes all of the associations in the account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new DescribeEventTopicsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEventTopicsCommandInput} for command's `input` shape.
+ * @see {@link DescribeEventTopicsCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEventTopicsCommand extends $Command<
   DescribeEventTopicsCommandInput,

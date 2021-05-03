@@ -22,6 +22,18 @@ export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSaving
 
 /**
  * <p>Deletes the queued purchase for the specified Savings Plan.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SavingsplansClient(config);
+ * const command = new DeleteQueuedSavingsPlanCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteQueuedSavingsPlanCommandInput} for command's `input` shape.
+ * @see {@link DeleteQueuedSavingsPlanCommandOutput} for command's `response` shape.
+ * @see {@link SavingsplansClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteQueuedSavingsPlanCommand extends $Command<
   DeleteQueuedSavingsPlanCommandInput,

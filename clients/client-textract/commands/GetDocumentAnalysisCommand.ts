@@ -66,6 +66,18 @@ export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisRes
  *          parameter with the token value that's returned from the previous call to
  *             <code>GetDocumentAnalysis</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document Text Analysis</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TextractClient(config);
+ * const command = new GetDocumentAnalysisCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDocumentAnalysisCommandInput} for command's `input` shape.
+ * @see {@link GetDocumentAnalysisCommandOutput} for command's `response` shape.
+ * @see {@link TextractClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDocumentAnalysisCommand extends $Command<
   GetDocumentAnalysisCommandInput,

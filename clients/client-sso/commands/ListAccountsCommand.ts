@@ -24,6 +24,18 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * <p>Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the
  *       administrator of the account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Assign User Access</a> in the <i>AWS SSO User Guide</i>. This operation
  *       returns a paginated response.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSOClient(config);
+ * const command = new ListAccountsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAccountsCommandInput} for command's `input` shape.
+ * @see {@link ListAccountsCommandOutput} for command's `response` shape.
+ * @see {@link SSOClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAccountsCommand extends $Command<
   ListAccountsCommandInput,

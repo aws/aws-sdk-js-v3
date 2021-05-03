@@ -28,6 +28,18 @@ export interface DescribeResourceCollectionHealthCommandOutput
  *    		resource collections in your account. You specify the type of AWS resources collection. The one type of AWS resource collection supported is AWS CloudFormation stacks. DevOps Guru can be configured to analyze
  *       	only the AWS resources that are defined in the stacks.
  *    	</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DevOpsGuruClient(config);
+ * const command = new DescribeResourceCollectionHealthCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeResourceCollectionHealthCommandInput} for command's `input` shape.
+ * @see {@link DescribeResourceCollectionHealthCommandOutput} for command's `response` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeResourceCollectionHealthCommand extends $Command<
   DescribeResourceCollectionHealthCommandInput,

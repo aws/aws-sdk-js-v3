@@ -24,6 +24,18 @@ export interface ListFileSharesCommandOutput extends ListFileSharesOutput, __Met
  * <p>Gets a list of the file shares for a specific file gateway, or the list of file shares
  *          that belong to the calling user account. This operation is only supported for file
  *          gateways.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new ListFileSharesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFileSharesCommandInput} for command's `input` shape.
+ * @see {@link ListFileSharesCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFileSharesCommand extends $Command<
   ListFileSharesCommandInput,

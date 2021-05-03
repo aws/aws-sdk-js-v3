@@ -23,6 +23,18 @@ export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, _
 /**
  * <p>Deletes a device pool given the pool ARN. Does not allow deletion of curated pools
  *             owned by the system.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new DeleteDevicePoolCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDevicePoolCommandInput} for command's `input` shape.
+ * @see {@link DeleteDevicePoolCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDevicePoolCommand extends $Command<
   DeleteDevicePoolCommandInput,

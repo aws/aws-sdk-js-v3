@@ -23,6 +23,18 @@ export interface DeletePendingAggregationRequestCommandOutput extends __Metadata
 /**
  * <p>Deletes pending authorization requests for a specified
  * 			aggregator account in a specified region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DeletePendingAggregationRequestCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePendingAggregationRequestCommandInput} for command's `input` shape.
+ * @see {@link DeletePendingAggregationRequestCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePendingAggregationRequestCommand extends $Command<
   DeletePendingAggregationRequestCommandInput,

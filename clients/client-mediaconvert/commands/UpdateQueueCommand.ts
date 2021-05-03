@@ -22,6 +22,18 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
 
 /**
  * Modify one of your existing queues.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConvertClient(config);
+ * const command = new UpdateQueueCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateQueueCommandInput} for command's `input` shape.
+ * @see {@link UpdateQueueCommandOutput} for command's `response` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateQueueCommand extends $Command<
   UpdateQueueCommandInput,

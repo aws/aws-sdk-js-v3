@@ -25,6 +25,18 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  *          <note>
  *             <p>CloudTrail uses different private/public key pairs per region. Each digest file is signed with a private key unique to its region. Therefore, when you validate a digest file from a particular region, you must look in the same region for its corresponding public key.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudTrailClient(config);
+ * const command = new ListPublicKeysCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPublicKeysCommandInput} for command's `input` shape.
+ * @see {@link ListPublicKeysCommandOutput} for command's `response` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPublicKeysCommand extends $Command<
   ListPublicKeysCommandInput,

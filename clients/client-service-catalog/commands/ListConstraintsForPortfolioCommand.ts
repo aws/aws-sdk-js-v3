@@ -22,6 +22,18 @@ export interface ListConstraintsForPortfolioCommandOutput extends ListConstraint
 
 /**
  * <p>Lists the constraints for the specified portfolio and product.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new ListConstraintsForPortfolioCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListConstraintsForPortfolioCommandInput} for command's `input` shape.
+ * @see {@link ListConstraintsForPortfolioCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListConstraintsForPortfolioCommand extends $Command<
   ListConstraintsForPortfolioCommandInput,

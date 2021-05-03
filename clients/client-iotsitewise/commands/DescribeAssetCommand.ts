@@ -22,6 +22,18 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
 
 /**
  * <p>Retrieves information about an asset.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new DescribeAssetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAssetCommandInput} for command's `input` shape.
+ * @see {@link DescribeAssetCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAssetCommand extends $Command<
   DescribeAssetCommandInput,

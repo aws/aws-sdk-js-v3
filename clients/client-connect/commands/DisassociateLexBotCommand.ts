@@ -23,6 +23,18 @@ export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex bot.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new DisassociateLexBotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateLexBotCommandInput} for command's `input` shape.
+ * @see {@link DisassociateLexBotCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateLexBotCommand extends $Command<
   DisassociateLexBotCommandInput,

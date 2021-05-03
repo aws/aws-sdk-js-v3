@@ -22,6 +22,18 @@ export interface DescribeProgramCommandOutput extends DescribeProgramResponse, _
 
 /**
  * <p>Retrieves the properties of the requested program.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaTailorClient(config);
+ * const command = new DescribeProgramCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeProgramCommandInput} for command's `input` shape.
+ * @see {@link DescribeProgramCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeProgramCommand extends $Command<
   DescribeProgramCommandInput,

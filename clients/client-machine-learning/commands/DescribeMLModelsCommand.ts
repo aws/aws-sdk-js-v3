@@ -22,6 +22,18 @@ export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, _
 
 /**
  * <p>Returns a list of <code>MLModel</code> that match the search criteria in the request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MachineLearningClient(config);
+ * const command = new DescribeMLModelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeMLModelsCommandInput} for command's `input` shape.
+ * @see {@link DescribeMLModelsCommandOutput} for command's `response` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeMLModelsCommand extends $Command<
   DescribeMLModelsCommandInput,

@@ -23,6 +23,18 @@ export interface ListBuiltInSlotTypesCommandOutput extends ListBuiltInSlotTypesR
 /**
  * <p>Gets a list of built-in slot types that meet the specified
  *          criteria.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelsV2Client(config);
+ * const command = new ListBuiltInSlotTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBuiltInSlotTypesCommandInput} for command's `input` shape.
+ * @see {@link ListBuiltInSlotTypesCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBuiltInSlotTypesCommand extends $Command<
   ListBuiltInSlotTypesCommandInput,

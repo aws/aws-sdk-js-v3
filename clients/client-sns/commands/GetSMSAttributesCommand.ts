@@ -23,6 +23,18 @@ export interface GetSMSAttributesCommandOutput extends GetSMSAttributesResponse,
 /**
  * <p>Returns the settings for sending SMS messages from your account.</p>
  *         <p>These settings are set with the <code>SetSMSAttributes</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SNSClient(config);
+ * const command = new GetSMSAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSMSAttributesCommandInput} for command's `input` shape.
+ * @see {@link GetSMSAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSMSAttributesCommand extends $Command<
   GetSMSAttributesCommandInput,

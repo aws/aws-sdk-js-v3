@@ -47,6 +47,18 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  *          <p>You must be subscribed to Shield Advanced to create a Shield Advanced policy. For more
  *         information about subscribing to Shield Advanced, see
  *     <a href="https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html">CreateSubscription</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FMSClient(config);
+ * const command = new PutPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutPolicyCommandOutput} for command's `response` shape.
+ * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyCommandOutput, FMSClientResolvedConfig> {
   // Start section: command_properties

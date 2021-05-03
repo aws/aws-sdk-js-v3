@@ -24,6 +24,18 @@ export interface DeletePackagingConfigurationCommandOutput
 
 /**
  * Deletes a MediaPackage VOD PackagingConfiguration resource.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaPackageVodClient(config);
+ * const command = new DeletePackagingConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePackagingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeletePackagingConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageVodClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePackagingConfigurationCommand extends $Command<
   DeletePackagingConfigurationCommandInput,

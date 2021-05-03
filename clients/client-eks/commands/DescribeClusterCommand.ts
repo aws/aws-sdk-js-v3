@@ -30,6 +30,18 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  *             <p>The API server endpoint and certificate authority data aren't available until the
  *                 cluster reaches the <code>ACTIVE</code> state.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new DescribeClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeClusterCommandInput} for command's `input` shape.
+ * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeClusterCommand extends $Command<
   DescribeClusterCommandInput,

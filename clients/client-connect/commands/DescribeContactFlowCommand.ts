@@ -24,6 +24,18 @@ export interface DescribeContactFlowCommandOutput extends DescribeContactFlowRes
  * <p>Describes the specified contact flow.</p>
  *          <p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new DescribeContactFlowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeContactFlowCommandInput} for command's `input` shape.
+ * @see {@link DescribeContactFlowCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeContactFlowCommand extends $Command<
   DescribeContactFlowCommandInput,

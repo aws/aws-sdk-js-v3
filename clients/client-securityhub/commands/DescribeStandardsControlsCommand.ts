@@ -24,6 +24,18 @@ export interface DescribeStandardsControlsCommandOutput extends DescribeStandard
  * <p>Returns a list of security standards controls.</p>
  *          <p>For each control, the results include information about whether it is currently enabled,
  *          the severity, and a link to remediation information.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecurityHubClient(config);
+ * const command = new DescribeStandardsControlsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeStandardsControlsCommandInput} for command's `input` shape.
+ * @see {@link DescribeStandardsControlsCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeStandardsControlsCommand extends $Command<
   DescribeStandardsControlsCommandInput,

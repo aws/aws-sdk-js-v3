@@ -28,6 +28,18 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  *         <p>Rebooting an instance restarts the database engine service. Rebooting an instance
  *             results in a momentary outage, during which the instance status is set to
  *                 <i>rebooting</i>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DocDBClient(config);
+ * const command = new RebootDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RebootDBInstanceCommandInput} for command's `input` shape.
+ * @see {@link RebootDBInstanceCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RebootDBInstanceCommand extends $Command<
   RebootDBInstanceCommandInput,

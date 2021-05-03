@@ -32,6 +32,18 @@ export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserRespo
  * <code>Registered</code>
  * status. Users who are not previously suspended are ignored.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new BatchUnsuspendUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchUnsuspendUserCommandInput} for command's `input` shape.
+ * @see {@link BatchUnsuspendUserCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchUnsuspendUserCommand extends $Command<
   BatchUnsuspendUserCommandInput,

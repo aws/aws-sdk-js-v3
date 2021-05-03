@@ -22,6 +22,18 @@ export interface UpdateClusterKafkaVersionCommandOutput extends UpdateClusterKaf
 
 /**
  * <p>Updates the Apache Kafka version for the cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new UpdateClusterKafkaVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateClusterKafkaVersionCommandInput} for command's `input` shape.
+ * @see {@link UpdateClusterKafkaVersionCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateClusterKafkaVersionCommand extends $Command<
   UpdateClusterKafkaVersionCommandInput,

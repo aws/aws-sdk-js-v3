@@ -22,6 +22,18 @@ export interface ListConfigsCommandOutput extends ListConfigsResponse, __Metadat
 
 /**
  * <p>Returns a list of <code>Config</code> objects.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GroundStationClient(config);
+ * const command = new ListConfigsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListConfigsCommandInput} for command's `input` shape.
+ * @see {@link ListConfigsCommandOutput} for command's `response` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListConfigsCommand extends $Command<
   ListConfigsCommandInput,

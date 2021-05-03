@@ -27,6 +27,18 @@ export interface UpdateComponentCommandOutput extends UpdateComponentResponse, _
 /**
  * <p>Updates the custom component name and/or the list of resources that make up the
  *          component.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationInsightsClient(config);
+ * const command = new UpdateComponentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateComponentCommandInput} for command's `input` shape.
+ * @see {@link UpdateComponentCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateComponentCommand extends $Command<
   UpdateComponentCommandInput,

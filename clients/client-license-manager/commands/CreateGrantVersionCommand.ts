@@ -22,6 +22,18 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
 
 /**
  * <p>Creates a new version of the specified grant.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LicenseManagerClient(config);
+ * const command = new CreateGrantVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateGrantVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateGrantVersionCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateGrantVersionCommand extends $Command<
   CreateGrantVersionCommandInput,

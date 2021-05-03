@@ -22,6 +22,18 @@ export interface ListDistributedGrantsCommandOutput extends ListDistributedGrant
 
 /**
  * <p>Lists the grants distributed for the specified license.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LicenseManagerClient(config);
+ * const command = new ListDistributedGrantsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDistributedGrantsCommandInput} for command's `input` shape.
+ * @see {@link ListDistributedGrantsCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDistributedGrantsCommand extends $Command<
   ListDistributedGrantsCommandInput,

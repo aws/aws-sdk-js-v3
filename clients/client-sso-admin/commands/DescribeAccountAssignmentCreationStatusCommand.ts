@@ -28,6 +28,18 @@ export interface DescribeAccountAssignmentCreationStatusCommandOutput
 
 /**
  * <p>Describes the status of the assignment creation request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSOAdminClient(config);
+ * const command = new DescribeAccountAssignmentCreationStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAccountAssignmentCreationStatusCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccountAssignmentCreationStatusCommandOutput} for command's `response` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAccountAssignmentCreationStatusCommand extends $Command<
   DescribeAccountAssignmentCreationStatusCommandInput,

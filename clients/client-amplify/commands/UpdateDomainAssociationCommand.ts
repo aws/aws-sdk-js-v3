@@ -22,6 +22,18 @@ export interface UpdateDomainAssociationCommandOutput extends UpdateDomainAssoci
 
 /**
  * <p> Creates a new domain association for an Amplify app.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyClient(config);
+ * const command = new UpdateDomainAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDomainAssociationCommandInput} for command's `input` shape.
+ * @see {@link UpdateDomainAssociationCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDomainAssociationCommand extends $Command<
   UpdateDomainAssociationCommandInput,

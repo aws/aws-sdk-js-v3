@@ -32,6 +32,18 @@ export interface DeleteCustomMetricCommandOutput extends DeleteCustomMetricRespo
  *          <p>
  *       Deletes a Device Defender detect custom metric.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DeleteCustomMetricCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCustomMetricCommandInput} for command's `input` shape.
+ * @see {@link DeleteCustomMetricCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCustomMetricCommand extends $Command<
   DeleteCustomMetricCommandInput,

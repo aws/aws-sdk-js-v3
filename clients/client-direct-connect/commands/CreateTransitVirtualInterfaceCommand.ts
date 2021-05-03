@@ -33,6 +33,18 @@ export interface CreateTransitVirtualInterfaceCommandOutput
  *       the connection for up to 30 seconds. To check whether your connection supports jumbo
  *       frames, call <a>DescribeConnections</a>. To check whether your virtual
  *       interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new CreateTransitVirtualInterfaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTransitVirtualInterfaceCommandInput} for command's `input` shape.
+ * @see {@link CreateTransitVirtualInterfaceCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTransitVirtualInterfaceCommand extends $Command<
   CreateTransitVirtualInterfaceCommandInput,

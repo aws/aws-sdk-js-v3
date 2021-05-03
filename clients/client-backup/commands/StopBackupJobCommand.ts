@@ -22,6 +22,18 @@ export interface StopBackupJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new StopBackupJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopBackupJobCommandInput} for command's `input` shape.
+ * @see {@link StopBackupJobCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopBackupJobCommand extends $Command<
   StopBackupJobCommandInput,

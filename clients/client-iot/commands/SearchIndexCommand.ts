@@ -22,6 +22,18 @@ export interface SearchIndexCommandOutput extends SearchIndexResponse, __Metadat
 
 /**
  * <p>The query search index.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new SearchIndexCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchIndexCommandInput} for command's `input` shape.
+ * @see {@link SearchIndexCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchIndexCommand extends $Command<
   SearchIndexCommandInput,

@@ -32,6 +32,18 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  *         recommend that you disable webhooks in AWS CodeBuild. In the AWS CodeBuild console, clear the
  *         Webhook box. For more information, see step 5 in <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console">Change a Build Project's Settings</a>.</p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new CreateWebhookCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateWebhookCommandInput} for command's `input` shape.
+ * @see {@link CreateWebhookCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateWebhookCommand extends $Command<
   CreateWebhookCommandInput,

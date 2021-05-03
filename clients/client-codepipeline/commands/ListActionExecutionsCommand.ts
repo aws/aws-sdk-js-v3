@@ -22,6 +22,18 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
 
 /**
  * <p>Lists the action executions that have occurred in a pipeline.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new ListActionExecutionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListActionExecutionsCommandInput} for command's `input` shape.
+ * @see {@link ListActionExecutionsCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListActionExecutionsCommand extends $Command<
   ListActionExecutionsCommandInput,

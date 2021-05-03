@@ -28,6 +28,18 @@ export interface DescribePipelineDefinitionForExecutionCommandOutput
 
 /**
  * <p>Describes the details of an execution's pipeline definition.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DescribePipelineDefinitionForExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePipelineDefinitionForExecutionCommandInput} for command's `input` shape.
+ * @see {@link DescribePipelineDefinitionForExecutionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePipelineDefinitionForExecutionCommand extends $Command<
   DescribePipelineDefinitionForExecutionCommandInput,

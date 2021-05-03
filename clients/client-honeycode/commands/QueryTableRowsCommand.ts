@@ -24,6 +24,18 @@ export interface QueryTableRowsCommandOutput extends QueryTableRowsResult, __Met
  * <p>
  *             The QueryTableRows API allows you to use a filter formula to query for specific rows in a table.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new HoneycodeClient(config);
+ * const command = new QueryTableRowsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link QueryTableRowsCommandInput} for command's `input` shape.
+ * @see {@link QueryTableRowsCommandOutput} for command's `response` shape.
+ * @see {@link HoneycodeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class QueryTableRowsCommand extends $Command<
   QueryTableRowsCommandInput,

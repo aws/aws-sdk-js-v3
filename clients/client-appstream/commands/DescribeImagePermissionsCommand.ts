@@ -22,6 +22,18 @@ export interface DescribeImagePermissionsCommandOutput extends DescribeImagePerm
 
 /**
  * <p>Retrieves a list that describes the permissions for shared AWS account IDs on a private image that you own. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new DescribeImagePermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeImagePermissionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeImagePermissionsCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeImagePermissionsCommand extends $Command<
   DescribeImagePermissionsCommandInput,

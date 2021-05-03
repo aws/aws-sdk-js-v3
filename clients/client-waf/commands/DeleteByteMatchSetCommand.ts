@@ -45,6 +45,18 @@ export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetRespo
  *                <p>Submit a <code>DeleteByteMatchSet</code> request.</p>
  *             </li>
  *          </ol>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFClient(config);
+ * const command = new DeleteByteMatchSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteByteMatchSetCommandInput} for command's `input` shape.
+ * @see {@link DeleteByteMatchSetCommandOutput} for command's `response` shape.
+ * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteByteMatchSetCommand extends $Command<
   DeleteByteMatchSetCommandInput,

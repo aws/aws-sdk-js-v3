@@ -23,6 +23,18 @@ export interface CreateSecurityConfigurationCommandOutput extends CreateSecurity
 /**
  * <p>Creates a security configuration, which is stored in the service and can be specified
  *          when a cluster is created.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRClient(config);
+ * const command = new CreateSecurityConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSecurityConfigurationCommandInput} for command's `input` shape.
+ * @see {@link CreateSecurityConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSecurityConfigurationCommand extends $Command<
   CreateSecurityConfigurationCommandInput,

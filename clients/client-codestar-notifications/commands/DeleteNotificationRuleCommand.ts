@@ -26,6 +26,18 @@ export interface DeleteNotificationRuleCommandOutput extends DeleteNotificationR
 
 /**
  * <p>Deletes a notification rule for a resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodestarNotificationsClient(config);
+ * const command = new DeleteNotificationRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteNotificationRuleCommandInput} for command's `input` shape.
+ * @see {@link DeleteNotificationRuleCommandOutput} for command's `response` shape.
+ * @see {@link CodestarNotificationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteNotificationRuleCommand extends $Command<
   DeleteNotificationRuleCommandInput,

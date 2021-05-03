@@ -24,6 +24,18 @@ export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageV
  * <p>
  *       Updates the status of one or more versions of a package.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeartifactClient(config);
+ * const command = new UpdatePackageVersionsStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePackageVersionsStatusCommandInput} for command's `input` shape.
+ * @see {@link UpdatePackageVersionsStatusCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePackageVersionsStatusCommand extends $Command<
   UpdatePackageVersionsStatusCommandInput,

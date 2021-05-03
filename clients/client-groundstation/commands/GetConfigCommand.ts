@@ -23,6 +23,18 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
 /**
  * <p>Returns <code>Config</code> information.</p>
  *          <p>Only one <code>Config</code> response can be returned.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GroundStationClient(config);
+ * const command = new GetConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetConfigCommandInput} for command's `input` shape.
+ * @see {@link GetConfigCommandOutput} for command's `response` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetConfigCommand extends $Command<
   GetConfigCommandInput,

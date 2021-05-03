@@ -24,6 +24,18 @@ export interface DescribeConfigurationRevisionCommandOutput
 
 /**
  * Returns the specified configuration revision for the specified configuration.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MqClient(config);
+ * const command = new DescribeConfigurationRevisionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConfigurationRevisionCommandInput} for command's `input` shape.
+ * @see {@link DescribeConfigurationRevisionCommandOutput} for command's `response` shape.
+ * @see {@link MqClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConfigurationRevisionCommand extends $Command<
   DescribeConfigurationRevisionCommandInput,

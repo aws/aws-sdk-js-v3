@@ -22,6 +22,18 @@ export interface DeleteContainerRecipeCommandOutput extends DeleteContainerRecip
 
 /**
  * <p>Deletes a container recipe.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new DeleteContainerRecipeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteContainerRecipeCommandInput} for command's `input` shape.
+ * @see {@link DeleteContainerRecipeCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteContainerRecipeCommand extends $Command<
   DeleteContainerRecipeCommandInput,

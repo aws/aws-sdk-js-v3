@@ -29,6 +29,18 @@ export interface ListRepositoriesInDomainCommandOutput extends ListRepositoriesI
  *        objects. Each <code>RepositorySummary</code> contains information about a repository in the specified domain and that matches the input
  *        parameters.
  *      </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeartifactClient(config);
+ * const command = new ListRepositoriesInDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRepositoriesInDomainCommandInput} for command's `input` shape.
+ * @see {@link ListRepositoriesInDomainCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRepositoriesInDomainCommand extends $Command<
   ListRepositoriesInDomainCommandInput,

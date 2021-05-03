@@ -36,6 +36,18 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __M
  *                 role access, ensure that Amazon S3 permissions to the Athena query location are
  *                 denied.</p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AthenaClient(config);
+ * const command = new GetQueryResultsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetQueryResultsCommandInput} for command's `input` shape.
+ * @see {@link GetQueryResultsCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetQueryResultsCommand extends $Command<
   GetQueryResultsCommandInput,

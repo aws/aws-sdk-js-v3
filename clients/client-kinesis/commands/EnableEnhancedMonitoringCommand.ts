@@ -22,6 +22,18 @@ export interface EnableEnhancedMonitoringCommandOutput extends EnhancedMonitorin
 
 /**
  * <p>Enables enhanced Kinesis data stream monitoring for shard-level metrics.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisClient(config);
+ * const command = new EnableEnhancedMonitoringCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableEnhancedMonitoringCommandInput} for command's `input` shape.
+ * @see {@link EnableEnhancedMonitoringCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableEnhancedMonitoringCommand extends $Command<
   EnableEnhancedMonitoringCommandInput,

@@ -28,6 +28,18 @@ export interface DisassociateAwsAccountFromPartnerAccountCommandOutput
 
 /**
  * <p>Disassociates your AWS account from a partner account. If <code>PartnerAccountId</code> and <code>PartnerType</code> are <code>null</code>, disassociates your AWS account from all partner accounts.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new DisassociateAwsAccountFromPartnerAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateAwsAccountFromPartnerAccountCommandInput} for command's `input` shape.
+ * @see {@link DisassociateAwsAccountFromPartnerAccountCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateAwsAccountFromPartnerAccountCommand extends $Command<
   DisassociateAwsAccountFromPartnerAccountCommandInput,

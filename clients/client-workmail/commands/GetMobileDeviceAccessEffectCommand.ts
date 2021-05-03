@@ -25,6 +25,18 @@ export interface GetMobileDeviceAccessEffectCommandOutput
 /**
  * <p>Simulates the effect of the mobile device access rules for the given attributes of a sample access event. Use this method to test the effects of the current set of mobile device access
  *          rules for the Amazon WorkMail organization for a particular user's attributes.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new GetMobileDeviceAccessEffectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMobileDeviceAccessEffectCommandInput} for command's `input` shape.
+ * @see {@link GetMobileDeviceAccessEffectCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMobileDeviceAccessEffectCommand extends $Command<
   GetMobileDeviceAccessEffectCommandInput,

@@ -23,6 +23,18 @@ export interface CreatePortfolioCommandOutput extends CreatePortfolioOutput, __M
 /**
  * <p>Creates a portfolio.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new CreatePortfolioCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePortfolioCommandInput} for command's `input` shape.
+ * @see {@link CreatePortfolioCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePortfolioCommand extends $Command<
   CreatePortfolioCommandInput,

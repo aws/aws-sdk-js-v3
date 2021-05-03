@@ -22,6 +22,18 @@ export interface GetDevicesCommandOutput extends GetDevicesResponse, __MetadataB
 
 /**
  * <p>Gets information about one or more of your devices in a global network.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new GetDevicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDevicesCommandInput} for command's `input` shape.
+ * @see {@link GetDevicesCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDevicesCommand extends $Command<
   GetDevicesCommandInput,

@@ -24,6 +24,18 @@ export interface ListPackagingConfigurationsCommandOutput
 
 /**
  * Returns a collection of MediaPackage VOD PackagingConfiguration resources.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaPackageVodClient(config);
+ * const command = new ListPackagingConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPackagingConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link ListPackagingConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageVodClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPackagingConfigurationsCommand extends $Command<
   ListPackagingConfigurationsCommandInput,

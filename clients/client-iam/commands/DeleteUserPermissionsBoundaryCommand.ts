@@ -27,6 +27,18 @@ export interface DeleteUserPermissionsBoundaryCommandOutput extends __MetadataBe
  *                 allowing the user to perform all the actions granted in its permissions policies.
  *             </p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new DeleteUserPermissionsBoundaryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteUserPermissionsBoundaryCommandInput} for command's `input` shape.
+ * @see {@link DeleteUserPermissionsBoundaryCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteUserPermissionsBoundaryCommand extends $Command<
   DeleteUserPermissionsBoundaryCommandInput,

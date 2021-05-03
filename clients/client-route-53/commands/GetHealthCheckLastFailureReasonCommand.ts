@@ -24,6 +24,18 @@ export interface GetHealthCheckLastFailureReasonCommandOutput
 
 /**
  * <p>Gets the reason that a specified health check failed most recently.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new GetHealthCheckLastFailureReasonCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetHealthCheckLastFailureReasonCommandInput} for command's `input` shape.
+ * @see {@link GetHealthCheckLastFailureReasonCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetHealthCheckLastFailureReasonCommand extends $Command<
   GetHealthCheckLastFailureReasonCommandInput,

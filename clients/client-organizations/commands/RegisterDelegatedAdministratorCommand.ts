@@ -30,6 +30,18 @@ export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataB
  *     AWS Organizations</a> in the <i>AWS Organizations User Guide.</i>
  *          </p>
  *         <p>This operation can be called only from the organization's management account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OrganizationsClient(config);
+ * const command = new RegisterDelegatedAdministratorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterDelegatedAdministratorCommandInput} for command's `input` shape.
+ * @see {@link RegisterDelegatedAdministratorCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterDelegatedAdministratorCommand extends $Command<
   RegisterDelegatedAdministratorCommandInput,

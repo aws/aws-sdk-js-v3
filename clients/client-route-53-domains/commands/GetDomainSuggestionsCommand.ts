@@ -22,6 +22,18 @@ export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsR
 
 /**
  * <p>The GetDomainSuggestions operation returns a list of suggested domain names.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53DomainsClient(config);
+ * const command = new GetDomainSuggestionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDomainSuggestionsCommandInput} for command's `input` shape.
+ * @see {@link GetDomainSuggestionsCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDomainSuggestionsCommand extends $Command<
   GetDomainSuggestionsCommandInput,

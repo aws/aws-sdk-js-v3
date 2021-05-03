@@ -22,6 +22,18 @@ export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the status for the specified findings.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AccessAnalyzerClient(config);
+ * const command = new UpdateFindingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFindingsCommandInput} for command's `input` shape.
+ * @see {@link UpdateFindingsCommandOutput} for command's `response` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFindingsCommand extends $Command<
   UpdateFindingsCommandInput,

@@ -32,6 +32,18 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  *         (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>. </p>
  *
  *          <p>For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RekognitionClient(config);
+ * const command = new StartContentModerationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartContentModerationCommandInput} for command's `input` shape.
+ * @see {@link StartContentModerationCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartContentModerationCommand extends $Command<
   StartContentModerationCommandInput,

@@ -22,6 +22,18 @@ export interface GetHostedConfigurationVersionCommandOutput extends HostedConfig
 
 /**
  * <p>Get information about a specific configuration version.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppConfigClient(config);
+ * const command = new GetHostedConfigurationVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetHostedConfigurationVersionCommandInput} for command's `input` shape.
+ * @see {@link GetHostedConfigurationVersionCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetHostedConfigurationVersionCommand extends $Command<
   GetHostedConfigurationVersionCommandInput,

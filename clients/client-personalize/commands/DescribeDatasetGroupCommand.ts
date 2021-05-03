@@ -22,6 +22,18 @@ export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupR
 
 /**
  * <p>Describes the given dataset group. For more information on dataset groups, see <a>CreateDatasetGroup</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeClient(config);
+ * const command = new DescribeDatasetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDatasetGroupCommandInput} for command's `input` shape.
+ * @see {@link DescribeDatasetGroupCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDatasetGroupCommand extends $Command<
   DescribeDatasetGroupCommandInput,

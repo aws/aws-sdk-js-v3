@@ -25,6 +25,18 @@ export interface DeleteProfileObjectTypeCommandOutput extends DeleteProfileObjec
  *          ProfileObjects of that type. It also disables integrations from this specific
  *          ProfileObjectType. In addition, it scrubs all of the fields of the standard profile that
  *          were populated from this ProfileObjectType.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CustomerProfilesClient(config);
+ * const command = new DeleteProfileObjectTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteProfileObjectTypeCommandInput} for command's `input` shape.
+ * @see {@link DeleteProfileObjectTypeCommandOutput} for command's `response` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteProfileObjectTypeCommand extends $Command<
   DeleteProfileObjectTypeCommandInput,

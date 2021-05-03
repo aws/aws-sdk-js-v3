@@ -27,6 +27,18 @@ export interface DescribeConnectionsCommandOutput extends DescribeConnectionsRes
 /**
  * <p>Describes the status of the connections that have been made between the replication
  *          instance and an endpoint. Connections are created when you test an endpoint.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DescribeConnectionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConnectionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeConnectionsCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConnectionsCommand extends $Command<
   DescribeConnectionsCommandInput,

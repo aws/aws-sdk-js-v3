@@ -24,6 +24,18 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * <p>Invites other AWS accounts (created as members of the current AWS account by
  *       CreateMembers) to enable GuardDuty, and allow the current AWS account to view and manage these
  *       accounts' findings on their behalf as the GuardDuty administrator account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new InviteMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InviteMembersCommandInput} for command's `input` shape.
+ * @see {@link InviteMembersCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InviteMembersCommand extends $Command<
   InviteMembersCommandInput,

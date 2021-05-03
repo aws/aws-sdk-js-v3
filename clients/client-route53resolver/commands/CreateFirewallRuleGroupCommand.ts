@@ -23,6 +23,18 @@ export interface CreateFirewallRuleGroupCommandOutput extends CreateFirewallRule
 /**
  * <p>Creates an empty DNS Firewall rule group for filtering DNS network traffic in a VPC. You can add rules to the new rule group
  *            by calling <a>CreateFirewallRule</a>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new CreateFirewallRuleGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFirewallRuleGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateFirewallRuleGroupCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFirewallRuleGroupCommand extends $Command<
   CreateFirewallRuleGroupCommandInput,

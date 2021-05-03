@@ -22,6 +22,18 @@ export interface ListMetricSetsCommandOutput extends ListMetricSetsResponse, __M
 
 /**
  * <p>Lists the datasets in the current AWS Region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutMetricsClient(config);
+ * const command = new ListMetricSetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMetricSetsCommandInput} for command's `input` shape.
+ * @see {@link ListMetricSetsCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMetricSetsCommand extends $Command<
   ListMetricSetsCommandInput,

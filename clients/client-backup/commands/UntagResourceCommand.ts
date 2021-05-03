@@ -23,6 +23,18 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes a set of key-value pairs from a recovery point, backup plan, or backup vault
  *          identified by an Amazon Resource Name (ARN)</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new UntagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UntagResourceCommandInput} for command's `input` shape.
+ * @see {@link UntagResourceCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

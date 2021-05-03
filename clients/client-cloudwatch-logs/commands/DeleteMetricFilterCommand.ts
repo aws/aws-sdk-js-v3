@@ -22,6 +22,18 @@ export interface DeleteMetricFilterCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified metric filter.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new DeleteMetricFilterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMetricFilterCommandInput} for command's `input` shape.
+ * @see {@link DeleteMetricFilterCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMetricFilterCommand extends $Command<
   DeleteMetricFilterCommandInput,

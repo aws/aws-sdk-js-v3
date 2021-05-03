@@ -22,6 +22,18 @@ export interface UnshareDirectoryCommandOutput extends UnshareDirectoryResult, _
 
 /**
  * <p>Stops the directory sharing between the directory owner and consumer accounts. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new UnshareDirectoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UnshareDirectoryCommandInput} for command's `input` shape.
+ * @see {@link UnshareDirectoryCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UnshareDirectoryCommand extends $Command<
   UnshareDirectoryCommandInput,

@@ -36,6 +36,18 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  *           operation is required to use this method. </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftDataClient(config);
+ * const command = new ListSchemasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSchemasCommandInput} for command's `input` shape.
+ * @see {@link ListSchemasCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftDataClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSchemasCommand extends $Command<
   ListSchemasCommandInput,

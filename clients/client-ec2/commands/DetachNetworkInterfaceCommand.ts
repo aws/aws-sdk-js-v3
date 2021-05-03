@@ -22,6 +22,18 @@ export interface DetachNetworkInterfaceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Detaches a network interface from an instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DetachNetworkInterfaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetachNetworkInterfaceCommandInput} for command's `input` shape.
+ * @see {@link DetachNetworkInterfaceCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetachNetworkInterfaceCommand extends $Command<
   DetachNetworkInterfaceCommandInput,

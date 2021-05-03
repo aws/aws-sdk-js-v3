@@ -24,6 +24,18 @@ export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBea
 /**
  * <p>Starts logging information, such as queries and connection attempts, for the
  *             specified Amazon Redshift cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new EnableLoggingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableLoggingCommandInput} for command's `input` shape.
+ * @see {@link EnableLoggingCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableLoggingCommand extends $Command<
   EnableLoggingCommandInput,

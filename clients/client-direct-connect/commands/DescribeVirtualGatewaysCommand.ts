@@ -23,6 +23,18 @@ export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, _
 /**
  * <p>Lists the virtual private gateways owned by the AWS account.</p>
  *          <p>You can create one or more AWS Direct Connect private virtual interfaces linked to a virtual private gateway.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new DescribeVirtualGatewaysCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeVirtualGatewaysCommandInput} for command's `input` shape.
+ * @see {@link DescribeVirtualGatewaysCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeVirtualGatewaysCommand extends $Command<
   DescribeVirtualGatewaysCommandInput,

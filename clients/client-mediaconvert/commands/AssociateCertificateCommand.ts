@@ -22,6 +22,18 @@ export interface AssociateCertificateCommandOutput extends AssociateCertificateR
 
 /**
  * Associates an AWS Certificate Manager (ACM) Amazon Resource Name (ARN) with AWS Elemental MediaConvert.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConvertClient(config);
+ * const command = new AssociateCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateCertificateCommandInput} for command's `input` shape.
+ * @see {@link AssociateCertificateCommandOutput} for command's `response` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateCertificateCommand extends $Command<
   AssociateCertificateCommandInput,

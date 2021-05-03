@@ -23,6 +23,18 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
 /**
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">aliases</a>
  *       for a Lambda function.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new ListAliasesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAliasesCommandInput} for command's `input` shape.
+ * @see {@link ListAliasesCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAliasesCommand extends $Command<
   ListAliasesCommandInput,

@@ -24,6 +24,18 @@ export interface ListEventsCommandOutput extends ListEventsResponse, __MetadataB
  * <p>
  *    		Returns a list of the events emitted by the resources that are evaluated by DevOps Guru. You can use filters to specify which events are returned.
  *    	</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DevOpsGuruClient(config);
+ * const command = new ListEventsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEventsCommandInput} for command's `input` shape.
+ * @see {@link ListEventsCommandOutput} for command's `response` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEventsCommand extends $Command<
   ListEventsCommandInput,

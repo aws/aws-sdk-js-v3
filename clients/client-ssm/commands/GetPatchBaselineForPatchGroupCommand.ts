@@ -24,6 +24,18 @@ export interface GetPatchBaselineForPatchGroupCommandOutput
 
 /**
  * <p>Retrieves the patch baseline that should be used for the specified patch group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new GetPatchBaselineForPatchGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPatchBaselineForPatchGroupCommandInput} for command's `input` shape.
+ * @see {@link GetPatchBaselineForPatchGroupCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPatchBaselineForPatchGroupCommand extends $Command<
   GetPatchBaselineForPatchGroupCommandInput,

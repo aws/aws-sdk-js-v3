@@ -33,6 +33,18 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrResul
  *          to <code>provisioned</code>. To monitor the status of an address range, use <a>DescribeByoipCidrs</a>.
  *          To allocate an Elastic IP address from your IPv4 address pool, use <a>AllocateAddress</a>
  *          with either the specific address from the address pool or the ID of the address pool.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ProvisionByoipCidrCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ProvisionByoipCidrCommandInput} for command's `input` shape.
+ * @see {@link ProvisionByoipCidrCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ProvisionByoipCidrCommand extends $Command<
   ProvisionByoipCidrCommandInput,

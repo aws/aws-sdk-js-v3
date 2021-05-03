@@ -22,6 +22,18 @@ export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult,
 
 /**
  * <p>Systems Manager calls this API action when you edit OpsMetadata in Application Manager.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new UpdateOpsMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateOpsMetadataCommandInput} for command's `input` shape.
+ * @see {@link UpdateOpsMetadataCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateOpsMetadataCommand extends $Command<
   UpdateOpsMetadataCommandInput,

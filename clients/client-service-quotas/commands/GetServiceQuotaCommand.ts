@@ -24,6 +24,18 @@ export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, _
  * <p>Retrieves the applied quota value for the specified quota. For some quotas, only the
  *       default values are available. If the applied quota value is not available for a quota, the
  *       quota is not retrieved.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceQuotasClient(config);
+ * const command = new GetServiceQuotaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetServiceQuotaCommandInput} for command's `input` shape.
+ * @see {@link GetServiceQuotaCommandOutput} for command's `response` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetServiceQuotaCommand extends $Command<
   GetServiceQuotaCommandInput,

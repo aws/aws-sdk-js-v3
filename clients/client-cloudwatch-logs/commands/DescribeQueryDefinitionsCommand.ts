@@ -24,6 +24,18 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * <p>This operation returns a paginated list of your saved CloudWatch Logs Insights query definitions.</p>
  *          <p>You can use the <code>queryDefinitionNamePrefix</code> parameter to limit the results to only the
  *       query definitions that have names that start with a certain string.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new DescribeQueryDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeQueryDefinitionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeQueryDefinitionsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeQueryDefinitionsCommand extends $Command<
   DescribeQueryDefinitionsCommandInput,

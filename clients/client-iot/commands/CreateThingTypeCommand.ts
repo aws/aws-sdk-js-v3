@@ -22,6 +22,18 @@ export interface CreateThingTypeCommandOutput extends CreateThingTypeResponse, _
 
 /**
  * <p>Creates a new thing type.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new CreateThingTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateThingTypeCommandInput} for command's `input` shape.
+ * @see {@link CreateThingTypeCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateThingTypeCommand extends $Command<
   CreateThingTypeCommandInput,

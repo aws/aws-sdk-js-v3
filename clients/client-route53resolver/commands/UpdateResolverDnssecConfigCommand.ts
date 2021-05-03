@@ -22,6 +22,18 @@ export interface UpdateResolverDnssecConfigCommandOutput extends UpdateResolverD
 
 /**
  * <p>Updates an existing DNSSEC validation configuration. If there is no existing DNSSEC validation configuration, one is created.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new UpdateResolverDnssecConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateResolverDnssecConfigCommandInput} for command's `input` shape.
+ * @see {@link UpdateResolverDnssecConfigCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateResolverDnssecConfigCommand extends $Command<
   UpdateResolverDnssecConfigCommandInput,

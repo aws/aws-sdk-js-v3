@@ -27,6 +27,18 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  *          <p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>.
  *       For AWS services and resources that invoke your function directly, delete the trigger in the service where you
  *       originally configured it.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new DeleteFunctionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFunctionCommandInput} for command's `input` shape.
+ * @see {@link DeleteFunctionCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFunctionCommand extends $Command<
   DeleteFunctionCommandInput,

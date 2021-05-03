@@ -26,6 +26,18 @@ export interface DescribePlacementCommandOutput extends DescribePlacementRespons
 
 /**
  * <p>Describes a placement in a project.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoT1ClickProjectsClient(config);
+ * const command = new DescribePlacementCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePlacementCommandInput} for command's `input` shape.
+ * @see {@link DescribePlacementCommandOutput} for command's `response` shape.
+ * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePlacementCommand extends $Command<
   DescribePlacementCommandInput,

@@ -26,6 +26,18 @@ export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKi
  *          <p>You can't restart a stream after you cancel it. Canceled QLDB stream resources are
  *          subject to a 7-day retention period, so they are automatically deleted after this limit
  *          expires.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QLDBClient(config);
+ * const command = new CancelJournalKinesisStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelJournalKinesisStreamCommandInput} for command's `input` shape.
+ * @see {@link CancelJournalKinesisStreamCommandOutput} for command's `response` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelJournalKinesisStreamCommand extends $Command<
   CancelJournalKinesisStreamCommandInput,

@@ -26,6 +26,18 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  *             in the same AWS Region. Only the owner of a workload can delete it.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining a Workload</a> in the
  *                 <i>AWS Well-Architected Tool User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WellArchitectedClient(config);
+ * const command = new CreateWorkloadCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateWorkloadCommandInput} for command's `input` shape.
+ * @see {@link CreateWorkloadCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateWorkloadCommand extends $Command<
   CreateWorkloadCommandInput,

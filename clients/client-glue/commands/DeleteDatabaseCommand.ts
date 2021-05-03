@@ -34,6 +34,18 @@ export interface DeleteDatabaseCommandOutput extends DeleteDatabaseResponse, __M
  *           <code>DeleteTable</code> or <code>BatchDeleteTable</code>, to delete any resources that
  *         belong to the database.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new DeleteDatabaseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDatabaseCommandInput} for command's `input` shape.
+ * @see {@link DeleteDatabaseCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDatabaseCommand extends $Command<
   DeleteDatabaseCommandInput,

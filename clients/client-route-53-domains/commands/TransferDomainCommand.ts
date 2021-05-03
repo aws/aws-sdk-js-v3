@@ -55,6 +55,18 @@ export interface TransferDomainCommandOutput extends TransferDomainResponse, __M
  *
  * 		       <p>If the transfer is successful, this method returns an operation ID that you can use to track the progress and
  * 			completion of the action. If the transfer doesn't complete successfully, the domain registrant will be notified by email.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53DomainsClient(config);
+ * const command = new TransferDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TransferDomainCommandInput} for command's `input` shape.
+ * @see {@link TransferDomainCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TransferDomainCommand extends $Command<
   TransferDomainCommandInput,

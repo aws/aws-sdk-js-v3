@@ -22,6 +22,18 @@ export interface DescribeClusterOperationCommandOutput extends DescribeClusterOp
 
 /**
  * <p>Returns a description of the cluster operation specified by the ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new DescribeClusterOperationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeClusterOperationCommandInput} for command's `input` shape.
+ * @see {@link DescribeClusterOperationCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeClusterOperationCommand extends $Command<
   DescribeClusterOperationCommandInput,

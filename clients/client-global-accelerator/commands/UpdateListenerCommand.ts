@@ -26,6 +26,18 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
 
 /**
  * <p>Update a listener. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new UpdateListenerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateListenerCommandInput} for command's `input` shape.
+ * @see {@link UpdateListenerCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateListenerCommand extends $Command<
   UpdateListenerCommandInput,

@@ -48,6 +48,18 @@ export interface GetUtterancesViewCommandOutput extends GetUtterancesViewRespons
  *       utterances are not available.</p>
  *          <p>This operation requires permissions for the
  *         <code>lex:GetUtterancesView</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new GetUtterancesViewCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetUtterancesViewCommandInput} for command's `input` shape.
+ * @see {@link GetUtterancesViewCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetUtterancesViewCommand extends $Command<
   GetUtterancesViewCommandInput,

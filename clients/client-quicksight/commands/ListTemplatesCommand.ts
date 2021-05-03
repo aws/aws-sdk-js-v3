@@ -22,6 +22,18 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
 
 /**
  * <p>Lists all the templates in the current Amazon QuickSight account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new ListTemplatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTemplatesCommandInput} for command's `input` shape.
+ * @see {@link ListTemplatesCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTemplatesCommand extends $Command<
   ListTemplatesCommandInput,

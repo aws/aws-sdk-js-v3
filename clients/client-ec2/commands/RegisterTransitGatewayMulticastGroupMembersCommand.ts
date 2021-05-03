@@ -33,6 +33,18 @@ export interface RegisterTransitGatewayMulticastGroupMembersCommandOutput
  *                 Consideration</a> in <i>Amazon VPC Transit Gateways</i>.</p>
  *         <p>After you add the members, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html">SearchTransitGatewayMulticastGroups</a> to verify that the members were added
  *             to the  transit gateway multicast group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new RegisterTransitGatewayMulticastGroupMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterTransitGatewayMulticastGroupMembersCommandInput} for command's `input` shape.
+ * @see {@link RegisterTransitGatewayMulticastGroupMembersCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterTransitGatewayMulticastGroupMembersCommand extends $Command<
   RegisterTransitGatewayMulticastGroupMembersCommandInput,

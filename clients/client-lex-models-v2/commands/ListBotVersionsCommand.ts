@@ -29,6 +29,18 @@ export interface ListBotVersionsCommandOutput extends ListBotVersionsResponse, _
  *          version.</p>
  *          <p>The <code>ListBotVersions</code> operation always returns at least
  *          one version, the <code>DRAFT</code> version.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelsV2Client(config);
+ * const command = new ListBotVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBotVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListBotVersionsCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBotVersionsCommand extends $Command<
   ListBotVersionsCommandInput,

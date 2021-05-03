@@ -22,6 +22,18 @@ export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobRespo
 
 /**
  * <p>Begins a FHIR Import job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new HealthLakeClient(config);
+ * const command = new StartFHIRImportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartFHIRImportJobCommandInput} for command's `input` shape.
+ * @see {@link StartFHIRImportJobCommandOutput} for command's `response` shape.
+ * @see {@link HealthLakeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartFHIRImportJobCommand extends $Command<
   StartFHIRImportJobCommandInput,

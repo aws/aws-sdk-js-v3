@@ -31,6 +31,18 @@ export interface EnableKeyCommandOutput extends __MetadataBearer {}
  *          <p>
  *             <b>Related operations</b>: <a>DisableKey</a>
  *          </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KMSClient(config);
+ * const command = new EnableKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableKeyCommandInput} for command's `input` shape.
+ * @see {@link EnableKeyCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableKeyCommand extends $Command<EnableKeyCommandInput, EnableKeyCommandOutput, KMSClientResolvedConfig> {
   // Start section: command_properties

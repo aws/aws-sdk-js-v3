@@ -37,6 +37,18 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
  *             tracking bounces and complaints. If you haven't set up another mechanism for receiving
  *             bounce or complaint notifications, Amazon Pinpoint sends an email notification when these events
  *             occur (even if this setting is disabled).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointEmailClient(config);
+ * const command = new PutEmailIdentityFeedbackAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutEmailIdentityFeedbackAttributesCommandInput} for command's `input` shape.
+ * @see {@link PutEmailIdentityFeedbackAttributesCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutEmailIdentityFeedbackAttributesCommand extends $Command<
   PutEmailIdentityFeedbackAttributesCommandInput,

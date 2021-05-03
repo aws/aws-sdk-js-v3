@@ -28,6 +28,18 @@ export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTa
  * <p>Gets information about the scalable targets in the specified namespace.</p>
  *          <p>You can filter the results using <code>ResourceIds</code> and
  *             <code>ScalableDimension</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationAutoScalingClient(config);
+ * const command = new DescribeScalableTargetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeScalableTargetsCommandInput} for command's `input` shape.
+ * @see {@link DescribeScalableTargetsCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeScalableTargetsCommand extends $Command<
   DescribeScalableTargetsCommandInput,

@@ -24,6 +24,18 @@ export interface UpdateMobileDeviceAccessRuleCommandOutput
 
 /**
  * <p>Updates a mobile device access rule for the specified Amazon WorkMail organization.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new UpdateMobileDeviceAccessRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMobileDeviceAccessRuleCommandInput} for command's `input` shape.
+ * @see {@link UpdateMobileDeviceAccessRuleCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMobileDeviceAccessRuleCommand extends $Command<
   UpdateMobileDeviceAccessRuleCommandInput,

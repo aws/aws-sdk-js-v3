@@ -22,6 +22,18 @@ export interface StopNotebookExecutionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a notebook execution.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRClient(config);
+ * const command = new StopNotebookExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopNotebookExecutionCommandInput} for command's `input` shape.
+ * @see {@link StopNotebookExecutionCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopNotebookExecutionCommand extends $Command<
   StopNotebookExecutionCommandInput,

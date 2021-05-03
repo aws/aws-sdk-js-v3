@@ -19,6 +19,18 @@ export interface GetCommitCommandOutput extends GetCommitOutput, __MetadataBeare
 
 /**
  * <p>Returns information about a commit, including commit message and committer information.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new GetCommitCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCommitCommandInput} for command's `input` shape.
+ * @see {@link GetCommitCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCommitCommand extends $Command<
   GetCommitCommandInput,

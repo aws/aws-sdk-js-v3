@@ -55,6 +55,18 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  *                 response should return the latest data. So retry logic is recommended to handle
  *                 these possible issues. We also recommend that customers call <a>DescribeEndpointConfig</a> before calling <a>CreateEndpoint</a> to minimize the potential impact of a DynamoDB eventually consistent read.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateEndpointConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateEndpointConfigCommandInput} for command's `input` shape.
+ * @see {@link CreateEndpointConfigCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateEndpointConfigCommand extends $Command<
   CreateEndpointConfigCommandInput,

@@ -23,6 +23,18 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
 /**
  * <p>Retrieves a paginated list of component summaries. This list includes components that you
  *       have permission to view.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassV2Client(config);
+ * const command = new ListComponentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListComponentsCommandInput} for command's `input` shape.
+ * @see {@link ListComponentsCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListComponentsCommand extends $Command<
   ListComponentsCommandInput,

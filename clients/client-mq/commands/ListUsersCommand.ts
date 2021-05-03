@@ -22,6 +22,18 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
 
 /**
  * Returns a list of all ActiveMQ users.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MqClient(config);
+ * const command = new ListUsersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListUsersCommandInput} for command's `input` shape.
+ * @see {@link ListUsersCommandOutput} for command's `response` shape.
+ * @see {@link MqClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersCommandOutput, MqClientResolvedConfig> {
   // Start section: command_properties

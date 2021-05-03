@@ -26,6 +26,18 @@ export interface StartContinuousExportCommandOutput extends StartContinuousExpor
 
 /**
  * <p>Start the continuous flow of agent's discovered data into Amazon Athena.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new StartContinuousExportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartContinuousExportCommandInput} for command's `input` shape.
+ * @see {@link StartContinuousExportCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartContinuousExportCommand extends $Command<
   StartContinuousExportCommandInput,

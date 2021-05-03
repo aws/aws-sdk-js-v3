@@ -23,6 +23,18 @@ export interface ListAssessmentRunAgentsCommandOutput extends ListAssessmentRunA
 /**
  * <p>Lists the agents of the assessment runs that are specified by the ARNs of the
  *          assessment runs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new ListAssessmentRunAgentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAssessmentRunAgentsCommandInput} for command's `input` shape.
+ * @see {@link ListAssessmentRunAgentsCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAssessmentRunAgentsCommand extends $Command<
   ListAssessmentRunAgentsCommandInput,

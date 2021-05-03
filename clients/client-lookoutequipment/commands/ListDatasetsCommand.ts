@@ -23,6 +23,18 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
 /**
  * <p>Lists all datasets currently available in your account, filtering on the dataset name.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutEquipmentClient(config);
+ * const command = new ListDatasetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDatasetsCommandInput} for command's `input` shape.
+ * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDatasetsCommand extends $Command<
   ListDatasetsCommandInput,

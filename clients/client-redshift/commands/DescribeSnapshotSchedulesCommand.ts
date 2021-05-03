@@ -24,6 +24,18 @@ export interface DescribeSnapshotSchedulesCommandOutput
 
 /**
  * <p>Returns a list of snapshot schedules. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DescribeSnapshotSchedulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSnapshotSchedulesCommandInput} for command's `input` shape.
+ * @see {@link DescribeSnapshotSchedulesCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSnapshotSchedulesCommand extends $Command<
   DescribeSnapshotSchedulesCommandInput,

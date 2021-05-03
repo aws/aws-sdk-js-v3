@@ -26,6 +26,18 @@ export interface DescribeNotificationRuleCommandOutput extends DescribeNotificat
 
 /**
  * <p>Returns information about a specified notification rule.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodestarNotificationsClient(config);
+ * const command = new DescribeNotificationRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeNotificationRuleCommandInput} for command's `input` shape.
+ * @see {@link DescribeNotificationRuleCommandOutput} for command's `response` shape.
+ * @see {@link CodestarNotificationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeNotificationRuleCommand extends $Command<
   DescribeNotificationRuleCommandInput,

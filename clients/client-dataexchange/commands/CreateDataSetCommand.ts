@@ -22,6 +22,18 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
 
 /**
  * <p>This operation creates a data set.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataExchangeClient(config);
+ * const command = new CreateDataSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDataSetCommandInput} for command's `input` shape.
+ * @see {@link CreateDataSetCommandOutput} for command's `response` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDataSetCommand extends $Command<
   CreateDataSetCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeImageCommandOutput extends DescribeImageResponse, __Met
 
 /**
  * <p>Describes a SageMaker image.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeImageCommandInput} for command's `input` shape.
+ * @see {@link DescribeImageCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeImageCommand extends $Command<
   DescribeImageCommandInput,

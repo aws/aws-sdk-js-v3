@@ -22,6 +22,18 @@ export interface GetDomainNameCommandOutput extends DomainName, __MetadataBearer
 
 /**
  * <p>Represents a domain name that is contained in a simpler, more intuitive URL that can be called.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new GetDomainNameCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDomainNameCommandInput} for command's `input` shape.
+ * @see {@link GetDomainNameCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDomainNameCommand extends $Command<
   GetDomainNameCommandInput,

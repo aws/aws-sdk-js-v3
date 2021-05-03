@@ -30,6 +30,18 @@ export interface DescribeDefaultEncryptionConfigurationCommandOutput
  * <p>Retrieves information about the default encryption configuration for the
  *       AWS account in the default or specified region. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/key-management.html">Key management</a>
  *       in the <i>AWS IoT SiteWise User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new DescribeDefaultEncryptionConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDefaultEncryptionConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeDefaultEncryptionConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDefaultEncryptionConfigurationCommand extends $Command<
   DescribeDefaultEncryptionConfigurationCommandInput,

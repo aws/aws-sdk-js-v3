@@ -22,6 +22,18 @@ export interface DeleteScheduledAuditCommandOutput extends DeleteScheduledAuditR
 
 /**
  * <p>Deletes a scheduled audit.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DeleteScheduledAuditCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteScheduledAuditCommandInput} for command's `input` shape.
+ * @see {@link DeleteScheduledAuditCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteScheduledAuditCommand extends $Command<
   DeleteScheduledAuditCommandInput,

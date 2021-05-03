@@ -22,6 +22,18 @@ export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse,
 
 /**
  * List input devices
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaLiveClient(config);
+ * const command = new ListInputDevicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListInputDevicesCommandInput} for command's `input` shape.
+ * @see {@link ListInputDevicesCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListInputDevicesCommand extends $Command<
   ListInputDevicesCommandInput,

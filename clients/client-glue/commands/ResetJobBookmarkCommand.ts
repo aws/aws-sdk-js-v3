@@ -22,6 +22,18 @@ export interface ResetJobBookmarkCommandOutput extends ResetJobBookmarkResponse,
 
 /**
  * <p>Resets a bookmark entry.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new ResetJobBookmarkCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResetJobBookmarkCommandInput} for command's `input` shape.
+ * @see {@link ResetJobBookmarkCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResetJobBookmarkCommand extends $Command<
   ResetJobBookmarkCommandInput,

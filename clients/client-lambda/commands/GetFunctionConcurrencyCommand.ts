@@ -23,6 +23,18 @@ export interface GetFunctionConcurrencyCommandOutput extends GetFunctionConcurre
 /**
  * <p>Returns details about the reserved concurrency configuration for a function. To set a concurrency limit for a
  *       function, use <a>PutFunctionConcurrency</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new GetFunctionConcurrencyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFunctionConcurrencyCommandInput} for command's `input` shape.
+ * @see {@link GetFunctionConcurrencyCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFunctionConcurrencyCommand extends $Command<
   GetFunctionConcurrencyCommandInput,

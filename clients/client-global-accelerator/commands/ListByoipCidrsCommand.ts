@@ -27,6 +27,18 @@ export interface ListByoipCidrsCommandOutput extends ListByoipCidrsResponse, __M
 /**
  * <p>Lists the IP address ranges that were specified in calls to <a href="https://docs.aws.amazon.com/global-accelerator/latest/api/ProvisionByoipCidr.html">ProvisionByoipCidr</a>, including
  * 			the current state and a history of state changes.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new ListByoipCidrsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListByoipCidrsCommandInput} for command's `input` shape.
+ * @see {@link ListByoipCidrsCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListByoipCidrsCommand extends $Command<
   ListByoipCidrsCommandInput,

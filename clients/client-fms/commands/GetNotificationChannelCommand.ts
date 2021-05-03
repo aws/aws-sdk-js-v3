@@ -24,6 +24,18 @@ export interface GetNotificationChannelCommandOutput extends GetNotificationChan
  * <p>Information
  *       about the Amazon Simple Notification Service (SNS) topic that is used to
  *       record AWS Firewall Manager SNS logs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FMSClient(config);
+ * const command = new GetNotificationChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetNotificationChannelCommandInput} for command's `input` shape.
+ * @see {@link GetNotificationChannelCommandOutput} for command's `response` shape.
+ * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetNotificationChannelCommand extends $Command<
   GetNotificationChannelCommandInput,

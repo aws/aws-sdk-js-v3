@@ -27,6 +27,18 @@ export interface CreateAliasCommandOutput extends AliasConfiguration, __Metadata
  *          <p>You can also map an alias to split invocation requests between two versions. Use the
  *         <code>RoutingConfig</code> parameter to specify a second version and the percentage of invocation requests that
  *       it receives.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new CreateAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAliasCommandInput} for command's `input` shape.
+ * @see {@link CreateAliasCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAliasCommand extends $Command<
   CreateAliasCommandInput,

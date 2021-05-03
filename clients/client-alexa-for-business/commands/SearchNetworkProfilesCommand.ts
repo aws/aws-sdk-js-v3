@@ -23,6 +23,18 @@ export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfile
 /**
  * <p>Searches network profiles and lists the ones that meet a set of filter and sort
  *          criteria.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new SearchNetworkProfilesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchNetworkProfilesCommandInput} for command's `input` shape.
+ * @see {@link SearchNetworkProfilesCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchNetworkProfilesCommand extends $Command<
   SearchNetworkProfilesCommandInput,

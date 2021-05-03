@@ -40,6 +40,18 @@ export interface BatchGetResourceConfigCommandOutput extends BatchGetResourceCon
  * 				           </li>
  *             </ul>
  * 		       </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new BatchGetResourceConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetResourceConfigCommandInput} for command's `input` shape.
+ * @see {@link BatchGetResourceConfigCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetResourceConfigCommand extends $Command<
   BatchGetResourceConfigCommandInput,

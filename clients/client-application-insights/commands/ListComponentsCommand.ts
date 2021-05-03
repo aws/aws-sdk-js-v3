@@ -26,6 +26,18 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
 
 /**
  * <p>Lists the auto-grouped, standalone, and custom components of the application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationInsightsClient(config);
+ * const command = new ListComponentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListComponentsCommandInput} for command's `input` shape.
+ * @see {@link ListComponentsCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListComponentsCommand extends $Command<
   ListComponentsCommandInput,

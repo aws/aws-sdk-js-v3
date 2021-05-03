@@ -24,6 +24,18 @@ export interface ListGroupCertificateAuthoritiesCommandOutput
 
 /**
  * Retrieves the current CAs for a group.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new ListGroupCertificateAuthoritiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListGroupCertificateAuthoritiesCommandInput} for command's `input` shape.
+ * @see {@link ListGroupCertificateAuthoritiesCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListGroupCertificateAuthoritiesCommand extends $Command<
   ListGroupCertificateAuthoritiesCommandInput,

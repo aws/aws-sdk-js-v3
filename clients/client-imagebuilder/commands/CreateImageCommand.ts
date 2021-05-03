@@ -23,6 +23,18 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
 /**
  * <p> Creates a new image. This request will create a new image along with all of the
  *       configured output resources defined in the distribution configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new CreateImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateImageCommandInput} for command's `input` shape.
+ * @see {@link CreateImageCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateImageCommand extends $Command<
   CreateImageCommandInput,

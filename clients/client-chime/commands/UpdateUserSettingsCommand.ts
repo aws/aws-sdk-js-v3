@@ -22,6 +22,18 @@ export interface UpdateUserSettingsCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the settings for the specified user, such as phone number settings.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new UpdateUserSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateUserSettingsCommandInput} for command's `input` shape.
+ * @see {@link UpdateUserSettingsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateUserSettingsCommand extends $Command<
   UpdateUserSettingsCommandInput,

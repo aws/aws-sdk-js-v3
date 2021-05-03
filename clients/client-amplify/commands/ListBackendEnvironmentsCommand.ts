@@ -22,6 +22,18 @@ export interface ListBackendEnvironmentsCommandOutput extends ListBackendEnviron
 
 /**
  * <p> Lists the backend environments for an Amplify app. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyClient(config);
+ * const command = new ListBackendEnvironmentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBackendEnvironmentsCommandInput} for command's `input` shape.
+ * @see {@link ListBackendEnvironmentsCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBackendEnvironmentsCommand extends $Command<
   ListBackendEnvironmentsCommandInput,

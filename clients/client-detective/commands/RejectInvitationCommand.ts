@@ -23,6 +23,18 @@ export interface RejectInvitationCommandOutput extends __MetadataBearer {}
 /**
  * <p>Rejects an invitation to contribute the account data to a behavior graph. This operation
  *          must be called by a member account that has the <code>INVITED</code> status.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DetectiveClient(config);
+ * const command = new RejectInvitationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RejectInvitationCommandInput} for command's `input` shape.
+ * @see {@link RejectInvitationCommandOutput} for command's `response` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RejectInvitationCommand extends $Command<
   RejectInvitationCommandInput,

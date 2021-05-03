@@ -22,6 +22,18 @@ export interface ListPublishedSchemaArnsCommandOutput extends ListPublishedSchem
 
 /**
  * <p>Lists the major version families of each published schema. If a major version ARN is provided as <code>SchemaArn</code>, the minor version revisions in that family are listed instead.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new ListPublishedSchemaArnsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPublishedSchemaArnsCommandInput} for command's `input` shape.
+ * @see {@link ListPublishedSchemaArnsCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPublishedSchemaArnsCommand extends $Command<
   ListPublishedSchemaArnsCommandInput,

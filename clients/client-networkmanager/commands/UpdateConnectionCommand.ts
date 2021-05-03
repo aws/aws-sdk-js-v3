@@ -23,6 +23,18 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
 /**
  * <p>Updates the information for an existing connection. To remove information for any of the parameters,
  *             specify an empty string.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new UpdateConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateConnectionCommandInput} for command's `input` shape.
+ * @see {@link UpdateConnectionCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateConnectionCommand extends $Command<
   UpdateConnectionCommandInput,

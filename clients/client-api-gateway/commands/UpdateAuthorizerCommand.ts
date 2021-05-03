@@ -23,6 +23,18 @@ export interface UpdateAuthorizerCommandOutput extends Authorizer, __MetadataBea
 /**
  * <p>Updates an existing <a>Authorizer</a> resource.</p>
  *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-authorizer.html">AWS CLI</a></div>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new UpdateAuthorizerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAuthorizerCommandInput} for command's `input` shape.
+ * @see {@link UpdateAuthorizerCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAuthorizerCommand extends $Command<
   UpdateAuthorizerCommandInput,

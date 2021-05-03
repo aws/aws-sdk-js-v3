@@ -26,6 +26,18 @@ export interface ListUsageForLicenseConfigurationCommandOutput
  * <p>Lists all license usage records for a license configuration, displaying license
  *          consumption details by resource at a selected point in time. Use this action to audit the
  *          current license consumption for any license inventory and configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LicenseManagerClient(config);
+ * const command = new ListUsageForLicenseConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListUsageForLicenseConfigurationCommandInput} for command's `input` shape.
+ * @see {@link ListUsageForLicenseConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListUsageForLicenseConfigurationCommand extends $Command<
   ListUsageForLicenseConfigurationCommandInput,

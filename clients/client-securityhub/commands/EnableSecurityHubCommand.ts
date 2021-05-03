@@ -46,6 +46,18 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  *             </code> operation.</p>
  *          <p>To learn more, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-settingup.html">Setting Up
  *             AWS Security Hub</a> in the <i>AWS Security Hub User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecurityHubClient(config);
+ * const command = new EnableSecurityHubCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableSecurityHubCommandInput} for command's `input` shape.
+ * @see {@link EnableSecurityHubCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableSecurityHubCommand extends $Command<
   EnableSecurityHubCommandInput,

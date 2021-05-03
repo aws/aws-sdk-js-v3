@@ -22,6 +22,18 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
 
 /**
  * <p>Describes the findings that are specified by the ARNs of the findings.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new DescribeFindingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFindingsCommandInput} for command's `input` shape.
+ * @see {@link DescribeFindingsCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFindingsCommand extends $Command<
   DescribeFindingsCommandInput,

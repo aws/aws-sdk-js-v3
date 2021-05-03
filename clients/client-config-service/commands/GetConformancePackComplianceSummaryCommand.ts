@@ -27,6 +27,18 @@ export interface GetConformancePackComplianceSummaryCommandOutput
 
 /**
  * <p>Returns compliance details for the conformance pack based on the cumulative compliance results of all the rules in that conformance pack.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new GetConformancePackComplianceSummaryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetConformancePackComplianceSummaryCommandInput} for command's `input` shape.
+ * @see {@link GetConformancePackComplianceSummaryCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetConformancePackComplianceSummaryCommand extends $Command<
   GetConformancePackComplianceSummaryCommandInput,

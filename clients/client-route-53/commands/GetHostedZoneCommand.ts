@@ -23,6 +23,18 @@ export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __Met
 
 /**
  * <p>Gets information about a specified hosted zone including the four name servers assigned to the hosted zone.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new GetHostedZoneCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetHostedZoneCommandInput} for command's `input` shape.
+ * @see {@link GetHostedZoneCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetHostedZoneCommand extends $Command<
   GetHostedZoneCommandInput,

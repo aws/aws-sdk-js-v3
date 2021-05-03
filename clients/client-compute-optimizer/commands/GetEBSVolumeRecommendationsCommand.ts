@@ -28,6 +28,18 @@ export interface GetEBSVolumeRecommendationsCommandOutput
  *         <p>AWS Compute Optimizer generates recommendations for Amazon EBS volumes that meet a specific set of
  *             requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported resources and
  *                 requirements</a> in the <i>AWS Compute Optimizer User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComputeOptimizerClient(config);
+ * const command = new GetEBSVolumeRecommendationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEBSVolumeRecommendationsCommandInput} for command's `input` shape.
+ * @see {@link GetEBSVolumeRecommendationsCommandOutput} for command's `response` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEBSVolumeRecommendationsCommand extends $Command<
   GetEBSVolumeRecommendationsCommandInput,

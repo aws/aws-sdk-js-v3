@@ -22,6 +22,18 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
 
 /**
  * <p>Returns a list of existing clusters.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new ListClustersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListClustersCommandInput} for command's `input` shape.
+ * @see {@link ListClustersCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListClustersCommand extends $Command<
   ListClustersCommandInput,

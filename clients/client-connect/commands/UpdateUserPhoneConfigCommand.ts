@@ -22,6 +22,18 @@ export interface UpdateUserPhoneConfigCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Updates the phone configuration settings for the specified user.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new UpdateUserPhoneConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateUserPhoneConfigCommandInput} for command's `input` shape.
+ * @see {@link UpdateUserPhoneConfigCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateUserPhoneConfigCommand extends $Command<
   UpdateUserPhoneConfigCommandInput,

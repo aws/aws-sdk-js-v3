@@ -22,6 +22,18 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
 
 /**
  * <p>Creates a message template for messages that are sent through the email channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new CreateEmailTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateEmailTemplateCommandInput} for command's `input` shape.
+ * @see {@link CreateEmailTemplateCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateEmailTemplateCommand extends $Command<
   CreateEmailTemplateCommandInput,

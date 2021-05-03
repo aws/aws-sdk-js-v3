@@ -22,6 +22,18 @@ export interface DescribeMitigationActionCommandOutput extends DescribeMitigatio
 
 /**
  * <p>Gets information about a mitigation action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DescribeMitigationActionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeMitigationActionCommandInput} for command's `input` shape.
+ * @see {@link DescribeMitigationActionCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeMitigationActionCommand extends $Command<
   DescribeMitigationActionCommandInput,

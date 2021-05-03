@@ -25,6 +25,18 @@ export interface ListHITsCommandOutput extends ListHITsResponse, __MetadataBeare
  *             HITs of any status, except for HITs that have been deleted of with
  *             the DeleteHIT operation or that have been auto-deleted.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MTurkClient(config);
+ * const command = new ListHITsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListHITsCommandInput} for command's `input` shape.
+ * @see {@link ListHITsCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsCommandOutput, MTurkClientResolvedConfig> {
   // Start section: command_properties

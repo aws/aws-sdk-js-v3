@@ -45,6 +45,18 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  *                 </li>
  *             </ul>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SupportClient(config);
+ * const command = new DescribeCommunicationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCommunicationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeCommunicationsCommandOutput} for command's `response` shape.
+ * @see {@link SupportClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCommunicationsCommand extends $Command<
   DescribeCommunicationsCommandInput,

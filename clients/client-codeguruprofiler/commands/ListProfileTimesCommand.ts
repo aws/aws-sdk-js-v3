@@ -23,6 +23,18 @@ export interface ListProfileTimesCommandOutput extends ListProfileTimesResponse,
 /**
  * <p>Lists the start times of the available aggregated profiles of a profiling group
  *         for an aggregation period within the specified time range.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeGuruProfilerClient(config);
+ * const command = new ListProfileTimesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProfileTimesCommandInput} for command's `input` shape.
+ * @see {@link ListProfileTimesCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProfileTimesCommand extends $Command<
   ListProfileTimesCommandInput,

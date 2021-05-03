@@ -19,6 +19,18 @@ export interface GetJobCommandOutput extends GetJobResult, __MetadataBearer {}
 
 /**
  * <p> Returns a job for a branch of an Amplify app. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyClient(config);
+ * const command = new GetJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetJobCommandInput} for command's `input` shape.
+ * @see {@link GetJobCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOutput, AmplifyClientResolvedConfig> {
   // Start section: command_properties

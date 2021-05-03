@@ -31,6 +31,18 @@ export interface UpdateUserCommandOutput extends __MetadataBearer {}
  *                 entity making the request must have permission on Bob and Robert, or must have
  *                 permission on all (*). For more information about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html">Permissions and policies</a>. </p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new UpdateUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateUserCommandInput} for command's `input` shape.
+ * @see {@link UpdateUserCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateUserCommand extends $Command<
   UpdateUserCommandInput,

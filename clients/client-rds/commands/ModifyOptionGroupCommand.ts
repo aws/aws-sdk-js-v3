@@ -22,6 +22,18 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
 
 /**
  * <p>Modifies an existing option group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new ModifyOptionGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyOptionGroupCommandInput} for command's `input` shape.
+ * @see {@link ModifyOptionGroupCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyOptionGroupCommand extends $Command<
   ModifyOptionGroupCommandInput,

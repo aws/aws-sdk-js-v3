@@ -23,6 +23,18 @@ export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateR
 /**
  * <p>Creates a system. The system is validated against the entities in the
  *          latest version of the user's namespace unless another namespace version is specified in the request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTThingsGraphClient(config);
+ * const command = new CreateSystemTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSystemTemplateCommandInput} for command's `input` shape.
+ * @see {@link CreateSystemTemplateCommandOutput} for command's `response` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSystemTemplateCommand extends $Command<
   CreateSystemTemplateCommandInput,

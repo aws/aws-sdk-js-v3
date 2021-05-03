@@ -32,6 +32,18 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  *             <p>If you don't provide a value for an attribute, it will be set to the default
  *                 value.</p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new UpdateUserPoolCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateUserPoolCommandInput} for command's `input` shape.
+ * @see {@link UpdateUserPoolCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateUserPoolCommand extends $Command<
   UpdateUserPoolCommandInput,

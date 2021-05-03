@@ -20,6 +20,18 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
 /**
  * <p>Creates an application. An application consists of one or more server groups. Each
  *             server group contain one or more servers.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SMSClient(config);
+ * const command = new CreateAppCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAppCommandInput} for command's `input` shape.
+ * @see {@link CreateAppCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAppCommand extends $Command<CreateAppCommandInput, CreateAppCommandOutput, SMSClientResolvedConfig> {
   // Start section: command_properties

@@ -31,6 +31,18 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  *          truncated, the response includes a Marker field. You can use this Marker value in your
  *          subsequent request to retrieve the next set of volumes. This operation is only supported in
  *          the cached volume and stored volume gateway types.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new ListVolumesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListVolumesCommandInput} for command's `input` shape.
+ * @see {@link ListVolumesCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListVolumesCommand extends $Command<
   ListVolumesCommandInput,

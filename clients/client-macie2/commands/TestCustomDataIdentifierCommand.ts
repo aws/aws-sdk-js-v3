@@ -22,6 +22,18 @@ export interface TestCustomDataIdentifierCommandOutput extends TestCustomDataIde
 
 /**
  * <p>Tests a custom data identifier.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new TestCustomDataIdentifierCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TestCustomDataIdentifierCommandInput} for command's `input` shape.
+ * @see {@link TestCustomDataIdentifierCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TestCustomDataIdentifierCommand extends $Command<
   TestCustomDataIdentifierCommandInput,

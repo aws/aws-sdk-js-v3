@@ -21,6 +21,18 @@ export interface ImportImageCommandOutput extends ImportImageResult, __MetadataB
  * <p>Import single or multi-volume disk images or EBS snapshots into an Amazon Machine Image (AMI).</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing a
  *    VM as an image using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ImportImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportImageCommandInput} for command's `input` shape.
+ * @see {@link ImportImageCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ImportImageCommand extends $Command<
   ImportImageCommandInput,

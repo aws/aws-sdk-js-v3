@@ -24,6 +24,18 @@ export interface DeleteConnectorProfileCommandOutput extends DeleteConnectorProf
  * <p>
  *  Enables you to delete an existing connector profile.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppflowClient(config);
+ * const command = new DeleteConnectorProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConnectorProfileCommandInput} for command's `input` shape.
+ * @see {@link DeleteConnectorProfileCommandOutput} for command's `response` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConnectorProfileCommand extends $Command<
   DeleteConnectorProfileCommandInput,

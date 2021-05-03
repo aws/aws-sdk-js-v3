@@ -22,6 +22,18 @@ export interface DeleteStudioCommandOutput extends DeleteStudioResponse, __Metad
 
 /**
  * <p>Delete a studio resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NimbleClient(config);
+ * const command = new DeleteStudioCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteStudioCommandInput} for command's `input` shape.
+ * @see {@link DeleteStudioCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteStudioCommand extends $Command<
   DeleteStudioCommandInput,

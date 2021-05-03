@@ -27,6 +27,18 @@ export interface ListAutomaticTapeCreationPoliciesCommandOutput
  *          creation policies for the gateway, it returns an empty list.</p>
  *
  *          <p>This operation is only supported for tape gateways.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new ListAutomaticTapeCreationPoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAutomaticTapeCreationPoliciesCommandInput} for command's `input` shape.
+ * @see {@link ListAutomaticTapeCreationPoliciesCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAutomaticTapeCreationPoliciesCommand extends $Command<
   ListAutomaticTapeCreationPoliciesCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
 
 /**
  * <p>Updates the cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new UpdateClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateClusterCommandInput} for command's `input` shape.
+ * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateClusterCommand extends $Command<
   UpdateClusterCommandInput,

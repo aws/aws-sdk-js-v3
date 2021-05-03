@@ -22,6 +22,18 @@ export interface DeleteWorkspaceCommandOutput extends __MetadataBearer {}
 
 /**
  * Deletes an AMP workspace.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmpClient(config);
+ * const command = new DeleteWorkspaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteWorkspaceCommandInput} for command's `input` shape.
+ * @see {@link DeleteWorkspaceCommandOutput} for command's `response` shape.
+ * @see {@link AmpClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteWorkspaceCommand extends $Command<
   DeleteWorkspaceCommandInput,

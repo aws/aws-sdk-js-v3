@@ -23,6 +23,18 @@ export interface PutConferencePreferenceCommandOutput extends PutConferencePrefe
 /**
  * <p>Sets the conference preferences on a specific conference provider at the account
  *          level.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new PutConferencePreferenceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutConferencePreferenceCommandInput} for command's `input` shape.
+ * @see {@link PutConferencePreferenceCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutConferencePreferenceCommand extends $Command<
   PutConferencePreferenceCommandInput,

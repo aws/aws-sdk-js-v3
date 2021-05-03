@@ -103,6 +103,18 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *             <code>SerialNumber</code> value identifies the user's hardware or virtual MFA device.
  *          The <code>TokenCode</code> is the time-based one-time password (TOTP) that the MFA device
  *          produces. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new STSClient(config);
+ * const command = new AssumeRoleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssumeRoleCommandInput} for command's `input` shape.
+ * @see {@link AssumeRoleCommandOutput} for command's `response` shape.
+ * @see {@link STSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssumeRoleCommand extends $Command<
   AssumeRoleCommandInput,

@@ -22,6 +22,18 @@ export interface NullAndEmptyHeadersClientCommandOutput extends NullAndEmptyHead
 
 /**
  * Null and empty headers are not sent over the wire.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new NullAndEmptyHeadersClientCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link NullAndEmptyHeadersClientCommandInput} for command's `input` shape.
+ * @see {@link NullAndEmptyHeadersClientCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class NullAndEmptyHeadersClientCommand extends $Command<
   NullAndEmptyHeadersClientCommandInput,

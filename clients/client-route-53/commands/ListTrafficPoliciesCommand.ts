@@ -28,6 +28,18 @@ export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesRes
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteTrafficPolicy.html">DeleteTrafficPolicy</a>.
  *
  * 		</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new ListTrafficPoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTrafficPoliciesCommandInput} for command's `input` shape.
+ * @see {@link ListTrafficPoliciesCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTrafficPoliciesCommand extends $Command<
   ListTrafficPoliciesCommandInput,

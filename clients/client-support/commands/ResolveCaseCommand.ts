@@ -37,6 +37,18 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  *                 </li>
  *             </ul>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SupportClient(config);
+ * const command = new ResolveCaseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResolveCaseCommandInput} for command's `input` shape.
+ * @see {@link ResolveCaseCommandOutput} for command's `response` shape.
+ * @see {@link SupportClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResolveCaseCommand extends $Command<
   ResolveCaseCommandInput,

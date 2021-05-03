@@ -25,6 +25,18 @@ export interface PurchaseHostReservationCommandOutput extends PurchaseHostReserv
  *             You must have active Dedicated Hosts in your account before you purchase a reservation.
  *             This action results in the specified reservation being purchased and charged to your
  *             account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new PurchaseHostReservationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PurchaseHostReservationCommandInput} for command's `input` shape.
+ * @see {@link PurchaseHostReservationCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PurchaseHostReservationCommand extends $Command<
   PurchaseHostReservationCommandInput,

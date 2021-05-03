@@ -28,6 +28,18 @@ export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __M
  * <p>Lists agents or connectors as specified by ID or other filters. All agents/connectors
  *       associated with your user account can be listed if you call <code>DescribeAgents</code> as is
  *       without passing any parameters.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new DescribeAgentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAgentsCommandInput} for command's `input` shape.
+ * @see {@link DescribeAgentsCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAgentsCommand extends $Command<
   DescribeAgentsCommandInput,

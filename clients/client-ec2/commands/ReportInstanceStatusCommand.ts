@@ -26,6 +26,18 @@ export interface ReportInstanceStatusCommandOutput extends __MetadataBearer {}
  *             instance status returned by <a>DescribeInstanceStatus</a>, use <a>ReportInstanceStatus</a> to report your experience with the instance. Amazon
  *             EC2 collects this information to improve the accuracy of status checks.</p>
  *         <p>Use of this action does not change the value returned by <a>DescribeInstanceStatus</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ReportInstanceStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReportInstanceStatusCommandInput} for command's `input` shape.
+ * @see {@link ReportInstanceStatusCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReportInstanceStatusCommand extends $Command<
   ReportInstanceStatusCommandInput,

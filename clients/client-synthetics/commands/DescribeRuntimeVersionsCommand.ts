@@ -24,6 +24,18 @@ export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVer
  * <p>Returns a list of Synthetics canary runtime versions. For more information,
  *          see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html">
  *             Canary Runtime Versions</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SyntheticsClient(config);
+ * const command = new DescribeRuntimeVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRuntimeVersionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeRuntimeVersionsCommandOutput} for command's `response` shape.
+ * @see {@link SyntheticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRuntimeVersionsCommand extends $Command<
   DescribeRuntimeVersionsCommandInput,

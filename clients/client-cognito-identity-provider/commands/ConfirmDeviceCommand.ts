@@ -28,6 +28,18 @@ export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __Met
 /**
  * <p>Confirms tracking of the device. This API call is the call that begins device
  *             tracking.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new ConfirmDeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ConfirmDeviceCommandInput} for command's `input` shape.
+ * @see {@link ConfirmDeviceCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ConfirmDeviceCommand extends $Command<
   ConfirmDeviceCommandInput,

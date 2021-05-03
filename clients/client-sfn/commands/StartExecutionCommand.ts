@@ -30,6 +30,18 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  *         it will return a 400 <code>ExecutionAlreadyExists</code> error. Names can be reused after 90
  *         days. </p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SFNClient(config);
+ * const command = new StartExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartExecutionCommandInput} for command's `input` shape.
+ * @see {@link StartExecutionCommandOutput} for command's `response` shape.
+ * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartExecutionCommand extends $Command<
   StartExecutionCommandInput,

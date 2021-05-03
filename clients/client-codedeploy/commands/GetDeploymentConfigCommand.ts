@@ -22,6 +22,18 @@ export interface GetDeploymentConfigCommandOutput extends GetDeploymentConfigOut
 
 /**
  * <p>Gets information about a deployment configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new GetDeploymentConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDeploymentConfigCommandInput} for command's `input` shape.
+ * @see {@link GetDeploymentConfigCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDeploymentConfigCommand extends $Command<
   GetDeploymentConfigCommandInput,

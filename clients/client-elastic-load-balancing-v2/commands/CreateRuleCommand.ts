@@ -28,6 +28,18 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  *       are evaluated in priority order, from the lowest value to the highest value. When the
  *       conditions for a rule are met, its actions are performed. If the conditions for no rules are
  *       met, the actions for the default rule are performed. For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener rules</a> in the <i>Application Load Balancers Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new CreateRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRuleCommandInput} for command's `input` shape.
+ * @see {@link CreateRuleCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRuleCommand extends $Command<
   CreateRuleCommandInput,

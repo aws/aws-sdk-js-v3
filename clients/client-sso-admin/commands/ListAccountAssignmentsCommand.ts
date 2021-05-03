@@ -23,6 +23,18 @@ export interface ListAccountAssignmentsCommandOutput extends ListAccountAssignme
 /**
  * <p>Lists the assignee of the specified AWS account with the specified permission
  *        set.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSOAdminClient(config);
+ * const command = new ListAccountAssignmentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAccountAssignmentsCommandInput} for command's `input` shape.
+ * @see {@link ListAccountAssignmentsCommandOutput} for command's `response` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAccountAssignmentsCommand extends $Command<
   ListAccountAssignmentsCommandInput,

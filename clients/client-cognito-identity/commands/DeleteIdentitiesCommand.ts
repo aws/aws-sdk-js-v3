@@ -25,6 +25,18 @@ export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse,
  * <p>Deletes identities from an identity pool. You can specify a list of 1-60 identities
  *          that you want to delete.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityClient(config);
+ * const command = new DeleteIdentitiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteIdentitiesCommandInput} for command's `input` shape.
+ * @see {@link DeleteIdentitiesCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteIdentitiesCommand extends $Command<
   DeleteIdentitiesCommandInput,

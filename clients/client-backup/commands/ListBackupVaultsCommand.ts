@@ -23,6 +23,18 @@ export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, _
 /**
  * <p>Returns a list of recovery point storage containers along with information about
  *          them.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new ListBackupVaultsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBackupVaultsCommandInput} for command's `input` shape.
+ * @see {@link ListBackupVaultsCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBackupVaultsCommand extends $Command<
   ListBackupVaultsCommandInput,

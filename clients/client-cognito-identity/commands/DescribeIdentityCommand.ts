@@ -25,6 +25,18 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
  * <p>Returns metadata related to the given identity, including when the identity was
  *          created and any associated linked logins.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityClient(config);
+ * const command = new DescribeIdentityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeIdentityCommandInput} for command's `input` shape.
+ * @see {@link DescribeIdentityCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeIdentityCommand extends $Command<
   DescribeIdentityCommandInput,

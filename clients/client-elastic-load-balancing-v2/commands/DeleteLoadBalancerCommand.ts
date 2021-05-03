@@ -32,6 +32,18 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutpu
  *          <p>Deleting a load balancer does not affect its registered targets. For example, your EC2
  *       instances continue to run and are still registered to their target groups. If you no longer
  *       need these EC2 instances, you can stop or terminate them.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new DeleteLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteLoadBalancerCommandInput} for command's `input` shape.
+ * @see {@link DeleteLoadBalancerCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteLoadBalancerCommand extends $Command<
   DeleteLoadBalancerCommandInput,

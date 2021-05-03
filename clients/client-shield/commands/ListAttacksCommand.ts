@@ -23,6 +23,18 @@ export interface ListAttacksCommandOutput extends ListAttacksResponse, __Metadat
 /**
  * <p>Returns all ongoing DDoS attacks or all DDoS attacks during a specified time
  *          period.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ShieldClient(config);
+ * const command = new ListAttacksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAttacksCommandInput} for command's `input` shape.
+ * @see {@link ListAttacksCommandOutput} for command's `response` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAttacksCommand extends $Command<
   ListAttacksCommandInput,

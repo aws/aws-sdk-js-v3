@@ -29,6 +29,18 @@ export interface StartEntitiesDetectionV2JobCommandOutput
 /**
  * <p>Starts an asynchronous medical entity detection job for a collection of documents. Use the
  *         <code>DescribeEntitiesDetectionV2Job</code> operation to track the status of a job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendMedicalClient(config);
+ * const command = new StartEntitiesDetectionV2JobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartEntitiesDetectionV2JobCommandInput} for command's `input` shape.
+ * @see {@link StartEntitiesDetectionV2JobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartEntitiesDetectionV2JobCommand extends $Command<
   StartEntitiesDetectionV2JobCommandInput,

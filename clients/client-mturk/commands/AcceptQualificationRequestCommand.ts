@@ -31,6 +31,18 @@ export interface AcceptQualificationRequestCommandOutput extends AcceptQualifica
  *             A successful request for the <code>AcceptQualificationRequest</code> operation
  *             returns with no errors and an empty body.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MTurkClient(config);
+ * const command = new AcceptQualificationRequestCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AcceptQualificationRequestCommandInput} for command's `input` shape.
+ * @see {@link AcceptQualificationRequestCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AcceptQualificationRequestCommand extends $Command<
   AcceptQualificationRequestCommandInput,

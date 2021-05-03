@@ -22,6 +22,18 @@ export interface DescribeExportCommandOutput extends DescribeExportOutput, __Met
 
 /**
  * <p>Describes an existing table export.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new DescribeExportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeExportCommandInput} for command's `input` shape.
+ * @see {@link DescribeExportCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeExportCommand extends $Command<
   DescribeExportCommandInput,

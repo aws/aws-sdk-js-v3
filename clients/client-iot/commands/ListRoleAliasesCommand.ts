@@ -22,6 +22,18 @@ export interface ListRoleAliasesCommandOutput extends ListRoleAliasesResponse, _
 
 /**
  * <p>Lists the role aliases registered in your account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ListRoleAliasesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRoleAliasesCommandInput} for command's `input` shape.
+ * @see {@link ListRoleAliasesCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRoleAliasesCommand extends $Command<
   ListRoleAliasesCommandInput,

@@ -22,6 +22,18 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
 
 /**
  * <p>Sends messages to a channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTAnalyticsClient(config);
+ * const command = new BatchPutMessageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchPutMessageCommandInput} for command's `input` shape.
+ * @see {@link BatchPutMessageCommandOutput} for command's `response` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchPutMessageCommand extends $Command<
   BatchPutMessageCommandInput,

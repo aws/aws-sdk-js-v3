@@ -28,6 +28,18 @@ export interface DescribeMaintenanceWindowsForTargetCommandOutput
 /**
  * <p>Retrieves information about the maintenance window targets or tasks that an instance is
  *    associated with.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new DescribeMaintenanceWindowsForTargetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeMaintenanceWindowsForTargetCommandInput} for command's `input` shape.
+ * @see {@link DescribeMaintenanceWindowsForTargetCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
   DescribeMaintenanceWindowsForTargetCommandInput,

@@ -37,6 +37,18 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * 				you should not rely on <code>INACTIVE</code> task definitions persisting beyond the
  * 				lifecycle of any associated tasks and services.</p>
  * 		       </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new DeregisterTaskDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterTaskDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DeregisterTaskDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterTaskDefinitionCommand extends $Command<
   DeregisterTaskDefinitionCommandInput,

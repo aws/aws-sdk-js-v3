@@ -22,6 +22,18 @@ export interface DescribeInputCommandOutput extends DescribeInputResponse, __Met
 
 /**
  * <p>Describes an input.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTEventsClient(config);
+ * const command = new DescribeInputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeInputCommandInput} for command's `input` shape.
+ * @see {@link DescribeInputCommandOutput} for command's `response` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeInputCommand extends $Command<
   DescribeInputCommandInput,

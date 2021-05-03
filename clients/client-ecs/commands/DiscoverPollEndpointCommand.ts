@@ -26,6 +26,18 @@ export interface DiscoverPollEndpointCommandOutput extends DiscoverPollEndpointR
  *          </note>
  *          <p>Returns an endpoint for
  * 			the Amazon ECS agent to poll for updates.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new DiscoverPollEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DiscoverPollEndpointCommandInput} for command's `input` shape.
+ * @see {@link DiscoverPollEndpointCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DiscoverPollEndpointCommand extends $Command<
   DiscoverPollEndpointCommandInput,

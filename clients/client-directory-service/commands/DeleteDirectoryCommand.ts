@@ -26,6 +26,18 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __M
  *       have been explicitly granted through a policy. For details about what permissions are required
  *       to run the <code>DeleteDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">AWS Directory Service API Permissions: Actions, Resources, and Conditions
  *       Reference</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new DeleteDirectoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDirectoryCommandInput} for command's `input` shape.
+ * @see {@link DeleteDirectoryCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDirectoryCommand extends $Command<
   DeleteDirectoryCommandInput,

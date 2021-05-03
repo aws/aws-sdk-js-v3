@@ -22,6 +22,18 @@ export interface ListResourceDefinitionsCommandOutput extends ListResourceDefini
 
 /**
  * Retrieves a list of resource definitions.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new ListResourceDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResourceDefinitionsCommandInput} for command's `input` shape.
+ * @see {@link ListResourceDefinitionsCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResourceDefinitionsCommand extends $Command<
   ListResourceDefinitionsCommandInput,

@@ -23,6 +23,18 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
 /**
  * <p>Creates a snapshot of a DB instance. The source DB instance must be in the <code>available</code> or
  *                 <code>storage-optimization</code> state.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new CreateDBSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDBSnapshotCommandInput} for command's `input` shape.
+ * @see {@link CreateDBSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDBSnapshotCommand extends $Command<
   CreateDBSnapshotCommandInput,

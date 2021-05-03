@@ -35,6 +35,18 @@ export interface CreateHITCommandOutput extends CreateHITResponse, __MetadataBea
  *             <p> If a HIT is created with 10 or more maximum assignments, there is an additional fee. For more information, see
  *             <a href="https://requester.mturk.com/pricing">Amazon Mechanical Turk Pricing</a>.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MTurkClient(config);
+ * const command = new CreateHITCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateHITCommandInput} for command's `input` shape.
+ * @see {@link CreateHITCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateHITCommand extends $Command<
   CreateHITCommandInput,

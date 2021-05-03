@@ -45,6 +45,18 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *          configuration only if the existing configuration has a version ID that matches. After the
  *          update is applied successfully, the version ID is updated, and can be retrieved using <a>DescribeDeliveryStream</a>. Use the new version ID to set
  *             <code>CurrentDeliveryStreamVersionId</code> in the next call.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FirehoseClient(config);
+ * const command = new UpdateDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDestinationCommandInput} for command's `input` shape.
+ * @see {@link UpdateDestinationCommandOutput} for command's `response` shape.
+ * @see {@link FirehoseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDestinationCommand extends $Command<
   UpdateDestinationCommandInput,

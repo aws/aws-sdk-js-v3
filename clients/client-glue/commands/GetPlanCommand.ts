@@ -19,6 +19,18 @@ export interface GetPlanCommandOutput extends GetPlanResponse, __MetadataBearer 
 
 /**
  * <p>Gets code to perform a specified mapping.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetPlanCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPlanCommandInput} for command's `input` shape.
+ * @see {@link GetPlanCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPlanCommand extends $Command<GetPlanCommandInput, GetPlanCommandOutput, GlueClientResolvedConfig> {
   // Start section: command_properties

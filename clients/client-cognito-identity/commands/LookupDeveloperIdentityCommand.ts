@@ -39,6 +39,18 @@ export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIde
  *          are likely to be throttled. <a>GetOpenIdTokenForDeveloperIdentity</a> is a
  *          better option for higher-volume operations for user authentication.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityClient(config);
+ * const command = new LookupDeveloperIdentityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link LookupDeveloperIdentityCommandInput} for command's `input` shape.
+ * @see {@link LookupDeveloperIdentityCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class LookupDeveloperIdentityCommand extends $Command<
   LookupDeveloperIdentityCommandInput,

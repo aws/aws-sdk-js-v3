@@ -33,6 +33,18 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  *                 that you run each DDL statement in a separate <code>ExecuteStatement</code> call with
  *                 <code>continueAfterTimeout</code> enabled.</p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSDataClient(config);
+ * const command = new BeginTransactionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BeginTransactionCommandInput} for command's `input` shape.
+ * @see {@link BeginTransactionCommandOutput} for command's `response` shape.
+ * @see {@link RDSDataClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BeginTransactionCommand extends $Command<
   BeginTransactionCommandInput,

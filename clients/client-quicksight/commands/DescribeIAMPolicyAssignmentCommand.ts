@@ -24,6 +24,18 @@ export interface DescribeIAMPolicyAssignmentCommandOutput
 
 /**
  * <p>Describes an existing IAM policy assignment, as specified by the assignment name.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new DescribeIAMPolicyAssignmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeIAMPolicyAssignmentCommandInput} for command's `input` shape.
+ * @see {@link DescribeIAMPolicyAssignmentCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeIAMPolicyAssignmentCommand extends $Command<
   DescribeIAMPolicyAssignmentCommandInput,

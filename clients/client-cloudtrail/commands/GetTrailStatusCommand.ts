@@ -22,6 +22,18 @@ export interface GetTrailStatusCommandOutput extends GetTrailStatusResponse, __M
 
 /**
  * <p>Returns a JSON-formatted list of information about the specified trail. Fields include information on delivery errors, Amazon SNS and Amazon S3 errors, and start and stop logging times for each trail. This operation returns trail status from a single region. To return trail status from all regions, you must call the operation on each region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudTrailClient(config);
+ * const command = new GetTrailStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTrailStatusCommandInput} for command's `input` shape.
+ * @see {@link GetTrailStatusCommandOutput} for command's `response` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTrailStatusCommand extends $Command<
   GetTrailStatusCommandInput,

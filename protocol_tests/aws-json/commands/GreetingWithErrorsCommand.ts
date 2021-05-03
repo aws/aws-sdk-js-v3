@@ -29,6 +29,18 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  *
  * Implementations must be able to successfully take a response and
  * properly deserialize successful and error responses.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new JsonProtocolClient(config);
+ * const command = new GreetingWithErrorsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GreetingWithErrorsCommandInput} for command's `input` shape.
+ * @see {@link GreetingWithErrorsCommandOutput} for command's `response` shape.
+ * @see {@link JsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GreetingWithErrorsCommand extends $Command<
   GreetingWithErrorsCommandInput,

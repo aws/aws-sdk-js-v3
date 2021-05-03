@@ -22,6 +22,18 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
 
 /**
  * <p>Updates an existing channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaTailorClient(config);
+ * const command = new UpdateChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateChannelCommandInput} for command's `input` shape.
+ * @see {@link UpdateChannelCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateChannelCommand extends $Command<
   UpdateChannelCommandInput,

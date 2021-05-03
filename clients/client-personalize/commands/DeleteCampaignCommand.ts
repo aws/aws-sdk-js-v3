@@ -27,6 +27,18 @@ export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
  *       request.
  *       For more information on campaigns, see <a>CreateCampaign</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeClient(config);
+ * const command = new DeleteCampaignCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCampaignCommandInput} for command's `input` shape.
+ * @see {@link DeleteCampaignCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCampaignCommand extends $Command<
   DeleteCampaignCommandInput,

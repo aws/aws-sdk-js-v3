@@ -28,6 +28,18 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  *                 the <code>sha256</code> property of the returned <code>appSpecContent</code> object
  *                 to get the content of the deployment’s AppSpec file. </p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new GetDeploymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDeploymentCommandInput} for command's `input` shape.
+ * @see {@link GetDeploymentCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDeploymentCommand extends $Command<
   GetDeploymentCommandInput,

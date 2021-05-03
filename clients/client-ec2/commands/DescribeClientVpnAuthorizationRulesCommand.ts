@@ -27,6 +27,18 @@ export interface DescribeClientVpnAuthorizationRulesCommandOutput
 
 /**
  * <p>Describes the authorization rules for a specified Client VPN endpoint.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeClientVpnAuthorizationRulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeClientVpnAuthorizationRulesCommandInput} for command's `input` shape.
+ * @see {@link DescribeClientVpnAuthorizationRulesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeClientVpnAuthorizationRulesCommand extends $Command<
   DescribeClientVpnAuthorizationRulesCommandInput,

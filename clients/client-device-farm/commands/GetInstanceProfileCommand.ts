@@ -22,6 +22,18 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileResul
 
 /**
  * <p>Returns information about the specified instance profile.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new GetInstanceProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetInstanceProfileCommandInput} for command's `input` shape.
+ * @see {@link GetInstanceProfileCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetInstanceProfileCommand extends $Command<
   GetInstanceProfileCommandInput,

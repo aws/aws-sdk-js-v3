@@ -22,6 +22,18 @@ export interface GetStreamingSessionStreamCommandOutput extends GetStreamingSess
 
 /**
  * <p>Gets a StreamingSessionStream for a streaming session.</p> <p>Invoke this operation to poll the resource after invoking CreateStreamingSessionStream.</p> <p>After the StreamingSessionStream changes to the state READY, the url property will contain a stream to be used with the DCV streaming client.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NimbleClient(config);
+ * const command = new GetStreamingSessionStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetStreamingSessionStreamCommandInput} for command's `input` shape.
+ * @see {@link GetStreamingSessionStreamCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetStreamingSessionStreamCommand extends $Command<
   GetStreamingSessionStreamCommandInput,

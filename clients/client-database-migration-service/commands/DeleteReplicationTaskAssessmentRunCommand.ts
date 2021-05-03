@@ -34,6 +34,18 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput
  *          <p>This operation removes all metadata that AWS DMS maintains about this assessment run.
  *          However, the operation leaves untouched all information about this assessment run that is
  *          stored in your Amazon S3 bucket.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DeleteReplicationTaskAssessmentRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteReplicationTaskAssessmentRunCommandInput} for command's `input` shape.
+ * @see {@link DeleteReplicationTaskAssessmentRunCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteReplicationTaskAssessmentRunCommand extends $Command<
   DeleteReplicationTaskAssessmentRunCommandInput,

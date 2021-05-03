@@ -22,6 +22,18 @@ export interface GetThreatIntelSetCommandOutput extends GetThreatIntelSetRespons
 
 /**
  * <p>Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new GetThreatIntelSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetThreatIntelSetCommandInput} for command's `input` shape.
+ * @see {@link GetThreatIntelSetCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetThreatIntelSetCommand extends $Command<
   GetThreatIntelSetCommandInput,

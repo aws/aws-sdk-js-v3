@@ -27,6 +27,18 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
 /**
  * <p>Exports the contents of a Amazon Lex resource in a specified format.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new GetExportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetExportCommandInput} for command's `input` shape.
+ * @see {@link GetExportCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetExportCommand extends $Command<
   GetExportCommandInput,

@@ -22,6 +22,18 @@ export interface StartResourceScanCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Immediately starts a scan of the policies applied to the specified resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AccessAnalyzerClient(config);
+ * const command = new StartResourceScanCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartResourceScanCommandInput} for command's `input` shape.
+ * @see {@link StartResourceScanCommandOutput} for command's `response` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartResourceScanCommand extends $Command<
   StartResourceScanCommandInput,

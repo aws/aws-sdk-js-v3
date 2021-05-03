@@ -22,6 +22,18 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
 
 /**
  * <p>Creates a folder with the specified name and parent folder.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new CreateFolderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFolderCommandInput} for command's `input` shape.
+ * @see {@link CreateFolderCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFolderCommand extends $Command<
   CreateFolderCommandInput,

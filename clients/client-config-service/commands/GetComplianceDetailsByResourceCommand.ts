@@ -27,6 +27,18 @@ export interface GetComplianceDetailsByResourceCommandOutput
  * 			The results indicate which AWS Config rules were used to evaluate
  * 			the resource, when each rule was last used, and whether the resource
  * 			complies with each rule.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new GetComplianceDetailsByResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetComplianceDetailsByResourceCommandInput} for command's `input` shape.
+ * @see {@link GetComplianceDetailsByResourceCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetComplianceDetailsByResourceCommand extends $Command<
   GetComplianceDetailsByResourceCommandInput,

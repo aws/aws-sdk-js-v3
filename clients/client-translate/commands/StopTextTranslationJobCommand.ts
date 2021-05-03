@@ -28,6 +28,18 @@ export interface StopTextTranslationJobCommandOutput extends StopTextTranslation
  *         <code>STOPPED</code> state.</p>
  *          <p>Asynchronous batch translation jobs are started with the <a>StartTextTranslationJob</a> operation. You can use the <a>DescribeTextTranslationJob</a> or <a>ListTextTranslationJobs</a>
  *       operations to get a batch translation job's <code>JobId</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranslateClient(config);
+ * const command = new StopTextTranslationJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopTextTranslationJobCommandInput} for command's `input` shape.
+ * @see {@link StopTextTranslationJobCommandOutput} for command's `response` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopTextTranslationJobCommand extends $Command<
   StopTextTranslationJobCommandInput,

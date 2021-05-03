@@ -42,6 +42,18 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  *           facets. You can apply only published schemas to directories. </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new CreateSchemaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSchemaCommandInput} for command's `input` shape.
+ * @see {@link CreateSchemaCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSchemaCommand extends $Command<
   CreateSchemaCommandInput,

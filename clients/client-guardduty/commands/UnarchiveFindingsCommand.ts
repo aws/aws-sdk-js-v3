@@ -22,6 +22,18 @@ export interface UnarchiveFindingsCommandOutput extends UnarchiveFindingsRespons
 
 /**
  * <p>Unarchives GuardDuty findings specified by the <code>findingIds</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new UnarchiveFindingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UnarchiveFindingsCommandInput} for command's `input` shape.
+ * @see {@link UnarchiveFindingsCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UnarchiveFindingsCommand extends $Command<
   UnarchiveFindingsCommandInput,

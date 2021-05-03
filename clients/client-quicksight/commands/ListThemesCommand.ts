@@ -22,6 +22,18 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
 
 /**
  * <p>Lists all the themes in the current AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new ListThemesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListThemesCommandInput} for command's `input` shape.
+ * @see {@link ListThemesCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListThemesCommand extends $Command<
   ListThemesCommandInput,

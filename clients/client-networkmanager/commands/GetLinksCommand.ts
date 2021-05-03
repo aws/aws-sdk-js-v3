@@ -23,6 +23,18 @@ export interface GetLinksCommandOutput extends GetLinksResponse, __MetadataBeare
 /**
  * <p>Gets information about one or more links in a specified global network.</p>
  *         <p>If you specify the site ID, you cannot specify the type or provider in the same request. You can specify the type and provider in the same request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new GetLinksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLinksCommandInput} for command's `input` shape.
+ * @see {@link GetLinksCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLinksCommand extends $Command<
   GetLinksCommandInput,

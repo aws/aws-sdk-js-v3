@@ -27,6 +27,18 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
 /**
  * <p>Records user interaction event data. For more information see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html">Recording Events</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeEventsClient(config);
+ * const command = new PutEventsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutEventsCommandInput} for command's `input` shape.
+ * @see {@link PutEventsCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutEventsCommand extends $Command<
   PutEventsCommandInput,

@@ -23,6 +23,18 @@ export interface SendInvitationCommandOutput extends SendInvitationResponse, __M
 /**
  * <p>Sends an enrollment invitation email with a URL to a user. The URL is valid for 30
  *          days or until you call this operation again, whichever comes first. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new SendInvitationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendInvitationCommandInput} for command's `input` shape.
+ * @see {@link SendInvitationCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendInvitationCommand extends $Command<
   SendInvitationCommandInput,

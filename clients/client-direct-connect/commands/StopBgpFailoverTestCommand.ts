@@ -22,6 +22,18 @@ export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestRes
 
 /**
  * <p>Stops the virtual interface failover test.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new StopBgpFailoverTestCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopBgpFailoverTestCommandInput} for command's `input` shape.
+ * @see {@link StopBgpFailoverTestCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopBgpFailoverTestCommand extends $Command<
   StopBgpFailoverTestCommandInput,

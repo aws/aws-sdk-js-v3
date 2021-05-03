@@ -27,6 +27,18 @@ export interface DescribePHIDetectionJobCommandOutput extends DescribePHIDetecti
 /**
  * <p>Gets the properties associated with a protected health information (PHI) detection job.
  *       Use this operation to get the status of a detection job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendMedicalClient(config);
+ * const command = new DescribePHIDetectionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePHIDetectionJobCommandInput} for command's `input` shape.
+ * @see {@link DescribePHIDetectionJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePHIDetectionJobCommand extends $Command<
   DescribePHIDetectionJobCommandInput,

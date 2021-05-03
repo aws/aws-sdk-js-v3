@@ -28,6 +28,18 @@ export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesR
  *             <p>
  *                <code>dimensionName</code> and <code>metricName</code> cannot be used in the same request.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ListSecurityProfilesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSecurityProfilesCommandInput} for command's `input` shape.
+ * @see {@link ListSecurityProfilesCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSecurityProfilesCommand extends $Command<
   ListSecurityProfilesCommandInput,

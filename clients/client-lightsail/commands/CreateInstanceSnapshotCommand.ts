@@ -25,6 +25,18 @@ export interface CreateInstanceSnapshotCommandOutput extends CreateInstanceSnaps
  *       You can use a snapshot to create a new instance that is based on that snapshot.</p>
  *          <p>The <code>create instance snapshot</code> operation supports tag-based access control via
  *       request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail Dev Guide</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new CreateInstanceSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateInstanceSnapshotCommandInput} for command's `input` shape.
+ * @see {@link CreateInstanceSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateInstanceSnapshotCommand extends $Command<
   CreateInstanceSnapshotCommandInput,

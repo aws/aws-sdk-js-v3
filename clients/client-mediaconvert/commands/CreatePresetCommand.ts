@@ -22,6 +22,18 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
 
 /**
  * Create a new preset. For information about job templates see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConvertClient(config);
+ * const command = new CreatePresetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePresetCommandInput} for command's `input` shape.
+ * @see {@link CreatePresetCommandOutput} for command's `response` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePresetCommand extends $Command<
   CreatePresetCommandInput,

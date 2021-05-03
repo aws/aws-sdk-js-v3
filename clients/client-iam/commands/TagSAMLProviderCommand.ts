@@ -59,6 +59,18 @@ export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
  *                </li>
  *             </ul>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new TagSAMLProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagSAMLProviderCommandInput} for command's `input` shape.
+ * @see {@link TagSAMLProviderCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagSAMLProviderCommand extends $Command<
   TagSAMLProviderCommandInput,

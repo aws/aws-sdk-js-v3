@@ -25,6 +25,18 @@ export interface DeleteBusinessReportScheduleCommandOutput
 /**
  * <p>Deletes the recurring report delivery schedule with the specified schedule
  *          ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new DeleteBusinessReportScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBusinessReportScheduleCommandInput} for command's `input` shape.
+ * @see {@link DeleteBusinessReportScheduleCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBusinessReportScheduleCommand extends $Command<
   DeleteBusinessReportScheduleCommandInput,

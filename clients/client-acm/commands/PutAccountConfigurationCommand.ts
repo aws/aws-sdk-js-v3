@@ -30,6 +30,18 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  *         <code>EventBridge</code> events. ACM sends one event per day per certificate until the
  *       certificate expires. By default, accounts receive events starting 45 days before certificate
  *       expiration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ACMClient(config);
+ * const command = new PutAccountConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAccountConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutAccountConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAccountConfigurationCommand extends $Command<
   PutAccountConfigurationCommandInput,

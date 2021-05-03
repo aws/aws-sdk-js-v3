@@ -23,6 +23,18 @@ export interface ListPublishingDestinationsCommandOutput extends ListPublishingD
 /**
  * <p>Returns a list of publishing destinations associated with the specified
  *         <code>dectectorId</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new ListPublishingDestinationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPublishingDestinationsCommandInput} for command's `input` shape.
+ * @see {@link ListPublishingDestinationsCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPublishingDestinationsCommand extends $Command<
   ListPublishingDestinationsCommandInput,

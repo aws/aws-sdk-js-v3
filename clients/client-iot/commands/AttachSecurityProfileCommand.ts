@@ -23,6 +23,18 @@ export interface AttachSecurityProfileCommandOutput extends AttachSecurityProfil
 /**
  * <p>Associates a Device Defender security profile with a thing group or this account. Each
  *         thing group or account can have up to five security profiles associated with it.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new AttachSecurityProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AttachSecurityProfileCommandInput} for command's `input` shape.
+ * @see {@link AttachSecurityProfileCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AttachSecurityProfileCommand extends $Command<
   AttachSecurityProfileCommandInput,

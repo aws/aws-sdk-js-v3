@@ -22,6 +22,18 @@ export interface CreateProgramCommandOutput extends CreateProgramResponse, __Met
 
 /**
  * <p>Creates a program.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaTailorClient(config);
+ * const command = new CreateProgramCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateProgramCommandInput} for command's `input` shape.
+ * @see {@link CreateProgramCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateProgramCommand extends $Command<
   CreateProgramCommandInput,

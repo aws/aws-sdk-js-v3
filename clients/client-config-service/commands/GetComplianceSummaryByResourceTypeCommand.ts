@@ -30,6 +30,18 @@ export interface GetComplianceSummaryByResourceTypeCommandOutput
  * 			number that are noncompliant. You can specify one or more resource
  * 			types to get these numbers for each resource type. The maximum
  * 			number returned is 100.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new GetComplianceSummaryByResourceTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetComplianceSummaryByResourceTypeCommandInput} for command's `input` shape.
+ * @see {@link GetComplianceSummaryByResourceTypeCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetComplianceSummaryByResourceTypeCommand extends $Command<
   GetComplianceSummaryByResourceTypeCommandInput,

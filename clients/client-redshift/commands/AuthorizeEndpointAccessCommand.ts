@@ -22,6 +22,18 @@ export interface AuthorizeEndpointAccessCommandOutput extends EndpointAuthorizat
 
 /**
  * <p>Grants access to a cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new AuthorizeEndpointAccessCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AuthorizeEndpointAccessCommandInput} for command's `input` shape.
+ * @see {@link AuthorizeEndpointAccessCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AuthorizeEndpointAccessCommand extends $Command<
   AuthorizeEndpointAccessCommandInput,

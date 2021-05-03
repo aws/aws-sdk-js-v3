@@ -24,6 +24,18 @@ export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGate
  * <p>Registers a transit gateway in your global network. The transit gateway can be in any
  *             AWS Region, but it must be owned by the same AWS account that owns the global network.
  *             You cannot register a transit gateway in more than one global network.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new RegisterTransitGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterTransitGatewayCommandInput} for command's `input` shape.
+ * @see {@link RegisterTransitGatewayCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterTransitGatewayCommand extends $Command<
   RegisterTransitGatewayCommandInput,

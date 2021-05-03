@@ -27,6 +27,18 @@ export interface DeleteApplicationsCommandOutput extends DeleteApplicationsRespo
 /**
  * <p>Deletes a list of applications and their associations with configuration
  *       items.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new DeleteApplicationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteApplicationsCommandInput} for command's `input` shape.
+ * @see {@link DeleteApplicationsCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteApplicationsCommand extends $Command<
   DeleteApplicationsCommandInput,

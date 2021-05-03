@@ -32,6 +32,18 @@ export interface RejectInboundCrossClusterSearchConnectionCommandOutput
 
 /**
  * <p>Allows the destination domain owner to reject an inbound cross-cluster search connection request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new RejectInboundCrossClusterSearchConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RejectInboundCrossClusterSearchConnectionCommandInput} for command's `input` shape.
+ * @see {@link RejectInboundCrossClusterSearchConnectionCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RejectInboundCrossClusterSearchConnectionCommand extends $Command<
   RejectInboundCrossClusterSearchConnectionCommandInput,

@@ -23,6 +23,18 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
 /**
  * <p>Updates the current global settings for the AWS account. Use the
  *             <code>DescribeGlobalSettings</code> API to determine the current settings.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new UpdateGlobalSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateGlobalSettingsCommandInput} for command's `input` shape.
+ * @see {@link UpdateGlobalSettingsCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateGlobalSettingsCommand extends $Command<
   UpdateGlobalSettingsCommandInput,

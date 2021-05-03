@@ -28,6 +28,18 @@ export interface CreateProductCommandOutput extends CreateProductOutput, __Metad
  *             <code>cloudformation:GetTemplate</code> IAM policy permission. This policy permission is
  *          required when using the <code>ImportFromPhysicalId</code> template source in the
  *          information data section.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new CreateProductCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateProductCommandInput} for command's `input` shape.
+ * @see {@link CreateProductCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateProductCommand extends $Command<
   CreateProductCommandInput,

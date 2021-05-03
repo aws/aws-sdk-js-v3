@@ -23,6 +23,18 @@ export interface DissociateEntityFromThingCommandOutput extends DissociateEntity
 /**
  * <p>Dissociates a device entity from a concrete thing. The action takes only the type of the entity that you need to dissociate because only
  *          one entity of a particular type can be associated with a thing.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTThingsGraphClient(config);
+ * const command = new DissociateEntityFromThingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DissociateEntityFromThingCommandInput} for command's `input` shape.
+ * @see {@link DissociateEntityFromThingCommandOutput} for command's `response` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DissociateEntityFromThingCommand extends $Command<
   DissociateEntityFromThingCommandInput,

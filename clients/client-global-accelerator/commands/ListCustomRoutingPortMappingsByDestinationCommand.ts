@@ -35,6 +35,18 @@ export interface ListCustomRoutingPortMappingsByDestinationCommandOutput
  * 			response is the mappings for one destination IP address. This is useful when your subnet endpoint has mappings that
  * 			span multiple custom routing accelerators in your account, or for scenarios where you only want to
  * 			list the port mappings for a specific destination instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new ListCustomRoutingPortMappingsByDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCustomRoutingPortMappingsByDestinationCommandInput} for command's `input` shape.
+ * @see {@link ListCustomRoutingPortMappingsByDestinationCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCustomRoutingPortMappingsByDestinationCommand extends $Command<
   ListCustomRoutingPortMappingsByDestinationCommandInput,

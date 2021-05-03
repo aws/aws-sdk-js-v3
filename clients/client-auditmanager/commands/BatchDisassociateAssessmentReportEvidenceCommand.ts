@@ -30,6 +30,18 @@ export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
  * <p>
  *          Disassociates a list of evidence from the specified assessment report in AWS Audit Manager.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new BatchDisassociateAssessmentReportEvidenceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDisassociateAssessmentReportEvidenceCommandInput} for command's `input` shape.
+ * @see {@link BatchDisassociateAssessmentReportEvidenceCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDisassociateAssessmentReportEvidenceCommand extends $Command<
   BatchDisassociateAssessmentReportEvidenceCommandInput,

@@ -24,6 +24,18 @@ export interface UpdateCostCategoryDefinitionCommandOutput
 
 /**
  * <p>Updates an existing Cost Category. Changes made to the Cost Category rules will be used to categorize the current month’s expenses and future expenses. This won’t change categorization for the previous months.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CostExplorerClient(config);
+ * const command = new UpdateCostCategoryDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateCostCategoryDefinitionCommandInput} for command's `input` shape.
+ * @see {@link UpdateCostCategoryDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateCostCategoryDefinitionCommand extends $Command<
   UpdateCostCategoryDefinitionCommandInput,

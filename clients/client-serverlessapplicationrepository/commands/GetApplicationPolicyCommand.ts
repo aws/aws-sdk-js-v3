@@ -26,6 +26,18 @@ export interface GetApplicationPolicyCommandOutput extends GetApplicationPolicyR
 
 /**
  * <p>Retrieves the policy for the application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServerlessApplicationRepositoryClient(config);
+ * const command = new GetApplicationPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetApplicationPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetApplicationPolicyCommandOutput} for command's `response` shape.
+ * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetApplicationPolicyCommand extends $Command<
   GetApplicationPolicyCommandInput,

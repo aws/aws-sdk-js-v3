@@ -22,6 +22,18 @@ export interface ListVocabularyFiltersCommandOutput extends ListVocabularyFilter
 
 /**
  * <p>Gets information about vocabulary filters.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeClient(config);
+ * const command = new ListVocabularyFiltersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListVocabularyFiltersCommandInput} for command's `input` shape.
+ * @see {@link ListVocabularyFiltersCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListVocabularyFiltersCommand extends $Command<
   ListVocabularyFiltersCommandInput,

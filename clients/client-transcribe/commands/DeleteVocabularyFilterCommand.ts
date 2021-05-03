@@ -22,6 +22,18 @@ export interface DeleteVocabularyFilterCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes a vocabulary filter.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeClient(config);
+ * const command = new DeleteVocabularyFilterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVocabularyFilterCommandInput} for command's `input` shape.
+ * @see {@link DeleteVocabularyFilterCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVocabularyFilterCommand extends $Command<
   DeleteVocabularyFilterCommandInput,

@@ -27,6 +27,18 @@ export interface PutClassificationExportConfigurationCommandOutput
 
 /**
  * <p>Creates or updates the configuration settings for storing data classification results.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new PutClassificationExportConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutClassificationExportConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutClassificationExportConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutClassificationExportConfigurationCommand extends $Command<
   PutClassificationExportConfigurationCommandInput,

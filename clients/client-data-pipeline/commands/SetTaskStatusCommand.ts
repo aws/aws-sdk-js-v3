@@ -52,6 +52,18 @@ export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __Metad
  *
  *             </response>
  *         </examples>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataPipelineClient(config);
+ * const command = new SetTaskStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetTaskStatusCommandInput} for command's `input` shape.
+ * @see {@link SetTaskStatusCommandOutput} for command's `response` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetTaskStatusCommand extends $Command<
   SetTaskStatusCommandInput,

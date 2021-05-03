@@ -31,6 +31,18 @@ export interface StartSessionCommandOutput extends StartSessionResponse, __Metad
  *             <p>AWS Tools for PowerShell usage: Start-SSMSession is not currently supported by AWS Tools
  *     for PowerShell on Windows local machines.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new StartSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartSessionCommandInput} for command's `input` shape.
+ * @see {@link StartSessionCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartSessionCommand extends $Command<
   StartSessionCommandInput,

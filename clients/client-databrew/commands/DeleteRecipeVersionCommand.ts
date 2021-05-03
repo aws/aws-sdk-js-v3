@@ -22,6 +22,18 @@ export interface DeleteRecipeVersionCommandOutput extends DeleteRecipeVersionRes
 
 /**
  * <p>Deletes a single version of a DataBrew recipe.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new DeleteRecipeVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRecipeVersionCommandInput} for command's `input` shape.
+ * @see {@link DeleteRecipeVersionCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRecipeVersionCommand extends $Command<
   DeleteRecipeVersionCommandInput,

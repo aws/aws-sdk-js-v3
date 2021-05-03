@@ -22,6 +22,18 @@ export interface UpdateActionTargetCommandOutput extends UpdateActionTargetRespo
 
 /**
  * <p>Updates the name and description of a custom action target in Security Hub.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecurityHubClient(config);
+ * const command = new UpdateActionTargetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateActionTargetCommandInput} for command's `input` shape.
+ * @see {@link UpdateActionTargetCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateActionTargetCommand extends $Command<
   UpdateActionTargetCommandInput,

@@ -23,6 +23,18 @@ export interface PutInventoryCommandOutput extends PutInventoryResult, __Metadat
 /**
  * <p>Bulk update custom inventory items on one more instance. The request adds an inventory item,
  *    if it doesn't already exist, or updates an inventory item, if it does exist.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new PutInventoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutInventoryCommandInput} for command's `input` shape.
+ * @see {@link PutInventoryCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutInventoryCommand extends $Command<
   PutInventoryCommandInput,

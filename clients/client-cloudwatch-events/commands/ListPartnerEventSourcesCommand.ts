@@ -23,6 +23,18 @@ export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSo
 /**
  * <p>An SaaS partner can use this operation to list all the partner event source names that
  *       they have created. This operation is not used by AWS customers.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchEventsClient(config);
+ * const command = new ListPartnerEventSourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPartnerEventSourcesCommandInput} for command's `input` shape.
+ * @see {@link ListPartnerEventSourcesCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPartnerEventSourcesCommand extends $Command<
   ListPartnerEventSourcesCommandInput,

@@ -23,6 +23,18 @@ export interface UpdateMailboxQuotaCommandOutput extends UpdateMailboxQuotaRespo
 /**
  * <p>Updates a user's current mailbox quota for a specified organization and
  *          user.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new UpdateMailboxQuotaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMailboxQuotaCommandInput} for command's `input` shape.
+ * @see {@link UpdateMailboxQuotaCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMailboxQuotaCommand extends $Command<
   UpdateMailboxQuotaCommandInput,

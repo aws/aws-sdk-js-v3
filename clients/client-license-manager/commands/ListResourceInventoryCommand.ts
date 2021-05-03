@@ -22,6 +22,18 @@ export interface ListResourceInventoryCommandOutput extends ListResourceInventor
 
 /**
  * <p>Lists resources managed using Systems Manager inventory.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LicenseManagerClient(config);
+ * const command = new ListResourceInventoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResourceInventoryCommandInput} for command's `input` shape.
+ * @see {@link ListResourceInventoryCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResourceInventoryCommand extends $Command<
   ListResourceInventoryCommandInput,

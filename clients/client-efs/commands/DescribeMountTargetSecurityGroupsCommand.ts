@@ -42,6 +42,18 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  *           network interface. </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EFSClient(config);
+ * const command = new DescribeMountTargetSecurityGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeMountTargetSecurityGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeMountTargetSecurityGroupsCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeMountTargetSecurityGroupsCommand extends $Command<
   DescribeMountTargetSecurityGroupsCommandInput,

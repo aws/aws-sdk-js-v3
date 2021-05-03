@@ -34,6 +34,18 @@ export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, _
  *             If you try to delete a workforce that contains one or more work teams,
  *             you will recieve a <code>ResourceInUse</code> error.</p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteWorkforceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteWorkforceCommandInput} for command's `input` shape.
+ * @see {@link DeleteWorkforceCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteWorkforceCommand extends $Command<
   DeleteWorkforceCommandInput,

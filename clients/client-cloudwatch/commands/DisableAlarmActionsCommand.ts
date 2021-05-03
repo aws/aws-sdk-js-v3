@@ -23,6 +23,18 @@ export interface DisableAlarmActionsCommandOutput extends __MetadataBearer {}
 /**
  * <p>Disables the actions for the specified alarms. When an alarm's actions are disabled, the
  * 			alarm actions do not execute when the alarm state changes.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchClient(config);
+ * const command = new DisableAlarmActionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableAlarmActionsCommandInput} for command's `input` shape.
+ * @see {@link DisableAlarmActionsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableAlarmActionsCommand extends $Command<
   DisableAlarmActionsCommandInput,

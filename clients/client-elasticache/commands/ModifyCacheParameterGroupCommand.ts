@@ -24,6 +24,18 @@ export interface ModifyCacheParameterGroupCommandOutput extends CacheParameterGr
  * <p>Modifies the parameters of a cache
  *             parameter group. You can modify up to 20 parameters in a single request by submitting a
  *             list parameter name and value pairs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new ModifyCacheParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyCacheParameterGroupCommandInput} for command's `input` shape.
+ * @see {@link ModifyCacheParameterGroupCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyCacheParameterGroupCommand extends $Command<
   ModifyCacheParameterGroupCommandInput,

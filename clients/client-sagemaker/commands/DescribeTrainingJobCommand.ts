@@ -28,6 +28,18 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
  *                 <code>TrainingStartTime</code>, <code>TrainingTimeInSeconds</code>,
  *                 <code>TrainingEndTime</code>, and <code>BillableTimeInSeconds</code> may not be
  *             present in the response.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeTrainingJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTrainingJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeTrainingJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTrainingJobCommand extends $Command<
   DescribeTrainingJobCommandInput,

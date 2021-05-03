@@ -22,6 +22,18 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
 
 /**
  * Updates the connectivity information for the core. Any devices that belong to the group which has this core will receive this information in order to find the location of the core and connect to it.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new UpdateConnectivityInfoCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateConnectivityInfoCommandInput} for command's `input` shape.
+ * @see {@link UpdateConnectivityInfoCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateConnectivityInfoCommand extends $Command<
   UpdateConnectivityInfoCommandInput,

@@ -22,6 +22,18 @@ export interface DeleteDeploymentCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a <a>Deployment</a> resource. Deleting a deployment will only succeed if there are no <a>Stage</a> resources associated with it.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new DeleteDeploymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDeploymentCommandInput} for command's `input` shape.
+ * @see {@link DeleteDeploymentCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDeploymentCommand extends $Command<
   DeleteDeploymentCommandInput,

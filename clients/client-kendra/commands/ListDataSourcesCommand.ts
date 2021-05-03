@@ -22,6 +22,18 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
 
 /**
  * <p>Lists the data sources that you have created.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KendraClient(config);
+ * const command = new ListDataSourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDataSourcesCommandInput} for command's `input` shape.
+ * @see {@link ListDataSourcesCommandOutput} for command's `response` shape.
+ * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDataSourcesCommand extends $Command<
   ListDataSourcesCommandInput,

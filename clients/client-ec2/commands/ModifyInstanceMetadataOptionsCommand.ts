@@ -30,6 +30,18 @@ export interface ModifyInstanceMetadataOptionsCommandOutput
  *             instance, the state of the modifications changes from “pending” to “applied” in
  *             subsequent describe-instances API calls. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a>
  *           in the <i>Amazon EC2 User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyInstanceMetadataOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyInstanceMetadataOptionsCommandInput} for command's `input` shape.
+ * @see {@link ModifyInstanceMetadataOptionsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyInstanceMetadataOptionsCommand extends $Command<
   ModifyInstanceMetadataOptionsCommandInput,

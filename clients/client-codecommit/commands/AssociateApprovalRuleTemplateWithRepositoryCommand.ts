@@ -29,6 +29,18 @@ export interface AssociateApprovalRuleTemplateWithRepositoryCommandOutput extend
  *             for that pull request. If no destination references are specified in the template, an
  *             approval rule that matches the template contents is created for all pull requests in
  *             that repository.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new AssociateApprovalRuleTemplateWithRepositoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateApprovalRuleTemplateWithRepositoryCommandInput} for command's `input` shape.
+ * @see {@link AssociateApprovalRuleTemplateWithRepositoryCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command<
   AssociateApprovalRuleTemplateWithRepositoryCommandInput,

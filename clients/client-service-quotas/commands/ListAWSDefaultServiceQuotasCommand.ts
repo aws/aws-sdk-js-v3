@@ -25,6 +25,18 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
 /**
  * <p>Lists the default values for the quotas for the specified AWS service. A default value
  *       does not reflect any quota increases.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceQuotasClient(config);
+ * const command = new ListAWSDefaultServiceQuotasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAWSDefaultServiceQuotasCommandInput} for command's `input` shape.
+ * @see {@link ListAWSDefaultServiceQuotasCommandOutput} for command's `response` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAWSDefaultServiceQuotasCommand extends $Command<
   ListAWSDefaultServiceQuotasCommandInput,

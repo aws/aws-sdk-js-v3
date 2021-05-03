@@ -25,6 +25,18 @@ export interface CreateUpdatedImageCommandOutput extends CreateUpdatedImageResul
  *
  *         <p>For more information, see the "Update an Image by Using
  *             Managed AppStream 2.0 Image Updates" section in <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/administer-images.html">Administer Your AppStream 2.0 Images</a>, in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new CreateUpdatedImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateUpdatedImageCommandInput} for command's `input` shape.
+ * @see {@link CreateUpdatedImageCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateUpdatedImageCommand extends $Command<
   CreateUpdatedImageCommandInput,

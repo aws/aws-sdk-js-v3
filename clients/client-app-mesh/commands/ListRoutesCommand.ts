@@ -22,6 +22,18 @@ export interface ListRoutesCommandOutput extends ListRoutesOutput, __MetadataBea
 
 /**
  * <p>Returns a list of existing routes in a service mesh.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new ListRoutesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRoutesCommandInput} for command's `input` shape.
+ * @see {@link ListRoutesCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRoutesCommand extends $Command<
   ListRoutesCommandInput,

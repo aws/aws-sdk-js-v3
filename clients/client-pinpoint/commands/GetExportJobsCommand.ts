@@ -22,6 +22,18 @@ export interface GetExportJobsCommandOutput extends GetExportJobsResponse, __Met
 
 /**
  * <p>Retrieves information about the status and settings of all the export jobs for an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new GetExportJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetExportJobsCommandInput} for command's `input` shape.
+ * @see {@link GetExportJobsCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetExportJobsCommand extends $Command<
   GetExportJobsCommandInput,

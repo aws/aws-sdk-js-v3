@@ -69,6 +69,18 @@ export interface ListClosedWorkflowExecutionsCommandOutput extends WorkflowExecu
  *       event attribute's <code>cause</code> parameter is set to <code>OPERATION_NOT_PERMITTED</code>.
  *       For details and example IAM policies, see <a href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using IAM to Manage Access to Amazon SWF
  *         Workflows</a> in the <i>Amazon SWF Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SWFClient(config);
+ * const command = new ListClosedWorkflowExecutionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListClosedWorkflowExecutionsCommandInput} for command's `input` shape.
+ * @see {@link ListClosedWorkflowExecutionsCommandOutput} for command's `response` shape.
+ * @see {@link SWFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListClosedWorkflowExecutionsCommand extends $Command<
   ListClosedWorkflowExecutionsCommandInput,

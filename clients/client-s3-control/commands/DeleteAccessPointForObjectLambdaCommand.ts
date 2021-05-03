@@ -41,6 +41,18 @@ export interface DeleteAccessPointForObjectLambdaCommandOutput extends __Metadat
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3ControlClient(config);
+ * const command = new DeleteAccessPointForObjectLambdaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAccessPointForObjectLambdaCommandInput} for command's `input` shape.
+ * @see {@link DeleteAccessPointForObjectLambdaCommandOutput} for command's `response` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAccessPointForObjectLambdaCommand extends $Command<
   DeleteAccessPointForObjectLambdaCommandInput,

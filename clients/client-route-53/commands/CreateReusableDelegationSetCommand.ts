@@ -75,6 +75,18 @@ export interface CreateReusableDelegationSetCommandOutput
  * 				reusable delegation set.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new CreateReusableDelegationSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateReusableDelegationSetCommandInput} for command's `input` shape.
+ * @see {@link CreateReusableDelegationSetCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateReusableDelegationSetCommand extends $Command<
   CreateReusableDelegationSetCommandInput,

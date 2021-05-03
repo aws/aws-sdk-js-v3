@@ -24,6 +24,18 @@ export interface EnableDomainTransferLockCommandOutput extends EnableDomainTrans
  * <p>This operation sets the transfer lock on the domain (specifically the <code>clientTransferProhibited</code> status)
  * 			to prevent domain transfers. Successful submission returns an operation ID that you can use to track the progress and
  * 			completion of the action. If the request is not completed successfully, the domain registrant will be notified by email.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53DomainsClient(config);
+ * const command = new EnableDomainTransferLockCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableDomainTransferLockCommandInput} for command's `input` shape.
+ * @see {@link EnableDomainTransferLockCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableDomainTransferLockCommand extends $Command<
   EnableDomainTransferLockCommandInput,

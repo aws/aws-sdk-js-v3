@@ -27,6 +27,18 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
 /**
  * <p>Creates a node on the specified blockchain network.</p>
  *          <p>Applies to Hyperledger Fabric and Ethereum.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ManagedBlockchainClient(config);
+ * const command = new CreateNodeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateNodeCommandInput} for command's `input` shape.
+ * @see {@link CreateNodeCommandOutput} for command's `response` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateNodeCommand extends $Command<
   CreateNodeCommandInput,

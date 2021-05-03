@@ -23,6 +23,18 @@ export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsRespo
 /**
  * <p>Lists the versions of a particular DataBrew recipe, except for
  *                 <code>LATEST_WORKING</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new ListRecipeVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRecipeVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListRecipeVersionsCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRecipeVersionsCommand extends $Command<
   ListRecipeVersionsCommandInput,

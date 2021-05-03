@@ -38,6 +38,18 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  *             shards in chronological order, use the ID of the parent shard to track the lineage to
  *             the oldest shard.</p>
  *         <p>This operation has a limit of 10 transactions per second per account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisClient(config);
+ * const command = new DescribeStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeStreamCommandInput} for command's `input` shape.
+ * @see {@link DescribeStreamCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeStreamCommand extends $Command<
   DescribeStreamCommandInput,

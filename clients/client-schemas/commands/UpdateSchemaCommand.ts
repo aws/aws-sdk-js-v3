@@ -22,6 +22,18 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
 
 /**
  * <p>Updates the schema definition</p> <note><p>Inactive schemas will be deleted after two years.</p></note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SchemasClient(config);
+ * const command = new UpdateSchemaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSchemaCommandInput} for command's `input` shape.
+ * @see {@link UpdateSchemaCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSchemaCommand extends $Command<
   UpdateSchemaCommandInput,

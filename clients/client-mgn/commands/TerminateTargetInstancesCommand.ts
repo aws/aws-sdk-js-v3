@@ -22,6 +22,18 @@ export interface TerminateTargetInstancesCommandOutput extends TerminateTargetIn
 
 /**
  * <p>Starts a job that terminates specific launched EC2 Test and Cutover instances. This command will not work for any Source Server with a lifecycle.state of TESTING, CUTTING_OVER, or CUTOVER.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MgnClient(config);
+ * const command = new TerminateTargetInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TerminateTargetInstancesCommandInput} for command's `input` shape.
+ * @see {@link TerminateTargetInstancesCommandOutput} for command's `response` shape.
+ * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TerminateTargetInstancesCommand extends $Command<
   TerminateTargetInstancesCommandInput,

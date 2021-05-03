@@ -22,6 +22,18 @@ export interface BatchAssociateUserStackCommandOutput extends BatchAssociateUser
 
 /**
  * <p>Associates the specified users with the specified stacks. Users in a user pool cannot be assigned to stacks with fleets that are joined to an Active Directory domain.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new BatchAssociateUserStackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchAssociateUserStackCommandInput} for command's `input` shape.
+ * @see {@link BatchAssociateUserStackCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchAssociateUserStackCommand extends $Command<
   BatchAssociateUserStackCommandInput,

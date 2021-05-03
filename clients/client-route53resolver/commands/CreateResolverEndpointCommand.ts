@@ -32,6 +32,18 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  * 				to your network.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new CreateResolverEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateResolverEndpointCommandInput} for command's `input` shape.
+ * @see {@link CreateResolverEndpointCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateResolverEndpointCommand extends $Command<
   CreateResolverEndpointCommandInput,

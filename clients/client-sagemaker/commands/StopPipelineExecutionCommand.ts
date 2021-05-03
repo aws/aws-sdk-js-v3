@@ -22,6 +22,18 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
 
 /**
  * <p>Stops a pipeline execution.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new StopPipelineExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopPipelineExecutionCommandInput} for command's `input` shape.
+ * @see {@link StopPipelineExecutionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopPipelineExecutionCommand extends $Command<
   StopPipelineExecutionCommandInput,

@@ -31,6 +31,18 @@ export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __Met
  *             only if you have previously approved or rejected work from the
  *             Worker.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MTurkClient(config);
+ * const command = new NotifyWorkersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link NotifyWorkersCommandInput} for command's `input` shape.
+ * @see {@link NotifyWorkersCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class NotifyWorkersCommand extends $Command<
   NotifyWorkersCommandInput,

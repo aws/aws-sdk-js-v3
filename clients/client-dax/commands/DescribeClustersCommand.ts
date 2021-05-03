@@ -34,6 +34,18 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  *             the cluster is ready for use.</p>
  *         <p>If nodes are currently being removed from the DAX cluster, no endpoint
  *             information for the removed nodes is displayed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DAXClient(config);
+ * const command = new DescribeClustersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeClustersCommandInput} for command's `input` shape.
+ * @see {@link DescribeClustersCommandOutput} for command's `response` shape.
+ * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeClustersCommand extends $Command<
   DescribeClustersCommandInput,

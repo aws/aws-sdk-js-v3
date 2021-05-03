@@ -36,6 +36,18 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
  *          the traffic among its remaining Availability Zones.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add or Remove Availability Zones</a>
  *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingClient(config);
+ * const command = new DisableAvailabilityZonesForLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableAvailabilityZonesForLoadBalancerCommandInput} for command's `input` shape.
+ * @see {@link DisableAvailabilityZonesForLoadBalancerCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableAvailabilityZonesForLoadBalancerCommand extends $Command<
   DisableAvailabilityZonesForLoadBalancerCommandInput,

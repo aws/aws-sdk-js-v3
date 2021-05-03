@@ -23,6 +23,18 @@ export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput,
 /**
  * <p>Provides the response to a manual approval request to AWS CodePipeline. Valid
  *             responses include Approved and Rejected.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new PutApprovalResultCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutApprovalResultCommandInput} for command's `input` shape.
+ * @see {@link PutApprovalResultCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutApprovalResultCommand extends $Command<
   PutApprovalResultCommandInput,

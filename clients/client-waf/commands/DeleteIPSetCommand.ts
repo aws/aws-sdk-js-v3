@@ -45,6 +45,18 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  *                <p>Submit a <code>DeleteIPSet</code> request.</p>
  *             </li>
  *          </ol>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFClient(config);
+ * const command = new DeleteIPSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteIPSetCommandInput} for command's `input` shape.
+ * @see {@link DeleteIPSetCommandOutput} for command's `response` shape.
+ * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteIPSetCommand extends $Command<
   DeleteIPSetCommandInput,

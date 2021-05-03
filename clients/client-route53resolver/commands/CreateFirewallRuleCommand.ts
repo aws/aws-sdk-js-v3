@@ -22,6 +22,18 @@ export interface CreateFirewallRuleCommandOutput extends CreateFirewallRuleRespo
 
 /**
  * <p>Creates a single DNS Firewall rule in the specified rule group, using the specified domain list.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new CreateFirewallRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFirewallRuleCommandInput} for command's `input` shape.
+ * @see {@link CreateFirewallRuleCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFirewallRuleCommand extends $Command<
   CreateFirewallRuleCommandInput,

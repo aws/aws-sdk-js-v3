@@ -24,6 +24,18 @@ export interface ListComplianceSummariesCommandOutput extends ListComplianceSumm
  * <p>Returns a summary count of compliant and non-compliant resources for a compliance type. For
  *    example, this call can return State Manager associations, patches, or custom compliance types
  *    according to the filter criteria that you specify.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new ListComplianceSummariesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListComplianceSummariesCommandInput} for command's `input` shape.
+ * @see {@link ListComplianceSummariesCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListComplianceSummariesCommand extends $Command<
   ListComplianceSummariesCommandInput,

@@ -28,6 +28,18 @@ export interface DescribeEffectiveInstanceAssociationsCommandOutput
 
 /**
  * <p>All associations for the instance(s).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new DescribeEffectiveInstanceAssociationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEffectiveInstanceAssociationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeEffectiveInstanceAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEffectiveInstanceAssociationsCommand extends $Command<
   DescribeEffectiveInstanceAssociationsCommandInput,

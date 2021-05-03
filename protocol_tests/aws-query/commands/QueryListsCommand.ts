@@ -19,6 +19,18 @@ export interface QueryListsCommandOutput extends __MetadataBearer {}
 
 /**
  * This test serializes simple and complex lists.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QueryProtocolClient(config);
+ * const command = new QueryListsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link QueryListsCommandInput} for command's `input` shape.
+ * @see {@link QueryListsCommandOutput} for command's `response` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class QueryListsCommand extends $Command<
   QueryListsCommandInput,

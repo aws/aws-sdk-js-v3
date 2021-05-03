@@ -22,6 +22,18 @@ export interface GetWorkflowRunPropertiesCommandOutput extends GetWorkflowRunPro
 
 /**
  * <p>Retrieves the workflow run properties which were set during the run.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetWorkflowRunPropertiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetWorkflowRunPropertiesCommandInput} for command's `input` shape.
+ * @see {@link GetWorkflowRunPropertiesCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetWorkflowRunPropertiesCommand extends $Command<
   GetWorkflowRunPropertiesCommandInput,

@@ -22,6 +22,18 @@ export interface ExportBackupPlanTemplateCommandOutput extends ExportBackupPlanT
 
 /**
  * <p>Returns the backup plan that is specified by the plan ID as a backup template.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new ExportBackupPlanTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ExportBackupPlanTemplateCommandInput} for command's `input` shape.
+ * @see {@link ExportBackupPlanTemplateCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ExportBackupPlanTemplateCommand extends $Command<
   ExportBackupPlanTemplateCommandInput,

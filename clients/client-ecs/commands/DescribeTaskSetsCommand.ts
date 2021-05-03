@@ -25,6 +25,18 @@ export interface DescribeTaskSetsCommandOutput extends DescribeTaskSetsResponse,
  * 			service uses the <code>EXTERNAL</code> deployment controller type. For more information,
  * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS Deployment
  * 				Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new DescribeTaskSetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTaskSetsCommandInput} for command's `input` shape.
+ * @see {@link DescribeTaskSetsCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTaskSetsCommand extends $Command<
   DescribeTaskSetsCommandInput,

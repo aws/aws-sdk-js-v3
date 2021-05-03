@@ -25,6 +25,18 @@ export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __Met
  *          <note>
  *             <p>This action deletes the resource permanently. You can't undo this action. If the tracker resource is in use, you may encounter an error. Make sure that the target resource is not a dependency for your applications.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LocationClient(config);
+ * const command = new DeleteTrackerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTrackerCommandInput} for command's `input` shape.
+ * @see {@link DeleteTrackerCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTrackerCommand extends $Command<
   DeleteTrackerCommandInput,

@@ -25,6 +25,18 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  *             after the request completes. </p>
  *         <p>After creating the snapshot, use <a href="https://docs.aws.amazon.com/ebs/latest/APIReference/API_PutSnapshotBlock.html"> PutSnapshotBlock</a> to
  *             write blocks of data to the snapshot.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EBSClient(config);
+ * const command = new StartSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartSnapshotCommandInput} for command's `input` shape.
+ * @see {@link StartSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link EBSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartSnapshotCommand extends $Command<
   StartSnapshotCommandInput,

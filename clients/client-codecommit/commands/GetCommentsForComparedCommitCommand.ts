@@ -28,6 +28,18 @@ export interface GetCommentsForComparedCommitCommandOutput
  *             <p>Reaction counts might include numbers from user identities who were deleted after the reaction was made. For a count of
  *             reactions from active identities, use GetCommentReactions.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new GetCommentsForComparedCommitCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCommentsForComparedCommitCommandInput} for command's `input` shape.
+ * @see {@link GetCommentsForComparedCommitCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCommentsForComparedCommitCommand extends $Command<
   GetCommentsForComparedCommitCommandInput,

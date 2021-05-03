@@ -22,6 +22,18 @@ export interface GetOperationsForResourceCommandOutput extends GetOperationsForR
 
 /**
  * <p>Gets operations for a specific resource (e.g., an instance or a static IP).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetOperationsForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOperationsForResourceCommandInput} for command's `input` shape.
+ * @see {@link GetOperationsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOperationsForResourceCommand extends $Command<
   GetOperationsForResourceCommandInput,

@@ -27,6 +27,18 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *             call <code>DescribeValidDBInstanceModifications</code>
  *             before you call <code>ModifyDBInstance</code>.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new ModifyDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyDBInstanceCommandInput} for command's `input` shape.
+ * @see {@link ModifyDBInstanceCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyDBInstanceCommand extends $Command<
   ModifyDBInstanceCommandInput,

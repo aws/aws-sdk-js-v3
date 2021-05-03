@@ -24,6 +24,18 @@ export interface GetFunctionConfigurationCommandOutput extends FunctionConfigura
  * <p>Returns the version-specific settings of a Lambda function or version. The output includes only options that
  *       can vary between versions of a function. To modify these settings, use <a>UpdateFunctionConfiguration</a>.</p>
  *          <p>To get all of a function's details, including function-level settings, use <a>GetFunction</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new GetFunctionConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFunctionConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetFunctionConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFunctionConfigurationCommand extends $Command<
   GetFunctionConfigurationCommandInput,

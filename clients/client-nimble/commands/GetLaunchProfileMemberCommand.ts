@@ -22,6 +22,18 @@ export interface GetLaunchProfileMemberCommandOutput extends GetLaunchProfileMem
 
 /**
  * <p>Get a user persona in launch profile membership.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NimbleClient(config);
+ * const command = new GetLaunchProfileMemberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLaunchProfileMemberCommandInput} for command's `input` shape.
+ * @see {@link GetLaunchProfileMemberCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLaunchProfileMemberCommand extends $Command<
   GetLaunchProfileMemberCommandInput,

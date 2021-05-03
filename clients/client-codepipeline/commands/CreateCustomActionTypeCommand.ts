@@ -23,6 +23,18 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
 /**
  * <p>Creates a new custom action that can be used in all pipelines associated with the
  *             AWS account. Only used for custom actions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new CreateCustomActionTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCustomActionTypeCommandInput} for command's `input` shape.
+ * @see {@link CreateCustomActionTypeCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCustomActionTypeCommand extends $Command<
   CreateCustomActionTypeCommandInput,

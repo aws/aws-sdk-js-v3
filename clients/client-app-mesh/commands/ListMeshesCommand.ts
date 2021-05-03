@@ -22,6 +22,18 @@ export interface ListMeshesCommandOutput extends ListMeshesOutput, __MetadataBea
 
 /**
  * <p>Returns a list of existing service meshes.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new ListMeshesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMeshesCommandInput} for command's `input` shape.
+ * @see {@link ListMeshesCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMeshesCommand extends $Command<
   ListMeshesCommandInput,

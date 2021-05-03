@@ -26,6 +26,18 @@ export interface ListNamedQueriesCommandOutput extends ListNamedQueriesOutput, _
  *             not specified, lists the saved queries for the primary workgroup.</p>
  *         <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
  *                 Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AthenaClient(config);
+ * const command = new ListNamedQueriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListNamedQueriesCommandInput} for command's `input` shape.
+ * @see {@link ListNamedQueriesCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListNamedQueriesCommand extends $Command<
   ListNamedQueriesCommandInput,

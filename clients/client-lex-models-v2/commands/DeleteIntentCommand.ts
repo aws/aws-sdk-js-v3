@@ -24,6 +24,18 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  * <p>Removes the specified intent.</p>
  *          <p>Deleting an intent also deletes the slots associated with the
  *          intent.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelsV2Client(config);
+ * const command = new DeleteIntentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteIntentCommandInput} for command's `input` shape.
+ * @see {@link DeleteIntentCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteIntentCommand extends $Command<
   DeleteIntentCommandInput,

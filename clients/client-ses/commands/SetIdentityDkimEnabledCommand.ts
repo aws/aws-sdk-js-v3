@@ -34,6 +34,18 @@ export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnab
  *             verification process for the identity, even if the verification process isn't complete. </p>
  *         <p>You can execute this operation no more than once per second.</p>
  *         <p>For more information about Easy DKIM signing, go to the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESClient(config);
+ * const command = new SetIdentityDkimEnabledCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetIdentityDkimEnabledCommandInput} for command's `input` shape.
+ * @see {@link SetIdentityDkimEnabledCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetIdentityDkimEnabledCommand extends $Command<
   SetIdentityDkimEnabledCommandInput,

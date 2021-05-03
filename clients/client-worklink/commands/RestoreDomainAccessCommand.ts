@@ -22,6 +22,18 @@ export interface RestoreDomainAccessCommandOutput extends RestoreDomainAccessRes
 
 /**
  * <p>Moves a domain to ACTIVE status if it was in the INACTIVE status.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkLinkClient(config);
+ * const command = new RestoreDomainAccessCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RestoreDomainAccessCommandInput} for command's `input` shape.
+ * @see {@link RestoreDomainAccessCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RestoreDomainAccessCommand extends $Command<
   RestoreDomainAccessCommandInput,

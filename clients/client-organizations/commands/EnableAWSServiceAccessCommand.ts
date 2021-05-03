@@ -40,6 +40,18 @@ export interface EnableAWSServiceAccessCommandOutput extends __MetadataBearer {}
  *         <p>This operation can be called only from the organization's management account and only
  *             if the organization has <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">enabled all
  *                 features</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OrganizationsClient(config);
+ * const command = new EnableAWSServiceAccessCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableAWSServiceAccessCommandInput} for command's `input` shape.
+ * @see {@link EnableAWSServiceAccessCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableAWSServiceAccessCommand extends $Command<
   EnableAWSServiceAccessCommandInput,

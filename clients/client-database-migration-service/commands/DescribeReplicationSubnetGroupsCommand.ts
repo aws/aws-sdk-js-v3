@@ -28,6 +28,18 @@ export interface DescribeReplicationSubnetGroupsCommandOutput
 
 /**
  * <p>Returns information about the replication subnet groups.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DescribeReplicationSubnetGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeReplicationSubnetGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeReplicationSubnetGroupsCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeReplicationSubnetGroupsCommand extends $Command<
   DescribeReplicationSubnetGroupsCommandInput,

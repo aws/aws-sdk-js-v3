@@ -22,6 +22,18 @@ export interface CreateApplicationCommandOutput extends CreateApplicationOutput,
 
 /**
  * <p>Creates an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new CreateApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateApplicationCommandInput} for command's `input` shape.
+ * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,

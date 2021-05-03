@@ -31,6 +31,18 @@ export interface ReplaceIamInstanceProfileAssociationCommandOutput
  *             without having to disassociate the existing IAM instance profile first.</p>
  *         <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
  *             ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ReplaceIamInstanceProfileAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReplaceIamInstanceProfileAssociationCommandInput} for command's `input` shape.
+ * @see {@link ReplaceIamInstanceProfileAssociationCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReplaceIamInstanceProfileAssociationCommand extends $Command<
   ReplaceIamInstanceProfileAssociationCommandInput,

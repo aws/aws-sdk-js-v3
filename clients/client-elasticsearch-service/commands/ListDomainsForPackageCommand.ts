@@ -26,6 +26,18 @@ export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackag
 
 /**
  * <p>Lists all Amazon ES domains associated with the package.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new ListDomainsForPackageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDomainsForPackageCommandInput} for command's `input` shape.
+ * @see {@link ListDomainsForPackageCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDomainsForPackageCommand extends $Command<
   ListDomainsForPackageCommandInput,

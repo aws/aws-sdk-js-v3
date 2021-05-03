@@ -24,6 +24,18 @@ export interface CreateAssessmentCommandOutput extends CreateAssessmentResponse,
  * <p>
  *   Creates an assessment in AWS Audit Manager.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new CreateAssessmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAssessmentCommandInput} for command's `input` shape.
+ * @see {@link CreateAssessmentCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAssessmentCommand extends $Command<
   CreateAssessmentCommandInput,

@@ -22,6 +22,18 @@ export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsR
 
 /**
  * <p>List all versions for a document.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new ListDocumentVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDocumentVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListDocumentVersionsCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDocumentVersionsCommand extends $Command<
   ListDocumentVersionsCommandInput,

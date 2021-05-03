@@ -41,6 +41,18 @@ export interface SetSecurityTokenServicePreferencesCommandOutput extends __Metad
  *                 <i>IAM User Guide</i>.</p>
  *         <p>To view the current session token version, see the
  *                 <code>GlobalEndpointTokenVersion</code> entry in the response of the <a>GetAccountSummary</a> operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new SetSecurityTokenServicePreferencesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetSecurityTokenServicePreferencesCommandInput} for command's `input` shape.
+ * @see {@link SetSecurityTokenServicePreferencesCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetSecurityTokenServicePreferencesCommand extends $Command<
   SetSecurityTokenServicePreferencesCommandInput,

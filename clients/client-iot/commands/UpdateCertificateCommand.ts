@@ -28,6 +28,18 @@ export interface UpdateCertificateCommandOutput extends __MetadataBearer {}
  *          <p>Within a few minutes of updating a certificate from the ACTIVE state to any other
  *          state, AWS IoT disconnects all devices that used that certificate to connect. Devices cannot
  *          use a certificate that is not in the ACTIVE state to reconnect.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new UpdateCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateCertificateCommandInput} for command's `input` shape.
+ * @see {@link UpdateCertificateCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateCertificateCommand extends $Command<
   UpdateCertificateCommandInput,

@@ -29,6 +29,18 @@ export interface ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput
 /**
  * <p>Applies a security group to the association between the target network and the Client VPN endpoint. This action replaces the existing
  * 			security groups with the specified security groups.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ApplySecurityGroupsToClientVpnTargetNetworkCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ApplySecurityGroupsToClientVpnTargetNetworkCommandInput} for command's `input` shape.
+ * @see {@link ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ApplySecurityGroupsToClientVpnTargetNetworkCommand extends $Command<
   ApplySecurityGroupsToClientVpnTargetNetworkCommandInput,

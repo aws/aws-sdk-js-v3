@@ -34,6 +34,18 @@ export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBeare
  *       If more results are available, the <code>NextToken</code> member of the response contains a
  *       token that you pass in the next call to <code>ListHsms</code> to retrieve the next set of
  *       items.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMClient(config);
+ * const command = new ListHsmsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListHsmsCommandInput} for command's `input` shape.
+ * @see {@link ListHsmsCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListHsmsCommand extends $Command<
   ListHsmsCommandInput,

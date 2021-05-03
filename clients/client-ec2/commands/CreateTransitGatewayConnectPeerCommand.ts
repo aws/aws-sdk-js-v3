@@ -27,6 +27,18 @@ export interface CreateTransitGatewayConnectPeerCommandOutput
  *             transit gateway and an appliance.</p>
  *         <p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer">Connect peers</a> in the <i>Transit Gateways Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateTransitGatewayConnectPeerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTransitGatewayConnectPeerCommandInput} for command's `input` shape.
+ * @see {@link CreateTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTransitGatewayConnectPeerCommand extends $Command<
   CreateTransitGatewayConnectPeerCommandInput,

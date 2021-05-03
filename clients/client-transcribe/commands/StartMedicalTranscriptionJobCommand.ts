@@ -24,6 +24,18 @@ export interface StartMedicalTranscriptionJobCommandOutput
 
 /**
  * <p>Starts a batch job to transcribe medical speech to text.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeClient(config);
+ * const command = new StartMedicalTranscriptionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartMedicalTranscriptionJobCommandInput} for command's `input` shape.
+ * @see {@link StartMedicalTranscriptionJobCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartMedicalTranscriptionJobCommand extends $Command<
   StartMedicalTranscriptionJobCommandInput,

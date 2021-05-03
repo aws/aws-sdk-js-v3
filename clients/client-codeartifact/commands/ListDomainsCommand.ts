@@ -24,6 +24,18 @@ export interface ListDomainsCommandOutput extends ListDomainsResult, __MetadataB
  * <p> Returns a list of <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html">DomainSummary</a> objects for all domains owned by the AWS account that makes
  *       this call. Each returned <code>DomainSummary</code> object contains information about a
  *       domain. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeartifactClient(config);
+ * const command = new ListDomainsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDomainsCommandInput} for command's `input` shape.
+ * @see {@link ListDomainsCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDomainsCommand extends $Command<
   ListDomainsCommandInput,

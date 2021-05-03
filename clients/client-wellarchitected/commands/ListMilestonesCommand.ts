@@ -22,6 +22,18 @@ export interface ListMilestonesCommandOutput extends ListMilestonesOutput, __Met
 
 /**
  * <p>List all milestones for an existing workload.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WellArchitectedClient(config);
+ * const command = new ListMilestonesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMilestonesCommandInput} for command's `input` shape.
+ * @see {@link ListMilestonesCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMilestonesCommand extends $Command<
   ListMilestonesCommandInput,

@@ -22,6 +22,18 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
 
 /**
  * <p>Creates a new, empty repository.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new CreateRepositoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRepositoryCommandInput} for command's `input` shape.
+ * @see {@link CreateRepositoryCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRepositoryCommand extends $Command<
   CreateRepositoryCommandInput,

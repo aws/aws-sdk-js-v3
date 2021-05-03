@@ -53,6 +53,18 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  *         <p>To stop a model compilation job, use <a>StopCompilationJob</a>. To get
  *             information about a particular model compilation job, use <a>DescribeCompilationJob</a>. To get information about multiple model
  *             compilation jobs, use <a>ListCompilationJobs</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateCompilationJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCompilationJobCommandInput} for command's `input` shape.
+ * @see {@link CreateCompilationJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCompilationJobCommand extends $Command<
   CreateCompilationJobCommandInput,

@@ -22,6 +22,18 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
 
 /**
  * <p>Adds a new playback configuration to AWS Elemental MediaTailor.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaTailorClient(config);
+ * const command = new PutPlaybackConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutPlaybackConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutPlaybackConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutPlaybackConfigurationCommand extends $Command<
   PutPlaybackConfigurationCommandInput,

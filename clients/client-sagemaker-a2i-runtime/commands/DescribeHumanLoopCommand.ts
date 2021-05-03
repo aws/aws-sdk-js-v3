@@ -26,6 +26,18 @@ export interface DescribeHumanLoopCommandOutput extends DescribeHumanLoopRespons
 
 /**
  * <p>Returns information about the specified human loop.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerA2IRuntimeClient(config);
+ * const command = new DescribeHumanLoopCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeHumanLoopCommandInput} for command's `input` shape.
+ * @see {@link DescribeHumanLoopCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeHumanLoopCommand extends $Command<
   DescribeHumanLoopCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateMacieSessionCommandOutput extends UpdateMacieSessionRespo
 
 /**
  * <p>Suspends or re-enables an Amazon Macie account, or updates the configuration settings for a Macie account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new UpdateMacieSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMacieSessionCommandInput} for command's `input` shape.
+ * @see {@link UpdateMacieSessionCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMacieSessionCommand extends $Command<
   UpdateMacieSessionCommandInput,

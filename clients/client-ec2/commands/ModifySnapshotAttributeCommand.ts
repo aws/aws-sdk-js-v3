@@ -29,6 +29,18 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  *       public. Snapshots encrypted with your default CMK cannot be shared with other accounts.</p>
  *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Sharing snapshots</a> in the
  *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifySnapshotAttributeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifySnapshotAttributeCommandInput} for command's `input` shape.
+ * @see {@link ModifySnapshotAttributeCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifySnapshotAttributeCommand extends $Command<
   ModifySnapshotAttributeCommandInput,

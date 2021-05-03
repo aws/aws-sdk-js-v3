@@ -23,6 +23,18 @@ export interface UpdateLinkCommandOutput extends UpdateLinkResponse, __MetadataB
 /**
  * <p>Updates the details for an existing link. To remove information for any of the
  *             parameters, specify an empty string.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new UpdateLinkCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateLinkCommandInput} for command's `input` shape.
+ * @see {@link UpdateLinkCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateLinkCommand extends $Command<
   UpdateLinkCommandInput,

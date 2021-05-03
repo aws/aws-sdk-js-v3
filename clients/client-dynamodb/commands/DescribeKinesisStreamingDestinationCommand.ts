@@ -27,6 +27,18 @@ export interface DescribeKinesisStreamingDestinationCommandOutput
 
 /**
  * <p>Returns information about the status of Kinesis streaming.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new DescribeKinesisStreamingDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeKinesisStreamingDestinationCommandInput} for command's `input` shape.
+ * @see {@link DescribeKinesisStreamingDestinationCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeKinesisStreamingDestinationCommand extends $Command<
   DescribeKinesisStreamingDestinationCommandInput,

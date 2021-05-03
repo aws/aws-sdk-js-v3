@@ -22,6 +22,18 @@ export interface DeleteVoiceTemplateCommandOutput extends DeleteVoiceTemplateRes
 
 /**
  * <p>Deletes a message template for messages that were sent through the voice channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new DeleteVoiceTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVoiceTemplateCommandInput} for command's `input` shape.
+ * @see {@link DeleteVoiceTemplateCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVoiceTemplateCommand extends $Command<
   DeleteVoiceTemplateCommandInput,

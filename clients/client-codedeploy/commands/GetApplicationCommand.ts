@@ -22,6 +22,18 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
 
 /**
  * <p>Gets information about an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new GetApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetApplicationCommandInput} for command's `input` shape.
+ * @see {@link GetApplicationCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetApplicationCommand extends $Command<
   GetApplicationCommandInput,

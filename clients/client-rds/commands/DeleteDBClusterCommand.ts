@@ -32,6 +32,18 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  *          <note>
  *             <p>This action only applies to Aurora DB clusters.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new DeleteDBClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDBClusterCommandInput} for command's `input` shape.
+ * @see {@link DeleteDBClusterCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDBClusterCommand extends $Command<
   DeleteDBClusterCommandInput,

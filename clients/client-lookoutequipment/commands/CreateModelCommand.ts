@@ -30,6 +30,18 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  *          <p>Your model is trained using a portion of the data from your dataset and uses that data
  *          to learn patterns of normal behavior and abnormal patterns that lead to equipment failure.
  *          Another portion of the data is used to evaluate the model's accuracy. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutEquipmentClient(config);
+ * const command = new CreateModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateModelCommandInput} for command's `input` shape.
+ * @see {@link CreateModelCommandOutput} for command's `response` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateModelCommand extends $Command<
   CreateModelCommandInput,

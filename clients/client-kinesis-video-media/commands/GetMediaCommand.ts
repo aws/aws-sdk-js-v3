@@ -71,6 +71,18 @@ export interface GetMediaCommandOutput extends GetMediaOutput, __MetadataBearer 
  *             <p>For more information, see the <b>Errors</b> section at the
  *         bottom of this topic, as well as <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html">Common Errors</a>. </p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisVideoMediaClient(config);
+ * const command = new GetMediaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMediaCommandInput} for command's `input` shape.
+ * @see {@link GetMediaCommandOutput} for command's `response` shape.
+ * @see {@link KinesisVideoMediaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMediaCommand extends $Command<
   GetMediaCommandInput,

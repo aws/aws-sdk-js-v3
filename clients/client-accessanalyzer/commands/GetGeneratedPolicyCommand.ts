@@ -23,6 +23,18 @@ export interface GetGeneratedPolicyCommandOutput extends GetGeneratedPolicyRespo
 /**
  * <p>Retrieves the policy that was generated using <code>StartPolicyGeneration</code>.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AccessAnalyzerClient(config);
+ * const command = new GetGeneratedPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetGeneratedPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetGeneratedPolicyCommandOutput} for command's `response` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetGeneratedPolicyCommand extends $Command<
   GetGeneratedPolicyCommandInput,

@@ -26,6 +26,18 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
 
 /**
  * <p>Delete the package.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new DeletePackageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePackageCommandInput} for command's `input` shape.
+ * @see {@link DeletePackageCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePackageCommand extends $Command<
   DeletePackageCommandInput,

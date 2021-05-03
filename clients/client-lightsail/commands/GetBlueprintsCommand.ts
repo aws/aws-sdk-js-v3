@@ -31,6 +31,18 @@ export interface GetBlueprintsCommandOutput extends GetBlueprintsResult, __Metad
  *         instances. Blueprints are marked inactive when they become outdated due to operating system
  *         updates or new application releases.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetBlueprintsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBlueprintsCommandInput} for command's `input` shape.
+ * @see {@link GetBlueprintsCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBlueprintsCommand extends $Command<
   GetBlueprintsCommandInput,

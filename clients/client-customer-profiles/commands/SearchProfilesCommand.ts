@@ -23,6 +23,18 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
 /**
  * <p>Searches for profiles within a specific domain name using name, phone number, email
  *          address, account number, or a custom defined index.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CustomerProfilesClient(config);
+ * const command = new SearchProfilesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchProfilesCommandInput} for command's `input` shape.
+ * @see {@link SearchProfilesCommandOutput} for command's `response` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchProfilesCommand extends $Command<
   SearchProfilesCommandInput,

@@ -22,6 +22,18 @@ export interface CreateCommentCommandOutput extends CreateCommentResponse, __Met
 
 /**
  * <p>Adds a new comment to the specified document version.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new CreateCommentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCommentCommandInput} for command's `input` shape.
+ * @see {@link CreateCommentCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCommentCommand extends $Command<
   CreateCommentCommandInput,

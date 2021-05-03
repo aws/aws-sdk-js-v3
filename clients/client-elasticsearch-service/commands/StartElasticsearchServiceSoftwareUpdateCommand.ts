@@ -32,6 +32,18 @@ export interface StartElasticsearchServiceSoftwareUpdateCommandOutput
 
 /**
  * <p>Schedules a service software update for an Amazon ES domain.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new StartElasticsearchServiceSoftwareUpdateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartElasticsearchServiceSoftwareUpdateCommandInput} for command's `input` shape.
+ * @see {@link StartElasticsearchServiceSoftwareUpdateCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command<
   StartElasticsearchServiceSoftwareUpdateCommandInput,

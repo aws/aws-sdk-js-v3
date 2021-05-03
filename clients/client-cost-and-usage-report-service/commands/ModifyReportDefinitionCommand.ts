@@ -26,6 +26,18 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
 
 /**
  * <p>Allows you to programatically update your report preferences.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CostAndUsageReportServiceClient(config);
+ * const command = new ModifyReportDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyReportDefinitionCommandInput} for command's `input` shape.
+ * @see {@link ModifyReportDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyReportDefinitionCommand extends $Command<
   ModifyReportDefinitionCommandInput,

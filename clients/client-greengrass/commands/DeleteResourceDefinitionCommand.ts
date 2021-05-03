@@ -22,6 +22,18 @@ export interface DeleteResourceDefinitionCommandOutput extends DeleteResourceDef
 
 /**
  * Deletes a resource definition.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new DeleteResourceDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteResourceDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DeleteResourceDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteResourceDefinitionCommand extends $Command<
   DeleteResourceDefinitionCommandInput,

@@ -22,6 +22,18 @@ export interface BatchUpdatePartitionCommandOutput extends BatchUpdatePartitionR
 
 /**
  * <p>Updates one or more partitions in a batch operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new BatchUpdatePartitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchUpdatePartitionCommandInput} for command's `input` shape.
+ * @see {@link BatchUpdatePartitionCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchUpdatePartitionCommand extends $Command<
   BatchUpdatePartitionCommandInput,

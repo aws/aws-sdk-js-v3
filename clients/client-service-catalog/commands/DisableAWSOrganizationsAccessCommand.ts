@@ -30,6 +30,18 @@ export interface DisableAWSOrganizationsAccessCommandOutput
  *          the organization.</p>
  *          <p>This API can't be invoked if there are active delegated administrators in the organization.</p>
  *          <p>Note that a delegated administrator is not authorized to invoke <code>DisableAWSOrganizationsAccess</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DisableAWSOrganizationsAccessCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableAWSOrganizationsAccessCommandInput} for command's `input` shape.
+ * @see {@link DisableAWSOrganizationsAccessCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableAWSOrganizationsAccessCommand extends $Command<
   DisableAWSOrganizationsAccessCommandInput,

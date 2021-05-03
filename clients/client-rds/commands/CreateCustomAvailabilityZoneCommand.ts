@@ -29,6 +29,18 @@ export interface CreateCustomAvailabilityZoneCommandOutput
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
  *                 RDS on VMware User Guide.</a>
  *          </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new CreateCustomAvailabilityZoneCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCustomAvailabilityZoneCommandInput} for command's `input` shape.
+ * @see {@link CreateCustomAvailabilityZoneCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCustomAvailabilityZoneCommand extends $Command<
   CreateCustomAvailabilityZoneCommandInput,

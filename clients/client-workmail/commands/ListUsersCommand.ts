@@ -19,6 +19,18 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
 
 /**
  * <p>Returns summaries of the organization's users.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new ListUsersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListUsersCommandInput} for command's `input` shape.
+ * @see {@link ListUsersCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListUsersCommand extends $Command<
   ListUsersCommandInput,

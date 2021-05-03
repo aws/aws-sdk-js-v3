@@ -24,6 +24,18 @@ export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse,
  * <p>Use this request to opt in a phone number that is opted out, which enables you to
  *             resume sending SMS messages to the number.</p>
  *         <p>You can opt in a phone number only once every 30 days.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SNSClient(config);
+ * const command = new OptInPhoneNumberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link OptInPhoneNumberCommandInput} for command's `input` shape.
+ * @see {@link OptInPhoneNumberCommandOutput} for command's `response` shape.
+ * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class OptInPhoneNumberCommand extends $Command<
   OptInPhoneNumberCommandInput,

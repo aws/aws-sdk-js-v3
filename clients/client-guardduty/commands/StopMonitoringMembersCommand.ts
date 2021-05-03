@@ -24,6 +24,18 @@ export interface StopMonitoringMembersCommandOutput extends StopMonitoringMember
  * <p>Stops GuardDuty monitoring for the specified member accounts. Use the
  *         <code>StartMonitoringMembers</code> operation to restart monitoring for those
  *       accounts.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new StopMonitoringMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopMonitoringMembersCommandInput} for command's `input` shape.
+ * @see {@link StopMonitoringMembersCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopMonitoringMembersCommand extends $Command<
   StopMonitoringMembersCommandInput,

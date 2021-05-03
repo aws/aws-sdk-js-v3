@@ -22,6 +22,18 @@ export interface BatchGetVariableCommandOutput extends BatchGetVariableResult, _
 
 /**
  * <p>Gets a batch of variables.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new BatchGetVariableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetVariableCommandInput} for command's `input` shape.
+ * @see {@link BatchGetVariableCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetVariableCommand extends $Command<
   BatchGetVariableCommandInput,

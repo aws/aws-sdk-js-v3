@@ -25,6 +25,18 @@ export interface DeleteConnectionCommandOutput extends Connection, __MetadataBea
  *          <p>Deleting a connection only stops the AWS Direct Connect port hour and data transfer charges.
  *       If you are partnering with any third parties to connect with the AWS Direct Connect location,
  *       you must cancel your service with them separately.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new DeleteConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConnectionCommandInput} for command's `input` shape.
+ * @see {@link DeleteConnectionCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConnectionCommand extends $Command<
   DeleteConnectionCommandInput,

@@ -22,6 +22,18 @@ export interface GetConnectivityInfoCommandOutput extends GetConnectivityInfoRes
 
 /**
  * Retrieves the connectivity information for a core.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new GetConnectivityInfoCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetConnectivityInfoCommandInput} for command's `input` shape.
+ * @see {@link GetConnectivityInfoCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetConnectivityInfoCommand extends $Command<
   GetConnectivityInfoCommandInput,

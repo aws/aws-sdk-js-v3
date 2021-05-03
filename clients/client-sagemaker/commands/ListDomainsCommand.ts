@@ -22,6 +22,18 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
 
 /**
  * <p>Lists the domains.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListDomainsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDomainsCommandInput} for command's `input` shape.
+ * @see {@link ListDomainsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDomainsCommand extends $Command<
   ListDomainsCommandInput,

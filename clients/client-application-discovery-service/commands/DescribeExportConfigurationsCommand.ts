@@ -31,6 +31,18 @@ export interface DescribeExportConfigurationsCommandOutput
  *
  * <p>
  *             <code>DescribeExportConfigurations</code> is deprecated. Use <a href="https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html">DescribeImportTasks</a>, instead.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new DescribeExportConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeExportConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeExportConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeExportConfigurationsCommand extends $Command<
   DescribeExportConfigurationsCommandInput,

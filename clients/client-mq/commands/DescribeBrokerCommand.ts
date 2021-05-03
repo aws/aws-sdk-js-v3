@@ -22,6 +22,18 @@ export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __M
 
 /**
  * Returns information about the specified broker.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MqClient(config);
+ * const command = new DescribeBrokerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeBrokerCommandInput} for command's `input` shape.
+ * @see {@link DescribeBrokerCommandOutput} for command's `response` shape.
+ * @see {@link MqClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeBrokerCommand extends $Command<
   DescribeBrokerCommandInput,

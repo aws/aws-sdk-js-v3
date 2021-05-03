@@ -24,6 +24,18 @@ export interface GetReservationUtilizationCommandOutput extends GetReservationUt
  * <p>Retrieves the reservation utilization for your account. Management account in an organization have access to member accounts.
  * 			You can filter data by dimensions in a time period. You can use <code>GetDimensionValues</code> to determine the possible
  * 			dimension values. Currently, you can group only by <code>SUBSCRIPTION_ID</code>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CostExplorerClient(config);
+ * const command = new GetReservationUtilizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetReservationUtilizationCommandInput} for command's `input` shape.
+ * @see {@link GetReservationUtilizationCommandOutput} for command's `response` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetReservationUtilizationCommand extends $Command<
   GetReservationUtilizationCommandInput,

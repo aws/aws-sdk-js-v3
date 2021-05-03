@@ -28,6 +28,18 @@ export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesRes
  *             IPv4 addresses, and the limit varies per instance type. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP Addresses Per Network Interface Per Instance Type</a>
  *             in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *         <p>You must specify either the IPv6 addresses or the IPv6 address count in the request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new AssignIpv6AddressesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssignIpv6AddressesCommandInput} for command's `input` shape.
+ * @see {@link AssignIpv6AddressesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssignIpv6AddressesCommand extends $Command<
   AssignIpv6AddressesCommandInput,

@@ -26,6 +26,18 @@ export interface StopRxNormInferenceJobCommandOutput extends StopRxNormInference
 
 /**
  * <p>Stops an InferRxNorm inference job in progress.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendMedicalClient(config);
+ * const command = new StopRxNormInferenceJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopRxNormInferenceJobCommandInput} for command's `input` shape.
+ * @see {@link StopRxNormInferenceJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopRxNormInferenceJobCommand extends $Command<
   StopRxNormInferenceJobCommandInput,

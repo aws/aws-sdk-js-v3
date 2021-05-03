@@ -22,6 +22,18 @@ export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, _
 
 /**
  * <p>Lists your GraphQL APIs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppSyncClient(config);
+ * const command = new ListGraphqlApisCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListGraphqlApisCommandInput} for command's `input` shape.
+ * @see {@link ListGraphqlApisCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListGraphqlApisCommand extends $Command<
   ListGraphqlApisCommandInput,

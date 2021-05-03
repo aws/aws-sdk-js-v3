@@ -25,6 +25,18 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  *          <p>If <code>statusList</code> contains AVAILABLE, the request must include
  *       <code>groundStation</code>, <code>missionprofileArn</code>, and <code>satelliteArn</code>.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GroundStationClient(config);
+ * const command = new ListContactsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListContactsCommandInput} for command's `input` shape.
+ * @see {@link ListContactsCommandOutput} for command's `response` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListContactsCommand extends $Command<
   ListContactsCommandInput,

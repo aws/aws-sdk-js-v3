@@ -22,6 +22,18 @@ export interface BatchCreateVariableCommandOutput extends BatchCreateVariableRes
 
 /**
  * <p>Creates a batch of variables.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new BatchCreateVariableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchCreateVariableCommandInput} for command's `input` shape.
+ * @see {@link BatchCreateVariableCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchCreateVariableCommand extends $Command<
   BatchCreateVariableCommandInput,

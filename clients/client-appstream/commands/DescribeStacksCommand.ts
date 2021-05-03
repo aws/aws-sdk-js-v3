@@ -22,6 +22,18 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
 
 /**
  * <p>Retrieves a list that describes one or more specified stacks, if the stack names are provided. Otherwise, all stacks in the account are described.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new DescribeStacksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeStacksCommandInput} for command's `input` shape.
+ * @see {@link DescribeStacksCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeStacksCommand extends $Command<
   DescribeStacksCommandInput,

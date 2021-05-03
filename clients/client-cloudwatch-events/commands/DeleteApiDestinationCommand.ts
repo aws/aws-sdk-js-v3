@@ -22,6 +22,18 @@ export interface DeleteApiDestinationCommandOutput extends DeleteApiDestinationR
 
 /**
  * <p>Deletes the specified API destination.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchEventsClient(config);
+ * const command = new DeleteApiDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteApiDestinationCommandInput} for command's `input` shape.
+ * @see {@link DeleteApiDestinationCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteApiDestinationCommand extends $Command<
   DeleteApiDestinationCommandInput,

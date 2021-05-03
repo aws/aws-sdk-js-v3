@@ -22,6 +22,18 @@ export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDo
 
 /**
  * This example serializes an inline document as part of the payload.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new JsonProtocolClient(config);
+ * const command = new PutAndGetInlineDocumentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAndGetInlineDocumentsCommandInput} for command's `input` shape.
+ * @see {@link PutAndGetInlineDocumentsCommandOutput} for command's `response` shape.
+ * @see {@link JsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAndGetInlineDocumentsCommand extends $Command<
   PutAndGetInlineDocumentsCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeThingGroupCommandOutput extends DescribeThingGroupRespo
 
 /**
  * <p>Describe a thing group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DescribeThingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeThingGroupCommandInput} for command's `input` shape.
+ * @see {@link DescribeThingGroupCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeThingGroupCommand extends $Command<
   DescribeThingGroupCommandInput,

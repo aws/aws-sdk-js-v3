@@ -25,6 +25,18 @@ export interface RemoveAttributesFromFindingsCommandOutput
 /**
  * <p>Removes entire attributes (key and value pairs) from the findings that are specified
  *          by the ARNs of the findings where an attribute with the specified key exists.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new RemoveAttributesFromFindingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveAttributesFromFindingsCommandInput} for command's `input` shape.
+ * @see {@link RemoveAttributesFromFindingsCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveAttributesFromFindingsCommand extends $Command<
   RemoveAttributesFromFindingsCommandInput,

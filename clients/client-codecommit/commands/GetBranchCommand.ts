@@ -19,6 +19,18 @@ export interface GetBranchCommandOutput extends GetBranchOutput, __MetadataBeare
 
 /**
  * <p>Returns information about a repository branch, including its name and the last commit ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new GetBranchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBranchCommandInput} for command's `input` shape.
+ * @see {@link GetBranchCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBranchCommand extends $Command<
   GetBranchCommandInput,

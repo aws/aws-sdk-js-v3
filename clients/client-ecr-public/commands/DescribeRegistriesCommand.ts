@@ -22,6 +22,18 @@ export interface DescribeRegistriesCommandOutput extends DescribeRegistriesRespo
 
 /**
  * <p>Returns details for a public registry.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECRPUBLICClient(config);
+ * const command = new DescribeRegistriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRegistriesCommandInput} for command's `input` shape.
+ * @see {@link DescribeRegistriesCommandOutput} for command's `response` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRegistriesCommand extends $Command<
   DescribeRegistriesCommandInput,

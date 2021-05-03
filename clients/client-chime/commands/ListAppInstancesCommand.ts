@@ -22,6 +22,18 @@ export interface ListAppInstancesCommandOutput extends ListAppInstancesResponse,
 
 /**
  * <p>Lists all Amazon Chime <code>AppInstance</code>s created under a single AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new ListAppInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAppInstancesCommandInput} for command's `input` shape.
+ * @see {@link ListAppInstancesCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAppInstancesCommand extends $Command<
   ListAppInstancesCommandInput,

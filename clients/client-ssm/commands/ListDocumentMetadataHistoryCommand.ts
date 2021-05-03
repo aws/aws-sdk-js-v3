@@ -24,6 +24,18 @@ export interface ListDocumentMetadataHistoryCommandOutput
 
 /**
  * <p>Information about approval reviews for a version of an SSM document.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new ListDocumentMetadataHistoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDocumentMetadataHistoryCommandInput} for command's `input` shape.
+ * @see {@link ListDocumentMetadataHistoryCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDocumentMetadataHistoryCommand extends $Command<
   ListDocumentMetadataHistoryCommandInput,

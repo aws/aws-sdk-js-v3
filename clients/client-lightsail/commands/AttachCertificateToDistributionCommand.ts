@@ -35,6 +35,18 @@ export interface AttachCertificateToDistributionCommandOutput
  *         an origin in any AWS Region, and distribute its content globally. However, all
  *         distributions are located in the <code>us-east-1</code> Region.</p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new AttachCertificateToDistributionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AttachCertificateToDistributionCommandInput} for command's `input` shape.
+ * @see {@link AttachCertificateToDistributionCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AttachCertificateToDistributionCommand extends $Command<
   AttachCertificateToDistributionCommandInput,

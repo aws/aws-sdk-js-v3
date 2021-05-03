@@ -63,6 +63,18 @@ export interface SplitShardCommandOutput extends __MetadataBearer {}
  *         <p>
  *             <code>SplitShard</code> has a limit of five transactions per second per
  *             account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisClient(config);
+ * const command = new SplitShardCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SplitShardCommandInput} for command's `input` shape.
+ * @see {@link SplitShardCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SplitShardCommand extends $Command<
   SplitShardCommandInput,

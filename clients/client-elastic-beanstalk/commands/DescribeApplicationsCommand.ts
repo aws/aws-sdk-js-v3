@@ -22,6 +22,18 @@ export interface DescribeApplicationsCommandOutput extends ApplicationDescriptio
 
 /**
  * <p>Returns the descriptions of existing applications.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new DescribeApplicationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeApplicationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeApplicationsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeApplicationsCommand extends $Command<
   DescribeApplicationsCommandInput,

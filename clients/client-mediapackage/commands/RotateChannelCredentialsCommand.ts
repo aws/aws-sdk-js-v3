@@ -24,6 +24,18 @@ export interface RotateChannelCredentialsCommandOutput extends RotateChannelCred
  * @deprecated
  *
  * Changes the Channel's first IngestEndpoint's username and password. WARNING - This API is deprecated. Please use RotateIngestEndpointCredentials instead
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaPackageClient(config);
+ * const command = new RotateChannelCredentialsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RotateChannelCredentialsCommandInput} for command's `input` shape.
+ * @see {@link RotateChannelCredentialsCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RotateChannelCredentialsCommand extends $Command<
   RotateChannelCredentialsCommandInput,

@@ -32,6 +32,18 @@ export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCer
  *         <p>If both tag keys and values are omitted from the request, HSM client certificates
  *             are returned regardless of whether they have tag keys or values associated with
  *             them.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DescribeHsmClientCertificatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeHsmClientCertificatesCommandInput} for command's `input` shape.
+ * @see {@link DescribeHsmClientCertificatesCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeHsmClientCertificatesCommand extends $Command<
   DescribeHsmClientCertificatesCommandInput,

@@ -30,6 +30,18 @@ export interface FilterLogEventsCommandOutput extends FilterLogEventsResponse, _
  *     while there are more log events available through the token.</p>
  *          <p>The returned log events are sorted by event timestamp, the timestamp when the event was ingested
  *     by CloudWatch Logs, and the ID of the <code>PutLogEvents</code> request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new FilterLogEventsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link FilterLogEventsCommandInput} for command's `input` shape.
+ * @see {@link FilterLogEventsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class FilterLogEventsCommand extends $Command<
   FilterLogEventsCommandInput,

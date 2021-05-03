@@ -31,6 +31,18 @@ export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
  *         certificates, <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working with server
  *           certificates</a> in the <i>IAM User Guide</i>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new UntagServerCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UntagServerCertificateCommandInput} for command's `input` shape.
+ * @see {@link UntagServerCertificateCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UntagServerCertificateCommand extends $Command<
   UntagServerCertificateCommandInput,

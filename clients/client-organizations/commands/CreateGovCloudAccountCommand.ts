@@ -155,6 +155,18 @@ export interface CreateGovCloudAccountCommandOutput extends CreateGovCloudAccoun
  *                     <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html">Granting
  *                     Access to Your Billing Information and Tools</a>.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OrganizationsClient(config);
+ * const command = new CreateGovCloudAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateGovCloudAccountCommandInput} for command's `input` shape.
+ * @see {@link CreateGovCloudAccountCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateGovCloudAccountCommand extends $Command<
   CreateGovCloudAccountCommandInput,

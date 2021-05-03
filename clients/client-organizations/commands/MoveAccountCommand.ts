@@ -24,6 +24,18 @@ export interface MoveAccountCommandOutput extends __MetadataBearer {}
  * <p>Moves an account from its current source parent root or organizational unit (OU) to
  *             the specified destination parent root or OU.</p>
  *         <p>This operation can be called only from the organization's management account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OrganizationsClient(config);
+ * const command = new MoveAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link MoveAccountCommandInput} for command's `input` shape.
+ * @see {@link MoveAccountCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class MoveAccountCommand extends $Command<
   MoveAccountCommandInput,

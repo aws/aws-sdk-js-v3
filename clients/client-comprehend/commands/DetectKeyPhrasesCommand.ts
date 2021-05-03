@@ -22,6 +22,18 @@ export interface DetectKeyPhrasesCommandOutput extends DetectKeyPhrasesResponse,
 
 /**
  * <p>Detects the key noun phrases found in the text. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new DetectKeyPhrasesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetectKeyPhrasesCommandInput} for command's `input` shape.
+ * @see {@link DetectKeyPhrasesCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetectKeyPhrasesCommand extends $Command<
   DetectKeyPhrasesCommandInput,

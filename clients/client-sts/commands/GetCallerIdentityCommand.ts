@@ -32,6 +32,18 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  *                 user or role is denied access. To view an example response, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_access-denied-delete-mfa">I Am Not Authorized to Perform: iam:DeleteVirtualMFADevice</a> in the
  *                     <i>IAM User Guide</i>.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new STSClient(config);
+ * const command = new GetCallerIdentityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCallerIdentityCommandInput} for command's `input` shape.
+ * @see {@link GetCallerIdentityCommandOutput} for command's `response` shape.
+ * @see {@link STSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCallerIdentityCommand extends $Command<
   GetCallerIdentityCommandInput,

@@ -22,6 +22,18 @@ export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsR
 
 /**
  * <p>This operation lists a data set's revisions sorted by CreatedAt in descending order.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataExchangeClient(config);
+ * const command = new ListDataSetRevisionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDataSetRevisionsCommandInput} for command's `input` shape.
+ * @see {@link ListDataSetRevisionsCommandOutput} for command's `response` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDataSetRevisionsCommand extends $Command<
   ListDataSetRevisionsCommandInput,

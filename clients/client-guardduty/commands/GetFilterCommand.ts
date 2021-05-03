@@ -22,6 +22,18 @@ export interface GetFilterCommandOutput extends GetFilterResponse, __MetadataBea
 
 /**
  * <p>Returns the details of the filter specified by the filter name.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new GetFilterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFilterCommandInput} for command's `input` shape.
+ * @see {@link GetFilterCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFilterCommand extends $Command<
   GetFilterCommandInput,

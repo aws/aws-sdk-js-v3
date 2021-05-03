@@ -24,6 +24,18 @@ export interface DescribeProvisioningTemplateCommandOutput
 
 /**
  * <p>Returns information about a fleet provisioning template.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DescribeProvisioningTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeProvisioningTemplateCommandInput} for command's `input` shape.
+ * @see {@link DescribeProvisioningTemplateCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeProvisioningTemplateCommand extends $Command<
   DescribeProvisioningTemplateCommandInput,

@@ -22,6 +22,18 @@ export interface RetryBuildCommandOutput extends RetryBuildOutput, __MetadataBea
 
 /**
  * <p>Restarts a build.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new RetryBuildCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RetryBuildCommandInput} for command's `input` shape.
+ * @see {@link RetryBuildCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RetryBuildCommand extends $Command<
   RetryBuildCommandInput,

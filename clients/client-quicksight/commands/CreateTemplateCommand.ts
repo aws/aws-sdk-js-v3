@@ -29,6 +29,18 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * 			analysis. You can use templates to create dashboards by replacing dataset placeholders
  * 			with datasets that follow the same schema that was used to create the source analysis
  * 			and template.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new CreateTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTemplateCommandInput} for command's `input` shape.
+ * @see {@link CreateTemplateCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTemplateCommand extends $Command<
   CreateTemplateCommandInput,

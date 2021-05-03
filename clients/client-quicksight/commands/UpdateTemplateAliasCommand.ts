@@ -22,6 +22,18 @@ export interface UpdateTemplateAliasCommandOutput extends UpdateTemplateAliasRes
 
 /**
  * <p>Updates the template alias of a template.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new UpdateTemplateAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTemplateAliasCommandInput} for command's `input` shape.
+ * @see {@link UpdateTemplateAliasCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTemplateAliasCommand extends $Command<
   UpdateTemplateAliasCommandInput,

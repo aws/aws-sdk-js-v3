@@ -25,6 +25,18 @@ export interface ListBackupPlansCommandOutput extends ListBackupPlansOutput, __M
  *          populated only if the advanced option is set for the backup plan. The list contains
  *          information such as Amazon Resource Names (ARNs), plan IDs, creation and deletion dates,
  *          version IDs, plan names, and creator request IDs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new ListBackupPlansCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBackupPlansCommandInput} for command's `input` shape.
+ * @see {@link ListBackupPlansCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBackupPlansCommand extends $Command<
   ListBackupPlansCommandInput,

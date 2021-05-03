@@ -26,6 +26,18 @@ export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataB
 
 /**
  * <p>Returns a list of the notification rule targets for an AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodestarNotificationsClient(config);
+ * const command = new ListTargetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTargetsCommandInput} for command's `input` shape.
+ * @see {@link ListTargetsCommandOutput} for command's `response` shape.
+ * @see {@link CodestarNotificationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTargetsCommand extends $Command<
   ListTargetsCommandInput,

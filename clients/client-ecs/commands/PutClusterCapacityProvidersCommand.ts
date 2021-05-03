@@ -37,6 +37,18 @@ export interface PutClusterCapacityProvidersCommandOutput
  * 			It is recommended to define a default capacity provider strategy for your cluster,
  * 			however you may specify an empty array (<code>[]</code>) to bypass defining a default
  * 			strategy.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new PutClusterCapacityProvidersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutClusterCapacityProvidersCommandInput} for command's `input` shape.
+ * @see {@link PutClusterCapacityProvidersCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutClusterCapacityProvidersCommand extends $Command<
   PutClusterCapacityProvidersCommandInput,

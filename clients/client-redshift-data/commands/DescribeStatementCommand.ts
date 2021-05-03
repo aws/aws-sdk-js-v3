@@ -24,6 +24,18 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * <p>Describes the details about a specific instance when a query was run by the Amazon Redshift Data API. The information
  *       includes when the query started, when it finished, the query status, the number of rows returned, and the SQL
  *       statement. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftDataClient(config);
+ * const command = new DescribeStatementCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeStatementCommandInput} for command's `input` shape.
+ * @see {@link DescribeStatementCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftDataClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeStatementCommand extends $Command<
   DescribeStatementCommandInput,

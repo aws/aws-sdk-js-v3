@@ -22,6 +22,18 @@ export interface DeleteDeviceProfileCommandOutput extends DeleteDeviceProfileRes
 
 /**
  * <p>Deletes a device profile.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new DeleteDeviceProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDeviceProfileCommandInput} for command's `input` shape.
+ * @see {@link DeleteDeviceProfileCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDeviceProfileCommand extends $Command<
   DeleteDeviceProfileCommandInput,

@@ -23,6 +23,18 @@ export interface ListGroupMembersCommandOutput extends ListGroupMembersResponse,
 /**
  * <p>Returns an overview of the members of a group. Users and groups can be members of a
  *          group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new ListGroupMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListGroupMembersCommandInput} for command's `input` shape.
+ * @see {@link ListGroupMembersCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListGroupMembersCommand extends $Command<
   ListGroupMembersCommandInput,

@@ -24,6 +24,18 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  * <p>Dynamically decreases the number of replicas in a Redis (cluster mode disabled) replication group or the number of
  *             replica nodes in one or more node groups (shards) of a Redis (cluster mode enabled) replication group. This operation
  *             is performed with no cluster down time.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new DecreaseReplicaCountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DecreaseReplicaCountCommandInput} for command's `input` shape.
+ * @see {@link DecreaseReplicaCountCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DecreaseReplicaCountCommand extends $Command<
   DecreaseReplicaCountCommandInput,

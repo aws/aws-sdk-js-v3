@@ -24,6 +24,18 @@ export interface HttpRequestWithLabelsAndTimestampFormatCommandOutput extends __
 /**
  * The example tests how requests serialize different timestamp formats in the
  * URI path.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestXmlProtocolClient(config);
+ * const command = new HttpRequestWithLabelsAndTimestampFormatCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link HttpRequestWithLabelsAndTimestampFormatCommandInput} for command's `input` shape.
+ * @see {@link HttpRequestWithLabelsAndTimestampFormatCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class HttpRequestWithLabelsAndTimestampFormatCommand extends $Command<
   HttpRequestWithLabelsAndTimestampFormatCommandInput,

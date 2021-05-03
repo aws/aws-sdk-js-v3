@@ -89,6 +89,18 @@ export interface CreateGlobalTableCommandOutput extends CreateGlobalTableOutput,
  *        your global table.
  *     </p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new CreateGlobalTableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateGlobalTableCommandInput} for command's `input` shape.
+ * @see {@link CreateGlobalTableCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateGlobalTableCommand extends $Command<
   CreateGlobalTableCommandInput,

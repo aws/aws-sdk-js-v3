@@ -22,6 +22,18 @@ export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVe
 
 /**
  * <p>Remove a label or labels from a parameter.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new UnlabelParameterVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UnlabelParameterVersionCommandInput} for command's `input` shape.
+ * @see {@link UnlabelParameterVersionCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UnlabelParameterVersionCommand extends $Command<
   UnlabelParameterVersionCommandInput,

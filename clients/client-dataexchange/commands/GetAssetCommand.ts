@@ -22,6 +22,18 @@ export interface GetAssetCommandOutput extends GetAssetResponse, __MetadataBeare
 
 /**
  * <p>This operation returns information about an asset.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataExchangeClient(config);
+ * const command = new GetAssetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAssetCommandInput} for command's `input` shape.
+ * @see {@link GetAssetCommandOutput} for command's `response` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAssetCommand extends $Command<
   GetAssetCommandInput,

@@ -22,6 +22,18 @@ export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBeare
 
 /**
  * <p>Gets the challenge token based on the given appId and sessionId.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyBackendClient(config);
+ * const command = new GetTokenCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTokenCommandInput} for command's `input` shape.
+ * @see {@link GetTokenCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTokenCommand extends $Command<
   GetTokenCommandInput,

@@ -22,6 +22,18 @@ export interface DeleteManagedPrefixListCommandOutput extends DeleteManagedPrefi
 
 /**
  * <p>Deletes the specified managed prefix list. You must first remove all references to the prefix list in your resources.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DeleteManagedPrefixListCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteManagedPrefixListCommandInput} for command's `input` shape.
+ * @see {@link DeleteManagedPrefixListCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteManagedPrefixListCommand extends $Command<
   DeleteManagedPrefixListCommandInput,

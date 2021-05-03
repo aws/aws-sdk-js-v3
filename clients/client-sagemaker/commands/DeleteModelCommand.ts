@@ -25,6 +25,18 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
  *             was created in Amazon SageMaker when you called the <a>CreateModel</a> API. It does not
  *             delete model artifacts, inference code, or the IAM role that you specified when
  *             creating the model. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteModelCommandInput} for command's `input` shape.
+ * @see {@link DeleteModelCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteModelCommand extends $Command<
   DeleteModelCommandInput,

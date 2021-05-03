@@ -22,6 +22,18 @@ export interface RetrieveDomainAuthCodeCommandOutput extends RetrieveDomainAuthC
 
 /**
  * <p>This operation returns the AuthCode for the domain. To transfer a domain to another registrar, you provide this value to the new registrar.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53DomainsClient(config);
+ * const command = new RetrieveDomainAuthCodeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RetrieveDomainAuthCodeCommandInput} for command's `input` shape.
+ * @see {@link RetrieveDomainAuthCodeCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RetrieveDomainAuthCodeCommand extends $Command<
   RetrieveDomainAuthCodeCommandInput,

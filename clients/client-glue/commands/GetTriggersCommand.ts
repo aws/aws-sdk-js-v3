@@ -22,6 +22,18 @@ export interface GetTriggersCommandOutput extends GetTriggersResponse, __Metadat
 
 /**
  * <p>Gets all the triggers associated with a job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetTriggersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTriggersCommandInput} for command's `input` shape.
+ * @see {@link GetTriggersCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTriggersCommand extends $Command<
   GetTriggersCommandInput,

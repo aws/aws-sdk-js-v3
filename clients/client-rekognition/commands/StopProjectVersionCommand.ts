@@ -23,6 +23,18 @@ export interface StopProjectVersionCommandOutput extends StopProjectVersionRespo
 /**
  * <p>Stops a running model. The operation might take a while to complete. To
  *          check the current status, call <a>DescribeProjectVersions</a>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RekognitionClient(config);
+ * const command = new StopProjectVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopProjectVersionCommandInput} for command's `input` shape.
+ * @see {@link StopProjectVersionCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopProjectVersionCommand extends $Command<
   StopProjectVersionCommandInput,

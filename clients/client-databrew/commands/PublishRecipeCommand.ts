@@ -22,6 +22,18 @@ export interface PublishRecipeCommandOutput extends PublishRecipeResponse, __Met
 
 /**
  * <p>Publishes a new version of a DataBrew recipe.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new PublishRecipeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PublishRecipeCommandInput} for command's `input` shape.
+ * @see {@link PublishRecipeCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PublishRecipeCommand extends $Command<
   PublishRecipeCommandInput,

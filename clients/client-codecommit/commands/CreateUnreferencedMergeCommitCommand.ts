@@ -31,6 +31,18 @@ export interface CreateUnreferencedMergeCommitCommandOutput
  *             <p>This unreferenced merge commit
  *         can only be accessed using the GetCommit API or through git commands such as git fetch. To retrieve this commit, you must specify its commit ID or otherwise reference it.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new CreateUnreferencedMergeCommitCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateUnreferencedMergeCommitCommandInput} for command's `input` shape.
+ * @see {@link CreateUnreferencedMergeCommitCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateUnreferencedMergeCommitCommand extends $Command<
   CreateUnreferencedMergeCommitCommandInput,

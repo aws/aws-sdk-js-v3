@@ -22,6 +22,18 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
 
 /**
  * <p>Specifies and starts a remote access session.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new CreateRemoteAccessSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRemoteAccessSessionCommandInput} for command's `input` shape.
+ * @see {@link CreateRemoteAccessSessionCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRemoteAccessSessionCommand extends $Command<
   CreateRemoteAccessSessionCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
 
 /**
  * <p>Updates License Manager settings for the current Region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LicenseManagerClient(config);
+ * const command = new UpdateServiceSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateServiceSettingsCommandInput} for command's `input` shape.
+ * @see {@link UpdateServiceSettingsCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateServiceSettingsCommand extends $Command<
   UpdateServiceSettingsCommandInput,

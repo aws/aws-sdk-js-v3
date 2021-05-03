@@ -23,6 +23,18 @@ export interface DeleteTapeCommandOutput extends DeleteTapeOutput, __MetadataBea
 /**
  * <p>Deletes the specified virtual tape. This operation is only supported in the tape gateway
  *          type.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new DeleteTapeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTapeCommandInput} for command's `input` shape.
+ * @see {@link DeleteTapeCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTapeCommand extends $Command<
   DeleteTapeCommandInput,

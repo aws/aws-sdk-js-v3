@@ -22,6 +22,18 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
 
 /**
  * <p>Lists the search indices.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ListIndicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListIndicesCommandInput} for command's `input` shape.
+ * @see {@link ListIndicesCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListIndicesCommand extends $Command<
   ListIndicesCommandInput,

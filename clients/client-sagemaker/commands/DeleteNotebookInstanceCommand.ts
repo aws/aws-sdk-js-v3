@@ -28,6 +28,18 @@ export interface DeleteNotebookInstanceCommandOutput extends __MetadataBearer {}
  *                 the ML compute instance, and deletes the ML storage volume and the network interface
  *                 associated with the notebook instance. </p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteNotebookInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteNotebookInstanceCommandInput} for command's `input` shape.
+ * @see {@link DeleteNotebookInstanceCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteNotebookInstanceCommand extends $Command<
   DeleteNotebookInstanceCommandInput,

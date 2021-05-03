@@ -22,6 +22,18 @@ export interface AcceptEulasCommandOutput extends AcceptEulasResponse, __Metadat
 
 /**
  * <p>Accept EULAs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NimbleClient(config);
+ * const command = new AcceptEulasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AcceptEulasCommandInput} for command's `input` shape.
+ * @see {@link AcceptEulasCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AcceptEulasCommand extends $Command<
   AcceptEulasCommandInput,

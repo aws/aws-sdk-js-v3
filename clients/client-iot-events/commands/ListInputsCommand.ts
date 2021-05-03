@@ -22,6 +22,18 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
 
 /**
  * <p>Lists the inputs you have created.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTEventsClient(config);
+ * const command = new ListInputsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListInputsCommandInput} for command's `input` shape.
+ * @see {@link ListInputsCommandOutput} for command's `response` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListInputsCommand extends $Command<
   ListInputsCommandInput,

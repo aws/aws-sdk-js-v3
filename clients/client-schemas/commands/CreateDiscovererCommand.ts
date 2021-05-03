@@ -22,6 +22,18 @@ export interface CreateDiscovererCommandOutput extends CreateDiscovererResponse,
 
 /**
  * <p>Creates a discoverer.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SchemasClient(config);
+ * const command = new CreateDiscovererCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDiscovererCommandInput} for command's `input` shape.
+ * @see {@link CreateDiscovererCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDiscovererCommand extends $Command<
   CreateDiscovererCommandInput,

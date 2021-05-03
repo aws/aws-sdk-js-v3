@@ -22,6 +22,18 @@ export interface GetAliasCommandOutput extends AliasConfiguration, __MetadataBea
 
 /**
  * <p>Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new GetAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAliasCommandInput} for command's `input` shape.
+ * @see {@link GetAliasCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAliasCommand extends $Command<GetAliasCommandInput, GetAliasCommandOutput, LambdaClientResolvedConfig> {
   // Start section: command_properties

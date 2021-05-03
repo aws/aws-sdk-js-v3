@@ -28,6 +28,18 @@ export interface AssociateWirelessGatewayWithCertificateCommandOutput
 
 /**
  * <p>Associates a wireless gateway with a certificate.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new AssociateWirelessGatewayWithCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateWirelessGatewayWithCertificateCommandInput} for command's `input` shape.
+ * @see {@link AssociateWirelessGatewayWithCertificateCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateWirelessGatewayWithCertificateCommand extends $Command<
   AssociateWirelessGatewayWithCertificateCommandInput,

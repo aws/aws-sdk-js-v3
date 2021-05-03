@@ -28,6 +28,18 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  *             if one exists. You can force a failover when you want to simulate a failure of a primary
  *             instance for
  *             testing.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DocDBClient(config);
+ * const command = new FailoverDBClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link FailoverDBClusterCommandInput} for command's `input` shape.
+ * @see {@link FailoverDBClusterCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class FailoverDBClusterCommand extends $Command<
   FailoverDBClusterCommandInput,

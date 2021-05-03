@@ -22,6 +22,18 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
 
 /**
  * <p>Updates an Amazon QuickSight user.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new UpdateUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateUserCommandInput} for command's `input` shape.
+ * @see {@link UpdateUserCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateUserCommand extends $Command<
   UpdateUserCommandInput,

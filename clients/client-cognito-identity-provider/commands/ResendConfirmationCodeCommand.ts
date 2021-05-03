@@ -27,6 +27,18 @@ export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationC
 /**
  * <p>Resends the confirmation (for confirmation of registration) to a specific user in the
  *             user pool.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new ResendConfirmationCodeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResendConfirmationCodeCommandInput} for command's `input` shape.
+ * @see {@link ResendConfirmationCodeCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResendConfirmationCodeCommand extends $Command<
   ResendConfirmationCodeCommandInput,

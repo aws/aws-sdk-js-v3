@@ -34,6 +34,18 @@ export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __Met
  *       or outside of the organization (<code>HANDSHAKE</code>).</p>
  *          <p>The <code>ShareNotes</code> parameter is only used when <code>HANDSHAKE</code> is called,
  *       which sends a directory sharing request to the directory consumer. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new ShareDirectoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ShareDirectoryCommandInput} for command's `input` shape.
+ * @see {@link ShareDirectoryCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ShareDirectoryCommand extends $Command<
   ShareDirectoryCommandInput,

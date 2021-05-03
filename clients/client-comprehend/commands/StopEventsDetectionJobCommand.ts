@@ -22,6 +22,18 @@ export interface StopEventsDetectionJobCommandOutput extends StopEventsDetection
 
 /**
  * <p>Stops an events detection job in progress.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new StopEventsDetectionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopEventsDetectionJobCommandInput} for command's `input` shape.
+ * @see {@link StopEventsDetectionJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopEventsDetectionJobCommand extends $Command<
   StopEventsDetectionJobCommandInput,

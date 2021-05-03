@@ -22,6 +22,18 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
 
 /**
  * <p>Returns the data objects for the specified rule group. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkFirewallClient(config);
+ * const command = new DescribeRuleGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRuleGroupCommandInput} for command's `input` shape.
+ * @see {@link DescribeRuleGroupCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRuleGroupCommand extends $Command<
   DescribeRuleGroupCommandInput,

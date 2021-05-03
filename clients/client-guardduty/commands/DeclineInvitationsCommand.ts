@@ -23,6 +23,18 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
 /**
  * <p>Declines invitations sent to the current member account by AWS accounts specified by their
  *       account IDs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new DeclineInvitationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeclineInvitationsCommandInput} for command's `input` shape.
+ * @see {@link DeclineInvitationsCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeclineInvitationsCommand extends $Command<
   DeclineInvitationsCommandInput,

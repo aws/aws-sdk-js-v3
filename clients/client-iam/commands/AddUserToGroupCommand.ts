@@ -22,6 +22,18 @@ export interface AddUserToGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Adds the specified user to the specified group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new AddUserToGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddUserToGroupCommandInput} for command's `input` shape.
+ * @see {@link AddUserToGroupCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddUserToGroupCommand extends $Command<
   AddUserToGroupCommandInput,

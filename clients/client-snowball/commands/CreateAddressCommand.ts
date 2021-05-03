@@ -25,6 +25,18 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  *       addresses are validated at the time of creation. The address you provide must be located
  *       within the serviceable area of your region. If the address is invalid or unsupported, then an
  *       exception is thrown.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SnowballClient(config);
+ * const command = new CreateAddressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAddressCommandInput} for command's `input` shape.
+ * @see {@link CreateAddressCommandOutput} for command's `response` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAddressCommand extends $Command<
   CreateAddressCommandInput,

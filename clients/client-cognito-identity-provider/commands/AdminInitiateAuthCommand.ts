@@ -28,6 +28,18 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
 /**
  * <p>Initiates the authentication flow, as an administrator.</p>
  *         <p>Calling this action requires developer credentials.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new AdminInitiateAuthCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdminInitiateAuthCommandInput} for command's `input` shape.
+ * @see {@link AdminInitiateAuthCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdminInitiateAuthCommand extends $Command<
   AdminInitiateAuthCommandInput,

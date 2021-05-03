@@ -31,6 +31,18 @@ export interface DeleteReusableDelegationSetCommandOutput
  * 		       <p>To verify that the reusable delegation set is not associated with any hosted zones, submit a
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html">GetReusableDelegationSet</a>
  * 			request and specify the ID of the reusable delegation set that you want to delete.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new DeleteReusableDelegationSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteReusableDelegationSetCommandInput} for command's `input` shape.
+ * @see {@link DeleteReusableDelegationSetCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteReusableDelegationSetCommand extends $Command<
   DeleteReusableDelegationSetCommandInput,

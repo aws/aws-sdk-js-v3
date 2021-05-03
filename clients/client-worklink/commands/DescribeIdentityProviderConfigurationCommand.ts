@@ -28,6 +28,18 @@ export interface DescribeIdentityProviderConfigurationCommandOutput
 
 /**
  * <p>Describes the identity provider configuration of the specified fleet.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkLinkClient(config);
+ * const command = new DescribeIdentityProviderConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeIdentityProviderConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeIdentityProviderConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeIdentityProviderConfigurationCommand extends $Command<
   DescribeIdentityProviderConfigurationCommandInput,

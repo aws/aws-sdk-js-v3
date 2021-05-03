@@ -23,6 +23,18 @@ export interface DescribeDocumentVersionsCommandOutput extends DescribeDocumentV
 /**
  * <p>Retrieves the document versions for the specified document.</p>
  *         <p>By default, only active versions are returned.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new DescribeDocumentVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDocumentVersionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeDocumentVersionsCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDocumentVersionsCommand extends $Command<
   DescribeDocumentVersionsCommandInput,

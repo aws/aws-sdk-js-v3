@@ -29,6 +29,18 @@ export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBe
  * 6. Flattened XML lists with @xmlName.
  * 7. Flattened XML lists with @xmlNamespace.
  * 8. Lists of structures.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestXmlProtocolClient(config);
+ * const command = new XmlListsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link XmlListsCommandInput} for command's `input` shape.
+ * @see {@link XmlListsCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class XmlListsCommand extends $Command<
   XmlListsCommandInput,

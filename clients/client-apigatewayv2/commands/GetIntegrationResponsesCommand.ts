@@ -22,6 +22,18 @@ export interface GetIntegrationResponsesCommandOutput extends GetIntegrationResp
 
 /**
  * <p>Gets the IntegrationResponses for an Integration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new GetIntegrationResponsesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetIntegrationResponsesCommandInput} for command's `input` shape.
+ * @see {@link GetIntegrationResponsesCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetIntegrationResponsesCommand extends $Command<
   GetIntegrationResponsesCommandInput,

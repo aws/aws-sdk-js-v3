@@ -30,6 +30,18 @@ export interface GetVoiceConnectorStreamingConfigurationCommandOutput
  * <p>Retrieves the streaming configuration details for the specified Amazon Chime Voice Connector.
  *             Shows whether media streaming is enabled for sending to Amazon Kinesis. It also shows
  *             the retention period, in hours, for the Amazon Kinesis data.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new GetVoiceConnectorStreamingConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetVoiceConnectorStreamingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetVoiceConnectorStreamingConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetVoiceConnectorStreamingConfigurationCommand extends $Command<
   GetVoiceConnectorStreamingConfigurationCommandInput,

@@ -25,6 +25,18 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
  *       If you provide an EFS <code>FileSystemId</code>, it returns descriptions of all access points for that file system.
  *       You can provide either an <code>AccessPointId</code> or a <code>FileSystemId</code> in the request, but not both. </p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeAccessPoints</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EFSClient(config);
+ * const command = new DescribeAccessPointsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAccessPointsCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccessPointsCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAccessPointsCommand extends $Command<
   DescribeAccessPointsCommandInput,

@@ -25,6 +25,18 @@ export interface SetPrincipalTagAttributeMapCommandOutput
 
 /**
  * <p>You can use this operation to use default (username and clientID) attribute or custom attribute mappings.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityClient(config);
+ * const command = new SetPrincipalTagAttributeMapCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetPrincipalTagAttributeMapCommandInput} for command's `input` shape.
+ * @see {@link SetPrincipalTagAttributeMapCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetPrincipalTagAttributeMapCommand extends $Command<
   SetPrincipalTagAttributeMapCommandInput,

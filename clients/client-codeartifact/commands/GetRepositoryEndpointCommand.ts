@@ -42,6 +42,18 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeartifactClient(config);
+ * const command = new GetRepositoryEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRepositoryEndpointCommandInput} for command's `input` shape.
+ * @see {@link GetRepositoryEndpointCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRepositoryEndpointCommand extends $Command<
   GetRepositoryEndpointCommandInput,

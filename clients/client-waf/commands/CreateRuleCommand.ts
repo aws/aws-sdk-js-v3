@@ -73,6 +73,18 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *          </ol>
  * 		       <p>For more information about how to use the AWS WAF API to allow or block HTTP requests, see the
  * 			<a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer Guide</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFClient(config);
+ * const command = new CreateRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateRuleCommandInput} for command's `input` shape.
+ * @see {@link CreateRuleCommandOutput} for command's `response` shape.
+ * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateRuleCommand extends $Command<
   CreateRuleCommandInput,

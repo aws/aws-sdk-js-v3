@@ -25,6 +25,18 @@ export interface DisableOrganizationAdminAccountCommandOutput
 /**
  * <p>Disables a Security Hub administrator account. Can only be called by the organization
  *          management account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecurityHubClient(config);
+ * const command = new DisableOrganizationAdminAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableOrganizationAdminAccountCommandInput} for command's `input` shape.
+ * @see {@link DisableOrganizationAdminAccountCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableOrganizationAdminAccountCommand extends $Command<
   DisableOrganizationAdminAccountCommandInput,

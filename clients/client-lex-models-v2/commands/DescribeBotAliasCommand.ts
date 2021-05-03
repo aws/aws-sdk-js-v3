@@ -22,6 +22,18 @@ export interface DescribeBotAliasCommandOutput extends DescribeBotAliasResponse,
 
 /**
  * <p>Get information about a specific bot alias.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelsV2Client(config);
+ * const command = new DescribeBotAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeBotAliasCommandInput} for command's `input` shape.
+ * @see {@link DescribeBotAliasCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeBotAliasCommand extends $Command<
   DescribeBotAliasCommandInput,

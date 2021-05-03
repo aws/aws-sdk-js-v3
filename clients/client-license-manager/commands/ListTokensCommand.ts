@@ -22,6 +22,18 @@ export interface ListTokensCommandOutput extends ListTokensResponse, __MetadataB
 
 /**
  * <p>Lists your tokens.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LicenseManagerClient(config);
+ * const command = new ListTokensCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTokensCommandInput} for command's `input` shape.
+ * @see {@link ListTokensCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTokensCommand extends $Command<
   ListTokensCommandInput,

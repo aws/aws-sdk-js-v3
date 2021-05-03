@@ -24,6 +24,18 @@ export interface SetSMBGuestPasswordCommandOutput extends SetSMBGuestPasswordOut
  * <p>Sets the password for the guest user <code>smbguest</code>. The <code>smbguest</code>
  *          user is the user when the authentication method for the file share is set to
  *             <code>GuestAccess</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new SetSMBGuestPasswordCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetSMBGuestPasswordCommandInput} for command's `input` shape.
+ * @see {@link SetSMBGuestPasswordCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetSMBGuestPasswordCommand extends $Command<
   SetSMBGuestPasswordCommandInput,

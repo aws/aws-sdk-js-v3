@@ -23,6 +23,18 @@ export interface DeleteGatewayCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes a gateway from AWS IoT SiteWise. When you delete a gateway, some of the gateway's files remain
  *       in your gateway's file system.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new DeleteGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteGatewayCommandInput} for command's `input` shape.
+ * @see {@link DeleteGatewayCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteGatewayCommand extends $Command<
   DeleteGatewayCommandInput,

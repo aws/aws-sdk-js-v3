@@ -31,6 +31,18 @@ export interface DisassociateConnectionFromLagCommandOutput extends Connection, 
  *       minimum number of operational connections, the request fails, except when it's the last
  *       member of the LAG. If all connections are disassociated, the LAG continues to exist as
  *       an empty LAG with no physical connections. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new DisassociateConnectionFromLagCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateConnectionFromLagCommandInput} for command's `input` shape.
+ * @see {@link DisassociateConnectionFromLagCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateConnectionFromLagCommand extends $Command<
   DisassociateConnectionFromLagCommandInput,

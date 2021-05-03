@@ -22,6 +22,18 @@ export interface CreateSnapshotScheduleCommandOutput extends SnapshotSchedule, _
 
 /**
  * <p>Create a snapshot schedule that can be associated to a cluster and which overrides the default system backup schedule. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new CreateSnapshotScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSnapshotScheduleCommandInput} for command's `input` shape.
+ * @see {@link CreateSnapshotScheduleCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSnapshotScheduleCommand extends $Command<
   CreateSnapshotScheduleCommandInput,

@@ -24,6 +24,18 @@ export interface DescribeBundleCommandOutput extends DescribeBundleResult, __Met
  * <p>
  *             Get the bundle details for the requested bundle id.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MobileClient(config);
+ * const command = new DescribeBundleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeBundleCommandInput} for command's `input` shape.
+ * @see {@link DescribeBundleCommandOutput} for command's `response` shape.
+ * @see {@link MobileClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeBundleCommand extends $Command<
   DescribeBundleCommandInput,

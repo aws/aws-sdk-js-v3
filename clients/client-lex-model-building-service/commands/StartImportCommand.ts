@@ -26,6 +26,18 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
 
 /**
  * <p>Starts a job to import a resource to Amazon Lex.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new StartImportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartImportCommandInput} for command's `input` shape.
+ * @see {@link StartImportCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartImportCommand extends $Command<
   StartImportCommandInput,

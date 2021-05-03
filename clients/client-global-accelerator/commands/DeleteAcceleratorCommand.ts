@@ -39,6 +39,18 @@ export interface DeleteAcceleratorCommandOutput extends __MetadataBearer {}
  * 			see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/auth-and-access-control.html">Authentication and Access Control</a> in
  * 			the <i>AWS Global Accelerator Developer Guide</i>.</p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new DeleteAcceleratorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAcceleratorCommandInput} for command's `input` shape.
+ * @see {@link DeleteAcceleratorCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAcceleratorCommand extends $Command<
   DeleteAcceleratorCommandInput,

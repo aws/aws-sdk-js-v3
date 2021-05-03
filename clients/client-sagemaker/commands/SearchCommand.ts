@@ -24,6 +24,18 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  *       results by any resource property in a ascending or descending order.</p>
  *          <p>You can query against the following value types: numeric, text, Boolean, and
  *       timestamp.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new SearchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchCommandInput} for command's `input` shape.
+ * @see {@link SearchCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOutput, SageMakerClientResolvedConfig> {
   // Start section: command_properties

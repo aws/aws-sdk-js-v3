@@ -22,6 +22,18 @@ export interface GetObjectCommandOutput extends GetObjectResponse, __MetadataBea
 
 /**
  * <p>Downloads the object at the specified path. If the object’s upload availability is set to <code>streaming</code>, AWS Elemental MediaStore downloads the object even if it’s still uploading the object.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaStoreDataClient(config);
+ * const command = new GetObjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetObjectCommandInput} for command's `input` shape.
+ * @see {@link GetObjectCommandOutput} for command's `response` shape.
+ * @see {@link MediaStoreDataClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetObjectCommand extends $Command<
   GetObjectCommandInput,

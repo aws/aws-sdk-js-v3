@@ -32,6 +32,18 @@ export interface CreateResolverQueryLogConfigCommandOutput
  * 		       <p>You can optionally use AWS Resource Access Manager (AWS RAM) to share a query logging configuration with other AWS accounts. The other accounts
  * 			can then associate VPCs with the configuration. The query logs that Resolver creates for a configuration include all DNS queries that originate in all
  * 			VPCs that are associated with the configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new CreateResolverQueryLogConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateResolverQueryLogConfigCommandInput} for command's `input` shape.
+ * @see {@link CreateResolverQueryLogConfigCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateResolverQueryLogConfigCommand extends $Command<
   CreateResolverQueryLogConfigCommandInput,

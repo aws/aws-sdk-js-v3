@@ -22,6 +22,18 @@ export interface PostCommentReplyCommandOutput extends PostCommentReplyOutput, _
 
 /**
  * <p>Posts a comment in reply to an existing comment on a comparison between commits or a pull request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new PostCommentReplyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PostCommentReplyCommandInput} for command's `input` shape.
+ * @see {@link PostCommentReplyCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PostCommentReplyCommand extends $Command<
   PostCommentReplyCommandInput,

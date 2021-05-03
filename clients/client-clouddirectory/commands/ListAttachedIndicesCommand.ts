@@ -22,6 +22,18 @@ export interface ListAttachedIndicesCommandOutput extends ListAttachedIndicesRes
 
 /**
  * <p>Lists indices attached to the specified object.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new ListAttachedIndicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAttachedIndicesCommandInput} for command's `input` shape.
+ * @see {@link ListAttachedIndicesCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAttachedIndicesCommand extends $Command<
   ListAttachedIndicesCommandInput,

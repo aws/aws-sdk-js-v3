@@ -28,6 +28,18 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  *          themselves, for example <a>UpdateLoggingConfiguration</a>, <a>AssociateSubnets</a>, and <a>UpdateFirewallDeleteProtection</a>. </p>
  *          <p>To manage a firewall's tags, use the standard AWS resource tagging operations, <a>ListTagsForResource</a>, <a>TagResource</a>, and <a>UntagResource</a>.</p>
  *          <p>To retrieve information about firewalls, use <a>ListFirewalls</a> and <a>DescribeFirewall</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkFirewallClient(config);
+ * const command = new CreateFirewallCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFirewallCommandInput} for command's `input` shape.
+ * @see {@link CreateFirewallCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFirewallCommand extends $Command<
   CreateFirewallCommandInput,

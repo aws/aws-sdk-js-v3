@@ -24,6 +24,18 @@ export interface DescribeConversionTasksCommandOutput extends DescribeConversion
  * <p>Describes the specified conversion tasks or all your conversion tasks. For more information, see the
  *    <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/">VM Import/Export User Guide</a>.</p>
  *          <p>For information about the import manifest referenced by this API action, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/manifest.html">VM Import Manifest</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeConversionTasksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConversionTasksCommandInput} for command's `input` shape.
+ * @see {@link DescribeConversionTasksCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConversionTasksCommand extends $Command<
   DescribeConversionTasksCommandInput,

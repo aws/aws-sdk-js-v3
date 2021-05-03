@@ -35,6 +35,18 @@ export interface GetEC2RecommendationProjectedMetricsCommandOutput
  *                 CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory
  *                     Utilization with the CloudWatch Agent</a>.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComputeOptimizerClient(config);
+ * const command = new GetEC2RecommendationProjectedMetricsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEC2RecommendationProjectedMetricsCommandInput} for command's `input` shape.
+ * @see {@link GetEC2RecommendationProjectedMetricsCommandOutput} for command's `response` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEC2RecommendationProjectedMetricsCommand extends $Command<
   GetEC2RecommendationProjectedMetricsCommandInput,

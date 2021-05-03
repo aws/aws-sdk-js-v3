@@ -27,6 +27,18 @@ export interface GetEntityTypesCommandOutput extends GetEntityTypesResult, __Met
  *          To get the next page results, provide the pagination token from the
  *          <code>GetEntityTypesResponse</code> as part of your request. A null pagination token
  *          fetches the records from the beginning. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new GetEntityTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEntityTypesCommandInput} for command's `input` shape.
+ * @see {@link GetEntityTypesCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEntityTypesCommand extends $Command<
   GetEntityTypesCommandInput,

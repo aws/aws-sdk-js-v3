@@ -25,6 +25,18 @@ export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutpu
  * 		       <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
  * 			the rule was created might
  * 			not be available.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchClient(config);
+ * const command = new DeleteInsightRulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteInsightRulesCommandInput} for command's `input` shape.
+ * @see {@link DeleteInsightRulesCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteInsightRulesCommand extends $Command<
   DeleteInsightRulesCommandInput,

@@ -22,6 +22,18 @@ export interface DeleteMedicalVocabularyCommandOutput extends __MetadataBearer {
 
 /**
  * <p>Deletes a vocabulary from Amazon Transcribe Medical.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeClient(config);
+ * const command = new DeleteMedicalVocabularyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMedicalVocabularyCommandInput} for command's `input` shape.
+ * @see {@link DeleteMedicalVocabularyCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMedicalVocabularyCommand extends $Command<
   DeleteMedicalVocabularyCommandInput,

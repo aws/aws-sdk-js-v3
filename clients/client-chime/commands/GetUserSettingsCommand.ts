@@ -22,6 +22,18 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
 
 /**
  * <p>Retrieves settings for the specified user ID, such as any associated phone number settings.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new GetUserSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetUserSettingsCommandInput} for command's `input` shape.
+ * @see {@link GetUserSettingsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetUserSettingsCommand extends $Command<
   GetUserSettingsCommandInput,

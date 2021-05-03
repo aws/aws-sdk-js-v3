@@ -27,6 +27,18 @@ export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChan
  *             it only applies to new messages sent via this channel after it's been updated. Existing
  *             messages are still expired as per the previous <code>MessageTtlSeconds</code>
  *             value.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisVideoClient(config);
+ * const command = new UpdateSignalingChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSignalingChannelCommandInput} for command's `input` shape.
+ * @see {@link UpdateSignalingChannelCommandOutput} for command's `response` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSignalingChannelCommand extends $Command<
   UpdateSignalingChannelCommandInput,

@@ -40,6 +40,18 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *             you must configure your Kubernetes tooling to communicate with the API server and launch
  *             nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing Cluster
  *                 Authentication</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching Amazon EKS nodes</a> in the <i>Amazon EKS User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new CreateClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateClusterCommandInput} for command's `input` shape.
+ * @see {@link CreateClusterCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,

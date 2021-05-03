@@ -22,6 +22,18 @@ export interface DeleteGatewayRouteCommandOutput extends DeleteGatewayRouteOutpu
 
 /**
  * <p>Deletes an existing gateway route.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new DeleteGatewayRouteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteGatewayRouteCommandInput} for command's `input` shape.
+ * @see {@link DeleteGatewayRouteCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteGatewayRouteCommand extends $Command<
   DeleteGatewayRouteCommandInput,

@@ -29,6 +29,18 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  *       <p>For more information about configuring suggesters and retrieving suggestions, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html">Getting Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>. </p>
  *
  *       <p>The endpoint for submitting <code>Suggest</code> requests is domain-specific. You submit suggest requests to a domain's search endpoint. To get the search endpoint for your domain, use the Amazon CloudSearch configuration service <code>DescribeDomains</code> action. A domain's endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudSearchDomainClient(config);
+ * const command = new SuggestCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SuggestCommandInput} for command's `input` shape.
+ * @see {@link SuggestCommandOutput} for command's `response` shape.
+ * @see {@link CloudSearchDomainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SuggestCommand extends $Command<
   SuggestCommandInput,

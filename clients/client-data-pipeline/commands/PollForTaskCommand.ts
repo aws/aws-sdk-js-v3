@@ -100,6 +100,18 @@ export interface PollForTaskCommandOutput extends PollForTaskOutput, __MetadataB
  *
  *             </response>
  *         </examples>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataPipelineClient(config);
+ * const command = new PollForTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PollForTaskCommandInput} for command's `input` shape.
+ * @see {@link PollForTaskCommandOutput} for command's `response` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PollForTaskCommand extends $Command<
   PollForTaskCommandInput,

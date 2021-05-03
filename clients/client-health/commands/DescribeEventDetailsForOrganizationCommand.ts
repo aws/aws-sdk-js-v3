@@ -56,6 +56,18 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
  *             <p>This operation doesn't support resource-level permissions. You can't use this operation to allow or deny access to specific AWS Health events. For more
  *                   information, see <a href="https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions">Resource- and action-based conditions</a> in the <i>AWS Health User Guide</i>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new HealthClient(config);
+ * const command = new DescribeEventDetailsForOrganizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEventDetailsForOrganizationCommandInput} for command's `input` shape.
+ * @see {@link DescribeEventDetailsForOrganizationCommandOutput} for command's `response` shape.
+ * @see {@link HealthClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEventDetailsForOrganizationCommand extends $Command<
   DescribeEventDetailsForOrganizationCommandInput,

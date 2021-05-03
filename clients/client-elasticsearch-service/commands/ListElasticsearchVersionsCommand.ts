@@ -26,6 +26,18 @@ export interface ListElasticsearchVersionsCommandOutput extends ListElasticsearc
 
 /**
  * <p>List all supported Elasticsearch versions</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new ListElasticsearchVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListElasticsearchVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListElasticsearchVersionsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListElasticsearchVersionsCommand extends $Command<
   ListElasticsearchVersionsCommandInput,

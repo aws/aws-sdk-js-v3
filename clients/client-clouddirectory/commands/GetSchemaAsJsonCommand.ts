@@ -22,6 +22,18 @@ export interface GetSchemaAsJsonCommandOutput extends GetSchemaAsJsonResponse, _
 
 /**
  * <p>Retrieves a JSON representation of the schema. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_jsonformat.html#schemas_json">JSON Schema Format</a> for more information.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new GetSchemaAsJsonCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSchemaAsJsonCommandInput} for command's `input` shape.
+ * @see {@link GetSchemaAsJsonCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSchemaAsJsonCommand extends $Command<
   GetSchemaAsJsonCommandInput,

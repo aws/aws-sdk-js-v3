@@ -22,6 +22,18 @@ export interface RegisterApplicationRevisionCommandOutput extends __MetadataBear
 
 /**
  * <p>Registers with AWS CodeDeploy a revision for the specified application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new RegisterApplicationRevisionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterApplicationRevisionCommandInput} for command's `input` shape.
+ * @see {@link RegisterApplicationRevisionCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterApplicationRevisionCommand extends $Command<
   RegisterApplicationRevisionCommandInput,

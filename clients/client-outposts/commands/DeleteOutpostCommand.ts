@@ -22,6 +22,18 @@ export interface DeleteOutpostCommandOutput extends DeleteOutpostOutput, __Metad
 
 /**
  * <p>Deletes the Outpost.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OutpostsClient(config);
+ * const command = new DeleteOutpostCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteOutpostCommandInput} for command's `input` shape.
+ * @see {@link DeleteOutpostCommandOutput} for command's `response` shape.
+ * @see {@link OutpostsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteOutpostCommand extends $Command<
   DeleteOutpostCommandInput,

@@ -24,6 +24,18 @@ export interface BatchAssociateProjectAssetsCommandOutput
 
 /**
  * <p>Associates a group (batch) of assets with an AWS IoT SiteWise Monitor project.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new BatchAssociateProjectAssetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchAssociateProjectAssetsCommandInput} for command's `input` shape.
+ * @see {@link BatchAssociateProjectAssetsCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchAssociateProjectAssetsCommand extends $Command<
   BatchAssociateProjectAssetsCommandInput,

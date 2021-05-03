@@ -22,6 +22,18 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
 
 /**
  * Creates a new OriginEndpoint record.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaPackageClient(config);
+ * const command = new CreateOriginEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateOriginEndpointCommandInput} for command's `input` shape.
+ * @see {@link CreateOriginEndpointCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateOriginEndpointCommand extends $Command<
   CreateOriginEndpointCommandInput,

@@ -44,6 +44,18 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  *             <p>The data in a deleted file system is also deleted and can't be recovered by
  *                 any means.</p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FSxClient(config);
+ * const command = new DeleteFileSystemCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFileSystemCommandInput} for command's `input` shape.
+ * @see {@link DeleteFileSystemCommandOutput} for command's `response` shape.
+ * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFileSystemCommand extends $Command<
   DeleteFileSystemCommandInput,

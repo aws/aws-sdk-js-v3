@@ -23,6 +23,18 @@ export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResul
 /**
  * <p> Returns the website access logs for a specific time range using a presigned URL.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyClient(config);
+ * const command = new GenerateAccessLogsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GenerateAccessLogsCommandInput} for command's `input` shape.
+ * @see {@link GenerateAccessLogsCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GenerateAccessLogsCommand extends $Command<
   GenerateAccessLogsCommandInput,

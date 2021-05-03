@@ -27,6 +27,18 @@ export interface DetachCertificateFromDistributionCommandOutput
  *       distribution.</p>
  *          <p>After the certificate is detached, your distribution stops accepting traffic for all of
  *       the domains that are associated with the certificate.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new DetachCertificateFromDistributionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetachCertificateFromDistributionCommandInput} for command's `input` shape.
+ * @see {@link DetachCertificateFromDistributionCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetachCertificateFromDistributionCommand extends $Command<
   DetachCertificateFromDistributionCommandInput,

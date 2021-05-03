@@ -22,6 +22,18 @@ export interface GetBlacklistReportsCommandOutput extends GetBlacklistReportsRes
 
 /**
  * <p>Retrieve a list of the blacklists that your dedicated IP addresses appear on.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new GetBlacklistReportsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBlacklistReportsCommandInput} for command's `input` shape.
+ * @see {@link GetBlacklistReportsCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBlacklistReportsCommand extends $Command<
   GetBlacklistReportsCommandInput,

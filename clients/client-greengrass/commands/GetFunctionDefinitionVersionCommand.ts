@@ -24,6 +24,18 @@ export interface GetFunctionDefinitionVersionCommandOutput
 
 /**
  * Retrieves information about a Lambda function definition version, including which Lambda functions are included in the version and their configurations.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new GetFunctionDefinitionVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFunctionDefinitionVersionCommandInput} for command's `input` shape.
+ * @see {@link GetFunctionDefinitionVersionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFunctionDefinitionVersionCommand extends $Command<
   GetFunctionDefinitionVersionCommandInput,

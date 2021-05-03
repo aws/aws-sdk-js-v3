@@ -22,6 +22,18 @@ export interface GetVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
 
 /**
  * <p>Gets a specified VPC link under the caller's account in a region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new GetVpcLinkCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetVpcLinkCommandInput} for command's `input` shape.
+ * @see {@link GetVpcLinkCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetVpcLinkCommand extends $Command<
   GetVpcLinkCommandInput,

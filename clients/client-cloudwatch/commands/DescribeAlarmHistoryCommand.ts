@@ -24,6 +24,18 @@ export interface DescribeAlarmHistoryCommandOutput extends DescribeAlarmHistoryO
  * <p>Retrieves the history for the specified alarm. You can filter the results by date range or item type.
  * 			If an alarm name is not specified, the histories for either all metric alarms or all composite alarms are returned.</p>
  * 		       <p>CloudWatch retains the history of an alarm even if you delete the alarm.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchClient(config);
+ * const command = new DescribeAlarmHistoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAlarmHistoryCommandInput} for command's `input` shape.
+ * @see {@link DescribeAlarmHistoryCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAlarmHistoryCommand extends $Command<
   DescribeAlarmHistoryCommandInput,

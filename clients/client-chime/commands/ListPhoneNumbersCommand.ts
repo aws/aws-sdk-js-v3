@@ -22,6 +22,18 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
 
 /**
  * <p>Lists the phone numbers for the specified Amazon Chime account, Amazon Chime user, Amazon Chime Voice Connector, or Amazon Chime Voice Connector group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new ListPhoneNumbersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPhoneNumbersCommandInput} for command's `input` shape.
+ * @see {@link ListPhoneNumbersCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPhoneNumbersCommand extends $Command<
   ListPhoneNumbersCommandInput,

@@ -22,6 +22,18 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
 
 /**
  * <p>Creates a project in the specified portal.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new CreateProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateProjectCommandInput} for command's `input` shape.
+ * @see {@link CreateProjectCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,

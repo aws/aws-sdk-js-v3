@@ -22,6 +22,18 @@ export interface DescribeRouteCommandOutput extends DescribeRouteOutput, __Metad
 
 /**
  * <p>Describes an existing route.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new DescribeRouteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRouteCommandInput} for command's `input` shape.
+ * @see {@link DescribeRouteCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRouteCommand extends $Command<
   DescribeRouteCommandInput,

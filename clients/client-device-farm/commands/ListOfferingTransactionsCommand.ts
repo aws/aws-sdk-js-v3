@@ -25,6 +25,18 @@ export interface ListOfferingTransactionsCommandOutput extends ListOfferingTrans
  *             account. The list is paginated and ordered by a descending timestamp (most recent transactions are first).
  *             The API returns a <code>NotEligible</code> error if the user is not permitted to invoke the operation. If
  *             you must be able to invoke this operation, contact <a href="mailto:aws-devicefarm-support@amazon.com">aws-devicefarm-support@amazon.com</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new ListOfferingTransactionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListOfferingTransactionsCommandInput} for command's `input` shape.
+ * @see {@link ListOfferingTransactionsCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListOfferingTransactionsCommand extends $Command<
   ListOfferingTransactionsCommandInput,

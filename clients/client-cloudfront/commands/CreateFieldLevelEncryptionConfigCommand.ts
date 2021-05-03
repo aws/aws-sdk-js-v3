@@ -24,6 +24,18 @@ export interface CreateFieldLevelEncryptionConfigCommandOutput
 
 /**
  * <p>Create a new field-level encryption configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new CreateFieldLevelEncryptionConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFieldLevelEncryptionConfigCommandInput} for command's `input` shape.
+ * @see {@link CreateFieldLevelEncryptionConfigCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFieldLevelEncryptionConfigCommand extends $Command<
   CreateFieldLevelEncryptionConfigCommandInput,

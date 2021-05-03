@@ -26,6 +26,18 @@ export interface DeleteInterconnectCommandOutput extends DeleteInterconnectRespo
  *             <p>Intended for use
  *         by AWS Direct Connect Partners only.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new DeleteInterconnectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteInterconnectCommandInput} for command's `input` shape.
+ * @see {@link DeleteInterconnectCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteInterconnectCommand extends $Command<
   DeleteInterconnectCommandInput,

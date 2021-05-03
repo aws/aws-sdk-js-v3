@@ -22,6 +22,18 @@ export interface ListServiceProfilesCommandOutput extends ListServiceProfilesRes
 
 /**
  * <p>Lists the service profiles registered to your AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new ListServiceProfilesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListServiceProfilesCommandInput} for command's `input` shape.
+ * @see {@link ListServiceProfilesCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListServiceProfilesCommand extends $Command<
   ListServiceProfilesCommandInput,

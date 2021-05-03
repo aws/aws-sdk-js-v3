@@ -30,6 +30,18 @@ export interface ListGroupPoliciesCommandOutput extends ListGroupPoliciesRespons
  *         <p>You can paginate the results using the <code>MaxItems</code> and <code>Marker</code>
  *             parameters. If there are no inline policies embedded with the specified group, the
  *             operation returns an empty list.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new ListGroupPoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListGroupPoliciesCommandInput} for command's `input` shape.
+ * @see {@link ListGroupPoliciesCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListGroupPoliciesCommand extends $Command<
   ListGroupPoliciesCommandInput,

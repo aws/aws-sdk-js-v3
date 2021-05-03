@@ -69,6 +69,18 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  * 					every 24 hours.</p>
  * 			         </li>
  *          </ol>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new StartConfigRulesEvaluationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartConfigRulesEvaluationCommandInput} for command's `input` shape.
+ * @see {@link StartConfigRulesEvaluationCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartConfigRulesEvaluationCommand extends $Command<
   StartConfigRulesEvaluationCommandInput,

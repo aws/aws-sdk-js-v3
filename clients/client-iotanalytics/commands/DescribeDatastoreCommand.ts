@@ -22,6 +22,18 @@ export interface DescribeDatastoreCommandOutput extends DescribeDatastoreRespons
 
 /**
  * <p>Retrieves information about a data store.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTAnalyticsClient(config);
+ * const command = new DescribeDatastoreCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDatastoreCommandInput} for command's `input` shape.
+ * @see {@link DescribeDatastoreCommandOutput} for command's `response` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDatastoreCommand extends $Command<
   DescribeDatastoreCommandInput,

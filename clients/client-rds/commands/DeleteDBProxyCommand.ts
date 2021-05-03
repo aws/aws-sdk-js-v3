@@ -22,6 +22,18 @@ export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __Met
 
 /**
  * <p>Deletes an existing DB proxy.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new DeleteDBProxyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDBProxyCommandInput} for command's `input` shape.
+ * @see {@link DeleteDBProxyCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDBProxyCommand extends $Command<
   DeleteDBProxyCommandInput,

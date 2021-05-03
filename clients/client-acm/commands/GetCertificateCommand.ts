@@ -25,6 +25,18 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  *       the certificate of the issuing CA and the intermediate certificates of any other subordinate
  *       CAs. All of the certificates are base64 encoded. You can use <a href="https://wiki.openssl.org/index.php/Command_Line_Utilities">OpenSSL</a> to decode
  *       the certificates and inspect individual fields.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ACMClient(config);
+ * const command = new GetCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCertificateCommandInput} for command's `input` shape.
+ * @see {@link GetCertificateCommandOutput} for command's `response` shape.
+ * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCertificateCommand extends $Command<
   GetCertificateCommandInput,

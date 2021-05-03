@@ -22,6 +22,18 @@ export interface GetDetectorCommandOutput extends GetDetectorResponse, __Metadat
 
 /**
  * <p>Retrieves an Amazon GuardDuty detector specified by the detectorId.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new GetDetectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDetectorCommandInput} for command's `input` shape.
+ * @see {@link GetDetectorCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDetectorCommand extends $Command<
   GetDetectorCommandInput,

@@ -22,6 +22,18 @@ export interface InlineDocumentAsPayloadCommandOutput extends InlineDocumentAsPa
 
 /**
  * This example serializes an inline document as the entire HTTP payload.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new InlineDocumentAsPayloadCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InlineDocumentAsPayloadCommandInput} for command's `input` shape.
+ * @see {@link InlineDocumentAsPayloadCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InlineDocumentAsPayloadCommand extends $Command<
   InlineDocumentAsPayloadCommandInput,

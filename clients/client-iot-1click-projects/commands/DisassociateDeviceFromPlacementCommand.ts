@@ -28,6 +28,18 @@ export interface DisassociateDeviceFromPlacementCommandOutput
 
 /**
  * <p>Removes a physical device from a placement.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoT1ClickProjectsClient(config);
+ * const command = new DisassociateDeviceFromPlacementCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateDeviceFromPlacementCommandInput} for command's `input` shape.
+ * @see {@link DisassociateDeviceFromPlacementCommandOutput} for command's `response` shape.
+ * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateDeviceFromPlacementCommand extends $Command<
   DisassociateDeviceFromPlacementCommandInput,

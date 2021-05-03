@@ -40,6 +40,18 @@ export interface CreateNotebookInstanceLifecycleConfigCommandOutput
  *             started.</p>
  *         <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
  *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateNotebookInstanceLifecycleConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateNotebookInstanceLifecycleConfigCommandInput} for command's `input` shape.
+ * @see {@link CreateNotebookInstanceLifecycleConfigCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateNotebookInstanceLifecycleConfigCommand extends $Command<
   CreateNotebookInstanceLifecycleConfigCommandInput,

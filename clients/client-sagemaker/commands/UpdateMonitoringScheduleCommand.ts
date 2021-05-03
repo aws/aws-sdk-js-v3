@@ -22,6 +22,18 @@ export interface UpdateMonitoringScheduleCommandOutput extends UpdateMonitoringS
 
 /**
  * <p>Updates a previously created schedule.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new UpdateMonitoringScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMonitoringScheduleCommandInput} for command's `input` shape.
+ * @see {@link UpdateMonitoringScheduleCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMonitoringScheduleCommand extends $Command<
   UpdateMonitoringScheduleCommandInput,

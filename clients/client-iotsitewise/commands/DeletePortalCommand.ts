@@ -22,6 +22,18 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
 
 /**
  * <p>Deletes a portal from AWS IoT SiteWise Monitor.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new DeletePortalCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePortalCommandInput} for command's `input` shape.
+ * @see {@link DeletePortalCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePortalCommand extends $Command<
   DeletePortalCommandInput,

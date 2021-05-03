@@ -28,6 +28,18 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
 
 /**
  * <p>Describes the specified local gateway virtual interface groups.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeLocalGatewayVirtualInterfaceGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLocalGatewayVirtualInterfaceGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLocalGatewayVirtualInterfaceGroupsCommand extends $Command<
   DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,

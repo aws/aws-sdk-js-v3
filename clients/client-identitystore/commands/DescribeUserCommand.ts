@@ -22,6 +22,18 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
 
 /**
  * <p>Retrieves the user metadata and attributes from <code>UserId</code> in an identity store.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IdentitystoreClient(config);
+ * const command = new DescribeUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeUserCommandInput} for command's `input` shape.
+ * @see {@link DescribeUserCommandOutput} for command's `response` shape.
+ * @see {@link IdentitystoreClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeUserCommand extends $Command<
   DescribeUserCommandInput,

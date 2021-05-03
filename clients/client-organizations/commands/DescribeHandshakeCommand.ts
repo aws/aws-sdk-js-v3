@@ -28,6 +28,18 @@ export interface DescribeHandshakeCommandOutput extends DescribeHandshakeRespons
  *                 <code>CANCELED</code> for only 30 days after they change to that state. They're then
  *             deleted and no longer accessible.</p>
  *         <p>This operation can be called from any account in the organization.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OrganizationsClient(config);
+ * const command = new DescribeHandshakeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeHandshakeCommandInput} for command's `input` shape.
+ * @see {@link DescribeHandshakeCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeHandshakeCommand extends $Command<
   DescribeHandshakeCommandInput,

@@ -22,6 +22,18 @@ export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSch
 
 /**
  * <p>Retrieves the introspection schema for a GraphQL API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppSyncClient(config);
+ * const command = new GetIntrospectionSchemaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetIntrospectionSchemaCommandInput} for command's `input` shape.
+ * @see {@link GetIntrospectionSchemaCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetIntrospectionSchemaCommand extends $Command<
   GetIntrospectionSchemaCommandInput,

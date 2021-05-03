@@ -29,6 +29,18 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  *         <p> You can only delete a pipeline that has never been used or that is not currently in use
  *             (doesn't contain any active jobs). If the pipeline is currently in use,
  *                 <code>DeletePipeline</code> returns an error. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticTranscoderClient(config);
+ * const command = new DeletePipelineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePipelineCommandInput} for command's `input` shape.
+ * @see {@link DeletePipelineCommandOutput} for command's `response` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePipelineCommand extends $Command<
   DeletePipelineCommandInput,

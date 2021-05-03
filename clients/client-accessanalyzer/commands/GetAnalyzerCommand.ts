@@ -22,6 +22,18 @@ export interface GetAnalyzerCommandOutput extends GetAnalyzerResponse, __Metadat
 
 /**
  * <p>Retrieves information about the specified analyzer.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AccessAnalyzerClient(config);
+ * const command = new GetAnalyzerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAnalyzerCommandInput} for command's `input` shape.
+ * @see {@link GetAnalyzerCommandOutput} for command's `response` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAnalyzerCommand extends $Command<
   GetAnalyzerCommandInput,

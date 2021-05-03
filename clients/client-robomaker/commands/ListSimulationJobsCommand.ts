@@ -23,6 +23,18 @@ export interface ListSimulationJobsCommandOutput extends ListSimulationJobsRespo
 /**
  * <p>Returns a list of simulation jobs. You can optionally provide filters to retrieve
  *          specific simulation jobs. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new ListSimulationJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSimulationJobsCommandInput} for command's `input` shape.
+ * @see {@link ListSimulationJobsCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSimulationJobsCommand extends $Command<
   ListSimulationJobsCommandInput,

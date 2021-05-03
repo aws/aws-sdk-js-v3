@@ -28,6 +28,18 @@ export interface DeleteTrafficPolicyInstanceCommandOutput
  * 		       <note>
  * 			         <p>In the Route 53 console, traffic policy instances are known as policy records.</p>
  * 		       </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new DeleteTrafficPolicyInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTrafficPolicyInstanceCommandInput} for command's `input` shape.
+ * @see {@link DeleteTrafficPolicyInstanceCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTrafficPolicyInstanceCommand extends $Command<
   DeleteTrafficPolicyInstanceCommandInput,

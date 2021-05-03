@@ -30,6 +30,18 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  * 			receive a <code>ResourceInUseException</code>.</p>
  * 		       <p>You can check the state of a rule by using the
  * 				<code>DescribeConfigRules</code> request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DeleteConfigRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConfigRuleCommandInput} for command's `input` shape.
+ * @see {@link DeleteConfigRuleCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConfigRuleCommand extends $Command<
   DeleteConfigRuleCommandInput,

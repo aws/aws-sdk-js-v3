@@ -22,6 +22,18 @@ export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, _
 
 /**
  * <p>Update lens review.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WellArchitectedClient(config);
+ * const command = new UpdateLensReviewCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateLensReviewCommandInput} for command's `input` shape.
+ * @see {@link UpdateLensReviewCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateLensReviewCommand extends $Command<
   UpdateLensReviewCommandInput,

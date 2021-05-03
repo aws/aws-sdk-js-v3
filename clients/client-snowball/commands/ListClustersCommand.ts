@@ -24,6 +24,18 @@ export interface ListClustersCommandOutput extends ListClustersResult, __Metadat
  * <p>Returns an array of <code>ClusterListEntry</code> objects of the specified length. Each
  *         <code>ClusterListEntry</code> object contains a cluster's state, a cluster's ID, and other
  *       important status information.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SnowballClient(config);
+ * const command = new ListClustersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListClustersCommandInput} for command's `input` shape.
+ * @see {@link ListClustersCommandOutput} for command's `response` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListClustersCommand extends $Command<
   ListClustersCommandInput,

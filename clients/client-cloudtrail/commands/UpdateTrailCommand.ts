@@ -27,6 +27,18 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  *          an IAM policy exists for the bucket. <code>UpdateTrail</code> must be called from the
  *          region in which the trail was created; otherwise, an
  *             <code>InvalidHomeRegionException</code> is thrown.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudTrailClient(config);
+ * const command = new UpdateTrailCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTrailCommandInput} for command's `input` shape.
+ * @see {@link UpdateTrailCommandOutput} for command's `response` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTrailCommand extends $Command<
   UpdateTrailCommandInput,

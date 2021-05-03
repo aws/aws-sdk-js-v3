@@ -22,6 +22,18 @@ export interface CreateWebhookCommandOutput extends CreateWebhookResult, __Metad
 
 /**
  * <p> Creates a new webhook on an Amplify app. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyClient(config);
+ * const command = new CreateWebhookCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateWebhookCommandInput} for command's `input` shape.
+ * @see {@link CreateWebhookCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateWebhookCommand extends $Command<
   CreateWebhookCommandInput,

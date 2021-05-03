@@ -46,6 +46,18 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  *                   <code>INSYNC</code>: Propagation is complete.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFRegionalClient(config);
+ * const command = new GetChangeTokenStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetChangeTokenStatusCommandInput} for command's `input` shape.
+ * @see {@link GetChangeTokenStatusCommandOutput} for command's `response` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetChangeTokenStatusCommand extends $Command<
   GetChangeTokenStatusCommandInput,

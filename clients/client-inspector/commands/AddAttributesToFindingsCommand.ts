@@ -23,6 +23,18 @@ export interface AddAttributesToFindingsCommandOutput extends AddAttributesToFin
 /**
  * <p>Assigns attributes (key and value pairs) to the findings that are specified by the
  *          ARNs of the findings.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new AddAttributesToFindingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddAttributesToFindingsCommandInput} for command's `input` shape.
+ * @see {@link AddAttributesToFindingsCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddAttributesToFindingsCommand extends $Command<
   AddAttributesToFindingsCommandInput,

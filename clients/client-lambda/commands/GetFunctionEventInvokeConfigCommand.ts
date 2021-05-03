@@ -23,6 +23,18 @@ export interface GetFunctionEventInvokeConfigCommandOutput extends FunctionEvent
 /**
  * <p>Retrieves the configuration for asynchronous invocation for a function, version, or alias.</p>
  *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new GetFunctionEventInvokeConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFunctionEventInvokeConfigCommandInput} for command's `input` shape.
+ * @see {@link GetFunctionEventInvokeConfigCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFunctionEventInvokeConfigCommand extends $Command<
   GetFunctionEventInvokeConfigCommandInput,

@@ -46,6 +46,18 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new GetSessionEmbedUrlCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSessionEmbedUrlCommandInput} for command's `input` shape.
+ * @see {@link GetSessionEmbedUrlCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSessionEmbedUrlCommand extends $Command<
   GetSessionEmbedUrlCommandInput,

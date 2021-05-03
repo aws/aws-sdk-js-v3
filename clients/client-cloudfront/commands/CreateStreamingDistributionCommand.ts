@@ -24,6 +24,18 @@ export interface CreateStreamingDistributionCommandOutput extends CreateStreamin
  * <p>This API is deprecated.
  *             Amazon CloudFront is deprecating real-time messaging protocol (RTMP) distributions on December 31, 2020.
  *             For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion forum.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new CreateStreamingDistributionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateStreamingDistributionCommandInput} for command's `input` shape.
+ * @see {@link CreateStreamingDistributionCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateStreamingDistributionCommand extends $Command<
   CreateStreamingDistributionCommandInput,

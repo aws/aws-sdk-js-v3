@@ -22,6 +22,18 @@ export interface UpdateFleetMetadataCommandOutput extends UpdateFleetMetadataRes
 
 /**
  * <p>Updates fleet metadata, such as DisplayName.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkLinkClient(config);
+ * const command = new UpdateFleetMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFleetMetadataCommandInput} for command's `input` shape.
+ * @see {@link UpdateFleetMetadataCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFleetMetadataCommand extends $Command<
   UpdateFleetMetadataCommandInput,

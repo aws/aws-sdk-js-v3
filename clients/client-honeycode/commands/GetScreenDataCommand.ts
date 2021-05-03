@@ -26,6 +26,18 @@ export interface GetScreenDataCommandOutput extends GetScreenDataResult, __Metad
  *             The API allows setting local variables in the screen to filter, sort or otherwise affect what will be
  *             displayed on the screen.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new HoneycodeClient(config);
+ * const command = new GetScreenDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetScreenDataCommandInput} for command's `input` shape.
+ * @see {@link GetScreenDataCommandOutput} for command's `response` shape.
+ * @see {@link HoneycodeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetScreenDataCommand extends $Command<
   GetScreenDataCommandInput,

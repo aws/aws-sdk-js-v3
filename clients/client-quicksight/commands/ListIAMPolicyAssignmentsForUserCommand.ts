@@ -26,6 +26,18 @@ export interface ListIAMPolicyAssignmentsForUserCommandOutput
  * <p>Lists all the IAM policy assignments, including the Amazon Resource Names (ARNs) for the IAM
  * 			policies assigned to the specified user and group or groups that the user belongs
  * 			to.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new ListIAMPolicyAssignmentsForUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListIAMPolicyAssignmentsForUserCommandInput} for command's `input` shape.
+ * @see {@link ListIAMPolicyAssignmentsForUserCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListIAMPolicyAssignmentsForUserCommand extends $Command<
   ListIAMPolicyAssignmentsForUserCommandInput,

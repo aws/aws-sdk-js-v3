@@ -19,6 +19,18 @@ export interface GetFolderCommandOutput extends GetFolderOutput, __MetadataBeare
 
 /**
  * <p>Returns the contents of a specified folder in a repository.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new GetFolderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFolderCommandInput} for command's `input` shape.
+ * @see {@link GetFolderCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFolderCommand extends $Command<
   GetFolderCommandInput,

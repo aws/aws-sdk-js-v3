@@ -22,6 +22,18 @@ export interface RemoveFlowSourceCommandOutput extends RemoveFlowSourceResponse,
 
 /**
  * Removes a source from an existing flow. This request can be made only if there is more than one source on the flow.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConnectClient(config);
+ * const command = new RemoveFlowSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveFlowSourceCommandInput} for command's `input` shape.
+ * @see {@link RemoveFlowSourceCommandOutput} for command's `response` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveFlowSourceCommand extends $Command<
   RemoveFlowSourceCommandInput,

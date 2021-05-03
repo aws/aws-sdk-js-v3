@@ -22,6 +22,18 @@ export interface GetMergeCommitCommandOutput extends GetMergeCommitOutput, __Met
 
 /**
  * <p>Returns information about a specified merge commit.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new GetMergeCommitCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMergeCommitCommandInput} for command's `input` shape.
+ * @see {@link GetMergeCommitCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMergeCommitCommand extends $Command<
   GetMergeCommitCommandInput,

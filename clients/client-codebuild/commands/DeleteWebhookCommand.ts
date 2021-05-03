@@ -24,6 +24,18 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * <p>For an existing AWS CodeBuild build project that has its source code stored in a GitHub or
  *             Bitbucket repository, stops AWS CodeBuild from rebuilding the source code every time a code
  *             change is pushed to the repository.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new DeleteWebhookCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteWebhookCommandInput} for command's `input` shape.
+ * @see {@link DeleteWebhookCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteWebhookCommand extends $Command<
   DeleteWebhookCommandInput,

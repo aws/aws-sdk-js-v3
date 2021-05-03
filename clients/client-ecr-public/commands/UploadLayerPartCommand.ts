@@ -28,6 +28,18 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  *          <note>
  *             <p>This operation is used by the Amazon ECR proxy and is not generally used by customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECRPUBLICClient(config);
+ * const command = new UploadLayerPartCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UploadLayerPartCommandInput} for command's `input` shape.
+ * @see {@link UploadLayerPartCommandOutput} for command's `response` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UploadLayerPartCommand extends $Command<
   UploadLayerPartCommandInput,

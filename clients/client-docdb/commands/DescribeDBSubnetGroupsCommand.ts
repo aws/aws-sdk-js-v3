@@ -24,6 +24,18 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  * <p>Returns a list of <code>DBSubnetGroup</code> descriptions. If a
  *                 <code>DBSubnetGroupName</code> is specified, the list will contain only the
  *             descriptions of the specified <code>DBSubnetGroup</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DocDBClient(config);
+ * const command = new DescribeDBSubnetGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDBSubnetGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeDBSubnetGroupsCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDBSubnetGroupsCommand extends $Command<
   DescribeDBSubnetGroupsCommandInput,

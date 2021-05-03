@@ -22,6 +22,18 @@ export interface DeleteNetworkAclCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified network ACL. You can't delete the ACL if it's associated with any subnets. You can't delete the default network ACL.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DeleteNetworkAclCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteNetworkAclCommandInput} for command's `input` shape.
+ * @see {@link DeleteNetworkAclCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteNetworkAclCommand extends $Command<
   DeleteNetworkAclCommandInput,

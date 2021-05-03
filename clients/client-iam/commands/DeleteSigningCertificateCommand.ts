@@ -26,6 +26,18 @@ export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer 
  *             the AWS access key ID signing the request. This operation works for access keys under
  *             the AWS account. Consequently, you can use this operation to manage AWS account root
  *             user credentials even if the AWS account has no associated IAM users.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new DeleteSigningCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSigningCertificateCommandInput} for command's `input` shape.
+ * @see {@link DeleteSigningCertificateCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSigningCertificateCommand extends $Command<
   DeleteSigningCertificateCommandInput,

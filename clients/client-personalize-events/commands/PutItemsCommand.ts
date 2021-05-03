@@ -28,6 +28,18 @@ export interface PutItemsCommandOutput extends __MetadataBearer {}
  * <p>Adds one or more items to an Items dataset. For more information see
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html">Importing Items Incrementally</a>.
  *      </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeEventsClient(config);
+ * const command = new PutItemsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutItemsCommandInput} for command's `input` shape.
+ * @see {@link PutItemsCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutItemsCommand extends $Command<
   PutItemsCommandInput,

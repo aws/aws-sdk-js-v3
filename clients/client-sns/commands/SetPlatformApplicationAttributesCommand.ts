@@ -26,6 +26,18 @@ export interface SetPlatformApplicationAttributesCommandOutput extends __Metadat
  *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. For information on configuring
  *             attributes for message delivery status, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html">Using Amazon SNS Application Attributes for
  *                 Message Delivery Status</a>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SNSClient(config);
+ * const command = new SetPlatformApplicationAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetPlatformApplicationAttributesCommandInput} for command's `input` shape.
+ * @see {@link SetPlatformApplicationAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetPlatformApplicationAttributesCommand extends $Command<
   SetPlatformApplicationAttributesCommandInput,

@@ -24,6 +24,18 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  * <p>Retrieves a list that describes the streaming sessions for a specified stack and fleet. If a UserId is provided for the stack and fleet,
  *             only streaming sessions for that user are described. If an authentication type is not provided,
  *             the default is to authenticate users using a streaming URL.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new DescribeSessionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSessionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeSessionsCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSessionsCommand extends $Command<
   DescribeSessionsCommandInput,

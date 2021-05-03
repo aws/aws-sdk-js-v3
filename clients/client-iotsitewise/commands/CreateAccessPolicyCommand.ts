@@ -23,6 +23,18 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
 /**
  * <p>Creates an access policy that grants the specified identity (AWS SSO user, AWS SSO group, or
  *       IAM user) access to the specified AWS IoT SiteWise Monitor portal or project resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new CreateAccessPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAccessPolicyCommandInput} for command's `input` shape.
+ * @see {@link CreateAccessPolicyCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAccessPolicyCommand extends $Command<
   CreateAccessPolicyCommandInput,

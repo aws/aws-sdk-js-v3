@@ -23,6 +23,18 @@ export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, _
 /**
  * <p>Returns the AWS Organizations master account that is associated with AWS Firewall Manager
  *       as the AWS Firewall Manager administrator.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FMSClient(config);
+ * const command = new GetAdminAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAdminAccountCommandInput} for command's `input` shape.
+ * @see {@link GetAdminAccountCommandOutput} for command's `response` shape.
+ * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAdminAccountCommand extends $Command<
   GetAdminAccountCommandInput,

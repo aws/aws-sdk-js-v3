@@ -24,6 +24,18 @@ export interface ListSecurityProfilesForTargetCommandOutput
 
 /**
  * <p>Lists the Device Defender security profiles attached to a target (thing group).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ListSecurityProfilesForTargetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSecurityProfilesForTargetCommandInput} for command's `input` shape.
+ * @see {@link ListSecurityProfilesForTargetCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSecurityProfilesForTargetCommand extends $Command<
   ListSecurityProfilesForTargetCommandInput,

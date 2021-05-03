@@ -24,6 +24,18 @@ export interface ListTagsForCertificateCommandOutput extends ListTagsForCertific
  * <p>Lists the tags that have been applied to the ACM certificate. Use the certificate's
  *       Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM certificate,
  *       use the <a>AddTagsToCertificate</a> action. To delete a tag, use the <a>RemoveTagsFromCertificate</a> action. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ACMClient(config);
+ * const command = new ListTagsForCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsForCertificateCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForCertificateCommandOutput} for command's `response` shape.
+ * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsForCertificateCommand extends $Command<
   ListTagsForCertificateCommandInput,

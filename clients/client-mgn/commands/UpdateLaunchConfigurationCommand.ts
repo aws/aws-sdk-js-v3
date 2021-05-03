@@ -22,6 +22,18 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
 
 /**
  * <p>Updates multiple LaunchConfigurations by Source Server ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MgnClient(config);
+ * const command = new UpdateLaunchConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateLaunchConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateLaunchConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateLaunchConfigurationCommand extends $Command<
   UpdateLaunchConfigurationCommandInput,

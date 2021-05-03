@@ -32,6 +32,18 @@ export interface DescribeAggregateComplianceByConformancePacksCommandOutput
  * 		       <note>
  *             <p>The results can return an empty result page, but if you have a <code>nextToken</code>, the results are displayed on the next page.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DescribeAggregateComplianceByConformancePacksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAggregateComplianceByConformancePacksCommandInput} for command's `input` shape.
+ * @see {@link DescribeAggregateComplianceByConformancePacksCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAggregateComplianceByConformancePacksCommand extends $Command<
   DescribeAggregateComplianceByConformancePacksCommandInput,

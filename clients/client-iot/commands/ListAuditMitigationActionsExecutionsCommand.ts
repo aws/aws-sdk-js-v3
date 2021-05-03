@@ -28,6 +28,18 @@ export interface ListAuditMitigationActionsExecutionsCommandOutput
 /**
  * <p>Gets the status of audit mitigation action tasks that were
  *       executed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ListAuditMitigationActionsExecutionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAuditMitigationActionsExecutionsCommandInput} for command's `input` shape.
+ * @see {@link ListAuditMitigationActionsExecutionsCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAuditMitigationActionsExecutionsCommand extends $Command<
   ListAuditMitigationActionsExecutionsCommandInput,

@@ -22,6 +22,18 @@ export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosFor
 
 /**
  * <p>Lists all portfolios that the specified product is associated with.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new ListPortfoliosForProductCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPortfoliosForProductCommandInput} for command's `input` shape.
+ * @see {@link ListPortfoliosForProductCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPortfoliosForProductCommand extends $Command<
   ListPortfoliosForProductCommandInput,

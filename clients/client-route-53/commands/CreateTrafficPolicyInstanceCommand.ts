@@ -28,6 +28,18 @@ export interface CreateTrafficPolicyInstanceCommandOutput
  * 			In addition, <code>CreateTrafficPolicyInstance</code> associates the resource record sets with a specified domain name (such as example.com) or
  * 			subdomain name (such as www.example.com). Amazon Route 53 responds to DNS queries for the domain or subdomain name by using the resource record sets
  * 			that <code>CreateTrafficPolicyInstance</code> created.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new CreateTrafficPolicyInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTrafficPolicyInstanceCommandInput} for command's `input` shape.
+ * @see {@link CreateTrafficPolicyInstanceCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTrafficPolicyInstanceCommand extends $Command<
   CreateTrafficPolicyInstanceCommandInput,

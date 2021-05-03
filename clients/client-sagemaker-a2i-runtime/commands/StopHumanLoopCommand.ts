@@ -26,6 +26,18 @@ export interface StopHumanLoopCommandOutput extends StopHumanLoopResponse, __Met
 
 /**
  * <p>Stops the specified human loop.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerA2IRuntimeClient(config);
+ * const command = new StopHumanLoopCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopHumanLoopCommandInput} for command's `input` shape.
+ * @see {@link StopHumanLoopCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopHumanLoopCommand extends $Command<
   StopHumanLoopCommandInput,

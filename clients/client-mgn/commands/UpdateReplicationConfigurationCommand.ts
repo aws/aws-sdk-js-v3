@@ -22,6 +22,18 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
 
 /**
  * <p>Allows you to update multiple ReplicationConfigurations by Source Server ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MgnClient(config);
+ * const command = new UpdateReplicationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateReplicationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateReplicationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateReplicationConfigurationCommand extends $Command<
   UpdateReplicationConfigurationCommandInput,

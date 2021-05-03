@@ -25,6 +25,18 @@ export interface CreateSipMediaApplicationCallCommandOutput
 /**
  * <p>Creates an outbound call to a phone number from the phone number specified in the request, and it invokes the endpoint of the specified
  * <code>sipMediaApplicationId</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new CreateSipMediaApplicationCallCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSipMediaApplicationCallCommandInput} for command's `input` shape.
+ * @see {@link CreateSipMediaApplicationCallCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSipMediaApplicationCallCommand extends $Command<
   CreateSipMediaApplicationCallCommandInput,

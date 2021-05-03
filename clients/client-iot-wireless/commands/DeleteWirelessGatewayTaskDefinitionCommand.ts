@@ -27,6 +27,18 @@ export interface DeleteWirelessGatewayTaskDefinitionCommandOutput
 
 /**
  * <p>Deletes a wireless gateway task definition. Deleting this task definition does not affect tasks that are currently in progress.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new DeleteWirelessGatewayTaskDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteWirelessGatewayTaskDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DeleteWirelessGatewayTaskDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteWirelessGatewayTaskDefinitionCommand extends $Command<
   DeleteWirelessGatewayTaskDefinitionCommandInput,

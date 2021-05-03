@@ -30,6 +30,18 @@ export interface AssociateInstanceStorageConfigCommandOutput
  *          <p>This API does not create a resource that doesn't exist. It only associates it to the
  *    instance. Ensure that the resource being specified in the storage configuration, like an S3
  *    bucket, exists when being used for association.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new AssociateInstanceStorageConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateInstanceStorageConfigCommandInput} for command's `input` shape.
+ * @see {@link AssociateInstanceStorageConfigCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateInstanceStorageConfigCommand extends $Command<
   AssociateInstanceStorageConfigCommandInput,

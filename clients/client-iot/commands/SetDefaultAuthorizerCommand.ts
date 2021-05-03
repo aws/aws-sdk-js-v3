@@ -23,6 +23,18 @@ export interface SetDefaultAuthorizerCommandOutput extends SetDefaultAuthorizerR
 /**
  * <p>Sets the default authorizer. This will be used if a websocket connection is made
  *          without specifying an authorizer.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new SetDefaultAuthorizerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetDefaultAuthorizerCommandInput} for command's `input` shape.
+ * @see {@link SetDefaultAuthorizerCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetDefaultAuthorizerCommand extends $Command<
   SetDefaultAuthorizerCommandInput,

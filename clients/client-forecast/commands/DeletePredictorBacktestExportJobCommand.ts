@@ -22,6 +22,18 @@ export interface DeletePredictorBacktestExportJobCommandOutput extends __Metadat
 
 /**
  * <p>Deletes a predictor backtest export job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ForecastClient(config);
+ * const command = new DeletePredictorBacktestExportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePredictorBacktestExportJobCommandInput} for command's `input` shape.
+ * @see {@link DeletePredictorBacktestExportJobCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePredictorBacktestExportJobCommand extends $Command<
   DeletePredictorBacktestExportJobCommandInput,

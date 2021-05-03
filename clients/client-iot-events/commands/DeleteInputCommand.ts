@@ -22,6 +22,18 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
 
 /**
  * <p>Deletes an input.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTEventsClient(config);
+ * const command = new DeleteInputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteInputCommandInput} for command's `input` shape.
+ * @see {@link DeleteInputCommandOutput} for command's `response` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteInputCommand extends $Command<
   DeleteInputCommandInput,

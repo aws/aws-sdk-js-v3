@@ -23,6 +23,18 @@ export interface GetAccessControlEffectCommandOutput extends GetAccessControlEff
 /**
  * <p>Gets the effects of an organization's access control rules as they apply to a
  *          specified IPv4 address, access protocol action, or user ID. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new GetAccessControlEffectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAccessControlEffectCommandInput} for command's `input` shape.
+ * @see {@link GetAccessControlEffectCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAccessControlEffectCommand extends $Command<
   GetAccessControlEffectCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
 
 /**
  * <p>Returns the detailed parameter list for a particular DB parameter group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new DescribeDBParametersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDBParametersCommandInput} for command's `input` shape.
+ * @see {@link DescribeDBParametersCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDBParametersCommand extends $Command<
   DescribeDBParametersCommandInput,

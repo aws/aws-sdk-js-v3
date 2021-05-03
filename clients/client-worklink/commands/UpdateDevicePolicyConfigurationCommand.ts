@@ -24,6 +24,18 @@ export interface UpdateDevicePolicyConfigurationCommandOutput
 
 /**
  * <p>Updates the device policy configuration for the fleet.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkLinkClient(config);
+ * const command = new UpdateDevicePolicyConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDevicePolicyConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateDevicePolicyConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDevicePolicyConfigurationCommand extends $Command<
   UpdateDevicePolicyConfigurationCommandInput,

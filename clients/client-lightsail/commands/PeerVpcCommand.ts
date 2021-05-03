@@ -19,6 +19,18 @@ export interface PeerVpcCommandOutput extends PeerVpcResult, __MetadataBearer {}
 
 /**
  * <p>Tries to peer the Lightsail VPC with the user's default VPC.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new PeerVpcCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PeerVpcCommandInput} for command's `input` shape.
+ * @see {@link PeerVpcCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PeerVpcCommand extends $Command<PeerVpcCommandInput, PeerVpcCommandOutput, LightsailClientResolvedConfig> {
   // Start section: command_properties

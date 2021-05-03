@@ -22,6 +22,18 @@ export interface TimestampFormatHeadersCommandOutput extends TimestampFormatHead
 
 /**
  * This example tests how timestamp request and response headers are serialized.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new TimestampFormatHeadersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TimestampFormatHeadersCommandInput} for command's `input` shape.
+ * @see {@link TimestampFormatHeadersCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TimestampFormatHeadersCommand extends $Command<
   TimestampFormatHeadersCommandInput,

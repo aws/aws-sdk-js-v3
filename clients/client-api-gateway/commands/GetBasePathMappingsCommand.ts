@@ -22,6 +22,18 @@ export interface GetBasePathMappingsCommandOutput extends BasePathMappings, __Me
 
 /**
  * <p>Represents a collection of <a>BasePathMapping</a> resources.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new GetBasePathMappingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBasePathMappingsCommandInput} for command's `input` shape.
+ * @see {@link GetBasePathMappingsCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBasePathMappingsCommand extends $Command<
   GetBasePathMappingsCommandInput,

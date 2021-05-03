@@ -22,6 +22,18 @@ export interface CreateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
 
 /**
  * <p>Creates a usage plan with the throttle and quota limits, as well as the associated API stages, specified in the payload. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new CreateUsagePlanCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateUsagePlanCommandInput} for command's `input` shape.
+ * @see {@link CreateUsagePlanCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateUsagePlanCommand extends $Command<
   CreateUsagePlanCommandInput,

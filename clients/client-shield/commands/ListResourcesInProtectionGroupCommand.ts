@@ -24,6 +24,18 @@ export interface ListResourcesInProtectionGroupCommandOutput
 
 /**
  * <p>Retrieves the resources that are included in the protection group. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ShieldClient(config);
+ * const command = new ListResourcesInProtectionGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResourcesInProtectionGroupCommandInput} for command's `input` shape.
+ * @see {@link ListResourcesInProtectionGroupCommandOutput} for command's `response` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResourcesInProtectionGroupCommand extends $Command<
   ListResourcesInProtectionGroupCommandInput,

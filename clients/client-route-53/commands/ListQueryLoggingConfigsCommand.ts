@@ -30,6 +30,18 @@ export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingCo
  * 			Additional information, including the format of DNS query logs, appears in
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging DNS Queries</a>
  * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new ListQueryLoggingConfigsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListQueryLoggingConfigsCommandInput} for command's `input` shape.
+ * @see {@link ListQueryLoggingConfigsCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListQueryLoggingConfigsCommand extends $Command<
   ListQueryLoggingConfigsCommandInput,

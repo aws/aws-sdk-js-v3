@@ -24,6 +24,18 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  * <p>Updates the properties of a domain, including creating or selecting a dead letter queue
  *          or an encryption key.</p>
  *          <p>Once a domain is created, the name can’t be changed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CustomerProfilesClient(config);
+ * const command = new UpdateDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDomainCommandInput} for command's `input` shape.
+ * @see {@link UpdateDomainCommandOutput} for command's `response` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDomainCommand extends $Command<
   UpdateDomainCommandInput,

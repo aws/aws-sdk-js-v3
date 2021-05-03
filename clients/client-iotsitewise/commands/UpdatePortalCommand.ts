@@ -22,6 +22,18 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
 
 /**
  * <p>Updates an AWS IoT SiteWise Monitor portal.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new UpdatePortalCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePortalCommandInput} for command's `input` shape.
+ * @see {@link UpdatePortalCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePortalCommand extends $Command<
   UpdatePortalCommandInput,

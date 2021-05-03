@@ -30,6 +30,18 @@ export interface GetUICustomizationCommandOutput extends GetUICustomizationRespo
  *             is something set. If nothing is set for the particular client, but there is an existing
  *             pool level customization (app <code>clientId</code> will be <code>ALL</code>), then that
  *             is returned. If nothing is present, then an empty shape is returned.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new GetUICustomizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetUICustomizationCommandInput} for command's `input` shape.
+ * @see {@link GetUICustomizationCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetUICustomizationCommand extends $Command<
   GetUICustomizationCommandInput,

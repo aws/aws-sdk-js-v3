@@ -27,6 +27,18 @@ export interface CreateResourceServerCommandOutput extends CreateResourceServerR
 
 /**
  * <p>Creates a new OAuth2.0 resource server and defines custom scopes in it.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new CreateResourceServerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateResourceServerCommandInput} for command's `input` shape.
+ * @see {@link CreateResourceServerCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateResourceServerCommand extends $Command<
   CreateResourceServerCommandInput,

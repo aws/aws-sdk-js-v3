@@ -24,6 +24,18 @@ export interface AllocatePrivateVirtualInterfaceCommandOutput extends VirtualInt
  * <p>Provisions a private virtual interface to be owned by the specified AWS account.</p>
  *          <p>Virtual interfaces created using this action must be confirmed by the owner using <a>ConfirmPrivateVirtualInterface</a>.
  *       Until then, the virtual interface is in the <code>Confirming</code> state and is not available to handle traffic.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new AllocatePrivateVirtualInterfaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AllocatePrivateVirtualInterfaceCommandInput} for command's `input` shape.
+ * @see {@link AllocatePrivateVirtualInterfaceCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AllocatePrivateVirtualInterfaceCommand extends $Command<
   AllocatePrivateVirtualInterfaceCommandInput,

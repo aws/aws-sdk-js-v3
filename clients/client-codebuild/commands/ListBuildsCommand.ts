@@ -22,6 +22,18 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
 
 /**
  * <p>Gets a list of build IDs, with each build ID representing a single build.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new ListBuildsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBuildsCommandInput} for command's `input` shape.
+ * @see {@link ListBuildsCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBuildsCommand extends $Command<
   ListBuildsCommandInput,

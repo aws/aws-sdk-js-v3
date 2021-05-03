@@ -27,6 +27,18 @@ export interface GetMemberCommandOutput extends GetMemberOutput, __MetadataBeare
 /**
  * <p>Returns detailed information about a member.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ManagedBlockchainClient(config);
+ * const command = new GetMemberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMemberCommandInput} for command's `input` shape.
+ * @see {@link GetMemberCommandOutput} for command's `response` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMemberCommand extends $Command<
   GetMemberCommandInput,

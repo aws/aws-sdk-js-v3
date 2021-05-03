@@ -22,6 +22,18 @@ export interface DeleteActionCommandOutput extends DeleteActionResponse, __Metad
 
 /**
  * <p>Deletes an action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteActionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteActionCommandInput} for command's `input` shape.
+ * @see {@link DeleteActionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteActionCommand extends $Command<
   DeleteActionCommandInput,

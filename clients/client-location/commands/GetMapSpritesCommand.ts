@@ -24,6 +24,18 @@ export interface GetMapSpritesCommandOutput extends GetMapSpritesResponse, __Met
  * <p>Retrieves the sprite sheet corresponding to a map resource. The sprite sheet is a PNG
  *             image paired with a JSON document describing the offsets of individual icons that will
  *             be displayed on a rendered map.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LocationClient(config);
+ * const command = new GetMapSpritesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMapSpritesCommandInput} for command's `input` shape.
+ * @see {@link GetMapSpritesCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMapSpritesCommand extends $Command<
   GetMapSpritesCommandInput,

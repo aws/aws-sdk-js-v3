@@ -22,6 +22,18 @@ export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceW
 
 /**
  * <p>Deletes a maintenance window.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new DeleteMaintenanceWindowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteMaintenanceWindowCommandInput} for command's `input` shape.
+ * @see {@link DeleteMaintenanceWindowCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteMaintenanceWindowCommand extends $Command<
   DeleteMaintenanceWindowCommandInput,

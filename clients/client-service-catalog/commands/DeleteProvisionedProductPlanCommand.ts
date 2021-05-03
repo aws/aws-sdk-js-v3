@@ -24,6 +24,18 @@ export interface DeleteProvisionedProductPlanCommandOutput
 
 /**
  * <p>Deletes the specified plan.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DeleteProvisionedProductPlanCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteProvisionedProductPlanCommandInput} for command's `input` shape.
+ * @see {@link DeleteProvisionedProductPlanCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteProvisionedProductPlanCommand extends $Command<
   DeleteProvisionedProductPlanCommandInput,

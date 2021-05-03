@@ -27,6 +27,18 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  *             <p>There is a brief delay between when you register an instance and when the health status for the instance is
  *     available. </p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceDiscoveryClient(config);
+ * const command = new GetInstancesHealthStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetInstancesHealthStatusCommandInput} for command's `input` shape.
+ * @see {@link GetInstancesHealthStatusCommandOutput} for command's `response` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetInstancesHealthStatusCommand extends $Command<
   GetInstancesHealthStatusCommandInput,

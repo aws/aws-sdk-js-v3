@@ -23,6 +23,18 @@ export interface ListObjectParentsCommandOutput extends ListObjectParentsRespons
 /**
  * <p>Lists parent objects that are associated with a given object in pagination
  *       fashion.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new ListObjectParentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListObjectParentsCommandInput} for command's `input` shape.
+ * @see {@link ListObjectParentsCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListObjectParentsCommand extends $Command<
   ListObjectParentsCommandInput,

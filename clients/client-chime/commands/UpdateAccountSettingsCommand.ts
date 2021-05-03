@@ -26,6 +26,18 @@ export interface UpdateAccountSettingsCommandOutput extends UpdateAccountSetting
  *             these settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use
  *                 the Policies Page</a> in the <i>Amazon Chime Administration
  *                 Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new UpdateAccountSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAccountSettingsCommandInput} for command's `input` shape.
+ * @see {@link UpdateAccountSettingsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAccountSettingsCommand extends $Command<
   UpdateAccountSettingsCommandInput,

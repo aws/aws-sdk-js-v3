@@ -24,6 +24,18 @@ export interface ListLoggerDefinitionVersionsCommandOutput
 
 /**
  * Lists the versions of a logger definition.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new ListLoggerDefinitionVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListLoggerDefinitionVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListLoggerDefinitionVersionsCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListLoggerDefinitionVersionsCommand extends $Command<
   ListLoggerDefinitionVersionsCommandInput,

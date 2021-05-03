@@ -25,6 +25,18 @@ export interface DescribeSecurityPolicyCommandOutput extends DescribeSecurityPol
  *       server. The response contains a description of the security policy's properties. For more
  *       information about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working with security
  *         policies</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TransferClient(config);
+ * const command = new DescribeSecurityPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSecurityPolicyCommandInput} for command's `input` shape.
+ * @see {@link DescribeSecurityPolicyCommandOutput} for command's `response` shape.
+ * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSecurityPolicyCommand extends $Command<
   DescribeSecurityPolicyCommandInput,

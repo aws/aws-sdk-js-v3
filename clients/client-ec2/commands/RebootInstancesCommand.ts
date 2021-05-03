@@ -26,6 +26,18 @@ export interface RebootInstancesCommandOutput extends __MetadataBearer {}
  *             hard reboot.</p>
  *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Getting console output and
  *             rebooting instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new RebootInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RebootInstancesCommandInput} for command's `input` shape.
+ * @see {@link RebootInstancesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RebootInstancesCommand extends $Command<
   RebootInstancesCommandInput,

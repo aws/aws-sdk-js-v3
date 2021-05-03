@@ -31,6 +31,18 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  *       </ul>
  *       <p>For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching.html">Searching Your Data</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
  *       <p>The endpoint for submitting <code>Search</code> requests is domain-specific. You submit search requests to a domain's search endpoint. To get the search endpoint for your domain, use the Amazon CloudSearch configuration service <code>DescribeDomains</code> action. A domain's endpoints are also displayed on the domain dashboard in the Amazon CloudSearch console. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudSearchDomainClient(config);
+ * const command = new SearchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchCommandInput} for command's `input` shape.
+ * @see {@link SearchCommandOutput} for command's `response` shape.
+ * @see {@link CloudSearchDomainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchCommand extends $Command<
   SearchCommandInput,

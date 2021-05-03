@@ -46,6 +46,18 @@ export interface DeleteXssMatchSetCommandOutput extends DeleteXssMatchSetRespons
  *                <p>Submit a <code>DeleteXssMatchSet</code> request.</p>
  *             </li>
  *          </ol>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFClient(config);
+ * const command = new DeleteXssMatchSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteXssMatchSetCommandInput} for command's `input` shape.
+ * @see {@link DeleteXssMatchSetCommandOutput} for command's `response` shape.
+ * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteXssMatchSetCommand extends $Command<
   DeleteXssMatchSetCommandInput,

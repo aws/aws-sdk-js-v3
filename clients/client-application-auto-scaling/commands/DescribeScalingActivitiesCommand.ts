@@ -29,6 +29,18 @@ export interface DescribeScalingActivitiesCommandOutput extends DescribeScalingA
  *          from the previous six weeks.</p>
  *          <p>You can filter the results using <code>ResourceId</code> and
  *             <code>ScalableDimension</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationAutoScalingClient(config);
+ * const command = new DescribeScalingActivitiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeScalingActivitiesCommandInput} for command's `input` shape.
+ * @see {@link DescribeScalingActivitiesCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeScalingActivitiesCommand extends $Command<
   DescribeScalingActivitiesCommandInput,

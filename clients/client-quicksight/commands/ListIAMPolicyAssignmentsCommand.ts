@@ -22,6 +22,18 @@ export interface ListIAMPolicyAssignmentsCommandOutput extends ListIAMPolicyAssi
 
 /**
  * <p>Lists IAM policy assignments in the current Amazon QuickSight account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new ListIAMPolicyAssignmentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListIAMPolicyAssignmentsCommandInput} for command's `input` shape.
+ * @see {@link ListIAMPolicyAssignmentsCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListIAMPolicyAssignmentsCommand extends $Command<
   ListIAMPolicyAssignmentsCommandInput,

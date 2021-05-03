@@ -22,6 +22,18 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
 
 /**
  * <p>Returns information about a specific domain.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CustomerProfilesClient(config);
+ * const command = new GetDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDomainCommandInput} for command's `input` shape.
+ * @see {@link GetDomainCommandOutput} for command's `response` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDomainCommand extends $Command<
   GetDomainCommandInput,

@@ -22,6 +22,18 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
 
 /**
  * <p>Creates a recommendation filter. For more information, see <a>filter</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeClient(config);
+ * const command = new CreateFilterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFilterCommandInput} for command's `input` shape.
+ * @see {@link CreateFilterCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFilterCommand extends $Command<
   CreateFilterCommandInput,

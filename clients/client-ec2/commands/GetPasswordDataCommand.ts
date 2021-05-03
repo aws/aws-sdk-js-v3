@@ -31,6 +31,18 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
  *             minutes. If you try to retrieve the password before it's available, the output returns
  *             an empty string. We recommend that you wait up to 15 minutes after launching an instance
  *             before trying to retrieve the generated password.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new GetPasswordDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPasswordDataCommandInput} for command's `input` shape.
+ * @see {@link GetPasswordDataCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPasswordDataCommand extends $Command<
   GetPasswordDataCommandInput,

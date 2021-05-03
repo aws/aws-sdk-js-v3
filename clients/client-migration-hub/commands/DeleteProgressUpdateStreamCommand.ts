@@ -52,6 +52,18 @@ export interface DeleteProgressUpdateStreamCommandOutput extends DeleteProgressU
  *                resources associated with the old stream).</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MigrationHubClient(config);
+ * const command = new DeleteProgressUpdateStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteProgressUpdateStreamCommandInput} for command's `input` shape.
+ * @see {@link DeleteProgressUpdateStreamCommandOutput} for command's `response` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteProgressUpdateStreamCommand extends $Command<
   DeleteProgressUpdateStreamCommandInput,

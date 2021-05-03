@@ -27,6 +27,18 @@ export interface ModifyReservedInstancesCommandOutput extends ModifyReservedInst
  *             type.</p>
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved
  * 				Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyReservedInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyReservedInstancesCommandInput} for command's `input` shape.
+ * @see {@link ModifyReservedInstancesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyReservedInstancesCommand extends $Command<
   ModifyReservedInstancesCommandInput,

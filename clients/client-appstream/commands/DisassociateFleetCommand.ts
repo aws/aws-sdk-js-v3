@@ -22,6 +22,18 @@ export interface DisassociateFleetCommandOutput extends DisassociateFleetResult,
 
 /**
  * <p>Disassociates the specified fleet from the specified stack.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new DisassociateFleetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateFleetCommandInput} for command's `input` shape.
+ * @see {@link DisassociateFleetCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateFleetCommand extends $Command<
   DisassociateFleetCommandInput,

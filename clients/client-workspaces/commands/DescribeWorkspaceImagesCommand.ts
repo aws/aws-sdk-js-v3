@@ -23,6 +23,18 @@ export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceI
 /**
  * <p>Retrieves a list that describes one or more specified images, if the image identifiers
  *          are provided. Otherwise, all images in the account are described. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new DescribeWorkspaceImagesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeWorkspaceImagesCommandInput} for command's `input` shape.
+ * @see {@link DescribeWorkspaceImagesCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeWorkspaceImagesCommand extends $Command<
   DescribeWorkspaceImagesCommandInput,

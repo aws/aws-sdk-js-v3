@@ -25,6 +25,18 @@ export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareO
  *          node. Shares to an organization node can only be deleted by the management account of an
  *          organization or by a delegated administrator.</p>
  *          <p>Note that if a delegated admin is de-registered, portfolio shares created from that account are removed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DeletePortfolioShareCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePortfolioShareCommandInput} for command's `input` shape.
+ * @see {@link DeletePortfolioShareCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePortfolioShareCommand extends $Command<
   DeletePortfolioShareCommandInput,

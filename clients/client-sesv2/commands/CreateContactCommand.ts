@@ -23,6 +23,18 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
 /**
  * <p>Creates a contact, which is an end-user who is receiving the email, and adds them to a
  *             contact list.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new CreateContactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateContactCommandInput} for command's `input` shape.
+ * @see {@link CreateContactCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateContactCommand extends $Command<
   CreateContactCommandInput,

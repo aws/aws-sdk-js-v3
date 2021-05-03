@@ -25,6 +25,18 @@ export interface GetModelPackageGroupPolicyCommandOutput extends GetModelPackage
  *             resource policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html">Identity-based
  *                 policies and resource-based policies</a> in the <i>AWS Identity and
  *                     Access Management User Guide.</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new GetModelPackageGroupPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetModelPackageGroupPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetModelPackageGroupPolicyCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetModelPackageGroupPolicyCommand extends $Command<
   GetModelPackageGroupPolicyCommandInput,

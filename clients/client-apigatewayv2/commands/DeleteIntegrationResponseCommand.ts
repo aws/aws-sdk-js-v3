@@ -22,6 +22,18 @@ export interface DeleteIntegrationResponseCommandOutput extends __MetadataBearer
 
 /**
  * <p>Deletes an IntegrationResponses.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new DeleteIntegrationResponseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteIntegrationResponseCommandInput} for command's `input` shape.
+ * @see {@link DeleteIntegrationResponseCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteIntegrationResponseCommand extends $Command<
   DeleteIntegrationResponseCommandInput,

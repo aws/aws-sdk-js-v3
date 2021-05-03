@@ -24,6 +24,18 @@ export interface RequestServiceQuotaIncreaseCommandOutput
 
 /**
  * <p>Submits a quota increase request for the specified quota.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceQuotasClient(config);
+ * const command = new RequestServiceQuotaIncreaseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RequestServiceQuotaIncreaseCommandInput} for command's `input` shape.
+ * @see {@link RequestServiceQuotaIncreaseCommandOutput} for command's `response` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RequestServiceQuotaIncreaseCommand extends $Command<
   RequestServiceQuotaIncreaseCommandInput,

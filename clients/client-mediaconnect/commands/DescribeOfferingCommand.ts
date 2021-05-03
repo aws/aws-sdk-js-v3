@@ -22,6 +22,18 @@ export interface DescribeOfferingCommandOutput extends DescribeOfferingResponse,
 
 /**
  * Displays the details of an offering. The response includes the offering description, duration, outbound bandwidth, price, and Amazon Resource Name (ARN).
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConnectClient(config);
+ * const command = new DescribeOfferingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeOfferingCommandInput} for command's `input` shape.
+ * @see {@link DescribeOfferingCommandOutput} for command's `response` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeOfferingCommand extends $Command<
   DescribeOfferingCommandInput,

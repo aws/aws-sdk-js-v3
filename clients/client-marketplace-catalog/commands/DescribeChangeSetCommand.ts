@@ -26,6 +26,18 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetRespons
 
 /**
  * <p>Provides information about a given change set.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MarketplaceCatalogClient(config);
+ * const command = new DescribeChangeSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeChangeSetCommandInput} for command's `input` shape.
+ * @see {@link DescribeChangeSetCommandOutput} for command's `response` shape.
+ * @see {@link MarketplaceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeChangeSetCommand extends $Command<
   DescribeChangeSetCommandInput,

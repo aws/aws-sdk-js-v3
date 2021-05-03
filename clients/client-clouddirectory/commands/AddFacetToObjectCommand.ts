@@ -22,6 +22,18 @@ export interface AddFacetToObjectCommandOutput extends AddFacetToObjectResponse,
 
 /**
  * <p>Adds a new <a>Facet</a> to an object. An object can have more than one facet applied on it.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new AddFacetToObjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddFacetToObjectCommandInput} for command's `input` shape.
+ * @see {@link AddFacetToObjectCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddFacetToObjectCommand extends $Command<
   AddFacetToObjectCommandInput,

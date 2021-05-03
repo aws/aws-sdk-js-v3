@@ -22,6 +22,18 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new DeleteAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAliasCommandInput} for command's `input` shape.
+ * @see {@link DeleteAliasCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAliasCommand extends $Command<
   DeleteAliasCommandInput,

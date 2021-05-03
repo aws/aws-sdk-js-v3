@@ -26,6 +26,18 @@ export interface GetColumnStatisticsForPartitionCommandOutput
  * <p>Retrieves partition statistics of columns.</p>
  *
  * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetPartition</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetColumnStatisticsForPartitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetColumnStatisticsForPartitionCommandInput} for command's `input` shape.
+ * @see {@link GetColumnStatisticsForPartitionCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetColumnStatisticsForPartitionCommand extends $Command<
   GetColumnStatisticsForPartitionCommandInput,

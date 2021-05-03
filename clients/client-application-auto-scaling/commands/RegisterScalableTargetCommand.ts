@@ -40,6 +40,18 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  *          <p>To update a scalable target, specify the parameters that you want to change. Include the
  *          parameters that identify the scalable target: resource ID, scalable dimension, and
  *          namespace. Any parameters that you don't specify are not changed by this update request. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationAutoScalingClient(config);
+ * const command = new RegisterScalableTargetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterScalableTargetCommandInput} for command's `input` shape.
+ * @see {@link RegisterScalableTargetCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterScalableTargetCommand extends $Command<
   RegisterScalableTargetCommandInput,

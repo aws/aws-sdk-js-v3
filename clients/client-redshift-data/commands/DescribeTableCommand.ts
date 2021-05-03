@@ -37,6 +37,18 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  *           required to use this method. </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftDataClient(config);
+ * const command = new DescribeTableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTableCommandInput} for command's `input` shape.
+ * @see {@link DescribeTableCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftDataClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTableCommand extends $Command<
   DescribeTableCommandInput,

@@ -26,6 +26,18 @@ export interface GetCorsPolicyCommandOutput extends GetCorsPolicyOutput, __Metad
  *          <p>To use this operation, you must have permission to perform the
  *             <code>MediaStore:GetCorsPolicy</code> action. By default, the container owner has this
  *          permission and can grant it to others.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaStoreClient(config);
+ * const command = new GetCorsPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCorsPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetCorsPolicyCommandOutput} for command's `response` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCorsPolicyCommand extends $Command<
   GetCorsPolicyCommandInput,

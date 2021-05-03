@@ -27,6 +27,18 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  *         copy of the template. You can delete or modify the environment's copy of the template
  *         without affecting the running environment.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new DeleteConfigurationTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConfigurationTemplateCommandInput} for command's `input` shape.
+ * @see {@link DeleteConfigurationTemplateCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConfigurationTemplateCommand extends $Command<
   DeleteConfigurationTemplateCommandInput,

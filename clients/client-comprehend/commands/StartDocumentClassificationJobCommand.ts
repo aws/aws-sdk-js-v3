@@ -25,6 +25,18 @@ export interface StartDocumentClassificationJobCommandOutput
 /**
  * <p>Starts an asynchronous document classification job. Use the  operation to track the progress of the
  *       job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new StartDocumentClassificationJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartDocumentClassificationJobCommandInput} for command's `input` shape.
+ * @see {@link StartDocumentClassificationJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartDocumentClassificationJobCommand extends $Command<
   StartDocumentClassificationJobCommandInput,

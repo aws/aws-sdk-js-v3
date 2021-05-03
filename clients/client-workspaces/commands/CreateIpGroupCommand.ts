@@ -31,6 +31,18 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  *          associate an IP access control group with your directory, the default group is used. The
  *          default group includes a default rule that allows users to access their WorkSpaces from
  *          anywhere. You cannot modify the default IP access control group for your directory.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new CreateIpGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateIpGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateIpGroupCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateIpGroupCommand extends $Command<
   CreateIpGroupCommandInput,

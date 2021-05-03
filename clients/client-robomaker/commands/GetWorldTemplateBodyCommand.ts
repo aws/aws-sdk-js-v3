@@ -22,6 +22,18 @@ export interface GetWorldTemplateBodyCommandOutput extends GetWorldTemplateBodyR
 
 /**
  * <p>Gets the world template body.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new GetWorldTemplateBodyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetWorldTemplateBodyCommandInput} for command's `input` shape.
+ * @see {@link GetWorldTemplateBodyCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetWorldTemplateBodyCommand extends $Command<
   GetWorldTemplateBodyCommandInput,

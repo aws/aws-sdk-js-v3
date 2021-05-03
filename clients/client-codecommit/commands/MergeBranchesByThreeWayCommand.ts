@@ -22,6 +22,18 @@ export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThr
 
 /**
  * <p>Merges two specified branches using the three-way merge strategy.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new MergeBranchesByThreeWayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link MergeBranchesByThreeWayCommandInput} for command's `input` shape.
+ * @see {@link MergeBranchesByThreeWayCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class MergeBranchesByThreeWayCommand extends $Command<
   MergeBranchesByThreeWayCommandInput,

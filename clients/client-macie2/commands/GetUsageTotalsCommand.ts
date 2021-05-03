@@ -22,6 +22,18 @@ export interface GetUsageTotalsCommandOutput extends GetUsageTotalsResponse, __M
 
 /**
  * <p>Retrieves (queries) aggregated usage data for an account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new GetUsageTotalsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetUsageTotalsCommandInput} for command's `input` shape.
+ * @see {@link GetUsageTotalsCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetUsageTotalsCommand extends $Command<
   GetUsageTotalsCommandInput,

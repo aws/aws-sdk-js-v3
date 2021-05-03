@@ -54,6 +54,18 @@ export interface ModifyVpnConnectionCommandOutput extends ModifyVpnConnectionRes
  *         <p>After you perform this operation, the AWS VPN endpoint's IP addresses on the AWS side and
  *             the tunnel options remain intact. Your AWS Site-to-Site VPN connection will be temporarily unavailable
  *             for a brief period while we provision the new endpoints.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyVpnConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyVpnConnectionCommandInput} for command's `input` shape.
+ * @see {@link ModifyVpnConnectionCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyVpnConnectionCommand extends $Command<
   ModifyVpnConnectionCommandInput,

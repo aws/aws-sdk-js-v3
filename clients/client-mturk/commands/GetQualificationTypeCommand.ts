@@ -24,6 +24,18 @@ export interface GetQualificationTypeCommandOutput extends GetQualificationTypeR
  * <p>
  *             The <code>GetQualificationType</code>operation retrieves information about a Qualification type using its ID.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MTurkClient(config);
+ * const command = new GetQualificationTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetQualificationTypeCommandInput} for command's `input` shape.
+ * @see {@link GetQualificationTypeCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetQualificationTypeCommand extends $Command<
   GetQualificationTypeCommandInput,

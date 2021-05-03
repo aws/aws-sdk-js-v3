@@ -39,6 +39,18 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  *                <a href="http://aws.amazon.com/storagegateway">AWS Storage Gateway detail
  *             page</a>.</p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new DeleteGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteGatewayCommandInput} for command's `input` shape.
+ * @see {@link DeleteGatewayCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteGatewayCommand extends $Command<
   DeleteGatewayCommandInput,

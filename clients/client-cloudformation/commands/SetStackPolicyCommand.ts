@@ -22,6 +22,18 @@ export interface SetStackPolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets a stack policy for a specified stack.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new SetStackPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetStackPolicyCommandInput} for command's `input` shape.
+ * @see {@link SetStackPolicyCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetStackPolicyCommand extends $Command<
   SetStackPolicyCommandInput,

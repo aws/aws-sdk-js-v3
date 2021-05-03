@@ -22,6 +22,18 @@ export interface GetMaintenanceWindowCommandOutput extends GetMaintenanceWindowR
 
 /**
  * <p>Retrieves a maintenance window.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new GetMaintenanceWindowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMaintenanceWindowCommandInput} for command's `input` shape.
+ * @see {@link GetMaintenanceWindowCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMaintenanceWindowCommand extends $Command<
   GetMaintenanceWindowCommandInput,

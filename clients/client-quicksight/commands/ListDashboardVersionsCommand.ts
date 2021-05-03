@@ -22,6 +22,18 @@ export interface ListDashboardVersionsCommandOutput extends ListDashboardVersion
 
 /**
  * <p>Lists all the versions of the dashboards in the QuickSight subscription.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new ListDashboardVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDashboardVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListDashboardVersionsCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDashboardVersionsCommand extends $Command<
   ListDashboardVersionsCommandInput,

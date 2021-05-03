@@ -22,6 +22,18 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
 
 /**
  * Purchase an offering and create a reservation.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaLiveClient(config);
+ * const command = new PurchaseOfferingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PurchaseOfferingCommandInput} for command's `input` shape.
+ * @see {@link PurchaseOfferingCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PurchaseOfferingCommand extends $Command<
   PurchaseOfferingCommandInput,

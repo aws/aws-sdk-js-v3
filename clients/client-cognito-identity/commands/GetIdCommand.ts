@@ -21,6 +21,18 @@ export interface GetIdCommandOutput extends GetIdResponse, __MetadataBearer {}
  * <p>Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an
  *          implicit linked account.</p>
  *          <p>This is a public API. You do not need any credentials to call this API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityClient(config);
+ * const command = new GetIdCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetIdCommandInput} for command's `input` shape.
+ * @see {@link GetIdCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetIdCommand extends $Command<GetIdCommandInput, GetIdCommandOutput, CognitoIdentityClientResolvedConfig> {
   // Start section: command_properties

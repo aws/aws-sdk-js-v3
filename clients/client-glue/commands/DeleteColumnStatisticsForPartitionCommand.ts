@@ -29,6 +29,18 @@ export interface DeleteColumnStatisticsForPartitionCommandOutput
  * <p>Delete the partition column statistics of a column.</p>
  *
  * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeletePartition</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new DeleteColumnStatisticsForPartitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteColumnStatisticsForPartitionCommandInput} for command's `input` shape.
+ * @see {@link DeleteColumnStatisticsForPartitionCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteColumnStatisticsForPartitionCommand extends $Command<
   DeleteColumnStatisticsForPartitionCommandInput,

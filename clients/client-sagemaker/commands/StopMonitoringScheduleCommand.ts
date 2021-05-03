@@ -22,6 +22,18 @@ export interface StopMonitoringScheduleCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a previously started monitoring schedule.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new StopMonitoringScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopMonitoringScheduleCommandInput} for command's `input` shape.
+ * @see {@link StopMonitoringScheduleCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopMonitoringScheduleCommand extends $Command<
   StopMonitoringScheduleCommandInput,

@@ -28,6 +28,18 @@ export interface CreateVirtualServiceCommandOutput extends CreateVirtualServiceO
  *          virtual node or virtual router that is specified as the provider for the virtual
  *          service.</p>
  *          <p>For more information about virtual services, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_services.html">Virtual services</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new CreateVirtualServiceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVirtualServiceCommandInput} for command's `input` shape.
+ * @see {@link CreateVirtualServiceCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateVirtualServiceCommand extends $Command<
   CreateVirtualServiceCommandInput,

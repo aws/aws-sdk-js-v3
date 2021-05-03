@@ -22,6 +22,18 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
 
 /**
  * <p>Updates a domain name.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new UpdateDomainNameCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDomainNameCommandInput} for command's `input` shape.
+ * @see {@link UpdateDomainNameCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDomainNameCommand extends $Command<
   UpdateDomainNameCommandInput,

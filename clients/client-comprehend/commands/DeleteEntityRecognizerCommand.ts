@@ -28,6 +28,18 @@ export interface DeleteEntityRecognizerCommandOutput extends DeleteEntityRecogni
  *          <p>This is an asynchronous action that puts the recognizer into a DELETING state, and it is
  *       then removed by a background job. Once removed, the recognizer disappears from your account
  *       and is no longer available for use. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new DeleteEntityRecognizerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEntityRecognizerCommandInput} for command's `input` shape.
+ * @see {@link DeleteEntityRecognizerCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEntityRecognizerCommand extends $Command<
   DeleteEntityRecognizerCommandInput,

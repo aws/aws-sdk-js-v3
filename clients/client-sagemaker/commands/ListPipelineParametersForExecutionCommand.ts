@@ -27,6 +27,18 @@ export interface ListPipelineParametersForExecutionCommandOutput
 
 /**
  * <p>Gets a list of parameters for a pipeline execution.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListPipelineParametersForExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPipelineParametersForExecutionCommandInput} for command's `input` shape.
+ * @see {@link ListPipelineParametersForExecutionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPipelineParametersForExecutionCommand extends $Command<
   ListPipelineParametersForExecutionCommandInput,

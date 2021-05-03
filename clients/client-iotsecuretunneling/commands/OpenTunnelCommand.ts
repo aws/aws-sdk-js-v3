@@ -27,6 +27,18 @@ export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataB
 /**
  * <p>Creates a new tunnel, and returns two client access tokens for clients to use to
  * 			connect to the AWS IoT Secure Tunneling proxy server.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSecureTunnelingClient(config);
+ * const command = new OpenTunnelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link OpenTunnelCommandInput} for command's `input` shape.
+ * @see {@link OpenTunnelCommandOutput} for command's `response` shape.
+ * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class OpenTunnelCommand extends $Command<
   OpenTunnelCommandInput,

@@ -26,6 +26,18 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  *          <p>When you delete an event source, the status of the corresponding partner event bus in the
  *       AWS customer account becomes DELETED.</p>
  *          <p></p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EventBridgeClient(config);
+ * const command = new DeletePartnerEventSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePartnerEventSourceCommandInput} for command's `input` shape.
+ * @see {@link DeletePartnerEventSourceCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePartnerEventSourceCommand extends $Command<
   DeletePartnerEventSourceCommandInput,

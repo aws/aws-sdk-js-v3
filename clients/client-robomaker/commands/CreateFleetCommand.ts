@@ -22,6 +22,18 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
 
 /**
  * <p>Creates a fleet, a logical group of robots running the same robot application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new CreateFleetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFleetCommandInput} for command's `input` shape.
+ * @see {@link CreateFleetCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFleetCommand extends $Command<
   CreateFleetCommandInput,

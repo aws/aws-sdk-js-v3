@@ -29,6 +29,18 @@ export interface PutInlinePolicyToPermissionSetCommandOutput
  *                   <a>ProvisionPermissionSet</a>
  *                </code> after this action to apply the corresponding IAM policy updates to all assigned accounts.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSOAdminClient(config);
+ * const command = new PutInlinePolicyToPermissionSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutInlinePolicyToPermissionSetCommandInput} for command's `input` shape.
+ * @see {@link PutInlinePolicyToPermissionSetCommandOutput} for command's `response` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutInlinePolicyToPermissionSetCommand extends $Command<
   PutInlinePolicyToPermissionSetCommandInput,

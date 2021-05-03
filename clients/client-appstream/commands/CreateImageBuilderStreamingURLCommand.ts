@@ -24,6 +24,18 @@ export interface CreateImageBuilderStreamingURLCommandOutput
 
 /**
  * <p>Creates a URL to start an image builder streaming session.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new CreateImageBuilderStreamingURLCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateImageBuilderStreamingURLCommandInput} for command's `input` shape.
+ * @see {@link CreateImageBuilderStreamingURLCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateImageBuilderStreamingURLCommand extends $Command<
   CreateImageBuilderStreamingURLCommandInput,

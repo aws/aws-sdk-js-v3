@@ -25,6 +25,18 @@ export interface EnableSharingWithAwsOrganizationCommandOutput
 /**
  * <p>Enables resource sharing within your AWS Organization.</p>
  *          <p>The caller must be the master account for the AWS Organization.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RAMClient(config);
+ * const command = new EnableSharingWithAwsOrganizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableSharingWithAwsOrganizationCommandInput} for command's `input` shape.
+ * @see {@link EnableSharingWithAwsOrganizationCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableSharingWithAwsOrganizationCommand extends $Command<
   EnableSharingWithAwsOrganizationCommandInput,

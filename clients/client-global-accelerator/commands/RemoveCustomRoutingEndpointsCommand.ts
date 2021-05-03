@@ -26,6 +26,18 @@ export interface RemoveCustomRoutingEndpointsCommandOutput extends __MetadataBea
 
 /**
  * <p>Remove endpoints from a custom routing accelerator.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new RemoveCustomRoutingEndpointsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveCustomRoutingEndpointsCommandInput} for command's `input` shape.
+ * @see {@link RemoveCustomRoutingEndpointsCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveCustomRoutingEndpointsCommand extends $Command<
   RemoveCustomRoutingEndpointsCommandInput,

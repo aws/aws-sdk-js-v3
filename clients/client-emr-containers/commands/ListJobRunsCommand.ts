@@ -22,6 +22,18 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
 
 /**
  * <p>Lists job runs based on a set of parameters. A job run is a unit of work, such as a Spark jar, PySpark script, or SparkSQL query, that you submit to Amazon EMR on EKS.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRContainersClient(config);
+ * const command = new ListJobRunsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListJobRunsCommandInput} for command's `input` shape.
+ * @see {@link ListJobRunsCommandOutput} for command's `response` shape.
+ * @see {@link EMRContainersClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListJobRunsCommand extends $Command<
   ListJobRunsCommandInput,

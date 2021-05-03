@@ -29,6 +29,18 @@ export interface ModifyReplicationGroupShardConfigurationCommandOutput
 /**
  * <p>Modifies a replication group's shards (node groups) by allowing you to
  *             add shards, remove shards, or rebalance the keyspaces among existing shards.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new ModifyReplicationGroupShardConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyReplicationGroupShardConfigurationCommandInput} for command's `input` shape.
+ * @see {@link ModifyReplicationGroupShardConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyReplicationGroupShardConfigurationCommand extends $Command<
   ModifyReplicationGroupShardConfigurationCommandInput,

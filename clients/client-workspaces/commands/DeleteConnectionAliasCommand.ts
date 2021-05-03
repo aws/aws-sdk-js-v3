@@ -39,6 +39,18 @@ export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAlia
  *             been shared with. You can delete a connection alias only after it is no longer shared with any accounts or
  *             associated with any directories.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new DeleteConnectionAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConnectionAliasCommandInput} for command's `input` shape.
+ * @see {@link DeleteConnectionAliasCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConnectionAliasCommand extends $Command<
   DeleteConnectionAliasCommandInput,

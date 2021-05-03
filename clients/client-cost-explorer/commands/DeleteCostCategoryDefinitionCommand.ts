@@ -24,6 +24,18 @@ export interface DeleteCostCategoryDefinitionCommandOutput
 
 /**
  * <p>Deletes a Cost Category. Expenses from this month going forward will no longer be categorized with this Cost Category.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CostExplorerClient(config);
+ * const command = new DeleteCostCategoryDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCostCategoryDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DeleteCostCategoryDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCostCategoryDefinitionCommand extends $Command<
   DeleteCostCategoryDefinitionCommandInput,

@@ -28,6 +28,18 @@ export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
 
 /**
  * <p>Gets information about one or more of your transit gateway Connect peer associations in a global network.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new GetTransitGatewayConnectPeerAssociationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTransitGatewayConnectPeerAssociationsCommandInput} for command's `input` shape.
+ * @see {@link GetTransitGatewayConnectPeerAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTransitGatewayConnectPeerAssociationsCommand extends $Command<
   GetTransitGatewayConnectPeerAssociationsCommandInput,

@@ -22,6 +22,18 @@ export interface ListAccessControlRulesCommandOutput extends ListAccessControlRu
 
 /**
  * <p>Lists the access control rules for the specified organization.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new ListAccessControlRulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAccessControlRulesCommandInput} for command's `input` shape.
+ * @see {@link ListAccessControlRulesCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAccessControlRulesCommand extends $Command<
   ListAccessControlRulesCommandInput,

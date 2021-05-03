@@ -28,6 +28,18 @@ export interface ListServiceActionsForProvisioningArtifactCommandOutput
 
 /**
  * <p>Returns a paginated list of self-service actions associated with the specified Product ID and Provisioning Artifact ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new ListServiceActionsForProvisioningArtifactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListServiceActionsForProvisioningArtifactCommandInput} for command's `input` shape.
+ * @see {@link ListServiceActionsForProvisioningArtifactCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListServiceActionsForProvisioningArtifactCommand extends $Command<
   ListServiceActionsForProvisioningArtifactCommandInput,

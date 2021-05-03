@@ -22,6 +22,18 @@ export interface GetResourcesCommandOutput extends Resources, __MetadataBearer {
 
 /**
  * <p>Lists information about a collection of <a>Resource</a> resources.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new GetResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetResourcesCommandInput} for command's `input` shape.
+ * @see {@link GetResourcesCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetResourcesCommand extends $Command<
   GetResourcesCommandInput,

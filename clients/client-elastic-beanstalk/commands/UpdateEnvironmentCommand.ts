@@ -30,6 +30,18 @@ export interface UpdateEnvironmentCommandOutput extends EnvironmentDescription, 
  *       draft configuration is created and <a>DescribeConfigurationSettings</a> for this
  *       environment returns two setting descriptions with different <code>DeploymentStatus</code>
  *       values. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new UpdateEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
+ * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateEnvironmentCommand extends $Command<
   UpdateEnvironmentCommandInput,

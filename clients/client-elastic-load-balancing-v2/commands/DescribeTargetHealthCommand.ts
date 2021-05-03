@@ -26,6 +26,18 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
 
 /**
  * <p>Describes the health of the specified targets or all of your targets.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new DescribeTargetHealthCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTargetHealthCommandInput} for command's `input` shape.
+ * @see {@link DescribeTargetHealthCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTargetHealthCommand extends $Command<
   DescribeTargetHealthCommandInput,

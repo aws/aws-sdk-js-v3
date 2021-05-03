@@ -22,6 +22,18 @@ export interface GetMapGlyphsCommandOutput extends GetMapGlyphsResponse, __Metad
 
 /**
  * <p>Retrieves glyphs used to display labels on a map.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LocationClient(config);
+ * const command = new GetMapGlyphsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMapGlyphsCommandInput} for command's `input` shape.
+ * @see {@link GetMapGlyphsCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMapGlyphsCommand extends $Command<
   GetMapGlyphsCommandInput,

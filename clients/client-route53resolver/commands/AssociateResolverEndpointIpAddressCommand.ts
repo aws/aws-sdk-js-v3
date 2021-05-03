@@ -31,6 +31,18 @@ export interface AssociateResolverEndpointIpAddressCommandOutput
  * 		       <p>To remove an IP address from an endpoint, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverEndpointIpAddress.html">DisassociateResolverEndpointIpAddress</a>.
  * 		</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new AssociateResolverEndpointIpAddressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateResolverEndpointIpAddressCommandInput} for command's `input` shape.
+ * @see {@link AssociateResolverEndpointIpAddressCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateResolverEndpointIpAddressCommand extends $Command<
   AssociateResolverEndpointIpAddressCommandInput,

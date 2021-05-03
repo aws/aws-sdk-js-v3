@@ -39,6 +39,18 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  * 				<a>NetworkConfiguration</a> when you create a service or run a task with
  * 			the task definition. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task Networking</a>
  * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new RegisterTaskDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterTaskDefinitionCommandInput} for command's `input` shape.
+ * @see {@link RegisterTaskDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterTaskDefinitionCommand extends $Command<
   RegisterTaskDefinitionCommandInput,

@@ -28,6 +28,18 @@ export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
 
 /**
  * <p>Used to associate a configuration set with an email identity.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new PutEmailIdentityConfigurationSetAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutEmailIdentityConfigurationSetAttributesCommandInput} for command's `input` shape.
+ * @see {@link PutEmailIdentityConfigurationSetAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command<
   PutEmailIdentityConfigurationSetAttributesCommandInput,

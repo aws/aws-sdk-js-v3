@@ -25,6 +25,18 @@ export interface DeleteJobQueueCommandOutput extends DeleteJobQueueResponse, __M
  *    The jobs are terminated at a rate of about 16 jobs each second.</p>
  *          <p>It's not necessary to disassociate compute environments from a queue before submitting a
  *     <code>DeleteJobQueue</code> request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BatchClient(config);
+ * const command = new DeleteJobQueueCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteJobQueueCommandInput} for command's `input` shape.
+ * @see {@link DeleteJobQueueCommandOutput} for command's `response` shape.
+ * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteJobQueueCommand extends $Command<
   DeleteJobQueueCommandInput,

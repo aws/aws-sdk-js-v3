@@ -22,6 +22,18 @@ export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataB
 
 /**
  * <p>Gets information about samples, given an AWS Device Farm job ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new ListSamplesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSamplesCommandInput} for command's `input` shape.
+ * @see {@link ListSamplesCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSamplesCommand extends $Command<
   ListSamplesCommandInput,

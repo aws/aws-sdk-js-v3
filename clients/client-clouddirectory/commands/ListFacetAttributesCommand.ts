@@ -22,6 +22,18 @@ export interface ListFacetAttributesCommandOutput extends ListFacetAttributesRes
 
 /**
  * <p>Retrieves attributes attached to the facet.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new ListFacetAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFacetAttributesCommandInput} for command's `input` shape.
+ * @see {@link ListFacetAttributesCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFacetAttributesCommand extends $Command<
   ListFacetAttributesCommandInput,

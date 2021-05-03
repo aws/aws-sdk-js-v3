@@ -22,6 +22,18 @@ export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBea
 
 /**
  * This operation uses unions for inputs and outputs.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new JsonProtocolClient(config);
+ * const command = new JsonUnionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link JsonUnionsCommandInput} for command's `input` shape.
+ * @see {@link JsonUnionsCommandOutput} for command's `response` shape.
+ * @see {@link JsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class JsonUnionsCommand extends $Command<
   JsonUnionsCommandInput,

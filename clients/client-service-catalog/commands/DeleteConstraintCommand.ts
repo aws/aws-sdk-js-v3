@@ -23,6 +23,18 @@ export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, _
 /**
  * <p>Deletes the specified constraint.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DeleteConstraintCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConstraintCommandInput} for command's `input` shape.
+ * @see {@link DeleteConstraintCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConstraintCommand extends $Command<
   DeleteConstraintCommandInput,

@@ -22,6 +22,18 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileRespons
 
 /**
  * <p>Gets the network profile details by the network profile ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new GetNetworkProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetNetworkProfileCommandInput} for command's `input` shape.
+ * @see {@link GetNetworkProfileCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetNetworkProfileCommand extends $Command<
   GetNetworkProfileCommandInput,

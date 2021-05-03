@@ -23,6 +23,18 @@ export interface DescribeFleetMetadataCommandOutput extends DescribeFleetMetadat
 /**
  * <p>Provides basic information for the specified fleet, excluding identity provider,
  *             networking, and device configuration details.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkLinkClient(config);
+ * const command = new DescribeFleetMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFleetMetadataCommandInput} for command's `input` shape.
+ * @see {@link DescribeFleetMetadataCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFleetMetadataCommand extends $Command<
   DescribeFleetMetadataCommandInput,

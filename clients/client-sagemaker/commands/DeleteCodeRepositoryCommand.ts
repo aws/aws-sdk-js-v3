@@ -22,6 +22,18 @@ export interface DeleteCodeRepositoryCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified Git repository from your account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteCodeRepositoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCodeRepositoryCommandInput} for command's `input` shape.
+ * @see {@link DeleteCodeRepositoryCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCodeRepositoryCommand extends $Command<
   DeleteCodeRepositoryCommandInput,

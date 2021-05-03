@@ -31,6 +31,18 @@ export interface DescribeEventSubscriptionsCommandOutput extends DescribeEventSu
  *             <code>CreationTime</code>, and <code>Status</code>. </p>
  *          <p>If you specify <code>SubscriptionName</code>, this action lists the description for that
  *          subscription.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DescribeEventSubscriptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEventSubscriptionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeEventSubscriptionsCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEventSubscriptionsCommand extends $Command<
   DescribeEventSubscriptionsCommandInput,

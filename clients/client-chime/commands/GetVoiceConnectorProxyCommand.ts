@@ -22,6 +22,18 @@ export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorPr
 
 /**
  * <p>Gets the proxy configuration details for the specified Amazon Chime Voice Connector.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new GetVoiceConnectorProxyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetVoiceConnectorProxyCommandInput} for command's `input` shape.
+ * @see {@link GetVoiceConnectorProxyCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetVoiceConnectorProxyCommand extends $Command<
   GetVoiceConnectorProxyCommandInput,

@@ -22,6 +22,18 @@ export interface ListBotLocalesCommandOutput extends ListBotLocalesResponse, __M
 
 /**
  * <p>Gets a list of locales for the specified bot.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelsV2Client(config);
+ * const command = new ListBotLocalesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBotLocalesCommandInput} for command's `input` shape.
+ * @see {@link ListBotLocalesCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBotLocalesCommand extends $Command<
   ListBotLocalesCommandInput,

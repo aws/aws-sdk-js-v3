@@ -24,6 +24,18 @@ export interface GetHostCommandOutput extends GetHostOutput, __MetadataBearer {}
 /**
  * <p>Returns the host ARN and details such as status, provider type, endpoint, and, if
  *       applicable, the VPC configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeStarConnectionsClient(config);
+ * const command = new GetHostCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetHostCommandInput} for command's `input` shape.
+ * @see {@link GetHostCommandOutput} for command's `response` shape.
+ * @see {@link CodeStarConnectionsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetHostCommand extends $Command<
   GetHostCommandInput,

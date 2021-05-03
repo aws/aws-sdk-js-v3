@@ -23,6 +23,18 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
 /**
  * <p>Creates an empty cluster. Each cluster supports five nodes. You use the <a>CreateJob</a> action separately to create the jobs for each of these nodes. The
  *       cluster does not ship until these five node jobs have been created.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SnowballClient(config);
+ * const command = new CreateClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateClusterCommandInput} for command's `input` shape.
+ * @see {@link CreateClusterCommandOutput} for command's `response` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,

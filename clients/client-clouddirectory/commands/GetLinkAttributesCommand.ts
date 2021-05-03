@@ -22,6 +22,18 @@ export interface GetLinkAttributesCommandOutput extends GetLinkAttributesRespons
 
 /**
  * <p>Retrieves attributes that are associated with a typed link.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new GetLinkAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLinkAttributesCommandInput} for command's `input` shape.
+ * @see {@link GetLinkAttributesCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLinkAttributesCommand extends $Command<
   GetLinkAttributesCommandInput,

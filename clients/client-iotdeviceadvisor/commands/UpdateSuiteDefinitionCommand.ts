@@ -22,6 +22,18 @@ export interface UpdateSuiteDefinitionCommandOutput extends UpdateSuiteDefinitio
 
 /**
  * <p>Updates a Device Advisor test suite.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IotDeviceAdvisorClient(config);
+ * const command = new UpdateSuiteDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSuiteDefinitionCommandInput} for command's `input` shape.
+ * @see {@link UpdateSuiteDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSuiteDefinitionCommand extends $Command<
   UpdateSuiteDefinitionCommandInput,

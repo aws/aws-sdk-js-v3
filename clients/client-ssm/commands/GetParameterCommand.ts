@@ -23,6 +23,18 @@ export interface GetParameterCommandOutput extends GetParameterResult, __Metadat
 /**
  * <p>Get information about a parameter by using the parameter name. Don't confuse this API action
  *    with the <a>GetParameters</a> API action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new GetParameterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetParameterCommandInput} for command's `input` shape.
+ * @see {@link GetParameterCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetParameterCommand extends $Command<
   GetParameterCommandInput,

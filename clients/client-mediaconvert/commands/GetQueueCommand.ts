@@ -22,6 +22,18 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
 
 /**
  * Retrieve the JSON for a specific queue.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConvertClient(config);
+ * const command = new GetQueueCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetQueueCommandInput} for command's `input` shape.
+ * @see {@link GetQueueCommandOutput} for command's `response` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetQueueCommand extends $Command<
   GetQueueCommandInput,

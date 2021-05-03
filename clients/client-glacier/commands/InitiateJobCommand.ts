@@ -26,6 +26,18 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  *          see the documentation for the underlying REST API <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html">Initiate
  *             a Job</a>.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlacierClient(config);
+ * const command = new InitiateJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InitiateJobCommandInput} for command's `input` shape.
+ * @see {@link InitiateJobCommandOutput} for command's `response` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InitiateJobCommand extends $Command<
   InitiateJobCommandInput,

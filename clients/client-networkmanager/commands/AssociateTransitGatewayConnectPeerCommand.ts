@@ -31,6 +31,18 @@ export interface AssociateTransitGatewayConnectPeerCommandOutput
  *         <p>You can only associate transit gateway Connect peers that have been created on a
  *             transit gateway that's registered in your global network.</p>
  *         <p>You cannot associate a transit gateway Connect peer with more than one device and link. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new AssociateTransitGatewayConnectPeerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateTransitGatewayConnectPeerCommandInput} for command's `input` shape.
+ * @see {@link AssociateTransitGatewayConnectPeerCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateTransitGatewayConnectPeerCommand extends $Command<
   AssociateTransitGatewayConnectPeerCommandInput,

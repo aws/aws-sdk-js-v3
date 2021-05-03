@@ -22,6 +22,18 @@ export interface QuerySchemaVersionMetadataCommandOutput extends QuerySchemaVers
 
 /**
  * <p>Queries for the schema version metadata information. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new QuerySchemaVersionMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link QuerySchemaVersionMetadataCommandInput} for command's `input` shape.
+ * @see {@link QuerySchemaVersionMetadataCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class QuerySchemaVersionMetadataCommand extends $Command<
   QuerySchemaVersionMetadataCommandInput,

@@ -22,6 +22,18 @@ export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsR
 
 /**
  * <p>Disassociates the specified IP access control group from the specified directory.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new DisassociateIpGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateIpGroupsCommandInput} for command's `input` shape.
+ * @see {@link DisassociateIpGroupsCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateIpGroupsCommand extends $Command<
   DisassociateIpGroupsCommandInput,

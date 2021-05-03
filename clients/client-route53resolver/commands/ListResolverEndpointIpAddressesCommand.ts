@@ -24,6 +24,18 @@ export interface ListResolverEndpointIpAddressesCommandOutput
 
 /**
  * <p>Gets the IP addresses for a specified Resolver endpoint.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new ListResolverEndpointIpAddressesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResolverEndpointIpAddressesCommandInput} for command's `input` shape.
+ * @see {@link ListResolverEndpointIpAddressesCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResolverEndpointIpAddressesCommand extends $Command<
   ListResolverEndpointIpAddressesCommandInput,

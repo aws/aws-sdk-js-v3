@@ -23,6 +23,18 @@ export interface UpdateStudioSessionMappingCommandOutput extends __MetadataBeare
 /**
  * <p>Updates the session policy attached to the user or group for the specified Amazon EMR
  *          Studio.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRClient(config);
+ * const command = new UpdateStudioSessionMappingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateStudioSessionMappingCommandInput} for command's `input` shape.
+ * @see {@link UpdateStudioSessionMappingCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateStudioSessionMappingCommand extends $Command<
   UpdateStudioSessionMappingCommandInput,

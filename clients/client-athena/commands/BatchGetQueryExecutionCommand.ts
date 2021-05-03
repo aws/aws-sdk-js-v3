@@ -27,6 +27,18 @@ export interface BatchGetQueryExecutionCommandOutput extends BatchGetQueryExecut
  *             IDs, use <a>ListQueryExecutionsInput$WorkGroup</a>. Query executions differ
  *             from named (saved) queries. Use <a>BatchGetNamedQueryInput</a> to get details
  *             about named queries.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AthenaClient(config);
+ * const command = new BatchGetQueryExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetQueryExecutionCommandInput} for command's `input` shape.
+ * @see {@link BatchGetQueryExecutionCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetQueryExecutionCommand extends $Command<
   BatchGetQueryExecutionCommandInput,

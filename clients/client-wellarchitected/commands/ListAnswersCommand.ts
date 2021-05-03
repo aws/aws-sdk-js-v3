@@ -22,6 +22,18 @@ export interface ListAnswersCommandOutput extends ListAnswersOutput, __MetadataB
 
 /**
  * <p>List of answers.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WellArchitectedClient(config);
+ * const command = new ListAnswersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAnswersCommandInput} for command's `input` shape.
+ * @see {@link ListAnswersCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAnswersCommand extends $Command<
   ListAnswersCommandInput,

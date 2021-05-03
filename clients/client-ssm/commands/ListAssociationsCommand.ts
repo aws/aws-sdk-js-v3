@@ -24,6 +24,18 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  * <p>Returns all State Manager associations in the current AWS account and Region. You can limit
  *    the results to a specific State Manager association document or instance by specifying a
  *    filter.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new ListAssociationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAssociationsCommandInput} for command's `input` shape.
+ * @see {@link ListAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAssociationsCommand extends $Command<
   ListAssociationsCommandInput,

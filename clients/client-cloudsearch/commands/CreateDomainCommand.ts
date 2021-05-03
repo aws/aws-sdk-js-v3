@@ -20,6 +20,18 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
 /**
  * <p>Creates a new search domain. For more information,
  *       see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html" target="_blank">Creating a Search Domain</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudSearchClient(config);
+ * const command = new CreateDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDomainCommandInput} for command's `input` shape.
+ * @see {@link CreateDomainCommandOutput} for command's `response` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDomainCommand extends $Command<
   CreateDomainCommandInput,

@@ -22,6 +22,18 @@ export interface ListSourceLocationsCommandOutput extends ListSourceLocationsRes
 
 /**
  * <p>Retrieves a list of source locations.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaTailorClient(config);
+ * const command = new ListSourceLocationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSourceLocationsCommandInput} for command's `input` shape.
+ * @see {@link ListSourceLocationsCommandOutput} for command's `response` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSourceLocationsCommand extends $Command<
   ListSourceLocationsCommandInput,

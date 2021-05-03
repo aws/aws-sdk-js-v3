@@ -24,6 +24,18 @@ export interface CreateConnectorProfileCommandOutput extends CreateConnectorProf
  * <p>
  *   Creates a new connector profile associated with your AWS account. There is a soft quota of 100 connector profiles per AWS account. If you need more connector profiles than this quota allows, you can submit a request to the Amazon AppFlow team through the Amazon AppFlow support channel.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppflowClient(config);
+ * const command = new CreateConnectorProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateConnectorProfileCommandInput} for command's `input` shape.
+ * @see {@link CreateConnectorProfileCommandOutput} for command's `response` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateConnectorProfileCommand extends $Command<
   CreateConnectorProfileCommandInput,

@@ -22,6 +22,18 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
 
 /**
  * Displays a list of flows that are associated with this account. This request returns a paginated result.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConnectClient(config);
+ * const command = new ListFlowsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFlowsCommandInput} for command's `input` shape.
+ * @see {@link ListFlowsCommandOutput} for command's `response` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFlowsCommand extends $Command<
   ListFlowsCommandInput,

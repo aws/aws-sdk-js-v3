@@ -22,6 +22,18 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
 
 /**
  * <p> Updates a branch for an Amplify app. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AmplifyClient(config);
+ * const command = new UpdateBranchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateBranchCommandInput} for command's `input` shape.
+ * @see {@link UpdateBranchCommandOutput} for command's `response` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateBranchCommand extends $Command<
   UpdateBranchCommandInput,

@@ -33,6 +33,18 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  *          be changed after a backup has been transitioned to cold.</p>
  *          <p>Only Amazon EFS file system backups can be transitioned to cold storage.</p>
  *          <p>Does not support continuous backups.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new UpdateRecoveryPointLifecycleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRecoveryPointLifecycleCommandInput} for command's `input` shape.
+ * @see {@link UpdateRecoveryPointLifecycleCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRecoveryPointLifecycleCommand extends $Command<
   UpdateRecoveryPointLifecycleCommandInput,

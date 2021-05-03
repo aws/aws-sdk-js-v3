@@ -25,6 +25,18 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * <p>Removes the specified tags from the specified Elastic Load Balancing resources. You can
  *       remove the tags for one or more Application Load Balancers, Network Load Balancers, Gateway
  *       Load Balancers, target groups, listeners, or rules.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new RemoveTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveTagsCommandInput} for command's `input` shape.
+ * @see {@link RemoveTagsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveTagsCommand extends $Command<
   RemoveTagsCommandInput,

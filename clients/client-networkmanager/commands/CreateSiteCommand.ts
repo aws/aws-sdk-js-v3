@@ -22,6 +22,18 @@ export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataB
 
 /**
  * <p>Creates a new site in a global network.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new CreateSiteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSiteCommandInput} for command's `input` shape.
+ * @see {@link CreateSiteCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSiteCommand extends $Command<
   CreateSiteCommandInput,

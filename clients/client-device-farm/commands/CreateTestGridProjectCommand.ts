@@ -23,6 +23,18 @@ export interface CreateTestGridProjectCommandOutput extends CreateTestGridProjec
 /**
  * <p>Creates a Selenium testing project. Projects are used to track <a>TestGridSession</a>
  *          instances.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new CreateTestGridProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTestGridProjectCommandInput} for command's `input` shape.
+ * @see {@link CreateTestGridProjectCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTestGridProjectCommand extends $Command<
   CreateTestGridProjectCommandInput,

@@ -27,6 +27,18 @@ export interface DescribeConformancePackStatusCommandOutput
  * 		       <note>
  *             <p>If there are no conformance packs then you will see an empty result.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DescribeConformancePackStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConformancePackStatusCommandInput} for command's `input` shape.
+ * @see {@link DescribeConformancePackStatusCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConformancePackStatusCommand extends $Command<
   DescribeConformancePackStatusCommandInput,

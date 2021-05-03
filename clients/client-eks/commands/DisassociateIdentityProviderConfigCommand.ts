@@ -30,6 +30,18 @@ export interface DisassociateIdentityProviderConfigCommandOutput
  *             an identity provider from your cluster, users included in the provider can no longer
  *             access the cluster. However, you can still access the cluster with AWS IAM
  *             users.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new DisassociateIdentityProviderConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateIdentityProviderConfigCommandInput} for command's `input` shape.
+ * @see {@link DisassociateIdentityProviderConfigCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateIdentityProviderConfigCommand extends $Command<
   DisassociateIdentityProviderConfigCommandInput,

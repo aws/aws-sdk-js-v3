@@ -22,6 +22,18 @@ export interface DeleteAlgorithmCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified algorithm from your account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteAlgorithmCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAlgorithmCommandInput} for command's `input` shape.
+ * @see {@link DeleteAlgorithmCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAlgorithmCommand extends $Command<
   DeleteAlgorithmCommandInput,

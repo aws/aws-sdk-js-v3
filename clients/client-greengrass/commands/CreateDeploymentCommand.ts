@@ -22,6 +22,18 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
 
 /**
  * Creates a deployment. ''CreateDeployment'' requests are idempotent with respect to the ''X-Amzn-Client-Token'' token and the request parameters.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new CreateDeploymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDeploymentCommandInput} for command's `input` shape.
+ * @see {@link CreateDeploymentCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDeploymentCommand extends $Command<
   CreateDeploymentCommandInput,

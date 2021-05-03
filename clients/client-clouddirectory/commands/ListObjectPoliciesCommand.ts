@@ -22,6 +22,18 @@ export interface ListObjectPoliciesCommandOutput extends ListObjectPoliciesRespo
 
 /**
  * <p>Returns policies attached to an object in pagination fashion.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new ListObjectPoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListObjectPoliciesCommandInput} for command's `input` shape.
+ * @see {@link ListObjectPoliciesCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListObjectPoliciesCommand extends $Command<
   ListObjectPoliciesCommandInput,

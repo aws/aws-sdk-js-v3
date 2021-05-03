@@ -23,6 +23,18 @@ export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResul
 /**
  * <p>Return a list of inventory type names for the account, or return a list of attribute names
  *    for a specific Inventory item type.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new GetInventorySchemaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetInventorySchemaCommandInput} for command's `input` shape.
+ * @see {@link GetInventorySchemaCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetInventorySchemaCommand extends $Command<
   GetInventorySchemaCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateAdmChannelCommandOutput extends UpdateAdmChannelResponse,
 
 /**
  * <p>Enables the ADM channel for an application or updates the status and settings of the ADM channel for an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new UpdateAdmChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAdmChannelCommandInput} for command's `input` shape.
+ * @see {@link UpdateAdmChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAdmChannelCommand extends $Command<
   UpdateAdmChannelCommandInput,

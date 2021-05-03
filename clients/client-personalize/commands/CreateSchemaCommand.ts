@@ -47,6 +47,18 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeClient(config);
+ * const command = new CreateSchemaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSchemaCommandInput} for command's `input` shape.
+ * @see {@link CreateSchemaCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSchemaCommand extends $Command<
   CreateSchemaCommandInput,

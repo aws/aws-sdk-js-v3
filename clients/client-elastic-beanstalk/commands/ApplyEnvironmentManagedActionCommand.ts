@@ -26,6 +26,18 @@ export interface ApplyEnvironmentManagedActionCommandOutput
  * <p>Applies a scheduled managed action immediately. A managed action can be applied only if
  *       its status is <code>Scheduled</code>. Get the status and action ID of a managed action with
  *         <a>DescribeEnvironmentManagedActions</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new ApplyEnvironmentManagedActionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ApplyEnvironmentManagedActionCommandInput} for command's `input` shape.
+ * @see {@link ApplyEnvironmentManagedActionCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ApplyEnvironmentManagedActionCommand extends $Command<
   ApplyEnvironmentManagedActionCommandInput,

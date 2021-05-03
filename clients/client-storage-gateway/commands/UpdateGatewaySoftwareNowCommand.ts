@@ -37,6 +37,18 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  *             timeouts. For more information about increasing iSCSI Initiator timeouts for Windows and
  *             Linux, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings">Customizing your Windows iSCSI settings</a> and <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings">Customizing your Linux iSCSI settings</a>, respectively.</p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new UpdateGatewaySoftwareNowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateGatewaySoftwareNowCommandInput} for command's `input` shape.
+ * @see {@link UpdateGatewaySoftwareNowCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateGatewaySoftwareNowCommand extends $Command<
   UpdateGatewaySoftwareNowCommandInput,

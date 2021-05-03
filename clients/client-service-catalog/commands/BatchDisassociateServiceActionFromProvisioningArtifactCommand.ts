@@ -28,6 +28,18 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOu
 
 /**
  * <p>Disassociates a batch of self-service actions from the specified provisioning artifact.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new BatchDisassociateServiceActionFromProvisioningArtifactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandInput} for command's `input` shape.
+ * @see {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDisassociateServiceActionFromProvisioningArtifactCommand extends $Command<
   BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,

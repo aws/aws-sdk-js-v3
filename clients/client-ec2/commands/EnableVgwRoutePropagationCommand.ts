@@ -22,6 +22,18 @@ export interface EnableVgwRoutePropagationCommandOutput extends __MetadataBearer
 
 /**
  * <p>Enables a virtual private gateway (VGW) to propagate routes to the specified route table of a VPC.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new EnableVgwRoutePropagationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableVgwRoutePropagationCommandInput} for command's `input` shape.
+ * @see {@link EnableVgwRoutePropagationCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableVgwRoutePropagationCommand extends $Command<
   EnableVgwRoutePropagationCommandInput,

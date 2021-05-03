@@ -22,6 +22,18 @@ export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupRespo
 
 /**
  * <p>Deletes a gateway group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new DeleteGatewayGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteGatewayGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteGatewayGroupCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteGatewayGroupCommand extends $Command<
   DeleteGatewayGroupCommandInput,

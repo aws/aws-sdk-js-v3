@@ -22,6 +22,18 @@ export interface DeleteLicenseCommandOutput extends DeleteLicenseResponse, __Met
 
 /**
  * <p>Deletes the specified license.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LicenseManagerClient(config);
+ * const command = new DeleteLicenseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteLicenseCommandInput} for command's `input` shape.
+ * @see {@link DeleteLicenseCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteLicenseCommand extends $Command<
   DeleteLicenseCommandInput,

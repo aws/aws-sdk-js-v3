@@ -39,6 +39,18 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  *                 </li>
  *             </ul>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SupportClient(config);
+ * const command = new AddAttachmentsToSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddAttachmentsToSetCommandInput} for command's `input` shape.
+ * @see {@link AddAttachmentsToSetCommandOutput} for command's `response` shape.
+ * @see {@link SupportClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddAttachmentsToSetCommand extends $Command<
   AddAttachmentsToSetCommandInput,

@@ -26,6 +26,18 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * 1. A successful response in the form of GreetingWithErrorsOutput
  * 2. An InvalidGreeting error.
  * 3. A BadRequest error.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QueryProtocolClient(config);
+ * const command = new GreetingWithErrorsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GreetingWithErrorsCommandInput} for command's `input` shape.
+ * @see {@link GreetingWithErrorsCommandOutput} for command's `response` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GreetingWithErrorsCommand extends $Command<
   GreetingWithErrorsCommandInput,

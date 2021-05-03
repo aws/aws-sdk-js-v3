@@ -27,6 +27,18 @@ export interface AddTagsCommandOutput extends __MetadataBearer {}
 /**
  * <p>Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags.  See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging" target="_blank">
  *           Tagging Amazon Elasticsearch Service Domains for more information.</a></p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new AddTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddTagsCommandInput} for command's `input` shape.
+ * @see {@link AddTagsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddTagsCommand extends $Command<
   AddTagsCommandInput,

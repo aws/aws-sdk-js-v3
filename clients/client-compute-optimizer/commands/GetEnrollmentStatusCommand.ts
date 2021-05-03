@@ -24,6 +24,18 @@ export interface GetEnrollmentStatusCommandOutput extends GetEnrollmentStatusRes
  * <p>Returns the enrollment (opt in) status of an account to the AWS Compute Optimizer service.</p>
  *         <p>If the account is the management account of an organization, this action also confirms
  *             the enrollment status of member accounts within the organization.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComputeOptimizerClient(config);
+ * const command = new GetEnrollmentStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEnrollmentStatusCommandInput} for command's `input` shape.
+ * @see {@link GetEnrollmentStatusCommandOutput} for command's `response` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEnrollmentStatusCommand extends $Command<
   GetEnrollmentStatusCommandInput,

@@ -30,6 +30,18 @@ export interface AssociateCustomerGatewayCommandOutput extends AssociateCustomer
  *             that are connected to a transit gateway, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html">DescribeVpnConnections</a> EC2 API and filter by
  *                 <code>transit-gateway-id</code>.</p>
  *         <p>You cannot associate a customer gateway with more than one device and link. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new AssociateCustomerGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateCustomerGatewayCommandInput} for command's `input` shape.
+ * @see {@link AssociateCustomerGatewayCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateCustomerGatewayCommand extends $Command<
   AssociateCustomerGatewayCommandInput,

@@ -22,6 +22,18 @@ export interface GetMethodCommandOutput extends Method, __MetadataBearer {}
 
 /**
  * <p>Describe an existing <a>Method</a> resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new GetMethodCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMethodCommandInput} for command's `input` shape.
+ * @see {@link GetMethodCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMethodCommand extends $Command<
   GetMethodCommandInput,

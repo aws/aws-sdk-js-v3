@@ -29,6 +29,18 @@ export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __Met
  * <p>Signs out users from all devices. It also invalidates all refresh tokens issued to a
  *             user. The user's current access and Id tokens remain valid until their expiry. Access
  *             and Id tokens expire one hour after they are issued.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new GlobalSignOutCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GlobalSignOutCommandInput} for command's `input` shape.
+ * @see {@link GlobalSignOutCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GlobalSignOutCommand extends $Command<
   GlobalSignOutCommandInput,

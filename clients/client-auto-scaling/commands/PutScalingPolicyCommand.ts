@@ -24,6 +24,18 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  * <p>Creates or updates a scaling policy for an Auto Scaling group.</p>
  *         <p>For more information about using scaling policies to scale your Auto Scaling group, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html">Target tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html">Step and simple scaling
  *                 policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingClient(config);
+ * const command = new PutScalingPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutScalingPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutScalingPolicyCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutScalingPolicyCommand extends $Command<
   PutScalingPolicyCommandInput,

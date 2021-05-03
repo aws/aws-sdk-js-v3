@@ -23,6 +23,18 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
 /**
  * <p>Creates one or more WorkSpaces.</p>
  *          <p>This operation is asynchronous and returns before the WorkSpaces are created.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new CreateWorkspacesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateWorkspacesCommandInput} for command's `input` shape.
+ * @see {@link CreateWorkspacesCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateWorkspacesCommand extends $Command<
   CreateWorkspacesCommandInput,

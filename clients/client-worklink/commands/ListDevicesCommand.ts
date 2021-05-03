@@ -22,6 +22,18 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
 
 /**
  * <p>Retrieves a list of devices registered with the specified fleet.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkLinkClient(config);
+ * const command = new ListDevicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDevicesCommandInput} for command's `input` shape.
+ * @see {@link ListDevicesCommandOutput} for command's `response` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDevicesCommand extends $Command<
   ListDevicesCommandInput,

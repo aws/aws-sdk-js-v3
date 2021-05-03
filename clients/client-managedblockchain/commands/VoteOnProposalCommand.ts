@@ -27,6 +27,18 @@ export interface VoteOnProposalCommandOutput extends VoteOnProposalOutput, __Met
 /**
  * <p>Casts a vote for a specified <code>ProposalId</code> on behalf of a member. The member to vote as, specified by <code>VoterMemberId</code>, must be in the same AWS account as the principal that calls the action.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ManagedBlockchainClient(config);
+ * const command = new VoteOnProposalCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link VoteOnProposalCommandInput} for command's `input` shape.
+ * @see {@link VoteOnProposalCommandOutput} for command's `response` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class VoteOnProposalCommand extends $Command<
   VoteOnProposalCommandInput,

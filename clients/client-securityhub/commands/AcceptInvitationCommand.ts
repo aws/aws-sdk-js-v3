@@ -30,6 +30,18 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  *          Organizations.</p>
  *          <p>When the member account accepts the invitation, permission is granted to the administrator
  *          account to view findings generated in the member account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecurityHubClient(config);
+ * const command = new AcceptInvitationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AcceptInvitationCommandInput} for command's `input` shape.
+ * @see {@link AcceptInvitationCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AcceptInvitationCommand extends $Command<
   AcceptInvitationCommandInput,

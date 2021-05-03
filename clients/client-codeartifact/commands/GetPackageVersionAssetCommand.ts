@@ -26,6 +26,18 @@ export interface GetPackageVersionAssetCommandOutput extends GetPackageVersionAs
  *       <code>GetPackageVersionAsset</code> to download a <code>JAR</code> file, a <code>POM</code> file,
  *       or any other assets in the package version.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeartifactClient(config);
+ * const command = new GetPackageVersionAssetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPackageVersionAssetCommandInput} for command's `input` shape.
+ * @see {@link GetPackageVersionAssetCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPackageVersionAssetCommand extends $Command<
   GetPackageVersionAssetCommandInput,

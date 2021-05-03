@@ -56,6 +56,18 @@ export interface AdminDisableProviderForUserCommandOutput
  *                 <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and
  *                 <code>ProviderAttributeValue</code> must be the subject of the SAML
  *             assertion.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new AdminDisableProviderForUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdminDisableProviderForUserCommandInput} for command's `input` shape.
+ * @see {@link AdminDisableProviderForUserCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdminDisableProviderForUserCommand extends $Command<
   AdminDisableProviderForUserCommandInput,

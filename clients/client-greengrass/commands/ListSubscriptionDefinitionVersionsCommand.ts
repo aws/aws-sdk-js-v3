@@ -27,6 +27,18 @@ export interface ListSubscriptionDefinitionVersionsCommandOutput
 
 /**
  * Lists the versions of a subscription definition.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new ListSubscriptionDefinitionVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSubscriptionDefinitionVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListSubscriptionDefinitionVersionsCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSubscriptionDefinitionVersionsCommand extends $Command<
   ListSubscriptionDefinitionVersionsCommandInput,

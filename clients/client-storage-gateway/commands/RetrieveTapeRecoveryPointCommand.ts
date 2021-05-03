@@ -33,6 +33,18 @@ export interface RetrieveTapeRecoveryPointCommandOutput extends RetrieveTapeReco
  *             read-only. The virtual tape can be retrieved to only a tape gateway. There is no charge
  *             for retrieving recovery points.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new RetrieveTapeRecoveryPointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RetrieveTapeRecoveryPointCommandInput} for command's `input` shape.
+ * @see {@link RetrieveTapeRecoveryPointCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RetrieveTapeRecoveryPointCommand extends $Command<
   RetrieveTapeRecoveryPointCommandInput,

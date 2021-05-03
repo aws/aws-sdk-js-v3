@@ -56,6 +56,18 @@ export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __Metad
  *          the information about this canary. Make
  *          note of the information returned by this operation so that you can delete these resources
  *          after you delete the canary.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SyntheticsClient(config);
+ * const command = new DeleteCanaryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCanaryCommandInput} for command's `input` shape.
+ * @see {@link DeleteCanaryCommandOutput} for command's `response` shape.
+ * @see {@link SyntheticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCanaryCommand extends $Command<
   DeleteCanaryCommandInput,

@@ -28,6 +28,18 @@ export interface CreateKeyPairCommandOutput extends KeyPair, __MetadataBearer {}
  *             to any Region using <a>ImportKeyPair</a>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key Pairs</a> in the
  *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateKeyPairCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateKeyPairCommandInput} for command's `input` shape.
+ * @see {@link CreateKeyPairCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateKeyPairCommand extends $Command<
   CreateKeyPairCommandInput,

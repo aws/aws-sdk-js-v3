@@ -30,6 +30,18 @@ export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __Met
  * 			are more than 1000 dashboards, you can call <code>ListDashboards</code> again and
  * 		include the value you received for <code>NextToken</code> in the first call, to receive
  * 		the next 1000 results.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchClient(config);
+ * const command = new ListDashboardsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDashboardsCommandInput} for command's `input` shape.
+ * @see {@link ListDashboardsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDashboardsCommand extends $Command<
   ListDashboardsCommandInput,

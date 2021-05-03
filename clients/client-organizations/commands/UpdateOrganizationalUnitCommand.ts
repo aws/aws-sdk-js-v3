@@ -25,6 +25,18 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  *             OUs and accounts remain in place, and any attached policies of the OU remain
  *             attached.</p>
  *         <p>This operation can be called only from the organization's management account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OrganizationsClient(config);
+ * const command = new UpdateOrganizationalUnitCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateOrganizationalUnitCommandInput} for command's `input` shape.
+ * @see {@link UpdateOrganizationalUnitCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateOrganizationalUnitCommand extends $Command<
   UpdateOrganizationalUnitCommandInput,

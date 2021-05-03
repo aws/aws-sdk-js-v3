@@ -24,6 +24,18 @@ export interface DescribeBrokerInstanceOptionsCommandOutput
 
 /**
  * Describe available broker instance options.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MqClient(config);
+ * const command = new DescribeBrokerInstanceOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeBrokerInstanceOptionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeBrokerInstanceOptionsCommandOutput} for command's `response` shape.
+ * @see {@link MqClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeBrokerInstanceOptionsCommand extends $Command<
   DescribeBrokerInstanceOptionsCommandInput,

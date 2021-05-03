@@ -22,6 +22,18 @@ export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __M
 
 /**
  * <p>Searches for analyses that belong to the user specified in the filter.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new SearchAnalysesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchAnalysesCommandInput} for command's `input` shape.
+ * @see {@link SearchAnalysesCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchAnalysesCommand extends $Command<
   SearchAnalysesCommandInput,

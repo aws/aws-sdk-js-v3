@@ -34,6 +34,18 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  *             <p>You must include at least one of <code>OnlineStoreConfig</code> and
  *                <code>OfflineStoreConfig</code> to create a <code>FeatureGroup</code>.</p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateFeatureGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFeatureGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateFeatureGroupCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFeatureGroupCommand extends $Command<
   CreateFeatureGroupCommandInput,

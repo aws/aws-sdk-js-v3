@@ -22,6 +22,18 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
 
 /**
  * <p>Returns the <a>LoggingConfiguration</a> for the specified web ACL.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFV2Client(config);
+ * const command = new GetLoggingConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLoggingConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetLoggingConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLoggingConfigurationCommand extends $Command<
   GetLoggingConfigurationCommandInput,

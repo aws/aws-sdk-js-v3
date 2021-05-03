@@ -22,6 +22,18 @@ export interface GetImagePolicyCommandOutput extends GetImagePolicyResponse, __M
 
 /**
  * <p> Gets an image policy.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new GetImagePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetImagePolicyCommandInput} for command's `input` shape.
+ * @see {@link GetImagePolicyCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetImagePolicyCommand extends $Command<
   GetImagePolicyCommandInput,

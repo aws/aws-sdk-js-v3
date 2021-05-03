@@ -22,6 +22,18 @@ export interface DescribeReturnShippingLabelCommandOutput extends DescribeReturn
 
 /**
  * <p>Information on the shipping label of a Snow device that is being returned to AWS.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SnowballClient(config);
+ * const command = new DescribeReturnShippingLabelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeReturnShippingLabelCommandInput} for command's `input` shape.
+ * @see {@link DescribeReturnShippingLabelCommandOutput} for command's `response` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeReturnShippingLabelCommand extends $Command<
   DescribeReturnShippingLabelCommandInput,

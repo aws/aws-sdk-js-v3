@@ -22,6 +22,18 @@ export interface UpdateWirelessDeviceCommandOutput extends UpdateWirelessDeviceR
 
 /**
  * <p>Updates properties of a wireless device.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new UpdateWirelessDeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateWirelessDeviceCommandInput} for command's `input` shape.
+ * @see {@link UpdateWirelessDeviceCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateWirelessDeviceCommand extends $Command<
   UpdateWirelessDeviceCommandInput,

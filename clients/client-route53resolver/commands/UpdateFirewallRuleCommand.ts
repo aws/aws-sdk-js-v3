@@ -22,6 +22,18 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
 
 /**
  * <p>Updates the specified firewall rule. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new UpdateFirewallRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFirewallRuleCommandInput} for command's `input` shape.
+ * @see {@link UpdateFirewallRuleCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFirewallRuleCommand extends $Command<
   UpdateFirewallRuleCommandInput,

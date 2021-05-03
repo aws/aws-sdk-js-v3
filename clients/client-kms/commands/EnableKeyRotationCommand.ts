@@ -47,6 +47,18 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KMSClient(config);
+ * const command = new EnableKeyRotationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableKeyRotationCommandInput} for command's `input` shape.
+ * @see {@link EnableKeyRotationCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableKeyRotationCommand extends $Command<
   EnableKeyRotationCommandInput,

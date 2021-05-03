@@ -22,6 +22,18 @@ export interface DeleteVpnGatewayCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified virtual private gateway. You must first detach the virtual private gateway from the VPC. Note that you don't need to delete the virtual private gateway if you plan to delete and recreate the VPN connection between your VPC and your network.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DeleteVpnGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVpnGatewayCommandInput} for command's `input` shape.
+ * @see {@link DeleteVpnGatewayCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVpnGatewayCommand extends $Command<
   DeleteVpnGatewayCommandInput,

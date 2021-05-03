@@ -24,6 +24,18 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
 
 /**
  * <p>Adds a source identifier to an existing RDS event notification subscription.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new AddSourceIdentifierToSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddSourceIdentifierToSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link AddSourceIdentifierToSubscriptionCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddSourceIdentifierToSubscriptionCommand extends $Command<
   AddSourceIdentifierToSubscriptionCommandInput,

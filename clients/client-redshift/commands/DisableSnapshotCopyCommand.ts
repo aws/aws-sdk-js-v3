@@ -26,6 +26,18 @@ export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyRes
  *         <p>If your cluster and its snapshots are encrypted using a customer master key (CMK)
  *             from AWS KMS, use <a>DeleteSnapshotCopyGrant</a> to delete the grant that
  *             grants Amazon Redshift permission to the CMK in the destination region. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DisableSnapshotCopyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableSnapshotCopyCommandInput} for command's `input` shape.
+ * @see {@link DisableSnapshotCopyCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableSnapshotCopyCommand extends $Command<
   DisableSnapshotCopyCommandInput,

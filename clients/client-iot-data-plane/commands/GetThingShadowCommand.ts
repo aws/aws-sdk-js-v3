@@ -24,6 +24,18 @@ export interface GetThingShadowCommandOutput extends GetThingShadowResponse, __M
  * <p>Gets the shadow for the specified thing.</p>
  *          <p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the
  *         AWS IoT Developer Guide.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTDataPlaneClient(config);
+ * const command = new GetThingShadowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetThingShadowCommandInput} for command's `input` shape.
+ * @see {@link GetThingShadowCommandOutput} for command's `response` shape.
+ * @see {@link IoTDataPlaneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetThingShadowCommand extends $Command<
   GetThingShadowCommandInput,

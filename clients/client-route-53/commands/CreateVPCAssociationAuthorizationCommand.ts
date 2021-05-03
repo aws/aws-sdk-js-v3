@@ -36,6 +36,18 @@ export interface CreateVPCAssociationAuthorizationCommandOutput
  *             <p>If you want to associate multiple VPCs that you created by using one account with a hosted zone
  * 			that you created by using a different account, you must submit one authorization request for each VPC.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new CreateVPCAssociationAuthorizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVPCAssociationAuthorizationCommandInput} for command's `input` shape.
+ * @see {@link CreateVPCAssociationAuthorizationCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateVPCAssociationAuthorizationCommand extends $Command<
   CreateVPCAssociationAuthorizationCommandInput,

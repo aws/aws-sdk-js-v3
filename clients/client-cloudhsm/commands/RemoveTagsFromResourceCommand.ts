@@ -34,6 +34,18 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  *          <p>Removes one or more tags from the specified AWS CloudHSM resource.</p>
  *          <p>To remove a tag, specify only the tag key to remove (not the value). To overwrite the
  *       value for an existing tag, use <a>AddTagsToResource</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMClient(config);
+ * const command = new RemoveTagsFromResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveTagsFromResourceCommandInput} for command's `input` shape.
+ * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveTagsFromResourceCommand extends $Command<
   RemoveTagsFromResourceCommandInput,

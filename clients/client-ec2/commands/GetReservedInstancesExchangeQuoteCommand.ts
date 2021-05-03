@@ -26,6 +26,18 @@ export interface GetReservedInstancesExchangeQuoteCommandOutput
  * <p>Returns a quote and exchange information for exchanging one or more specified
  *             Convertible Reserved Instances for a new Convertible Reserved Instance. If the exchange
  *             cannot be performed, the reason is returned in the response. Use <a>AcceptReservedInstancesExchangeQuote</a> to perform the exchange.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new GetReservedInstancesExchangeQuoteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetReservedInstancesExchangeQuoteCommandInput} for command's `input` shape.
+ * @see {@link GetReservedInstancesExchangeQuoteCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetReservedInstancesExchangeQuoteCommand extends $Command<
   GetReservedInstancesExchangeQuoteCommandInput,

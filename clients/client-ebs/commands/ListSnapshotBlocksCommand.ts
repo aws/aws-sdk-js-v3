@@ -22,6 +22,18 @@ export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksRespo
 
 /**
  * <p>Returns information about the blocks in an Amazon Elastic Block Store snapshot.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EBSClient(config);
+ * const command = new ListSnapshotBlocksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSnapshotBlocksCommandInput} for command's `input` shape.
+ * @see {@link ListSnapshotBlocksCommandOutput} for command's `response` shape.
+ * @see {@link EBSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSnapshotBlocksCommand extends $Command<
   ListSnapshotBlocksCommandInput,

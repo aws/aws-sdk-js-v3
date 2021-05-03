@@ -27,6 +27,18 @@ export interface ListProposalVotesCommandOutput extends ListProposalVotesOutput,
 /**
  * <p>Returns the list of votes for a specified proposal, including the value of each vote and the unique identifier of the member that cast the vote.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ManagedBlockchainClient(config);
+ * const command = new ListProposalVotesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProposalVotesCommandInput} for command's `input` shape.
+ * @see {@link ListProposalVotesCommandOutput} for command's `response` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProposalVotesCommand extends $Command<
   ListProposalVotesCommandInput,

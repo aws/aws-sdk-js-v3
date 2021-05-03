@@ -22,6 +22,18 @@ export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, _
 
 /**
  * <p>Detaches the specified object from the specified index.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new DetachFromIndexCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetachFromIndexCommandInput} for command's `input` shape.
+ * @see {@link DetachFromIndexCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetachFromIndexCommand extends $Command<
   DetachFromIndexCommandInput,

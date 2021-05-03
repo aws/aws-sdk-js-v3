@@ -30,6 +30,18 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  *         <p>If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling group, the call
  *             fails.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingClient(config);
+ * const command = new PutNotificationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutNotificationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutNotificationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutNotificationConfigurationCommand extends $Command<
   PutNotificationConfigurationCommandInput,

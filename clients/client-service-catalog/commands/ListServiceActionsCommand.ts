@@ -22,6 +22,18 @@ export interface ListServiceActionsCommandOutput extends ListServiceActionsOutpu
 
 /**
  * <p>Lists all self-service actions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new ListServiceActionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListServiceActionsCommandInput} for command's `input` shape.
+ * @see {@link ListServiceActionsCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListServiceActionsCommand extends $Command<
   ListServiceActionsCommandInput,

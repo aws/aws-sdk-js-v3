@@ -40,6 +40,18 @@ export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __Metadat
  *           Volumes</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html">Amazon EBS Elastic Volumes</a> (Windows).</p>
  *          <p>If you reach the maximum volume modification rate per volume limit, you will need to wait
  *       at least six hours before applying further modifications to the affected EBS volume.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyVolumeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyVolumeCommandInput} for command's `input` shape.
+ * @see {@link ModifyVolumeCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyVolumeCommand extends $Command<
   ModifyVolumeCommandInput,

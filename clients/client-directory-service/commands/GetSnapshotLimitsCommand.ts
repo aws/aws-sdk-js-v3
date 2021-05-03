@@ -22,6 +22,18 @@ export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult,
 
 /**
  * <p>Obtains the manual snapshot limits for a directory.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new GetSnapshotLimitsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSnapshotLimitsCommandInput} for command's `input` shape.
+ * @see {@link GetSnapshotLimitsCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSnapshotLimitsCommand extends $Command<
   GetSnapshotLimitsCommandInput,

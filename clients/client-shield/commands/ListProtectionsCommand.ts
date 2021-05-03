@@ -22,6 +22,18 @@ export interface ListProtectionsCommandOutput extends ListProtectionsResponse, _
 
 /**
  * <p>Lists all <a>Protection</a> objects for the account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ShieldClient(config);
+ * const command = new ListProtectionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProtectionsCommandInput} for command's `input` shape.
+ * @see {@link ListProtectionsCommandOutput} for command's `response` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProtectionsCommand extends $Command<
   ListProtectionsCommandInput,

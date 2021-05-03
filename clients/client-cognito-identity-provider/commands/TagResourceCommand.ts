@@ -40,6 +40,18 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *             for user pools based on specific tags or tag values.</p>
  *         <p>You can use this action up to 5 times per second, per account. A user pool can have as
  *             many as 50 tags.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

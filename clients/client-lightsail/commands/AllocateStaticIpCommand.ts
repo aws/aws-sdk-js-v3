@@ -22,6 +22,18 @@ export interface AllocateStaticIpCommandOutput extends AllocateStaticIpResult, _
 
 /**
  * <p>Allocates a static IP address.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new AllocateStaticIpCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AllocateStaticIpCommandInput} for command's `input` shape.
+ * @see {@link AllocateStaticIpCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AllocateStaticIpCommand extends $Command<
   AllocateStaticIpCommandInput,

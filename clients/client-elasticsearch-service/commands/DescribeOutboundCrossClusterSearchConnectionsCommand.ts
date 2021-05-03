@@ -32,6 +32,18 @@ export interface DescribeOutboundCrossClusterSearchConnectionsCommandOutput
 
 /**
  * <p>Lists all the outbound cross-cluster search connections for a source domain.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new DescribeOutboundCrossClusterSearchConnectionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeOutboundCrossClusterSearchConnectionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeOutboundCrossClusterSearchConnectionsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeOutboundCrossClusterSearchConnectionsCommand extends $Command<
   DescribeOutboundCrossClusterSearchConnectionsCommandInput,

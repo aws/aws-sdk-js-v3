@@ -22,6 +22,18 @@ export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
 
 /**
  * This test serializes strings, numbers, and boolean values.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2ProtocolClient(config);
+ * const command = new SimpleInputParamsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SimpleInputParamsCommandInput} for command's `input` shape.
+ * @see {@link SimpleInputParamsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SimpleInputParamsCommand extends $Command<
   SimpleInputParamsCommandInput,

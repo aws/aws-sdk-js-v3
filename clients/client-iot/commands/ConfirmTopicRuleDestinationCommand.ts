@@ -27,6 +27,18 @@ export interface ConfirmTopicRuleDestinationCommandOutput
  *          IoT sends a confirmation message to the endpoint or base address you specify. The message
  *          includes a token which you pass back when calling <code>ConfirmTopicRuleDestination</code>
  *          to confirm that you own or have access to the endpoint.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ConfirmTopicRuleDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ConfirmTopicRuleDestinationCommandInput} for command's `input` shape.
+ * @see {@link ConfirmTopicRuleDestinationCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ConfirmTopicRuleDestinationCommand extends $Command<
   ConfirmTopicRuleDestinationCommandInput,

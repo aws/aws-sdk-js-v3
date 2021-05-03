@@ -22,6 +22,18 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResponse,
 
 /**
  * Create a new voice message and send it to a recipient's phone number.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointSMSVoiceClient(config);
+ * const command = new SendVoiceMessageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendVoiceMessageCommandInput} for command's `input` shape.
+ * @see {@link SendVoiceMessageCommandOutput} for command's `response` shape.
+ * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendVoiceMessageCommand extends $Command<
   SendVoiceMessageCommandInput,

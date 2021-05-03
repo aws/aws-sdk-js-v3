@@ -22,6 +22,18 @@ export interface UpdateIntentCommandOutput extends UpdateIntentResponse, __Metad
 
 /**
  * <p>Updates the settings for an intent.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelsV2Client(config);
+ * const command = new UpdateIntentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateIntentCommandInput} for command's `input` shape.
+ * @see {@link UpdateIntentCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateIntentCommand extends $Command<
   UpdateIntentCommandInput,

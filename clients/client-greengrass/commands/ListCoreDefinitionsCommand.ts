@@ -22,6 +22,18 @@ export interface ListCoreDefinitionsCommandOutput extends ListCoreDefinitionsRes
 
 /**
  * Retrieves a list of core definitions.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new ListCoreDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCoreDefinitionsCommandInput} for command's `input` shape.
+ * @see {@link ListCoreDefinitionsCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCoreDefinitionsCommand extends $Command<
   ListCoreDefinitionsCommandInput,

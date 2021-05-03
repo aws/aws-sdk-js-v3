@@ -22,6 +22,18 @@ export interface DeleteOTAUpdateCommandOutput extends DeleteOTAUpdateResponse, _
 
 /**
  * <p>Delete an OTA update.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DeleteOTAUpdateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteOTAUpdateCommandInput} for command's `input` shape.
+ * @see {@link DeleteOTAUpdateCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteOTAUpdateCommand extends $Command<
   DeleteOTAUpdateCommandInput,

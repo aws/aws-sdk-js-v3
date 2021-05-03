@@ -58,6 +58,18 @@ export interface CreateNotebookInstanceCommandOutput extends CreateNotebookInsta
  *             can use for model training, train a model, host models by creating Amazon SageMaker endpoints, and
  *             validate hosted models. </p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How It Works</a>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateNotebookInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateNotebookInstanceCommandInput} for command's `input` shape.
+ * @see {@link CreateNotebookInstanceCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateNotebookInstanceCommand extends $Command<
   CreateNotebookInstanceCommandInput,

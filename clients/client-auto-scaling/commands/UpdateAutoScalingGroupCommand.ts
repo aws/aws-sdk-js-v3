@@ -66,6 +66,18 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *             group, call the <a>DescribePolicies</a> API. If the group has scaling
  *             policies, you can update them by calling the <a>PutScalingPolicy</a>
  *             API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingClient(config);
+ * const command = new UpdateAutoScalingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAutoScalingGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateAutoScalingGroupCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAutoScalingGroupCommand extends $Command<
   UpdateAutoScalingGroupCommandInput,

@@ -22,6 +22,18 @@ export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineRes
 
 /**
  * <p>Deletes a patch baseline.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new DeletePatchBaselineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePatchBaselineCommandInput} for command's `input` shape.
+ * @see {@link DeletePatchBaselineCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePatchBaselineCommand extends $Command<
   DeletePatchBaselineCommandInput,

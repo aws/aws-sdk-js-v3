@@ -34,6 +34,18 @@ export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResul
  *
  *         <p>If you make changes to parameters that require a Redis (cluster mode enabled) cluster reboot for the changes to be applied,
  *             see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html">Rebooting a Cluster</a> for an alternate process.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new RebootCacheClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RebootCacheClusterCommandInput} for command's `input` shape.
+ * @see {@link RebootCacheClusterCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RebootCacheClusterCommand extends $Command<
   RebootCacheClusterCommandInput,

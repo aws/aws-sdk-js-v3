@@ -52,6 +52,18 @@ export interface EvaluateExpressionCommandOutput extends EvaluateExpressionOutpu
  * {"evaluatedExpression": "Transform started at 2012-12-12T00:00:00 and finished at 2012-12-21T18:00:00"}
  * </response>
  *         </examples>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataPipelineClient(config);
+ * const command = new EvaluateExpressionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EvaluateExpressionCommandInput} for command's `input` shape.
+ * @see {@link EvaluateExpressionCommandOutput} for command's `response` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EvaluateExpressionCommand extends $Command<
   EvaluateExpressionCommandInput,

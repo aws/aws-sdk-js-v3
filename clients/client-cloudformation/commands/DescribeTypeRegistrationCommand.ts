@@ -30,6 +30,18 @@ export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegis
  *          <p>Once the registration request has completed, use <code>
  *                <a>DescribeType</a>
  *             </code> to return detailed information about an extension.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new DescribeTypeRegistrationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTypeRegistrationCommandInput} for command's `input` shape.
+ * @see {@link DescribeTypeRegistrationCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTypeRegistrationCommand extends $Command<
   DescribeTypeRegistrationCommandInput,

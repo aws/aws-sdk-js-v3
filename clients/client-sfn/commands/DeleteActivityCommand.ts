@@ -22,6 +22,18 @@ export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __Met
 
 /**
  * <p>Deletes an activity.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SFNClient(config);
+ * const command = new DeleteActivityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteActivityCommandInput} for command's `input` shape.
+ * @see {@link DeleteActivityCommandOutput} for command's `response` shape.
+ * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteActivityCommand extends $Command<
   DeleteActivityCommandInput,

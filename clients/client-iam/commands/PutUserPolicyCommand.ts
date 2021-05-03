@@ -36,6 +36,18 @@ export interface PutUserPolicyCommandOutput extends __MetadataBearer {}
  *                 API with IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making query requests</a> in the
  *                     <i>IAM User Guide</i>.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new PutUserPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutUserPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutUserPolicyCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutUserPolicyCommand extends $Command<
   PutUserPolicyCommandInput,

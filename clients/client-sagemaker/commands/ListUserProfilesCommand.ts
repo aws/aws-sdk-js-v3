@@ -22,6 +22,18 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResponse,
 
 /**
  * <p>Lists user profiles.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListUserProfilesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListUserProfilesCommandInput} for command's `input` shape.
+ * @see {@link ListUserProfilesCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListUserProfilesCommand extends $Command<
   ListUserProfilesCommandInput,

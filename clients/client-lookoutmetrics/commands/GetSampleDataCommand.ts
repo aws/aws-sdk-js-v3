@@ -22,6 +22,18 @@ export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __Met
 
 /**
  * <p>Returns a selection of sample records from an Amazon S3 datasource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutMetricsClient(config);
+ * const command = new GetSampleDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSampleDataCommandInput} for command's `input` shape.
+ * @see {@link GetSampleDataCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSampleDataCommand extends $Command<
   GetSampleDataCommandInput,

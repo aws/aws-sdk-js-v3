@@ -22,6 +22,18 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
 
 /**
  * <p>Returns a description of the MSK cluster whose Amazon Resource Name (ARN) is specified in the request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new DescribeClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeClusterCommandInput} for command's `input` shape.
+ * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeClusterCommand extends $Command<
   DescribeClusterCommandInput,

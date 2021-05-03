@@ -22,6 +22,18 @@ export interface DescribeStorageCommandOutput extends CustomerStorageMessage, __
 
 /**
  * <p>Returns account level backups storage size and provisional storage.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DescribeStorageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeStorageCommandInput} for command's `input` shape.
+ * @see {@link DescribeStorageCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeStorageCommand extends $Command<
   DescribeStorageCommandInput,

@@ -31,6 +31,18 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  *       A <code>ResourceNotFoundException</code> is thrown when the server does not exist.
  *       A <code>ValidationException</code> is raised when parameters of the request are not valid.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OpsWorksCMClient(config);
+ * const command = new DescribeEventsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEventsCommandInput} for command's `input` shape.
+ * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEventsCommand extends $Command<
   DescribeEventsCommandInput,

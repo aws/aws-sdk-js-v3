@@ -56,6 +56,18 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecretsManagerClient(config);
+ * const command = new ValidateResourcePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ValidateResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link ValidateResourcePolicyCommandOutput} for command's `response` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ValidateResourcePolicyCommand extends $Command<
   ValidateResourcePolicyCommandInput,

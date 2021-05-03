@@ -100,6 +100,18 @@ export interface UpdateDistributionCommandOutput extends UpdateDistributionResul
  * 				When propagation is complete, the value of <code>Status</code> is <code>Deployed</code>.</p>
  * 			         </li>
  *          </ol>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new UpdateDistributionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDistributionCommandInput} for command's `input` shape.
+ * @see {@link UpdateDistributionCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDistributionCommand extends $Command<
   UpdateDistributionCommandInput,

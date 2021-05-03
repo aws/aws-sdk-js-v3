@@ -27,6 +27,18 @@ export interface CreateWorkloadShareCommandOutput extends CreateWorkloadShareOut
  *             deleted.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html">Sharing a Workload</a> in the
  *                 <i>AWS Well-Architected Tool User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WellArchitectedClient(config);
+ * const command = new CreateWorkloadShareCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateWorkloadShareCommandInput} for command's `input` shape.
+ * @see {@link CreateWorkloadShareCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateWorkloadShareCommand extends $Command<
   CreateWorkloadShareCommandInput,

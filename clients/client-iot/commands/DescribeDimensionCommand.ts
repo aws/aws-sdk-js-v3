@@ -22,6 +22,18 @@ export interface DescribeDimensionCommandOutput extends DescribeDimensionRespons
 
 /**
  * <p>Provides details about a dimension that is defined in your AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DescribeDimensionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDimensionCommandInput} for command's `input` shape.
+ * @see {@link DescribeDimensionCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDimensionCommand extends $Command<
   DescribeDimensionCommandInput,

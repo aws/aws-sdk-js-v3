@@ -33,6 +33,18 @@ export interface GetTagKeysCommandOutput extends GetTagKeysOutput, __MetadataBea
  *     <code>PaginationToken</code> response parameter value as an input to the next request until you
  *     recieve a <code>null</code> value. A null value for <code>PaginationToken</code> indicates that
  *     there are no more results waiting to be returned.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ResourceGroupsTaggingAPIClient(config);
+ * const command = new GetTagKeysCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTagKeysCommandInput} for command's `input` shape.
+ * @see {@link GetTagKeysCommandOutput} for command's `response` shape.
+ * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTagKeysCommand extends $Command<
   GetTagKeysCommandInput,

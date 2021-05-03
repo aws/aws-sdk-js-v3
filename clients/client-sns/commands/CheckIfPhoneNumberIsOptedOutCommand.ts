@@ -28,6 +28,18 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
  *             is opted out.</p>
  *         <p>To resume sending messages, you can opt in the number by using the
  *                 <code>OptInPhoneNumber</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SNSClient(config);
+ * const command = new CheckIfPhoneNumberIsOptedOutCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CheckIfPhoneNumberIsOptedOutCommandInput} for command's `input` shape.
+ * @see {@link CheckIfPhoneNumberIsOptedOutCommandOutput} for command's `response` shape.
+ * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CheckIfPhoneNumberIsOptedOutCommand extends $Command<
   CheckIfPhoneNumberIsOptedOutCommandInput,

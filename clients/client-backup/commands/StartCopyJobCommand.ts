@@ -23,6 +23,18 @@ export interface StartCopyJobCommandOutput extends StartCopyJobOutput, __Metadat
 /**
  * <p>Starts a job to create a one-time copy of the specified resource.</p>
  *          <p>Does not support continuous backups.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new StartCopyJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartCopyJobCommandInput} for command's `input` shape.
+ * @see {@link StartCopyJobCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartCopyJobCommand extends $Command<
   StartCopyJobCommandInput,

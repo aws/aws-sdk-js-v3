@@ -49,6 +49,18 @@ export interface CreateAdditionalAssignmentsForHITCommandOutput
  *                 </li>
  *             </ul>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MTurkClient(config);
+ * const command = new CreateAdditionalAssignmentsForHITCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAdditionalAssignmentsForHITCommandInput} for command's `input` shape.
+ * @see {@link CreateAdditionalAssignmentsForHITCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAdditionalAssignmentsForHITCommand extends $Command<
   CreateAdditionalAssignmentsForHITCommandInput,

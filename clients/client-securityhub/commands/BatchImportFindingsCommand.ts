@@ -80,6 +80,18 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *             </li>
  *          </ul>
  *          <p>Instead, finding providers use <code>FindingProviderFields</code> to provide values for these attributes.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecurityHubClient(config);
+ * const command = new BatchImportFindingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchImportFindingsCommandInput} for command's `input` shape.
+ * @see {@link BatchImportFindingsCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchImportFindingsCommand extends $Command<
   BatchImportFindingsCommandInput,

@@ -23,6 +23,18 @@ export interface UpdateGatewayGroupCommandOutput extends UpdateGatewayGroupRespo
 /**
  * <p>Updates the details of a gateway group. If any optional field is not provided, the
  *          existing corresponding value is left unmodified.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new UpdateGatewayGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateGatewayGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateGatewayGroupCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateGatewayGroupCommand extends $Command<
   UpdateGatewayGroupCommandInput,

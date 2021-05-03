@@ -19,6 +19,18 @@ export interface EnableSsoCommandOutput extends EnableSsoResult, __MetadataBeare
 
 /**
  * <p>Enables single sign-on for a directory. Single sign-on allows users in your directory to access certain AWS services from a computer joined to the directory without having to enter their credentials separately.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new EnableSsoCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableSsoCommandInput} for command's `input` shape.
+ * @see {@link EnableSsoCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableSsoCommand extends $Command<
   EnableSsoCommandInput,

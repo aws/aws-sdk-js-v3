@@ -22,6 +22,18 @@ export interface DescribeConnectionsCommandOutput extends Connections, __Metadat
 
 /**
  * <p>Displays the specified connection or all connections in this Region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new DescribeConnectionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConnectionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeConnectionsCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConnectionsCommand extends $Command<
   DescribeConnectionsCommandInput,

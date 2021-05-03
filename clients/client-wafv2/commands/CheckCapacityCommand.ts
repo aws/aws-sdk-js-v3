@@ -33,6 +33,18 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  * 				Rule group capacity is fixed at creation, which helps users plan their
  *          web ACL WCU usage when they use a rule group.
  *          The WCU limit for web ACLs is 1,500.  </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFV2Client(config);
+ * const command = new CheckCapacityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CheckCapacityCommandInput} for command's `input` shape.
+ * @see {@link CheckCapacityCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CheckCapacityCommand extends $Command<
   CheckCapacityCommandInput,

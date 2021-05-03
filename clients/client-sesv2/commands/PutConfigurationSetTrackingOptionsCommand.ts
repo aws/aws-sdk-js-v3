@@ -28,6 +28,18 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
 /**
  * <p>Specify a custom domain to use for open and click tracking elements in email that you
  *             send.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new PutConfigurationSetTrackingOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
+ * @see {@link PutConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutConfigurationSetTrackingOptionsCommand extends $Command<
   PutConfigurationSetTrackingOptionsCommandInput,

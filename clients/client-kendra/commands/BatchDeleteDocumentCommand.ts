@@ -26,6 +26,18 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  *          <p>The documents are deleted asynchronously. You can see the progress of
  *       the deletion by using AWS CloudWatch. Any error messages related to the
  *       processing of the batch are sent to you CloudWatch log.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KendraClient(config);
+ * const command = new BatchDeleteDocumentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDeleteDocumentCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteDocumentCommandOutput} for command's `response` shape.
+ * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDeleteDocumentCommand extends $Command<
   BatchDeleteDocumentCommandInput,

@@ -32,6 +32,18 @@ export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRa
  *
  *          <p>To specify which gateway to update, use the Amazon Resource Name (ARN) of the gateway in
  *          your request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new UpdateBandwidthRateLimitCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateBandwidthRateLimitCommandInput} for command's `input` shape.
+ * @see {@link UpdateBandwidthRateLimitCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateBandwidthRateLimitCommand extends $Command<
   UpdateBandwidthRateLimitCommandInput,

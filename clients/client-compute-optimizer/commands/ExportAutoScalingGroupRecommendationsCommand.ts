@@ -35,6 +35,18 @@ export interface ExportAutoScalingGroupRecommendationsCommandOutput
  *                 Recommendations</a> in the <i>Compute Optimizer User Guide</i>.</p>
  *
  *         <p>You can have only one Auto Scaling group export job in progress per AWS Region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComputeOptimizerClient(config);
+ * const command = new ExportAutoScalingGroupRecommendationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ExportAutoScalingGroupRecommendationsCommandInput} for command's `input` shape.
+ * @see {@link ExportAutoScalingGroupRecommendationsCommandOutput} for command's `response` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ExportAutoScalingGroupRecommendationsCommand extends $Command<
   ExportAutoScalingGroupRecommendationsCommandInput,

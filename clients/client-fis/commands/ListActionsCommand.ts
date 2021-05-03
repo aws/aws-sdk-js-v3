@@ -22,6 +22,18 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
 
 /**
  * <p>Lists the available AWS FIS actions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FisClient(config);
+ * const command = new ListActionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListActionsCommandInput} for command's `input` shape.
+ * @see {@link ListActionsCommandOutput} for command's `response` shape.
+ * @see {@link FisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListActionsCommand extends $Command<
   ListActionsCommandInput,

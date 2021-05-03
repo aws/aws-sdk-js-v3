@@ -99,6 +99,18 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                     <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html">Granting
  *                     Access to Your Billing Information and Tools</a>.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OrganizationsClient(config);
+ * const command = new CreateAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAccountCommandInput} for command's `input` shape.
+ * @see {@link CreateAccountCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAccountCommand extends $Command<
   CreateAccountCommandInput,

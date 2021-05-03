@@ -22,6 +22,18 @@ export interface DescribeOperatingSystemsCommandOutput extends DescribeOperating
 
 /**
  * <p>Describes the operating systems that are supported by AWS OpsWorks Stacks.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OpsWorksClient(config);
+ * const command = new DescribeOperatingSystemsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeOperatingSystemsCommandInput} for command's `input` shape.
+ * @see {@link DescribeOperatingSystemsCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeOperatingSystemsCommand extends $Command<
   DescribeOperatingSystemsCommandInput,

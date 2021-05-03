@@ -31,6 +31,18 @@ export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmen
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new RetrieveEnvironmentInfoCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RetrieveEnvironmentInfoCommandInput} for command's `input` shape.
+ * @see {@link RetrieveEnvironmentInfoCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RetrieveEnvironmentInfoCommand extends $Command<
   RetrieveEnvironmentInfoCommandInput,

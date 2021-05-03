@@ -36,6 +36,18 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  * 					<a>RevokeSecurityGroupIngress</a>, and
  * 					<a>RevokeSecurityGroupEgress</a>.</p>
  *          <p>For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Limits</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateSecurityGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSecurityGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateSecurityGroupCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSecurityGroupCommand extends $Command<
   CreateSecurityGroupCommandInput,

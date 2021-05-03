@@ -24,6 +24,18 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  * <p>Returns a list of tags associated with the specified stream.</p>
  *         <p>In the request, you must specify either the <code>StreamName</code> or the
  *                 <code>StreamARN</code>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisVideoClient(config);
+ * const command = new ListTagsForStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsForStreamCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForStreamCommandOutput} for command's `response` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsForStreamCommand extends $Command<
   ListTagsForStreamCommandInput,

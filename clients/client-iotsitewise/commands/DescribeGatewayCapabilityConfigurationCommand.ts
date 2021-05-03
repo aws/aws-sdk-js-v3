@@ -32,6 +32,18 @@ export interface DescribeGatewayCapabilityConfigurationCommandOutput
  *       can contain multiple data source configurations. If you define OPC-UA sources for a gateway in
  *       the AWS IoT SiteWise console, all of your OPC-UA sources are stored in one capability configuration. To
  *       list all capability configurations for a gateway, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html">DescribeGateway</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new DescribeGatewayCapabilityConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeGatewayCapabilityConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeGatewayCapabilityConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeGatewayCapabilityConfigurationCommand extends $Command<
   DescribeGatewayCapabilityConfigurationCommandInput,

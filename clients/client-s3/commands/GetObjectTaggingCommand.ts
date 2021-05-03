@@ -50,6 +50,18 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3Client(config);
+ * const command = new GetObjectTaggingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetObjectTaggingCommandInput} for command's `input` shape.
+ * @see {@link GetObjectTaggingCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetObjectTaggingCommand extends $Command<
   GetObjectTaggingCommandInput,

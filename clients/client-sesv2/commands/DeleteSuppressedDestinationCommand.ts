@@ -24,6 +24,18 @@ export interface DeleteSuppressedDestinationCommandOutput
 
 /**
  * <p>Removes an email address from the suppression list for your account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new DeleteSuppressedDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSuppressedDestinationCommandInput} for command's `input` shape.
+ * @see {@link DeleteSuppressedDestinationCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSuppressedDestinationCommand extends $Command<
   DeleteSuppressedDestinationCommandInput,

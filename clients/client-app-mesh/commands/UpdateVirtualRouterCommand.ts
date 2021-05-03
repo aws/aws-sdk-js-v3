@@ -22,6 +22,18 @@ export interface UpdateVirtualRouterCommandOutput extends UpdateVirtualRouterOut
 
 /**
  * <p>Updates an existing virtual router in a specified service mesh.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new UpdateVirtualRouterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateVirtualRouterCommandInput} for command's `input` shape.
+ * @see {@link UpdateVirtualRouterCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateVirtualRouterCommand extends $Command<
   UpdateVirtualRouterCommandInput,

@@ -23,6 +23,18 @@ export interface DeletePreparedStatementCommandOutput extends DeletePreparedStat
 /**
  * <p>Deletes the prepared statement with the specified name from the specified
  *             workgroup.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AthenaClient(config);
+ * const command = new DeletePreparedStatementCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePreparedStatementCommandInput} for command's `input` shape.
+ * @see {@link DeletePreparedStatementCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePreparedStatementCommand extends $Command<
   DeletePreparedStatementCommandInput,

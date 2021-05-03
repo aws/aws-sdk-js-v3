@@ -40,6 +40,18 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  *       in the specified recipe and a training dataset. The solution, when deployed as a campaign,
  *       can provide recommendations using the
  *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a> API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeClient(config);
+ * const command = new DescribeRecipeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRecipeCommandInput} for command's `input` shape.
+ * @see {@link DescribeRecipeCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRecipeCommand extends $Command<
   DescribeRecipeCommandInput,

@@ -27,6 +27,18 @@ export interface DisassociateTransitGatewayRouteTableCommandOutput
 
 /**
  * <p>Disassociates a resource attachment from a transit gateway route table.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DisassociateTransitGatewayRouteTableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateTransitGatewayRouteTableCommandInput} for command's `input` shape.
+ * @see {@link DisassociateTransitGatewayRouteTableCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateTransitGatewayRouteTableCommand extends $Command<
   DisassociateTransitGatewayRouteTableCommandInput,

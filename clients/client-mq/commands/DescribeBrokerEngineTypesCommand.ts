@@ -22,6 +22,18 @@ export interface DescribeBrokerEngineTypesCommandOutput extends DescribeBrokerEn
 
 /**
  * Describe available engine types and versions.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MqClient(config);
+ * const command = new DescribeBrokerEngineTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeBrokerEngineTypesCommandInput} for command's `input` shape.
+ * @see {@link DescribeBrokerEngineTypesCommandOutput} for command's `response` shape.
+ * @see {@link MqClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeBrokerEngineTypesCommand extends $Command<
   DescribeBrokerEngineTypesCommandInput,

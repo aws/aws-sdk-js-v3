@@ -56,6 +56,18 @@ export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput,
  *          state, the operation returns an <code>AccessDeniedException</code> error. When the vault
  *          lock is in the <code>InProgress</code> state you must call <a>AbortVaultLock</a>
  *          before you can initiate a new vault lock policy. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlacierClient(config);
+ * const command = new InitiateVaultLockCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InitiateVaultLockCommandInput} for command's `input` shape.
+ * @see {@link InitiateVaultLockCommandOutput} for command's `response` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InitiateVaultLockCommand extends $Command<
   InitiateVaultLockCommandInput,

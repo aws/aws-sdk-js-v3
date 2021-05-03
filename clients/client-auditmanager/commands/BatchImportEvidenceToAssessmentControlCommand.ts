@@ -30,6 +30,18 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
  * <p>
  *          Uploads one or more pieces of evidence to the specified control in the assessment in AWS Audit Manager.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new BatchImportEvidenceToAssessmentControlCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchImportEvidenceToAssessmentControlCommandInput} for command's `input` shape.
+ * @see {@link BatchImportEvidenceToAssessmentControlCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchImportEvidenceToAssessmentControlCommand extends $Command<
   BatchImportEvidenceToAssessmentControlCommandInput,

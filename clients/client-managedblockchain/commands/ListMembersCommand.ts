@@ -27,6 +27,18 @@ export interface ListMembersCommandOutput extends ListMembersOutput, __MetadataB
 /**
  * <p>Returns a list of the members in a network and properties of their configurations.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ManagedBlockchainClient(config);
+ * const command = new ListMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMembersCommandInput} for command's `input` shape.
+ * @see {@link ListMembersCommandOutput} for command's `response` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMembersCommand extends $Command<
   ListMembersCommandInput,

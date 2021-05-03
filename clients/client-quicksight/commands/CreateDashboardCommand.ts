@@ -28,6 +28,18 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *             from analyses. You can share QuickSight dashboards. With the right permissions, you can
  *             create scheduled email reports from them. If you have the correct permissions, you can
  *             create a dashboard from a template that exists in a different AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new CreateDashboardCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDashboardCommandInput} for command's `input` shape.
+ * @see {@link CreateDashboardCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDashboardCommand extends $Command<
   CreateDashboardCommandInput,

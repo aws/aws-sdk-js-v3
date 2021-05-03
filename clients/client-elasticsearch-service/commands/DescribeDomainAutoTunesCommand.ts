@@ -26,6 +26,18 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
 
 /**
  * <p>Provides scheduled Auto-Tune action details for the Elasticsearch domain, such as Auto-Tune action type, description, severity, and scheduled date.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new DescribeDomainAutoTunesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDomainAutoTunesCommandInput} for command's `input` shape.
+ * @see {@link DescribeDomainAutoTunesCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDomainAutoTunesCommand extends $Command<
   DescribeDomainAutoTunesCommandInput,

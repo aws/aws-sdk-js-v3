@@ -22,6 +22,18 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResult, __Met
 
 /**
  * <p>Deletes a directory snapshot.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new DeleteSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSnapshotCommandInput} for command's `input` shape.
+ * @see {@link DeleteSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSnapshotCommand extends $Command<
   DeleteSnapshotCommandInput,

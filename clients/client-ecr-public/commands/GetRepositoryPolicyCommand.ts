@@ -22,6 +22,18 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
 
 /**
  * <p>Retrieves the repository policy for the specified repository.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECRPUBLICClient(config);
+ * const command = new GetRepositoryPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRepositoryPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetRepositoryPolicyCommandOutput} for command's `response` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRepositoryPolicyCommand extends $Command<
   GetRepositoryPolicyCommandInput,

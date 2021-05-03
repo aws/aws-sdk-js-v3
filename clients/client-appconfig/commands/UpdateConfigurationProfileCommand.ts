@@ -22,6 +22,18 @@ export interface UpdateConfigurationProfileCommandOutput extends ConfigurationPr
 
 /**
  * <p>Updates a configuration profile.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppConfigClient(config);
+ * const command = new UpdateConfigurationProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateConfigurationProfileCommandInput} for command's `input` shape.
+ * @see {@link UpdateConfigurationProfileCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateConfigurationProfileCommand extends $Command<
   UpdateConfigurationProfileCommandInput,

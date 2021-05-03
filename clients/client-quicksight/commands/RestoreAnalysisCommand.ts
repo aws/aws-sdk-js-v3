@@ -22,6 +22,18 @@ export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, _
 
 /**
  * <p>Restores an analysis.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new RestoreAnalysisCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RestoreAnalysisCommandInput} for command's `input` shape.
+ * @see {@link RestoreAnalysisCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RestoreAnalysisCommand extends $Command<
   RestoreAnalysisCommandInput,

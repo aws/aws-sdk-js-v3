@@ -24,6 +24,18 @@ export interface StartAssessmentRunCommandOutput extends StartAssessmentRunRespo
  * <p>Starts the assessment run specified by the ARN of the assessment template. For this
  *          API to function properly, you must not exceed the limit of running up to 500 concurrent
  *          agents per AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new StartAssessmentRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartAssessmentRunCommandInput} for command's `input` shape.
+ * @see {@link StartAssessmentRunCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartAssessmentRunCommand extends $Command<
   StartAssessmentRunCommandInput,

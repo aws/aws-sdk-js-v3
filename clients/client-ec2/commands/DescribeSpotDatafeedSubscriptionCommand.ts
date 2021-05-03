@@ -25,6 +25,18 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
 /**
  * <p>Describes the data feed for Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
  *                 Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeSpotDatafeedSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSpotDatafeedSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link DescribeSpotDatafeedSubscriptionCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSpotDatafeedSubscriptionCommand extends $Command<
   DescribeSpotDatafeedSubscriptionCommandInput,

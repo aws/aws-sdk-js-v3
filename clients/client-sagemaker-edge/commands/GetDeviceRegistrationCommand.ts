@@ -22,6 +22,18 @@ export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistratio
 
 /**
  * <p>Use to check if a device is registered with SageMaker Edge Manager.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SagemakerEdgeClient(config);
+ * const command = new GetDeviceRegistrationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDeviceRegistrationCommandInput} for command's `input` shape.
+ * @see {@link GetDeviceRegistrationCommandOutput} for command's `response` shape.
+ * @see {@link SagemakerEdgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDeviceRegistrationCommand extends $Command<
   GetDeviceRegistrationCommandInput,

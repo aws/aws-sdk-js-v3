@@ -23,6 +23,18 @@ export interface DisassociateSecurityKeyCommandOutput extends __MetadataBearer {
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Deletes the specified security key.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new DisassociateSecurityKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateSecurityKeyCommandInput} for command's `input` shape.
+ * @see {@link DisassociateSecurityKeyCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateSecurityKeyCommand extends $Command<
   DisassociateSecurityKeyCommandInput,

@@ -23,6 +23,18 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
 /**
  * <p>Creates a machine learning (ML) project that can contain one or more templates that set
  *             up an ML pipeline from training to deploying an approved model.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateProjectCommandInput} for command's `input` shape.
+ * @see {@link CreateProjectCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,

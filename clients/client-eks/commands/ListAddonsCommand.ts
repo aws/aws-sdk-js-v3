@@ -22,6 +22,18 @@ export interface ListAddonsCommandOutput extends ListAddonsResponse, __MetadataB
 
 /**
  * <p>Lists the available add-ons.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new ListAddonsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAddonsCommandInput} for command's `input` shape.
+ * @see {@link ListAddonsCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAddonsCommand extends $Command<
   ListAddonsCommandInput,

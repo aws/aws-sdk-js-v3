@@ -36,6 +36,18 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  *             <p>For asynchronous function invocation, use <a>Invoke</a>.</p>
  *          </important>
  *          <p>Invokes a function asynchronously.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new InvokeAsyncCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link InvokeAsyncCommandInput} for command's `input` shape.
+ * @see {@link InvokeAsyncCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class InvokeAsyncCommand extends $Command<
   InvokeAsyncCommandInput,

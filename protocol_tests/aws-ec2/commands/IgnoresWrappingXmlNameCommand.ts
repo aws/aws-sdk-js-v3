@@ -24,6 +24,18 @@ export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlN
  * The xmlName trait on the output structure is ignored in AWS Query.
  *
  * The wrapping element is always operation name + "Response".
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2ProtocolClient(config);
+ * const command = new IgnoresWrappingXmlNameCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link IgnoresWrappingXmlNameCommandInput} for command's `input` shape.
+ * @see {@link IgnoresWrappingXmlNameCommandOutput} for command's `response` shape.
+ * @see {@link EC2ProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class IgnoresWrappingXmlNameCommand extends $Command<
   IgnoresWrappingXmlNameCommandInput,

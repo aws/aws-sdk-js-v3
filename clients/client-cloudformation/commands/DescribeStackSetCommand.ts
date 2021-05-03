@@ -22,6 +22,18 @@ export interface DescribeStackSetCommandOutput extends DescribeStackSetOutput, _
 
 /**
  * <p>Returns the description of the specified stack set. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new DescribeStackSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeStackSetCommandInput} for command's `input` shape.
+ * @see {@link DescribeStackSetCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeStackSetCommand extends $Command<
   DescribeStackSetCommandInput,

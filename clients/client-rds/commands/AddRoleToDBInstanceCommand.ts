@@ -25,6 +25,18 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
  *         <note>
  *             <p>To add a role to a DB instance, the status of the DB instance must be <code>available</code>.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new AddRoleToDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddRoleToDBInstanceCommandInput} for command's `input` shape.
+ * @see {@link AddRoleToDBInstanceCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddRoleToDBInstanceCommand extends $Command<
   AddRoleToDBInstanceCommandInput,

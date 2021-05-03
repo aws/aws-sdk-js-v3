@@ -41,6 +41,18 @@ export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
  *             </dd>
  *          </dl>
  *          <p>For details about creating a custom user policy, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies">Creating a Custom User Policy</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new UpdateTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link UpdateTagsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTagsForResourceCommand extends $Command<
   UpdateTagsForResourceCommandInput,

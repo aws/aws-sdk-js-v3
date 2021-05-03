@@ -22,6 +22,18 @@ export interface OmitsNullSerializesEmptyStringCommandOutput extends __MetadataB
 
 /**
  * Omits null, but serializes empty string value.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestXmlProtocolClient(config);
+ * const command = new OmitsNullSerializesEmptyStringCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link OmitsNullSerializesEmptyStringCommandInput} for command's `input` shape.
+ * @see {@link OmitsNullSerializesEmptyStringCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class OmitsNullSerializesEmptyStringCommand extends $Command<
   OmitsNullSerializesEmptyStringCommandInput,

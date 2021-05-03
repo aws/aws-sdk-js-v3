@@ -22,6 +22,18 @@ export interface DescribeBotLocaleCommandOutput extends DescribeBotLocaleRespons
 
 /**
  * <p>Describes the settings that a bot has for a specific locale. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelsV2Client(config);
+ * const command = new DescribeBotLocaleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeBotLocaleCommandInput} for command's `input` shape.
+ * @see {@link DescribeBotLocaleCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeBotLocaleCommand extends $Command<
   DescribeBotLocaleCommandInput,

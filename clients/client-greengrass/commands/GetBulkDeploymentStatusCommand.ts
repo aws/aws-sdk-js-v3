@@ -22,6 +22,18 @@ export interface GetBulkDeploymentStatusCommandOutput extends GetBulkDeploymentS
 
 /**
  * Returns the status of a bulk deployment.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new GetBulkDeploymentStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBulkDeploymentStatusCommandInput} for command's `input` shape.
+ * @see {@link GetBulkDeploymentStatusCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBulkDeploymentStatusCommand extends $Command<
   GetBulkDeploymentStatusCommandInput,

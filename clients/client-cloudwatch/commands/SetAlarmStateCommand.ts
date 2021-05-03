@@ -37,6 +37,18 @@ export interface SetAlarmStateCommandOutput extends __MetadataBearer {}
  * 			configuration.</p>
  * 		       <p>If an alarm triggers EC2 Auto Scaling policies or application Auto Scaling policies, you must include
  * 		information in the <code>StateReasonData</code> parameter to enable the policy to take the correct action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchClient(config);
+ * const command = new SetAlarmStateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetAlarmStateCommandInput} for command's `input` shape.
+ * @see {@link SetAlarmStateCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetAlarmStateCommand extends $Command<
   SetAlarmStateCommandInput,

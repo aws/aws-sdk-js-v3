@@ -22,6 +22,18 @@ export interface DeleteResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a <a>Resource</a> resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new DeleteResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteResourceCommandInput} for command's `input` shape.
+ * @see {@link DeleteResourceCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteResourceCommand extends $Command<
   DeleteResourceCommandInput,

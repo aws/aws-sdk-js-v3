@@ -22,6 +22,18 @@ export interface TestWirelessDeviceCommandOutput extends TestWirelessDeviceRespo
 
 /**
  * <p>Simulates a provisioned device by sending an uplink data payload of <code>Hello</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new TestWirelessDeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TestWirelessDeviceCommandInput} for command's `input` shape.
+ * @see {@link TestWirelessDeviceCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TestWirelessDeviceCommand extends $Command<
   TestWirelessDeviceCommandInput,

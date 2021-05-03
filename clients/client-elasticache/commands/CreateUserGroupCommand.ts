@@ -23,6 +23,18 @@ export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBeare
 /**
  * <p>For Redis engine version 6.x onwards: Creates a Redis user group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
  *          </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new CreateUserGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateUserGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateUserGroupCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateUserGroupCommand extends $Command<
   CreateUserGroupCommandInput,

@@ -30,6 +30,18 @@ export interface BatchDeletePhoneNumberCommandOutput extends BatchDeletePhoneNum
  * Phone numbers remain in the
  * <b>Deletion queue</b> for 7 days before they are deleted permanently.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new BatchDeletePhoneNumberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDeletePhoneNumberCommandInput} for command's `input` shape.
+ * @see {@link BatchDeletePhoneNumberCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDeletePhoneNumberCommand extends $Command<
   BatchDeletePhoneNumberCommandInput,

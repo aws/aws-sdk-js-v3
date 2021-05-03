@@ -22,6 +22,18 @@ export interface DescribeConformancePacksCommandOutput extends DescribeConforman
 
 /**
  * <p>Returns a list of one or more conformance packs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DescribeConformancePacksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConformancePacksCommandInput} for command's `input` shape.
+ * @see {@link DescribeConformancePacksCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConformancePacksCommand extends $Command<
   DescribeConformancePacksCommandInput,

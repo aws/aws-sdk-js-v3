@@ -22,6 +22,18 @@ export interface UpdateServiceActionCommandOutput extends UpdateServiceActionOut
 
 /**
  * <p>Updates a self-service action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new UpdateServiceActionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateServiceActionCommandInput} for command's `input` shape.
+ * @see {@link UpdateServiceActionCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateServiceActionCommand extends $Command<
   UpdateServiceActionCommandInput,

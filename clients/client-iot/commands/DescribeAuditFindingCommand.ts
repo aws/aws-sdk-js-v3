@@ -26,6 +26,18 @@ export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingR
  *       and the start time
  *       when the audit that returned the
  *       finding.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DescribeAuditFindingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAuditFindingCommandInput} for command's `input` shape.
+ * @see {@link DescribeAuditFindingCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAuditFindingCommand extends $Command<
   DescribeAuditFindingCommandInput,

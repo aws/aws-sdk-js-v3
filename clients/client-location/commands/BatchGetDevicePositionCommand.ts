@@ -22,6 +22,18 @@ export interface BatchGetDevicePositionCommandOutput extends BatchGetDevicePosit
 
 /**
  * <p>A batch request to retrieve all device positions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LocationClient(config);
+ * const command = new BatchGetDevicePositionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchGetDevicePositionCommandInput} for command's `input` shape.
+ * @see {@link BatchGetDevicePositionCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchGetDevicePositionCommand extends $Command<
   BatchGetDevicePositionCommandInput,

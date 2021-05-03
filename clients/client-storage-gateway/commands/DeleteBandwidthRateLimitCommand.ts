@@ -26,6 +26,18 @@ export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRa
  *          limits, the other limit remains unchanged. To specify which gateway to work with, use the
  *          Amazon Resource Name (ARN) of the gateway in your request. This operation is supported for
  *          the stored volume, cached volume and tape gateway types.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new DeleteBandwidthRateLimitCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBandwidthRateLimitCommandInput} for command's `input` shape.
+ * @see {@link DeleteBandwidthRateLimitCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBandwidthRateLimitCommand extends $Command<
   DeleteBandwidthRateLimitCommandInput,

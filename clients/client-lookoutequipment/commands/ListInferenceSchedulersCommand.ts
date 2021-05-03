@@ -23,6 +23,18 @@ export interface ListInferenceSchedulersCommandOutput extends ListInferenceSched
 /**
  * <p>Retrieves a list of all inference schedulers currently available for your account.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutEquipmentClient(config);
+ * const command = new ListInferenceSchedulersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListInferenceSchedulersCommandInput} for command's `input` shape.
+ * @see {@link ListInferenceSchedulersCommandOutput} for command's `response` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListInferenceSchedulersCommand extends $Command<
   ListInferenceSchedulersCommandInput,

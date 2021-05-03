@@ -22,6 +22,18 @@ export interface UpdateAnswerCommandOutput extends UpdateAnswerOutput, __Metadat
 
 /**
  * <p>Update the answer to a specific question in a workload review.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WellArchitectedClient(config);
+ * const command = new UpdateAnswerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAnswerCommandInput} for command's `input` shape.
+ * @see {@link UpdateAnswerCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAnswerCommand extends $Command<
   UpdateAnswerCommandInput,

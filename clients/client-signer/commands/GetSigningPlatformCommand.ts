@@ -22,6 +22,18 @@ export interface GetSigningPlatformCommandOutput extends GetSigningPlatformRespo
 
 /**
  * <p>Returns information on a specific signing platform.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SignerClient(config);
+ * const command = new GetSigningPlatformCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSigningPlatformCommandInput} for command's `input` shape.
+ * @see {@link GetSigningPlatformCommandOutput} for command's `response` shape.
+ * @see {@link SignerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSigningPlatformCommand extends $Command<
   GetSigningPlatformCommandInput,

@@ -24,6 +24,18 @@ export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInsta
  * <p>Determines whether a product code is associated with an instance. This action can only
  *             be used by the owner of the product code. It is useful when a product code owner must
  *             verify whether another user's instance is eligible for support.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ConfirmProductInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ConfirmProductInstanceCommandInput} for command's `input` shape.
+ * @see {@link ConfirmProductInstanceCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ConfirmProductInstanceCommand extends $Command<
   ConfirmProductInstanceCommandInput,

@@ -23,6 +23,18 @@ export interface GetPhoneNumberOrderCommandOutput extends GetPhoneNumberOrderRes
 /**
  * <p>Retrieves details for the specified phone number order, such as the order creation timestamp, phone
  *             numbers in E.164 format, product type, and order status.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new GetPhoneNumberOrderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPhoneNumberOrderCommandInput} for command's `input` shape.
+ * @see {@link GetPhoneNumberOrderCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPhoneNumberOrderCommand extends $Command<
   GetPhoneNumberOrderCommandInput,

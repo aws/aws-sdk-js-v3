@@ -27,6 +27,18 @@ export interface UpdateDimensionCommandOutput extends UpdateDimensionResponse, _
  *       it is created (you can delete it and
  *       recreate
  *       it).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new UpdateDimensionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDimensionCommandInput} for command's `input` shape.
+ * @see {@link UpdateDimensionCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDimensionCommand extends $Command<
   UpdateDimensionCommandInput,

@@ -22,6 +22,18 @@ export interface ListVoiceConnectorGroupsCommandOutput extends ListVoiceConnecto
 
 /**
  * <p>Lists the Amazon Chime Voice Connector groups for the administrator's AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new ListVoiceConnectorGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListVoiceConnectorGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListVoiceConnectorGroupsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListVoiceConnectorGroupsCommand extends $Command<
   ListVoiceConnectorGroupsCommandInput,

@@ -36,6 +36,18 @@ export interface DeleteVPCAssociationAuthorizationCommandOutput
  * 				<code>DeleteVPCAssociationAuthorization</code> won't disassociate the VPC from the hosted zone.
  * 				If you want to delete an existing association, use <code>DisassociateVPCFromHostedZone</code>.</p>
  * 		       </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new DeleteVPCAssociationAuthorizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVPCAssociationAuthorizationCommandInput} for command's `input` shape.
+ * @see {@link DeleteVPCAssociationAuthorizationCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVPCAssociationAuthorizationCommand extends $Command<
   DeleteVPCAssociationAuthorizationCommandInput,

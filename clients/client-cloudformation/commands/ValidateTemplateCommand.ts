@@ -24,6 +24,18 @@ export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, _
  * <p>Validates a specified template. AWS CloudFormation first checks if the template is
  *          valid JSON. If it isn't, AWS CloudFormation checks if the template is valid YAML. If both
  *          these checks fail, AWS CloudFormation returns a template validation error.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new ValidateTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ValidateTemplateCommandInput} for command's `input` shape.
+ * @see {@link ValidateTemplateCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ValidateTemplateCommand extends $Command<
   ValidateTemplateCommandInput,

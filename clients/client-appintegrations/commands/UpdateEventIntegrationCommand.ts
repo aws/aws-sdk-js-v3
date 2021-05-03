@@ -23,6 +23,18 @@ export interface UpdateEventIntegrationCommandOutput extends UpdateEventIntegrat
 /**
  * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
  *          <p>Updates the description of an event integration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppIntegrationsClient(config);
+ * const command = new UpdateEventIntegrationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateEventIntegrationCommandInput} for command's `input` shape.
+ * @see {@link UpdateEventIntegrationCommandOutput} for command's `response` shape.
+ * @see {@link AppIntegrationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateEventIntegrationCommand extends $Command<
   UpdateEventIntegrationCommandInput,

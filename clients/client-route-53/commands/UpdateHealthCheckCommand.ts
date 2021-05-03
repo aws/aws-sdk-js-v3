@@ -25,6 +25,18 @@ export interface UpdateHealthCheckCommandOutput extends UpdateHealthCheckRespons
  * 		       <p>For more information about updating health checks, see
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-deleting.html">Creating, Updating, and Deleting Health Checks</a>
  * 			in the <i>Amazon Route 53 Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new UpdateHealthCheckCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateHealthCheckCommandInput} for command's `input` shape.
+ * @see {@link UpdateHealthCheckCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateHealthCheckCommand extends $Command<
   UpdateHealthCheckCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResult, __Metad
 
 /**
  * <p>Updates a project in AWS CodeStar.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeStarClient(config);
+ * const command = new UpdateProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateProjectCommandInput} for command's `input` shape.
+ * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateProjectCommand extends $Command<
   UpdateProjectCommandInput,

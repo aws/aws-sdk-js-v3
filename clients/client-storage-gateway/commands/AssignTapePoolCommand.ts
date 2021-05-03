@@ -28,6 +28,18 @@ export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __Met
  *
  *          <p>Valid Values: <code>GLACIER</code> | <code>DEEP_ARCHIVE</code>
  *          </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new AssignTapePoolCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssignTapePoolCommandInput} for command's `input` shape.
+ * @see {@link AssignTapePoolCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssignTapePoolCommand extends $Command<
   AssignTapePoolCommandInput,

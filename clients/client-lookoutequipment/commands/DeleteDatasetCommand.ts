@@ -26,6 +26,18 @@ export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
  *          isn't, the dataset, its metadata, and any associated data stored in S3 will be deleted.
  *          This does not affect any models that used this dataset for training and evaluation, but
  *          does prevent it from being used in the future. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutEquipmentClient(config);
+ * const command = new DeleteDatasetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDatasetCommandInput} for command's `input` shape.
+ * @see {@link DeleteDatasetCommandOutput} for command's `response` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDatasetCommand extends $Command<
   DeleteDatasetCommandInput,

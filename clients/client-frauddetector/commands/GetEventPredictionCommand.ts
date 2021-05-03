@@ -22,6 +22,18 @@ export interface GetEventPredictionCommandOutput extends GetEventPredictionResul
 
 /**
  * <p>Evaluates an event against a detector version. If a version ID is not provided, the detector’s (<code>ACTIVE</code>) version is used.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new GetEventPredictionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEventPredictionCommandInput} for command's `input` shape.
+ * @see {@link GetEventPredictionCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEventPredictionCommand extends $Command<
   GetEventPredictionCommandInput,

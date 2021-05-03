@@ -23,6 +23,18 @@ export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnecti
 /**
  * <p>Describes one or more of your VPN connections.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeVpnConnectionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeVpnConnectionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeVpnConnectionsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeVpnConnectionsCommand extends $Command<
   DescribeVpnConnectionsCommandInput,

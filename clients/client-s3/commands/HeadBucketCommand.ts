@@ -35,6 +35,18 @@ export interface HeadBucketCommandOutput extends __MetadataBearer {}
  *             <code>s3:ListBucket</code> action. The bucket owner has this permission by default and
  *          can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3
  *             Resources</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3Client(config);
+ * const command = new HeadBucketCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link HeadBucketCommandInput} for command's `input` shape.
+ * @see {@link HeadBucketCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class HeadBucketCommand extends $Command<
   HeadBucketCommandInput,

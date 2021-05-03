@@ -25,6 +25,18 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  *          <p>An AWS Network Firewall firewall policy defines the behavior of a firewall, in a collection of
  *          stateless and stateful rule groups and other settings. You can use one firewall policy for
  *          multiple firewalls. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkFirewallClient(config);
+ * const command = new CreateFirewallPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateFirewallPolicyCommandInput} for command's `input` shape.
+ * @see {@link CreateFirewallPolicyCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateFirewallPolicyCommand extends $Command<
   CreateFirewallPolicyCommandInput,

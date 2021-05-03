@@ -25,6 +25,18 @@ export interface GetComponentVersionArtifactCommandOutput
 /**
  * <p>Gets the pre-signed URL to download a public component artifact. Core devices call this
  *       operation to identify the URL that they can use to download an artifact to install.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassV2Client(config);
+ * const command = new GetComponentVersionArtifactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetComponentVersionArtifactCommandInput} for command's `input` shape.
+ * @see {@link GetComponentVersionArtifactCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetComponentVersionArtifactCommand extends $Command<
   GetComponentVersionArtifactCommandInput,

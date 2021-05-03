@@ -24,6 +24,18 @@ export interface StartPiiEntitiesDetectionJobCommandOutput
 
 /**
  * <p>Starts an asynchronous PII entity detection job for a collection of documents.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new StartPiiEntitiesDetectionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartPiiEntitiesDetectionJobCommandInput} for command's `input` shape.
+ * @see {@link StartPiiEntitiesDetectionJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartPiiEntitiesDetectionJobCommand extends $Command<
   StartPiiEntitiesDetectionJobCommandInput,

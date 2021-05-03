@@ -46,6 +46,18 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *          </ul>
  *          <p>When you update settings for a service, AWS Cloud Map also updates the corresponding settings in all the records
  *    and health checks that were created by using the specified service.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceDiscoveryClient(config);
+ * const command = new UpdateServiceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateServiceCommandInput} for command's `input` shape.
+ * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateServiceCommand extends $Command<
   UpdateServiceCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
 
 /**
  * <p>Updates the specified <a>RegexPatternSet</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFV2Client(config);
+ * const command = new UpdateRegexPatternSetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRegexPatternSetCommandInput} for command's `input` shape.
+ * @see {@link UpdateRegexPatternSetCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRegexPatternSetCommand extends $Command<
   UpdateRegexPatternSetCommandInput,

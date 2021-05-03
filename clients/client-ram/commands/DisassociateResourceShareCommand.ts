@@ -22,6 +22,18 @@ export interface DisassociateResourceShareCommandOutput extends DisassociateReso
 
 /**
  * <p>Disassociates the specified principals or resources from the specified resource share.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RAMClient(config);
+ * const command = new DisassociateResourceShareCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateResourceShareCommandInput} for command's `input` shape.
+ * @see {@link DisassociateResourceShareCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateResourceShareCommand extends $Command<
   DisassociateResourceShareCommandInput,

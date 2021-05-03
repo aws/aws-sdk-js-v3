@@ -24,6 +24,18 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  * <p>Provides information about a specific identity associated with your Amazon Pinpoint account,
  *             including the identity's verification status, its DKIM authentication status, and its
  *             custom Mail-From settings.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointEmailClient(config);
+ * const command = new GetEmailIdentityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEmailIdentityCommandInput} for command's `input` shape.
+ * @see {@link GetEmailIdentityCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEmailIdentityCommand extends $Command<
   GetEmailIdentityCommandInput,

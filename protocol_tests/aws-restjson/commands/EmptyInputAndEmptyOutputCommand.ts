@@ -25,6 +25,18 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  * no request or response payload because the operation has an empty input
  * and empty output structure that reuses the same shape. While this should
  * be rare, code generators must support this.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new EmptyInputAndEmptyOutputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EmptyInputAndEmptyOutputCommandInput} for command's `input` shape.
+ * @see {@link EmptyInputAndEmptyOutputCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EmptyInputAndEmptyOutputCommand extends $Command<
   EmptyInputAndEmptyOutputCommandInput,

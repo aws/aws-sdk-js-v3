@@ -23,6 +23,18 @@ export interface GetProtectionStatusCommandOutput extends GetProtectionStatusRes
 /**
  * <p>If you created a Shield Advanced policy, returns policy-level attack summary information
  *          in the event of a potential DDoS attack. Other policy types are currently unsupported.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FMSClient(config);
+ * const command = new GetProtectionStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetProtectionStatusCommandInput} for command's `input` shape.
+ * @see {@link GetProtectionStatusCommandOutput} for command's `response` shape.
+ * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetProtectionStatusCommand extends $Command<
   GetProtectionStatusCommandInput,

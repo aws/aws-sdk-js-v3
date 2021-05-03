@@ -21,6 +21,18 @@ export interface GetHITCommandOutput extends GetHITResponse, __MetadataBearer {}
  * <p>
  *             The <code>GetHIT</code> operation retrieves the details of the specified HIT.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MTurkClient(config);
+ * const command = new GetHITCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetHITCommandInput} for command's `input` shape.
+ * @see {@link GetHITCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOutput, MTurkClientResolvedConfig> {
   // Start section: command_properties

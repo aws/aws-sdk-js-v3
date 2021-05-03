@@ -22,6 +22,18 @@ export interface CreateApiCacheCommandOutput extends CreateApiCacheResponse, __M
 
 /**
  * <p>Creates a cache for the GraphQL API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppSyncClient(config);
+ * const command = new CreateApiCacheCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateApiCacheCommandInput} for command's `input` shape.
+ * @see {@link CreateApiCacheCommandOutput} for command's `response` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateApiCacheCommand extends $Command<
   CreateApiCacheCommandInput,

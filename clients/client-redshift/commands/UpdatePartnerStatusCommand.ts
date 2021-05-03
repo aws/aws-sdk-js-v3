@@ -23,6 +23,18 @@ export interface UpdatePartnerStatusCommandOutput extends PartnerIntegrationOutp
 
 /**
  * <p>Updates the status of a partner integration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new UpdatePartnerStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePartnerStatusCommandInput} for command's `input` shape.
+ * @see {@link UpdatePartnerStatusCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePartnerStatusCommand extends $Command<
   UpdatePartnerStatusCommandInput,

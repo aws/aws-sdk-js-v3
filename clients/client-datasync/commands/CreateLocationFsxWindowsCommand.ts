@@ -22,6 +22,18 @@ export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsx
 
 /**
  * <p>Creates an endpoint for an Amazon FSx for Windows File Server file system.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataSyncClient(config);
+ * const command = new CreateLocationFsxWindowsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLocationFsxWindowsCommandInput} for command's `input` shape.
+ * @see {@link CreateLocationFsxWindowsCommandOutput} for command's `response` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLocationFsxWindowsCommand extends $Command<
   CreateLocationFsxWindowsCommandInput,

@@ -25,6 +25,18 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  *          identity has access only to its own data. Thus, the credentials used to make this API call
  *          need to have access to the identity data.</p>
  *       <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials. You should use Cognito Identity credentials to make this API call.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoSyncClient(config);
+ * const command = new DescribeDatasetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDatasetCommandInput} for command's `input` shape.
+ * @see {@link DescribeDatasetCommandOutput} for command's `response` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDatasetCommand extends $Command<
   DescribeDatasetCommandInput,

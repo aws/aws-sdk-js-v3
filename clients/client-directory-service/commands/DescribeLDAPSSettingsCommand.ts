@@ -22,6 +22,18 @@ export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSetting
 
 /**
  * <p>Describes the status of LDAP security for the specified directory.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new DescribeLDAPSSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLDAPSSettingsCommandInput} for command's `input` shape.
+ * @see {@link DescribeLDAPSSettingsCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLDAPSSettingsCommand extends $Command<
   DescribeLDAPSSettingsCommandInput,

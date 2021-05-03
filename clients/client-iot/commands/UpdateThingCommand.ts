@@ -22,6 +22,18 @@ export interface UpdateThingCommandOutput extends UpdateThingResponse, __Metadat
 
 /**
  * <p>Updates the data for a thing.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new UpdateThingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateThingCommandInput} for command's `input` shape.
+ * @see {@link UpdateThingCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateThingCommand extends $Command<
   UpdateThingCommandInput,

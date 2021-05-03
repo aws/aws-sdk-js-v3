@@ -23,6 +23,18 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
 /**
  * <p>Provides overall information about a specific ML model, including model name and ARN,
  *          dataset, training and evaluation information, status, and so on. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutEquipmentClient(config);
+ * const command = new DescribeModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeModelCommandInput} for command's `input` shape.
+ * @see {@link DescribeModelCommandOutput} for command's `response` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeModelCommand extends $Command<
   DescribeModelCommandInput,

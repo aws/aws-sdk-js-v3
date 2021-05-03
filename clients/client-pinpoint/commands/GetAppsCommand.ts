@@ -22,6 +22,18 @@ export interface GetAppsCommandOutput extends GetAppsResponse, __MetadataBearer 
 
 /**
  * <p>Retrieves information about all the applications that are associated with your Amazon Pinpoint account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new GetAppsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAppsCommandInput} for command's `input` shape.
+ * @see {@link GetAppsCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAppsCommand extends $Command<GetAppsCommandInput, GetAppsCommandOutput, PinpointClientResolvedConfig> {
   // Start section: command_properties

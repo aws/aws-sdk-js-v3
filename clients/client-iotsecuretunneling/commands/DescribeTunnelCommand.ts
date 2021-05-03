@@ -26,6 +26,18 @@ export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __M
 
 /**
  * <p>Gets information about a tunnel identified by the unique tunnel id.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSecureTunnelingClient(config);
+ * const command = new DescribeTunnelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTunnelCommandInput} for command's `input` shape.
+ * @see {@link DescribeTunnelCommandOutput} for command's `response` shape.
+ * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTunnelCommand extends $Command<
   DescribeTunnelCommandInput,

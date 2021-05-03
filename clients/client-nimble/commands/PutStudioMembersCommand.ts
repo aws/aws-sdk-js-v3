@@ -22,6 +22,18 @@ export interface PutStudioMembersCommandOutput extends PutStudioMembersResponse,
 
 /**
  * <p>Add/update users with given persona to studio membership.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NimbleClient(config);
+ * const command = new PutStudioMembersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutStudioMembersCommandInput} for command's `input` shape.
+ * @see {@link PutStudioMembersCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutStudioMembersCommand extends $Command<
   PutStudioMembersCommandInput,

@@ -37,6 +37,18 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  *             After you disabled encryption, you can verify that encryption is not applied by
  *             inspecting the API response from <code>PutRecord</code> or
  *             <code>PutRecords</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisClient(config);
+ * const command = new StopStreamEncryptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopStreamEncryptionCommandInput} for command's `input` shape.
+ * @see {@link StopStreamEncryptionCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopStreamEncryptionCommand extends $Command<
   StopStreamEncryptionCommandInput,

@@ -28,6 +28,18 @@ export interface GetQueryLoggingConfigCommandOutput extends GetQueryLoggingConfi
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>
  * 			and
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging DNS Queries</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new GetQueryLoggingConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetQueryLoggingConfigCommandInput} for command's `input` shape.
+ * @see {@link GetQueryLoggingConfigCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetQueryLoggingConfigCommand extends $Command<
   GetQueryLoggingConfigCommandInput,

@@ -22,6 +22,18 @@ export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesR
 
 /**
  * Adds VPC interfaces to flow
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConnectClient(config);
+ * const command = new AddFlowVpcInterfacesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddFlowVpcInterfacesCommandInput} for command's `input` shape.
+ * @see {@link AddFlowVpcInterfacesCommandOutput} for command's `response` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddFlowVpcInterfacesCommand extends $Command<
   AddFlowVpcInterfacesCommandInput,

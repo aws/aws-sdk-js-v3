@@ -22,6 +22,18 @@ export interface ResetAddressAttributeCommandOutput extends ResetAddressAttribut
 
 /**
  * <p>Resets the attribute of the specified IP address. For requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#Using_Elastic_Addressing_Reverse_DNS">Using reverse DNS for email applications</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ResetAddressAttributeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResetAddressAttributeCommandInput} for command's `input` shape.
+ * @see {@link ResetAddressAttributeCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResetAddressAttributeCommand extends $Command<
   ResetAddressAttributeCommandInput,

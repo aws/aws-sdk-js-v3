@@ -23,6 +23,18 @@ export interface UpdateResolverRuleCommandOutput extends UpdateResolverRuleRespo
 /**
  * <p>Updates settings for a specified Resolver rule. <code>ResolverRuleId</code> is required, and all other parameters are optional.
  * 			If you don't specify a parameter, it retains its current value.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new UpdateResolverRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateResolverRuleCommandInput} for command's `input` shape.
+ * @see {@link UpdateResolverRuleCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateResolverRuleCommand extends $Command<
   UpdateResolverRuleCommandInput,

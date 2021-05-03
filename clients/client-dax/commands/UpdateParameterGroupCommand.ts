@@ -24,6 +24,18 @@ export interface UpdateParameterGroupCommandOutput extends UpdateParameterGroupR
  * <p>Modifies the parameters of a parameter group. You can modify up to 20
  *             parameters in a single request by submitting a list parameter name and value
  *             pairs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DAXClient(config);
+ * const command = new UpdateParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateParameterGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateParameterGroupCommandOutput} for command's `response` shape.
+ * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateParameterGroupCommand extends $Command<
   UpdateParameterGroupCommandInput,

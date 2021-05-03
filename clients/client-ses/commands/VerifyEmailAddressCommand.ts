@@ -23,6 +23,18 @@ export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deprecated. Use the <code>VerifyEmailIdentity</code> operation to verify a new email
  *             address.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESClient(config);
+ * const command = new VerifyEmailAddressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link VerifyEmailAddressCommandInput} for command's `input` shape.
+ * @see {@link VerifyEmailAddressCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class VerifyEmailAddressCommand extends $Command<
   VerifyEmailAddressCommandInput,

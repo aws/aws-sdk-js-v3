@@ -42,6 +42,18 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  *          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using IAM Roles</a>
  *          for more information on controlling session duration. </p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeartifactClient(config);
+ * const command = new GetAuthorizationTokenCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAuthorizationTokenCommandInput} for command's `input` shape.
+ * @see {@link GetAuthorizationTokenCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAuthorizationTokenCommand extends $Command<
   GetAuthorizationTokenCommandInput,

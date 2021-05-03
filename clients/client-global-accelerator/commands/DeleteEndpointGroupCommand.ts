@@ -26,6 +26,18 @@ export interface DeleteEndpointGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete an endpoint group from a listener.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new DeleteEndpointGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEndpointGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteEndpointGroupCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEndpointGroupCommand extends $Command<
   DeleteEndpointGroupCommandInput,

@@ -28,6 +28,18 @@ export interface ListRepositoriesForApprovalRuleTemplateCommandOutput
 
 /**
  * <p>Lists all repositories associated with the specified approval rule template.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new ListRepositoriesForApprovalRuleTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRepositoriesForApprovalRuleTemplateCommandInput} for command's `input` shape.
+ * @see {@link ListRepositoriesForApprovalRuleTemplateCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRepositoriesForApprovalRuleTemplateCommand extends $Command<
   ListRepositoriesForApprovalRuleTemplateCommandInput,

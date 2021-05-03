@@ -74,6 +74,18 @@ export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
  *             strongly consistent result. Global secondary indexes support eventually consistent reads
  *             only, so do not specify <code>ConsistentRead</code> when querying a global
  *             secondary index.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new QueryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link QueryCommandInput} for command's `input` shape.
+ * @see {@link QueryCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput, DynamoDBClientResolvedConfig> {
   // Start section: command_properties

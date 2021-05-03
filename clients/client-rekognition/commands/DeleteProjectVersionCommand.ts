@@ -29,6 +29,18 @@ export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionR
  *       is training, wait until it finishes.</p>
  *          <p>This operation requires permissions to perform the
  *          <code>rekognition:DeleteProjectVersion</code> action. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RekognitionClient(config);
+ * const command = new DeleteProjectVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteProjectVersionCommandInput} for command's `input` shape.
+ * @see {@link DeleteProjectVersionCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteProjectVersionCommand extends $Command<
   DeleteProjectVersionCommandInput,

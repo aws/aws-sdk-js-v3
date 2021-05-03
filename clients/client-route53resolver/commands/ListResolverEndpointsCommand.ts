@@ -22,6 +22,18 @@ export interface ListResolverEndpointsCommandOutput extends ListResolverEndpoint
 
 /**
  * <p>Lists all the Resolver endpoints that were created using the current AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new ListResolverEndpointsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResolverEndpointsCommandInput} for command's `input` shape.
+ * @see {@link ListResolverEndpointsCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResolverEndpointsCommand extends $Command<
   ListResolverEndpointsCommandInput,

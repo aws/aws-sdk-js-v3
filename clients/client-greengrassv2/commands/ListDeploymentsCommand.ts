@@ -22,6 +22,18 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
 
 /**
  * <p>Retrieves a paginated list of deployments.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassV2Client(config);
+ * const command = new ListDeploymentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDeploymentsCommandInput} for command's `input` shape.
+ * @see {@link ListDeploymentsCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDeploymentsCommand extends $Command<
   ListDeploymentsCommandInput,

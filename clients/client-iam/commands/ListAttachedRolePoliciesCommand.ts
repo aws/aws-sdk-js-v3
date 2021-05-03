@@ -31,6 +31,18 @@ export interface ListAttachedRolePoliciesCommandOutput extends ListAttachedRoleP
  *             policies to only those matching the specified path prefix. If there are no policies
  *             attached to the specified role (or none that match the specified path prefix), the
  *             operation returns an empty list.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new ListAttachedRolePoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAttachedRolePoliciesCommandInput} for command's `input` shape.
+ * @see {@link ListAttachedRolePoliciesCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAttachedRolePoliciesCommand extends $Command<
   ListAttachedRolePoliciesCommandInput,

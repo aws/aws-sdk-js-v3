@@ -24,6 +24,18 @@ export interface DescribeUsageReportSubscriptionsCommandOutput
 
 /**
  * <p>Retrieves a list that describes one or more usage report subscriptions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new DescribeUsageReportSubscriptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeUsageReportSubscriptionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeUsageReportSubscriptionsCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeUsageReportSubscriptionsCommand extends $Command<
   DescribeUsageReportSubscriptionsCommandInput,

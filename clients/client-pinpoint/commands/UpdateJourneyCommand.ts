@@ -22,6 +22,18 @@ export interface UpdateJourneyCommandOutput extends UpdateJourneyResponse, __Met
 
 /**
  * <p>Updates the configuration and other settings for a journey.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new UpdateJourneyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateJourneyCommandInput} for command's `input` shape.
+ * @see {@link UpdateJourneyCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateJourneyCommand extends $Command<
   UpdateJourneyCommandInput,

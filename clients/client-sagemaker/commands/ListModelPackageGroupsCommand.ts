@@ -22,6 +22,18 @@ export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGro
 
 /**
  * <p>Gets a list of the model groups in your AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListModelPackageGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListModelPackageGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListModelPackageGroupsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListModelPackageGroupsCommand extends $Command<
   ListModelPackageGroupsCommandInput,

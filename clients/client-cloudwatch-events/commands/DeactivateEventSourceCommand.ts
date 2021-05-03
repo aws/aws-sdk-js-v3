@@ -26,6 +26,18 @@ export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
  *          <p>When you deactivate a partner event source, the source goes into PENDING state. If it
  *       remains in PENDING state for more than two weeks, it is deleted.</p>
  *          <p>To activate a deactivated partner event source, use <a>ActivateEventSource</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchEventsClient(config);
+ * const command = new DeactivateEventSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeactivateEventSourceCommandInput} for command's `input` shape.
+ * @see {@link DeactivateEventSourceCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeactivateEventSourceCommand extends $Command<
   DeactivateEventSourceCommandInput,

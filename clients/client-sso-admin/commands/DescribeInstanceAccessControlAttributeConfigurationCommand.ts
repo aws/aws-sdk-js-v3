@@ -28,6 +28,18 @@ export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutpu
 
 /**
  * <p>Returns the list of AWS SSO identity store attributes that have been configured to work with attributes-based access control (ABAC) for the specified AWS SSO instance. This will not return attributes configured and sent by an external identity provider. For more information about ABAC, see <a href="/singlesignon/latest/userguide/abac.html">Attribute-Based Access Control</a> in the <i>AWS SSO User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSOAdminClient(config);
+ * const command = new DescribeInstanceAccessControlAttributeConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeInstanceAccessControlAttributeConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeInstanceAccessControlAttributeConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeInstanceAccessControlAttributeConfigurationCommand extends $Command<
   DescribeInstanceAccessControlAttributeConfigurationCommandInput,

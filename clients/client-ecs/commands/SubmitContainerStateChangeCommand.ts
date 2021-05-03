@@ -26,6 +26,18 @@ export interface SubmitContainerStateChangeCommandOutput extends SubmitContainer
  *          </note>
  *          <p>Sent to
  * 			acknowledge that a container changed states.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new SubmitContainerStateChangeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SubmitContainerStateChangeCommandInput} for command's `input` shape.
+ * @see {@link SubmitContainerStateChangeCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SubmitContainerStateChangeCommand extends $Command<
   SubmitContainerStateChangeCommandInput,

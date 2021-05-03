@@ -28,6 +28,18 @@ export interface GetCurrentUserCommandOutput extends GetCurrentUserResponse, __M
  *                 Control for User Applications</a> in the
  *             <i>Amazon
  *                 WorkDocs Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new GetCurrentUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCurrentUserCommandInput} for command's `input` shape.
+ * @see {@link GetCurrentUserCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCurrentUserCommand extends $Command<
   GetCurrentUserCommandInput,

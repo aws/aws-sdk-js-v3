@@ -26,6 +26,18 @@ export interface UpdateAccountAuditConfigurationCommandOutput
  * <p>Configures or reconfigures the Device Defender audit settings for this account.
  *           Settings include how audit notifications are sent and which audit checks are
  *           enabled or disabled.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new UpdateAccountAuditConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAccountAuditConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateAccountAuditConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAccountAuditConfigurationCommand extends $Command<
   UpdateAccountAuditConfigurationCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeMeshCommandOutput extends DescribeMeshOutput, __Metadat
 
 /**
  * <p>Describes an existing service mesh.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new DescribeMeshCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeMeshCommandInput} for command's `input` shape.
+ * @see {@link DescribeMeshCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeMeshCommand extends $Command<
   DescribeMeshCommandInput,

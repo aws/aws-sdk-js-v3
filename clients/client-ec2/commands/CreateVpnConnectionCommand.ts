@@ -37,6 +37,18 @@ export interface CreateVpnConnectionCommandOutput extends CreateVpnConnectionRes
  *             EC2 doesn't return an error.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN
  *                 User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateVpnConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVpnConnectionCommandInput} for command's `input` shape.
+ * @see {@link CreateVpnConnectionCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateVpnConnectionCommand extends $Command<
   CreateVpnConnectionCommandInput,

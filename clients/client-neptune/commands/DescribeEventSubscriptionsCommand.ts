@@ -25,6 +25,18 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  *       subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID,
  *       CreationTime, and Status.</p>
  *          <p>If you specify a SubscriptionName, lists the description for that subscription.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NeptuneClient(config);
+ * const command = new DescribeEventSubscriptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEventSubscriptionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeEventSubscriptionsCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEventSubscriptionsCommand extends $Command<
   DescribeEventSubscriptionsCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeApplicationStateCommandOutput extends DescribeApplicati
 
 /**
  * <p>Gets the migration status of an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MigrationHubClient(config);
+ * const command = new DescribeApplicationStateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeApplicationStateCommandInput} for command's `input` shape.
+ * @see {@link DescribeApplicationStateCommandOutput} for command's `response` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeApplicationStateCommand extends $Command<
   DescribeApplicationStateCommandInput,

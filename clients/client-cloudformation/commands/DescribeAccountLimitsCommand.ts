@@ -25,6 +25,18 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  *          stacks that you can create in your account. For more information about account limits, see
  *             <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">AWS CloudFormation
  *             Limits</a> in the <i>AWS CloudFormation User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new DescribeAccountLimitsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAccountLimitsCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccountLimitsCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAccountLimitsCommand extends $Command<
   DescribeAccountLimitsCommandInput,

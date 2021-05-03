@@ -27,6 +27,18 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
 /**
  * <p>Gets information about an import job started with the
  *         <code>StartImport</code> operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new GetImportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetImportCommandInput} for command's `input` shape.
+ * @see {@link GetImportCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetImportCommand extends $Command<
   GetImportCommandInput,

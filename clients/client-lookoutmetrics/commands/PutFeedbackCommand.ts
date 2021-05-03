@@ -22,6 +22,18 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
 
 /**
  * <p>Add feedback for an anomalous metric.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutMetricsClient(config);
+ * const command = new PutFeedbackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutFeedbackCommandInput} for command's `input` shape.
+ * @see {@link PutFeedbackCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutFeedbackCommand extends $Command<
   PutFeedbackCommandInput,

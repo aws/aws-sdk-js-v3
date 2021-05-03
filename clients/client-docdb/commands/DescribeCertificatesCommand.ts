@@ -23,6 +23,18 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
 /**
  * <p>Returns a list of certificate authority (CA) certificates provided by Amazon DocumentDB for
  *             this AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DocDBClient(config);
+ * const command = new DescribeCertificatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCertificatesCommandInput} for command's `input` shape.
+ * @see {@link DescribeCertificatesCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCertificatesCommand extends $Command<
   DescribeCertificatesCommandInput,

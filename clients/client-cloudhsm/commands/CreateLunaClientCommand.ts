@@ -32,6 +32,18 @@ export interface CreateLunaClientCommandOutput extends CreateLunaClientResponse,
  *       and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS CloudHSM API
  *       Reference</a>.</p>
  *          <p>Creates an HSM client.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMClient(config);
+ * const command = new CreateLunaClientCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLunaClientCommandInput} for command's `input` shape.
+ * @see {@link CreateLunaClientCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLunaClientCommand extends $Command<
   CreateLunaClientCommandInput,

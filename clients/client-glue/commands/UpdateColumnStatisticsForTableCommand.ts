@@ -26,6 +26,18 @@ export interface UpdateColumnStatisticsForTableCommandOutput
  * <p>Creates or updates table statistics of columns.</p>
  *
  * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdateTable</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new UpdateColumnStatisticsForTableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateColumnStatisticsForTableCommandInput} for command's `input` shape.
+ * @see {@link UpdateColumnStatisticsForTableCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateColumnStatisticsForTableCommand extends $Command<
   UpdateColumnStatisticsForTableCommandInput,

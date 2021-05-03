@@ -27,6 +27,18 @@ export interface DeleteFeatureGroupCommandOutput extends __MetadataBearer {}
  *          <p>Data written into the <code>OfflineStore</code> will not be deleted. The AWS Glue
  *          database and tables that are automatically created for your <code>OfflineStore</code> are
  *          not deleted. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteFeatureGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFeatureGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteFeatureGroupCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFeatureGroupCommand extends $Command<
   DeleteFeatureGroupCommandInput,

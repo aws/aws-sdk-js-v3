@@ -22,6 +22,18 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
 
 /**
  * <p>Cancels a running query. To be canceled, a query must be running. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftDataClient(config);
+ * const command = new CancelStatementCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelStatementCommandInput} for command's `input` shape.
+ * @see {@link CancelStatementCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftDataClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelStatementCommand extends $Command<
   CancelStatementCommandInput,

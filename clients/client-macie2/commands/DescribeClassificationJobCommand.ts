@@ -22,6 +22,18 @@ export interface DescribeClassificationJobCommandOutput extends DescribeClassifi
 
 /**
  * <p>Retrieves the status and settings for a classification job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new DescribeClassificationJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeClassificationJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeClassificationJobCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeClassificationJobCommand extends $Command<
   DescribeClassificationJobCommandInput,

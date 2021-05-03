@@ -22,6 +22,18 @@ export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironm
 
 /**
  * <p>Deletes an environment member from an AWS Cloud9 development environment.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Cloud9Client(config);
+ * const command = new DeleteEnvironmentMembershipCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEnvironmentMembershipCommandInput} for command's `input` shape.
+ * @see {@link DeleteEnvironmentMembershipCommandOutput} for command's `response` shape.
+ * @see {@link Cloud9ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEnvironmentMembershipCommand extends $Command<
   DeleteEnvironmentMembershipCommandInput,

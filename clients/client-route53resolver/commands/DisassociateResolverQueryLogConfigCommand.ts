@@ -41,6 +41,18 @@ export interface DisassociateResolverQueryLogConfigCommandOutput
  *                </li>
  *             </ul>
  * 		       </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new DisassociateResolverQueryLogConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateResolverQueryLogConfigCommandInput} for command's `input` shape.
+ * @see {@link DisassociateResolverQueryLogConfigCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateResolverQueryLogConfigCommand extends $Command<
   DisassociateResolverQueryLogConfigCommandInput,

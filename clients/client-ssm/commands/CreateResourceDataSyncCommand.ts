@@ -44,6 +44,18 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  *     in Amazon S3 to ensure secure data storage. We also recommend that you secure access to the Amazon S3
  *     bucket by creating a restrictive bucket policy. </p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new CreateResourceDataSyncCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateResourceDataSyncCommandInput} for command's `input` shape.
+ * @see {@link CreateResourceDataSyncCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateResourceDataSyncCommand extends $Command<
   CreateResourceDataSyncCommandInput,

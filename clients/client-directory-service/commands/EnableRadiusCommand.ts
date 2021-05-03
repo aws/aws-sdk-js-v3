@@ -22,6 +22,18 @@ export interface EnableRadiusCommandOutput extends EnableRadiusResult, __Metadat
 
 /**
  * <p>Enables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector or Microsoft AD directory.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new EnableRadiusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableRadiusCommandInput} for command's `input` shape.
+ * @see {@link EnableRadiusCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableRadiusCommand extends $Command<
   EnableRadiusCommandInput,

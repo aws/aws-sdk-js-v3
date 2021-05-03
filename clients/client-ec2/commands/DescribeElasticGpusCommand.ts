@@ -23,6 +23,18 @@ export interface DescribeElasticGpusCommandOutput extends DescribeElasticGpusRes
 /**
  * <p>Describes the Elastic Graphics accelerator associated with your instances. For more information
  *             about Elastic Graphics, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">Amazon Elastic Graphics</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeElasticGpusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeElasticGpusCommandInput} for command's `input` shape.
+ * @see {@link DescribeElasticGpusCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeElasticGpusCommand extends $Command<
   DescribeElasticGpusCommandInput,

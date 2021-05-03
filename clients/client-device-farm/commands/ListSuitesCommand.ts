@@ -22,6 +22,18 @@ export interface ListSuitesCommandOutput extends ListSuitesResult, __MetadataBea
 
 /**
  * <p>Gets information about test suites for a given job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new ListSuitesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSuitesCommandInput} for command's `input` shape.
+ * @see {@link ListSuitesCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSuitesCommand extends $Command<
   ListSuitesCommandInput,

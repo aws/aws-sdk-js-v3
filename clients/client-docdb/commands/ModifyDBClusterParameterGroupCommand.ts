@@ -42,6 +42,18 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  *                 database for a cluster, such as the character set for the default database
  *                 defined by the <code>character_set_database</code> parameter.</p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DocDBClient(config);
+ * const command = new ModifyDBClusterParameterGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyDBClusterParameterGroupCommandInput} for command's `input` shape.
+ * @see {@link ModifyDBClusterParameterGroupCommandOutput} for command's `response` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyDBClusterParameterGroupCommand extends $Command<
   ModifyDBClusterParameterGroupCommandInput,

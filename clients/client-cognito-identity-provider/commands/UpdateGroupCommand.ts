@@ -32,6 +32,18 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  *             <p>If you don't provide a value for an attribute, it will be set to the default
  *                 value.</p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new UpdateGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateGroupCommand extends $Command<
   UpdateGroupCommandInput,

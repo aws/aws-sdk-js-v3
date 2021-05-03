@@ -25,6 +25,18 @@ export interface HttpPayloadTraitsWithMediaTypeCommandOutput
 /**
  * This examples uses a `@mediaType` trait on the payload to force a custom
  * content-type to be serialized.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestXmlProtocolClient(config);
+ * const command = new HttpPayloadTraitsWithMediaTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link HttpPayloadTraitsWithMediaTypeCommandInput} for command's `input` shape.
+ * @see {@link HttpPayloadTraitsWithMediaTypeCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class HttpPayloadTraitsWithMediaTypeCommand extends $Command<
   HttpPayloadTraitsWithMediaTypeCommandInput,

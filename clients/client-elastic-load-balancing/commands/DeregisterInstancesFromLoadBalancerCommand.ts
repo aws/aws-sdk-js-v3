@@ -31,6 +31,18 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  *
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html">Register or De-Register EC2 Instances</a>
  *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingClient(config);
+ * const command = new DeregisterInstancesFromLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterInstancesFromLoadBalancerCommandInput} for command's `input` shape.
+ * @see {@link DeregisterInstancesFromLoadBalancerCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterInstancesFromLoadBalancerCommand extends $Command<
   DeregisterInstancesFromLoadBalancerCommandInput,

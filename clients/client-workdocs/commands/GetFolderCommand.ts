@@ -22,6 +22,18 @@ export interface GetFolderCommandOutput extends GetFolderResponse, __MetadataBea
 
 /**
  * <p>Retrieves the metadata of the specified folder.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new GetFolderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFolderCommandInput} for command's `input` shape.
+ * @see {@link GetFolderCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFolderCommand extends $Command<
   GetFolderCommandInput,

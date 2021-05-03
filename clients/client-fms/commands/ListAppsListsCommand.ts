@@ -22,6 +22,18 @@ export interface ListAppsListsCommandOutput extends ListAppsListsResponse, __Met
 
 /**
  * <p>Returns an array of <code>AppsListDataSummary</code> objects.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FMSClient(config);
+ * const command = new ListAppsListsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAppsListsCommandInput} for command's `input` shape.
+ * @see {@link ListAppsListsCommandOutput} for command's `response` shape.
+ * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAppsListsCommand extends $Command<
   ListAppsListsCommandInput,

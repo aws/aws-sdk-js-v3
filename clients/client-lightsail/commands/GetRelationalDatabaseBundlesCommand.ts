@@ -27,6 +27,18 @@ export interface GetRelationalDatabaseBundlesCommandOutput
  *       performance specifications for a database.</p>
  *          <p>You can use a bundle ID to create a new database with explicit performance
  *       specifications.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetRelationalDatabaseBundlesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRelationalDatabaseBundlesCommandInput} for command's `input` shape.
+ * @see {@link GetRelationalDatabaseBundlesCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRelationalDatabaseBundlesCommand extends $Command<
   GetRelationalDatabaseBundlesCommandInput,

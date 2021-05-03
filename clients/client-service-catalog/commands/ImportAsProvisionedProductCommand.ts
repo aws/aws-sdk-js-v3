@@ -35,6 +35,18 @@ export interface ImportAsProvisionedProductCommandOutput extends ImportAsProvisi
  *
  *          <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>
  *          and <code>cloudformation:DescribeStacks</code> IAM policy permissions. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new ImportAsProvisionedProductCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportAsProvisionedProductCommandInput} for command's `input` shape.
+ * @see {@link ImportAsProvisionedProductCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ImportAsProvisionedProductCommand extends $Command<
   ImportAsProvisionedProductCommandInput,

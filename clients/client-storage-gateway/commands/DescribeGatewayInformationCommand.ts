@@ -24,6 +24,18 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  * <p>Returns metadata about a gateway such as its name, network interfaces, configured time
  *          zone, and the state (whether the gateway is running or not). To specify which gateway to
  *          describe, use the Amazon Resource Name (ARN) of the gateway in your request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new DescribeGatewayInformationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeGatewayInformationCommandInput} for command's `input` shape.
+ * @see {@link DescribeGatewayInformationCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeGatewayInformationCommand extends $Command<
   DescribeGatewayInformationCommandInput,

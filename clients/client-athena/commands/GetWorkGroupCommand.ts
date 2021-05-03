@@ -22,6 +22,18 @@ export interface GetWorkGroupCommandOutput extends GetWorkGroupOutput, __Metadat
 
 /**
  * <p>Returns information about the workgroup with the specified name.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AthenaClient(config);
+ * const command = new GetWorkGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetWorkGroupCommandInput} for command's `input` shape.
+ * @see {@link GetWorkGroupCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetWorkGroupCommand extends $Command<
   GetWorkGroupCommandInput,

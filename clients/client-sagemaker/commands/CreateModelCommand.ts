@@ -47,6 +47,18 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *             transform jobs. In addition, you also use the IAM role to manage permissions the
  *             inference code needs. For example, if the inference code access any other AWS resources,
  *             you grant necessary permissions via this role.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateModelCommandInput} for command's `input` shape.
+ * @see {@link CreateModelCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateModelCommand extends $Command<
   CreateModelCommandInput,

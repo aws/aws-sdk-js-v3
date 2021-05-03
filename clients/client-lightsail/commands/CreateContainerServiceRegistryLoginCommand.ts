@@ -49,6 +49,18 @@ export interface CreateContainerServiceRegistryLoginCommandOutput
  *         more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images">Pushing and managing container images on your Amazon Lightsail container services</a>
  *         in the <i>Lightsail Dev Guide</i>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new CreateContainerServiceRegistryLoginCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateContainerServiceRegistryLoginCommandInput} for command's `input` shape.
+ * @see {@link CreateContainerServiceRegistryLoginCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateContainerServiceRegistryLoginCommand extends $Command<
   CreateContainerServiceRegistryLoginCommandInput,

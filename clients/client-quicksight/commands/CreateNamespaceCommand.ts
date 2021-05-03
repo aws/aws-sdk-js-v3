@@ -29,6 +29,18 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  *             QuickSight. The namespace must be unique within the AWS account. By default, there is a
  *             limit of 100 namespaces per AWS account. To increase your limit, create a ticket with
  *             AWS Support. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new CreateNamespaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateNamespaceCommandInput} for command's `input` shape.
+ * @see {@link CreateNamespaceCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateNamespaceCommand extends $Command<
   CreateNamespaceCommandInput,

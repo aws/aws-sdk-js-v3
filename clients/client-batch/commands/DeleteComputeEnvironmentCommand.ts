@@ -25,6 +25,18 @@ export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvi
  *          <p>Before you can delete a compute environment, you must set its state to <code>DISABLED</code> with the <a>UpdateComputeEnvironment</a> API operation and disassociate it from any job queues with the <a>UpdateJobQueue</a> API operation. Compute environments that use AWS Fargate resources must terminate all
  *    active jobs on that compute environment before deleting the compute environment. If this isn't done, the compute
  *    environment enters an invalid state.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BatchClient(config);
+ * const command = new DeleteComputeEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteComputeEnvironmentCommandInput} for command's `input` shape.
+ * @see {@link DeleteComputeEnvironmentCommandOutput} for command's `response` shape.
+ * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteComputeEnvironmentCommand extends $Command<
   DeleteComputeEnvironmentCommandInput,

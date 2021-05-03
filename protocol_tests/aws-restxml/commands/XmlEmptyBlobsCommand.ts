@@ -22,6 +22,18 @@ export interface XmlEmptyBlobsCommandOutput extends XmlBlobsInputOutput, __Metad
 
 /**
  * Blobs are base64 encoded
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestXmlProtocolClient(config);
+ * const command = new XmlEmptyBlobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link XmlEmptyBlobsCommandInput} for command's `input` shape.
+ * @see {@link XmlEmptyBlobsCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class XmlEmptyBlobsCommand extends $Command<
   XmlEmptyBlobsCommandInput,

@@ -24,6 +24,18 @@ export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutpu
  * <p>Creates an anomaly detection model for a CloudWatch metric. You can use the model
  * 			to display a band of expected normal values when the metric is graphed.</p>
  * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html">CloudWatch Anomaly Detection</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchClient(config);
+ * const command = new PutAnomalyDetectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAnomalyDetectorCommandInput} for command's `input` shape.
+ * @see {@link PutAnomalyDetectorCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAnomalyDetectorCommand extends $Command<
   PutAnomalyDetectorCommandInput,

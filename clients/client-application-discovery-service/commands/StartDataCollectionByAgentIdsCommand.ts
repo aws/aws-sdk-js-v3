@@ -28,6 +28,18 @@ export interface StartDataCollectionByAgentIdsCommandOutput
 
 /**
  * <p>Instructs the specified agents or connectors to start collecting data.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new StartDataCollectionByAgentIdsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartDataCollectionByAgentIdsCommandInput} for command's `input` shape.
+ * @see {@link StartDataCollectionByAgentIdsCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartDataCollectionByAgentIdsCommand extends $Command<
   StartDataCollectionByAgentIdsCommandInput,

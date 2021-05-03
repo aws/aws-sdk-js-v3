@@ -28,6 +28,18 @@ export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
 
 /**
  * <p>Associates a self-service action with a provisioning artifact.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new AssociateServiceActionWithProvisioningArtifactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateServiceActionWithProvisioningArtifactCommandInput} for command's `input` shape.
+ * @see {@link AssociateServiceActionWithProvisioningArtifactCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateServiceActionWithProvisioningArtifactCommand extends $Command<
   AssociateServiceActionWithProvisioningArtifactCommandInput,

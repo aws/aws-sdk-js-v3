@@ -22,6 +22,18 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
 
 /**
  * <p>Creates and sends a message to a list of users.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new SendUsersMessagesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendUsersMessagesCommandInput} for command's `input` shape.
+ * @see {@link SendUsersMessagesCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendUsersMessagesCommand extends $Command<
   SendUsersMessagesCommandInput,

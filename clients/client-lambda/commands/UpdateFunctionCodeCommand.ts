@@ -30,6 +30,18 @@ export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, 
  *             <p>For a function defined as a container image, Lambda resolves the image tag to an image digest. In Amazon ECR, if
  *         you update the image tag to a new image, Lambda does not automatically update the function.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new UpdateFunctionCodeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFunctionCodeCommandInput} for command's `input` shape.
+ * @see {@link UpdateFunctionCodeCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFunctionCodeCommand extends $Command<
   UpdateFunctionCodeCommandInput,

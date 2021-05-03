@@ -29,6 +29,18 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * <p>You can call <a>DescribeValidDBInstanceModifications</a>
  *       to learn what modifications you can make to your DB instance. You can use this
  *       information when you call <a>ModifyDBInstance</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NeptuneClient(config);
+ * const command = new DescribeValidDBInstanceModificationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeValidDBInstanceModificationsCommandInput} for command's `input` shape.
+ * @see {@link DescribeValidDBInstanceModificationsCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeValidDBInstanceModificationsCommand extends $Command<
   DescribeValidDBInstanceModificationsCommandInput,

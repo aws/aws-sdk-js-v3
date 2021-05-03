@@ -22,6 +22,18 @@ export interface ListThingsInBillingGroupCommandOutput extends ListThingsInBilli
 
 /**
  * <p>Lists the things you have added to the given billing group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ListThingsInBillingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListThingsInBillingGroupCommandInput} for command's `input` shape.
+ * @see {@link ListThingsInBillingGroupCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListThingsInBillingGroupCommand extends $Command<
   ListThingsInBillingGroupCommandInput,

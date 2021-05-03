@@ -24,6 +24,18 @@ export interface GetDelegationsCommandOutput extends GetDelegationsResponse, __M
  * <p>
  *    Returns a list of delegations from an audit owner to a delegate.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new GetDelegationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDelegationsCommandInput} for command's `input` shape.
+ * @see {@link GetDelegationsCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDelegationsCommand extends $Command<
   GetDelegationsCommandInput,

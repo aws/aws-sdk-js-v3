@@ -22,6 +22,18 @@ export interface CreateDeploymentCommandOutput extends Deployment, __MetadataBea
 
 /**
  * <p>Creates a <a>Deployment</a> resource, which makes a specified <a>RestApi</a> callable over the internet.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new CreateDeploymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDeploymentCommandInput} for command's `input` shape.
+ * @see {@link CreateDeploymentCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDeploymentCommand extends $Command<
   CreateDeploymentCommandInput,

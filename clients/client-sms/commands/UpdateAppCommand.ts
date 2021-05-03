@@ -19,6 +19,18 @@ export interface UpdateAppCommandOutput extends UpdateAppResponse, __MetadataBea
 
 /**
  * <p>Updates the specified application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SMSClient(config);
+ * const command = new UpdateAppCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAppCommandInput} for command's `input` shape.
+ * @see {@link UpdateAppCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAppCommand extends $Command<UpdateAppCommandInput, UpdateAppCommandOutput, SMSClientResolvedConfig> {
   // Start section: command_properties

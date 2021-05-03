@@ -22,6 +22,18 @@ export interface CancelImportTaskCommandOutput extends CancelImportTaskResult, _
 
 /**
  * <p>Cancels an in-process import virtual machine or import snapshot task.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CancelImportTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelImportTaskCommandInput} for command's `input` shape.
+ * @see {@link CancelImportTaskCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelImportTaskCommand extends $Command<
   CancelImportTaskCommandInput,

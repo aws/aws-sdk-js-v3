@@ -22,6 +22,18 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
 
 /**
  * <p>Returns the scan findings for the specified image.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECRClient(config);
+ * const command = new DescribeImageScanFindingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeImageScanFindingsCommandInput} for command's `input` shape.
+ * @see {@link DescribeImageScanFindingsCommandOutput} for command's `response` shape.
+ * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeImageScanFindingsCommand extends $Command<
   DescribeImageScanFindingsCommandInput,

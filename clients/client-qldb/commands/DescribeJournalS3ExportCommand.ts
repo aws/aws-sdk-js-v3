@@ -29,6 +29,18 @@ export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3E
  *             <code>ResourceNotFoundException</code>.</p>
  *          <p>If the ledger with the given <code>Name</code> doesn't exist, then throws
  *             <code>ResourceNotFoundException</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QLDBClient(config);
+ * const command = new DescribeJournalS3ExportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeJournalS3ExportCommandInput} for command's `input` shape.
+ * @see {@link DescribeJournalS3ExportCommandOutput} for command's `response` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeJournalS3ExportCommand extends $Command<
   DescribeJournalS3ExportCommandInput,

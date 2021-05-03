@@ -22,6 +22,18 @@ export interface GetSuiteRunReportCommandOutput extends GetSuiteRunReportRespons
 
 /**
  * <p>Gets a report download link for a successful Device Advisor qualifying test suite run.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IotDeviceAdvisorClient(config);
+ * const command = new GetSuiteRunReportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSuiteRunReportCommandInput} for command's `input` shape.
+ * @see {@link GetSuiteRunReportCommandOutput} for command's `response` shape.
+ * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSuiteRunReportCommand extends $Command<
   GetSuiteRunReportCommandInput,

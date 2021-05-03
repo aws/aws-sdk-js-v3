@@ -22,6 +22,18 @@ export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrateg
 
 /**
  * <p>Updates a deployment strategy.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppConfigClient(config);
+ * const command = new UpdateDeploymentStrategyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDeploymentStrategyCommandInput} for command's `input` shape.
+ * @see {@link UpdateDeploymentStrategyCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDeploymentStrategyCommand extends $Command<
   UpdateDeploymentStrategyCommandInput,

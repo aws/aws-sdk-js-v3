@@ -24,6 +24,18 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  * <p>Removes the specified tags from the specified log group.</p>
  *          <p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>.
  *       To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html">TagLogGroup</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new UntagLogGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UntagLogGroupCommandInput} for command's `input` shape.
+ * @see {@link UntagLogGroupCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UntagLogGroupCommand extends $Command<
   UntagLogGroupCommandInput,

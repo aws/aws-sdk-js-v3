@@ -36,6 +36,18 @@ export interface ListCustomRoutingPortMappingsCommandOutput
  * 		in your subnet, the port mappings don't change, because the mappings are created when you add the subnet to Global Accelerator.</p>
  * 	        <p>The mappings also include a flag for each destination denoting which destination IP addresses and
  * 		ports are allowed or denied traffic.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new ListCustomRoutingPortMappingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCustomRoutingPortMappingsCommandInput} for command's `input` shape.
+ * @see {@link ListCustomRoutingPortMappingsCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCustomRoutingPortMappingsCommand extends $Command<
   ListCustomRoutingPortMappingsCommandInput,

@@ -22,6 +22,18 @@ export interface HttpPrefixHeadersResponseCommandOutput extends HttpPrefixHeader
 
 /**
  * Clients that perform this test extract all headers from the response.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new HttpPrefixHeadersResponseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link HttpPrefixHeadersResponseCommandInput} for command's `input` shape.
+ * @see {@link HttpPrefixHeadersResponseCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class HttpPrefixHeadersResponseCommand extends $Command<
   HttpPrefixHeadersResponseCommandInput,

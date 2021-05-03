@@ -29,6 +29,18 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *       deletion protection is disabled by default (when you create a new production cluster in
  *       the console, deletion protection is enabled by default). You can only delete a DB
  *       cluster if its <code>DeletionProtection</code> field is set to <code>false</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NeptuneClient(config);
+ * const command = new CreateDBClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDBClusterCommandInput} for command's `input` shape.
+ * @see {@link CreateDBClusterCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDBClusterCommand extends $Command<
   CreateDBClusterCommandInput,

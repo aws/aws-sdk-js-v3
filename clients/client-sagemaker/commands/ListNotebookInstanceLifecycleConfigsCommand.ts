@@ -27,6 +27,18 @@ export interface ListNotebookInstanceLifecycleConfigsCommandOutput
 
 /**
  * <p>Lists notebook instance lifestyle configurations created with the <a>CreateNotebookInstanceLifecycleConfig</a> API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListNotebookInstanceLifecycleConfigsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListNotebookInstanceLifecycleConfigsCommandInput} for command's `input` shape.
+ * @see {@link ListNotebookInstanceLifecycleConfigsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListNotebookInstanceLifecycleConfigsCommand extends $Command<
   ListNotebookInstanceLifecycleConfigsCommandInput,

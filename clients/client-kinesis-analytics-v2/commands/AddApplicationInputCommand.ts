@@ -35,6 +35,18 @@ export interface AddApplicationInputCommandOutput extends AddApplicationInputRes
  *       results in a new version of the application. You can use the <a>DescribeApplication</a> operation
  *       to find the current application version.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisAnalyticsV2Client(config);
+ * const command = new AddApplicationInputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddApplicationInputCommandInput} for command's `input` shape.
+ * @see {@link AddApplicationInputCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddApplicationInputCommand extends $Command<
   AddApplicationInputCommandInput,

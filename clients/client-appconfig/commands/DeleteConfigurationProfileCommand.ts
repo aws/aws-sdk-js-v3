@@ -23,6 +23,18 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
 /**
  * <p>Delete a configuration profile. Deleting a configuration profile does not delete a
  *          configuration from a host.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppConfigClient(config);
+ * const command = new DeleteConfigurationProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConfigurationProfileCommandInput} for command's `input` shape.
+ * @see {@link DeleteConfigurationProfileCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConfigurationProfileCommand extends $Command<
   DeleteConfigurationProfileCommandInput,

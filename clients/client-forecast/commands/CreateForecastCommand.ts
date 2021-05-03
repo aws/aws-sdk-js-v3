@@ -40,6 +40,18 @@ export interface CreateForecastCommandOutput extends CreateForecastResponse, __M
  *         or export the forecast. Use the <a>DescribeForecast</a> operation to get the
  *         status.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ForecastClient(config);
+ * const command = new CreateForecastCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateForecastCommandInput} for command's `input` shape.
+ * @see {@link CreateForecastCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateForecastCommand extends $Command<
   CreateForecastCommandInput,

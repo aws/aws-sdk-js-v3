@@ -22,6 +22,18 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
 
 /**
  * <p>Gets a list of the pipeline executions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListPipelineExecutionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPipelineExecutionsCommandInput} for command's `input` shape.
+ * @see {@link ListPipelineExecutionsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPipelineExecutionsCommand extends $Command<
   ListPipelineExecutionsCommandInput,

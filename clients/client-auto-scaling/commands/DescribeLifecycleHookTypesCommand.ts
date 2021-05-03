@@ -31,6 +31,18 @@ export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecyc
  *                 <p>autoscaling:EC2_INSTANCE_TERMINATING</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingClient(config);
+ * const command = new DescribeLifecycleHookTypesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeLifecycleHookTypesCommandInput} for command's `input` shape.
+ * @see {@link DescribeLifecycleHookTypesCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeLifecycleHookTypesCommand extends $Command<
   DescribeLifecycleHookTypesCommandInput,

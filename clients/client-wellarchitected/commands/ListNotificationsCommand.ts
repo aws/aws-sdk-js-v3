@@ -22,6 +22,18 @@ export interface ListNotificationsCommandOutput extends ListNotificationsOutput,
 
 /**
  * <p>List lens notifications.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WellArchitectedClient(config);
+ * const command = new ListNotificationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListNotificationsCommandInput} for command's `input` shape.
+ * @see {@link ListNotificationsCommandOutput} for command's `response` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListNotificationsCommand extends $Command<
   ListNotificationsCommandInput,

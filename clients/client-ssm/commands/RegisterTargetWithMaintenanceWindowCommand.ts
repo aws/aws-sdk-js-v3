@@ -27,6 +27,18 @@ export interface RegisterTargetWithMaintenanceWindowCommandOutput
 
 /**
  * <p>Registers a target with a maintenance window.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new RegisterTargetWithMaintenanceWindowCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterTargetWithMaintenanceWindowCommandInput} for command's `input` shape.
+ * @see {@link RegisterTargetWithMaintenanceWindowCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterTargetWithMaintenanceWindowCommand extends $Command<
   RegisterTargetWithMaintenanceWindowCommandInput,

@@ -22,6 +22,18 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
 
 /**
  * <p>Retrieves a specified resource policy.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetResourcePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetResourcePolicyCommand extends $Command<
   GetResourcePolicyCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateMultiplexProgramCommandOutput extends UpdateMultiplexProg
 
 /**
  * Update a program in a multiplex.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaLiveClient(config);
+ * const command = new UpdateMultiplexProgramCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMultiplexProgramCommandInput} for command's `input` shape.
+ * @see {@link UpdateMultiplexProgramCommandOutput} for command's `response` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMultiplexProgramCommand extends $Command<
   UpdateMultiplexProgramCommandInput,

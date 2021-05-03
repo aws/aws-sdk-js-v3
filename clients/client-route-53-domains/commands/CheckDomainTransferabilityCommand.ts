@@ -22,6 +22,18 @@ export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTran
 
 /**
  * <p>Checks whether a domain name can be transferred to Amazon Route 53. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53DomainsClient(config);
+ * const command = new CheckDomainTransferabilityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CheckDomainTransferabilityCommandInput} for command's `input` shape.
+ * @see {@link CheckDomainTransferabilityCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CheckDomainTransferabilityCommand extends $Command<
   CheckDomainTransferabilityCommandInput,

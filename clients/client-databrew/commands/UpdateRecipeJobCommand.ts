@@ -22,6 +22,18 @@ export interface UpdateRecipeJobCommandOutput extends UpdateRecipeJobResponse, _
 
 /**
  * <p>Modifies the definition of an existing DataBrew recipe job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new UpdateRecipeJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRecipeJobCommandInput} for command's `input` shape.
+ * @see {@link UpdateRecipeJobCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRecipeJobCommand extends $Command<
   UpdateRecipeJobCommandInput,

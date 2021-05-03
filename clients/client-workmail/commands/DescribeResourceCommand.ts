@@ -22,6 +22,18 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
 
 /**
  * <p>Returns the data available for the resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new DescribeResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeResourceCommandInput} for command's `input` shape.
+ * @see {@link DescribeResourceCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeResourceCommand extends $Command<
   DescribeResourceCommandInput,

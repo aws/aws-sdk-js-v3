@@ -22,6 +22,18 @@ export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __Met
 
 /**
  * <p>Deletes a segment from an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new DeleteSegmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSegmentCommandInput} for command's `input` shape.
+ * @see {@link DeleteSegmentCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSegmentCommand extends $Command<
   DeleteSegmentCommandInput,

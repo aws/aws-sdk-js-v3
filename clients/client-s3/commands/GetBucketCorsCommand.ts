@@ -43,6 +43,18 @@ export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __Metad
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3Client(config);
+ * const command = new GetBucketCorsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBucketCorsCommandInput} for command's `input` shape.
+ * @see {@link GetBucketCorsCommandOutput} for command's `response` shape.
+ * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBucketCorsCommand extends $Command<
   GetBucketCorsCommandInput,

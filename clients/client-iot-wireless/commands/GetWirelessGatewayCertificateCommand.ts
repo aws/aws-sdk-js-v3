@@ -24,6 +24,18 @@ export interface GetWirelessGatewayCertificateCommandOutput
 
 /**
  * <p>Gets the ID of the certificate that is currently associated with a wireless gateway.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTWirelessClient(config);
+ * const command = new GetWirelessGatewayCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetWirelessGatewayCertificateCommandInput} for command's `input` shape.
+ * @see {@link GetWirelessGatewayCertificateCommandOutput} for command's `response` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetWirelessGatewayCertificateCommand extends $Command<
   GetWirelessGatewayCertificateCommandInput,

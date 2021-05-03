@@ -31,6 +31,18 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  *                <p>List an asset's parent asset.</p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new ListAssociatedAssetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAssociatedAssetsCommandInput} for command's `input` shape.
+ * @see {@link ListAssociatedAssetsCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAssociatedAssetsCommand extends $Command<
   ListAssociatedAssetsCommandInput,

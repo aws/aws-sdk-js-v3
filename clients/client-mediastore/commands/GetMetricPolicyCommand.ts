@@ -22,6 +22,18 @@ export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __M
 
 /**
  * <p>Returns the metric policy for the specified container. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaStoreClient(config);
+ * const command = new GetMetricPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMetricPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetMetricPolicyCommandOutput} for command's `response` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMetricPolicyCommand extends $Command<
   GetMetricPolicyCommandInput,

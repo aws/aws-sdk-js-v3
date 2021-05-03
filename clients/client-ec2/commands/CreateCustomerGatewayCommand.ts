@@ -57,6 +57,18 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  *                 return information about the existing customer gateway and do not create new
  *                 customer gateways.</p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateCustomerGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCustomerGatewayCommandInput} for command's `input` shape.
+ * @see {@link CreateCustomerGatewayCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCustomerGatewayCommand extends $Command<
   CreateCustomerGatewayCommandInput,

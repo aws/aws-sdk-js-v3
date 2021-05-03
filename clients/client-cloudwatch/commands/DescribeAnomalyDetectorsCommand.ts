@@ -24,6 +24,18 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * <p>Lists the anomaly detection models that you have created in your account. You can list all
  * 			models in your account or filter the results to only the models that are related to a
  * 			certain namespace, metric name, or metric dimension.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchClient(config);
+ * const command = new DescribeAnomalyDetectorsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAnomalyDetectorsCommandInput} for command's `input` shape.
+ * @see {@link DescribeAnomalyDetectorsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAnomalyDetectorsCommand extends $Command<
   DescribeAnomalyDetectorsCommandInput,

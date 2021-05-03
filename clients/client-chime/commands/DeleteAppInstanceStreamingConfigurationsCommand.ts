@@ -23,6 +23,18 @@ export interface DeleteAppInstanceStreamingConfigurationsCommandOutput extends _
 
 /**
  * <p>Deletes the streaming configurations of an <code>AppInstance</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new DeleteAppInstanceStreamingConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAppInstanceStreamingConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link DeleteAppInstanceStreamingConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAppInstanceStreamingConfigurationsCommand extends $Command<
   DeleteAppInstanceStreamingConfigurationsCommandInput,

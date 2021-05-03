@@ -30,6 +30,18 @@ export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareO
  *          <p>If the portfolio is shared to both an external account and an organization node, and both shares need to be updated, you must invoke <code>UpdatePortfolioShare</code> separately for each share type. </p>
  *
  *          <p>This API cannot be used for removing the portfolio share. You must use <code>DeletePortfolioShare</code> API for that action. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new UpdatePortfolioShareCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePortfolioShareCommandInput} for command's `input` shape.
+ * @see {@link UpdatePortfolioShareCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePortfolioShareCommand extends $Command<
   UpdatePortfolioShareCommandInput,

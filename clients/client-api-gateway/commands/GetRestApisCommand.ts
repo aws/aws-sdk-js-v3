@@ -22,6 +22,18 @@ export interface GetRestApisCommandOutput extends RestApis, __MetadataBearer {}
 
 /**
  * <p>Lists the <a>RestApis</a> resources for your collection.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new GetRestApisCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRestApisCommandInput} for command's `input` shape.
+ * @see {@link GetRestApisCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRestApisCommand extends $Command<
   GetRestApisCommandInput,

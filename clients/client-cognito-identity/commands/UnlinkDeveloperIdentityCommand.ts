@@ -27,6 +27,18 @@ export interface UnlinkDeveloperIdentityCommandOutput extends __MetadataBearer {
  *          Cognito identity, you remove all federated identities as well as the developer user
  *          identifier, the Cognito identity becomes inaccessible.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityClient(config);
+ * const command = new UnlinkDeveloperIdentityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UnlinkDeveloperIdentityCommandInput} for command's `input` shape.
+ * @see {@link UnlinkDeveloperIdentityCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UnlinkDeveloperIdentityCommand extends $Command<
   UnlinkDeveloperIdentityCommandInput,

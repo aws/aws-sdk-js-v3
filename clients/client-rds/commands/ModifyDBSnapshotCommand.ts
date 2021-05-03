@@ -28,6 +28,18 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  *
  *          <p>Amazon RDS supports upgrading DB snapshots for MySQL, Oracle, and PostgreSQL.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new ModifyDBSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyDBSnapshotCommandInput} for command's `input` shape.
+ * @see {@link ModifyDBSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyDBSnapshotCommand extends $Command<
   ModifyDBSnapshotCommandInput,

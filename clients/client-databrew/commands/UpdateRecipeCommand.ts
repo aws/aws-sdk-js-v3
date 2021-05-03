@@ -23,6 +23,18 @@ export interface UpdateRecipeCommandOutput extends UpdateRecipeResponse, __Metad
 /**
  * <p>Modifies the definition of the <code>LATEST_WORKING</code> version of a DataBrew
  *             recipe.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new UpdateRecipeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRecipeCommandInput} for command's `input` shape.
+ * @see {@link UpdateRecipeCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRecipeCommand extends $Command<
   UpdateRecipeCommandInput,

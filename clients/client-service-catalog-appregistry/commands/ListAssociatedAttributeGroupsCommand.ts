@@ -28,6 +28,18 @@ export interface ListAssociatedAttributeGroupsCommandOutput
 
 /**
  * <p>Lists all attribute groups that are associated with specified application.  Results are paginated.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogAppRegistryClient(config);
+ * const command = new ListAssociatedAttributeGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAssociatedAttributeGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListAssociatedAttributeGroupsCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAssociatedAttributeGroupsCommand extends $Command<
   ListAssociatedAttributeGroupsCommandInput,

@@ -27,6 +27,18 @@ export interface StopTransformJobCommandOutput extends __MetadataBearer {}
  *             stops
  *             the job, the status is set to <code>Stopped</code>. When you stop a transform job before
  *             it is completed, Amazon SageMaker doesn't store the job's output in Amazon S3.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new StopTransformJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopTransformJobCommandInput} for command's `input` shape.
+ * @see {@link StopTransformJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopTransformJobCommand extends $Command<
   StopTransformJobCommandInput,

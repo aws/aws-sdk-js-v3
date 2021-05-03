@@ -22,6 +22,18 @@ export interface ModifyTrafficMirrorSessionCommandOutput extends ModifyTrafficMi
 
 /**
  * <p>Modifies a Traffic Mirror session.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyTrafficMirrorSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyTrafficMirrorSessionCommandInput} for command's `input` shape.
+ * @see {@link ModifyTrafficMirrorSessionCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyTrafficMirrorSessionCommand extends $Command<
   ModifyTrafficMirrorSessionCommandInput,

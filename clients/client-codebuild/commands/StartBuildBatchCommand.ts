@@ -22,6 +22,18 @@ export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __M
 
 /**
  * <p>Starts a batch build for a project.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new StartBuildBatchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartBuildBatchCommandInput} for command's `input` shape.
+ * @see {@link StartBuildBatchCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartBuildBatchCommand extends $Command<
   StartBuildBatchCommandInput,

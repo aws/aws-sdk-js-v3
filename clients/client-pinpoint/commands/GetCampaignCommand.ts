@@ -22,6 +22,18 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
 
 /**
  * <p>Retrieves information about the status, configuration, and other settings for a campaign.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new GetCampaignCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCampaignCommandInput} for command's `input` shape.
+ * @see {@link GetCampaignCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCampaignCommand extends $Command<
   GetCampaignCommandInput,

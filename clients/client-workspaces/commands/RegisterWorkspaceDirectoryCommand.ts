@@ -26,6 +26,18 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  *          registering a directory, you will need to create the workspaces_DefaultRole role before you can
  *          register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">
  *             Creating the workspaces_DefaultRole Role</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new RegisterWorkspaceDirectoryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterWorkspaceDirectoryCommandInput} for command's `input` shape.
+ * @see {@link RegisterWorkspaceDirectoryCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterWorkspaceDirectoryCommand extends $Command<
   RegisterWorkspaceDirectoryCommandInput,

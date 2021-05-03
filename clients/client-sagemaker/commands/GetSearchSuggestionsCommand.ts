@@ -25,6 +25,18 @@ export interface GetSearchSuggestionsCommandOutput extends GetSearchSuggestionsR
  *       suggestions of possible matches for the property name to use in <code>Search</code>
  *       queries. Provides suggestions for <code>HyperParameters</code>, <code>Tags</code>, and
  *       <code>Metrics</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new GetSearchSuggestionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSearchSuggestionsCommandInput} for command's `input` shape.
+ * @see {@link GetSearchSuggestionsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSearchSuggestionsCommand extends $Command<
   GetSearchSuggestionsCommandInput,

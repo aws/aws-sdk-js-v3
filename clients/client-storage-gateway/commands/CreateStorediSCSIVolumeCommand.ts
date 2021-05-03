@@ -33,6 +33,18 @@ export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIV
  *          creating the volume. In response, the gateway creates the volume and returns volume
  *          information such as the volume Amazon Resource Name (ARN), its size, and the iSCSI target
  *          ARN that initiators can use to connect to the volume target.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new CreateStorediSCSIVolumeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateStorediSCSIVolumeCommandInput} for command's `input` shape.
+ * @see {@link CreateStorediSCSIVolumeCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateStorediSCSIVolumeCommand extends $Command<
   CreateStorediSCSIVolumeCommandInput,

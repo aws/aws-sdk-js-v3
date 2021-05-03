@@ -22,6 +22,18 @@ export interface UpdateLaunchProfileMemberCommandOutput extends UpdateLaunchProf
 
 /**
  * <p>Update a user persona in launch profile membership.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NimbleClient(config);
+ * const command = new UpdateLaunchProfileMemberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateLaunchProfileMemberCommandInput} for command's `input` shape.
+ * @see {@link UpdateLaunchProfileMemberCommandOutput} for command's `response` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateLaunchProfileMemberCommand extends $Command<
   UpdateLaunchProfileMemberCommandInput,

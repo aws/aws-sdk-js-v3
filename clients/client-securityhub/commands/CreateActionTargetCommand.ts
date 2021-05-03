@@ -24,6 +24,18 @@ export interface CreateActionTargetCommandOutput extends CreateActionTargetRespo
  * <p>Creates a custom action target in Security Hub.</p>
  *          <p>You can use custom actions on findings and insights in Security Hub to trigger target actions
  *          in Amazon CloudWatch Events.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecurityHubClient(config);
+ * const command = new CreateActionTargetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateActionTargetCommandInput} for command's `input` shape.
+ * @see {@link CreateActionTargetCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateActionTargetCommand extends $Command<
   CreateActionTargetCommandInput,

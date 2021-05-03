@@ -45,6 +45,18 @@ export interface DisassociateVPCFromHostedZoneCommandOutput
  * 					If the hosted zone has a value for <code>OwningService</code>, you can't use <code>DisassociateVPCFromHostedZone</code>.</p>
  * 			         </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new DisassociateVPCFromHostedZoneCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateVPCFromHostedZoneCommandInput} for command's `input` shape.
+ * @see {@link DisassociateVPCFromHostedZoneCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateVPCFromHostedZoneCommand extends $Command<
   DisassociateVPCFromHostedZoneCommandInput,

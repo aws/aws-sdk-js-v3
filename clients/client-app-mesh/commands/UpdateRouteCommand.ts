@@ -22,6 +22,18 @@ export interface UpdateRouteCommandOutput extends UpdateRouteOutput, __MetadataB
 
 /**
  * <p>Updates an existing route for a specified service mesh and virtual router.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new UpdateRouteCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRouteCommandInput} for command's `input` shape.
+ * @see {@link UpdateRouteCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRouteCommand extends $Command<
   UpdateRouteCommandInput,

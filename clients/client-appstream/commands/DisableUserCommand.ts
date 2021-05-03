@@ -22,6 +22,18 @@ export interface DisableUserCommandOutput extends DisableUserResult, __MetadataB
 
 /**
  * <p>Disables the specified user in the user pool. Users can't sign in to AppStream 2.0 until they are re-enabled. This action does not delete the user. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new DisableUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableUserCommandInput} for command's `input` shape.
+ * @see {@link DisableUserCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableUserCommand extends $Command<
   DisableUserCommandInput,

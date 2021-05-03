@@ -24,6 +24,18 @@ export interface ModifyWorkspaceCreationPropertiesCommandOutput
 
 /**
  * <p>Modify the default properties used to create WorkSpaces.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new ModifyWorkspaceCreationPropertiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyWorkspaceCreationPropertiesCommandInput} for command's `input` shape.
+ * @see {@link ModifyWorkspaceCreationPropertiesCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyWorkspaceCreationPropertiesCommand extends $Command<
   ModifyWorkspaceCreationPropertiesCommandInput,

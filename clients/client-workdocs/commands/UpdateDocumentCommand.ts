@@ -23,6 +23,18 @@ export interface UpdateDocumentCommandOutput extends __MetadataBearer {}
 /**
  * <p>Updates the specified attributes of a document. The user must have access to both
  *             the document and its parent folder, if applicable.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new UpdateDocumentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDocumentCommandInput} for command's `input` shape.
+ * @see {@link UpdateDocumentCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDocumentCommand extends $Command<
   UpdateDocumentCommandInput,

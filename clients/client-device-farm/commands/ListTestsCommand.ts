@@ -19,6 +19,18 @@ export interface ListTestsCommandOutput extends ListTestsResult, __MetadataBeare
 
 /**
  * <p>Gets information about tests in a given test suite.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new ListTestsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTestsCommandInput} for command's `input` shape.
+ * @see {@link ListTestsCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTestsCommand extends $Command<
   ListTestsCommandInput,

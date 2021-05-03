@@ -22,6 +22,18 @@ export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, _
 
 /**
  * <p>Deletes a suggester. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html" target="_blank">Getting Search Suggestions</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudSearchClient(config);
+ * const command = new DeleteSuggesterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSuggesterCommandInput} for command's `input` shape.
+ * @see {@link DeleteSuggesterCommandOutput} for command's `response` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSuggesterCommand extends $Command<
   DeleteSuggesterCommandInput,

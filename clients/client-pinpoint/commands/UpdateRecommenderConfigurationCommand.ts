@@ -24,6 +24,18 @@ export interface UpdateRecommenderConfigurationCommandOutput
 
 /**
  * <p>Updates an Amazon Pinpoint configuration for a recommender model.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new UpdateRecommenderConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRecommenderConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateRecommenderConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRecommenderConfigurationCommand extends $Command<
   UpdateRecommenderConfigurationCommandInput,

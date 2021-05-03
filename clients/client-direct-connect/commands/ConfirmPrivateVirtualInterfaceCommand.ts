@@ -27,6 +27,18 @@ export interface ConfirmPrivateVirtualInterfaceCommandOutput
  *          <p>After the virtual interface owner makes this call, the virtual interface is
  *       created and attached to the specified virtual private gateway or Direct Connect gateway, and is
  *       made available to handle traffic.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new ConfirmPrivateVirtualInterfaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ConfirmPrivateVirtualInterfaceCommandInput} for command's `input` shape.
+ * @see {@link ConfirmPrivateVirtualInterfaceCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ConfirmPrivateVirtualInterfaceCommand extends $Command<
   ConfirmPrivateVirtualInterfaceCommandInput,

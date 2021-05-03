@@ -22,6 +22,18 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
 
 /**
  * <p>Describes the specified tags for the specified WorkSpaces resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new DescribeTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTagsCommandInput} for command's `input` shape.
+ * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandInput,

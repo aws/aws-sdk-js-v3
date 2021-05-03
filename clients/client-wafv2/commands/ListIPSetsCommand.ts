@@ -22,6 +22,18 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
 
 /**
  * <p>Retrieves an array of <a>IPSetSummary</a> objects for the IP sets that you manage.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFV2Client(config);
+ * const command = new ListIPSetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListIPSetsCommandInput} for command's `input` shape.
+ * @see {@link ListIPSetsCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListIPSetsCommand extends $Command<
   ListIPSetsCommandInput,

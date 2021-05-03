@@ -27,6 +27,18 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
 /**
  * <p>Confirms registration of a user and handles the existing alias from a previous
  *             user.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new ConfirmSignUpCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ConfirmSignUpCommandInput} for command's `input` shape.
+ * @see {@link ConfirmSignUpCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ConfirmSignUpCommand extends $Command<
   ConfirmSignUpCommandInput,

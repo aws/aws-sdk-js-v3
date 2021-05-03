@@ -22,6 +22,18 @@ export interface ListWorkGroupsCommandOutput extends ListWorkGroupsOutput, __Met
 
 /**
  * <p>Lists available workgroups for the account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AthenaClient(config);
+ * const command = new ListWorkGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListWorkGroupsCommandInput} for command's `input` shape.
+ * @see {@link ListWorkGroupsCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListWorkGroupsCommand extends $Command<
   ListWorkGroupsCommandInput,

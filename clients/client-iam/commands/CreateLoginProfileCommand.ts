@@ -29,6 +29,18 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
  *             AWS Management Console.</p>
  *         <p>For more information about managing passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing passwords</a> in the
  *                 <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new CreateLoginProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLoginProfileCommandInput} for command's `input` shape.
+ * @see {@link CreateLoginProfileCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLoginProfileCommand extends $Command<
   CreateLoginProfileCommandInput,

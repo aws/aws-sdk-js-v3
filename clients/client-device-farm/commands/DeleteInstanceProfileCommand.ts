@@ -22,6 +22,18 @@ export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfil
 
 /**
  * <p>Deletes a profile that can be applied to one or more private device instances.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new DeleteInstanceProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteInstanceProfileCommandInput} for command's `input` shape.
+ * @see {@link DeleteInstanceProfileCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteInstanceProfileCommand extends $Command<
   DeleteInstanceProfileCommandInput,

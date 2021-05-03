@@ -25,6 +25,18 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  *       When a solution is not specified, all the campaigns associated with the account are listed.
  *       The response provides the properties for each campaign, including the Amazon Resource Name (ARN).
  *       For more information on campaigns, see <a>CreateCampaign</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeClient(config);
+ * const command = new ListCampaignsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCampaignsCommandInput} for command's `input` shape.
+ * @see {@link ListCampaignsCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCampaignsCommand extends $Command<
   ListCampaignsCommandInput,

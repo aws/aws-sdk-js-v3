@@ -24,6 +24,18 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * <p>Gets the logging options.</p>
  *          <p>NOTE: use of this command is not recommended. Use <code>GetV2LoggingOptions</code>
  *          instead.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new GetLoggingOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetLoggingOptionsCommandInput} for command's `input` shape.
+ * @see {@link GetLoggingOptionsCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetLoggingOptionsCommand extends $Command<
   GetLoggingOptionsCommandInput,

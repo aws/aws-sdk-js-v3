@@ -22,6 +22,18 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
 
 /**
  * <p>Retrieves a paginated list of projects for an AWS IoT SiteWise Monitor portal.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new ListProjectsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProjectsCommandInput} for command's `input` shape.
+ * @see {@link ListProjectsCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProjectsCommand extends $Command<
   ListProjectsCommandInput,

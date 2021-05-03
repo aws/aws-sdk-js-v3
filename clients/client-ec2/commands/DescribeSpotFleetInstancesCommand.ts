@@ -22,6 +22,18 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
 
 /**
  * <p>Describes the running instances for the specified Spot Fleet.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeSpotFleetInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSpotFleetInstancesCommandInput} for command's `input` shape.
+ * @see {@link DescribeSpotFleetInstancesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSpotFleetInstancesCommand extends $Command<
   DescribeSpotFleetInstancesCommandInput,

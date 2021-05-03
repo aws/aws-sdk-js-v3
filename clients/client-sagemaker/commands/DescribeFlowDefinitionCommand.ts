@@ -22,6 +22,18 @@ export interface DescribeFlowDefinitionCommandOutput extends DescribeFlowDefinit
 
 /**
  * <p>Returns information about the specified flow definition.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeFlowDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeFlowDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DescribeFlowDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeFlowDefinitionCommand extends $Command<
   DescribeFlowDefinitionCommandInput,

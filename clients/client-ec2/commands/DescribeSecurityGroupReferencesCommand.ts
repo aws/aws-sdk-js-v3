@@ -24,6 +24,18 @@ export interface DescribeSecurityGroupReferencesCommandOutput
 
 /**
  * <p>[VPC only] Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeSecurityGroupReferencesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSecurityGroupReferencesCommandInput} for command's `input` shape.
+ * @see {@link DescribeSecurityGroupReferencesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSecurityGroupReferencesCommand extends $Command<
   DescribeSecurityGroupReferencesCommandInput,

@@ -49,6 +49,18 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  * 			<code>StartSigningJob</code>.</p>
  * 		       <p>For a Java example that shows how to use this action, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/">http://docs.aws.amazon.com/acm/latest/userguide/</a>
  *          </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SignerClient(config);
+ * const command = new StartSigningJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartSigningJobCommandInput} for command's `input` shape.
+ * @see {@link StartSigningJobCommandOutput} for command's `response` shape.
+ * @see {@link SignerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartSigningJobCommand extends $Command<
   StartSigningJobCommandInput,

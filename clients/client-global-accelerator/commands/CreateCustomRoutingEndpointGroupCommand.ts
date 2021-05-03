@@ -30,6 +30,18 @@ export interface CreateCustomRoutingEndpointGroupCommandOutput
  * <p>Create an endpoint group for the specified listener for a custom routing accelerator.
  * 		An endpoint group is a collection of endpoints in one AWS
  * 		Region. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new CreateCustomRoutingEndpointGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCustomRoutingEndpointGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateCustomRoutingEndpointGroupCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCustomRoutingEndpointGroupCommand extends $Command<
   CreateCustomRoutingEndpointGroupCommandInput,

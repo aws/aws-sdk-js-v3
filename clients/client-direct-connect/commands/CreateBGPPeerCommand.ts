@@ -28,6 +28,18 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
  *          <p>When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from
  *       the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.</p>
  *          <p>For a public virtual interface, the Autonomous System Number (ASN) must be private or already on the allow list for the virtual interface.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new CreateBGPPeerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateBGPPeerCommandInput} for command's `input` shape.
+ * @see {@link CreateBGPPeerCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateBGPPeerCommand extends $Command<
   CreateBGPPeerCommandInput,

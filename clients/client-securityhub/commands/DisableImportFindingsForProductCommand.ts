@@ -25,6 +25,18 @@ export interface DisableImportFindingsForProductCommandOutput
 /**
  * <p>Disables the integration of the specified product with Security Hub. After the integration is
  *          disabled, findings from that product are no longer sent to Security Hub.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecurityHubClient(config);
+ * const command = new DisableImportFindingsForProductCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableImportFindingsForProductCommandInput} for command's `input` shape.
+ * @see {@link DisableImportFindingsForProductCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableImportFindingsForProductCommand extends $Command<
   DisableImportFindingsForProductCommandInput,

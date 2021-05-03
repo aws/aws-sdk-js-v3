@@ -22,6 +22,18 @@ export interface ListEndpointsCommandOutput extends ListEndpointsOutput, __Metad
 
 /**
  * <p>Lists endpoints.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListEndpointsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEndpointsCommandInput} for command's `input` shape.
+ * @see {@link ListEndpointsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEndpointsCommand extends $Command<
   ListEndpointsCommandInput,

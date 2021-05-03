@@ -27,6 +27,18 @@ export interface DescribeConfigurationAggregatorsCommandOutput
  * 			If the configuration aggregator is not specified, this action
  * 			returns the details for all the configuration aggregators associated
  * 			with the account. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DescribeConfigurationAggregatorsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConfigurationAggregatorsCommandInput} for command's `input` shape.
+ * @see {@link DescribeConfigurationAggregatorsCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConfigurationAggregatorsCommand extends $Command<
   DescribeConfigurationAggregatorsCommandInput,

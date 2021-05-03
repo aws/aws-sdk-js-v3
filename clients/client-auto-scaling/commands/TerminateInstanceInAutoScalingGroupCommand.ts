@@ -33,6 +33,18 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  *             decrement the desired capacity, your Auto Scaling group can become unbalanced between
  *             Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might
  *             terminate instances in other zones. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage">Rebalancing activities</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AutoScalingClient(config);
+ * const command = new TerminateInstanceInAutoScalingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TerminateInstanceInAutoScalingGroupCommandInput} for command's `input` shape.
+ * @see {@link TerminateInstanceInAutoScalingGroupCommandOutput} for command's `response` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
   TerminateInstanceInAutoScalingGroupCommandInput,

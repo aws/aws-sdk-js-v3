@@ -28,6 +28,18 @@ export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
 
 /**
  * <p>Deletes the association proposal request between the specified Direct Connect gateway and virtual private gateway or transit gateway.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new DeleteDirectConnectGatewayAssociationProposalCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDirectConnectGatewayAssociationProposalCommandInput} for command's `input` shape.
+ * @see {@link DeleteDirectConnectGatewayAssociationProposalCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Command<
   DeleteDirectConnectGatewayAssociationProposalCommandInput,

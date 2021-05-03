@@ -24,6 +24,18 @@ export interface GetInfrastructureConfigurationCommandOutput
 
 /**
  * <p> Gets an infrastructure configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new GetInfrastructureConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetInfrastructureConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetInfrastructureConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetInfrastructureConfigurationCommand extends $Command<
   GetInfrastructureConfigurationCommandInput,

@@ -58,6 +58,18 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  *          <note>
  *             <p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SQSClient(config);
+ * const command = new ReceiveMessageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReceiveMessageCommandInput} for command's `input` shape.
+ * @see {@link ReceiveMessageCommandOutput} for command's `response` shape.
+ * @see {@link SQSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReceiveMessageCommand extends $Command<
   ReceiveMessageCommandInput,

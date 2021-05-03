@@ -22,6 +22,18 @@ export interface DisableSsoCommandOutput extends DisableSsoResult, __MetadataBea
 
 /**
  * <p>Disables single-sign on for a directory.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new DisableSsoCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableSsoCommandInput} for command's `input` shape.
+ * @see {@link DisableSsoCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableSsoCommand extends $Command<
   DisableSsoCommandInput,

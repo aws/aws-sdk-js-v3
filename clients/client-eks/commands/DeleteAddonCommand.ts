@@ -24,6 +24,18 @@ export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __Metadat
  * <p>Delete an Amazon EKS add-on.</p>
  *         <p>When you remove the add-on, it will also be deleted from the cluster. You can always
  *             manually start an add-on on the cluster using the Kubernetes API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new DeleteAddonCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAddonCommandInput} for command's `input` shape.
+ * @see {@link DeleteAddonCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAddonCommand extends $Command<
   DeleteAddonCommandInput,

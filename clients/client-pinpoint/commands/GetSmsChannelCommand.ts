@@ -22,6 +22,18 @@ export interface GetSmsChannelCommandOutput extends GetSmsChannelResponse, __Met
 
 /**
  * <p>Retrieves information about the status and settings of the SMS channel for an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new GetSmsChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSmsChannelCommandInput} for command's `input` shape.
+ * @see {@link GetSmsChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSmsChannelCommand extends $Command<
   GetSmsChannelCommandInput,

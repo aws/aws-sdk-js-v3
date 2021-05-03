@@ -22,6 +22,18 @@ export interface GetJourneyDateRangeKpiCommandOutput extends GetJourneyDateRange
 
 /**
  * <p>Retrieves (queries) pre-aggregated data for a standard engagement metric that applies to a journey.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new GetJourneyDateRangeKpiCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetJourneyDateRangeKpiCommandInput} for command's `input` shape.
+ * @see {@link GetJourneyDateRangeKpiCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetJourneyDateRangeKpiCommand extends $Command<
   GetJourneyDateRangeKpiCommandInput,

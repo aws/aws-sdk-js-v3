@@ -22,6 +22,18 @@ export interface DescribeIpv6PoolsCommandOutput extends DescribeIpv6PoolsResult,
 
 /**
  * <p>Describes your IPv6 address pools.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeIpv6PoolsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeIpv6PoolsCommandInput} for command's `input` shape.
+ * @see {@link DescribeIpv6PoolsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeIpv6PoolsCommand extends $Command<
   DescribeIpv6PoolsCommandInput,

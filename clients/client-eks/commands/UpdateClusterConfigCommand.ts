@@ -49,6 +49,18 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *             an update, the cluster status moves to <code>UPDATING</code> (this status transition is
  *             eventually consistent). When the update is complete (either <code>Failed</code> or
  *                 <code>Successful</code>), the cluster status moves to <code>Active</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new UpdateClusterConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateClusterConfigCommandInput} for command's `input` shape.
+ * @see {@link UpdateClusterConfigCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateClusterConfigCommand extends $Command<
   UpdateClusterConfigCommandInput,

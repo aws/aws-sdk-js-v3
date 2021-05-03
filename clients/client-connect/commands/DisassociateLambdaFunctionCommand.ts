@@ -24,6 +24,18 @@ export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBeare
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Remove the Lambda function from the dropdown options available in the relevant contact flow
  *    blocks.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new DisassociateLambdaFunctionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateLambdaFunctionCommandInput} for command's `input` shape.
+ * @see {@link DisassociateLambdaFunctionCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateLambdaFunctionCommand extends $Command<
   DisassociateLambdaFunctionCommandInput,

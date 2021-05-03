@@ -23,6 +23,18 @@ export interface GetSamplingTargetsCommandOutput extends GetSamplingTargetsResul
 /**
  * <p>Requests a sampling quota for rules that the service is using to sample requests.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new XRayClient(config);
+ * const command = new GetSamplingTargetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSamplingTargetsCommandInput} for command's `input` shape.
+ * @see {@link GetSamplingTargetsCommandOutput} for command's `response` shape.
+ * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSamplingTargetsCommand extends $Command<
   GetSamplingTargetsCommandInput,

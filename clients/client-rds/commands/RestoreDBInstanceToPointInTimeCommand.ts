@@ -33,6 +33,18 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *          <note>
  *             <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterToPointInTime</code>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new RestoreDBInstanceToPointInTimeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RestoreDBInstanceToPointInTimeCommandInput} for command's `input` shape.
+ * @see {@link RestoreDBInstanceToPointInTimeCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RestoreDBInstanceToPointInTimeCommand extends $Command<
   RestoreDBInstanceToPointInTimeCommandInput,

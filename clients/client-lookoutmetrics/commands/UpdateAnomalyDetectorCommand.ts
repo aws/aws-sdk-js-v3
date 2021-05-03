@@ -22,6 +22,18 @@ export interface UpdateAnomalyDetectorCommandOutput extends UpdateAnomalyDetecto
 
 /**
  * <p>Updates a detector. After activation, you can only change a detector's ingestion delay and description.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutMetricsClient(config);
+ * const command = new UpdateAnomalyDetectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAnomalyDetectorCommandInput} for command's `input` shape.
+ * @see {@link UpdateAnomalyDetectorCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAnomalyDetectorCommand extends $Command<
   UpdateAnomalyDetectorCommandInput,

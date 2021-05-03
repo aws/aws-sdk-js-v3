@@ -22,6 +22,18 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
 
 /**
  * <p>Returns detailed metadata about a task that is being executed.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataSyncClient(config);
+ * const command = new DescribeTaskExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeTaskExecutionCommandInput} for command's `input` shape.
+ * @see {@link DescribeTaskExecutionCommandOutput} for command's `response` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeTaskExecutionCommand extends $Command<
   DescribeTaskExecutionCommandInput,

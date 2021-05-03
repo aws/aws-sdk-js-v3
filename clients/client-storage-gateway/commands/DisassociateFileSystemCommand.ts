@@ -24,6 +24,18 @@ export interface DisassociateFileSystemCommandOutput extends DisassociateFileSys
  * <p>Disassociates an Amazon FSx file system from the specified gateway. After the
  *          disassociation process finishes, the gateway can no longer access the Amazon FSx file
  *          system. This operation is only supported in the Amazon FSx file gateway type.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new DisassociateFileSystemCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateFileSystemCommandInput} for command's `input` shape.
+ * @see {@link DisassociateFileSystemCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateFileSystemCommand extends $Command<
   DisassociateFileSystemCommandInput,

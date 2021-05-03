@@ -37,6 +37,18 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  *             sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer
  *                 Guide</a>.</p>
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESClient(config);
+ * const command = new CreateConfigurationSetEventDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
+ * @see {@link CreateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateConfigurationSetEventDestinationCommand extends $Command<
   CreateConfigurationSetEventDestinationCommandInput,

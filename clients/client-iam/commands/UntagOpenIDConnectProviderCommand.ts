@@ -25,6 +25,18 @@ export interface UntagOpenIDConnectProviderCommandOutput extends __MetadataBeare
  *       provider in IAM. For more information about OIDC providers, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html">About web identity federation</a>.
  *       For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
  *       <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new UntagOpenIDConnectProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UntagOpenIDConnectProviderCommandInput} for command's `input` shape.
+ * @see {@link UntagOpenIDConnectProviderCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UntagOpenIDConnectProviderCommand extends $Command<
   UntagOpenIDConnectProviderCommandInput,

@@ -22,6 +22,18 @@ export interface DeletePushTemplateCommandOutput extends DeletePushTemplateRespo
 
 /**
  * <p>Deletes a message template for messages that were sent through a push notification channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new DeletePushTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePushTemplateCommandInput} for command's `input` shape.
+ * @see {@link DeletePushTemplateCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePushTemplateCommand extends $Command<
   DeletePushTemplateCommandInput,

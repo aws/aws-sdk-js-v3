@@ -24,6 +24,18 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * <p>Describe an Amazon Lookout for Vision dataset.</p>
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:DescribeDataset</code> operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutVisionClient(config);
+ * const command = new DescribeDatasetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDatasetCommandInput} for command's `input` shape.
+ * @see {@link DescribeDatasetCommandOutput} for command's `response` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDatasetCommand extends $Command<
   DescribeDatasetCommandInput,

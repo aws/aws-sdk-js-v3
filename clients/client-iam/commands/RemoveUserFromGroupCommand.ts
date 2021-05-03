@@ -22,6 +22,18 @@ export interface RemoveUserFromGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes the specified user from the specified group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new RemoveUserFromGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveUserFromGroupCommandInput} for command's `input` shape.
+ * @see {@link RemoveUserFromGroupCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveUserFromGroupCommand extends $Command<
   RemoveUserFromGroupCommandInput,

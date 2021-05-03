@@ -27,6 +27,18 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  *         <code>NextToken</code> value. Use this value in a subsequent <code>DescribeBackups</code>
  *       request to get more backups. When you receive a response with no <code>NextToken</code> (or an
  *       empty or null value), that means there are no more backups to get.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMV2Client(config);
+ * const command = new DescribeBackupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeBackupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeBackupsCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeBackupsCommand extends $Command<
   DescribeBackupsCommandInput,

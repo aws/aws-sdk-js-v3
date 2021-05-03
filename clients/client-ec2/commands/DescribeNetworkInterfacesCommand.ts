@@ -22,6 +22,18 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
 
 /**
  * <p>Describes one or more of your network interfaces.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeNetworkInterfacesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeNetworkInterfacesCommandInput} for command's `input` shape.
+ * @see {@link DescribeNetworkInterfacesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeNetworkInterfacesCommand extends $Command<
   DescribeNetworkInterfacesCommandInput,

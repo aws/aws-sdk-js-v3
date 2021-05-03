@@ -40,6 +40,18 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  *             </ul>
  *
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new PromoteReadReplicaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PromoteReadReplicaCommandInput} for command's `input` shape.
+ * @see {@link PromoteReadReplicaCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PromoteReadReplicaCommand extends $Command<
   PromoteReadReplicaCommandInput,

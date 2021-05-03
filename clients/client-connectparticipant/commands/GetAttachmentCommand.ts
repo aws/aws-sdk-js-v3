@@ -27,6 +27,18 @@ export interface GetAttachmentCommandOutput extends GetAttachmentResponse, __Met
 /**
  * <p>Provides a pre-signed URL for download of a completed attachment. This is an
  *             asynchronous API for use with active contacts.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectParticipantClient(config);
+ * const command = new GetAttachmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAttachmentCommandInput} for command's `input` shape.
+ * @see {@link GetAttachmentCommandOutput} for command's `response` shape.
+ * @see {@link ConnectParticipantClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAttachmentCommand extends $Command<
   GetAttachmentCommandInput,

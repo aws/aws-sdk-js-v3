@@ -23,6 +23,18 @@ export interface DisableFastSnapshotRestoresCommandOutput extends DisableFastSna
 
 /**
  * <p>Disables fast snapshot restores for the specified snapshots in the specified Availability Zones.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DisableFastSnapshotRestoresCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableFastSnapshotRestoresCommandInput} for command's `input` shape.
+ * @see {@link DisableFastSnapshotRestoresCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableFastSnapshotRestoresCommand extends $Command<
   DisableFastSnapshotRestoresCommandInput,

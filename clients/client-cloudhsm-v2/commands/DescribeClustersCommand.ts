@@ -27,6 +27,18 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  *       a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeClusters</code>
  *       request to get more clusters. When you receive a response with no <code>NextToken</code> (or
  *       an empty or null value), that means there are no more clusters to get.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMV2Client(config);
+ * const command = new DescribeClustersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeClustersCommandInput} for command's `input` shape.
+ * @see {@link DescribeClustersCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeClustersCommand extends $Command<
   DescribeClustersCommandInput,

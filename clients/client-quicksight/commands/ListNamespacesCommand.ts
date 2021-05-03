@@ -22,6 +22,18 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
 
 /**
  * <p>Lists the namespaces for the specified AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new ListNamespacesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListNamespacesCommandInput} for command's `input` shape.
+ * @see {@link ListNamespacesCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListNamespacesCommand extends $Command<
   ListNamespacesCommandInput,

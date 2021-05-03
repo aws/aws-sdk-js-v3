@@ -23,6 +23,18 @@ export interface HttpPayloadWithXmlNameCommandOutput extends HttpPayloadWithXmlN
 /**
  * The following example serializes a payload that uses an XML name,
  * changing the wrapper name.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestXmlProtocolClient(config);
+ * const command = new HttpPayloadWithXmlNameCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link HttpPayloadWithXmlNameCommandInput} for command's `input` shape.
+ * @see {@link HttpPayloadWithXmlNameCommandOutput} for command's `response` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class HttpPayloadWithXmlNameCommand extends $Command<
   HttpPayloadWithXmlNameCommandInput,

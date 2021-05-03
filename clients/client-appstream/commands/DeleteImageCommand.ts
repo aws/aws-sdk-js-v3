@@ -23,6 +23,18 @@ export interface DeleteImageCommandOutput extends DeleteImageResult, __MetadataB
 /**
  * <p>Deletes the specified image. You cannot delete an image when it is in use.
  *             After you delete an image, you cannot provision new capacity using the image.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new DeleteImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteImageCommandInput} for command's `input` shape.
+ * @see {@link DeleteImageCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteImageCommand extends $Command<
   DeleteImageCommandInput,

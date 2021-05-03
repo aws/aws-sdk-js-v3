@@ -25,6 +25,18 @@ export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetwo
  *             described. To describe the objects in your global network, you must use the appropriate
  *                 <code>Get*</code> action. For example, to list the transit gateways in your global
  *             network, use <a>GetTransitGatewayRegistrations</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new DescribeGlobalNetworksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeGlobalNetworksCommandInput} for command's `input` shape.
+ * @see {@link DescribeGlobalNetworksCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeGlobalNetworksCommand extends $Command<
   DescribeGlobalNetworksCommandInput,

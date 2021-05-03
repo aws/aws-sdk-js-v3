@@ -22,6 +22,18 @@ export interface PutFirewallRuleGroupPolicyCommandOutput extends PutFirewallRule
 
 /**
  * <p>Attaches an AWS Identity and Access Management (AWS IAM) policy for sharing the rule group. You can use the policy to share the rule group using AWS Resource Access Manager (RAM). </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new PutFirewallRuleGroupPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutFirewallRuleGroupPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutFirewallRuleGroupPolicyCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutFirewallRuleGroupPolicyCommand extends $Command<
   PutFirewallRuleGroupPolicyCommandInput,

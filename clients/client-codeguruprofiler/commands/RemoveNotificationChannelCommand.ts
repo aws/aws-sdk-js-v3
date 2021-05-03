@@ -22,6 +22,18 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
 
 /**
  * <p>Remove one anomaly notifications channel for a profiling group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeGuruProfilerClient(config);
+ * const command = new RemoveNotificationChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveNotificationChannelCommandInput} for command's `input` shape.
+ * @see {@link RemoveNotificationChannelCommandOutput} for command's `response` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveNotificationChannelCommand extends $Command<
   RemoveNotificationChannelCommandInput,

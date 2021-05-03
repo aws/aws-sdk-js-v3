@@ -28,6 +28,18 @@ export interface GetTransitGatewayMulticastDomainAssociationsCommandOutput
 
 /**
  * <p>Gets information about the associations for the transit gateway multicast domain.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new GetTransitGatewayMulticastDomainAssociationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTransitGatewayMulticastDomainAssociationsCommandInput} for command's `input` shape.
+ * @see {@link GetTransitGatewayMulticastDomainAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTransitGatewayMulticastDomainAssociationsCommand extends $Command<
   GetTransitGatewayMulticastDomainAssociationsCommandInput,

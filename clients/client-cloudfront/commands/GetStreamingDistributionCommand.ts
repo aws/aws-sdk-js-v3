@@ -22,6 +22,18 @@ export interface GetStreamingDistributionCommandOutput extends GetStreamingDistr
 
 /**
  * <p>Gets information about a specified RTMP distribution, including the distribution configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new GetStreamingDistributionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetStreamingDistributionCommandInput} for command's `input` shape.
+ * @see {@link GetStreamingDistributionCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetStreamingDistributionCommand extends $Command<
   GetStreamingDistributionCommandInput,

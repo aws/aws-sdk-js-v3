@@ -22,6 +22,18 @@ export interface GetPhoneNumberCommandOutput extends GetPhoneNumberResponse, __M
 
 /**
  * <p>Retrieves details for the specified phone number ID, such as associations, capabilities, and product type.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new GetPhoneNumberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPhoneNumberCommandInput} for command's `input` shape.
+ * @see {@link GetPhoneNumberCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPhoneNumberCommand extends $Command<
   GetPhoneNumberCommandInput,

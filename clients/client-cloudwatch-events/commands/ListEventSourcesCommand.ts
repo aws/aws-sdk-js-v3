@@ -23,6 +23,18 @@ export interface ListEventSourcesCommandOutput extends ListEventSourcesResponse,
 /**
  * <p>You can use this to see all the partner event sources that have been shared with your AWS
  *       account. For more information about partner event sources, see <a>CreateEventBus</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchEventsClient(config);
+ * const command = new ListEventSourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEventSourcesCommandInput} for command's `input` shape.
+ * @see {@link ListEventSourcesCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEventSourcesCommand extends $Command<
   ListEventSourcesCommandInput,

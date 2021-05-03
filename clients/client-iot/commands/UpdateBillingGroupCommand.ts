@@ -22,6 +22,18 @@ export interface UpdateBillingGroupCommandOutput extends UpdateBillingGroupRespo
 
 /**
  * <p>Updates information about the billing group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new UpdateBillingGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateBillingGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateBillingGroupCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateBillingGroupCommand extends $Command<
   UpdateBillingGroupCommandInput,

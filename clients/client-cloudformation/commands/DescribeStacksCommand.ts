@@ -27,6 +27,18 @@ export interface DescribeStacksCommandOutput extends DescribeStacksOutput, __Met
  *             <p>If the stack does not exist, an <code>AmazonCloudFormationException</code> is
  *             returned.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new DescribeStacksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeStacksCommandInput} for command's `input` shape.
+ * @see {@link DescribeStacksCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeStacksCommand extends $Command<
   DescribeStacksCommandInput,

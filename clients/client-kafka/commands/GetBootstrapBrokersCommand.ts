@@ -22,6 +22,18 @@ export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersRes
 
 /**
  * <p>A list of brokers that a client application can use to bootstrap.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KafkaClient(config);
+ * const command = new GetBootstrapBrokersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBootstrapBrokersCommandInput} for command's `input` shape.
+ * @see {@link GetBootstrapBrokersCommandOutput} for command's `response` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBootstrapBrokersCommand extends $Command<
   GetBootstrapBrokersCommandInput,

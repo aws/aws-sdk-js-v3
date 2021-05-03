@@ -32,6 +32,18 @@ export interface AssociateFileSystemAliasesCommandOutput extends AssociateFileSy
  *             Use the  API
  *             operation to monitor the status of the aliases Amazon FSx is
  *             associating with the file system.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FSxClient(config);
+ * const command = new AssociateFileSystemAliasesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateFileSystemAliasesCommandInput} for command's `input` shape.
+ * @see {@link AssociateFileSystemAliasesCommandOutput} for command's `response` shape.
+ * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateFileSystemAliasesCommand extends $Command<
   AssociateFileSystemAliasesCommandInput,

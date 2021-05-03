@@ -30,6 +30,18 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  *                     <a href="https://docs.aws.amazon.com/streams/latest/dev/controlling-access.html">Controlling Access to Amazon Kinesis Data Streams Resources Using
  *                 IAM</a>.</p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisClient(config);
+ * const command = new ListShardsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListShardsCommandInput} for command's `input` shape.
+ * @see {@link ListShardsCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListShardsCommand extends $Command<
   ListShardsCommandInput,

@@ -31,6 +31,18 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  *                 Guide</a>.</p>
  *         </important>
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESClient(config);
+ * const command = new SetIdentityMailFromDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetIdentityMailFromDomainCommandInput} for command's `input` shape.
+ * @see {@link SetIdentityMailFromDomainCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetIdentityMailFromDomainCommand extends $Command<
   SetIdentityMailFromDomainCommandInput,

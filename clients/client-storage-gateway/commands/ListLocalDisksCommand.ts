@@ -30,6 +30,18 @@ export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __Met
  *          available to use), missing (the disk is no longer connected to the gateway), or mismatch
  *          (the disk node is occupied by a disk that has incorrect metadata or the disk content is
  *          corrupted).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new ListLocalDisksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListLocalDisksCommandInput} for command's `input` shape.
+ * @see {@link ListLocalDisksCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListLocalDisksCommand extends $Command<
   ListLocalDisksCommandInput,

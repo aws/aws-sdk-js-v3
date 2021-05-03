@@ -29,6 +29,18 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  *          check the <code>Status</code> field in the response.</p>
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:UpdateDatasetEntries</code> operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutVisionClient(config);
+ * const command = new UpdateDatasetEntriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDatasetEntriesCommandInput} for command's `input` shape.
+ * @see {@link UpdateDatasetEntriesCommandOutput} for command's `response` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDatasetEntriesCommand extends $Command<
   UpdateDatasetEntriesCommandInput,

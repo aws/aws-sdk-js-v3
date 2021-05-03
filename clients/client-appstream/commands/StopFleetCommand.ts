@@ -19,6 +19,18 @@ export interface StopFleetCommandOutput extends StopFleetResult, __MetadataBeare
 
 /**
  * <p>Stops the specified fleet.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new StopFleetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopFleetCommandInput} for command's `input` shape.
+ * @see {@link StopFleetCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopFleetCommand extends $Command<
   StopFleetCommandInput,

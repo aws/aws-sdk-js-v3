@@ -24,6 +24,18 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  * <p>
  *    		Returns details about an insight that you specify using its ID.
  *    	</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DevOpsGuruClient(config);
+ * const command = new DescribeInsightCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeInsightCommandInput} for command's `input` shape.
+ * @see {@link DescribeInsightCommandOutput} for command's `response` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeInsightCommand extends $Command<
   DescribeInsightCommandInput,

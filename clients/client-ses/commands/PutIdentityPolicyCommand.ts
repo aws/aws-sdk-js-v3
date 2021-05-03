@@ -32,6 +32,18 @@ export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyRespons
  *             the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer
  *                 Guide</a>.</p>
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESClient(config);
+ * const command = new PutIdentityPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutIdentityPolicyCommandInput} for command's `input` shape.
+ * @see {@link PutIdentityPolicyCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutIdentityPolicyCommand extends $Command<
   PutIdentityPolicyCommandInput,

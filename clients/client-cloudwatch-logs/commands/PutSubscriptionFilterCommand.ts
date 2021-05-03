@@ -51,6 +51,18 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  *       group.</p>
  *          <p>To perform a <code>PutSubscriptionFilter</code> operation, you must also have the
  *       <code>iam:PassRole</code> permission.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new PutSubscriptionFilterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutSubscriptionFilterCommandInput} for command's `input` shape.
+ * @see {@link PutSubscriptionFilterCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutSubscriptionFilterCommand extends $Command<
   PutSubscriptionFilterCommandInput,

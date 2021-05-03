@@ -23,6 +23,18 @@ export interface UpdatePortfolioCommandOutput extends UpdatePortfolioOutput, __M
 /**
  * <p>Updates the specified portfolio.</p>
  *          <p>You cannot update a product that was shared with you.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new UpdatePortfolioCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdatePortfolioCommandInput} for command's `input` shape.
+ * @see {@link UpdatePortfolioCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdatePortfolioCommand extends $Command<
   UpdatePortfolioCommandInput,

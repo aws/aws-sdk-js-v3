@@ -31,6 +31,18 @@ export interface GetDomainPermissionsPolicyCommandOutput extends GetDomainPermis
  *            and resource-based policies </a> in the <i>AWS Identity and Access Management User Guide</i>.
  *        </p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeartifactClient(config);
+ * const command = new GetDomainPermissionsPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDomainPermissionsPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetDomainPermissionsPolicyCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDomainPermissionsPolicyCommand extends $Command<
   GetDomainPermissionsPolicyCommandInput,

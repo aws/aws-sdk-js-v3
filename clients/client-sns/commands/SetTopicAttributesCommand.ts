@@ -22,6 +22,18 @@ export interface SetTopicAttributesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Allows a topic owner to set an attribute of the topic to a new value.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SNSClient(config);
+ * const command = new SetTopicAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetTopicAttributesCommandInput} for command's `input` shape.
+ * @see {@link SetTopicAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetTopicAttributesCommand extends $Command<
   SetTopicAttributesCommandInput,

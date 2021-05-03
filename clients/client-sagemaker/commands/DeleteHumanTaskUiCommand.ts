@@ -26,6 +26,18 @@ export interface DeleteHumanTaskUiCommandOutput extends DeleteHumanTaskUiRespons
  *       To see a list of human task user interfaces
  *       (work task templates) in your account, use .
  *       When you delete a worker task template, it no longer appears when you call <code>ListHumanTaskUis</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteHumanTaskUiCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteHumanTaskUiCommandInput} for command's `input` shape.
+ * @see {@link DeleteHumanTaskUiCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteHumanTaskUiCommand extends $Command<
   DeleteHumanTaskUiCommandInput,

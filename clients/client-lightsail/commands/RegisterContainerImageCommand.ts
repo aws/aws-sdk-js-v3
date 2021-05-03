@@ -29,6 +29,18 @@ export interface RegisterContainerImageCommandOutput extends RegisterContainerIm
  *         more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images">Pushing and managing container images on your Amazon Lightsail container services</a>
  *         in the <i>Lightsail Dev Guide</i>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new RegisterContainerImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterContainerImageCommandInput} for command's `input` shape.
+ * @see {@link RegisterContainerImageCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterContainerImageCommand extends $Command<
   RegisterContainerImageCommandInput,

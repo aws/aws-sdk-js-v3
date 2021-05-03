@@ -22,6 +22,18 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
 
 /**
  * <p>Creates a stack to start streaming applications to users. A stack consists of an associated fleet, user access policies, and storage configurations. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new CreateStackCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateStackCommandInput} for command's `input` shape.
+ * @see {@link CreateStackCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateStackCommand extends $Command<
   CreateStackCommandInput,

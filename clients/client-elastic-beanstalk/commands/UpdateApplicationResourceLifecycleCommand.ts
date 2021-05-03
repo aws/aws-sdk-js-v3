@@ -27,6 +27,18 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
 
 /**
  * <p>Modifies lifecycle settings for an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new UpdateApplicationResourceLifecycleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateApplicationResourceLifecycleCommandInput} for command's `input` shape.
+ * @see {@link UpdateApplicationResourceLifecycleCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateApplicationResourceLifecycleCommand extends $Command<
   UpdateApplicationResourceLifecycleCommandInput,

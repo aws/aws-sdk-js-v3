@@ -22,6 +22,18 @@ export interface DeleteAnomalyMonitorCommandOutput extends DeleteAnomalyMonitorR
 
 /**
  * <p>Deletes a cost anomaly monitor. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CostExplorerClient(config);
+ * const command = new DeleteAnomalyMonitorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAnomalyMonitorCommandInput} for command's `input` shape.
+ * @see {@link DeleteAnomalyMonitorCommandOutput} for command's `response` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAnomalyMonitorCommand extends $Command<
   DeleteAnomalyMonitorCommandInput,

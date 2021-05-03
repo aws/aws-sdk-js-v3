@@ -35,6 +35,18 @@ export interface GetServiceSettingCommandOutput extends GetServiceSettingResult,
  *    the original value defined by the AWS service team.</p>
  *
  *          <p>Query the current service setting for the account. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new GetServiceSettingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetServiceSettingCommandInput} for command's `input` shape.
+ * @see {@link GetServiceSettingCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetServiceSettingCommand extends $Command<
   GetServiceSettingCommandInput,

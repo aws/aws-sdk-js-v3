@@ -22,6 +22,18 @@ export interface DeleteBranchCommandOutput extends DeleteBranchOutput, __Metadat
 
 /**
  * <p>Deletes a branch from a repository, unless that branch is the default branch for the repository. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new DeleteBranchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBranchCommandInput} for command's `input` shape.
+ * @see {@link DeleteBranchCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBranchCommand extends $Command<
   DeleteBranchCommandInput,

@@ -37,6 +37,18 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  *             supported.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot Fleet requests</a>
  *        in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new RequestSpotFleetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RequestSpotFleetCommandInput} for command's `input` shape.
+ * @see {@link RequestSpotFleetCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RequestSpotFleetCommand extends $Command<
   RequestSpotFleetCommandInput,

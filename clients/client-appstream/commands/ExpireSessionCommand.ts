@@ -22,6 +22,18 @@ export interface ExpireSessionCommandOutput extends ExpireSessionResult, __Metad
 
 /**
  * <p>Immediately stops the specified streaming session.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new ExpireSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ExpireSessionCommandInput} for command's `input` shape.
+ * @see {@link ExpireSessionCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ExpireSessionCommand extends $Command<
   ExpireSessionCommandInput,

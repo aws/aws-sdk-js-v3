@@ -27,6 +27,18 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  *             pipeline execution is in a <code>Stopping</code> state. After all in-progress actions
  *             are completed or abandoned, the pipeline execution is in a <code>Stopped</code>
  *             state.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new StopPipelineExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopPipelineExecutionCommandInput} for command's `input` shape.
+ * @see {@link StopPipelineExecutionCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopPipelineExecutionCommand extends $Command<
   StopPipelineExecutionCommandInput,

@@ -22,6 +22,18 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResult, _
 
 /**
  * <p>For the specified directory, lists all the certificates registered for a secure LDAP or client certificate authentication.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new ListCertificatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCertificatesCommandInput} for command's `input` shape.
+ * @see {@link ListCertificatesCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCertificatesCommand extends $Command<
   ListCertificatesCommandInput,

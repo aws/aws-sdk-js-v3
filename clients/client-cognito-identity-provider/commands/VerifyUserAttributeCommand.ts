@@ -26,6 +26,18 @@ export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeRes
 
 /**
  * <p>Verifies the specified user attributes in the user pool.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new VerifyUserAttributeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link VerifyUserAttributeCommandInput} for command's `input` shape.
+ * @see {@link VerifyUserAttributeCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class VerifyUserAttributeCommand extends $Command<
   VerifyUserAttributeCommandInput,

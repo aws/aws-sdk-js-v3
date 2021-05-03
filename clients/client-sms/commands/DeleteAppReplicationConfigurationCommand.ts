@@ -27,6 +27,18 @@ export interface DeleteAppReplicationConfigurationCommandOutput
 
 /**
  * <p>Deletes the replication configuration for the specified application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SMSClient(config);
+ * const command = new DeleteAppReplicationConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAppReplicationConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteAppReplicationConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAppReplicationConfigurationCommand extends $Command<
   DeleteAppReplicationConfigurationCommandInput,

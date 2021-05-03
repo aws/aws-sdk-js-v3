@@ -22,6 +22,18 @@ export interface PutEntityTypeCommandOutput extends PutEntityTypeResult, __Metad
 
 /**
  * <p>Creates or updates an entity type. An entity represents who is performing the event. As part of a fraud prediction, you pass the entity ID to indicate the specific entity who performed the event. An entity type classifies the entity. Example classifications include customer, merchant, or account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new PutEntityTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutEntityTypeCommandInput} for command's `input` shape.
+ * @see {@link PutEntityTypeCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutEntityTypeCommand extends $Command<
   PutEntityTypeCommandInput,

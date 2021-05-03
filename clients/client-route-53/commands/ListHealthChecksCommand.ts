@@ -22,6 +22,18 @@ export interface ListHealthChecksCommandOutput extends ListHealthChecksResponse,
 
 /**
  * <p>Retrieve a list of the health checks that are associated with the current AWS account. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new ListHealthChecksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListHealthChecksCommandInput} for command's `input` shape.
+ * @see {@link ListHealthChecksCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListHealthChecksCommand extends $Command<
   ListHealthChecksCommandInput,

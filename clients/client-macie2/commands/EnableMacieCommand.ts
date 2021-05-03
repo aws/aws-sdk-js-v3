@@ -22,6 +22,18 @@ export interface EnableMacieCommandOutput extends EnableMacieResponse, __Metadat
 
 /**
  * <p>Enables Amazon Macie and specifies the configuration settings for a Macie account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new EnableMacieCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableMacieCommandInput} for command's `input` shape.
+ * @see {@link EnableMacieCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableMacieCommand extends $Command<
   EnableMacieCommandInput,

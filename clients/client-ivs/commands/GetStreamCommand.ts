@@ -22,6 +22,18 @@ export interface GetStreamCommandOutput extends GetStreamResponse, __MetadataBea
 
 /**
  * <p>Gets information about the active (live) stream on a specified channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IvsClient(config);
+ * const command = new GetStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetStreamCommandInput} for command's `input` shape.
+ * @see {@link GetStreamCommandOutput} for command's `response` shape.
+ * @see {@link IvsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetStreamCommand extends $Command<GetStreamCommandInput, GetStreamCommandOutput, IvsClientResolvedConfig> {
   // Start section: command_properties

@@ -22,6 +22,18 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
 
 /**
  * <p>This operation returns information about a revision.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataExchangeClient(config);
+ * const command = new GetRevisionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRevisionCommandInput} for command's `input` shape.
+ * @see {@link GetRevisionCommandOutput} for command's `response` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRevisionCommand extends $Command<
   GetRevisionCommandInput,

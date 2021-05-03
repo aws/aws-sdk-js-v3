@@ -26,6 +26,18 @@ export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse,
  *    Flow language</a>.</p>
  *          <p>For more information about contact flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Contact Flows</a> in the
  *     <i>Amazon Connect Administrator Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new ListContactFlowsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListContactFlowsCommandInput} for command's `input` shape.
+ * @see {@link ListContactFlowsCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListContactFlowsCommand extends $Command<
   ListContactFlowsCommandInput,

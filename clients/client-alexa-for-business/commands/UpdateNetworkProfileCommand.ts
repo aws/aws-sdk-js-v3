@@ -22,6 +22,18 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
 
 /**
  * <p>Updates a network profile by the network profile ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new UpdateNetworkProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateNetworkProfileCommandInput} for command's `input` shape.
+ * @see {@link UpdateNetworkProfileCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateNetworkProfileCommand extends $Command<
   UpdateNetworkProfileCommandInput,

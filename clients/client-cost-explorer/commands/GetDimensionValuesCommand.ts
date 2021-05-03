@@ -22,6 +22,18 @@ export interface GetDimensionValuesCommandOutput extends GetDimensionValuesRespo
 
 /**
  * <p>Retrieves all available filter values for a specified filter over a period of time. You can search the dimension values for an arbitrary string. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CostExplorerClient(config);
+ * const command = new GetDimensionValuesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDimensionValuesCommandInput} for command's `input` shape.
+ * @see {@link GetDimensionValuesCommandOutput} for command's `response` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDimensionValuesCommand extends $Command<
   GetDimensionValuesCommandInput,

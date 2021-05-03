@@ -158,6 +158,18 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  *         </note>
  *         <p>For more information about service last accessed data, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Reducing policy scope by
  *                 viewing user activity</a> in the <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new GenerateOrganizationsAccessReportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GenerateOrganizationsAccessReportCommandInput} for command's `input` shape.
+ * @see {@link GenerateOrganizationsAccessReportCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GenerateOrganizationsAccessReportCommand extends $Command<
   GenerateOrganizationsAccessReportCommandInput,

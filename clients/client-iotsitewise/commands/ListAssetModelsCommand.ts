@@ -22,6 +22,18 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
 
 /**
  * <p>Retrieves a paginated list of summaries of all asset models.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new ListAssetModelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAssetModelsCommandInput} for command's `input` shape.
+ * @see {@link ListAssetModelsCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAssetModelsCommand extends $Command<
   ListAssetModelsCommandInput,

@@ -22,6 +22,18 @@ export interface CreateUsagePlanKeyCommandOutput extends UsagePlanKey, __Metadat
 
 /**
  * <p>Creates a usage plan key for adding an existing API key to a usage plan.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new CreateUsagePlanKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateUsagePlanKeyCommandInput} for command's `input` shape.
+ * @see {@link CreateUsagePlanKeyCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateUsagePlanKeyCommand extends $Command<
   CreateUsagePlanKeyCommandInput,

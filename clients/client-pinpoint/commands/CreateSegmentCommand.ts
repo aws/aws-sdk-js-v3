@@ -22,6 +22,18 @@ export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __Met
 
 /**
  * <p>Creates a new segment for an application or updates the configuration, dimension, and other settings for an existing segment that's associated with an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new CreateSegmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSegmentCommandInput} for command's `input` shape.
+ * @see {@link CreateSegmentCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSegmentCommand extends $Command<
   CreateSegmentCommandInput,

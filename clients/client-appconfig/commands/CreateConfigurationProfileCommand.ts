@@ -39,6 +39,18 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  *          <p>For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-creating-configuration-and-profile.html">Create a
  *             Configuration and a Configuration Profile</a> in the
  *             <i>AWS AppConfig User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppConfigClient(config);
+ * const command = new CreateConfigurationProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateConfigurationProfileCommandInput} for command's `input` shape.
+ * @see {@link CreateConfigurationProfileCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateConfigurationProfileCommand extends $Command<
   CreateConfigurationProfileCommandInput,

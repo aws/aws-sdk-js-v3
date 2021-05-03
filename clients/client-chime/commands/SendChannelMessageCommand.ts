@@ -30,6 +30,18 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  *             <p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata. <code>CONTROL</code> messages can contain 30 bytes of
  *     data and no metadata.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new SendChannelMessageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendChannelMessageCommandInput} for command's `input` shape.
+ * @see {@link SendChannelMessageCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendChannelMessageCommand extends $Command<
   SendChannelMessageCommandInput,

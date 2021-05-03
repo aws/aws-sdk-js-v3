@@ -25,6 +25,18 @@ export interface CreateLocationObjectStorageCommandOutput
 /**
  * <p>Creates an endpoint for a self-managed object storage bucket. For more information
  *       about self-managed object storage locations, see <a>create-object-location</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataSyncClient(config);
+ * const command = new CreateLocationObjectStorageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLocationObjectStorageCommandInput} for command's `input` shape.
+ * @see {@link CreateLocationObjectStorageCommandOutput} for command's `response` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLocationObjectStorageCommand extends $Command<
   CreateLocationObjectStorageCommandInput,

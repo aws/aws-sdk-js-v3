@@ -31,6 +31,18 @@ export interface CreatePlaceIndexCommandOutput extends CreatePlaceIndexResponse,
  *             in Japan. For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon
  *             Location Service.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LocationClient(config);
+ * const command = new CreatePlaceIndexCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePlaceIndexCommandInput} for command's `input` shape.
+ * @see {@link CreatePlaceIndexCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePlaceIndexCommand extends $Command<
   CreatePlaceIndexCommandInput,

@@ -22,6 +22,18 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
 
 /**
  * <p>Stops an in-progress operation on a stack set and its associated stack instances. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new StopStackSetOperationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopStackSetOperationCommandInput} for command's `input` shape.
+ * @see {@link StopStackSetOperationCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopStackSetOperationCommand extends $Command<
   StopStackSetOperationCommandInput,

@@ -19,6 +19,18 @@ export interface PutLabelCommandOutput extends PutLabelResult, __MetadataBearer 
 
 /**
  * <p>Creates or updates label. A label classifies an event as fraudulent or legitimate. Labels are associated with event types and used to train supervised machine learning models in Amazon Fraud Detector. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new PutLabelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutLabelCommandInput} for command's `input` shape.
+ * @see {@link PutLabelCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutLabelCommand extends $Command<
   PutLabelCommandInput,

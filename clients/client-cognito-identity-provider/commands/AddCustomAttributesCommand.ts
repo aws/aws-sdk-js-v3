@@ -27,6 +27,18 @@ export interface AddCustomAttributesCommandOutput extends AddCustomAttributesRes
 
 /**
  * <p>Adds additional user attributes to the user pool schema.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new AddCustomAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddCustomAttributesCommandInput} for command's `input` shape.
+ * @see {@link AddCustomAttributesCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddCustomAttributesCommand extends $Command<
   AddCustomAttributesCommandInput,

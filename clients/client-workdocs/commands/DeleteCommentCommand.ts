@@ -22,6 +22,18 @@ export interface DeleteCommentCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified comment from the document version.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new DeleteCommentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCommentCommandInput} for command's `input` shape.
+ * @see {@link DeleteCommentCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCommentCommand extends $Command<
   DeleteCommentCommandInput,

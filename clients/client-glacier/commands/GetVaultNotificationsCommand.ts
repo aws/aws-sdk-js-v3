@@ -37,6 +37,18 @@ export interface GetVaultNotificationsCommandOutput extends GetVaultNotification
  *          <p>For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html">Configuring Vault
  *             Notifications in Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-get.html">Get Vault Notification
  *             Configuration </a> in the <i>Amazon Glacier Developer Guide</i>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlacierClient(config);
+ * const command = new GetVaultNotificationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetVaultNotificationsCommandInput} for command's `input` shape.
+ * @see {@link GetVaultNotificationsCommandOutput} for command's `response` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetVaultNotificationsCommand extends $Command<
   GetVaultNotificationsCommandInput,

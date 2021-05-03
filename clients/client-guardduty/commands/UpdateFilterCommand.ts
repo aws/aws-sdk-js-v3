@@ -22,6 +22,18 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
 
 /**
  * <p>Updates the filter specified by the filter name.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new UpdateFilterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFilterCommandInput} for command's `input` shape.
+ * @see {@link UpdateFilterCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFilterCommand extends $Command<
   UpdateFilterCommandInput,

@@ -53,6 +53,18 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  *
  *          <p>This operation is idempotent, which means that it completes at most one time. If you
  *       attempt to create multiple target groups with the same settings, each call succeeds.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new CreateTargetGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTargetGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateTargetGroupCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTargetGroupCommand extends $Command<
   CreateTargetGroupCommandInput,

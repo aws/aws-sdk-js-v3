@@ -32,6 +32,18 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3ControlClient(config);
+ * const command = new PutAccessPointConfigurationForObjectLambdaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAccessPointConfigurationForObjectLambdaCommandInput} for command's `input` shape.
+ * @see {@link PutAccessPointConfigurationForObjectLambdaCommandOutput} for command's `response` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command<
   PutAccessPointConfigurationForObjectLambdaCommandInput,

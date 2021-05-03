@@ -23,6 +23,18 @@ export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectP
 /**
  * <p>Returns information about the specified OpenID Connect (OIDC) provider resource object
  *             in IAM.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new GetOpenIDConnectProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOpenIDConnectProviderCommandInput} for command's `input` shape.
+ * @see {@link GetOpenIDConnectProviderCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOpenIDConnectProviderCommand extends $Command<
   GetOpenIDConnectProviderCommandInput,

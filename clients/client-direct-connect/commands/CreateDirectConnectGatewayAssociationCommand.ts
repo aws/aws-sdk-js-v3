@@ -29,6 +29,18 @@ export interface CreateDirectConnectGatewayAssociationCommandOutput
 /**
  * <p>Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual
  *       private gateway must be attached to a VPC and must not be associated with another Direct Connect gateway.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new CreateDirectConnectGatewayAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDirectConnectGatewayAssociationCommandInput} for command's `input` shape.
+ * @see {@link CreateDirectConnectGatewayAssociationCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDirectConnectGatewayAssociationCommand extends $Command<
   CreateDirectConnectGatewayAssociationCommandInput,

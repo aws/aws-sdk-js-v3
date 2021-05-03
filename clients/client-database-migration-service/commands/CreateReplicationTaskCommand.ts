@@ -26,6 +26,18 @@ export interface CreateReplicationTaskCommandOutput extends CreateReplicationTas
 
 /**
  * <p>Creates a replication task using the specified parameters.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new CreateReplicationTaskCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateReplicationTaskCommandInput} for command's `input` shape.
+ * @see {@link CreateReplicationTaskCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateReplicationTaskCommand extends $Command<
   CreateReplicationTaskCommandInput,

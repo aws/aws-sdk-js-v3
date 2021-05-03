@@ -22,6 +22,18 @@ export interface ListAttachedPoliciesCommandOutput extends ListAttachedPoliciesR
 
 /**
  * <p>Lists the policies attached to the specified thing group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ListAttachedPoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAttachedPoliciesCommandInput} for command's `input` shape.
+ * @see {@link ListAttachedPoliciesCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAttachedPoliciesCommand extends $Command<
   ListAttachedPoliciesCommandInput,

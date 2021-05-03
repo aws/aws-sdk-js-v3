@@ -27,6 +27,18 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  *          <p>If you enabled metadata encryption in Data Catalog settings, and you do not have
  *       permission on the AWS KMS key, the operation can't return the Data Catalog resource
  *       policy.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetResourcePoliciesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetResourcePoliciesCommandInput} for command's `input` shape.
+ * @see {@link GetResourcePoliciesCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetResourcePoliciesCommand extends $Command<
   GetResourcePoliciesCommandInput,

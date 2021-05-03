@@ -29,6 +29,18 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  *          <p>If you have more agents than are returned in a response (that is, the response returns
  *       only a truncated list of your agents), the response contains a marker that you can specify in
  *       your next request to fetch the next page of agents.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataSyncClient(config);
+ * const command = new ListAgentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAgentsCommandInput} for command's `input` shape.
+ * @see {@link ListAgentsCommandOutput} for command's `response` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAgentsCommand extends $Command<
   ListAgentsCommandInput,

@@ -32,6 +32,18 @@ export interface CreateVpcEndpointConnectionNotificationCommandOutput
  *             create an SNS topic to receive notifications. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Create a Topic</a> in
  *             the <i>Amazon Simple Notification Service Developer Guide</i>.</p>
  *         <p>You can create a connection notification for interface endpoints only.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateVpcEndpointConnectionNotificationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVpcEndpointConnectionNotificationCommandInput} for command's `input` shape.
+ * @see {@link CreateVpcEndpointConnectionNotificationCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateVpcEndpointConnectionNotificationCommand extends $Command<
   CreateVpcEndpointConnectionNotificationCommandInput,

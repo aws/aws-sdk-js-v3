@@ -24,6 +24,18 @@ export interface AssociateContactWithAddressBookCommandOutput
 
 /**
  * <p>Associates a contact with a given address book.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new AssociateContactWithAddressBookCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateContactWithAddressBookCommandInput} for command's `input` shape.
+ * @see {@link AssociateContactWithAddressBookCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateContactWithAddressBookCommand extends $Command<
   AssociateContactWithAddressBookCommandInput,

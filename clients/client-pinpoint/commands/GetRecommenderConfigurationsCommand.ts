@@ -24,6 +24,18 @@ export interface GetRecommenderConfigurationsCommandOutput
 
 /**
  * <p>Retrieves information about all the recommender model configurations that are associated with your Amazon Pinpoint account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new GetRecommenderConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRecommenderConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link GetRecommenderConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRecommenderConfigurationsCommand extends $Command<
   GetRecommenderConfigurationsCommandInput,

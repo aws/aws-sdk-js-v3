@@ -28,6 +28,18 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  *          <p>Optionally, you can set the new version as the policy's default version. The default
  *          version is the operative version (that is, the version that is in effect for the
  *          certificates to which the policy is attached).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new CreatePolicyVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreatePolicyVersionCommandInput} for command's `input` shape.
+ * @see {@link CreatePolicyVersionCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreatePolicyVersionCommand extends $Command<
   CreatePolicyVersionCommandInput,

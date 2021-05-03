@@ -23,6 +23,18 @@ export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataB
 /**
  * <p>Registers the IAM role that grants Amazon Inspector access to AWS Services needed to
  *          perform security assessments.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new RegisterCrossAccountAccessRoleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterCrossAccountAccessRoleCommandInput} for command's `input` shape.
+ * @see {@link RegisterCrossAccountAccessRoleCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterCrossAccountAccessRoleCommand extends $Command<
   RegisterCrossAccountAccessRoleCommandInput,

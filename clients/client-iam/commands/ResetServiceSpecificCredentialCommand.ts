@@ -27,6 +27,18 @@ export interface ResetServiceSpecificCredentialCommandOutput
  *             generated and cryptographically strong. It cannot be configured by the user. Resetting
  *             the password immediately invalidates the previous password associated with this
  *             user.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new ResetServiceSpecificCredentialCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResetServiceSpecificCredentialCommandInput} for command's `input` shape.
+ * @see {@link ResetServiceSpecificCredentialCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResetServiceSpecificCredentialCommand extends $Command<
   ResetServiceSpecificCredentialCommandInput,

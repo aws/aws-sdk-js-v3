@@ -30,6 +30,18 @@ export interface ModifyInstanceCapacityReservationAttributesCommandOutput
  * <p>Modifies the Capacity Reservation settings for a stopped instance. Use this action to configure an
  * 			instance to target a specific Capacity Reservation, run in any <code>open</code> Capacity Reservation with matching
  * 			attributes, or run On-Demand Instance capacity.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyInstanceCapacityReservationAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyInstanceCapacityReservationAttributesCommandInput} for command's `input` shape.
+ * @see {@link ModifyInstanceCapacityReservationAttributesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyInstanceCapacityReservationAttributesCommand extends $Command<
   ModifyInstanceCapacityReservationAttributesCommandInput,

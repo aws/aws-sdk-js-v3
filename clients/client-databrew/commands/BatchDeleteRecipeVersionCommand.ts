@@ -62,6 +62,18 @@ export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipe
  *             other versions. If you try to delete <code>LATEST_WORKING</code> while other versions
  *             exist (or if they can't be deleted), then <code>LATEST_WORKING</code> will be listed as
  *             partial failure in the response.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new BatchDeleteRecipeVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDeleteRecipeVersionCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteRecipeVersionCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDeleteRecipeVersionCommand extends $Command<
   BatchDeleteRecipeVersionCommandInput,

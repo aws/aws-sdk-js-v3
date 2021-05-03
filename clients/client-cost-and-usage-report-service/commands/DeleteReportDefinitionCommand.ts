@@ -26,6 +26,18 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
 
 /**
  * <p>Deletes the specified report.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CostAndUsageReportServiceClient(config);
+ * const command = new DeleteReportDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteReportDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DeleteReportDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteReportDefinitionCommand extends $Command<
   DeleteReportDefinitionCommandInput,

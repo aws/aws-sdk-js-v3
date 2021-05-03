@@ -25,6 +25,18 @@ export interface CreateDocumentClassifierCommandOutput extends CreateDocumentCla
  *       classifier, you provide a set of training documents that labeled with the categories that you
  *       want to use. After the classifier is trained you can use it to categorize a set of labeled
  *       documents into the categories. For more information, see <a>how-document-classification</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new CreateDocumentClassifierCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDocumentClassifierCommandInput} for command's `input` shape.
+ * @see {@link CreateDocumentClassifierCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDocumentClassifierCommand extends $Command<
   CreateDocumentClassifierCommandInput,

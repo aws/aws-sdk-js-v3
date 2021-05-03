@@ -28,6 +28,18 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  * <p>Retrieves a list of configuration items as specified by the value passed to the
  *       required parameter <code>configurationType</code>. Optional filtering may be applied to refine
  *       search results.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new ListConfigurationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link ListConfigurationsCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListConfigurationsCommand extends $Command<
   ListConfigurationsCommandInput,

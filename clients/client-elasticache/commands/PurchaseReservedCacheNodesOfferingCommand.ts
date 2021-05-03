@@ -30,6 +30,18 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
  *             cache node offering. Reserved nodes are not eligible for cancellation and are non-refundable. For more information,
  *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/reserved-nodes.html">Managing Costs with Reserved Nodes</a> for Redis or
  *             <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/reserved-nodes.html">Managing Costs with Reserved Nodes</a> for Memcached.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new PurchaseReservedCacheNodesOfferingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PurchaseReservedCacheNodesOfferingCommandInput} for command's `input` shape.
+ * @see {@link PurchaseReservedCacheNodesOfferingCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PurchaseReservedCacheNodesOfferingCommand extends $Command<
   PurchaseReservedCacheNodesOfferingCommandInput,

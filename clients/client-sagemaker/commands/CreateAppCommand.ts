@@ -22,6 +22,18 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  *       <code>JupyterServer</code> and <code>KernelGateway</code>. This operation is automatically
  *       invoked by Amazon SageMaker Studio upon access to the associated Domain, and when new kernel
  *       configurations are selected by the user. A user may have multiple Apps active simultaneously.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateAppCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAppCommandInput} for command's `input` shape.
+ * @see {@link CreateAppCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAppCommand extends $Command<
   CreateAppCommandInput,

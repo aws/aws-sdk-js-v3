@@ -36,6 +36,18 @@ export interface GetSlotTypeVersionsCommandOutput extends GetSlotTypeVersionsRes
  *       least one version, the <code>$LATEST</code> version.</p>
  *          <p>This operation requires permissions for the
  *         <code>lex:GetSlotTypeVersions</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new GetSlotTypeVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSlotTypeVersionsCommandInput} for command's `input` shape.
+ * @see {@link GetSlotTypeVersionsCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSlotTypeVersionsCommand extends $Command<
   GetSlotTypeVersionsCommandInput,

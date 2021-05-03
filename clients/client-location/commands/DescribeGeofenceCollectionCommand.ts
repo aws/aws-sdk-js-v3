@@ -22,6 +22,18 @@ export interface DescribeGeofenceCollectionCommandOutput extends DescribeGeofenc
 
 /**
  * <p>Retrieves the geofence collection details.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LocationClient(config);
+ * const command = new DescribeGeofenceCollectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeGeofenceCollectionCommandInput} for command's `input` shape.
+ * @see {@link DescribeGeofenceCollectionCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeGeofenceCollectionCommand extends $Command<
   DescribeGeofenceCollectionCommandInput,

@@ -24,6 +24,18 @@ export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForIn
  * <p>
  *    		Returns a list of the anomalies that belong to an insight that you specify using its ID.
  *    	</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DevOpsGuruClient(config);
+ * const command = new ListAnomaliesForInsightCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAnomaliesForInsightCommandInput} for command's `input` shape.
+ * @see {@link ListAnomaliesForInsightCommandOutput} for command's `response` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAnomaliesForInsightCommand extends $Command<
   ListAnomaliesForInsightCommandInput,

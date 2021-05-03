@@ -23,6 +23,18 @@ export interface ListEffectiveDeploymentsCommandOutput extends ListEffectiveDepl
 /**
  * <p>Retrieves a paginated list of deployment jobs that AWS IoT Greengrass sends to AWS IoT Greengrass core
  *       devices.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassV2Client(config);
+ * const command = new ListEffectiveDeploymentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEffectiveDeploymentsCommandInput} for command's `input` shape.
+ * @see {@link ListEffectiveDeploymentsCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEffectiveDeploymentsCommand extends $Command<
   ListEffectiveDeploymentsCommandInput,

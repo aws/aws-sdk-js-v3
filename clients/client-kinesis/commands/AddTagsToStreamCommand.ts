@@ -30,6 +30,18 @@ export interface AddTagsToStreamCommandOutput extends __MetadataBearer {}
  *         <p>
  *             <a>AddTagsToStream</a> has a limit of five transactions per second per
  *             account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisClient(config);
+ * const command = new AddTagsToStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddTagsToStreamCommandInput} for command's `input` shape.
+ * @see {@link AddTagsToStreamCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddTagsToStreamCommand extends $Command<
   AddTagsToStreamCommandInput,

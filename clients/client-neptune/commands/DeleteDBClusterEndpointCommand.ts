@@ -22,6 +22,18 @@ export interface DeleteDBClusterEndpointCommandOutput extends DeleteDBClusterEnd
 
 /**
  * <p>Deletes a custom endpoint and removes it from an Amazon Neptune DB cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NeptuneClient(config);
+ * const command = new DeleteDBClusterEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDBClusterEndpointCommandInput} for command's `input` shape.
+ * @see {@link DeleteDBClusterEndpointCommandOutput} for command's `response` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDBClusterEndpointCommand extends $Command<
   DeleteDBClusterEndpointCommandInput,

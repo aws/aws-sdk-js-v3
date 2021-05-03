@@ -26,6 +26,18 @@ export interface CreateTrafficMirrorFilterRuleCommandOutput
  * <p>Creates a Traffic Mirror filter rule. </p>
  *          <p>A Traffic Mirror rule defines the Traffic Mirror source traffic to mirror.</p>
  *          <p>You need the Traffic Mirror filter ID when you create the rule.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateTrafficMirrorFilterRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTrafficMirrorFilterRuleCommandInput} for command's `input` shape.
+ * @see {@link CreateTrafficMirrorFilterRuleCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTrafficMirrorFilterRuleCommand extends $Command<
   CreateTrafficMirrorFilterRuleCommandInput,

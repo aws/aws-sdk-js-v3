@@ -23,6 +23,18 @@ export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetecti
 /**
  * <p>Starts an asynchronous topic detection job. Use the
  *         <code>DescribeTopicDetectionJob</code> operation to track the status of a job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new StartTopicsDetectionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartTopicsDetectionJobCommandInput} for command's `input` shape.
+ * @see {@link StartTopicsDetectionJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartTopicsDetectionJobCommand extends $Command<
   StartTopicsDetectionJobCommandInput,

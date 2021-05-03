@@ -26,6 +26,18 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  *          <p>Optionally, you can use a customer managed master key from AWS Key Management Service
  *          (AWS KMS) to encrypt email for your organization. If you don't associate an AWS KMS key, Amazon WorkMail creates a
  *          default AWS managed master key for you.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new CreateOrganizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateOrganizationCommandInput} for command's `input` shape.
+ * @see {@link CreateOrganizationCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateOrganizationCommand extends $Command<
   CreateOrganizationCommandInput,

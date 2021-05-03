@@ -29,6 +29,18 @@ export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserA
  * <p>Deletes the user attributes in a user pool as an administrator. Works on any
  *             user.</p>
  *         <p>Calling this action requires developer credentials.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new AdminDeleteUserAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AdminDeleteUserAttributesCommandInput} for command's `input` shape.
+ * @see {@link AdminDeleteUserAttributesCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AdminDeleteUserAttributesCommand extends $Command<
   AdminDeleteUserAttributesCommandInput,

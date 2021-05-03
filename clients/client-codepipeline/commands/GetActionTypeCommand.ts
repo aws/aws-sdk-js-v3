@@ -24,6 +24,18 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  * <p>Returns information about an action type created for an external provider, where the
  *             action is to be used by customers of the external provider. The action can be created
  *             with any supported integration model.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new GetActionTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetActionTypeCommandInput} for command's `input` shape.
+ * @see {@link GetActionTypeCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetActionTypeCommand extends $Command<
   GetActionTypeCommandInput,

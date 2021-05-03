@@ -34,6 +34,18 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
  *             information about using CloudWatch log streams with Amazon Kinesis Analytics
  *             applications, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working with Amazon
  *                 CloudWatch Logs</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisAnalyticsClient(config);
+ * const command = new AddApplicationCloudWatchLoggingOptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AddApplicationCloudWatchLoggingOptionCommandInput} for command's `input` shape.
+ * @see {@link AddApplicationCloudWatchLoggingOptionCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<
   AddApplicationCloudWatchLoggingOptionCommandInput,

@@ -30,6 +30,18 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput
  *             domains).</p>
  *         <p>This operation is throttled at one request per second and can only get custom MAIL
  *             FROM attributes for up to 100 identities at a time.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESClient(config);
+ * const command = new GetIdentityMailFromDomainAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetIdentityMailFromDomainAttributesCommandInput} for command's `input` shape.
+ * @see {@link GetIdentityMailFromDomainAttributesCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetIdentityMailFromDomainAttributesCommand extends $Command<
   GetIdentityMailFromDomainAttributesCommandInput,

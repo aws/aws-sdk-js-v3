@@ -23,6 +23,18 @@ export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatist
 /**
  * <p>Retrieve inbox placement and engagement rates for the domains that you use to send
  *             email.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointEmailClient(config);
+ * const command = new GetDomainStatisticsReportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDomainStatisticsReportCommandInput} for command's `input` shape.
+ * @see {@link GetDomainStatisticsReportCommandOutput} for command's `response` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDomainStatisticsReportCommand extends $Command<
   GetDomainStatisticsReportCommandInput,

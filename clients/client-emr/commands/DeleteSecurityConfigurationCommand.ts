@@ -22,6 +22,18 @@ export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurity
 
 /**
  * <p>Deletes a security configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRClient(config);
+ * const command = new DeleteSecurityConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSecurityConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteSecurityConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSecurityConfigurationCommand extends $Command<
   DeleteSecurityConfigurationCommandInput,

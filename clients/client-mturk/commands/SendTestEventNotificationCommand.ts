@@ -28,6 +28,18 @@ export interface SendTestEventNotificationCommandOutput extends SendTestEventNot
  *             setting up notifications for a real HIT type and trying to trigger them using the website.
  *             When you call this operation, the service attempts to send the test notification immediately.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MTurkClient(config);
+ * const command = new SendTestEventNotificationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendTestEventNotificationCommandInput} for command's `input` shape.
+ * @see {@link SendTestEventNotificationCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendTestEventNotificationCommand extends $Command<
   SendTestEventNotificationCommandInput,

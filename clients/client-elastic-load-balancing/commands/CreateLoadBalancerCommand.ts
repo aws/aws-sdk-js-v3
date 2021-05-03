@@ -39,6 +39,18 @@ export interface CreateLoadBalancerCommandOutput extends CreateAccessPointOutput
  *             You can request an increase for the number of load balancers for your account.
  *             For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits for Your Classic Load Balancer</a>
  *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingClient(config);
+ * const command = new CreateLoadBalancerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLoadBalancerCommandInput} for command's `input` shape.
+ * @see {@link CreateLoadBalancerCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLoadBalancerCommand extends $Command<
   CreateLoadBalancerCommandInput,

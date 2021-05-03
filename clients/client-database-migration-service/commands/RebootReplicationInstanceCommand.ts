@@ -27,6 +27,18 @@ export interface RebootReplicationInstanceCommandOutput extends RebootReplicatio
 /**
  * <p>Reboots a replication instance. Rebooting results in a momentary outage, until the
  *          replication instance becomes available again.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new RebootReplicationInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RebootReplicationInstanceCommandInput} for command's `input` shape.
+ * @see {@link RebootReplicationInstanceCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RebootReplicationInstanceCommand extends $Command<
   RebootReplicationInstanceCommandInput,

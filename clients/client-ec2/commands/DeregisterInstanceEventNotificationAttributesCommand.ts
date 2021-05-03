@@ -29,6 +29,18 @@ export interface DeregisterInstanceEventNotificationAttributesCommandOutput
 /**
  * <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included
  * 			in scheduled event notifications for resources in the Region.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DeregisterInstanceEventNotificationAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterInstanceEventNotificationAttributesCommandInput} for command's `input` shape.
+ * @see {@link DeregisterInstanceEventNotificationAttributesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterInstanceEventNotificationAttributesCommand extends $Command<
   DeregisterInstanceEventNotificationAttributesCommandInput,

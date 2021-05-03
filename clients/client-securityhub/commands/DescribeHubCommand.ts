@@ -23,6 +23,18 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
 /**
  * <p>Returns details about the Hub resource in your account, including the
  *             <code>HubArn</code> and the time when you enabled Security Hub.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SecurityHubClient(config);
+ * const command = new DescribeHubCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeHubCommandInput} for command's `input` shape.
+ * @see {@link DescribeHubCommandOutput} for command's `response` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeHubCommand extends $Command<
   DescribeHubCommandInput,

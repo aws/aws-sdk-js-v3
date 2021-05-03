@@ -22,6 +22,18 @@ export interface ListTagOptionsCommandOutput extends ListTagOptionsOutput, __Met
 
 /**
  * <p>Lists the specified TagOptions or all TagOptions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new ListTagOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagOptionsCommandInput} for command's `input` shape.
+ * @see {@link ListTagOptionsCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagOptionsCommand extends $Command<
   ListTagOptionsCommandInput,

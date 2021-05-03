@@ -22,6 +22,18 @@ export interface DeleteApnsSandboxChannelCommandOutput extends DeleteApnsSandbox
 
 /**
  * <p>Disables the APNs sandbox channel for an application and deletes any existing settings for the channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new DeleteApnsSandboxChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteApnsSandboxChannelCommandInput} for command's `input` shape.
+ * @see {@link DeleteApnsSandboxChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteApnsSandboxChannelCommand extends $Command<
   DeleteApnsSandboxChannelCommandInput,

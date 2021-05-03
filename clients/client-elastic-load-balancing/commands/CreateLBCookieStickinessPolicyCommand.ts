@@ -34,6 +34,18 @@ export interface CreateLBCookieStickinessPolicyCommandOutput
  *
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-sticky-sessions.html#enable-sticky-sessions-duration">Duration-Based Session Stickiness</a>
  *             in the <i>Classic Load Balancers Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingClient(config);
+ * const command = new CreateLBCookieStickinessPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLBCookieStickinessPolicyCommandInput} for command's `input` shape.
+ * @see {@link CreateLBCookieStickinessPolicyCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLBCookieStickinessPolicyCommand extends $Command<
   CreateLBCookieStickinessPolicyCommandInput,

@@ -41,6 +41,18 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  *             Notifications</a> in the <i>AWS Database Migration Service User
  *             Guide.</i>
  *          </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new CreateEventSubscriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateEventSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateEventSubscriptionCommand extends $Command<
   CreateEventSubscriptionCommandInput,

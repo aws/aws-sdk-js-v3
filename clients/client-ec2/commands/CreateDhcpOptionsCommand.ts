@@ -74,6 +74,18 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  * 			option either to <code>AmazonProvidedDNS</code> or to a domain name server of your
  * 			choice. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP Options Sets</a> in the
  * 			<i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateDhcpOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDhcpOptionsCommandInput} for command's `input` shape.
+ * @see {@link CreateDhcpOptionsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDhcpOptionsCommand extends $Command<
   CreateDhcpOptionsCommandInput,

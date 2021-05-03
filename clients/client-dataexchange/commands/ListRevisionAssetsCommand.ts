@@ -22,6 +22,18 @@ export interface ListRevisionAssetsCommandOutput extends ListRevisionAssetsRespo
 
 /**
  * <p>This operation lists a revision's assets sorted alphabetically in descending order.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataExchangeClient(config);
+ * const command = new ListRevisionAssetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRevisionAssetsCommandInput} for command's `input` shape.
+ * @see {@link ListRevisionAssetsCommandOutput} for command's `response` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRevisionAssetsCommand extends $Command<
   ListRevisionAssetsCommandInput,

@@ -23,6 +23,18 @@ export interface DescribeHoursOfOperationCommandOutput extends DescribeHoursOfOp
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Describes the hours of operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new DescribeHoursOfOperationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeHoursOfOperationCommandInput} for command's `input` shape.
+ * @see {@link DescribeHoursOfOperationCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeHoursOfOperationCommand extends $Command<
   DescribeHoursOfOperationCommandInput,

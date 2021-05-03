@@ -28,6 +28,18 @@ export interface UpdateInfrastructureConfigurationCommandOutput
 /**
  * <p> Updates a new infrastructure configuration. An infrastructure configuration defines the
  *       environment in which your image will be built and tested.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new UpdateInfrastructureConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateInfrastructureConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateInfrastructureConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateInfrastructureConfigurationCommand extends $Command<
   UpdateInfrastructureConfigurationCommandInput,

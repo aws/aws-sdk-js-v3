@@ -26,6 +26,18 @@ export interface DescribeListenerCommandOutput extends DescribeListenerResponse,
 
 /**
  * <p>Describe a listener. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new DescribeListenerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeListenerCommandInput} for command's `input` shape.
+ * @see {@link DescribeListenerCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeListenerCommand extends $Command<
   DescribeListenerCommandInput,

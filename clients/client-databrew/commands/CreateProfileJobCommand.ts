@@ -22,6 +22,18 @@ export interface CreateProfileJobCommandOutput extends CreateProfileJobResponse,
 
 /**
  * <p>Creates a new job to analyze a dataset and create its data profile.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new CreateProfileJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateProfileJobCommandInput} for command's `input` shape.
+ * @see {@link CreateProfileJobCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateProfileJobCommand extends $Command<
   CreateProfileJobCommandInput,

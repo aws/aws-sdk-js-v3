@@ -27,6 +27,18 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
  *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECRClient(config);
+ * const command = new PutImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutImageCommandInput} for command's `input` shape.
+ * @see {@link PutImageCommandOutput} for command's `response` shape.
+ * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutImageCommand extends $Command<PutImageCommandInput, PutImageCommandOutput, ECRClientResolvedConfig> {
   // Start section: command_properties

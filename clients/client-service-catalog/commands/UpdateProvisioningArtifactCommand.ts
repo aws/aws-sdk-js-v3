@@ -23,6 +23,18 @@ export interface UpdateProvisioningArtifactCommandOutput extends UpdateProvision
 /**
  * <p>Updates the specified provisioning artifact (also known as a version) for the specified product.</p>
  *          <p>You cannot update a provisioning artifact for a product that was shared with you.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new UpdateProvisioningArtifactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateProvisioningArtifactCommandInput} for command's `input` shape.
+ * @see {@link UpdateProvisioningArtifactCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateProvisioningArtifactCommand extends $Command<
   UpdateProvisioningArtifactCommandInput,

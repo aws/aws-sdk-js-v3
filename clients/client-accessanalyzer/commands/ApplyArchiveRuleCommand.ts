@@ -23,6 +23,18 @@ export interface ApplyArchiveRuleCommandOutput extends __MetadataBearer {}
 /**
  * <p>Retroactively applies the archive rule to existing findings that meet the archive rule
  *          criteria.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AccessAnalyzerClient(config);
+ * const command = new ApplyArchiveRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ApplyArchiveRuleCommandInput} for command's `input` shape.
+ * @see {@link ApplyArchiveRuleCommandOutput} for command's `response` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ApplyArchiveRuleCommand extends $Command<
   ApplyArchiveRuleCommandInput,

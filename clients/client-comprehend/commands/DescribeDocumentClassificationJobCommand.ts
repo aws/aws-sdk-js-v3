@@ -28,6 +28,18 @@ export interface DescribeDocumentClassificationJobCommandOutput
 /**
  * <p>Gets the properties associated with a document classification job. Use this operation to
  *       get the status of a classification job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new DescribeDocumentClassificationJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDocumentClassificationJobCommandInput} for command's `input` shape.
+ * @see {@link DescribeDocumentClassificationJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDocumentClassificationJobCommand extends $Command<
   DescribeDocumentClassificationJobCommandInput,

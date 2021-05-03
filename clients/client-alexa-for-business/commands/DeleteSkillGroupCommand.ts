@@ -22,6 +22,18 @@ export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse,
 
 /**
  * <p>Deletes a skill group by skill group ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new DeleteSkillGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSkillGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteSkillGroupCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSkillGroupCommand extends $Command<
   DeleteSkillGroupCommandInput,

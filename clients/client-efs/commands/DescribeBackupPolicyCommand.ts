@@ -22,6 +22,18 @@ export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescripti
 
 /**
  * <p>Returns the backup policy for the specified EFS file system.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EFSClient(config);
+ * const command = new DescribeBackupPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeBackupPolicyCommandInput} for command's `input` shape.
+ * @see {@link DescribeBackupPolicyCommandOutput} for command's `response` shape.
+ * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeBackupPolicyCommand extends $Command<
   DescribeBackupPolicyCommandInput,

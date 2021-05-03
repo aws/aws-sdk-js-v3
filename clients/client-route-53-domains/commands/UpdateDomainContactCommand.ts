@@ -25,6 +25,18 @@ export interface UpdateDomainContactCommandOutput extends UpdateDomainContactRes
  * 			registrant, administrator, or technical.</p>
  * 		       <p>If the update is successful, this method returns an operation ID that you can use to track the progress and completion of the action.
  * 			If the request is not completed successfully, the domain registrant will be notified by email.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53DomainsClient(config);
+ * const command = new UpdateDomainContactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDomainContactCommandInput} for command's `input` shape.
+ * @see {@link UpdateDomainContactCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDomainContactCommand extends $Command<
   UpdateDomainContactCommandInput,

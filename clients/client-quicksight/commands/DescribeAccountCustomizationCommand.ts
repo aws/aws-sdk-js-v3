@@ -80,6 +80,18 @@ export interface DescribeAccountCustomizationCommandOutput
  *                     each AWS Region where you want to apply the same customizations. </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new DescribeAccountCustomizationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAccountCustomizationCommandInput} for command's `input` shape.
+ * @see {@link DescribeAccountCustomizationCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAccountCustomizationCommand extends $Command<
   DescribeAccountCustomizationCommandInput,

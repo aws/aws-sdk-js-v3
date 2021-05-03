@@ -27,6 +27,18 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  *    its associated compute environments. For example, if a compute environment is associated with more than one job
  *    queue, the job queue with a higher priority is given preference for scheduling jobs to that compute
  *    environment.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BatchClient(config);
+ * const command = new CreateJobQueueCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateJobQueueCommandInput} for command's `input` shape.
+ * @see {@link CreateJobQueueCommandOutput} for command's `response` shape.
+ * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateJobQueueCommand extends $Command<
   CreateJobQueueCommandInput,

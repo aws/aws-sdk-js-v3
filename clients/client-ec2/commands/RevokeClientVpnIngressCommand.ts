@@ -22,6 +22,18 @@ export interface RevokeClientVpnIngressCommandOutput extends RevokeClientVpnIngr
 
 /**
  * <p>Removes an ingress authorization rule from a Client VPN endpoint. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new RevokeClientVpnIngressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RevokeClientVpnIngressCommandInput} for command's `input` shape.
+ * @see {@link RevokeClientVpnIngressCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RevokeClientVpnIngressCommand extends $Command<
   RevokeClientVpnIngressCommandInput,

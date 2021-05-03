@@ -28,6 +28,18 @@ export interface GetSavingsPlansPurchaseRecommendationCommandOutput
 
 /**
  * <p>Retrieves your request parameters, Savings Plan Recommendations Summary and Details. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CostExplorerClient(config);
+ * const command = new GetSavingsPlansPurchaseRecommendationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSavingsPlansPurchaseRecommendationCommandInput} for command's `input` shape.
+ * @see {@link GetSavingsPlansPurchaseRecommendationCommandOutput} for command's `response` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSavingsPlansPurchaseRecommendationCommand extends $Command<
   GetSavingsPlansPurchaseRecommendationCommandInput,

@@ -32,6 +32,18 @@ export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBea
  *             if your account does not have enough funds to pay for both the bonus
  *             and the fees.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MTurkClient(config);
+ * const command = new SendBonusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendBonusCommandInput} for command's `input` shape.
+ * @see {@link SendBonusCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendBonusCommand extends $Command<
   SendBonusCommandInput,

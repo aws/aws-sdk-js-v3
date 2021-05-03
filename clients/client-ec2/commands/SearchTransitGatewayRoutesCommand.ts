@@ -22,6 +22,18 @@ export interface SearchTransitGatewayRoutesCommandOutput extends SearchTransitGa
 
 /**
  * <p>Searches for routes in the specified transit gateway route table.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new SearchTransitGatewayRoutesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SearchTransitGatewayRoutesCommandInput} for command's `input` shape.
+ * @see {@link SearchTransitGatewayRoutesCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SearchTransitGatewayRoutesCommand extends $Command<
   SearchTransitGatewayRoutesCommandInput,

@@ -22,6 +22,18 @@ export interface ListPolicyGenerationsCommandOutput extends ListPolicyGeneration
 
 /**
  * <p>Lists all of the policy generations requested in the last seven days.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AccessAnalyzerClient(config);
+ * const command = new ListPolicyGenerationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPolicyGenerationsCommandInput} for command's `input` shape.
+ * @see {@link ListPolicyGenerationsCommandOutput} for command's `response` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPolicyGenerationsCommand extends $Command<
   ListPolicyGenerationsCommandInput,

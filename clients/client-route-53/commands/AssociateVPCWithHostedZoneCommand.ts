@@ -33,6 +33,18 @@ export interface AssociateVPCWithHostedZoneCommandOutput extends AssociateVPCWit
  * 			<code>CreateVPCAssociationAuthorization</code> request. Then the account that created the VPC must submit an
  * 			<code>AssociateVPCWithHostedZone</code> request.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new AssociateVPCWithHostedZoneCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateVPCWithHostedZoneCommandInput} for command's `input` shape.
+ * @see {@link AssociateVPCWithHostedZoneCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateVPCWithHostedZoneCommand extends $Command<
   AssociateVPCWithHostedZoneCommandInput,

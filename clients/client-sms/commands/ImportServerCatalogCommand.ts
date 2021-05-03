@@ -25,6 +25,18 @@ export interface ImportServerCatalogCommandOutput extends ImportServerCatalogRes
  *             monitoring all servers to import.</p>
  *         <p>This call returns immediately, but might take additional time to retrieve all the
  *             servers.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SMSClient(config);
+ * const command = new ImportServerCatalogCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportServerCatalogCommandInput} for command's `input` shape.
+ * @see {@link ImportServerCatalogCommandOutput} for command's `response` shape.
+ * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ImportServerCatalogCommand extends $Command<
   ImportServerCatalogCommandInput,

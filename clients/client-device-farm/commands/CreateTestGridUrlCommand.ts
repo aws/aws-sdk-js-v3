@@ -23,6 +23,18 @@ export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult,
 /**
  * <p>Creates a signed, short-term URL that can be passed to a Selenium <code>RemoteWebDriver</code>
  *          constructor.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new CreateTestGridUrlCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTestGridUrlCommandInput} for command's `input` shape.
+ * @see {@link CreateTestGridUrlCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTestGridUrlCommand extends $Command<
   CreateTestGridUrlCommandInput,

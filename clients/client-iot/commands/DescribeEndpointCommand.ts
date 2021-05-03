@@ -22,6 +22,18 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
 
 /**
  * <p>Returns a unique endpoint specific to the AWS account making the call.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DescribeEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEndpointCommandInput} for command's `input` shape.
+ * @see {@link DescribeEndpointCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEndpointCommand extends $Command<
   DescribeEndpointCommandInput,

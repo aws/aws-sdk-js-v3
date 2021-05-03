@@ -32,6 +32,18 @@ export interface PutFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  *          <p>To send an invocation record to a queue, topic, function, or event bus, specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">destination</a>. You can configure separate destinations for successful invocations (on-success) and events
  *       that fail all processing attempts (on-failure). You can configure destinations in addition to or instead of a
  *       dead-letter queue.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new PutFunctionEventInvokeConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutFunctionEventInvokeConfigCommandInput} for command's `input` shape.
+ * @see {@link PutFunctionEventInvokeConfigCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutFunctionEventInvokeConfigCommand extends $Command<
   PutFunctionEventInvokeConfigCommandInput,

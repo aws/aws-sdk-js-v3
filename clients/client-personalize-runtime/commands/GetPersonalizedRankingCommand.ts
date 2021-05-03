@@ -31,6 +31,18 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  *             <p>The solution backing the campaign must have been created using a recipe of type
  *         PERSONALIZED_RANKING.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeRuntimeClient(config);
+ * const command = new GetPersonalizedRankingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPersonalizedRankingCommandInput} for command's `input` shape.
+ * @see {@link GetPersonalizedRankingCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeRuntimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPersonalizedRankingCommand extends $Command<
   GetPersonalizedRankingCommandInput,

@@ -22,6 +22,18 @@ export interface ListSchemaExtensionsCommandOutput extends ListSchemaExtensionsR
 
 /**
  * <p>Lists all schema extensions applied to a Microsoft AD Directory.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new ListSchemaExtensionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSchemaExtensionsCommandInput} for command's `input` shape.
+ * @see {@link ListSchemaExtensionsCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSchemaExtensionsCommand extends $Command<
   ListSchemaExtensionsCommandInput,

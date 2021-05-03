@@ -60,6 +60,18 @@ export interface DescribeGameServerInstancesCommandOutput extends DescribeGameSe
  *                     <a>DescribeGameServerInstances</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
  *          </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GameLiftClient(config);
+ * const command = new DescribeGameServerInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeGameServerInstancesCommandInput} for command's `input` shape.
+ * @see {@link DescribeGameServerInstancesCommandOutput} for command's `response` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeGameServerInstancesCommand extends $Command<
   DescribeGameServerInstancesCommandInput,

@@ -22,6 +22,18 @@ export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRe
 
 /**
  * <p>This operation disables automatic renewal of domain registration for the specified domain.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53DomainsClient(config);
+ * const command = new DisableDomainAutoRenewCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableDomainAutoRenewCommandInput} for command's `input` shape.
+ * @see {@link DisableDomainAutoRenewCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableDomainAutoRenewCommand extends $Command<
   DisableDomainAutoRenewCommandInput,

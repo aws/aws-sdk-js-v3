@@ -26,6 +26,18 @@ export interface CreateBotAliasCommandOutput extends CreateBotAliasResponse, __M
  *          that use the bot.</p>
  *          <p>For example, you can create an alias called "PROD" that your
  *          applications use to call the Amazon Lex bot. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelsV2Client(config);
+ * const command = new CreateBotAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateBotAliasCommandInput} for command's `input` shape.
+ * @see {@link CreateBotAliasCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateBotAliasCommand extends $Command<
   CreateBotAliasCommandInput,

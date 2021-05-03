@@ -24,6 +24,18 @@ export interface ListBundlesCommandOutput extends ListBundlesResult, __MetadataB
  * <p>
  *             List all available bundles.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MobileClient(config);
+ * const command = new ListBundlesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBundlesCommandInput} for command's `input` shape.
+ * @see {@link ListBundlesCommandOutput} for command's `response` shape.
+ * @see {@link MobileClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBundlesCommand extends $Command<
   ListBundlesCommandInput,

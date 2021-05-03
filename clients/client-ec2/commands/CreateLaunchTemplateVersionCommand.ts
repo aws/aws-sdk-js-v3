@@ -27,6 +27,18 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  *             cannot specify, change, or replace the numbering of launch template versions.</p>
  *         <p>For
  *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Managing launch template versions</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateLaunchTemplateVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLaunchTemplateVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateLaunchTemplateVersionCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLaunchTemplateVersionCommand extends $Command<
   CreateLaunchTemplateVersionCommandInput,

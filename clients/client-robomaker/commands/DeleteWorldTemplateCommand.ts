@@ -22,6 +22,18 @@ export interface DeleteWorldTemplateCommandOutput extends DeleteWorldTemplateRes
 
 /**
  * <p>Deletes a world template.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new DeleteWorldTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteWorldTemplateCommandInput} for command's `input` shape.
+ * @see {@link DeleteWorldTemplateCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteWorldTemplateCommand extends $Command<
   DeleteWorldTemplateCommandInput,

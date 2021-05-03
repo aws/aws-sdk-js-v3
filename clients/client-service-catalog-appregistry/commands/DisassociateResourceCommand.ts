@@ -26,6 +26,18 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
 
 /**
  * <p>Disassociates a resource from application. Both the resource and the application can be specified either by ID or name.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogAppRegistryClient(config);
+ * const command = new DisassociateResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateResourceCommandInput} for command's `input` shape.
+ * @see {@link DisassociateResourceCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateResourceCommand extends $Command<
   DisassociateResourceCommandInput,

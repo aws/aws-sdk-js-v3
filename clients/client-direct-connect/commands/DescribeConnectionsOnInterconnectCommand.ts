@@ -28,6 +28,18 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  *          <note>
  *             <p>Intended for use by AWS Direct Connect Partners only.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new DescribeConnectionsOnInterconnectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConnectionsOnInterconnectCommandInput} for command's `input` shape.
+ * @see {@link DescribeConnectionsOnInterconnectCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConnectionsOnInterconnectCommand extends $Command<
   DescribeConnectionsOnInterconnectCommandInput,

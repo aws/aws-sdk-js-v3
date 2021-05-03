@@ -22,6 +22,18 @@ export interface GetDeploymentsCommandOutput extends Deployments, __MetadataBear
 
 /**
  * <p>Gets information about a <a>Deployments</a> collection.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new GetDeploymentsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDeploymentsCommandInput} for command's `input` shape.
+ * @see {@link GetDeploymentsCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDeploymentsCommand extends $Command<
   GetDeploymentsCommandInput,

@@ -23,6 +23,18 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  *
  *          <p>ListRules does not list the targets of a rule. To see the targets associated with a rule,
  *       use <a>ListTargetsByRule</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchEventsClient(config);
+ * const command = new ListRulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRulesCommandInput} for command's `input` shape.
+ * @see {@link ListRulesCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRulesCommand extends $Command<
   ListRulesCommandInput,

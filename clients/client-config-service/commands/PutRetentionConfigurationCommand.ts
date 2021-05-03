@@ -32,6 +32,18 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
  * 			         <p>Currently, AWS Config supports only one retention
  * 				configuration per region in your account.</p>
  * 		       </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new PutRetentionConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutRetentionConfigurationCommandInput} for command's `input` shape.
+ * @see {@link PutRetentionConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutRetentionConfigurationCommand extends $Command<
   PutRetentionConfigurationCommandInput,

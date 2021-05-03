@@ -22,6 +22,18 @@ export interface DescribeCACertificateCommandOutput extends DescribeCACertificat
 
 /**
  * <p>Describes a registered CA certificate.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DescribeCACertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeCACertificateCommandInput} for command's `input` shape.
+ * @see {@link DescribeCACertificateCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeCACertificateCommand extends $Command<
   DescribeCACertificateCommandInput,

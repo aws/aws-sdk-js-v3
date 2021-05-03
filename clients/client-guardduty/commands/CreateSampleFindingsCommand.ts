@@ -24,6 +24,18 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  * <p>Generates example findings of types specified by the list of finding types. If 'NULL' is
  *       specified for <code>findingTypes</code>, the API generates example findings of all supported
  *       finding types.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new CreateSampleFindingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSampleFindingsCommandInput} for command's `input` shape.
+ * @see {@link CreateSampleFindingsCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSampleFindingsCommand extends $Command<
   CreateSampleFindingsCommandInput,

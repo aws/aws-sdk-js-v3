@@ -22,6 +22,18 @@ export interface UpdateSkillGroupCommandOutput extends UpdateSkillGroupResponse,
 
 /**
  * <p>Updates skill group details by skill group ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new UpdateSkillGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSkillGroupCommandInput} for command's `input` shape.
+ * @see {@link UpdateSkillGroupCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSkillGroupCommand extends $Command<
   UpdateSkillGroupCommandInput,

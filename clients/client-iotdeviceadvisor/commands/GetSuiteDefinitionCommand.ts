@@ -22,6 +22,18 @@ export interface GetSuiteDefinitionCommandOutput extends GetSuiteDefinitionRespo
 
 /**
  * <p>Gets information about a Device Advisor test suite.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IotDeviceAdvisorClient(config);
+ * const command = new GetSuiteDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetSuiteDefinitionCommandInput} for command's `input` shape.
+ * @see {@link GetSuiteDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetSuiteDefinitionCommand extends $Command<
   GetSuiteDefinitionCommandInput,

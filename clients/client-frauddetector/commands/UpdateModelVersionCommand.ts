@@ -22,6 +22,18 @@ export interface UpdateModelVersionCommandOutput extends UpdateModelVersionResul
 
 /**
  * <p>Updates a model version. Updating a model version retrains an existing model version using updated training data and produces a new minor version of the model. You can update the training data set location and data access role attributes using this action. This action creates and trains a new minor version of the model, for example version 1.01, 1.02, 1.03.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new UpdateModelVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateModelVersionCommandInput} for command's `input` shape.
+ * @see {@link UpdateModelVersionCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateModelVersionCommand extends $Command<
   UpdateModelVersionCommandInput,

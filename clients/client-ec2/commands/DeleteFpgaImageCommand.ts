@@ -19,6 +19,18 @@ export interface DeleteFpgaImageCommandOutput extends DeleteFpgaImageResult, __M
 
 /**
  * <p>Deletes the specified Amazon FPGA Image (AFI).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DeleteFpgaImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFpgaImageCommandInput} for command's `input` shape.
+ * @see {@link DeleteFpgaImageCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFpgaImageCommand extends $Command<
   DeleteFpgaImageCommandInput,

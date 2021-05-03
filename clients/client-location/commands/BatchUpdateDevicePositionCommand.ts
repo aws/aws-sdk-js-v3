@@ -28,6 +28,18 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  *                 fixed rate of one position per 30-second interval, and retained for one year before
  *                 it is deleted.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LocationClient(config);
+ * const command = new BatchUpdateDevicePositionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchUpdateDevicePositionCommandInput} for command's `input` shape.
+ * @see {@link BatchUpdateDevicePositionCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchUpdateDevicePositionCommand extends $Command<
   BatchUpdateDevicePositionCommandInput,

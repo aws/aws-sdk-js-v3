@@ -28,6 +28,18 @@ export interface GetUserAttributeVerificationCodeCommandOutput
 
 /**
  * <p>Gets the user attribute verification code for the specified attribute name.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new GetUserAttributeVerificationCodeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetUserAttributeVerificationCodeCommandInput} for command's `input` shape.
+ * @see {@link GetUserAttributeVerificationCodeCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetUserAttributeVerificationCodeCommand extends $Command<
   GetUserAttributeVerificationCodeCommandInput,

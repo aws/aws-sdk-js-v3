@@ -22,6 +22,18 @@ export interface FlushStageAuthorizersCacheCommandOutput extends __MetadataBeare
 
 /**
  * <p>Flushes all authorizer cache entries on a stage.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new FlushStageAuthorizersCacheCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link FlushStageAuthorizersCacheCommandInput} for command's `input` shape.
+ * @see {@link FlushStageAuthorizersCacheCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class FlushStageAuthorizersCacheCommand extends $Command<
   FlushStageAuthorizersCacheCommandInput,

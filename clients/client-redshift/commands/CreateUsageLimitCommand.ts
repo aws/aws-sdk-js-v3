@@ -23,6 +23,18 @@ export interface CreateUsageLimitCommandOutput extends UsageLimit, __MetadataBea
 /**
  * <p>Creates a usage limit for a specified Amazon Redshift feature on a cluster.
  *             The usage limit is identified by the returned usage limit identifier.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new CreateUsageLimitCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateUsageLimitCommandInput} for command's `input` shape.
+ * @see {@link CreateUsageLimitCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateUsageLimitCommand extends $Command<
   CreateUsageLimitCommandInput,

@@ -22,6 +22,18 @@ export interface CreateResourceCommandOutput extends Resource, __MetadataBearer 
 
 /**
  * <p>Creates a <a>Resource</a> resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new CreateResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateResourceCommandInput} for command's `input` shape.
+ * @see {@link CreateResourceCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateResourceCommand extends $Command<
   CreateResourceCommandInput,

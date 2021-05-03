@@ -22,6 +22,18 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
 
 /**
  * <p>Describes a job execution.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new DescribeJobExecutionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeJobExecutionCommandInput} for command's `input` shape.
+ * @see {@link DescribeJobExecutionCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeJobExecutionCommand extends $Command<
   DescribeJobExecutionCommandInput,

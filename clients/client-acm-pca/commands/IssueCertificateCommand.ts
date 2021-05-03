@@ -29,6 +29,18 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  * 			         <p>You cannot use the ACM <b>ListCertificateAuthorities</b> action to retrieve the ARNs of the
  * 				certificates that you issue by using ACM Private CA.</p>
  * 		       </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ACMPCAClient(config);
+ * const command = new IssueCertificateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link IssueCertificateCommandInput} for command's `input` shape.
+ * @see {@link IssueCertificateCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class IssueCertificateCommand extends $Command<
   IssueCertificateCommandInput,

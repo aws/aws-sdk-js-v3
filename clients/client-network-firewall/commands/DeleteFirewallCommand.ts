@@ -31,6 +31,18 @@ export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __M
  *          you can remove the firewall safely.</p>
  *          <p>To delete a firewall, remove the delete protection if you need to using <a>UpdateFirewallDeleteProtection</a>,
  *          then delete the firewall by calling <a>DeleteFirewall</a>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkFirewallClient(config);
+ * const command = new DeleteFirewallCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFirewallCommandInput} for command's `input` shape.
+ * @see {@link DeleteFirewallCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFirewallCommand extends $Command<
   DeleteFirewallCommandInput,

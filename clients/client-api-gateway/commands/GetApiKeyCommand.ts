@@ -22,6 +22,18 @@ export interface GetApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
 
 /**
  * <p>Gets information about the current <a>ApiKey</a> resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new GetApiKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetApiKeyCommandInput} for command's `input` shape.
+ * @see {@link GetApiKeyCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetApiKeyCommand extends $Command<
   GetApiKeyCommandInput,

@@ -27,6 +27,18 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
 
 /**
  * <p>Purchases a reserved DB instance offering.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new PurchaseReservedDBInstancesOfferingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PurchaseReservedDBInstancesOfferingCommandInput} for command's `input` shape.
+ * @see {@link PurchaseReservedDBInstancesOfferingCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PurchaseReservedDBInstancesOfferingCommand extends $Command<
   PurchaseReservedDBInstancesOfferingCommandInput,

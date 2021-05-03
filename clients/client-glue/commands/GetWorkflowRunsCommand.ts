@@ -22,6 +22,18 @@ export interface GetWorkflowRunsCommandOutput extends GetWorkflowRunsResponse, _
 
 /**
  * <p>Retrieves metadata for all runs of a given workflow.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new GetWorkflowRunsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetWorkflowRunsCommandInput} for command's `input` shape.
+ * @see {@link GetWorkflowRunsCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetWorkflowRunsCommand extends $Command<
   GetWorkflowRunsCommandInput,

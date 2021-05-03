@@ -22,6 +22,18 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
 
 /**
  * <p>Update an MWAA environment.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MWAAClient(config);
+ * const command = new UpdateEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
+ * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
+ * @see {@link MWAAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateEnvironmentCommand extends $Command<
   UpdateEnvironmentCommandInput,

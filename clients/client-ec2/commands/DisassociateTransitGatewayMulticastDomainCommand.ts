@@ -28,6 +28,18 @@ export interface DisassociateTransitGatewayMulticastDomainCommandOutput
 
 /**
  * <p>Disassociates the specified subnets from the transit gateway multicast domain. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DisassociateTransitGatewayMulticastDomainCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateTransitGatewayMulticastDomainCommandInput} for command's `input` shape.
+ * @see {@link DisassociateTransitGatewayMulticastDomainCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateTransitGatewayMulticastDomainCommand extends $Command<
   DisassociateTransitGatewayMulticastDomainCommandInput,

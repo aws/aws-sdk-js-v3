@@ -26,6 +26,18 @@ export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __M
  *       its Amazon Resource Name (ARN). You can retrieve the complete set of properties by using the
  *       ARN with the <a>DescribePredictor</a> operation. You can filter the list using an
  *       array of <a>Filter</a> objects.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ForecastClient(config);
+ * const command = new ListPredictorsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPredictorsCommandInput} for command's `input` shape.
+ * @see {@link ListPredictorsCommandOutput} for command's `response` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPredictorsCommand extends $Command<
   ListPredictorsCommandInput,

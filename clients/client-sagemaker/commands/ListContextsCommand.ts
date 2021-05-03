@@ -22,6 +22,18 @@ export interface ListContextsCommandOutput extends ListContextsResponse, __Metad
 
 /**
  * <p>Lists the contexts in your account and their properties.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListContextsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListContextsCommandInput} for command's `input` shape.
+ * @see {@link ListContextsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListContextsCommand extends $Command<
   ListContextsCommandInput,

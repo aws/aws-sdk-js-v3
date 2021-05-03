@@ -29,6 +29,18 @@ export interface UpdateRepositoryDescriptionCommandOutput extends __MetadataBear
  *                 HTML-encode the description field in any application that uses this API to display
  *                 the repository description on a webpage.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new UpdateRepositoryDescriptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateRepositoryDescriptionCommandInput} for command's `input` shape.
+ * @see {@link UpdateRepositoryDescriptionCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateRepositoryDescriptionCommand extends $Command<
   UpdateRepositoryDescriptionCommandInput,

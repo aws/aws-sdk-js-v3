@@ -24,6 +24,18 @@ export interface PutProvisionedConcurrencyConfigCommandOutput
 
 /**
  * <p>Adds a provisioned concurrency configuration to a function's alias or version.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new PutProvisionedConcurrencyConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutProvisionedConcurrencyConfigCommandInput} for command's `input` shape.
+ * @see {@link PutProvisionedConcurrencyConfigCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutProvisionedConcurrencyConfigCommand extends $Command<
   PutProvisionedConcurrencyConfigCommandInput,

@@ -22,6 +22,18 @@ export interface ListEdgePackagingJobsCommandOutput extends ListEdgePackagingJob
 
 /**
  * <p>Returns a list of edge packaging jobs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListEdgePackagingJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListEdgePackagingJobsCommandInput} for command's `input` shape.
+ * @see {@link ListEdgePackagingJobsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListEdgePackagingJobsCommand extends $Command<
   ListEdgePackagingJobsCommandInput,

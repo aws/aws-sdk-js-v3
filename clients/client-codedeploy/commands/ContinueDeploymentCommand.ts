@@ -26,6 +26,18 @@ export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
  *             a specified wait time to elapse. (Traffic rerouting, which is achieved by registering
  *             instances in the replacement environment with the load balancer, can start as soon as
  *             all instances have a status of Ready.) </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new ContinueDeploymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ContinueDeploymentCommandInput} for command's `input` shape.
+ * @see {@link ContinueDeploymentCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ContinueDeploymentCommand extends $Command<
   ContinueDeploymentCommandInput,

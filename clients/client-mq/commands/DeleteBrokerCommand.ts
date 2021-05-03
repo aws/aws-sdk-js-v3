@@ -22,6 +22,18 @@ export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __Metad
 
 /**
  * Deletes a broker. Note: This API is asynchronous.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MqClient(config);
+ * const command = new DeleteBrokerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBrokerCommandInput} for command's `input` shape.
+ * @see {@link DeleteBrokerCommandOutput} for command's `response` shape.
+ * @see {@link MqClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBrokerCommand extends $Command<
   DeleteBrokerCommandInput,

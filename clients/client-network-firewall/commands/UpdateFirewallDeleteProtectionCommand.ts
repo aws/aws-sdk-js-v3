@@ -27,6 +27,18 @@ export interface UpdateFirewallDeleteProtectionCommandOutput
  *          to delete the firewall. If the flag is set to <code>TRUE</code>, the firewall is protected
  *          against deletion. This setting helps protect against accidentally deleting a firewall
  *          that's in use. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkFirewallClient(config);
+ * const command = new UpdateFirewallDeleteProtectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFirewallDeleteProtectionCommandInput} for command's `input` shape.
+ * @see {@link UpdateFirewallDeleteProtectionCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFirewallDeleteProtectionCommand extends $Command<
   UpdateFirewallDeleteProtectionCommandInput,

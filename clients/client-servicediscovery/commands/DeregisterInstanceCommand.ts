@@ -23,6 +23,18 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
 /**
  * <p>Deletes the Amazon Route 53 DNS records and health check, if any, that AWS Cloud Map created for the specified
  *    instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceDiscoveryClient(config);
+ * const command = new DeregisterInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterInstanceCommandInput} for command's `input` shape.
+ * @see {@link DeregisterInstanceCommandOutput} for command's `response` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterInstanceCommand extends $Command<
   DeregisterInstanceCommandInput,

@@ -32,6 +32,18 @@ export interface UpdateAutomaticTapeCreationPolicyCommandOutput
  *          <note>
  *             <p>A gateway can have only one automatic tape creation policy.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new UpdateAutomaticTapeCreationPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAutomaticTapeCreationPolicyCommandInput} for command's `input` shape.
+ * @see {@link UpdateAutomaticTapeCreationPolicyCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAutomaticTapeCreationPolicyCommand extends $Command<
   UpdateAutomaticTapeCreationPolicyCommandInput,

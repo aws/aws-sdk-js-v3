@@ -25,6 +25,18 @@ export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationRe
  * 			rule. You can specify one AWS Config rule per request. After you
  * 			delete the evaluation results, you can call the <a>StartConfigRulesEvaluation</a> API to start evaluating
  * 			your AWS resources against the rule.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DeleteEvaluationResultsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteEvaluationResultsCommandInput} for command's `input` shape.
+ * @see {@link DeleteEvaluationResultsCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteEvaluationResultsCommand extends $Command<
   DeleteEvaluationResultsCommandInput,

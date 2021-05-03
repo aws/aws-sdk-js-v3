@@ -26,6 +26,18 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  *          <note>
  *             <p>To get a list of operations that match specified criteria, see <a href="https://docs.aws.amazon.com/cloud-map/latest/api/API_ListOperations.html">ListOperations</a>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceDiscoveryClient(config);
+ * const command = new GetOperationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOperationCommandInput} for command's `input` shape.
+ * @see {@link GetOperationCommandOutput} for command's `response` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOperationCommand extends $Command<
   GetOperationCommandInput,

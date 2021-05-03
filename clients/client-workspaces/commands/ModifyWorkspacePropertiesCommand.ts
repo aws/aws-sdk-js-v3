@@ -26,6 +26,18 @@ export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspaceP
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/modify-workspaces.html">
  *             Modify a WorkSpace</a>.
  *       </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new ModifyWorkspacePropertiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyWorkspacePropertiesCommandInput} for command's `input` shape.
+ * @see {@link ModifyWorkspacePropertiesCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyWorkspacePropertiesCommand extends $Command<
   ModifyWorkspacePropertiesCommandInput,

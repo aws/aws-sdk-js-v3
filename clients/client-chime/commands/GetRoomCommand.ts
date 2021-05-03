@@ -22,6 +22,18 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
 
 /**
  * <p>Retrieves room details, such as the room name, for a room in an Amazon Chime Enterprise account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new GetRoomCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRoomCommandInput} for command's `input` shape.
+ * @see {@link GetRoomCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommandOutput, ChimeClientResolvedConfig> {
   // Start section: command_properties

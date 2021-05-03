@@ -22,6 +22,18 @@ export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __Metadat
 
 /**
  * <p>Returns metadata about your copy jobs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new ListCopyJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCopyJobsCommandInput} for command's `input` shape.
+ * @see {@link ListCopyJobsCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCopyJobsCommand extends $Command<
   ListCopyJobsCommandInput,

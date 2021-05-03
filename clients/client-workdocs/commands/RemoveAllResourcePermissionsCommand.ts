@@ -22,6 +22,18 @@ export interface RemoveAllResourcePermissionsCommandOutput extends __MetadataBea
 
 /**
  * <p>Removes all the permissions from the specified resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new RemoveAllResourcePermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveAllResourcePermissionsCommandInput} for command's `input` shape.
+ * @see {@link RemoveAllResourcePermissionsCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveAllResourcePermissionsCommand extends $Command<
   RemoveAllResourcePermissionsCommandInput,

@@ -24,6 +24,18 @@ export interface ListComplianceStatusCommandOutput extends ListComplianceStatusR
  * <p>Returns an array of <code>PolicyComplianceStatus</code> objects. Use
  *         <code>PolicyComplianceStatus</code> to get a summary of which member accounts are protected
  *       by the specified policy. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FMSClient(config);
+ * const command = new ListComplianceStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListComplianceStatusCommandInput} for command's `input` shape.
+ * @see {@link ListComplianceStatusCommandOutput} for command's `response` shape.
+ * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListComplianceStatusCommand extends $Command<
   ListComplianceStatusCommandInput,

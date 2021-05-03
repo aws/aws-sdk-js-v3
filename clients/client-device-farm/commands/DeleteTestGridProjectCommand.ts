@@ -28,6 +28,18 @@ export interface DeleteTestGridProjectCommandOutput extends DeleteTestGridProjec
  *          <note>
  *             <p>You cannot delete a project if it has active sessions.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new DeleteTestGridProjectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTestGridProjectCommandInput} for command's `input` shape.
+ * @see {@link DeleteTestGridProjectCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTestGridProjectCommand extends $Command<
   DeleteTestGridProjectCommandInput,

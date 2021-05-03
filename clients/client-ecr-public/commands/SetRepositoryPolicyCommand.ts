@@ -24,6 +24,18 @@ export interface SetRepositoryPolicyCommandOutput extends SetRepositoryPolicyRes
  * <p>Applies a repository policy to the specified public repository to control access
  *          permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html">Amazon ECR Repository
  *             Policies</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECRPUBLICClient(config);
+ * const command = new SetRepositoryPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetRepositoryPolicyCommandInput} for command's `input` shape.
+ * @see {@link SetRepositoryPolicyCommandOutput} for command's `response` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetRepositoryPolicyCommand extends $Command<
   SetRepositoryPolicyCommandInput,

@@ -22,6 +22,18 @@ export interface CreateDevEndpointCommandOutput extends CreateDevEndpointRespons
 
 /**
  * <p>Creates a new development endpoint.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new CreateDevEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDevEndpointCommandInput} for command's `input` shape.
+ * @see {@link CreateDevEndpointCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDevEndpointCommand extends $Command<
   CreateDevEndpointCommandInput,

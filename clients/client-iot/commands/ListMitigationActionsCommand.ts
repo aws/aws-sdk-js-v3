@@ -22,6 +22,18 @@ export interface ListMitigationActionsCommandOutput extends ListMitigationAction
 
 /**
  * <p>Gets a list of all mitigation actions that match the specified filter criteria.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ListMitigationActionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMitigationActionsCommandInput} for command's `input` shape.
+ * @see {@link ListMitigationActionsCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMitigationActionsCommand extends $Command<
   ListMitigationActionsCommandInput,

@@ -26,6 +26,18 @@ export interface GetContactReachabilityStatusCommandOutput
  * <p>For operations that require confirmation that the email address for the registrant contact is valid,
  * 			such as registering a new domain, this operation returns information about whether the registrant contact has responded.</p>
  * 		       <p>If you want us to resend the email, use the <code>ResendContactReachabilityEmail</code> operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53DomainsClient(config);
+ * const command = new GetContactReachabilityStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetContactReachabilityStatusCommandInput} for command's `input` shape.
+ * @see {@link GetContactReachabilityStatusCommandOutput} for command's `response` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetContactReachabilityStatusCommand extends $Command<
   GetContactReachabilityStatusCommandInput,

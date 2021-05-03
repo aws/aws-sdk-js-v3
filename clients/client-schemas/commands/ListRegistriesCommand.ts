@@ -22,6 +22,18 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
 
 /**
  * <p>List the registries.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SchemasClient(config);
+ * const command = new ListRegistriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListRegistriesCommandInput} for command's `input` shape.
+ * @see {@link ListRegistriesCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListRegistriesCommand extends $Command<
   ListRegistriesCommandInput,

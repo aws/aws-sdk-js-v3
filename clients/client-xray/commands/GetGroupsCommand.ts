@@ -22,6 +22,18 @@ export interface GetGroupsCommandOutput extends GetGroupsResult, __MetadataBeare
 
 /**
  * <p>Retrieves all active group details.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new XRayClient(config);
+ * const command = new GetGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetGroupsCommandInput} for command's `input` shape.
+ * @see {@link GetGroupsCommandOutput} for command's `response` shape.
+ * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetGroupsCommand extends $Command<
   GetGroupsCommandInput,

@@ -25,6 +25,18 @@ export interface BatchDeleteGeofenceCommandOutput extends BatchDeleteGeofenceRes
  *         <note>
  *             <p>This action deletes the resource permanently. You can't undo this action.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LocationClient(config);
+ * const command = new BatchDeleteGeofenceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDeleteGeofenceCommandInput} for command's `input` shape.
+ * @see {@link BatchDeleteGeofenceCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDeleteGeofenceCommand extends $Command<
   BatchDeleteGeofenceCommandInput,

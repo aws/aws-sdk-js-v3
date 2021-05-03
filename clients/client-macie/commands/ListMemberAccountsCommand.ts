@@ -22,6 +22,18 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsResul
 
 /**
  * <p>Lists all Amazon Macie Classic member accounts for the current Macie Classic administrator account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MacieClient(config);
+ * const command = new ListMemberAccountsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMemberAccountsCommandInput} for command's `input` shape.
+ * @see {@link ListMemberAccountsCommandOutput} for command's `response` shape.
+ * @see {@link MacieClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMemberAccountsCommand extends $Command<
   ListMemberAccountsCommandInput,

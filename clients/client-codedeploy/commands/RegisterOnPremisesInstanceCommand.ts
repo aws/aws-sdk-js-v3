@@ -26,6 +26,18 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
  *             <p>Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request.
  *                 You cannot use both.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new RegisterOnPremisesInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterOnPremisesInstanceCommandInput} for command's `input` shape.
+ * @see {@link RegisterOnPremisesInstanceCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterOnPremisesInstanceCommand extends $Command<
   RegisterOnPremisesInstanceCommandInput,

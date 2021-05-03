@@ -23,6 +23,18 @@ export interface DeleteInvitationsCommandOutput extends DeleteInvitationsRespons
 /**
  * <p>Deletes invitations sent to the current member account by AWS accounts specified by their
  *       account IDs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GuardDutyClient(config);
+ * const command = new DeleteInvitationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteInvitationsCommandInput} for command's `input` shape.
+ * @see {@link DeleteInvitationsCommandOutput} for command's `response` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteInvitationsCommand extends $Command<
   DeleteInvitationsCommandInput,

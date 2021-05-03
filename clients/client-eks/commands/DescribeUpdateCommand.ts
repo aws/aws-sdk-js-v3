@@ -26,6 +26,18 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  *         <p>When the status of the update is <code>Succeeded</code>, the update is complete. If an
  *             update fails, the status is <code>Failed</code>, and an error detail explains the reason
  *             for the failure.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EKSClient(config);
+ * const command = new DescribeUpdateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeUpdateCommandInput} for command's `input` shape.
+ * @see {@link DescribeUpdateCommandOutput} for command's `response` shape.
+ * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeUpdateCommand extends $Command<
   DescribeUpdateCommandInput,

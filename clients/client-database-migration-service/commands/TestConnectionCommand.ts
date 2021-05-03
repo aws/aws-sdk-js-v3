@@ -26,6 +26,18 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
 
 /**
  * <p>Tests the connection between the replication instance and the endpoint.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new TestConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TestConnectionCommandInput} for command's `input` shape.
+ * @see {@link TestConnectionCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TestConnectionCommand extends $Command<
   TestConnectionCommandInput,

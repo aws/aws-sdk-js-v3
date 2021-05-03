@@ -22,6 +22,18 @@ export interface StopBuildBatchCommandOutput extends StopBuildBatchOutput, __Met
 
 /**
  * <p>Stops a running batch build.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new StopBuildBatchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopBuildBatchCommandInput} for command's `input` shape.
+ * @see {@link StopBuildBatchCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopBuildBatchCommand extends $Command<
   StopBuildBatchCommandInput,

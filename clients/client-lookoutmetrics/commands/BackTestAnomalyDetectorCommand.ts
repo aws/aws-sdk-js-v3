@@ -22,6 +22,18 @@ export interface BackTestAnomalyDetectorCommandOutput extends BackTestAnomalyDet
 
 /**
  * <p>Runs a backtest for anomaly detection for the specified resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutMetricsClient(config);
+ * const command = new BackTestAnomalyDetectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BackTestAnomalyDetectorCommandInput} for command's `input` shape.
+ * @see {@link BackTestAnomalyDetectorCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BackTestAnomalyDetectorCommand extends $Command<
   BackTestAnomalyDetectorCommandInput,

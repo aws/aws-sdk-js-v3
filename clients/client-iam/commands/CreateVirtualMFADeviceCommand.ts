@@ -34,6 +34,18 @@ export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADev
  *                 provision your virtual device, you should ensure that the information is destroyed
  *                 following secure procedures.</p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new CreateVirtualMFADeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVirtualMFADeviceCommandInput} for command's `input` shape.
+ * @see {@link CreateVirtualMFADeviceCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateVirtualMFADeviceCommand extends $Command<
   CreateVirtualMFADeviceCommandInput,

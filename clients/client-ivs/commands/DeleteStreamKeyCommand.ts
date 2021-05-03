@@ -23,6 +23,18 @@ export interface DeleteStreamKeyCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the stream key for the specified ARN, so it can no longer be used to
  *       stream.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IvsClient(config);
+ * const command = new DeleteStreamKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteStreamKeyCommandInput} for command's `input` shape.
+ * @see {@link DeleteStreamKeyCommandOutput} for command's `response` shape.
+ * @see {@link IvsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteStreamKeyCommand extends $Command<
   DeleteStreamKeyCommandInput,

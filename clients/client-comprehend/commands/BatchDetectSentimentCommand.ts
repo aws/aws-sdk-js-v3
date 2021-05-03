@@ -24,6 +24,18 @@ export interface BatchDetectSentimentCommandOutput extends BatchDetectSentimentR
  * <p>Inspects a batch of documents and returns an inference of the prevailing sentiment,
  *         <code>POSITIVE</code>, <code>NEUTRAL</code>, <code>MIXED</code>, or <code>NEGATIVE</code>,
  *       in each one.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new BatchDetectSentimentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDetectSentimentCommandInput} for command's `input` shape.
+ * @see {@link BatchDetectSentimentCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDetectSentimentCommand extends $Command<
   BatchDetectSentimentCommandInput,

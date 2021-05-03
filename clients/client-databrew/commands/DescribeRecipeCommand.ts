@@ -23,6 +23,18 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
 /**
  * <p>Returns the definition of a specific DataBrew recipe corresponding to a particular
  *             version.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DataBrewClient(config);
+ * const command = new DescribeRecipeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRecipeCommandInput} for command's `input` shape.
+ * @see {@link DescribeRecipeCommandOutput} for command's `response` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRecipeCommand extends $Command<
   DescribeRecipeCommandInput,

@@ -26,6 +26,18 @@ export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __M
  *          Supplying multiple logins creates an implicit link.</p>
  *          <p>The OpenID token is valid for 10 minutes.</p>
  *          <p>This is a public API. You do not need any credentials to call this API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityClient(config);
+ * const command = new GetOpenIdTokenCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOpenIdTokenCommandInput} for command's `input` shape.
+ * @see {@link GetOpenIdTokenCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOpenIdTokenCommand extends $Command<
   GetOpenIdTokenCommandInput,

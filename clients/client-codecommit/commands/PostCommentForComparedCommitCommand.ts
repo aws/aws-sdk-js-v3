@@ -24,6 +24,18 @@ export interface PostCommentForComparedCommitCommandOutput
 
 /**
  * <p>Posts a comment on the comparison between two commits.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new PostCommentForComparedCommitCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PostCommentForComparedCommitCommandInput} for command's `input` shape.
+ * @see {@link PostCommentForComparedCommitCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PostCommentForComparedCommitCommand extends $Command<
   PostCommentForComparedCommitCommandInput,

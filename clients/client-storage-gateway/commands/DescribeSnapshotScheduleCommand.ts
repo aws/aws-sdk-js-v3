@@ -25,6 +25,18 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  *          information includes intervals at which snapshots are automatically initiated on the
  *          volume. This operation is only supported in the cached volume and stored volume
  *          types.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new DescribeSnapshotScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSnapshotScheduleCommandInput} for command's `input` shape.
+ * @see {@link DescribeSnapshotScheduleCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSnapshotScheduleCommand extends $Command<
   DescribeSnapshotScheduleCommandInput,

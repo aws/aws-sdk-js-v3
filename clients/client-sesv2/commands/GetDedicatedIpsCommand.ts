@@ -23,6 +23,18 @@ export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, _
 /**
  * <p>List the dedicated IP addresses that are associated with your AWS
  *             account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new GetDedicatedIpsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDedicatedIpsCommandInput} for command's `input` shape.
+ * @see {@link GetDedicatedIpsCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDedicatedIpsCommand extends $Command<
   GetDedicatedIpsCommandInput,

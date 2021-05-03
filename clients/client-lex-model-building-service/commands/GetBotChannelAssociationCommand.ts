@@ -29,6 +29,18 @@ export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAsso
  *       a messaging platform.</p>
  *          <p>This operation requires permissions for the
  *         <code>lex:GetBotChannelAssociation</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new GetBotChannelAssociationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetBotChannelAssociationCommandInput} for command's `input` shape.
+ * @see {@link GetBotChannelAssociationCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetBotChannelAssociationCommand extends $Command<
   GetBotChannelAssociationCommandInput,

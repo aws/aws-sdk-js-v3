@@ -28,6 +28,18 @@ export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __Metadat
  *             <p>You can't delete an asset that's associated to another asset. For more information, see
  *           <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DisassociateAssets.html">DisassociateAssets</a>.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTSiteWiseClient(config);
+ * const command = new DeleteAssetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAssetCommandInput} for command's `input` shape.
+ * @see {@link DeleteAssetCommandOutput} for command's `response` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAssetCommand extends $Command<
   DeleteAssetCommandInput,

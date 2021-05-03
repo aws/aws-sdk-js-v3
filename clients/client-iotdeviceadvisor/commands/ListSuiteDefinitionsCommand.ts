@@ -22,6 +22,18 @@ export interface ListSuiteDefinitionsCommandOutput extends ListSuiteDefinitionsR
 
 /**
  * <p>Lists the Device Advisor test suites you have created.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IotDeviceAdvisorClient(config);
+ * const command = new ListSuiteDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSuiteDefinitionsCommandInput} for command's `input` shape.
+ * @see {@link ListSuiteDefinitionsCommandOutput} for command's `response` shape.
+ * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSuiteDefinitionsCommand extends $Command<
   ListSuiteDefinitionsCommandInput,

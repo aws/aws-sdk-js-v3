@@ -22,6 +22,18 @@ export interface UpdateDeploymentCommandOutput extends Deployment, __MetadataBea
 
 /**
  * <p>Changes information about a <a>Deployment</a> resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new UpdateDeploymentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateDeploymentCommandInput} for command's `input` shape.
+ * @see {@link UpdateDeploymentCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateDeploymentCommand extends $Command<
   UpdateDeploymentCommandInput,

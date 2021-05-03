@@ -22,6 +22,18 @@ export interface PutKMSEncryptionKeyCommandOutput extends PutKMSEncryptionKeyRes
 
 /**
  * <p>Specifies the Key Management Service (KMS) customer master key (CMK) to be used to encrypt content in Amazon Fraud Detector.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new PutKMSEncryptionKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutKMSEncryptionKeyCommandInput} for command's `input` shape.
+ * @see {@link PutKMSEncryptionKeyCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutKMSEncryptionKeyCommand extends $Command<
   PutKMSEncryptionKeyCommandInput,

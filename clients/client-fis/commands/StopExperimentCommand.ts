@@ -22,6 +22,18 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
 
 /**
  * <p>Stops the specified experiment.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FisClient(config);
+ * const command = new StopExperimentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopExperimentCommandInput} for command's `input` shape.
+ * @see {@link StopExperimentCommandOutput} for command's `response` shape.
+ * @see {@link FisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopExperimentCommand extends $Command<
   StopExperimentCommandInput,

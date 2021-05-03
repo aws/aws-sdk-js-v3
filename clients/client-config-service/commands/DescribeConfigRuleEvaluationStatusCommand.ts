@@ -30,6 +30,18 @@ export interface DescribeConfigRuleEvaluationStatusCommandOutput
  * 			rules. The status includes information such as the last time AWS
  * 			Config invoked the rule, the last time AWS Config failed to invoke
  * 			the rule, and the related error for the last failure.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new DescribeConfigRuleEvaluationStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConfigRuleEvaluationStatusCommandInput} for command's `input` shape.
+ * @see {@link DescribeConfigRuleEvaluationStatusCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConfigRuleEvaluationStatusCommand extends $Command<
   DescribeConfigRuleEvaluationStatusCommandInput,

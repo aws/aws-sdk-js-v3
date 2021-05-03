@@ -27,6 +27,18 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  * 			instances that target the Capacity Reservation can no longer launch. Modify these instances to either
  * 			target a different Capacity Reservation, launch On-Demand Instance capacity, or run in any open Capacity Reservation
  * 			that has matching attributes and sufficient capacity.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CancelCapacityReservationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CancelCapacityReservationCommandInput} for command's `input` shape.
+ * @see {@link CancelCapacityReservationCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CancelCapacityReservationCommand extends $Command<
   CancelCapacityReservationCommandInput,

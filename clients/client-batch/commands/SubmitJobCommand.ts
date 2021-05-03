@@ -31,6 +31,18 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *             <p>Jobs that run on Fargate resources can't be guaranteed to run for more than 14 days. This is because, after 14
  *     days, Fargate resources might become unavailable and job might be terminated.</p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BatchClient(config);
+ * const command = new SubmitJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SubmitJobCommandInput} for command's `input` shape.
+ * @see {@link SubmitJobCommandOutput} for command's `response` shape.
+ * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SubmitJobCommand extends $Command<
   SubmitJobCommandInput,

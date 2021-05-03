@@ -24,6 +24,18 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * <p>Returns the metadata, structure, stages, and actions of a pipeline. Can be used to
  *             return the entire structure of a pipeline in JSON format, which can then be modified and
  *             used to update the pipeline structure with <a>UpdatePipeline</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodePipelineClient(config);
+ * const command = new GetPipelineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPipelineCommandInput} for command's `input` shape.
+ * @see {@link GetPipelineCommandOutput} for command's `response` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPipelineCommand extends $Command<
   GetPipelineCommandInput,

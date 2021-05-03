@@ -28,6 +28,18 @@ export interface UpdateAcceleratorAttributesCommandOutput
 
 /**
  * <p>Update the attributes for an accelerator. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlobalAcceleratorClient(config);
+ * const command = new UpdateAcceleratorAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateAcceleratorAttributesCommandInput} for command's `input` shape.
+ * @see {@link UpdateAcceleratorAttributesCommandOutput} for command's `response` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateAcceleratorAttributesCommand extends $Command<
   UpdateAcceleratorAttributesCommandInput,

@@ -26,6 +26,18 @@ export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChalle
 
 /**
  * <p>Responds to the authentication challenge.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new RespondToAuthChallengeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RespondToAuthChallengeCommandInput} for command's `input` shape.
+ * @see {@link RespondToAuthChallengeCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RespondToAuthChallengeCommand extends $Command<
   RespondToAuthChallengeCommandInput,

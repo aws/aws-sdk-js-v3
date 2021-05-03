@@ -34,6 +34,18 @@ export interface DeleteBotAliasCommandOutput extends __MetadataBearer {}
  *       reference to the alias by deleting the channel association. If you get the
  *       same exception again, delete the referring association until the
  *         <code>DeleteBotAlias</code> operation is successful.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelBuildingServiceClient(config);
+ * const command = new DeleteBotAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBotAliasCommandInput} for command's `input` shape.
+ * @see {@link DeleteBotAliasCommandOutput} for command's `response` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBotAliasCommand extends $Command<
   DeleteBotAliasCommandInput,

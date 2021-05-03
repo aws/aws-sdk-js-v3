@@ -24,6 +24,18 @@ export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __Metadat
  * <p>Deletes the specified trial. All trial components that make up the trial must be deleted
  *       first. Use the <a>DescribeTrialComponent</a> API to get the list of trial
  *       components.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteTrialCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteTrialCommandInput} for command's `input` shape.
+ * @see {@link DeleteTrialCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteTrialCommand extends $Command<
   DeleteTrialCommandInput,

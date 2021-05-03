@@ -32,6 +32,18 @@ export interface GetRateBasedRuleCommandOutput extends GetRateBasedRuleResponse,
  *          <p>Returns the <a>RateBasedRule</a> that is specified by the
  *             <code>RuleId</code> that you included in the <code>GetRateBasedRule</code>
  *          request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFRegionalClient(config);
+ * const command = new GetRateBasedRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRateBasedRuleCommandInput} for command's `input` shape.
+ * @see {@link GetRateBasedRuleCommandOutput} for command's `response` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRateBasedRuleCommand extends $Command<
   GetRateBasedRuleCommandInput,

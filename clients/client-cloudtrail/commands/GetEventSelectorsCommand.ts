@@ -38,6 +38,18 @@ export interface GetEventSelectorsCommandOutput extends GetEventSelectorsRespons
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html">Logging Data and Management Events for Trails
  *       </a> in the <i>AWS CloudTrail User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudTrailClient(config);
+ * const command = new GetEventSelectorsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetEventSelectorsCommandInput} for command's `input` shape.
+ * @see {@link GetEventSelectorsCommandOutput} for command's `response` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetEventSelectorsCommand extends $Command<
   GetEventSelectorsCommandInput,

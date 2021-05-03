@@ -22,6 +22,18 @@ export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataR
 
 /**
  * <p>Deletes custom metadata from the specified resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new DeleteCustomMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCustomMetadataCommandInput} for command's `input` shape.
+ * @see {@link DeleteCustomMetadataCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCustomMetadataCommand extends $Command<
   DeleteCustomMetadataCommandInput,

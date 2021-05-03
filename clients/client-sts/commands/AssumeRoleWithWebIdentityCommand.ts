@@ -157,6 +157,18 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *                to content in Amazon S3. </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new STSClient(config);
+ * const command = new AssumeRoleWithWebIdentityCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssumeRoleWithWebIdentityCommandInput} for command's `input` shape.
+ * @see {@link AssumeRoleWithWebIdentityCommandOutput} for command's `response` shape.
+ * @see {@link STSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssumeRoleWithWebIdentityCommand extends $Command<
   AssumeRoleWithWebIdentityCommandInput,

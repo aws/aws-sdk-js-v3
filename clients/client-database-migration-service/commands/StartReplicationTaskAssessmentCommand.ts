@@ -29,6 +29,18 @@ export interface StartReplicationTaskAssessmentCommandOutput
 /**
  * <p> Starts the replication task assessment for unsupported data types in the source
  *          database. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new StartReplicationTaskAssessmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartReplicationTaskAssessmentCommandInput} for command's `input` shape.
+ * @see {@link StartReplicationTaskAssessmentCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartReplicationTaskAssessmentCommand extends $Command<
   StartReplicationTaskAssessmentCommandInput,

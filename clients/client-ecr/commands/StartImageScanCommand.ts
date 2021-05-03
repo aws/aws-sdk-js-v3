@@ -25,6 +25,18 @@ export interface StartImageScanCommandOutput extends StartImageScanResponse, __M
  *             an individual image. This limit includes if an image was scanned on initial push. For
  *             more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html">Image Scanning</a> in the
  *                 <i>Amazon Elastic Container Registry User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECRClient(config);
+ * const command = new StartImageScanCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartImageScanCommandInput} for command's `input` shape.
+ * @see {@link StartImageScanCommandOutput} for command's `response` shape.
+ * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartImageScanCommand extends $Command<
   StartImageScanCommandInput,

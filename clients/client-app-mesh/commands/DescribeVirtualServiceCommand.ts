@@ -22,6 +22,18 @@ export interface DescribeVirtualServiceCommandOutput extends DescribeVirtualServ
 
 /**
  * <p>Describes an existing virtual service.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new DescribeVirtualServiceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeVirtualServiceCommandInput} for command's `input` shape.
+ * @see {@link DescribeVirtualServiceCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeVirtualServiceCommand extends $Command<
   DescribeVirtualServiceCommandInput,

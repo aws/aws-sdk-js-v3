@@ -22,6 +22,18 @@ export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysRes
 
 /**
  * <p>Describes one or more of your NAT gateways.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeNatGatewaysCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeNatGatewaysCommandInput} for command's `input` shape.
+ * @see {@link DescribeNatGatewaysCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeNatGatewaysCommand extends $Command<
   DescribeNatGatewaysCommandInput,

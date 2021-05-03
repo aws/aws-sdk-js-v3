@@ -22,6 +22,18 @@ export interface ListJobTemplatesCommandOutput extends ListJobTemplatesResponse,
 
 /**
  * Retrieve a JSON array of up to twenty of your job templates. This will return the templates themselves, not just a list of them. To retrieve the next twenty templates, use the nextToken string returned with the array
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConvertClient(config);
+ * const command = new ListJobTemplatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListJobTemplatesCommandInput} for command's `input` shape.
+ * @see {@link ListJobTemplatesCommandOutput} for command's `response` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListJobTemplatesCommand extends $Command<
   ListJobTemplatesCommandInput,

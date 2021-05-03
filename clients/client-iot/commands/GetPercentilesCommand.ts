@@ -30,6 +30,18 @@ export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __M
  *         that occurs in approximately five percent of the values that match the query, and so on.
  *         The result is an approximation, the more values that match the query, the more accurate
  *         the percentile values.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new GetPercentilesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPercentilesCommandInput} for command's `input` shape.
+ * @see {@link GetPercentilesCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPercentilesCommand extends $Command<
   GetPercentilesCommandInput,

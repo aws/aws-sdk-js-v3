@@ -24,6 +24,18 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * <p>Lists the versions of a model in an Amazon Lookout for Vision project.</p>
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:ListModels</code> operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutVisionClient(config);
+ * const command = new ListModelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListModelsCommandInput} for command's `input` shape.
+ * @see {@link ListModelsCommandOutput} for command's `response` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListModelsCommand extends $Command<
   ListModelsCommandInput,

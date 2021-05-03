@@ -24,6 +24,18 @@ export interface UpdateFieldLevelEncryptionProfileCommandOutput
 
 /**
  * <p>Update a field-level encryption profile. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new UpdateFieldLevelEncryptionProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFieldLevelEncryptionProfileCommandInput} for command's `input` shape.
+ * @see {@link UpdateFieldLevelEncryptionProfileCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFieldLevelEncryptionProfileCommand extends $Command<
   UpdateFieldLevelEncryptionProfileCommandInput,

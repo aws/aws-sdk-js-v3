@@ -22,6 +22,18 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
 
 /**
  * Creates a new MediaPackage VOD Asset resource.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaPackageVodClient(config);
+ * const command = new CreateAssetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAssetCommandInput} for command's `input` shape.
+ * @see {@link CreateAssetCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageVodClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAssetCommand extends $Command<
   CreateAssetCommandInput,

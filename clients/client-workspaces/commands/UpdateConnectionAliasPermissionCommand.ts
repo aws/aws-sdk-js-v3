@@ -43,6 +43,18 @@ export interface UpdateConnectionAliasPermissionCommandOutput
  *                </li>
  *             </ul>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new UpdateConnectionAliasPermissionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateConnectionAliasPermissionCommandInput} for command's `input` shape.
+ * @see {@link UpdateConnectionAliasPermissionCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateConnectionAliasPermissionCommand extends $Command<
   UpdateConnectionAliasPermissionCommandInput,

@@ -23,6 +23,18 @@ export interface DeactivateUserCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deactivates the specified user, which revokes the user's access to Amazon
  *             WorkDocs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new DeactivateUserCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeactivateUserCommandInput} for command's `input` shape.
+ * @see {@link DeactivateUserCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeactivateUserCommand extends $Command<
   DeactivateUserCommandInput,

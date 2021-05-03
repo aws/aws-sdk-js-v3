@@ -28,6 +28,18 @@ export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, _
  * <p>Returns information about the schema for the specified endpoint.</p>
  *
  *          <p></p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DescribeSchemasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSchemasCommandInput} for command's `input` shape.
+ * @see {@link DescribeSchemasCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSchemasCommand extends $Command<
   DescribeSchemasCommandInput,

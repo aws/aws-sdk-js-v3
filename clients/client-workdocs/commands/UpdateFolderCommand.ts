@@ -23,6 +23,18 @@ export interface UpdateFolderCommandOutput extends __MetadataBearer {}
 /**
  * <p>Updates the specified attributes of the specified folder. The user must have access
  *             to both the folder and its parent folder, if applicable.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkDocsClient(config);
+ * const command = new UpdateFolderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFolderCommandInput} for command's `input` shape.
+ * @see {@link UpdateFolderCommandOutput} for command's `response` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFolderCommand extends $Command<
   UpdateFolderCommandInput,

@@ -24,6 +24,18 @@ export interface UpdateApnsVoipSandboxChannelCommandOutput
 
 /**
  * <p>Enables the APNs VoIP sandbox channel for an application or updates the status and settings of the APNs VoIP sandbox channel for an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new UpdateApnsVoipSandboxChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateApnsVoipSandboxChannelCommandInput} for command's `input` shape.
+ * @see {@link UpdateApnsVoipSandboxChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateApnsVoipSandboxChannelCommand extends $Command<
   UpdateApnsVoipSandboxChannelCommandInput,

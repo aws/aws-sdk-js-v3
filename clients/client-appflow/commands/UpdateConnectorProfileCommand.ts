@@ -24,6 +24,18 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  * <p>
  *   Updates a given connector profile associated with your account.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppflowClient(config);
+ * const command = new UpdateConnectorProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateConnectorProfileCommandInput} for command's `input` shape.
+ * @see {@link UpdateConnectorProfileCommandOutput} for command's `response` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateConnectorProfileCommand extends $Command<
   UpdateConnectorProfileCommandInput,

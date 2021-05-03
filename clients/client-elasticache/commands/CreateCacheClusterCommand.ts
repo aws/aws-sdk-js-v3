@@ -25,6 +25,18 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  *             cluster run the same protocol-compliant cache engine software, either Memcached
  *             or Redis.</p>
  *         <p>This operation is not supported for Redis (cluster mode enabled) clusters.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new CreateCacheClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCacheClusterCommandInput} for command's `input` shape.
+ * @see {@link CreateCacheClusterCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCacheClusterCommand extends $Command<
   CreateCacheClusterCommandInput,

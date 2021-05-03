@@ -19,6 +19,18 @@ export interface ListTagsCommandOutput extends ListTagsResult, __MetadataBearer 
 
 /**
  * <p>Returns a list of tags that are applied to the specified stack or layer.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OpsWorksClient(config);
+ * const command = new ListTagsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTagsCommandInput} for command's `input` shape.
+ * @see {@link ListTagsCommandOutput} for command's `response` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTagsCommand extends $Command<
   ListTagsCommandInput,

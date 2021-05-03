@@ -24,6 +24,18 @@ export interface AttachThingPrincipalCommandOutput extends AttachThingPrincipalR
  * <p>Attaches the specified principal to the specified thing. A principal can be X.509
  * 			certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
  * 			identities.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new AttachThingPrincipalCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AttachThingPrincipalCommandInput} for command's `input` shape.
+ * @see {@link AttachThingPrincipalCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AttachThingPrincipalCommand extends $Command<
   AttachThingPrincipalCommandInput,

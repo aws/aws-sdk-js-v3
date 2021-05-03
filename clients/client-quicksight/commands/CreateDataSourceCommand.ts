@@ -22,6 +22,18 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
 
 /**
  * <p>Creates a data source.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QuickSightClient(config);
+ * const command = new CreateDataSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDataSourceCommandInput} for command's `input` shape.
+ * @see {@link CreateDataSourceCommandOutput} for command's `response` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDataSourceCommand extends $Command<
   CreateDataSourceCommandInput,

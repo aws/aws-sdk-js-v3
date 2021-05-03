@@ -22,6 +22,18 @@ export interface UpdateEmailTemplateCommandOutput extends UpdateEmailTemplateRes
 
 /**
  * <p>Updates an existing message template for messages that are sent through the email channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new UpdateEmailTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateEmailTemplateCommandInput} for command's `input` shape.
+ * @see {@link UpdateEmailTemplateCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateEmailTemplateCommand extends $Command<
   UpdateEmailTemplateCommandInput,

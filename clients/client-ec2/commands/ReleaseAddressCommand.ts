@@ -30,6 +30,18 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
  *         <code>AuthFailure</code> error if the address is already allocated to another AWS account.</p>
  *          <p>[EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it.
  *         For more information, see <a>AllocateAddress</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ReleaseAddressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReleaseAddressCommandInput} for command's `input` shape.
+ * @see {@link ReleaseAddressCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReleaseAddressCommand extends $Command<
   ReleaseAddressCommandInput,

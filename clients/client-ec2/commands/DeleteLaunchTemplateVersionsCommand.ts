@@ -27,6 +27,18 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
  *             version of a launch template; you must first assign a different version as the default.
  *             If the default version is the only version for the launch template, you must delete the
  *             entire launch template using <a>DeleteLaunchTemplate</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DeleteLaunchTemplateVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteLaunchTemplateVersionsCommandInput} for command's `input` shape.
+ * @see {@link DeleteLaunchTemplateVersionsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteLaunchTemplateVersionsCommand extends $Command<
   DeleteLaunchTemplateVersionsCommandInput,

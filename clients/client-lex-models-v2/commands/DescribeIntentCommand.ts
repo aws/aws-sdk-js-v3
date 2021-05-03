@@ -22,6 +22,18 @@ export interface DescribeIntentCommandOutput extends DescribeIntentResponse, __M
 
 /**
  * <p>Returns metadata about an intent.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexModelsV2Client(config);
+ * const command = new DescribeIntentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeIntentCommandInput} for command's `input` shape.
+ * @see {@link DescribeIntentCommandOutput} for command's `response` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeIntentCommand extends $Command<
   DescribeIntentCommandInput,

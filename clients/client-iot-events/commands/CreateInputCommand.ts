@@ -22,6 +22,18 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
 
 /**
  * <p>Creates an input.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTEventsClient(config);
+ * const command = new CreateInputCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateInputCommandInput} for command's `input` shape.
+ * @see {@link CreateInputCommandOutput} for command's `response` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateInputCommand extends $Command<
   CreateInputCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateClassificationJobCommandOutput extends UpdateClassificati
 
 /**
  * <p>Changes the status of a classification job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new UpdateClassificationJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateClassificationJobCommandInput} for command's `input` shape.
+ * @see {@link UpdateClassificationJobCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateClassificationJobCommand extends $Command<
   UpdateClassificationJobCommandInput,

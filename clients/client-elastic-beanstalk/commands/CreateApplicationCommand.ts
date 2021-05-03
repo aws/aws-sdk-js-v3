@@ -23,6 +23,18 @@ export interface CreateApplicationCommandOutput extends ApplicationDescriptionMe
 /**
  * <p>Creates an application that has one configuration template named <code>default</code>
  *       and no application versions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new CreateApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateApplicationCommandInput} for command's `input` shape.
+ * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,

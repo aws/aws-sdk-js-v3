@@ -22,6 +22,18 @@ export interface GetInstanceCommandOutput extends GetInstanceResponse, __Metadat
 
 /**
  * <p>Gets information about a specified instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceDiscoveryClient(config);
+ * const command = new GetInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetInstanceCommandInput} for command's `input` shape.
+ * @see {@link GetInstanceCommandOutput} for command's `response` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetInstanceCommand extends $Command<
   GetInstanceCommandInput,

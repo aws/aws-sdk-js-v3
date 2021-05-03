@@ -22,6 +22,18 @@ export interface DescribeAppCommandOutput extends DescribeAppResponse, __Metadat
 
 /**
  * <p>Describes the app.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeAppCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAppCommandInput} for command's `input` shape.
+ * @see {@link DescribeAppCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAppCommand extends $Command<
   DescribeAppCommandInput,

@@ -45,6 +45,18 @@ export interface RefreshTrustedAdvisorCheckCommandOutput extends RefreshTrustedA
  *                 </li>
  *             </ul>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SupportClient(config);
+ * const command = new RefreshTrustedAdvisorCheckCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RefreshTrustedAdvisorCheckCommandInput} for command's `input` shape.
+ * @see {@link RefreshTrustedAdvisorCheckCommandOutput} for command's `response` shape.
+ * @see {@link SupportClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RefreshTrustedAdvisorCheckCommand extends $Command<
   RefreshTrustedAdvisorCheckCommandInput,

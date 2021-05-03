@@ -24,6 +24,18 @@ export interface ListCACertificatesCommandOutput extends ListCACertificatesRespo
  * <p>Lists the CA certificates registered for your AWS account.</p>
  *          <p>The results are paginated with a default page size of 25. You can use the returned
  *          marker to retrieve additional results.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ListCACertificatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCACertificatesCommandInput} for command's `input` shape.
+ * @see {@link ListCACertificatesCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCACertificatesCommand extends $Command<
   ListCACertificatesCommandInput,

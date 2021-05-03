@@ -24,6 +24,18 @@ export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConf
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html">code
  *         signing configurations</a>. A request returns up to 10,000 configurations per
  *       call. You can use the <code>MaxItems</code> parameter to return fewer configurations per call. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new ListCodeSigningConfigsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCodeSigningConfigsCommandInput} for command's `input` shape.
+ * @see {@link ListCodeSigningConfigsCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCodeSigningConfigsCommand extends $Command<
   ListCodeSigningConfigsCommandInput,

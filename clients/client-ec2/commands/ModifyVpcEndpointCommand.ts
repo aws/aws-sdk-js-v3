@@ -25,6 +25,18 @@ export interface ModifyVpcEndpointCommandOutput extends ModifyVpcEndpointResult,
  *             depend on the type of VPC endpoint (interface, gateway, or Gateway Load Balancer). For more information, see
  *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html">VPC
  *                 Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyVpcEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyVpcEndpointCommandInput} for command's `input` shape.
+ * @see {@link ModifyVpcEndpointCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyVpcEndpointCommand extends $Command<
   ModifyVpcEndpointCommandInput,

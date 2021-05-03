@@ -26,6 +26,18 @@ export interface GetDefaultPatchBaselineCommandOutput extends GetDefaultPatchBas
  *    system.</p>
  *          <p>If you do not specify an operating system value, the default patch baseline for Windows is
  *    returned.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new GetDefaultPatchBaselineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDefaultPatchBaselineCommandInput} for command's `input` shape.
+ * @see {@link GetDefaultPatchBaselineCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDefaultPatchBaselineCommand extends $Command<
   GetDefaultPatchBaselineCommandInput,

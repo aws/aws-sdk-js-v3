@@ -22,6 +22,18 @@ export interface DeleteBackupVaultAccessPolicyCommandOutput extends __MetadataBe
 
 /**
  * <p>Deletes the policy document that manages permissions on a backup vault.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new DeleteBackupVaultAccessPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBackupVaultAccessPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteBackupVaultAccessPolicyCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBackupVaultAccessPolicyCommand extends $Command<
   DeleteBackupVaultAccessPolicyCommandInput,

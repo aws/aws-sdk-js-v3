@@ -87,6 +87,18 @@ export interface GetDiscoveredResourceCountsCommandOutput
  * 					<a>GetDiscoveredResourceCounts</a> action.
  * 			</p>
  * 		       </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConfigServiceClient(config);
+ * const command = new GetDiscoveredResourceCountsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDiscoveredResourceCountsCommandInput} for command's `input` shape.
+ * @see {@link GetDiscoveredResourceCountsCommandOutput} for command's `response` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDiscoveredResourceCountsCommand extends $Command<
   GetDiscoveredResourceCountsCommandInput,

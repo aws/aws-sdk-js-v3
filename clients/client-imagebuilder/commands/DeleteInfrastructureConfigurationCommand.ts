@@ -27,6 +27,18 @@ export interface DeleteInfrastructureConfigurationCommandOutput
 
 /**
  * <p> Deletes an infrastructure configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new DeleteInfrastructureConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteInfrastructureConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteInfrastructureConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteInfrastructureConfigurationCommand extends $Command<
   DeleteInfrastructureConfigurationCommandInput,

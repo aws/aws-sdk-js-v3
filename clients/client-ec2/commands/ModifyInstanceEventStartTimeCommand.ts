@@ -24,6 +24,18 @@ export interface ModifyInstanceEventStartTimeCommandOutput
 
 /**
  * <p>Modifies the start time for a scheduled Amazon EC2 instance event.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyInstanceEventStartTimeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyInstanceEventStartTimeCommandInput} for command's `input` shape.
+ * @see {@link ModifyInstanceEventStartTimeCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyInstanceEventStartTimeCommand extends $Command<
   ModifyInstanceEventStartTimeCommandInput,

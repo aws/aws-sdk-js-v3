@@ -22,6 +22,18 @@ export interface ReserveContactCommandOutput extends ContactIdResponse, __Metada
 
 /**
  * <p>Reserves a contact using specified parameters.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GroundStationClient(config);
+ * const command = new ReserveContactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ReserveContactCommandInput} for command's `input` shape.
+ * @see {@link ReserveContactCommandOutput} for command's `response` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ReserveContactCommand extends $Command<
   ReserveContactCommandInput,

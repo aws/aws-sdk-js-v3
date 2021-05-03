@@ -23,6 +23,18 @@ export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemp
 /**
  * <p>Returns metadata of your saved backup plan templates, including the template ID, name,
  *          and the creation and deletion dates.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new ListBackupPlanTemplatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBackupPlanTemplatesCommandInput} for command's `input` shape.
+ * @see {@link ListBackupPlanTemplatesCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBackupPlanTemplatesCommand extends $Command<
   ListBackupPlanTemplatesCommandInput,

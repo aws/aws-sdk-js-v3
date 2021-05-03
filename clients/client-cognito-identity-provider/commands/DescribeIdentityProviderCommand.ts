@@ -27,6 +27,18 @@ export interface DescribeIdentityProviderCommandOutput extends DescribeIdentityP
 
 /**
  * <p>Gets information about a specific identity provider.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new DescribeIdentityProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeIdentityProviderCommandInput} for command's `input` shape.
+ * @see {@link DescribeIdentityProviderCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeIdentityProviderCommand extends $Command<
   DescribeIdentityProviderCommandInput,

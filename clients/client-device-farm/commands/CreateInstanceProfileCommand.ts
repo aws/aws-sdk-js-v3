@@ -23,6 +23,18 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
 /**
  * <p>Creates a profile that can be applied to one or more private fleet device
  *             instances.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new CreateInstanceProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateInstanceProfileCommandInput} for command's `input` shape.
+ * @see {@link CreateInstanceProfileCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateInstanceProfileCommand extends $Command<
   CreateInstanceProfileCommandInput,

@@ -22,6 +22,18 @@ export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeRespons
 
 /**
  * <p> Deletes an image recipe.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new DeleteImageRecipeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteImageRecipeCommandInput} for command's `input` shape.
+ * @see {@link DeleteImageRecipeCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteImageRecipeCommand extends $Command<
   DeleteImageRecipeCommandInput,

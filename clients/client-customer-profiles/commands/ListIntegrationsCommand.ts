@@ -22,6 +22,18 @@ export interface ListIntegrationsCommandOutput extends ListIntegrationsResponse,
 
 /**
  * <p>Lists all of the integrations in your domain.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CustomerProfilesClient(config);
+ * const command = new ListIntegrationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListIntegrationsCommandInput} for command's `input` shape.
+ * @see {@link ListIntegrationsCommandOutput} for command's `response` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListIntegrationsCommand extends $Command<
   ListIntegrationsCommandInput,

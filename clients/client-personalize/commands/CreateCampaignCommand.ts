@@ -92,6 +92,18 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PersonalizeClient(config);
+ * const command = new CreateCampaignCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCampaignCommandInput} for command's `input` shape.
+ * @see {@link CreateCampaignCommandOutput} for command's `response` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCampaignCommand extends $Command<
   CreateCampaignCommandInput,

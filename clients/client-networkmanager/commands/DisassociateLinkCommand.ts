@@ -23,6 +23,18 @@ export interface DisassociateLinkCommandOutput extends DisassociateLinkResponse,
 /**
  * <p>Disassociates an existing device from a link. You must first disassociate any customer
  *             gateways that are associated with the link.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new DisassociateLinkCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateLinkCommandInput} for command's `input` shape.
+ * @see {@link DisassociateLinkCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateLinkCommand extends $Command<
   DisassociateLinkCommandInput,

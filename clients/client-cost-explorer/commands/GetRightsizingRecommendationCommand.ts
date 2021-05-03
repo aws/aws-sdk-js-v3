@@ -33,6 +33,18 @@ export interface GetRightsizingRecommendationCommandOutput
  *       Recommendations</a>
  *       in the <i>AWS Billing and Cost Management User
  *       Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CostExplorerClient(config);
+ * const command = new GetRightsizingRecommendationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRightsizingRecommendationCommandInput} for command's `input` shape.
+ * @see {@link GetRightsizingRecommendationCommandOutput} for command's `response` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRightsizingRecommendationCommand extends $Command<
   GetRightsizingRecommendationCommandInput,

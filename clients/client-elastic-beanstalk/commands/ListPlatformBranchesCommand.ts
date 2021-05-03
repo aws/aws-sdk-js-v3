@@ -25,6 +25,18 @@ export interface ListPlatformBranchesCommandOutput extends ListPlatformBranchesR
  *       summary information about each platform branch.</p>
  *          <p>For definitions of platform branch and other platform-related terms, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-glossary.html">AWS Elastic Beanstalk
  *         Platforms Glossary</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new ListPlatformBranchesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPlatformBranchesCommandInput} for command's `input` shape.
+ * @see {@link ListPlatformBranchesCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPlatformBranchesCommand extends $Command<
   ListPlatformBranchesCommandInput,

@@ -23,6 +23,18 @@ export interface UpdateFlowTemplateCommandOutput extends UpdateFlowTemplateRespo
 /**
  * <p>Updates the specified workflow. All deployed systems and system instances that use the workflow will see the changes in the flow when it is redeployed. If you don't want this
  *          behavior, copy the workflow (creating a new workflow with a different ID), and update the copy. The workflow can contain only entities in the specified namespace. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTThingsGraphClient(config);
+ * const command = new UpdateFlowTemplateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFlowTemplateCommandInput} for command's `input` shape.
+ * @see {@link UpdateFlowTemplateCommandOutput} for command's `response` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFlowTemplateCommand extends $Command<
   UpdateFlowTemplateCommandInput,

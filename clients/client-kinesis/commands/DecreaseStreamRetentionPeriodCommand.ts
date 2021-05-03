@@ -27,6 +27,18 @@ export interface DecreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  *         <p>This operation may result in lost data. For example, if the stream's retention
  *             period is 48 hours and is decreased to 24 hours, any data already in the stream that is
  *             older than 24 hours is inaccessible.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisClient(config);
+ * const command = new DecreaseStreamRetentionPeriodCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DecreaseStreamRetentionPeriodCommandInput} for command's `input` shape.
+ * @see {@link DecreaseStreamRetentionPeriodCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DecreaseStreamRetentionPeriodCommand extends $Command<
   DecreaseStreamRetentionPeriodCommandInput,

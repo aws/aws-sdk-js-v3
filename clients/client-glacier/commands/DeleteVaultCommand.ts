@@ -41,6 +41,18 @@ export interface DeleteVaultCommandOutput extends __MetadataBearer {}
  *          <p> For conceptual information and underlying REST API, see <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-vaults.html">Deleting a Vault in Amazon
  *             Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html">Delete Vault </a> in the
  *             <i>Amazon S3 Glacier Developer Guide</i>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlacierClient(config);
+ * const command = new DeleteVaultCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVaultCommandInput} for command's `input` shape.
+ * @see {@link DeleteVaultCommandOutput} for command's `response` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVaultCommand extends $Command<
   DeleteVaultCommandInput,

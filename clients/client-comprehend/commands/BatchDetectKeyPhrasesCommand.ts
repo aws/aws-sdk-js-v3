@@ -22,6 +22,18 @@ export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrase
 
 /**
  * <p>Detects the key noun phrases found in a batch of documents.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new BatchDetectKeyPhrasesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDetectKeyPhrasesCommandInput} for command's `input` shape.
+ * @see {@link BatchDetectKeyPhrasesCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDetectKeyPhrasesCommand extends $Command<
   BatchDetectKeyPhrasesCommandInput,

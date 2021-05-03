@@ -30,6 +30,18 @@ export interface DisassociateAssessmentReportEvidenceFolderCommandOutput
  * <p>
  *   Disassociates an evidence folder from the specified assessment report in AWS Audit Manager.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new DisassociateAssessmentReportEvidenceFolderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateAssessmentReportEvidenceFolderCommandInput} for command's `input` shape.
+ * @see {@link DisassociateAssessmentReportEvidenceFolderCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateAssessmentReportEvidenceFolderCommand extends $Command<
   DisassociateAssessmentReportEvidenceFolderCommandInput,

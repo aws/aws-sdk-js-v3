@@ -28,6 +28,18 @@ export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconne
  *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to AWS at the colocation facility.
  *       For more information, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting Cross Connects at AWS Direct Connect Locations</a>
  *       in the <i>AWS Direct Connect User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new DescribeInterconnectLoaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeInterconnectLoaCommandInput} for command's `input` shape.
+ * @see {@link DescribeInterconnectLoaCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeInterconnectLoaCommand extends $Command<
   DescribeInterconnectLoaCommandInput,

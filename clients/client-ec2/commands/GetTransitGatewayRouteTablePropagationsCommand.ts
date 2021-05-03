@@ -28,6 +28,18 @@ export interface GetTransitGatewayRouteTablePropagationsCommandOutput
 
 /**
  * <p>Gets information about the route table propagations for the specified transit gateway route table.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new GetTransitGatewayRouteTablePropagationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTransitGatewayRouteTablePropagationsCommandInput} for command's `input` shape.
+ * @see {@link GetTransitGatewayRouteTablePropagationsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTransitGatewayRouteTablePropagationsCommand extends $Command<
   GetTransitGatewayRouteTablePropagationsCommandInput,

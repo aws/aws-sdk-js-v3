@@ -29,6 +29,18 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  *          <note>
  *             <p>Intended for use by AWS Direct Connect Partners only.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new AllocateConnectionOnInterconnectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AllocateConnectionOnInterconnectCommandInput} for command's `input` shape.
+ * @see {@link AllocateConnectionOnInterconnectCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AllocateConnectionOnInterconnectCommand extends $Command<
   AllocateConnectionOnInterconnectCommandInput,

@@ -23,6 +23,18 @@ export interface DeleteNotificationChannelCommandOutput extends __MetadataBearer
 /**
  * <p>Deletes an AWS Firewall Manager association with the IAM role and the Amazon Simple
  *       Notification Service (SNS) topic that is used to record AWS Firewall Manager SNS logs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FMSClient(config);
+ * const command = new DeleteNotificationChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteNotificationChannelCommandInput} for command's `input` shape.
+ * @see {@link DeleteNotificationChannelCommandOutput} for command's `response` shape.
+ * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteNotificationChannelCommand extends $Command<
   DeleteNotificationChannelCommandInput,

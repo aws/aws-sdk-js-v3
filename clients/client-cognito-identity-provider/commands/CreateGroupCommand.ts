@@ -28,6 +28,18 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
 /**
  * <p>Creates a new group in the specified user pool.</p>
  *         <p>Calling this action requires developer credentials.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoIdentityProviderClient(config);
+ * const command = new CreateGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateGroupCommandOutput} for command's `response` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateGroupCommand extends $Command<
   CreateGroupCommandInput,

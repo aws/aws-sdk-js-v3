@@ -27,6 +27,18 @@ export interface ListServerNeighborsCommandOutput extends ListServerNeighborsRes
 /**
  * <p>Retrieves a list of servers that are one network hop away from a specified
  *       server.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationDiscoveryServiceClient(config);
+ * const command = new ListServerNeighborsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListServerNeighborsCommandInput} for command's `input` shape.
+ * @see {@link ListServerNeighborsCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListServerNeighborsCommand extends $Command<
   ListServerNeighborsCommandInput,

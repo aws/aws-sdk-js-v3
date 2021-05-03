@@ -36,6 +36,18 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  *             no remaining IP addresses available.</p>
  *         <p>For more information about subnets, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Your VPC and Subnets</a> in the
  *                 <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateSubnetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSubnetCommandInput} for command's `input` shape.
+ * @see {@link CreateSubnetCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSubnetCommand extends $Command<
   CreateSubnetCommandInput,

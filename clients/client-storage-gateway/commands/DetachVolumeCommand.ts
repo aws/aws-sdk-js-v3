@@ -26,6 +26,18 @@ export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __Metadat
  *          one gateway to a different gateway without creating a snapshot. It also makes it easier to
  *          move your volumes from an on-premises gateway to a gateway hosted on an Amazon EC2
  *          instance. This operation is only supported in the volume gateway type.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new DetachVolumeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetachVolumeCommandInput} for command's `input` shape.
+ * @see {@link DetachVolumeCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DetachVolumeCommand extends $Command<
   DetachVolumeCommandInput,

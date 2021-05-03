@@ -27,6 +27,18 @@ export interface StartPHIDetectionJobCommandOutput extends StartPHIDetectionJobR
 /**
  * <p>Starts an asynchronous job to detect protected health information (PHI). Use the
  *         <code>DescribePHIDetectionJob</code> operation to track the status of a job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendMedicalClient(config);
+ * const command = new StartPHIDetectionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartPHIDetectionJobCommandInput} for command's `input` shape.
+ * @see {@link StartPHIDetectionJobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartPHIDetectionJobCommand extends $Command<
   StartPHIDetectionJobCommandInput,

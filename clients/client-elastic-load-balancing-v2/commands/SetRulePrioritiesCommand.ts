@@ -28,6 +28,18 @@ export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput,
  * <p>Sets the priorities of the specified rules.</p>
  *          <p>You can reorder the rules as long as there are no priority conflicts in the new order. Any
  *       existing rules that you do not specify retain their current priority.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new SetRulePrioritiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetRulePrioritiesCommandInput} for command's `input` shape.
+ * @see {@link SetRulePrioritiesCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetRulePrioritiesCommand extends $Command<
   SetRulePrioritiesCommandInput,

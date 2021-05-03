@@ -22,6 +22,18 @@ export interface ListProfilePermissionsCommandOutput extends ListProfilePermissi
 
 /**
  * <p>Lists the cross-account permissions associated with a signing profile.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SignerClient(config);
+ * const command = new ListProfilePermissionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListProfilePermissionsCommandInput} for command's `input` shape.
+ * @see {@link ListProfilePermissionsCommandOutput} for command's `response` shape.
+ * @see {@link SignerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListProfilePermissionsCommand extends $Command<
   ListProfilePermissionsCommandInput,

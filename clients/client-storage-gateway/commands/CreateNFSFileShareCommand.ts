@@ -36,6 +36,18 @@ export interface CreateNFSFileShareCommandOutput extends CreateNFSFileShareOutpu
  *
  *             <p>File gateway does not support creating hard or symbolic links on a file share.</p>
  *          </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new CreateNFSFileShareCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateNFSFileShareCommandInput} for command's `input` shape.
+ * @see {@link CreateNFSFileShareCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateNFSFileShareCommand extends $Command<
   CreateNFSFileShareCommandInput,

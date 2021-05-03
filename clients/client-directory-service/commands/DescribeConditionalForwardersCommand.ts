@@ -25,6 +25,18 @@ export interface DescribeConditionalForwardersCommandOutput
 /**
  * <p>Obtains information about the conditional forwarders for this account.</p>
  *          <p>If no input parameters are provided for RemoteDomainNames, this request describes all conditional forwarders for the specified directory ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectoryServiceClient(config);
+ * const command = new DescribeConditionalForwardersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeConditionalForwardersCommandInput} for command's `input` shape.
+ * @see {@link DescribeConditionalForwardersCommandOutput} for command's `response` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeConditionalForwardersCommand extends $Command<
   DescribeConditionalForwardersCommandInput,

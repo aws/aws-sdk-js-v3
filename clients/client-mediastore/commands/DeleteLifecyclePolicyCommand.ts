@@ -22,6 +22,18 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
 
 /**
  * <p>Removes an object lifecycle policy from a container. It takes up to 20 minutes for the change to take effect.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaStoreClient(config);
+ * const command = new DeleteLifecyclePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteLifecyclePolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteLifecyclePolicyCommandOutput} for command's `response` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteLifecyclePolicyCommand extends $Command<
   DeleteLifecyclePolicyCommandInput,

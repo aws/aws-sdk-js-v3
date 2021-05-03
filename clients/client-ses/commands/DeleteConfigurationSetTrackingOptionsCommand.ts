@@ -37,6 +37,18 @@ export interface DeleteConfigurationSetTrackingOptionsCommandOutput
  *                 configuration set to capture open and click events using the standard,
  *                 Amazon SES-operated domains.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESClient(config);
+ * const command = new DeleteConfigurationSetTrackingOptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
+ * @see {@link DeleteConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<
   DeleteConfigurationSetTrackingOptionsCommandInput,

@@ -22,6 +22,18 @@ export interface ListAuthorizersCommandOutput extends ListAuthorizersResponse, _
 
 /**
  * <p>Lists the authorizers registered in your account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new ListAuthorizersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAuthorizersCommandInput} for command's `input` shape.
+ * @see {@link ListAuthorizersCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAuthorizersCommand extends $Command<
   ListAuthorizersCommandInput,

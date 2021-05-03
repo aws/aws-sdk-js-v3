@@ -22,6 +22,18 @@ export interface PublishSchemaCommandOutput extends PublishSchemaResponse, __Met
 
 /**
  * <p>Publishes a development schema with a major version and a recommended minor version.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new PublishSchemaCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PublishSchemaCommandInput} for command's `input` shape.
+ * @see {@link PublishSchemaCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PublishSchemaCommand extends $Command<
   PublishSchemaCommandInput,

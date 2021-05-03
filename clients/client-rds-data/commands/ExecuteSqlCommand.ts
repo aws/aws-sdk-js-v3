@@ -28,6 +28,18 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  *             <p>This operation is deprecated. Use the <code>BatchExecuteStatement</code> or
  *                     <code>ExecuteStatement</code> operation.</p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSDataClient(config);
+ * const command = new ExecuteSqlCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ExecuteSqlCommandInput} for command's `input` shape.
+ * @see {@link ExecuteSqlCommandOutput} for command's `response` shape.
+ * @see {@link RDSDataClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ExecuteSqlCommand extends $Command<
   ExecuteSqlCommandInput,

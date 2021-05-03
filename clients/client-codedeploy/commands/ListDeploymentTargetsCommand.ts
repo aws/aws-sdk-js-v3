@@ -22,6 +22,18 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
 
 /**
  * <p> Returns an array of target IDs that are associated a deployment. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new ListDeploymentTargetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDeploymentTargetsCommandInput} for command's `input` shape.
+ * @see {@link ListDeploymentTargetsCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDeploymentTargetsCommand extends $Command<
   ListDeploymentTargetsCommandInput,

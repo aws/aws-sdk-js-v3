@@ -26,6 +26,18 @@ export interface BatchDetectDominantLanguageCommandOutput
  * <p>Determines the dominant language of the input text for a batch of documents. For a list
  *       of languages that Amazon Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon Comprehend Supported Languages</a>.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendClient(config);
+ * const command = new BatchDetectDominantLanguageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchDetectDominantLanguageCommandInput} for command's `input` shape.
+ * @see {@link BatchDetectDominantLanguageCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchDetectDominantLanguageCommand extends $Command<
   BatchDetectDominantLanguageCommandInput,

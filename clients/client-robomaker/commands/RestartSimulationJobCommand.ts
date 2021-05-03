@@ -22,6 +22,18 @@ export interface RestartSimulationJobCommandOutput extends RestartSimulationJobR
 
 /**
  * <p>Restarts a running simulation job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new RestartSimulationJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RestartSimulationJobCommandInput} for command's `input` shape.
+ * @see {@link RestartSimulationJobCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RestartSimulationJobCommand extends $Command<
   RestartSimulationJobCommandInput,

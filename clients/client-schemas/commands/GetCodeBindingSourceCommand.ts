@@ -22,6 +22,18 @@ export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceR
 
 /**
  * <p>Get the code binding source URI.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SchemasClient(config);
+ * const command = new GetCodeBindingSourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetCodeBindingSourceCommandInput} for command's `input` shape.
+ * @see {@link GetCodeBindingSourceCommandOutput} for command's `response` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetCodeBindingSourceCommand extends $Command<
   GetCodeBindingSourceCommandInput,

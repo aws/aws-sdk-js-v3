@@ -24,6 +24,18 @@ export interface ListConnectorEntitiesCommandOutput extends ListConnectorEntitie
  * <p>
  *   Returns the list of available connector entities supported by Amazon AppFlow. For example, you can query Salesforce for <i>Account</i> and <i>Opportunity</i> entities, or query ServiceNow for the <i>Incident</i> entity.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppflowClient(config);
+ * const command = new ListConnectorEntitiesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListConnectorEntitiesCommandInput} for command's `input` shape.
+ * @see {@link ListConnectorEntitiesCommandOutput} for command's `response` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListConnectorEntitiesCommand extends $Command<
   ListConnectorEntitiesCommandInput,

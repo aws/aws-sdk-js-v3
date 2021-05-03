@@ -22,6 +22,18 @@ export interface GetVocabularyCommandOutput extends GetVocabularyResponse, __Met
 
 /**
  * <p>Gets information about a vocabulary. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeClient(config);
+ * const command = new GetVocabularyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetVocabularyCommandInput} for command's `input` shape.
+ * @see {@link GetVocabularyCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetVocabularyCommand extends $Command<
   GetVocabularyCommandInput,

@@ -22,6 +22,18 @@ export interface DeleteRouteResponseCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a RouteResponse.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApiGatewayV2Client(config);
+ * const command = new DeleteRouteResponseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteRouteResponseCommandInput} for command's `input` shape.
+ * @see {@link DeleteRouteResponseCommandOutput} for command's `response` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteRouteResponseCommand extends $Command<
   DeleteRouteResponseCommandInput,

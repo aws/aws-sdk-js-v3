@@ -28,6 +28,18 @@ export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput
 
 /**
  * <p>Disassociates the specified self-service action association from the specified provisioning artifact.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DisassociateServiceActionFromProvisioningArtifactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateServiceActionFromProvisioningArtifactCommandInput} for command's `input` shape.
+ * @see {@link DisassociateServiceActionFromProvisioningArtifactCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateServiceActionFromProvisioningArtifactCommand extends $Command<
   DisassociateServiceActionFromProvisioningArtifactCommandInput,

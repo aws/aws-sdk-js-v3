@@ -28,6 +28,18 @@ export interface ListAttributesCommandOutput extends ListAttributesResponse, __M
  * 			can also filter the results by attribute name and value, for example, to see which
  * 			container instances in a cluster are running a Linux AMI
  * 			(<code>ecs.os-type=linux</code>). </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new ListAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAttributesCommandInput} for command's `input` shape.
+ * @see {@link ListAttributesCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAttributesCommand extends $Command<
   ListAttributesCommandInput,

@@ -22,6 +22,18 @@ export interface UpdateBaiduChannelCommandOutput extends UpdateBaiduChannelRespo
 
 /**
  * <p>Enables the Baidu channel for an application or updates the status and settings of the Baidu channel for an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new UpdateBaiduChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateBaiduChannelCommandInput} for command's `input` shape.
+ * @see {@link UpdateBaiduChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateBaiduChannelCommand extends $Command<
   UpdateBaiduChannelCommandInput,

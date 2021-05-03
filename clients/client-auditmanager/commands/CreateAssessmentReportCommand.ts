@@ -24,6 +24,18 @@ export interface CreateAssessmentReportCommandOutput extends CreateAssessmentRep
  * <p>
  * Creates an assessment report for the specified assessment.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new CreateAssessmentReportCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateAssessmentReportCommandInput} for command's `input` shape.
+ * @see {@link CreateAssessmentReportCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateAssessmentReportCommand extends $Command<
   CreateAssessmentReportCommandInput,

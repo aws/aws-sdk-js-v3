@@ -29,6 +29,18 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
  *          <p>
  *        The returned text might contain formatting. For example, it might contain formatting for Markdown or reStructuredText.
  *      </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeartifactClient(config);
+ * const command = new GetPackageVersionReadmeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPackageVersionReadmeCommandInput} for command's `input` shape.
+ * @see {@link GetPackageVersionReadmeCommandOutput} for command's `response` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPackageVersionReadmeCommand extends $Command<
   GetPackageVersionReadmeCommandInput,

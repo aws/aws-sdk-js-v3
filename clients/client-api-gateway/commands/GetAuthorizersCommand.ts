@@ -23,6 +23,18 @@ export interface GetAuthorizersCommandOutput extends Authorizers, __MetadataBear
 /**
  * <p>Describe an existing <a>Authorizers</a> resource.</p>
  *         <div class="seeAlso"><a href="https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html">AWS CLI</a></div>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new GetAuthorizersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetAuthorizersCommandInput} for command's `input` shape.
+ * @see {@link GetAuthorizersCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetAuthorizersCommand extends $Command<
   GetAuthorizersCommandInput,

@@ -24,6 +24,18 @@ export interface RejectResourceShareInvitationCommandOutput
 
 /**
  * <p>Rejects an invitation to a resource share from another AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RAMClient(config);
+ * const command = new RejectResourceShareInvitationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RejectResourceShareInvitationCommandInput} for command's `input` shape.
+ * @see {@link RejectResourceShareInvitationCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RejectResourceShareInvitationCommand extends $Command<
   RejectResourceShareInvitationCommandInput,

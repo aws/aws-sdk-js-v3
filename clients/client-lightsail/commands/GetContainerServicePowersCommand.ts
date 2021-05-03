@@ -26,6 +26,18 @@ export interface GetContainerServicePowersCommandOutput extends GetContainerServ
  *
  *          <p>The power specifies the amount of memory, the number of vCPUs, and the base price of the
  *       container service.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetContainerServicePowersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetContainerServicePowersCommandInput} for command's `input` shape.
+ * @see {@link GetContainerServicePowersCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetContainerServicePowersCommand extends $Command<
   GetContainerServicePowersCommandInput,

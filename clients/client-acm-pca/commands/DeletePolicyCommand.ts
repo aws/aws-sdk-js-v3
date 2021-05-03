@@ -56,6 +56,18 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * 			Access</a>.</p>
  * 		          </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ACMPCAClient(config);
+ * const command = new DeletePolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePolicyCommandInput} for command's `input` shape.
+ * @see {@link DeletePolicyCommandOutput} for command's `response` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePolicyCommand extends $Command<
   DeletePolicyCommandInput,

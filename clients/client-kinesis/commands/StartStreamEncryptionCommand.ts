@@ -37,6 +37,18 @@ export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
  *             status before all records written to the stream are encrypted. After you enable
  *             encryption, you can verify that encryption is applied by inspecting the API response
  *             from <code>PutRecord</code> or <code>PutRecords</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisClient(config);
+ * const command = new StartStreamEncryptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartStreamEncryptionCommandInput} for command's `input` shape.
+ * @see {@link StartStreamEncryptionCommandOutput} for command's `response` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartStreamEncryptionCommand extends $Command<
   StartStreamEncryptionCommandInput,

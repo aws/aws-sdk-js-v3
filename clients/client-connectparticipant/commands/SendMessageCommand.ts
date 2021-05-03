@@ -31,6 +31,18 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  *             <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
  *                     authentication</a>.</p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectParticipantClient(config);
+ * const command = new SendMessageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SendMessageCommandInput} for command's `input` shape.
+ * @see {@link SendMessageCommandOutput} for command's `response` shape.
+ * @see {@link ConnectParticipantClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SendMessageCommand extends $Command<
   SendMessageCommandInput,

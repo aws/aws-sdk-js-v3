@@ -25,6 +25,18 @@ export interface DeleteCacheSecurityGroupCommandOutput extends __MetadataBearer 
  *         <note>
  *             <p>You cannot delete a cache security group if it is associated with any clusters.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElastiCacheClient(config);
+ * const command = new DeleteCacheSecurityGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteCacheSecurityGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteCacheSecurityGroupCommandOutput} for command's `response` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteCacheSecurityGroupCommand extends $Command<
   DeleteCacheSecurityGroupCommandInput,

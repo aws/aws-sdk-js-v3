@@ -22,6 +22,18 @@ export interface ListImagePipelinesCommandOutput extends ListImagePipelinesRespo
 
 /**
  * <p>Returns a list of image pipelines.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new ListImagePipelinesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListImagePipelinesCommandInput} for command's `input` shape.
+ * @see {@link ListImagePipelinesCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListImagePipelinesCommand extends $Command<
   ListImagePipelinesCommandInput,

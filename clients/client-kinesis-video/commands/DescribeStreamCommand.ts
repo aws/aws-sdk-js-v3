@@ -23,6 +23,18 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
 /**
  * <p>Returns the most current information about the specified stream. You must specify
  *             either the <code>StreamName</code> or the <code>StreamARN</code>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisVideoClient(config);
+ * const command = new DescribeStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeStreamCommandInput} for command's `input` shape.
+ * @see {@link DescribeStreamCommandOutput} for command's `response` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeStreamCommand extends $Command<
   DescribeStreamCommandInput,

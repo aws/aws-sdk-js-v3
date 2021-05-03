@@ -28,6 +28,18 @@ export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualIn
  *       the connection for up to 30 seconds. To check whether your connection supports jumbo
  *       frames, call <a>DescribeConnections</a>. To check whether your virtual q
  *       interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DirectConnectClient(config);
+ * const command = new UpdateVirtualInterfaceAttributesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateVirtualInterfaceAttributesCommandInput} for command's `input` shape.
+ * @see {@link UpdateVirtualInterfaceAttributesCommandOutput} for command's `response` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateVirtualInterfaceAttributesCommand extends $Command<
   UpdateVirtualInterfaceAttributesCommandInput,

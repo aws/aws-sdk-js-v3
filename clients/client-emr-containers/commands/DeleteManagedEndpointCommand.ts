@@ -22,6 +22,18 @@ export interface DeleteManagedEndpointCommandOutput extends DeleteManagedEndpoin
 
 /**
  * <p>Deletes a managed endpoint. A managed endpoint is a gateway that connects EMR Studio to Amazon EMR on EKS so that EMR Studio can communicate with your virtual cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EMRContainersClient(config);
+ * const command = new DeleteManagedEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteManagedEndpointCommandInput} for command's `input` shape.
+ * @see {@link DeleteManagedEndpointCommandOutput} for command's `response` shape.
+ * @see {@link EMRContainersClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteManagedEndpointCommand extends $Command<
   DeleteManagedEndpointCommandInput,

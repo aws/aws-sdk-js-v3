@@ -23,6 +23,18 @@ export interface CreateTransitGatewayConnectCommandOutput extends CreateTransitG
 /**
  * <p>Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.</p>
  *         <p>A Connect attachment uses an existing VPC or AWS Direct Connect attachment as the underlying transport mechanism. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateTransitGatewayConnectCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTransitGatewayConnectCommandInput} for command's `input` shape.
+ * @see {@link CreateTransitGatewayConnectCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTransitGatewayConnectCommand extends $Command<
   CreateTransitGatewayConnectCommandInput,

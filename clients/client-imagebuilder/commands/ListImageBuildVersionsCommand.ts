@@ -22,6 +22,18 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
 
 /**
  * <p> Returns a list of image build versions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ImagebuilderClient(config);
+ * const command = new ListImageBuildVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListImageBuildVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListImageBuildVersionsCommandOutput} for command's `response` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListImageBuildVersionsCommand extends $Command<
   ListImageBuildVersionsCommandInput,

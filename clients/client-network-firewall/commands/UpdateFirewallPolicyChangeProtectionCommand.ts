@@ -27,6 +27,18 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput
 
 /**
  * <p></p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkFirewallClient(config);
+ * const command = new UpdateFirewallPolicyChangeProtectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateFirewallPolicyChangeProtectionCommandInput} for command's `input` shape.
+ * @see {@link UpdateFirewallPolicyChangeProtectionCommandOutput} for command's `response` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateFirewallPolicyChangeProtectionCommand extends $Command<
   UpdateFirewallPolicyChangeProtectionCommandInput,

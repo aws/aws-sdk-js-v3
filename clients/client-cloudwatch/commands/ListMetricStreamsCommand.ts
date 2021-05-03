@@ -22,6 +22,18 @@ export interface ListMetricStreamsCommandOutput extends ListMetricStreamsOutput,
 
 /**
  * <p>Returns a list of metric streams in this account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchClient(config);
+ * const command = new ListMetricStreamsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListMetricStreamsCommandInput} for command's `input` shape.
+ * @see {@link ListMetricStreamsCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListMetricStreamsCommand extends $Command<
   ListMetricStreamsCommandInput,

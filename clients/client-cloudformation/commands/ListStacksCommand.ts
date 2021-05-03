@@ -23,6 +23,18 @@ export interface ListStacksCommandOutput extends ListStacksOutput, __MetadataBea
  *          days after the stack is deleted. If no StackStatusFilter is specified, summary information
  *          for all stacks is returned (including existing stacks and stacks that have been
  *          deleted).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new ListStacksCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListStacksCommandInput} for command's `input` shape.
+ * @see {@link ListStacksCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListStacksCommand extends $Command<
   ListStacksCommandInput,

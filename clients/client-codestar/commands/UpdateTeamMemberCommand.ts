@@ -24,6 +24,18 @@ export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, _
  * <p>Updates a team member's attributes in an AWS CodeStar project. For example, you can change a
  *       team member's role in the project, or change whether they have remote access to project
  *       resources.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeStarClient(config);
+ * const command = new UpdateTeamMemberCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateTeamMemberCommandInput} for command's `input` shape.
+ * @see {@link UpdateTeamMemberCommandOutput} for command's `response` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateTeamMemberCommand extends $Command<
   UpdateTeamMemberCommandInput,

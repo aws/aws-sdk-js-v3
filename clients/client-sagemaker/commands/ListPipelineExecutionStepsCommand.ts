@@ -22,6 +22,18 @@ export interface ListPipelineExecutionStepsCommandOutput extends ListPipelineExe
 
 /**
  * <p>Gets a list of <code>PipeLineExecutionStep</code> objects.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListPipelineExecutionStepsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListPipelineExecutionStepsCommandInput} for command's `input` shape.
+ * @see {@link ListPipelineExecutionStepsCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListPipelineExecutionStepsCommand extends $Command<
   ListPipelineExecutionStepsCommandInput,

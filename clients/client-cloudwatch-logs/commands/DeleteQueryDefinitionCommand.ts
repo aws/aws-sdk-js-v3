@@ -26,6 +26,18 @@ export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitio
  *          <p>Each <code>DeleteQueryDefinition</code> operation can delete one query definition.</p>
  *          <p>You must have the <code>logs:DeleteQueryDefinition</code> permission to be able to perform
  *       this operation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudWatchLogsClient(config);
+ * const command = new DeleteQueryDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteQueryDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DeleteQueryDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteQueryDefinitionCommand extends $Command<
   DeleteQueryDefinitionCommandInput,

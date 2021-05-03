@@ -45,6 +45,18 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
  *
  *          <p>If do not intend to use the gateway again, you must delete the gateway (using <a>DeleteGateway</a>) to no longer pay software charges associated with the
  *          gateway.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new ShutdownGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ShutdownGatewayCommandInput} for command's `input` shape.
+ * @see {@link ShutdownGatewayCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ShutdownGatewayCommand extends $Command<
   ShutdownGatewayCommandInput,

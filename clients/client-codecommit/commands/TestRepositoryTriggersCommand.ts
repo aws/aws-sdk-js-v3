@@ -24,6 +24,18 @@ export interface TestRepositoryTriggersCommandOutput extends TestRepositoryTrigg
  * <p>Tests the functionality of repository triggers by sending information to the trigger
  *             target. If real data is available in the repository, the test sends data from the last
  *             commit. If no data is available, sample data is generated.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new TestRepositoryTriggersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TestRepositoryTriggersCommandInput} for command's `input` shape.
+ * @see {@link TestRepositoryTriggersCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TestRepositoryTriggersCommand extends $Command<
   TestRepositoryTriggersCommandInput,

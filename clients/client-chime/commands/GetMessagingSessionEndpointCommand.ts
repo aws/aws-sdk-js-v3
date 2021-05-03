@@ -24,6 +24,18 @@ export interface GetMessagingSessionEndpointCommandOutput
 
 /**
  * <p>The details of the endpoint for the messaging session.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new GetMessagingSessionEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMessagingSessionEndpointCommandInput} for command's `input` shape.
+ * @see {@link GetMessagingSessionEndpointCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMessagingSessionEndpointCommand extends $Command<
   GetMessagingSessionEndpointCommandInput,

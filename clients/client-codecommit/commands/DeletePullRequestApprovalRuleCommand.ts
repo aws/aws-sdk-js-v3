@@ -26,6 +26,18 @@ export interface DeletePullRequestApprovalRuleCommandOutput
  * <p>Deletes an approval rule from a specified pull request. Approval rules can be deleted from a pull request only if the pull request is open, and if the
  *             approval rule was created specifically for a pull request and not generated from an approval rule template associated with the repository where the
  *             pull request was created. You cannot delete an approval rule from a merged or closed pull request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new DeletePullRequestApprovalRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePullRequestApprovalRuleCommandInput} for command's `input` shape.
+ * @see {@link DeletePullRequestApprovalRuleCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePullRequestApprovalRuleCommand extends $Command<
   DeletePullRequestApprovalRuleCommandInput,

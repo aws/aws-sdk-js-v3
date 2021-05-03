@@ -22,6 +22,18 @@ export interface DeleteFlowDefinitionCommandOutput extends DeleteFlowDefinitionR
 
 /**
  * <p>Deletes the specified flow definition.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteFlowDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteFlowDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DeleteFlowDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteFlowDefinitionCommand extends $Command<
   DeleteFlowDefinitionCommandInput,

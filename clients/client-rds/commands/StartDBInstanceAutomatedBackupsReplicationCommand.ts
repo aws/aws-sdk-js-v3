@@ -32,6 +32,18 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
  *             Replicating Automated Backups to Another AWS Region</a> in the <i>Amazon RDS User Guide.</i>
  *          </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new StartDBInstanceAutomatedBackupsReplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartDBInstanceAutomatedBackupsReplicationCommandInput} for command's `input` shape.
+ * @see {@link StartDBInstanceAutomatedBackupsReplicationCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<
   StartDBInstanceAutomatedBackupsReplicationCommandInput,

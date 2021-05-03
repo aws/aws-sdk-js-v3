@@ -28,6 +28,18 @@ export interface ListTrafficPolicyInstancesCommandOutput extends ListTrafficPoli
  * 		       </note>
  * 		       <p>Route 53 returns a maximum of 100 items in each response. If you have a lot of traffic policy instances, you can use the
  * 			<code>MaxItems</code> parameter to list them in groups of up to 100.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new ListTrafficPolicyInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTrafficPolicyInstancesCommandInput} for command's `input` shape.
+ * @see {@link ListTrafficPolicyInstancesCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTrafficPolicyInstancesCommand extends $Command<
   ListTrafficPolicyInstancesCommandInput,

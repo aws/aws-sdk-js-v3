@@ -22,6 +22,18 @@ export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse,
 
 /**
  * <p>Revokes an invitation and invalidates the enrollment URL.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new RevokeInvitationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RevokeInvitationCommandInput} for command's `input` shape.
+ * @see {@link RevokeInvitationCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RevokeInvitationCommand extends $Command<
   RevokeInvitationCommandInput,

@@ -22,6 +22,18 @@ export interface AssociateFleetCommandOutput extends AssociateFleetResult, __Met
 
 /**
  * <p>Associates the specified fleet with the specified stack.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppStreamClient(config);
+ * const command = new AssociateFleetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateFleetCommandInput} for command's `input` shape.
+ * @see {@link AssociateFleetCommandOutput} for command's `response` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateFleetCommand extends $Command<
   AssociateFleetCommandInput,

@@ -23,6 +23,18 @@ export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __Met
 /**
  * <p>Returns the stack policy for a specified stack. If a stack doesn't have a policy, a
  *          null value is returned.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new GetStackPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetStackPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetStackPolicyCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetStackPolicyCommand extends $Command<
   GetStackPolicyCommandInput,

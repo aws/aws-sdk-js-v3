@@ -24,6 +24,18 @@ export interface PutAccountSettingDefaultCommandOutput extends PutAccountSetting
  * <p>Modifies an account setting for all IAM users on an account for whom no individual
  * 			account setting has been specified. Account settings are set on a per-Region
  * 			basis.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new PutAccountSettingDefaultCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAccountSettingDefaultCommandInput} for command's `input` shape.
+ * @see {@link PutAccountSettingDefaultCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAccountSettingDefaultCommand extends $Command<
   PutAccountSettingDefaultCommandInput,

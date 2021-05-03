@@ -22,6 +22,18 @@ export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaAp
 
 /**
  * <p>Creates a SIP media application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new CreateSipMediaApplicationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateSipMediaApplicationCommandInput} for command's `input` shape.
+ * @see {@link CreateSipMediaApplicationCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateSipMediaApplicationCommand extends $Command<
   CreateSipMediaApplicationCommandInput,

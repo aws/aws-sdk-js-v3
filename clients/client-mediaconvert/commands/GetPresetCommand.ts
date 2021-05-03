@@ -22,6 +22,18 @@ export interface GetPresetCommandOutput extends GetPresetResponse, __MetadataBea
 
 /**
  * Retrieve the JSON for a specific preset.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConvertClient(config);
+ * const command = new GetPresetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetPresetCommandInput} for command's `input` shape.
+ * @see {@link GetPresetCommandOutput} for command's `response` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetPresetCommand extends $Command<
   GetPresetCommandInput,

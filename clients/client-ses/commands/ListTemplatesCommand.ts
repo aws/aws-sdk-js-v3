@@ -24,6 +24,18 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  * <p>Lists the email templates present in your Amazon SES account in the current AWS
  *             Region.</p>
  *         <p>You can execute this operation no more than once per second.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESClient(config);
+ * const command = new ListTemplatesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTemplatesCommandInput} for command's `input` shape.
+ * @see {@link ListTemplatesCommandOutput} for command's `response` shape.
+ * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTemplatesCommand extends $Command<
   ListTemplatesCommandInput,

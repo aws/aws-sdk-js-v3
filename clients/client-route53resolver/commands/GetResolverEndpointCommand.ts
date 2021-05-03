@@ -23,6 +23,18 @@ export interface GetResolverEndpointCommandOutput extends GetResolverEndpointRes
 /**
  * <p>Gets information about a specified Resolver endpoint, such as whether it's an inbound or an outbound Resolver endpoint, and the
  * 			current status of the endpoint.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new GetResolverEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetResolverEndpointCommandInput} for command's `input` shape.
+ * @see {@link GetResolverEndpointCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetResolverEndpointCommand extends $Command<
   GetResolverEndpointCommandInput,

@@ -25,6 +25,18 @@ export interface DeleteProvisioningArtifactCommandOutput extends DeleteProvision
  *          <p>You cannot delete a provisioning artifact associated with a product that was shared with you.
  *          You cannot delete the last provisioning artifact for a product, because a product must have at
  *          least one provisioning artifact.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DeleteProvisioningArtifactCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteProvisioningArtifactCommandInput} for command's `input` shape.
+ * @see {@link DeleteProvisioningArtifactCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteProvisioningArtifactCommand extends $Command<
   DeleteProvisioningArtifactCommandInput,

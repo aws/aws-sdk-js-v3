@@ -22,6 +22,18 @@ export interface HttpPrefixHeadersCommandOutput extends HttpPrefixHeadersInputOu
 
 /**
  * This examples adds headers to the input of a request and response by prefix.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RestJsonProtocolClient(config);
+ * const command = new HttpPrefixHeadersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link HttpPrefixHeadersCommandInput} for command's `input` shape.
+ * @see {@link HttpPrefixHeadersCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class HttpPrefixHeadersCommand extends $Command<
   HttpPrefixHeadersCommandInput,

@@ -22,6 +22,18 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
 
 /**
  * <p>Creates an AWS IoT OTAUpdate on a target group of things or groups.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTClient(config);
+ * const command = new CreateOTAUpdateCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateOTAUpdateCommandInput} for command's `input` shape.
+ * @see {@link CreateOTAUpdateCommandOutput} for command's `response` shape.
+ * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateOTAUpdateCommand extends $Command<
   CreateOTAUpdateCommandInput,

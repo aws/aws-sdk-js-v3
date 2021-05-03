@@ -22,6 +22,18 @@ export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __Met
 
 /**
  * <p>View operational metadata related to an application in Application Manager.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SSMClient(config);
+ * const command = new GetOpsMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetOpsMetadataCommandInput} for command's `input` shape.
+ * @see {@link GetOpsMetadataCommandOutput} for command's `response` shape.
+ * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetOpsMetadataCommand extends $Command<
   GetOpsMetadataCommandInput,

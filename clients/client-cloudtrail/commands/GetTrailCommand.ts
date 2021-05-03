@@ -19,6 +19,18 @@ export interface GetTrailCommandOutput extends GetTrailResponse, __MetadataBeare
 
 /**
  * <p>Returns settings information for a specified trail.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudTrailClient(config);
+ * const command = new GetTrailCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTrailCommandInput} for command's `input` shape.
+ * @see {@link GetTrailCommandOutput} for command's `response` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTrailCommand extends $Command<
   GetTrailCommandInput,

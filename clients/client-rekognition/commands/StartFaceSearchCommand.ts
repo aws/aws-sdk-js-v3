@@ -31,6 +31,18 @@ export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, _
  *       topic is <code>SUCCEEDED</code>. If so, call <a>GetFaceSearch</a> and pass the job identifier
  *       (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>. For more information, see
  *       <a>procedure-person-search-videos</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RekognitionClient(config);
+ * const command = new StartFaceSearchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartFaceSearchCommandInput} for command's `input` shape.
+ * @see {@link StartFaceSearchCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartFaceSearchCommand extends $Command<
   StartFaceSearchCommandInput,

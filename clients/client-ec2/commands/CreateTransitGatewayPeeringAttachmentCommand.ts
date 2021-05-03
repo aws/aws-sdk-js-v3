@@ -33,6 +33,18 @@ export interface CreateTransitGatewayPeeringAttachmentCommandOutput
  *             account. </p>
  *          <p>After you create the peering attachment, the owner of the accepter
  *             transit gateway must accept the attachment request.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new CreateTransitGatewayPeeringAttachmentCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateTransitGatewayPeeringAttachmentCommandInput} for command's `input` shape.
+ * @see {@link CreateTransitGatewayPeeringAttachmentCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateTransitGatewayPeeringAttachmentCommand extends $Command<
   CreateTransitGatewayPeeringAttachmentCommandInput,

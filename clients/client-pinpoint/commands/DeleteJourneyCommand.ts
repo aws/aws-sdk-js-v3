@@ -22,6 +22,18 @@ export interface DeleteJourneyCommandOutput extends DeleteJourneyResponse, __Met
 
 /**
  * <p>Deletes a journey from an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new DeleteJourneyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteJourneyCommandInput} for command's `input` shape.
+ * @see {@link DeleteJourneyCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteJourneyCommand extends $Command<
   DeleteJourneyCommandInput,

@@ -25,6 +25,18 @@ export interface CreateBusinessReportScheduleCommandOutput
 /**
  * <p>Creates a recurring schedule for usage reports to deliver to the specified S3
  *          location with a specified daily or weekly interval.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new CreateBusinessReportScheduleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateBusinessReportScheduleCommandInput} for command's `input` shape.
+ * @see {@link CreateBusinessReportScheduleCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateBusinessReportScheduleCommand extends $Command<
   CreateBusinessReportScheduleCommandInput,

@@ -27,6 +27,18 @@ export interface ValidateConfigurationSettingsCommandOutput
  *       environment, and determines whether those values are valid.</p>
  *          <p>This action returns a list of messages indicating any errors or warnings associated
  *       with the selection of option values.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticBeanstalkClient(config);
+ * const command = new ValidateConfigurationSettingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ValidateConfigurationSettingsCommandInput} for command's `input` shape.
+ * @see {@link ValidateConfigurationSettingsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ValidateConfigurationSettingsCommand extends $Command<
   ValidateConfigurationSettingsCommandInput,

@@ -23,6 +23,18 @@ export interface DescribeModelCommandOutput extends DescribeModelOutput, __Metad
 /**
  * <p>Describes a model that you created using the <code>CreateModel</code>
  *             API.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DescribeModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeModelCommandInput} for command's `input` shape.
+ * @see {@link DescribeModelCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeModelCommand extends $Command<
   DescribeModelCommandInput,

@@ -27,6 +27,18 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
 /**
  * <p>Removes session information for a specified bot, alias, and user ID.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LexRuntimeServiceClient(config);
+ * const command = new DeleteSessionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteSessionCommandInput} for command's `input` shape.
+ * @see {@link DeleteSessionCommandOutput} for command's `response` shape.
+ * @see {@link LexRuntimeServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteSessionCommand extends $Command<
   DeleteSessionCommandInput,

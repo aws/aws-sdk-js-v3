@@ -24,6 +24,18 @@ export interface GetRecoveryPointRestoreMetadataCommandOutput
 
 /**
  * <p>Returns a set of metadata key-value pairs that were used to create the backup.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new GetRecoveryPointRestoreMetadataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRecoveryPointRestoreMetadataCommandInput} for command's `input` shape.
+ * @see {@link GetRecoveryPointRestoreMetadataCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRecoveryPointRestoreMetadataCommand extends $Command<
   GetRecoveryPointRestoreMetadataCommandInput,

@@ -26,6 +26,18 @@ export interface GetTranscriptionJobCommandOutput extends GetTranscriptionJobRes
  *             the job is finished and you can find the results at the location specified in the
  *                 <code>TranscriptFileUri</code> field. If you enable content redaction, the redacted
  *             transcript appears in <code>RedactedTranscriptFileUri</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranscribeClient(config);
+ * const command = new GetTranscriptionJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetTranscriptionJobCommandInput} for command's `input` shape.
+ * @see {@link GetTranscriptionJobCommandOutput} for command's `response` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetTranscriptionJobCommand extends $Command<
   GetTranscriptionJobCommandInput,

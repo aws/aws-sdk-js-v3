@@ -22,6 +22,18 @@ export interface DeleteBuildBatchCommandOutput extends DeleteBuildBatchOutput, _
 
 /**
  * <p>Deletes a batch build.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new DeleteBuildBatchCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBuildBatchCommandInput} for command's `input` shape.
+ * @see {@link DeleteBuildBatchCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBuildBatchCommand extends $Command<
   DeleteBuildBatchCommandInput,

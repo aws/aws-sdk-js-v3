@@ -22,6 +22,18 @@ export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __Met
 
 /**
  * <p>Deletes a room profile by the profile ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new DeleteProfileCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteProfileCommandInput} for command's `input` shape.
+ * @see {@link DeleteProfileCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteProfileCommand extends $Command<
   DeleteProfileCommandInput,

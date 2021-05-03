@@ -22,6 +22,18 @@ export interface ListArchiveRulesCommandOutput extends ListArchiveRulesResponse,
 
 /**
  * <p>Retrieves a list of archive rules created for the specified analyzer.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AccessAnalyzerClient(config);
+ * const command = new ListArchiveRulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListArchiveRulesCommandInput} for command's `input` shape.
+ * @see {@link ListArchiveRulesCommandOutput} for command's `response` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListArchiveRulesCommand extends $Command<
   ListArchiveRulesCommandInput,

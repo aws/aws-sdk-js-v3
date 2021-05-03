@@ -29,6 +29,18 @@ export interface UpdateColumnStatisticsForPartitionCommandOutput
  * <p>Creates or updates partition statistics of columns.</p>
  *
  *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdatePartition</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new UpdateColumnStatisticsForPartitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateColumnStatisticsForPartitionCommandInput} for command's `input` shape.
+ * @see {@link UpdateColumnStatisticsForPartitionCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateColumnStatisticsForPartitionCommand extends $Command<
   UpdateColumnStatisticsForPartitionCommandInput,

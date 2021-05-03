@@ -24,6 +24,18 @@ export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataB
  * <p>
  *       Returns a list of ARNs for the reports in the current AWS account.
  *     </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new ListReportsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListReportsCommandInput} for command's `input` shape.
+ * @see {@link ListReportsCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListReportsCommand extends $Command<
   ListReportsCommandInput,

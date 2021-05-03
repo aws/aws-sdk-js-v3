@@ -22,6 +22,18 @@ export interface ListHarvestJobsCommandOutput extends ListHarvestJobsResponse, _
 
 /**
  * Returns a collection of HarvestJob records.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaPackageClient(config);
+ * const command = new ListHarvestJobsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListHarvestJobsCommandInput} for command's `input` shape.
+ * @see {@link ListHarvestJobsCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListHarvestJobsCommand extends $Command<
   ListHarvestJobsCommandInput,

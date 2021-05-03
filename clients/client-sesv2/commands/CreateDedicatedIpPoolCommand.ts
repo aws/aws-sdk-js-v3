@@ -25,6 +25,18 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  *             IP addresses that are associated with your AWS account. You can associate a pool with
  *             a configuration set. When you send an email that uses that configuration set, the
  *             message is sent from one of the addresses in the associated pool.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new CreateDedicatedIpPoolCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateDedicatedIpPoolCommandInput} for command's `input` shape.
+ * @see {@link CreateDedicatedIpPoolCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateDedicatedIpPoolCommand extends $Command<
   CreateDedicatedIpPoolCommandInput,

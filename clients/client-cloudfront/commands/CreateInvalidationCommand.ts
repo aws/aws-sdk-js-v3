@@ -22,6 +22,18 @@ export interface CreateInvalidationCommandOutput extends CreateInvalidationResul
 
 /**
  * <p>Create a new invalidation. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFrontClient(config);
+ * const command = new CreateInvalidationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateInvalidationCommandInput} for command's `input` shape.
+ * @see {@link CreateInvalidationCommandOutput} for command's `response` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateInvalidationCommand extends $Command<
   CreateInvalidationCommandInput,

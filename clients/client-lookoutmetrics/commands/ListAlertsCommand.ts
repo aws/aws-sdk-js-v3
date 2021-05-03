@@ -22,6 +22,18 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
 
 /**
  * <p>Lists the alerts attached to a detector.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutMetricsClient(config);
+ * const command = new ListAlertsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAlertsCommandInput} for command's `input` shape.
+ * @see {@link ListAlertsCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAlertsCommand extends $Command<
   ListAlertsCommandInput,

@@ -25,6 +25,18 @@ export interface ResyncMFADeviceCommandOutput extends __MetadataBearer {}
  *             servers.</p>
  *         <p>For more information about creating and working with virtual MFA devices, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using a virtual MFA
  *                 device</a> in the <i>IAM User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IAMClient(config);
+ * const command = new ResyncMFADeviceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ResyncMFADeviceCommandInput} for command's `input` shape.
+ * @see {@link ResyncMFADeviceCommandOutput} for command's `response` shape.
+ * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ResyncMFADeviceCommand extends $Command<
   ResyncMFADeviceCommandInput,

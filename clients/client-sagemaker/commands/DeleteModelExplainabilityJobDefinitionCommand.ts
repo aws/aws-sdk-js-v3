@@ -23,6 +23,18 @@ export interface DeleteModelExplainabilityJobDefinitionCommandOutput extends __M
 
 /**
  * <p>Deletes an Amazon SageMaker model explainability job definition.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteModelExplainabilityJobDefinitionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteModelExplainabilityJobDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DeleteModelExplainabilityJobDefinitionCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteModelExplainabilityJobDefinitionCommand extends $Command<
   DeleteModelExplainabilityJobDefinitionCommandInput,

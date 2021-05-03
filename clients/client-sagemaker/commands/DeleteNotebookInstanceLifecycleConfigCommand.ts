@@ -22,6 +22,18 @@ export interface DeleteNotebookInstanceLifecycleConfigCommandOutput extends __Me
 
 /**
  * <p>Deletes a notebook instance lifecycle configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeleteNotebookInstanceLifecycleConfigCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteNotebookInstanceLifecycleConfigCommandInput} for command's `input` shape.
+ * @see {@link DeleteNotebookInstanceLifecycleConfigCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<
   DeleteNotebookInstanceLifecycleConfigCommandInput,

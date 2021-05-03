@@ -22,6 +22,18 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
 
 /**
  * <p>Deletes a deployment group.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new DeleteDeploymentGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteDeploymentGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteDeploymentGroupCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteDeploymentGroupCommand extends $Command<
   DeleteDeploymentGroupCommandInput,

@@ -23,6 +23,18 @@ export interface DeleteAssessmentTargetCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the assessment target that is specified by the ARN of the assessment
  *          target.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new DeleteAssessmentTargetCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAssessmentTargetCommandInput} for command's `input` shape.
+ * @see {@link DeleteAssessmentTargetCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAssessmentTargetCommand extends $Command<
   DeleteAssessmentTargetCommandInput,

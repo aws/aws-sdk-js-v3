@@ -29,6 +29,18 @@ export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
 /**
  * <p>Gets a list of <a>TrainingJobSummary</a> objects that describe the training
  *             jobs that a hyperparameter tuning job launched.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new ListTrainingJobsForHyperParameterTuningJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTrainingJobsForHyperParameterTuningJobCommandInput} for command's `input` shape.
+ * @see {@link ListTrainingJobsForHyperParameterTuningJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
   ListTrainingJobsForHyperParameterTuningJobCommandInput,

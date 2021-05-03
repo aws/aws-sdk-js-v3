@@ -22,6 +22,18 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
 
 /**
  * <p>Deletes a pipeline if there are no in-progress executions.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new DeletePipelineCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeletePipelineCommandInput} for command's `input` shape.
+ * @see {@link DeletePipelineCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeletePipelineCommand extends $Command<
   DeletePipelineCommandInput,

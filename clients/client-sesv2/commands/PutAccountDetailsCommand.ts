@@ -22,6 +22,18 @@ export interface PutAccountDetailsCommandOutput extends PutAccountDetailsRespons
 
 /**
  * <p>Update your Amazon SES account details.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new PutAccountDetailsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAccountDetailsCommandInput} for command's `input` shape.
+ * @see {@link PutAccountDetailsCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAccountDetailsCommand extends $Command<
   PutAccountDetailsCommandInput,

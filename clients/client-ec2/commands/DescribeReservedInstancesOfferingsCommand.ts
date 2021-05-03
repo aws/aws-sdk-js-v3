@@ -30,6 +30,18 @@ export interface DescribeReservedInstancesOfferingsCommandOutput
  *          <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
  * 				in the <i>Amazon EC2 User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeReservedInstancesOfferingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeReservedInstancesOfferingsCommandInput} for command's `input` shape.
+ * @see {@link DescribeReservedInstancesOfferingsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeReservedInstancesOfferingsCommand extends $Command<
   DescribeReservedInstancesOfferingsCommandInput,

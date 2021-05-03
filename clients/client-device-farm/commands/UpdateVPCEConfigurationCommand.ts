@@ -22,6 +22,18 @@ export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigur
 
 /**
  * <p>Updates information about an Amazon Virtual Private Cloud (VPC) endpoint configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DeviceFarmClient(config);
+ * const command = new UpdateVPCEConfigurationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateVPCEConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateVPCEConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateVPCEConfigurationCommand extends $Command<
   UpdateVPCEConfigurationCommandInput,

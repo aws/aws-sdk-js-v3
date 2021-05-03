@@ -23,6 +23,18 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
 /**
  * <p>Creates a connection. A connection defines the authorization type and credentials to use
  *       for authorization with an API destination HTTP endpoint.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EventBridgeClient(config);
+ * const command = new CreateConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateConnectionCommandInput} for command's `input` shape.
+ * @see {@link CreateConnectionCommandOutput} for command's `response` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateConnectionCommand extends $Command<
   CreateConnectionCommandInput,

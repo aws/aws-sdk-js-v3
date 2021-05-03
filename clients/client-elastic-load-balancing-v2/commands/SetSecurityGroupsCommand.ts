@@ -29,6 +29,18 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  *       specified security groups override the previously associated security groups.</p>
  *          <p>You can't specify a security group for a Network Load Balancer or Gateway Load
  *       Balancer.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new SetSecurityGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SetSecurityGroupsCommandInput} for command's `input` shape.
+ * @see {@link SetSecurityGroupsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SetSecurityGroupsCommand extends $Command<
   SetSecurityGroupsCommandInput,

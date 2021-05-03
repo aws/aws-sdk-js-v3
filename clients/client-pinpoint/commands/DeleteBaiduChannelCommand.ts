@@ -22,6 +22,18 @@ export interface DeleteBaiduChannelCommandOutput extends DeleteBaiduChannelRespo
 
 /**
  * <p>Disables the Baidu channel for an application and deletes any existing settings for the channel.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointClient(config);
+ * const command = new DeleteBaiduChannelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteBaiduChannelCommandInput} for command's `input` shape.
+ * @see {@link DeleteBaiduChannelCommandOutput} for command's `response` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteBaiduChannelCommand extends $Command<
   DeleteBaiduChannelCommandInput,

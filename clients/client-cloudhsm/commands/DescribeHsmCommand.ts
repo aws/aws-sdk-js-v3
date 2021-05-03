@@ -33,6 +33,18 @@ export interface DescribeHsmCommandOutput extends DescribeHsmResponse, __Metadat
  *       Reference</a>.</p>
  *          <p>Retrieves information about an HSM. You can identify the HSM by its ARN or its serial
  *       number.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudHSMClient(config);
+ * const command = new DescribeHsmCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeHsmCommandInput} for command's `input` shape.
+ * @see {@link DescribeHsmCommandOutput} for command's `response` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeHsmCommand extends $Command<
   DescribeHsmCommandInput,

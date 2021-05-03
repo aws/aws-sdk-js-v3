@@ -23,6 +23,18 @@ export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse,
 /**
  * <p>A batch request for storing geofence geometries into a given geofence
  *             collection.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LocationClient(config);
+ * const command = new BatchPutGeofenceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link BatchPutGeofenceCommandInput} for command's `input` shape.
+ * @see {@link BatchPutGeofenceCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class BatchPutGeofenceCommand extends $Command<
   BatchPutGeofenceCommandInput,

@@ -29,6 +29,18 @@ export interface ListHITsForQualificationTypeCommandOutput
  *             The operation returns HITs of any status, except for HITs that have been deleted
  *             with the <code>DeleteHIT</code> operation or that have been auto-deleted.
  *         </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MTurkClient(config);
+ * const command = new ListHITsForQualificationTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListHITsForQualificationTypeCommandInput} for command's `input` shape.
+ * @see {@link ListHITsForQualificationTypeCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListHITsForQualificationTypeCommand extends $Command<
   ListHITsForQualificationTypeCommandInput,

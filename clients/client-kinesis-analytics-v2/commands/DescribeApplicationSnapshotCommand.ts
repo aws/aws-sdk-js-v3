@@ -28,6 +28,18 @@ export interface DescribeApplicationSnapshotCommandOutput
 
 /**
  * <p>Returns information about a snapshot of application state data.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KinesisAnalyticsV2Client(config);
+ * const command = new DescribeApplicationSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeApplicationSnapshotCommandInput} for command's `input` shape.
+ * @see {@link DescribeApplicationSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeApplicationSnapshotCommand extends $Command<
   DescribeApplicationSnapshotCommandInput,

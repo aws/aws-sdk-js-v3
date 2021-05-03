@@ -28,6 +28,18 @@ export interface DescribeElasticsearchDomainsCommandOutput
 
 /**
  * <p>Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new DescribeElasticsearchDomainsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeElasticsearchDomainsCommandInput} for command's `input` shape.
+ * @see {@link DescribeElasticsearchDomainsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeElasticsearchDomainsCommand extends $Command<
   DescribeElasticsearchDomainsCommandInput,

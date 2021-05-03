@@ -24,6 +24,18 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  * <p>Lists all the subscription descriptions for a customer account. The description for a subscription includes
  *           <code>SubscriptionName</code>, <code>SNSTopicARN</code>, <code>CustomerID</code>, <code>SourceType</code>, <code>SourceID</code>, <code>CreationTime</code>, and <code>Status</code>.</p>
  *          <p>If you specify a <code>SubscriptionName</code>, lists the description for that subscription.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new DescribeEventSubscriptionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEventSubscriptionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeEventSubscriptionsCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEventSubscriptionsCommand extends $Command<
   DescribeEventSubscriptionsCommandInput,

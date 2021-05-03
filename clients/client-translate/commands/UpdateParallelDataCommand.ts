@@ -23,6 +23,18 @@ export interface UpdateParallelDataCommandOutput extends UpdateParallelDataRespo
 /**
  * <p>Updates a previously created parallel data resource by importing a new input file from
  *       Amazon S3.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new TranslateClient(config);
+ * const command = new UpdateParallelDataCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateParallelDataCommandInput} for command's `input` shape.
+ * @see {@link UpdateParallelDataCommandOutput} for command's `response` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateParallelDataCommand extends $Command<
   UpdateParallelDataCommandInput,

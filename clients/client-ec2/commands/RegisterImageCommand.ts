@@ -68,6 +68,18 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  *       code, the Reserved Instance will not be applied to the On-Demand Instance. For information
  *       about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Obtaining billing
  *         information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new RegisterImageCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterImageCommandInput} for command's `input` shape.
+ * @see {@link RegisterImageCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterImageCommand extends $Command<
   RegisterImageCommandInput,

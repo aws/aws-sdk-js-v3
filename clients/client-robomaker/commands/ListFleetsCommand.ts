@@ -23,6 +23,18 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
 /**
  * <p>Returns a list of fleets. You can optionally provide filters to retrieve specific
  *          fleets. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RoboMakerClient(config);
+ * const command = new ListFleetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFleetsCommandInput} for command's `input` shape.
+ * @see {@link ListFleetsCommandOutput} for command's `response` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFleetsCommand extends $Command<
   ListFleetsCommandInput,

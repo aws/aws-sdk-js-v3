@@ -22,6 +22,18 @@ export interface PutExternalModelCommandOutput extends PutExternalModelResult, _
 
 /**
  * <p>Creates or updates an Amazon SageMaker model endpoint. You can also use this action to update the configuration of the model endpoint, including the IAM role and/or the mapped variables.  </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new FraudDetectorClient(config);
+ * const command = new PutExternalModelCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutExternalModelCommandInput} for command's `input` shape.
+ * @see {@link PutExternalModelCommandOutput} for command's `response` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutExternalModelCommand extends $Command<
   PutExternalModelCommandInput,

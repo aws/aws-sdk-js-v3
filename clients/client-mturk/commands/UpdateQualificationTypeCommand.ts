@@ -54,6 +54,18 @@ export interface UpdateQualificationTypeCommandOutput extends UpdateQualificatio
  *             granted manually. </p>
  *         <p> You can also update the AutoGranted and AutoGrantedValue
  *             attributes of the Qualification type.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MTurkClient(config);
+ * const command = new UpdateQualificationTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateQualificationTypeCommandInput} for command's `input` shape.
+ * @see {@link UpdateQualificationTypeCommandOutput} for command's `response` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateQualificationTypeCommand extends $Command<
   UpdateQualificationTypeCommandInput,

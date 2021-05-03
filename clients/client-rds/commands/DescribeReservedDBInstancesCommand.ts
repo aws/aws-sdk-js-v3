@@ -22,6 +22,18 @@ export interface DescribeReservedDBInstancesCommandOutput extends ReservedDBInst
 
 /**
  * <p>Returns information about reserved DB instances for this account, or about a specified reserved DB instance.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new DescribeReservedDBInstancesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeReservedDBInstancesCommandInput} for command's `input` shape.
+ * @see {@link DescribeReservedDBInstancesCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeReservedDBInstancesCommand extends $Command<
   DescribeReservedDBInstancesCommandInput,

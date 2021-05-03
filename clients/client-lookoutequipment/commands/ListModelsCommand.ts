@@ -23,6 +23,18 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
 /**
  * <p>Generates a list of all models in the account, including model name and ARN, dataset,
  *          and status. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutEquipmentClient(config);
+ * const command = new ListModelsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListModelsCommandInput} for command's `input` shape.
+ * @see {@link ListModelsCommandOutput} for command's `response` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListModelsCommand extends $Command<
   ListModelsCommandInput,

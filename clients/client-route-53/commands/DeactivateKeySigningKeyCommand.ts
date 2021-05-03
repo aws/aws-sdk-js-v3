@@ -24,6 +24,18 @@ export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigni
 /**
  * <p>Deactivates a key-signing key (KSK) so that it will not be used for signing by DNSSEC. This operation changes the
  * 			KSK status to <code>INACTIVE</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new DeactivateKeySigningKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeactivateKeySigningKeyCommandInput} for command's `input` shape.
+ * @see {@link DeactivateKeySigningKeyCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeactivateKeySigningKeyCommand extends $Command<
   DeactivateKeySigningKeyCommandInput,

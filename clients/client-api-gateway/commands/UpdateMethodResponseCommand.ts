@@ -22,6 +22,18 @@ export interface UpdateMethodResponseCommandOutput extends MethodResponse, __Met
 
 /**
  * <p>Updates an existing <a>MethodResponse</a> resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new APIGatewayClient(config);
+ * const command = new UpdateMethodResponseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMethodResponseCommandInput} for command's `input` shape.
+ * @see {@link UpdateMethodResponseCommandOutput} for command's `response` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMethodResponseCommand extends $Command<
   UpdateMethodResponseCommandInput,

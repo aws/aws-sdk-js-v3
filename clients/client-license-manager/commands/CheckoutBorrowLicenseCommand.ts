@@ -22,6 +22,18 @@ export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicens
 
 /**
  * <p>Checks out the specified license for offline use.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LicenseManagerClient(config);
+ * const command = new CheckoutBorrowLicenseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CheckoutBorrowLicenseCommandInput} for command's `input` shape.
+ * @see {@link CheckoutBorrowLicenseCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CheckoutBorrowLicenseCommand extends $Command<
   CheckoutBorrowLicenseCommandInput,

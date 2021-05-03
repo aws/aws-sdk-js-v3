@@ -23,6 +23,18 @@ export interface ModifyAccountCommandOutput extends ModifyAccountResult, __Metad
 /**
  * <p>Modifies the configuration of Bring Your Own License (BYOL) for the specified
  *          account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkSpacesClient(config);
+ * const command = new ModifyAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyAccountCommandInput} for command's `input` shape.
+ * @see {@link ModifyAccountCommandOutput} for command's `response` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyAccountCommand extends $Command<
   ModifyAccountCommandInput,

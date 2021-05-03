@@ -55,6 +55,18 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  *          <p>Volume status is based on the volume status checks, and does not reflect the volume state.
  *       Therefore, volume status does not indicate volumes in the <code>error</code> state (for
  *       example, when a volume is incapable of accepting I/O.)</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DescribeVolumeStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeVolumeStatusCommandInput} for command's `input` shape.
+ * @see {@link DescribeVolumeStatusCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeVolumeStatusCommand extends $Command<
   DescribeVolumeStatusCommandInput,

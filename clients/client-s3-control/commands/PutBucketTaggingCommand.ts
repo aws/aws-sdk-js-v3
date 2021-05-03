@@ -106,6 +106,18 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new S3ControlClient(config);
+ * const command = new PutBucketTaggingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutBucketTaggingCommandInput} for command's `input` shape.
+ * @see {@link PutBucketTaggingCommandOutput} for command's `response` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutBucketTaggingCommand extends $Command<
   PutBucketTaggingCommandInput,

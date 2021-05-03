@@ -28,6 +28,18 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
 
 /**
  * Create a new event destination in a configuration set.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new PinpointSMSVoiceClient(config);
+ * const command = new CreateConfigurationSetEventDestinationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
+ * @see {@link CreateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
+ * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateConfigurationSetEventDestinationCommand extends $Command<
   CreateConfigurationSetEventDestinationCommandInput,

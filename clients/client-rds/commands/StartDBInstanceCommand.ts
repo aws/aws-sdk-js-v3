@@ -37,6 +37,18 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  *             For Aurora DB clusters, use <code>StartDBCluster</code> instead.
  *           </p>
  *         </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RDSClient(config);
+ * const command = new StartDBInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartDBInstanceCommandInput} for command's `input` shape.
+ * @see {@link StartDBInstanceCommandOutput} for command's `response` shape.
+ * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartDBInstanceCommand extends $Command<
   StartDBInstanceCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeContributorInsightsCommandOutput extends DescribeContri
 
 /**
  * <p>Returns information about contributor insights, for a given table or global secondary index.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new DescribeContributorInsightsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeContributorInsightsCommandInput} for command's `input` shape.
+ * @see {@link DescribeContributorInsightsCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeContributorInsightsCommand extends $Command<
   DescribeContributorInsightsCommandInput,

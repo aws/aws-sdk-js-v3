@@ -30,6 +30,18 @@ export interface DescribeEventCategoriesCommandOutput extends DescribeEventCateg
  *             and Notifications</a> in the <i>AWS Database Migration Service User
  *             Guide.</i>
  *          </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DatabaseMigrationServiceClient(config);
+ * const command = new DescribeEventCategoriesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeEventCategoriesCommandInput} for command's `input` shape.
+ * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeEventCategoriesCommand extends $Command<
   DescribeEventCategoriesCommandInput,

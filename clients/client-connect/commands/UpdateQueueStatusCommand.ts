@@ -23,6 +23,18 @@ export interface UpdateQueueStatusCommandOutput extends __MetadataBearer {}
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the status of the queue.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ConnectClient(config);
+ * const command = new UpdateQueueStatusCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateQueueStatusCommandInput} for command's `input` shape.
+ * @see {@link UpdateQueueStatusCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateQueueStatusCommand extends $Command<
   UpdateQueueStatusCommandInput,

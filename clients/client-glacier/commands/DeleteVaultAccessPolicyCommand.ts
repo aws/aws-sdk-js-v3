@@ -28,6 +28,18 @@ export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {
  *          <p>This operation is idempotent. You can invoke delete multiple times, even if there is
  *          no policy associated with the vault. For more information about vault access policies, see
  *             <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html">Amazon Glacier Access Control with Vault Access Policies</a>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlacierClient(config);
+ * const command = new DeleteVaultAccessPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVaultAccessPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteVaultAccessPolicyCommandOutput} for command's `response` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVaultAccessPolicyCommand extends $Command<
   DeleteVaultAccessPolicyCommandInput,

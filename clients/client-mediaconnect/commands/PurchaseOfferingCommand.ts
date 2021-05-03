@@ -22,6 +22,18 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
 
 /**
  * Submits a request to purchase an offering. If you already have an active reservation, you can't purchase another offering.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConnectClient(config);
+ * const command = new PurchaseOfferingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PurchaseOfferingCommandInput} for command's `input` shape.
+ * @see {@link PurchaseOfferingCommandOutput} for command's `response` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PurchaseOfferingCommand extends $Command<
   PurchaseOfferingCommandInput,

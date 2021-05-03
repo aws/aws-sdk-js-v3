@@ -24,6 +24,18 @@ export interface CreateLoggerDefinitionVersionCommandOutput
 
 /**
  * Creates a version of a logger definition that has already been defined.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GreengrassClient(config);
+ * const command = new CreateLoggerDefinitionVersionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLoggerDefinitionVersionCommandInput} for command's `input` shape.
+ * @see {@link CreateLoggerDefinitionVersionCommandOutput} for command's `response` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLoggerDefinitionVersionCommand extends $Command<
   CreateLoggerDefinitionVersionCommandInput,

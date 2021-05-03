@@ -22,6 +22,18 @@ export interface ListFindingsFiltersCommandOutput extends ListFindingsFiltersRes
 
 /**
  * <p>Retrieves a subset of information about all the findings filters for an account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new ListFindingsFiltersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListFindingsFiltersCommandInput} for command's `input` shape.
+ * @see {@link ListFindingsFiltersCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListFindingsFiltersCommand extends $Command<
   ListFindingsFiltersCommandInput,

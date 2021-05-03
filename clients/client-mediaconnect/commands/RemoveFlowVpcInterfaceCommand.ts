@@ -22,6 +22,18 @@ export interface RemoveFlowVpcInterfaceCommandOutput extends RemoveFlowVpcInterf
 
 /**
  * Removes a VPC Interface from an existing flow. This request can be made only on a VPC interface that does not have a Source or Output associated with it. If the VPC interface is referenced by a Source or Output, you must first delete or update the Source or Output to no longer reference the VPC interface.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaConnectClient(config);
+ * const command = new RemoveFlowVpcInterfaceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RemoveFlowVpcInterfaceCommandInput} for command's `input` shape.
+ * @see {@link RemoveFlowVpcInterfaceCommandOutput} for command's `response` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RemoveFlowVpcInterfaceCommand extends $Command<
   RemoveFlowVpcInterfaceCommandInput,

@@ -22,6 +22,18 @@ export interface ListAccessPreviewsCommandOutput extends ListAccessPreviewsRespo
 
 /**
  * <p>Retrieves a list of access previews for the specified analyzer.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AccessAnalyzerClient(config);
+ * const command = new ListAccessPreviewsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListAccessPreviewsCommandInput} for command's `input` shape.
+ * @see {@link ListAccessPreviewsCommandOutput} for command's `response` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListAccessPreviewsCommand extends $Command<
   ListAccessPreviewsCommandInput,

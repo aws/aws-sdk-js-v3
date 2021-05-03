@@ -24,6 +24,18 @@ export interface AuthorizeClientVpnIngressCommandOutput extends AuthorizeClientV
  * <p>Adds an ingress authorization rule to a Client VPN endpoint. Ingress authorization rules act as
  * 			firewall rules that grant access to networks. You must configure ingress authorization rules to
  * 			enable clients to access resources in AWS or on-premises networks.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new AuthorizeClientVpnIngressCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AuthorizeClientVpnIngressCommandInput} for command's `input` shape.
+ * @see {@link AuthorizeClientVpnIngressCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AuthorizeClientVpnIngressCommand extends $Command<
   AuthorizeClientVpnIngressCommandInput,

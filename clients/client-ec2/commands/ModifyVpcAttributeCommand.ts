@@ -22,6 +22,18 @@ export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Modifies the specified attribute of the specified VPC.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ModifyVpcAttributeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyVpcAttributeCommandInput} for command's `input` shape.
+ * @see {@link ModifyVpcAttributeCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyVpcAttributeCommand extends $Command<
   ModifyVpcAttributeCommandInput,

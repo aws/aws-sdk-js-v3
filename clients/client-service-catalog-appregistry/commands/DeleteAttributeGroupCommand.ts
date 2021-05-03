@@ -26,6 +26,18 @@ export interface DeleteAttributeGroupCommandOutput extends DeleteAttributeGroupR
 
 /**
  * <p>Deletes an attribute group, specified either by its attribute group ID or name.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogAppRegistryClient(config);
+ * const command = new DeleteAttributeGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteAttributeGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteAttributeGroupCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteAttributeGroupCommand extends $Command<
   DeleteAttributeGroupCommandInput,

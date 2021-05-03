@@ -22,6 +22,18 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
 
 /**
  * <p>Lists the services that are running in a specified cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new ListServicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListServicesCommandInput} for command's `input` shape.
+ * @see {@link ListServicesCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListServicesCommand extends $Command<
   ListServicesCommandInput,

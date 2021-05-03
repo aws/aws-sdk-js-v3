@@ -22,6 +22,18 @@ export interface UpdateInferenceSchedulerCommandOutput extends __MetadataBearer 
 
 /**
  * <p>Updates an inference scheduler. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutEquipmentClient(config);
+ * const command = new UpdateInferenceSchedulerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateInferenceSchedulerCommandInput} for command's `input` shape.
+ * @see {@link UpdateInferenceSchedulerCommandOutput} for command's `response` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateInferenceSchedulerCommand extends $Command<
   UpdateInferenceSchedulerCommandInput,

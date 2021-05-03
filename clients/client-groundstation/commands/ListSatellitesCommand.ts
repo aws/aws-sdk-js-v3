@@ -22,6 +22,18 @@ export interface ListSatellitesCommandOutput extends ListSatellitesResponse, __M
 
 /**
  * <p>Returns a list of satellites.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GroundStationClient(config);
+ * const command = new ListSatellitesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSatellitesCommandInput} for command's `input` shape.
+ * @see {@link ListSatellitesCommandOutput} for command's `response` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSatellitesCommand extends $Command<
   ListSatellitesCommandInput,

@@ -28,6 +28,18 @@ export interface ListResolverQueryLogConfigAssociationsCommandOutput
 
 /**
  * <p>Lists information about associations between Amazon VPCs and query logging configurations.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53ResolverClient(config);
+ * const command = new ListResolverQueryLogConfigAssociationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResolverQueryLogConfigAssociationsCommandInput} for command's `input` shape.
+ * @see {@link ListResolverQueryLogConfigAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResolverQueryLogConfigAssociationsCommand extends $Command<
   ListResolverQueryLogConfigAssociationsCommandInput,

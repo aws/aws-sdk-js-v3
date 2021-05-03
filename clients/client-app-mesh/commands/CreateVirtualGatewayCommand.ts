@@ -28,6 +28,18 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  *          represents an Envoy running with an application, a virtual gateway represents Envoy
  *          deployed by itself.</p>
  *          <p>For more information about virtual gateways, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html">Virtual gateways</a>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new CreateVirtualGatewayCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVirtualGatewayCommandInput} for command's `input` shape.
+ * @see {@link CreateVirtualGatewayCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateVirtualGatewayCommand extends $Command<
   CreateVirtualGatewayCommandInput,

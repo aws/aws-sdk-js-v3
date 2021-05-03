@@ -26,6 +26,18 @@ export interface ImportPlaybackKeyPairCommandOutput extends ImportPlaybackKeyPai
  *       authorization tokens, to grant viewers access to private channels. For more information, see
  *         <a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html">Setting Up
  *         Private Channels</a> in the <i>Amazon IVS User Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IvsClient(config);
+ * const command = new ImportPlaybackKeyPairCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportPlaybackKeyPairCommandInput} for command's `input` shape.
+ * @see {@link ImportPlaybackKeyPairCommandOutput} for command's `response` shape.
+ * @see {@link IvsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ImportPlaybackKeyPairCommand extends $Command<
   ImportPlaybackKeyPairCommandInput,

@@ -27,6 +27,18 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
 /**
  * <p>Describes the specified rules or the rules for the specified listener. You must specify
  *       either a listener or one or more rules.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticLoadBalancingV2Client(config);
+ * const command = new DescribeRulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeRulesCommandInput} for command's `input` shape.
+ * @see {@link DescribeRulesCommandOutput} for command's `response` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeRulesCommand extends $Command<
   DescribeRulesCommandInput,

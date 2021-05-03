@@ -26,6 +26,18 @@ export interface StopEntitiesDetectionV2JobCommandOutput extends StopEntitiesDet
 
 /**
  * <p>Stops a medical entities detection job in progress.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ComprehendMedicalClient(config);
+ * const command = new StopEntitiesDetectionV2JobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopEntitiesDetectionV2JobCommandInput} for command's `input` shape.
+ * @see {@link StopEntitiesDetectionV2JobCommandOutput} for command's `response` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopEntitiesDetectionV2JobCommand extends $Command<
   StopEntitiesDetectionV2JobCommandInput,

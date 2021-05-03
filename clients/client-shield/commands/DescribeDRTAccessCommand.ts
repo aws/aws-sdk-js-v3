@@ -22,6 +22,18 @@ export interface DescribeDRTAccessCommandOutput extends DescribeDRTAccessRespons
 
 /**
  * <p>Returns the current role and list of Amazon S3 log buckets used by the DDoS Response Team (DRT) to access your AWS account while assisting with attack mitigation.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ShieldClient(config);
+ * const command = new DescribeDRTAccessCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDRTAccessCommandInput} for command's `input` shape.
+ * @see {@link DescribeDRTAccessCommandOutput} for command's `response` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDRTAccessCommand extends $Command<
   DescribeDRTAccessCommandInput,

@@ -27,6 +27,18 @@ export interface ListLicenseSpecificationsForResourceCommandOutput
 
 /**
  * <p>Describes the license configurations for the specified resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LicenseManagerClient(config);
+ * const command = new ListLicenseSpecificationsForResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListLicenseSpecificationsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListLicenseSpecificationsForResourceCommandOutput} for command's `response` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListLicenseSpecificationsForResourceCommand extends $Command<
   ListLicenseSpecificationsForResourceCommandInput,

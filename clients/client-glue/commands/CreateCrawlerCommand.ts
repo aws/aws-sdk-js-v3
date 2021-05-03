@@ -24,6 +24,18 @@ export interface CreateCrawlerCommandOutput extends CreateCrawlerResponse, __Met
  * <p>Creates a new crawler with specified targets, role, configuration, and optional schedule.
  *       At least one crawl target must be specified, in the <code>s3Targets</code> field, the
  *         <code>jdbcTargets</code> field, or the <code>DynamoDBTargets</code> field.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new CreateCrawlerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateCrawlerCommandInput} for command's `input` shape.
+ * @see {@link CreateCrawlerCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateCrawlerCommand extends $Command<
   CreateCrawlerCommandInput,

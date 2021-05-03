@@ -22,6 +22,18 @@ export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __Metad
 
 /**
  * <p>Updates properties on a ledger.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QLDBClient(config);
+ * const command = new UpdateLedgerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateLedgerCommandInput} for command's `input` shape.
+ * @see {@link UpdateLedgerCommandOutput} for command's `response` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateLedgerCommand extends $Command<
   UpdateLedgerCommandInput,

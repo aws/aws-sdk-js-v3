@@ -20,6 +20,18 @@ export interface PauseClusterCommandOutput extends PauseClusterResult, __Metadat
 
 /**
  * <p>Pauses a cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new PauseClusterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PauseClusterCommandInput} for command's `input` shape.
+ * @see {@link PauseClusterCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PauseClusterCommand extends $Command<
   PauseClusterCommandInput,

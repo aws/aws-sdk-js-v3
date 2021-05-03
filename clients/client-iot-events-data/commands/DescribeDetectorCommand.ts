@@ -22,6 +22,18 @@ export interface DescribeDetectorCommandOutput extends DescribeDetectorResponse,
 
 /**
  * <p>Returns information about the specified detector (instance).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IoTEventsDataClient(config);
+ * const command = new DescribeDetectorCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeDetectorCommandInput} for command's `input` shape.
+ * @see {@link DescribeDetectorCommandOutput} for command's `response` shape.
+ * @see {@link IoTEventsDataClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeDetectorCommand extends $Command<
   DescribeDetectorCommandInput,

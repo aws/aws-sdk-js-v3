@@ -22,6 +22,18 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
 
 /**
  * <p>Retrieves an array of the Amazon Resource Names (ARNs) for the regional resources that are associated with the specified web ACL. If you want the list of AWS CloudFront resources, use the AWS CloudFront call <code>ListDistributionsByWebACLId</code>. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WAFV2Client(config);
+ * const command = new ListResourcesForWebACLCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListResourcesForWebACLCommandInput} for command's `input` shape.
+ * @see {@link ListResourcesForWebACLCommandOutput} for command's `response` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListResourcesForWebACLCommand extends $Command<
   ListResourcesForWebACLCommandInput,

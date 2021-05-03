@@ -25,6 +25,18 @@ export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __Met
  *          <p>To deregister an entire extension, you must individually deregister all active versions of that extension. If an extension has only a single active version, deregistering that version results in the extension itself being deregistered and marked as deprecated in the registry. </p>
  *          <p>You cannot deregister the default version of an extension if there are other active version of that extension. If you do deregister the default version of an extension, the textensionype itself is deregistered as well and marked as deprecated. </p>
  *          <p>To view the deprecation status of an extension or extension version, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudFormationClient(config);
+ * const command = new DeregisterTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterTypeCommandInput} for command's `input` shape.
+ * @see {@link DeregisterTypeCommandOutput} for command's `response` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterTypeCommand extends $Command<
   DeregisterTypeCommandInput,

@@ -23,6 +23,18 @@ export interface GetContactListCommandOutput extends GetContactListResponse, __M
 /**
  * <p>Returns contact list metadata. It does not return any information about the contacts
  *             present in the list.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new GetContactListCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetContactListCommandInput} for command's `input` shape.
+ * @see {@link GetContactListCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetContactListCommand extends $Command<
   GetContactListCommandInput,

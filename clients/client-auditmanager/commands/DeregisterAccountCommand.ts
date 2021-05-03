@@ -24,6 +24,18 @@ export interface DeregisterAccountCommandOutput extends DeregisterAccountRespons
  * <p>
  * Deregisters an account in AWS Audit Manager.
  * </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AuditManagerClient(config);
+ * const command = new DeregisterAccountCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterAccountCommandInput} for command's `input` shape.
+ * @see {@link DeregisterAccountCommandOutput} for command's `response` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterAccountCommand extends $Command<
   DeregisterAccountCommandInput,

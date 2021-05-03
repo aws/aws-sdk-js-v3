@@ -22,6 +22,18 @@ export interface DeleteReportGroupCommandOutput extends DeleteReportGroupOutput,
 
 /**
  * <p>Deletes a report group. Before you delete a report group, you must delete its reports. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeBuildClient(config);
+ * const command = new DeleteReportGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteReportGroupCommandInput} for command's `input` shape.
+ * @see {@link DeleteReportGroupCommandOutput} for command's `response` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteReportGroupCommand extends $Command<
   DeleteReportGroupCommandInput,

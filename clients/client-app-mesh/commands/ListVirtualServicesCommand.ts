@@ -22,6 +22,18 @@ export interface ListVirtualServicesCommandOutput extends ListVirtualServicesOut
 
 /**
  * <p>Returns a list of existing virtual services in a service mesh.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppMeshClient(config);
+ * const command = new ListVirtualServicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListVirtualServicesCommandInput} for command's `input` shape.
+ * @see {@link ListVirtualServicesCommandOutput} for command's `response` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListVirtualServicesCommand extends $Command<
   ListVirtualServicesCommandInput,

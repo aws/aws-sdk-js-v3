@@ -23,6 +23,18 @@ export interface GetNamedQueryCommandOutput extends GetNamedQueryOutput, __Metad
 /**
  * <p>Returns information about a single query. Requires that you have access to the
  *             workgroup in which the query was saved.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AthenaClient(config);
+ * const command = new GetNamedQueryCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetNamedQueryCommandInput} for command's `input` shape.
+ * @see {@link GetNamedQueryCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetNamedQueryCommand extends $Command<
   GetNamedQueryCommandInput,

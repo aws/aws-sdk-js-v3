@@ -23,6 +23,18 @@ export interface ModifyClusterSnapshotCommandOutput extends ModifyClusterSnapsho
 /**
  * <p>Modifies the settings for a snapshot.</p>
  * 		       <p>This exanmple modifies the manual retention period setting for a cluster snapshot.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new ModifyClusterSnapshotCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyClusterSnapshotCommandInput} for command's `input` shape.
+ * @see {@link ModifyClusterSnapshotCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ModifyClusterSnapshotCommand extends $Command<
   ModifyClusterSnapshotCommandInput,

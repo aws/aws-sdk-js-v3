@@ -22,6 +22,18 @@ export interface DescribePartnersCommandOutput extends DescribePartnersOutputMes
 
 /**
  * <p>Returns information about the partner integrations defined for a cluster.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RedshiftClient(config);
+ * const command = new DescribePartnersCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribePartnersCommandInput} for command's `input` shape.
+ * @see {@link DescribePartnersCommandOutput} for command's `response` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribePartnersCommand extends $Command<
   DescribePartnersCommandInput,

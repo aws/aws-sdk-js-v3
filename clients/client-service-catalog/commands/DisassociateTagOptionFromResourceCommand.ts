@@ -24,6 +24,18 @@ export interface DisassociateTagOptionFromResourceCommandOutput
 
 /**
  * <p>Disassociates the specified TagOption from the specified resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DisassociateTagOptionFromResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateTagOptionFromResourceCommandInput} for command's `input` shape.
+ * @see {@link DisassociateTagOptionFromResourceCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateTagOptionFromResourceCommand extends $Command<
   DisassociateTagOptionFromResourceCommandInput,

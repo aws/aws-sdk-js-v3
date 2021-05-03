@@ -27,6 +27,18 @@ export interface DescribeAnomalyDetectionExecutionsCommandOutput
 
 /**
  * <p>Returns information about the status of the specified anomaly detection jobs.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LookoutMetricsClient(config);
+ * const command = new DescribeAnomalyDetectionExecutionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAnomalyDetectionExecutionsCommandInput} for command's `input` shape.
+ * @see {@link DescribeAnomalyDetectionExecutionsCommandOutput} for command's `response` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAnomalyDetectionExecutionsCommand extends $Command<
   DescribeAnomalyDetectionExecutionsCommandInput,

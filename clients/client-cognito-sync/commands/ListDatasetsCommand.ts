@@ -80,6 +80,18 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  *                </response>
  *          </example>
  *       </examples>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CognitoSyncClient(config);
+ * const command = new ListDatasetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListDatasetsCommandInput} for command's `input` shape.
+ * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListDatasetsCommand extends $Command<
   ListDatasetsCommandInput,

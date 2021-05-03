@@ -37,6 +37,18 @@ export interface DescribeAliasCommandOutput extends DescribeAliasOutput, __Metad
  *                     <a>ResolveAlias</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GameLiftClient(config);
+ * const command = new DescribeAliasCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeAliasCommandInput} for command's `input` shape.
+ * @see {@link DescribeAliasCommandOutput} for command's `response` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeAliasCommand extends $Command<
   DescribeAliasCommandInput,

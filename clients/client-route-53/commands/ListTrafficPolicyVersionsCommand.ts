@@ -24,6 +24,18 @@ export interface ListTrafficPolicyVersionsCommandOutput extends ListTrafficPolic
 /**
  * <p>Gets information about all of the versions for a specified traffic policy.</p>
  * 		       <p>Traffic policy versions are listed in numerical order by <code>VersionNumber</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new ListTrafficPolicyVersionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTrafficPolicyVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListTrafficPolicyVersionsCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTrafficPolicyVersionsCommand extends $Command<
   ListTrafficPolicyVersionsCommandInput,

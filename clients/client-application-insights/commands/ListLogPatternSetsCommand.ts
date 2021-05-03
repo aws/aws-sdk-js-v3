@@ -26,6 +26,18 @@ export interface ListLogPatternSetsCommandOutput extends ListLogPatternSetsRespo
 
 /**
  * <p>Lists the log pattern sets in the specific application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ApplicationInsightsClient(config);
+ * const command = new ListLogPatternSetsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListLogPatternSetsCommandInput} for command's `input` shape.
+ * @see {@link ListLogPatternSetsCommandOutput} for command's `response` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListLogPatternSetsCommand extends $Command<
   ListLogPatternSetsCommandInput,

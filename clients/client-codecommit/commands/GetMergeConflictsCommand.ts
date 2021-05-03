@@ -22,6 +22,18 @@ export interface GetMergeConflictsCommandOutput extends GetMergeConflictsOutput,
 
 /**
  * <p>Returns information about merge conflicts between the before and after commit IDs for a pull request in a repository.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeCommitClient(config);
+ * const command = new GetMergeConflictsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetMergeConflictsCommandInput} for command's `input` shape.
+ * @see {@link GetMergeConflictsCommandOutput} for command's `response` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetMergeConflictsCommand extends $Command<
   GetMergeConflictsCommandInput,

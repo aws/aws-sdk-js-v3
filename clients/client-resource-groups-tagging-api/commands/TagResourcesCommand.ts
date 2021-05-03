@@ -53,6 +53,18 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  *                 administration services. Tags are not intended to be used for private or sensitive
  *                 data.</p>
  *         </important>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ResourceGroupsTaggingAPIClient(config);
+ * const command = new TagResourcesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagResourcesCommandInput} for command's `input` shape.
+ * @see {@link TagResourcesCommandOutput} for command's `response` shape.
+ * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagResourcesCommand extends $Command<
   TagResourcesCommandInput,

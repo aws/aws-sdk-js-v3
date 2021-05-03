@@ -32,6 +32,18 @@ export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeRespons
  *             root, and then use this operation.</p>
  *         <p>This operation can be called only from the organization's management account.</p>
  *         <p> To view the status of available policy types in the organization, use <a>DescribeOrganization</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new OrganizationsClient(config);
+ * const command = new DisablePolicyTypeCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisablePolicyTypeCommandInput} for command's `input` shape.
+ * @see {@link DisablePolicyTypeCommandOutput} for command's `response` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisablePolicyTypeCommand extends $Command<
   DisablePolicyTypeCommandInput,

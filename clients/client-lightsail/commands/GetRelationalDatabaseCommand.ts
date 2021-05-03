@@ -22,6 +22,18 @@ export interface GetRelationalDatabaseCommandOutput extends GetRelationalDatabas
 
 /**
  * <p>Returns information about a specific database in Amazon Lightsail.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetRelationalDatabaseCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRelationalDatabaseCommandInput} for command's `input` shape.
+ * @see {@link GetRelationalDatabaseCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRelationalDatabaseCommand extends $Command<
   GetRelationalDatabaseCommandInput,

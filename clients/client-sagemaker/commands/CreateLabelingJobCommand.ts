@@ -59,6 +59,18 @@ export interface CreateLabelingJobCommandOutput extends CreateLabelingJobRespons
  *                 (API) </a> in the Amazon SageMaker Developer Guide. To learn how to create a streaming
  *             labeling job, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-create-job.html">Create a Streaming Labeling
  *                 Job</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new CreateLabelingJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateLabelingJobCommandInput} for command's `input` shape.
+ * @see {@link CreateLabelingJobCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class CreateLabelingJobCommand extends $Command<
   CreateLabelingJobCommandInput,

@@ -27,6 +27,18 @@ export interface GetRelationalDatabaseBlueprintsCommandOutput
  *       the major engine version of a database.</p>
  *          <p>You can use a blueprint ID to create a new database that runs a specific database
  *       engine.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LightsailClient(config);
+ * const command = new GetRelationalDatabaseBlueprintsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRelationalDatabaseBlueprintsCommandInput} for command's `input` shape.
+ * @see {@link GetRelationalDatabaseBlueprintsCommandOutput} for command's `response` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRelationalDatabaseBlueprintsCommand extends $Command<
   GetRelationalDatabaseBlueprintsCommandInput,

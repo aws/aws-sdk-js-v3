@@ -29,6 +29,18 @@ export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurit
  *
  *             <p>A higher security level can affect performance of the gateway.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new StorageGatewayClient(config);
+ * const command = new UpdateSMBSecurityStrategyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSMBSecurityStrategyCommandInput} for command's `input` shape.
+ * @see {@link UpdateSMBSecurityStrategyCommandOutput} for command's `response` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSMBSecurityStrategyCommand extends $Command<
   UpdateSMBSecurityStrategyCommandInput,

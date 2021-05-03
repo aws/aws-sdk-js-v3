@@ -24,6 +24,18 @@ export interface DisassociateDelegateFromResourceCommandOutput
 
 /**
  * <p>Removes a member from the resource's set of delegates.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new DisassociateDelegateFromResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisassociateDelegateFromResourceCommandInput} for command's `input` shape.
+ * @see {@link DisassociateDelegateFromResourceCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisassociateDelegateFromResourceCommand extends $Command<
   DisassociateDelegateFromResourceCommandInput,

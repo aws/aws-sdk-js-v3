@@ -24,6 +24,18 @@ export interface DisableHostedZoneDNSSECCommandOutput extends DisableHostedZoneD
 /**
  * <p>Disables DNSSEC signing in a specific hosted zone. This action does not deactivate any key-signing keys (KSKs)
  * 		that are active in the hosted zone.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Route53Client(config);
+ * const command = new DisableHostedZoneDNSSECCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DisableHostedZoneDNSSECCommandInput} for command's `input` shape.
+ * @see {@link DisableHostedZoneDNSSECCommandOutput} for command's `response` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DisableHostedZoneDNSSECCommand extends $Command<
   DisableHostedZoneDNSSECCommandInput,

@@ -22,6 +22,18 @@ export interface RegisterDevicesCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Register devices.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new RegisterDevicesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RegisterDevicesCommandInput} for command's `input` shape.
+ * @see {@link RegisterDevicesCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RegisterDevicesCommand extends $Command<
   RegisterDevicesCommandInput,

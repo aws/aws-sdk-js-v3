@@ -24,6 +24,18 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * <p>Metadata to assign to an AppConfig resource. Tags help organize and categorize your
  *          AppConfig resources. Each tag consists of a key and an optional value, both of which you
  *          define. You can specify a maximum of 50 tags for a resource.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppConfigClient(config);
+ * const command = new TagResourceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

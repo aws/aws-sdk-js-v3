@@ -23,6 +23,18 @@ export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataB
 /**
  * <p>Deletes an existing link. You must first disassociate the link from any devices and
  *             customer gateways.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new NetworkManagerClient(config);
+ * const command = new DeleteLinkCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteLinkCommandInput} for command's `input` shape.
+ * @see {@link DeleteLinkCommandOutput} for command's `response` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteLinkCommand extends $Command<
   DeleteLinkCommandInput,

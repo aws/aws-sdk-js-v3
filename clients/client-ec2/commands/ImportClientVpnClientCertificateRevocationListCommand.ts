@@ -29,6 +29,18 @@ export interface ImportClientVpnClientCertificateRevocationListCommandOutput
 /**
  * <p>Uploads a client certificate revocation list to the specified Client VPN endpoint. Uploading a client certificate revocation list overwrites the existing client certificate revocation list.</p>
  * 		       <p>Uploading a client certificate revocation list resets existing client connections.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new ImportClientVpnClientCertificateRevocationListCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ImportClientVpnClientCertificateRevocationListCommandInput} for command's `input` shape.
+ * @see {@link ImportClientVpnClientCertificateRevocationListCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ImportClientVpnClientCertificateRevocationListCommand extends $Command<
   ImportClientVpnClientCertificateRevocationListCommandInput,

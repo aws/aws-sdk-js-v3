@@ -22,6 +22,18 @@ export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceP
 
 /**
  * <p>Updates an existing conference provider's settings.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new UpdateConferenceProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateConferenceProviderCommandInput} for command's `input` shape.
+ * @see {@link UpdateConferenceProviderCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateConferenceProviderCommand extends $Command<
   UpdateConferenceProviderCommandInput,

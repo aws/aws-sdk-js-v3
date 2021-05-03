@@ -24,6 +24,18 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  * <p>Returns information about the function or function version, with a link to download the deployment package
  *       that's valid for 10 minutes. If you specify a function version, only details that are specific to that version are
  *       returned.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LambdaClient(config);
+ * const command = new GetFunctionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetFunctionCommandInput} for command's `input` shape.
+ * @see {@link GetFunctionCommandOutput} for command's `response` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetFunctionCommand extends $Command<
   GetFunctionCommandInput,

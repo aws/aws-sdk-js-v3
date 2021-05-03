@@ -36,6 +36,18 @@ export interface DeregisterContainerInstanceCommandOutput
  * 				instance from your cluster (stopped container instances or instances with
  * 				disconnected agents are not automatically deregistered when terminated).</p>
  * 		       </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ECSClient(config);
+ * const command = new DeregisterContainerInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeregisterContainerInstanceCommandInput} for command's `input` shape.
+ * @see {@link DeregisterContainerInstanceCommandOutput} for command's `response` shape.
+ * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeregisterContainerInstanceCommand extends $Command<
   DeregisterContainerInstanceCommandInput,

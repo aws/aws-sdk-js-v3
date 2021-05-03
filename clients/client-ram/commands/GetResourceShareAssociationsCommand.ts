@@ -24,6 +24,18 @@ export interface GetResourceShareAssociationsCommandOutput
 
 /**
  * <p>Gets the resources or principals for the resource shares that you own.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RAMClient(config);
+ * const command = new GetResourceShareAssociationsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetResourceShareAssociationsCommandInput} for command's `input` shape.
+ * @see {@link GetResourceShareAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetResourceShareAssociationsCommand extends $Command<
   GetResourceShareAssociationsCommandInput,

@@ -25,6 +25,18 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
  *
  * <p>In a blue/green deployment, overrides any specified wait time and starts terminating
  *             instances immediately after the traffic routing is complete.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new SkipWaitTimeForInstanceTerminationCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link SkipWaitTimeForInstanceTerminationCommandInput} for command's `input` shape.
+ * @see {@link SkipWaitTimeForInstanceTerminationCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class SkipWaitTimeForInstanceTerminationCommand extends $Command<
   SkipWaitTimeForInstanceTerminationCommandInput,

@@ -22,6 +22,18 @@ export interface GetRoomSkillParameterCommandOutput extends GetRoomSkillParamete
 
 /**
  * <p>Gets room skill parameter details by room, skill, and parameter key ARN.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AlexaForBusinessClient(config);
+ * const command = new GetRoomSkillParameterCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetRoomSkillParameterCommandInput} for command's `input` shape.
+ * @see {@link GetRoomSkillParameterCommandOutput} for command's `response` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetRoomSkillParameterCommand extends $Command<
   GetRoomSkillParameterCommandInput,

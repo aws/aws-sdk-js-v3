@@ -25,6 +25,18 @@ export interface AssociateTransitGatewayRouteTableCommandOutput
 /**
  * <p>Associates the specified attachment with the specified transit gateway route table. You can
  *         associate only one route table with an attachment.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new AssociateTransitGatewayRouteTableCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AssociateTransitGatewayRouteTableCommandInput} for command's `input` shape.
+ * @see {@link AssociateTransitGatewayRouteTableCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class AssociateTransitGatewayRouteTableCommand extends $Command<
   AssociateTransitGatewayRouteTableCommandInput,

@@ -23,6 +23,18 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
 /**
  * <p>Stops the assessment run that is specified by the ARN of the assessment
  *          run.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new InspectorClient(config);
+ * const command = new StopAssessmentRunCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopAssessmentRunCommandInput} for command's `input` shape.
+ * @see {@link StopAssessmentRunCommandOutput} for command's `response` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopAssessmentRunCommand extends $Command<
   StopAssessmentRunCommandInput,

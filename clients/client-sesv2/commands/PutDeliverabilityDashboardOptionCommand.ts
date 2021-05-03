@@ -30,6 +30,18 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
  *         <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
  *             to any other fees that you accrue by using Amazon SES and other AWS services. For more
  *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/ses/pricing/">Amazon SES Pricing</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new PutDeliverabilityDashboardOptionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutDeliverabilityDashboardOptionCommandInput} for command's `input` shape.
+ * @see {@link PutDeliverabilityDashboardOptionCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutDeliverabilityDashboardOptionCommand extends $Command<
   PutDeliverabilityDashboardOptionCommandInput,

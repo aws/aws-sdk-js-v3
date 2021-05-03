@@ -22,6 +22,18 @@ export interface ListGeofenceCollectionsCommandOutput extends ListGeofenceCollec
 
 /**
  * <p>Lists geofence collections in your AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new LocationClient(config);
+ * const command = new ListGeofenceCollectionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListGeofenceCollectionsCommandInput} for command's `input` shape.
+ * @see {@link ListGeofenceCollectionsCommandOutput} for command's `response` shape.
+ * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListGeofenceCollectionsCommand extends $Command<
   ListGeofenceCollectionsCommandInput,

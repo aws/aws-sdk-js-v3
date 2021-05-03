@@ -25,6 +25,18 @@ export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleR
  *          denies access to the organization for the specified IPv4 addresses, access protocol
  *          actions, and user IDs. Adding a new rule with the same name as an existing rule replaces
  *          the older rule.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new WorkMailClient(config);
+ * const command = new PutAccessControlRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link PutAccessControlRuleCommandInput} for command's `input` shape.
+ * @see {@link PutAccessControlRuleCommandOutput} for command's `response` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class PutAccessControlRuleCommand extends $Command<
   PutAccessControlRuleCommandInput,

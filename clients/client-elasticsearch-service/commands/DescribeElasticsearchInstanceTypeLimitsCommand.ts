@@ -39,6 +39,18 @@ export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput
  *     </code>
  *     to know what Limits are supported for modifying.
  *   </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ElasticsearchServiceClient(config);
+ * const command = new DescribeElasticsearchInstanceTypeLimitsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeElasticsearchInstanceTypeLimitsCommandInput} for command's `input` shape.
+ * @see {@link DescribeElasticsearchInstanceTypeLimitsCommandOutput} for command's `response` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<
   DescribeElasticsearchInstanceTypeLimitsCommandInput,

@@ -22,6 +22,18 @@ export interface StartRestoreJobCommandOutput extends StartRestoreJobOutput, __M
 
 /**
  * <p>Recovers the saved resource identified by an Amazon Resource Name (ARN).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new BackupClient(config);
+ * const command = new StartRestoreJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartRestoreJobCommandInput} for command's `input` shape.
+ * @see {@link StartRestoreJobCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartRestoreJobCommand extends $Command<
   StartRestoreJobCommandInput,

@@ -24,6 +24,18 @@ export interface RotateIngestEndpointCredentialsCommandOutput
 
 /**
  * Rotate the IngestEndpoint's username and password, as specified by the IngestEndpoint's id.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new MediaPackageClient(config);
+ * const command = new RotateIngestEndpointCredentialsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RotateIngestEndpointCredentialsCommandInput} for command's `input` shape.
+ * @see {@link RotateIngestEndpointCredentialsCommandOutput} for command's `response` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RotateIngestEndpointCredentialsCommand extends $Command<
   RotateIngestEndpointCredentialsCommandInput,

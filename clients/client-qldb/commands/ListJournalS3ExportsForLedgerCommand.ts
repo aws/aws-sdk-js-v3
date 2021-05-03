@@ -29,6 +29,18 @@ export interface ListJournalS3ExportsForLedgerCommandOutput
  *          multiple times.</p>
  *          <p>This action does not return any expired export jobs. For more information, see <a href="https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration">Export Job Expiration</a> in the <i>Amazon QLDB Developer
  *          Guide</i>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new QLDBClient(config);
+ * const command = new ListJournalS3ExportsForLedgerCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListJournalS3ExportsForLedgerCommandInput} for command's `input` shape.
+ * @see {@link ListJournalS3ExportsForLedgerCommandOutput} for command's `response` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListJournalS3ExportsForLedgerCommand extends $Command<
   ListJournalS3ExportsForLedgerCommandInput,

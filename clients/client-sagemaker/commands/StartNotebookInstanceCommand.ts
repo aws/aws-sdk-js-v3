@@ -25,6 +25,18 @@ export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
  *             attaches your ML storage volume. After configuring the notebook instance, Amazon SageMaker sets the
  *             notebook instance status to <code>InService</code>. A notebook instance's status must be
  *                 <code>InService</code> before you can connect to your Jupyter notebook. </p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SageMakerClient(config);
+ * const command = new StartNotebookInstanceCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StartNotebookInstanceCommandInput} for command's `input` shape.
+ * @see {@link StartNotebookInstanceCommandOutput} for command's `response` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StartNotebookInstanceCommand extends $Command<
   StartNotebookInstanceCommandInput,

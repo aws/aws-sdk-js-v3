@@ -22,6 +22,18 @@ export interface UpdateSamplingRuleCommandOutput extends UpdateSamplingRuleResul
 
 /**
  * <p>Modifies a sampling rule's configuration.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new XRayClient(config);
+ * const command = new UpdateSamplingRuleCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateSamplingRuleCommandInput} for command's `input` shape.
+ * @see {@link UpdateSamplingRuleCommandOutput} for command's `response` shape.
+ * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateSamplingRuleCommand extends $Command<
   UpdateSamplingRuleCommandInput,

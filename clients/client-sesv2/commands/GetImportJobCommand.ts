@@ -22,6 +22,18 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
 
 /**
  * <p>Provides information about an import job.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SESv2Client(config);
+ * const command = new GetImportJobCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetImportJobCommandInput} for command's `input` shape.
+ * @see {@link GetImportJobCommandOutput} for command's `response` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetImportJobCommand extends $Command<
   GetImportJobCommandInput,

@@ -23,6 +23,18 @@ export interface ListTypedLinkFacetNamesCommandOutput extends ListTypedLinkFacet
 /**
  * <p>Returns a paginated list of <code>TypedLink</code> facet names for a particular schema.
  *       For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CloudDirectoryClient(config);
+ * const command = new ListTypedLinkFacetNamesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListTypedLinkFacetNamesCommandInput} for command's `input` shape.
+ * @see {@link ListTypedLinkFacetNamesCommandOutput} for command's `response` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListTypedLinkFacetNamesCommand extends $Command<
   ListTypedLinkFacetNamesCommandInput,

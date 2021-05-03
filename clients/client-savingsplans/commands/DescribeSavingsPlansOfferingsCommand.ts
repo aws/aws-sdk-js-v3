@@ -24,6 +24,18 @@ export interface DescribeSavingsPlansOfferingsCommandOutput
 
 /**
  * <p>Describes the specified Savings Plans offerings.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SavingsplansClient(config);
+ * const command = new DescribeSavingsPlansOfferingsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeSavingsPlansOfferingsCommandInput} for command's `input` shape.
+ * @see {@link DescribeSavingsPlansOfferingsCommandOutput} for command's `response` shape.
+ * @see {@link SavingsplansClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeSavingsPlansOfferingsCommand extends $Command<
   DescribeSavingsPlansOfferingsCommandInput,

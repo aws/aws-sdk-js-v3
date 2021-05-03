@@ -28,6 +28,18 @@ export interface ListBackupsCommandOutput extends ListBackupsOutput, __MetadataB
  *          <p>In the request, start time is inclusive, but end time is exclusive. Note that these
  *             boundaries are for the time at which the original backup was requested.</p>
  *          <p>You can call <code>ListBackups</code> a maximum of five times per second.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new DynamoDBClient(config);
+ * const command = new ListBackupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListBackupsCommandInput} for command's `input` shape.
+ * @see {@link ListBackupsCommandOutput} for command's `response` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListBackupsCommand extends $Command<
   ListBackupsCommandInput,

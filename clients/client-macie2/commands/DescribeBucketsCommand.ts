@@ -22,6 +22,18 @@ export interface DescribeBucketsCommandOutput extends DescribeBucketsResponse, _
 
 /**
  * <p>Retrieves (queries) statistical data and other information about one or more S3 buckets that Amazon Macie monitors and analyzes.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new Macie2Client(config);
+ * const command = new DescribeBucketsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeBucketsCommandInput} for command's `input` shape.
+ * @see {@link DescribeBucketsCommandOutput} for command's `response` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeBucketsCommand extends $Command<
   DescribeBucketsCommandInput,

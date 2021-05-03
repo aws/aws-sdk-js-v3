@@ -22,6 +22,18 @@ export interface ListConfigurationProfilesCommandOutput extends ConfigurationPro
 
 /**
  * <p>Lists the configuration profiles for an application.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AppConfigClient(config);
+ * const command = new ListConfigurationProfilesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListConfigurationProfilesCommandInput} for command's `input` shape.
+ * @see {@link ListConfigurationProfilesCommandOutput} for command's `response` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListConfigurationProfilesCommand extends $Command<
   ListConfigurationProfilesCommandInput,

@@ -23,6 +23,18 @@ export interface RevokeSignatureCommandOutput extends __MetadataBearer {}
 /**
  * <p>Changes the state of a signing job to REVOKED. This indicates that the signature is no
  * 			longer valid.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new SignerClient(config);
+ * const command = new RevokeSignatureCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link RevokeSignatureCommandInput} for command's `input` shape.
+ * @see {@link RevokeSignatureCommandOutput} for command's `response` shape.
+ * @see {@link SignerClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class RevokeSignatureCommand extends $Command<
   RevokeSignatureCommandInput,

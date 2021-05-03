@@ -22,6 +22,18 @@ export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __Metad
 
 /**
  * <p>Lists the SIP rules under the administrator's AWS account.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ChimeClient(config);
+ * const command = new ListSipRulesCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListSipRulesCommandInput} for command's `input` shape.
+ * @see {@link ListSipRulesCommandOutput} for command's `response` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListSipRulesCommand extends $Command<
   ListSipRulesCommandInput,

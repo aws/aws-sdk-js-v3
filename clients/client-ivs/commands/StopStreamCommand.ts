@@ -29,6 +29,18 @@ export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataB
  *         session, so to stop the stream permanently, you may want to first revoke the
  *           <code>streamKey</code> attached to the channel.</p>
  *          </note>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new IvsClient(config);
+ * const command = new StopStreamCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link StopStreamCommandInput} for command's `input` shape.
+ * @see {@link StopStreamCommandOutput} for command's `response` shape.
+ * @see {@link IvsClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class StopStreamCommand extends $Command<
   StopStreamCommandInput,

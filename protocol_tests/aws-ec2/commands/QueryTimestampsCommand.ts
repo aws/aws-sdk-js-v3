@@ -23,6 +23,18 @@ export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
  * 1. Timestamps are serialized as RFC 3339 date-time values by default.
  * 2. A timestampFormat trait on a member changes the format.
  * 3. A timestampFormat trait on the shape targeted by the member changes the format.
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2ProtocolClient(config);
+ * const command = new QueryTimestampsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link QueryTimestampsCommandInput} for command's `input` shape.
+ * @see {@link QueryTimestampsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ProtocolClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class QueryTimestampsCommand extends $Command<
   QueryTimestampsCommandInput,

@@ -22,6 +22,18 @@ export interface DescribeProvisionedProductCommandOutput extends DescribeProvisi
 
 /**
  * <p>Gets information about the specified provisioned product.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new DescribeProvisionedProductCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeProvisionedProductCommandInput} for command's `input` shape.
+ * @see {@link DescribeProvisionedProductCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeProvisionedProductCommand extends $Command<
   DescribeProvisionedProductCommandInput,

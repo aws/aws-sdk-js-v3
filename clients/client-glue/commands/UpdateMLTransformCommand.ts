@@ -26,6 +26,18 @@ export interface UpdateMLTransformCommandOutput extends UpdateMLTransformRespons
  *          <p>After calling this operation, you can call the <code>StartMLEvaluationTaskRun</code>
  *       operation to assess how well your new parameters achieved your goals (such as improving the
  *       quality of your machine learning transform, or making it more cost-effective).</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new GlueClient(config);
+ * const command = new UpdateMLTransformCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link UpdateMLTransformCommandInput} for command's `input` shape.
+ * @see {@link UpdateMLTransformCommandOutput} for command's `response` shape.
+ * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class UpdateMLTransformCommand extends $Command<
   UpdateMLTransformCommandInput,

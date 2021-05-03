@@ -26,6 +26,18 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  *                 <code>active</code> state. The owner of the requester VPC can delete a VPC peering
  *             connection in the <code>pending-acceptance</code> state. You cannot delete a VPC peering
  *             connection that's in the <code>failed</code> state.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new EC2Client(config);
+ * const command = new DeleteVpcPeeringConnectionCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVpcPeeringConnectionCommandInput} for command's `input` shape.
+ * @see {@link DeleteVpcPeeringConnectionCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteVpcPeeringConnectionCommand extends $Command<
   DeleteVpcPeeringConnectionCommandInput,

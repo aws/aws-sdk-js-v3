@@ -29,6 +29,18 @@ export interface EnableAWSOrganizationsAccessCommandOutput
  *          organization.</p>
  *          <p>By calling this API Service Catalog will make a call to organizations:EnableAWSServiceAccess on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.</p>
  *          <p>Note that a delegated administrator is not authorized to invoke <code>EnableAWSOrganizationsAccess</code>.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new ServiceCatalogClient(config);
+ * const command = new EnableAWSOrganizationsAccessCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableAWSOrganizationsAccessCommandInput} for command's `input` shape.
+ * @see {@link EnableAWSOrganizationsAccessCommandOutput} for command's `response` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class EnableAWSOrganizationsAccessCommand extends $Command<
   EnableAWSOrganizationsAccessCommandInput,

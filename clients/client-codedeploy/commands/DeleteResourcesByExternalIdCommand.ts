@@ -22,6 +22,18 @@ export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResource
 
 /**
  * <p>Deletes resources linked to an external ID.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new CodeDeployClient(config);
+ * const command = new DeleteResourcesByExternalIdCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteResourcesByExternalIdCommandInput} for command's `input` shape.
+ * @see {@link DeleteResourcesByExternalIdCommandOutput} for command's `response` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DeleteResourcesByExternalIdCommand extends $Command<
   DeleteResourcesByExternalIdCommandInput,

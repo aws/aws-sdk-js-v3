@@ -27,6 +27,18 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  *
  *          <p>For an example, see Listing Collections in the Amazon Rekognition Developer Guide.</p>
  *          <p>This operation requires permissions to perform the <code>rekognition:ListCollections</code> action.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new RekognitionClient(config);
+ * const command = new ListCollectionsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListCollectionsCommandInput} for command's `input` shape.
+ * @see {@link ListCollectionsCommandOutput} for command's `response` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class ListCollectionsCommand extends $Command<
   ListCollectionsCommandInput,

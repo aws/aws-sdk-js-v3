@@ -100,6 +100,18 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *                </p>
  *             </li>
  *          </ul>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new KMSClient(config);
+ * const command = new DescribeKeyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeKeyCommandInput} for command's `input` shape.
+ * @see {@link DescribeKeyCommandOutput} for command's `response` shape.
+ * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class DescribeKeyCommand extends $Command<
   DescribeKeyCommandInput,

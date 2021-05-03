@@ -22,6 +22,18 @@ export interface GetDataCatalogCommandOutput extends GetDataCatalogOutput, __Met
 
 /**
  * <p>Returns the specified data catalog.</p>
+ * @example
+ * User a bare-bone client and the command you need to make an API call.
+ * ```javascript
+ * const client = new AthenaClient(config);
+ * const command = new GetDataCatalogCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetDataCatalogCommandInput} for command's `input` shape.
+ * @see {@link GetDataCatalogCommandOutput} for command's `response` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ *
  */
 export class GetDataCatalogCommand extends $Command<
   GetDataCatalogCommandInput,
