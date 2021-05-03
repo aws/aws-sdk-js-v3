@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
+    "@commitlint/config-conventional": "^12.1.1",
     "@mixer/parallel-prettier": "^2.0.1",
     "@types/chai-as-promised": "^7.1.2",
     "@types/fs-extra": "^8.0.1",
