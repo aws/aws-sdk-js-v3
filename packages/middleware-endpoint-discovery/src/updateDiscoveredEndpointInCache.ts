@@ -9,6 +9,8 @@ export type updateDiscoveredEndpointInCacheOptions = {
   identifiers?: Map<String, String>;
 };
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export const updateDiscoveredEndpointInCache = async (
   config: EndpointDiscoveryClientResolvedConfig,
   options: updateDiscoveredEndpointInCacheOptions
@@ -19,12 +21,15 @@ export const updateDiscoveredEndpointInCache = async (
   const { commandName, identifiers } = options;
   const cacheKey = await getCacheKey(commandName, client?.config, { identifiers });
 
-  const endpoints = endpointCache.get(cacheKey);
-  if (endpoints && endpoints.length === 1 && endpoints[0].Address === "") {
-    // endpoint operation is being made but response not yet received
-    // or endpoint operation just failed in 1 minute.
-    return;
-  } else if (endpoints && endpoints.length > 0) {
+  let endpoints = endpointCache.get(cacheKey);
+
+  // Wait for other endpoint operations to complete before making new calls.
+  while (endpoints && endpoints.length === 1 && endpoints[0].Address === "") {
+    await sleep(1000);
+    endpoints = endpointCache.get(cacheKey);
+  }
+
+  if (endpoints && endpoints.length > 0) {
     // Endpoint record is present in cache.
     return;
   } else {
