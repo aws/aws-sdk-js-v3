@@ -1,12 +1,12 @@
 import { Command } from "@aws-sdk/types";
 
 import { getCacheKey } from "./getCacheKey";
+import { EndpointDiscoveryMiddlewareConfig } from "./getEndpointDiscoveryCommandPlugin";
 import { EndpointDiscoveryClientResolvedConfig } from "./resolveEndpointDiscoveryClientConfig";
 
-export type updateDiscoveredEndpointInCacheOptions = {
+export type updateDiscoveredEndpointInCacheOptions = EndpointDiscoveryMiddlewareConfig & {
   commandName: string;
   endpointDiscoveryCommandCtor: new (comandConfig: any) => Command<any, any, any, any, any>;
-  identifiers?: Map<String, String>;
 };
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -50,12 +50,10 @@ export const updateDiscoveredEndpointInCache = async (
       const { Endpoints } = await client?.send(command);
       endpointCache.set(cacheKey, Endpoints);
     } catch (error) {
-      endpointCache.set(cacheKey, [
-        {
-          Address: "",
-          CachePeriodInMinutes: 1, // Not to make more endpoint operation in next 1 minute
-        },
-      ]);
+      endpointCache.del(cacheKey);
+      if (options.isDiscoveredEndpointRequired) {
+        throw error;
+      }
     }
   }
 };

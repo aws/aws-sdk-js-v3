@@ -39,21 +39,21 @@ export const endpointDiscoveryMiddleware = (
   const { isDiscoveredEndpointRequired, identifiers } = middlewareConfig;
   const { commandName } = context;
 
-  if (isDiscoveredEndpointRequired === true) {
+  if (isDiscoveredEndpointRequired) {
     // call await on Endpoint Discovery API utility so that function blocks
     // till discovered endpoint is updated in cache
     await updateDiscoveredEndpointInCache(config, {
+      ...middlewareConfig,
       commandName,
       endpointDiscoveryCommandCtor,
-      identifiers,
     });
-  } else if (isDiscoveredEndpointRequired === false) {
+  } else {
     // Do not call await await on Endpoint Discovery API utility so that function
     // does not block, the command will use discovered endpoint, if available.
     updateDiscoveredEndpointInCache(config, {
+      ...middlewareConfig,
       commandName,
       endpointDiscoveryCommandCtor,
-      identifiers,
     });
   }
 
