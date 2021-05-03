@@ -17,7 +17,7 @@ export const updateDiscoveredEndpointInCache = async (
   const { endpointCache } = client?.config;
 
   const { commandName, getEndpointDiscoveryId } = options;
-  const cacheKey = getCacheKey(commandName, client?.config, getEndpointDiscoveryId);
+  const cacheKey = await getCacheKey(commandName, client?.config, getEndpointDiscoveryId);
 
   const endpoints = endpointCache.get(cacheKey);
   if (endpoints && endpoints.length === 1 && endpoints[0].Address === "") {
