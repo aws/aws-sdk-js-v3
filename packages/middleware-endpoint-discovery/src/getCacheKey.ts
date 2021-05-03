@@ -17,5 +17,5 @@ export const getCacheKey = async (
     ...(region && { region }),
     ...(accessKeyId && { accessKeyId }),
     ...(identifiers && { identifiers }),
-  };
+  }.toString();
 };

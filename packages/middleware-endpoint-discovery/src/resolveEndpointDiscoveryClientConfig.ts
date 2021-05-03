@@ -7,7 +7,7 @@ interface PreviouslyResolved {}
 
 export interface EndpointDiscoveryClientResolvedConfig {
   client?: Client<any, any, any>;
-  endpointCache: LRUCache<Object, string>;
+  endpointCache: LRUCache<string, string>;
 }
 
 export const resolveEndpointDiscoveryClientConfig = <T>(
