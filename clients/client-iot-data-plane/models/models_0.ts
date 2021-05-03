@@ -14,6 +14,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -35,6 +38,9 @@ export interface DeleteThingShadowRequest {
 }
 
 export namespace DeleteThingShadowRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteThingShadowRequest): any => ({
     ...obj,
   });
@@ -51,6 +57,9 @@ export interface DeleteThingShadowResponse {
 }
 
 export namespace DeleteThingShadowResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteThingShadowResponse): any => ({
     ...obj,
   });
@@ -69,6 +78,9 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
 }
 
 export namespace InternalFailureException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
@@ -87,6 +99,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -105,6 +120,9 @@ export interface MethodNotAllowedException extends __SmithyException, $MetadataB
 }
 
 export namespace MethodNotAllowedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MethodNotAllowedException): any => ({
     ...obj,
   });
@@ -123,6 +141,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -141,6 +162,9 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
 }
 
 export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
@@ -159,6 +183,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -177,6 +204,9 @@ export interface UnauthorizedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace UnauthorizedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnauthorizedException): any => ({
     ...obj,
   });
@@ -195,6 +225,9 @@ export interface UnsupportedDocumentEncodingException extends __SmithyException,
 }
 
 export namespace UnsupportedDocumentEncodingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedDocumentEncodingException): any => ({
     ...obj,
   });
@@ -216,6 +249,9 @@ export interface GetThingShadowRequest {
 }
 
 export namespace GetThingShadowRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetThingShadowRequest): any => ({
     ...obj,
   });
@@ -232,6 +268,9 @@ export interface GetThingShadowResponse {
 }
 
 export namespace GetThingShadowResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetThingShadowResponse): any => ({
     ...obj,
   });
@@ -255,6 +294,9 @@ export interface ListNamedShadowsForThingRequest {
 }
 
 export namespace ListNamedShadowsForThingRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListNamedShadowsForThingRequest): any => ({
     ...obj,
   });
@@ -278,6 +320,9 @@ export interface ListNamedShadowsForThingResponse {
 }
 
 export namespace ListNamedShadowsForThingResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListNamedShadowsForThingResponse): any => ({
     ...obj,
   });
@@ -304,6 +349,9 @@ export interface PublishRequest {
 }
 
 export namespace PublishRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PublishRequest): any => ({
     ...obj,
   });
@@ -322,6 +370,9 @@ export interface RequestEntityTooLargeException extends __SmithyException, $Meta
 }
 
 export namespace RequestEntityTooLargeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RequestEntityTooLargeException): any => ({
     ...obj,
   });
@@ -348,6 +399,9 @@ export interface UpdateThingShadowRequest {
 }
 
 export namespace UpdateThingShadowRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateThingShadowRequest): any => ({
     ...obj,
   });
@@ -364,6 +418,9 @@ export interface UpdateThingShadowResponse {
 }
 
 export namespace UpdateThingShadowResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateThingShadowResponse): any => ({
     ...obj,
   });

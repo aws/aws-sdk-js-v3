@@ -11,6 +11,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -26,6 +29,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -49,6 +55,9 @@ export interface CreateEndpointRequest {
 }
 
 export namespace CreateEndpointRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateEndpointRequest): any => ({
     ...obj,
   });
@@ -62,6 +71,9 @@ export interface CreateEndpointResult {
 }
 
 export namespace CreateEndpointResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateEndpointResult): any => ({
     ...obj,
   });
@@ -77,6 +89,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -92,6 +107,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -107,6 +125,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -125,6 +146,9 @@ export interface DeleteEndpointRequest {
 }
 
 export namespace DeleteEndpointRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteEndpointRequest): any => ({
     ...obj,
   });
@@ -141,6 +165,9 @@ export interface NetworkInterface {
 }
 
 export namespace NetworkInterface {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NetworkInterface): any => ({
     ...obj,
   });
@@ -189,6 +216,9 @@ export interface Endpoint {
 }
 
 export namespace Endpoint {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj,
   });
@@ -207,6 +237,9 @@ export interface ListEndpointsRequest {
 }
 
 export namespace ListEndpointsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEndpointsRequest): any => ({
     ...obj,
   });
@@ -225,6 +258,9 @@ export interface ListEndpointsResult {
 }
 
 export namespace ListEndpointsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEndpointsResult): any => ({
     ...obj,
   });

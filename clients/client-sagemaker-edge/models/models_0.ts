@@ -14,6 +14,9 @@ export interface GetDeviceRegistrationRequest {
 }
 
 export namespace GetDeviceRegistrationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDeviceRegistrationRequest): any => ({
     ...obj,
   });
@@ -32,6 +35,9 @@ export interface GetDeviceRegistrationResult {
 }
 
 export namespace GetDeviceRegistrationResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDeviceRegistrationResult): any => ({
     ...obj,
   });
@@ -48,6 +54,9 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
 }
 
 export namespace InternalServiceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
@@ -79,6 +88,9 @@ export interface EdgeMetric {
 }
 
 export namespace EdgeMetric {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EdgeMetric): any => ({
     ...obj,
   });
@@ -115,6 +127,9 @@ export interface Model {
 }
 
 export namespace Model {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Model): any => ({
     ...obj,
   });
@@ -148,6 +163,9 @@ export interface SendHeartbeatRequest {
 }
 
 export namespace SendHeartbeatRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendHeartbeatRequest): any => ({
     ...obj,
   });

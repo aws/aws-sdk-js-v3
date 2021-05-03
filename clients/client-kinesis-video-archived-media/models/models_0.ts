@@ -12,6 +12,9 @@ export interface ClientLimitExceededException extends __SmithyException, $Metada
 }
 
 export namespace ClientLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ClientLimitExceededException): any => ({
     ...obj,
   });
@@ -50,6 +53,9 @@ export interface ClipTimestampRange {
 }
 
 export namespace ClipTimestampRange {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ClipTimestampRange): any => ({
     ...obj,
   });
@@ -77,6 +83,9 @@ export interface ClipFragmentSelector {
 }
 
 export namespace ClipFragmentSelector {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ClipFragmentSelector): any => ({
     ...obj,
   });
@@ -102,6 +111,9 @@ export interface GetClipInput {
 }
 
 export namespace GetClipInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetClipInput): any => ({
     ...obj,
   });
@@ -123,6 +135,9 @@ export interface GetClipOutput {
 }
 
 export namespace GetClipOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetClipOutput): any => ({
     ...obj,
   });
@@ -139,6 +154,9 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidArgumentException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj,
   });
@@ -155,6 +173,9 @@ export interface InvalidCodecPrivateDataException extends __SmithyException, $Me
 }
 
 export namespace InvalidCodecPrivateDataException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidCodecPrivateDataException): any => ({
     ...obj,
   });
@@ -171,6 +192,9 @@ export interface InvalidMediaFrameException extends __SmithyException, $Metadata
 }
 
 export namespace InvalidMediaFrameException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidMediaFrameException): any => ({
     ...obj,
   });
@@ -186,6 +210,9 @@ export interface MissingCodecPrivateDataException extends __SmithyException, $Me
 }
 
 export namespace MissingCodecPrivateDataException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MissingCodecPrivateDataException): any => ({
     ...obj,
   });
@@ -202,6 +229,9 @@ export interface NoDataRetentionException extends __SmithyException, $MetadataBe
 }
 
 export namespace NoDataRetentionException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NoDataRetentionException): any => ({
     ...obj,
   });
@@ -218,6 +248,9 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
 }
 
 export namespace NotAuthorizedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj,
   });
@@ -242,6 +275,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -260,6 +296,9 @@ export interface UnsupportedStreamMediaTypeException extends __SmithyException, 
 }
 
 export namespace UnsupportedStreamMediaTypeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedStreamMediaTypeException): any => ({
     ...obj,
   });
@@ -313,6 +352,9 @@ export interface DASHTimestampRange {
 }
 
 export namespace DASHTimestampRange {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DASHTimestampRange): any => ({
     ...obj,
   });
@@ -357,6 +399,9 @@ export interface DASHFragmentSelector {
 }
 
 export namespace DASHFragmentSelector {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DASHFragmentSelector): any => ({
     ...obj,
   });
@@ -531,6 +576,9 @@ export interface GetDASHStreamingSessionURLInput {
 }
 
 export namespace GetDASHStreamingSessionURLInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDASHStreamingSessionURLInput): any => ({
     ...obj,
   });
@@ -545,6 +593,9 @@ export interface GetDASHStreamingSessionURLOutput {
 }
 
 export namespace GetDASHStreamingSessionURLOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDASHStreamingSessionURLOutput): any => ({
     ...obj,
   });
@@ -610,6 +661,9 @@ export interface HLSTimestampRange {
 }
 
 export namespace HLSTimestampRange {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HLSTimestampRange): any => ({
     ...obj,
   });
@@ -654,6 +708,9 @@ export interface HLSFragmentSelector {
 }
 
 export namespace HLSFragmentSelector {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HLSFragmentSelector): any => ({
     ...obj,
   });
@@ -859,6 +916,9 @@ export interface GetHLSStreamingSessionURLInput {
 }
 
 export namespace GetHLSStreamingSessionURLInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetHLSStreamingSessionURLInput): any => ({
     ...obj,
   });
@@ -873,6 +933,9 @@ export interface GetHLSStreamingSessionURLOutput {
 }
 
 export namespace GetHLSStreamingSessionURLOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetHLSStreamingSessionURLOutput): any => ({
     ...obj,
   });
@@ -897,6 +960,9 @@ export interface GetMediaForFragmentListInput {
 }
 
 export namespace GetMediaForFragmentListInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMediaForFragmentListInput): any => ({
     ...obj,
   });
@@ -947,6 +1013,9 @@ export interface GetMediaForFragmentListOutput {
 }
 
 export namespace GetMediaForFragmentListOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetMediaForFragmentListOutput): any => ({
     ...obj,
   });
@@ -974,6 +1043,9 @@ export interface TimestampRange {
 }
 
 export namespace TimestampRange {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TimestampRange): any => ({
     ...obj,
   });
@@ -1014,6 +1086,9 @@ export interface FragmentSelector {
 }
 
 export namespace FragmentSelector {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FragmentSelector): any => ({
     ...obj,
   });
@@ -1051,6 +1126,9 @@ export interface ListFragmentsInput {
 }
 
 export namespace ListFragmentsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListFragmentsInput): any => ({
     ...obj,
   });
@@ -1089,6 +1167,9 @@ export interface Fragment {
 }
 
 export namespace Fragment {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Fragment): any => ({
     ...obj,
   });
@@ -1110,6 +1191,9 @@ export interface ListFragmentsOutput {
 }
 
 export namespace ListFragmentsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListFragmentsOutput): any => ({
     ...obj,
   });

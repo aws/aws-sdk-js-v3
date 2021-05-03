@@ -14,6 +14,9 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
 }
 
 export namespace AlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
     ...obj,
   });
@@ -43,6 +46,9 @@ export interface DataLakePrincipal {
 }
 
 export namespace DataLakePrincipal {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataLakePrincipal): any => ({
     ...obj,
   });
@@ -54,6 +60,9 @@ export namespace DataLakePrincipal {
 export interface CatalogResource {}
 
 export namespace CatalogResource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CatalogResource): any => ({
     ...obj,
   });
@@ -75,6 +84,9 @@ export interface DatabaseResource {
 }
 
 export namespace DatabaseResource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DatabaseResource): any => ({
     ...obj,
   });
@@ -96,6 +108,9 @@ export interface DataLocationResource {
 }
 
 export namespace DataLocationResource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataLocationResource): any => ({
     ...obj,
   });
@@ -107,6 +122,9 @@ export namespace DataLocationResource {
 export interface TableWildcard {}
 
 export namespace TableWildcard {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TableWildcard): any => ({
     ...obj,
   });
@@ -140,6 +158,9 @@ export interface TableResource {
 }
 
 export namespace TableResource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TableResource): any => ({
     ...obj,
   });
@@ -156,6 +177,9 @@ export interface ColumnWildcard {
 }
 
 export namespace ColumnWildcard {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ColumnWildcard): any => ({
     ...obj,
   });
@@ -193,6 +217,9 @@ export interface TableWithColumnsResource {
 }
 
 export namespace TableWithColumnsResource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TableWithColumnsResource): any => ({
     ...obj,
   });
@@ -229,6 +256,9 @@ export interface Resource {
 }
 
 export namespace Resource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Resource): any => ({
     ...obj,
   });
@@ -265,6 +295,9 @@ export interface BatchPermissionsRequestEntry {
 }
 
 export namespace BatchPermissionsRequestEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchPermissionsRequestEntry): any => ({
     ...obj,
   });
@@ -283,6 +316,9 @@ export interface BatchGrantPermissionsRequest {
 }
 
 export namespace BatchGrantPermissionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchGrantPermissionsRequest): any => ({
     ...obj,
   });
@@ -304,6 +340,9 @@ export interface ErrorDetail {
 }
 
 export namespace ErrorDetail {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ErrorDetail): any => ({
     ...obj,
   });
@@ -325,6 +364,9 @@ export interface BatchPermissionsFailureEntry {
 }
 
 export namespace BatchPermissionsFailureEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchPermissionsFailureEntry): any => ({
     ...obj,
   });
@@ -338,6 +380,9 @@ export interface BatchGrantPermissionsResponse {
 }
 
 export namespace BatchGrantPermissionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchGrantPermissionsResponse): any => ({
     ...obj,
   });
@@ -356,6 +401,9 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
 }
 
 export namespace InvalidInputException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
@@ -374,6 +422,9 @@ export interface OperationTimeoutException extends __SmithyException, $MetadataB
 }
 
 export namespace OperationTimeoutException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OperationTimeoutException): any => ({
     ...obj,
   });
@@ -392,6 +443,9 @@ export interface BatchRevokePermissionsRequest {
 }
 
 export namespace BatchRevokePermissionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchRevokePermissionsRequest): any => ({
     ...obj,
   });
@@ -405,6 +459,9 @@ export interface BatchRevokePermissionsResponse {
 }
 
 export namespace BatchRevokePermissionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchRevokePermissionsResponse): any => ({
     ...obj,
   });
@@ -418,6 +475,9 @@ export interface DeregisterResourceRequest {
 }
 
 export namespace DeregisterResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeregisterResourceRequest): any => ({
     ...obj,
   });
@@ -426,6 +486,9 @@ export namespace DeregisterResourceRequest {
 export interface DeregisterResourceResponse {}
 
 export namespace DeregisterResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeregisterResourceResponse): any => ({
     ...obj,
   });
@@ -444,6 +507,9 @@ export interface EntityNotFoundException extends __SmithyException, $MetadataBea
 }
 
 export namespace EntityNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EntityNotFoundException): any => ({
     ...obj,
   });
@@ -462,6 +528,9 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
 }
 
 export namespace InternalServiceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
@@ -475,6 +544,9 @@ export interface DescribeResourceRequest {
 }
 
 export namespace DescribeResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeResourceRequest): any => ({
     ...obj,
   });
@@ -501,6 +573,9 @@ export interface ResourceInfo {
 }
 
 export namespace ResourceInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceInfo): any => ({
     ...obj,
   });
@@ -514,6 +589,9 @@ export interface DescribeResourceResponse {
 }
 
 export namespace DescribeResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeResourceResponse): any => ({
     ...obj,
   });
@@ -527,6 +605,9 @@ export interface GetDataLakeSettingsRequest {
 }
 
 export namespace GetDataLakeSettingsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDataLakeSettingsRequest): any => ({
     ...obj,
   });
@@ -548,6 +629,9 @@ export interface PrincipalPermissions {
 }
 
 export namespace PrincipalPermissions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PrincipalPermissions): any => ({
     ...obj,
   });
@@ -581,6 +665,9 @@ export interface DataLakeSettings {
 }
 
 export namespace DataLakeSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataLakeSettings): any => ({
     ...obj,
   });
@@ -594,6 +681,9 @@ export interface GetDataLakeSettingsResponse {
 }
 
 export namespace GetDataLakeSettingsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDataLakeSettingsResponse): any => ({
     ...obj,
   });
@@ -622,6 +712,9 @@ export interface GetEffectivePermissionsForPathRequest {
 }
 
 export namespace GetEffectivePermissionsForPathRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEffectivePermissionsForPathRequest): any => ({
     ...obj,
   });
@@ -640,6 +733,9 @@ export interface DetailsMap {
 }
 
 export namespace DetailsMap {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetailsMap): any => ({
     ...obj,
   });
@@ -676,6 +772,9 @@ export interface PrincipalResourcePermissions {
 }
 
 export namespace PrincipalResourcePermissions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PrincipalResourcePermissions): any => ({
     ...obj,
   });
@@ -694,6 +793,9 @@ export interface GetEffectivePermissionsForPathResponse {
 }
 
 export namespace GetEffectivePermissionsForPathResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEffectivePermissionsForPathResponse): any => ({
     ...obj,
   });
@@ -712,6 +814,9 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
 }
 
 export namespace ConcurrentModificationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
@@ -746,6 +851,9 @@ export interface GrantPermissionsRequest {
 }
 
 export namespace GrantPermissionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GrantPermissionsRequest): any => ({
     ...obj,
   });
@@ -754,6 +862,9 @@ export namespace GrantPermissionsRequest {
 export interface GrantPermissionsResponse {}
 
 export namespace GrantPermissionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GrantPermissionsResponse): any => ({
     ...obj,
   });
@@ -800,6 +911,9 @@ export interface ListPermissionsRequest {
 }
 
 export namespace ListPermissionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPermissionsRequest): any => ({
     ...obj,
   });
@@ -818,6 +932,9 @@ export interface ListPermissionsResponse {
 }
 
 export namespace ListPermissionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPermissionsResponse): any => ({
     ...obj,
   });
@@ -864,6 +981,9 @@ export interface FilterCondition {
 }
 
 export namespace FilterCondition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FilterCondition): any => ({
     ...obj,
   });
@@ -887,6 +1007,9 @@ export interface ListResourcesRequest {
 }
 
 export namespace ListResourcesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListResourcesRequest): any => ({
     ...obj,
   });
@@ -905,6 +1028,9 @@ export interface ListResourcesResponse {
 }
 
 export namespace ListResourcesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListResourcesResponse): any => ({
     ...obj,
   });
@@ -923,6 +1049,9 @@ export interface PutDataLakeSettingsRequest {
 }
 
 export namespace PutDataLakeSettingsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutDataLakeSettingsRequest): any => ({
     ...obj,
   });
@@ -931,6 +1060,9 @@ export namespace PutDataLakeSettingsRequest {
 export interface PutDataLakeSettingsResponse {}
 
 export namespace PutDataLakeSettingsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutDataLakeSettingsResponse): any => ({
     ...obj,
   });
@@ -956,6 +1088,9 @@ export interface RegisterResourceRequest {
 }
 
 export namespace RegisterResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterResourceRequest): any => ({
     ...obj,
   });
@@ -964,6 +1099,9 @@ export namespace RegisterResourceRequest {
 export interface RegisterResourceResponse {}
 
 export namespace RegisterResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterResourceResponse): any => ({
     ...obj,
   });
@@ -998,6 +1136,9 @@ export interface RevokePermissionsRequest {
 }
 
 export namespace RevokePermissionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RevokePermissionsRequest): any => ({
     ...obj,
   });
@@ -1006,6 +1147,9 @@ export namespace RevokePermissionsRequest {
 export interface RevokePermissionsResponse {}
 
 export namespace RevokePermissionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RevokePermissionsResponse): any => ({
     ...obj,
   });
@@ -1024,6 +1168,9 @@ export interface UpdateResourceRequest {
 }
 
 export namespace UpdateResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateResourceRequest): any => ({
     ...obj,
   });
@@ -1032,6 +1179,9 @@ export namespace UpdateResourceRequest {
 export interface UpdateResourceResponse {}
 
 export namespace UpdateResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateResourceResponse): any => ({
     ...obj,
   });

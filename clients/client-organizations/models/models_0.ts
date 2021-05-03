@@ -11,6 +11,9 @@ export interface AcceptHandshakeRequest {
 }
 
 export namespace AcceptHandshakeRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AcceptHandshakeRequest): any => ({
     ...obj,
   });
@@ -47,6 +50,9 @@ export interface HandshakeParty {
 }
 
 export namespace HandshakeParty {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HandshakeParty): any => ({
     ...obj,
     ...(obj.Id && { Id: SENSITIVE_STRING }),
@@ -87,6 +93,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -110,6 +119,9 @@ export interface AccessDeniedForDependencyException extends __SmithyException, $
 }
 
 export namespace AccessDeniedForDependencyException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedForDependencyException): any => ({
     ...obj,
   });
@@ -126,6 +138,9 @@ export interface AWSOrganizationsNotInUseException extends __SmithyException, $M
 }
 
 export namespace AWSOrganizationsNotInUseException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AWSOrganizationsNotInUseException): any => ({
     ...obj,
   });
@@ -142,6 +157,9 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
 }
 
 export namespace ConcurrentModificationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
@@ -158,6 +176,9 @@ export interface HandshakeAlreadyInStateException extends __SmithyException, $Me
 }
 
 export namespace HandshakeAlreadyInStateException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HandshakeAlreadyInStateException): any => ({
     ...obj,
   });
@@ -243,6 +264,9 @@ export interface HandshakeConstraintViolationException extends __SmithyException
 }
 
 export namespace HandshakeConstraintViolationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HandshakeConstraintViolationException): any => ({
     ...obj,
   });
@@ -258,6 +282,9 @@ export interface HandshakeNotFoundException extends __SmithyException, $Metadata
 }
 
 export namespace HandshakeNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HandshakeNotFoundException): any => ({
     ...obj,
   });
@@ -275,6 +302,9 @@ export interface InvalidHandshakeTransitionException extends __SmithyException, 
 }
 
 export namespace InvalidHandshakeTransitionException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidHandshakeTransitionException): any => ({
     ...obj,
   });
@@ -419,6 +449,9 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
 }
 
 export namespace InvalidInputException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
@@ -435,6 +468,9 @@ export interface ServiceException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ServiceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceException): any => ({
     ...obj,
   });
@@ -455,6 +491,9 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
 }
 
 export namespace TooManyRequestsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
@@ -521,6 +560,9 @@ export interface Account {
 }
 
 export namespace Account {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Account): any => ({
     ...obj,
     ...(obj.Email && { Email: SENSITIVE_STRING }),
@@ -539,6 +581,9 @@ export interface AccountAlreadyRegisteredException extends __SmithyException, $M
 }
 
 export namespace AccountAlreadyRegisteredException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccountAlreadyRegisteredException): any => ({
     ...obj,
   });
@@ -556,6 +601,9 @@ export interface AccountNotFoundException extends __SmithyException, $MetadataBe
 }
 
 export namespace AccountNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccountNotFoundException): any => ({
     ...obj,
   });
@@ -571,6 +619,9 @@ export interface AccountNotRegisteredException extends __SmithyException, $Metad
 }
 
 export namespace AccountNotRegisteredException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccountNotRegisteredException): any => ({
     ...obj,
   });
@@ -590,6 +641,9 @@ export interface AccountOwnerNotVerifiedException extends __SmithyException, $Me
 }
 
 export namespace AccountOwnerNotVerifiedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccountOwnerNotVerifiedException): any => ({
     ...obj,
   });
@@ -606,6 +660,9 @@ export interface AlreadyInOrganizationException extends __SmithyException, $Meta
 }
 
 export namespace AlreadyInOrganizationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AlreadyInOrganizationException): any => ({
     ...obj,
   });
@@ -649,6 +706,9 @@ export interface AttachPolicyRequest {
 }
 
 export namespace AttachPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttachPolicyRequest): any => ({
     ...obj,
   });
@@ -863,6 +923,9 @@ export interface ConstraintViolationException extends __SmithyException, $Metada
 }
 
 export namespace ConstraintViolationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConstraintViolationException): any => ({
     ...obj,
   });
@@ -878,6 +941,9 @@ export interface DuplicatePolicyAttachmentException extends __SmithyException, $
 }
 
 export namespace DuplicatePolicyAttachmentException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicatePolicyAttachmentException): any => ({
     ...obj,
   });
@@ -894,6 +960,9 @@ export interface PolicyChangesInProgressException extends __SmithyException, $Me
 }
 
 export namespace PolicyChangesInProgressException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyChangesInProgressException): any => ({
     ...obj,
   });
@@ -909,6 +978,9 @@ export interface PolicyNotFoundException extends __SmithyException, $MetadataBea
 }
 
 export namespace PolicyNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyNotFoundException): any => ({
     ...obj,
   });
@@ -928,6 +1000,9 @@ export interface PolicyTypeNotEnabledException extends __SmithyException, $Metad
 }
 
 export namespace PolicyTypeNotEnabledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyTypeNotEnabledException): any => ({
     ...obj,
   });
@@ -944,6 +1019,9 @@ export interface TargetNotFoundException extends __SmithyException, $MetadataBea
 }
 
 export namespace TargetNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TargetNotFoundException): any => ({
     ...obj,
   });
@@ -959,6 +1037,9 @@ export interface UnsupportedAPIEndpointException extends __SmithyException, $Met
 }
 
 export namespace UnsupportedAPIEndpointException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedAPIEndpointException): any => ({
     ...obj,
   });
@@ -975,6 +1056,9 @@ export interface CancelHandshakeRequest {
 }
 
 export namespace CancelHandshakeRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelHandshakeRequest): any => ({
     ...obj,
   });
@@ -1017,6 +1101,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -1094,6 +1181,9 @@ export interface CreateAccountRequest {
 }
 
 export namespace CreateAccountRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateAccountRequest): any => ({
     ...obj,
     ...(obj.Email && { Email: SENSITIVE_STRING }),
@@ -1235,6 +1325,9 @@ export interface CreateAccountStatus {
 }
 
 export namespace CreateAccountStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateAccountStatus): any => ({
     ...obj,
     ...(obj.AccountName && { AccountName: SENSITIVE_STRING }),
@@ -1255,6 +1348,9 @@ export interface CreateAccountResponse {
 }
 
 export namespace CreateAccountResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateAccountResponse): any => ({
     ...obj,
     ...(obj.CreateAccountStatus && {
@@ -1276,6 +1372,9 @@ export interface FinalizingOrganizationException extends __SmithyException, $Met
 }
 
 export namespace FinalizingOrganizationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FinalizingOrganizationException): any => ({
     ...obj,
   });
@@ -1350,6 +1449,9 @@ export interface CreateGovCloudAccountRequest {
 }
 
 export namespace CreateGovCloudAccountRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateGovCloudAccountRequest): any => ({
     ...obj,
     ...(obj.Email && { Email: SENSITIVE_STRING }),
@@ -1366,6 +1468,9 @@ export interface CreateGovCloudAccountResponse {
 }
 
 export namespace CreateGovCloudAccountResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateGovCloudAccountResponse): any => ({
     ...obj,
     ...(obj.CreateAccountStatus && {
@@ -1409,6 +1514,9 @@ export interface CreateOrganizationRequest {
 }
 
 export namespace CreateOrganizationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateOrganizationRequest): any => ({
     ...obj,
   });
@@ -1445,6 +1553,9 @@ export interface PolicyTypeSummary {
 }
 
 export namespace PolicyTypeSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyTypeSummary): any => ({
     ...obj,
   });
@@ -1512,6 +1623,9 @@ export interface Organization {
 }
 
 export namespace Organization {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Organization): any => ({
     ...obj,
     ...(obj.MasterAccountEmail && { MasterAccountEmail: SENSITIVE_STRING }),
@@ -1526,6 +1640,9 @@ export interface CreateOrganizationResponse {
 }
 
 export namespace CreateOrganizationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateOrganizationResponse): any => ({
     ...obj,
     ...(obj.Organization && { Organization: Organization.filterSensitiveLog(obj.Organization) }),
@@ -1574,6 +1691,9 @@ export interface CreateOrganizationalUnitRequest {
 }
 
 export namespace CreateOrganizationalUnitRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateOrganizationalUnitRequest): any => ({
     ...obj,
   });
@@ -1611,6 +1731,9 @@ export interface OrganizationalUnit {
 }
 
 export namespace OrganizationalUnit {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OrganizationalUnit): any => ({
     ...obj,
   });
@@ -1624,6 +1747,9 @@ export interface CreateOrganizationalUnitResponse {
 }
 
 export namespace CreateOrganizationalUnitResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateOrganizationalUnitResponse): any => ({
     ...obj,
   });
@@ -1639,6 +1765,9 @@ export interface DuplicateOrganizationalUnitException extends __SmithyException,
 }
 
 export namespace DuplicateOrganizationalUnitException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicateOrganizationalUnitException): any => ({
     ...obj,
   });
@@ -1654,6 +1783,9 @@ export interface ParentNotFoundException extends __SmithyException, $MetadataBea
 }
 
 export namespace ParentNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParentNotFoundException): any => ({
     ...obj,
   });
@@ -1721,6 +1853,9 @@ export interface CreatePolicyRequest {
 }
 
 export namespace CreatePolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreatePolicyRequest): any => ({
     ...obj,
   });
@@ -1772,6 +1907,9 @@ export interface PolicySummary {
 }
 
 export namespace PolicySummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicySummary): any => ({
     ...obj,
   });
@@ -1795,6 +1933,9 @@ export interface Policy {
 }
 
 export namespace Policy {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Policy): any => ({
     ...obj,
   });
@@ -1808,6 +1949,9 @@ export interface CreatePolicyResponse {
 }
 
 export namespace CreatePolicyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreatePolicyResponse): any => ({
     ...obj,
   });
@@ -1823,6 +1967,9 @@ export interface DuplicatePolicyException extends __SmithyException, $MetadataBe
 }
 
 export namespace DuplicatePolicyException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicatePolicyException): any => ({
     ...obj,
   });
@@ -1842,6 +1989,9 @@ export interface MalformedPolicyDocumentException extends __SmithyException, $Me
 }
 
 export namespace MalformedPolicyDocumentException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MalformedPolicyDocumentException): any => ({
     ...obj,
   });
@@ -1861,6 +2011,9 @@ export interface PolicyTypeNotAvailableForOrganizationException extends __Smithy
 }
 
 export namespace PolicyTypeNotAvailableForOrganizationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyTypeNotAvailableForOrganizationException): any => ({
     ...obj,
   });
@@ -1877,6 +2030,9 @@ export interface DeclineHandshakeRequest {
 }
 
 export namespace DeclineHandshakeRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeclineHandshakeRequest): any => ({
     ...obj,
   });
@@ -1893,6 +2049,9 @@ export interface OrganizationNotEmptyException extends __SmithyException, $Metad
 }
 
 export namespace OrganizationNotEmptyException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OrganizationNotEmptyException): any => ({
     ...obj,
   });
@@ -1911,6 +2070,9 @@ export interface DeleteOrganizationalUnitRequest {
 }
 
 export namespace DeleteOrganizationalUnitRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteOrganizationalUnitRequest): any => ({
     ...obj,
   });
@@ -1927,6 +2089,9 @@ export interface OrganizationalUnitNotEmptyException extends __SmithyException, 
 }
 
 export namespace OrganizationalUnitNotEmptyException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OrganizationalUnitNotEmptyException): any => ({
     ...obj,
   });
@@ -1943,6 +2108,9 @@ export interface OrganizationalUnitNotFoundException extends __SmithyException, 
 }
 
 export namespace OrganizationalUnitNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OrganizationalUnitNotFoundException): any => ({
     ...obj,
   });
@@ -1960,6 +2128,9 @@ export interface DeletePolicyRequest {
 }
 
 export namespace DeletePolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeletePolicyRequest): any => ({
     ...obj,
   });
@@ -1976,6 +2147,9 @@ export interface PolicyInUseException extends __SmithyException, $MetadataBearer
 }
 
 export namespace PolicyInUseException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyInUseException): any => ({
     ...obj,
   });
@@ -2000,6 +2174,9 @@ export interface DeregisterDelegatedAdministratorRequest {
 }
 
 export namespace DeregisterDelegatedAdministratorRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeregisterDelegatedAdministratorRequest): any => ({
     ...obj,
   });
@@ -2016,6 +2193,9 @@ export interface DescribeAccountRequest {
 }
 
 export namespace DescribeAccountRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAccountRequest): any => ({
     ...obj,
   });
@@ -2029,6 +2209,9 @@ export interface DescribeAccountResponse {
 }
 
 export namespace DescribeAccountResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAccountResponse): any => ({
     ...obj,
     ...(obj.Account && { Account: Account.filterSensitiveLog(obj.Account) }),
@@ -2046,6 +2229,9 @@ export interface CreateAccountStatusNotFoundException extends __SmithyException,
 }
 
 export namespace CreateAccountStatusNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateAccountStatusNotFoundException): any => ({
     ...obj,
   });
@@ -2063,6 +2249,9 @@ export interface DescribeCreateAccountStatusRequest {
 }
 
 export namespace DescribeCreateAccountStatusRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCreateAccountStatusRequest): any => ({
     ...obj,
   });
@@ -2076,6 +2265,9 @@ export interface DescribeCreateAccountStatusResponse {
 }
 
 export namespace DescribeCreateAccountStatusResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCreateAccountStatusResponse): any => ({
     ...obj,
     ...(obj.CreateAccountStatus && {
@@ -2123,6 +2315,9 @@ export interface DescribeEffectivePolicyRequest {
 }
 
 export namespace DescribeEffectivePolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEffectivePolicyRequest): any => ({
     ...obj,
   });
@@ -2156,6 +2351,9 @@ export interface EffectivePolicy {
 }
 
 export namespace EffectivePolicy {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EffectivePolicy): any => ({
     ...obj,
   });
@@ -2169,6 +2367,9 @@ export interface DescribeEffectivePolicyResponse {
 }
 
 export namespace DescribeEffectivePolicyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEffectivePolicyResponse): any => ({
     ...obj,
   });
@@ -2187,6 +2388,9 @@ export interface EffectivePolicyNotFoundException extends __SmithyException, $Me
 }
 
 export namespace EffectivePolicyNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EffectivePolicyNotFoundException): any => ({
     ...obj,
   });
@@ -2204,6 +2408,9 @@ export interface DescribeHandshakeRequest {
 }
 
 export namespace DescribeHandshakeRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeHandshakeRequest): any => ({
     ...obj,
   });
@@ -2225,6 +2432,9 @@ export interface DescribeOrganizationResponse {
 }
 
 export namespace DescribeOrganizationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeOrganizationResponse): any => ({
     ...obj,
     ...(obj.Organization && { Organization: Organization.filterSensitiveLog(obj.Organization) }),
@@ -2245,6 +2455,9 @@ export interface DescribeOrganizationalUnitRequest {
 }
 
 export namespace DescribeOrganizationalUnitRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeOrganizationalUnitRequest): any => ({
     ...obj,
   });
@@ -2258,6 +2471,9 @@ export interface DescribeOrganizationalUnitResponse {
 }
 
 export namespace DescribeOrganizationalUnitResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeOrganizationalUnitResponse): any => ({
     ...obj,
   });
@@ -2275,6 +2491,9 @@ export interface DescribePolicyRequest {
 }
 
 export namespace DescribePolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribePolicyRequest): any => ({
     ...obj,
   });
@@ -2288,6 +2507,9 @@ export interface DescribePolicyResponse {
 }
 
 export namespace DescribePolicyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribePolicyResponse): any => ({
     ...obj,
   });
@@ -2331,6 +2553,9 @@ export interface DetachPolicyRequest {
 }
 
 export namespace DetachPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetachPolicyRequest): any => ({
     ...obj,
   });
@@ -2346,6 +2571,9 @@ export interface PolicyNotAttachedException extends __SmithyException, $Metadata
 }
 
 export namespace PolicyNotAttachedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyNotAttachedException): any => ({
     ...obj,
   });
@@ -2362,6 +2590,9 @@ export interface DisableAWSServiceAccessRequest {
 }
 
 export namespace DisableAWSServiceAccessRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisableAWSServiceAccessRequest): any => ({
     ...obj,
   });
@@ -2406,6 +2637,9 @@ export interface DisablePolicyTypeRequest {
 }
 
 export namespace DisablePolicyTypeRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisablePolicyTypeRequest): any => ({
     ...obj,
   });
@@ -2453,6 +2687,9 @@ export interface Root {
 }
 
 export namespace Root {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Root): any => ({
     ...obj,
   });
@@ -2466,6 +2703,9 @@ export interface DisablePolicyTypeResponse {
 }
 
 export namespace DisablePolicyTypeResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisablePolicyTypeResponse): any => ({
     ...obj,
   });
@@ -2481,6 +2721,9 @@ export interface RootNotFoundException extends __SmithyException, $MetadataBeare
 }
 
 export namespace RootNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RootNotFoundException): any => ({
     ...obj,
   });
@@ -2489,6 +2732,9 @@ export namespace RootNotFoundException {
 export interface EnableAllFeaturesRequest {}
 
 export namespace EnableAllFeaturesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnableAllFeaturesRequest): any => ({
     ...obj,
   });
@@ -2505,6 +2751,9 @@ export interface EnableAWSServiceAccessRequest {
 }
 
 export namespace EnableAWSServiceAccessRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnableAWSServiceAccessRequest): any => ({
     ...obj,
   });
@@ -2549,6 +2798,9 @@ export interface EnablePolicyTypeRequest {
 }
 
 export namespace EnablePolicyTypeRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnablePolicyTypeRequest): any => ({
     ...obj,
   });
@@ -2562,6 +2814,9 @@ export interface EnablePolicyTypeResponse {
 }
 
 export namespace EnablePolicyTypeResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnablePolicyTypeResponse): any => ({
     ...obj,
   });
@@ -2577,6 +2832,9 @@ export interface PolicyTypeAlreadyEnabledException extends __SmithyException, $M
 }
 
 export namespace PolicyTypeAlreadyEnabledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyTypeAlreadyEnabledException): any => ({
     ...obj,
   });
@@ -2596,6 +2854,9 @@ export interface DuplicateHandshakeException extends __SmithyException, $Metadat
 }
 
 export namespace DuplicateHandshakeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicateHandshakeException): any => ({
     ...obj,
   });
@@ -2657,6 +2918,9 @@ export interface InviteAccountToOrganizationRequest {
 }
 
 export namespace InviteAccountToOrganizationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InviteAccountToOrganizationRequest): any => ({
     ...obj,
     ...(obj.Target && { Target: HandshakeParty.filterSensitiveLog(obj.Target) }),
@@ -2676,6 +2940,9 @@ export interface MasterCannotLeaveOrganizationException extends __SmithyExceptio
 }
 
 export namespace MasterCannotLeaveOrganizationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MasterCannotLeaveOrganizationException): any => ({
     ...obj,
   });
@@ -2705,6 +2972,9 @@ export interface ListAccountsRequest {
 }
 
 export namespace ListAccountsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAccountsRequest): any => ({
     ...obj,
   });
@@ -2726,6 +2996,9 @@ export interface ListAccountsResponse {
 }
 
 export namespace ListAccountsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAccountsResponse): any => ({
     ...obj,
     ...(obj.Accounts && { Accounts: obj.Accounts.map((item) => Account.filterSensitiveLog(item)) }),
@@ -2762,6 +3035,9 @@ export interface ListAccountsForParentRequest {
 }
 
 export namespace ListAccountsForParentRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAccountsForParentRequest): any => ({
     ...obj,
   });
@@ -2783,6 +3059,9 @@ export interface ListAccountsForParentResponse {
 }
 
 export namespace ListAccountsForParentResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAccountsForParentResponse): any => ({
     ...obj,
     ...(obj.Accounts && { Accounts: obj.Accounts.map((item) => Account.filterSensitiveLog(item)) }),
@@ -2813,6 +3092,9 @@ export interface ListAWSServiceAccessForOrganizationRequest {
 }
 
 export namespace ListAWSServiceAccessForOrganizationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAWSServiceAccessForOrganizationRequest): any => ({
     ...obj,
   });
@@ -2837,6 +3119,9 @@ export interface EnabledServicePrincipal {
 }
 
 export namespace EnabledServicePrincipal {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnabledServicePrincipal): any => ({
     ...obj,
   });
@@ -2860,6 +3145,9 @@ export interface ListAWSServiceAccessForOrganizationResponse {
 }
 
 export namespace ListAWSServiceAccessForOrganizationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAWSServiceAccessForOrganizationResponse): any => ({
     ...obj,
   });
@@ -2920,6 +3208,9 @@ export interface ListChildrenRequest {
 }
 
 export namespace ListChildrenRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListChildrenRequest): any => ({
     ...obj,
   });
@@ -2956,6 +3247,9 @@ export interface Child {
 }
 
 export namespace Child {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Child): any => ({
     ...obj,
   });
@@ -2977,6 +3271,9 @@ export interface ListChildrenResponse {
 }
 
 export namespace ListChildrenResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListChildrenResponse): any => ({
     ...obj,
   });
@@ -3012,6 +3309,9 @@ export interface ListCreateAccountStatusRequest {
 }
 
 export namespace ListCreateAccountStatusRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCreateAccountStatusRequest): any => ({
     ...obj,
   });
@@ -3035,6 +3335,9 @@ export interface ListCreateAccountStatusResponse {
 }
 
 export namespace ListCreateAccountStatusResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCreateAccountStatusResponse): any => ({
     ...obj,
     ...(obj.CreateAccountStatuses && {
@@ -3075,6 +3378,9 @@ export interface ListDelegatedAdministratorsRequest {
 }
 
 export namespace ListDelegatedAdministratorsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDelegatedAdministratorsRequest): any => ({
     ...obj,
   });
@@ -3129,6 +3435,9 @@ export interface DelegatedAdministrator {
 }
 
 export namespace DelegatedAdministrator {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DelegatedAdministrator): any => ({
     ...obj,
     ...(obj.Email && { Email: SENSITIVE_STRING }),
@@ -3152,6 +3461,9 @@ export interface ListDelegatedAdministratorsResponse {
 }
 
 export namespace ListDelegatedAdministratorsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDelegatedAdministratorsResponse): any => ({
     ...obj,
     ...(obj.DelegatedAdministrators && {
@@ -3191,6 +3503,9 @@ export interface ListDelegatedServicesForAccountRequest {
 }
 
 export namespace ListDelegatedServicesForAccountRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDelegatedServicesForAccountRequest): any => ({
     ...obj,
   });
@@ -3216,6 +3531,9 @@ export interface DelegatedService {
 }
 
 export namespace DelegatedService {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DelegatedService): any => ({
     ...obj,
   });
@@ -3237,6 +3555,9 @@ export interface ListDelegatedServicesForAccountResponse {
 }
 
 export namespace ListDelegatedServicesForAccountResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDelegatedServicesForAccountResponse): any => ({
     ...obj,
   });
@@ -3266,6 +3587,9 @@ export interface HandshakeFilter {
 }
 
 export namespace HandshakeFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HandshakeFilter): any => ({
     ...obj,
   });
@@ -3306,6 +3630,9 @@ export interface ListHandshakesForAccountRequest {
 }
 
 export namespace ListHandshakesForAccountRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListHandshakesForAccountRequest): any => ({
     ...obj,
   });
@@ -3346,6 +3673,9 @@ export interface ListHandshakesForOrganizationRequest {
 }
 
 export namespace ListHandshakesForOrganizationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListHandshakesForOrganizationRequest): any => ({
     ...obj,
   });
@@ -3395,6 +3725,9 @@ export interface ListOrganizationalUnitsForParentRequest {
 }
 
 export namespace ListOrganizationalUnitsForParentRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListOrganizationalUnitsForParentRequest): any => ({
     ...obj,
   });
@@ -3416,6 +3749,9 @@ export interface ListOrganizationalUnitsForParentResponse {
 }
 
 export namespace ListOrganizationalUnitsForParentResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListOrganizationalUnitsForParentResponse): any => ({
     ...obj,
   });
@@ -3432,6 +3768,9 @@ export interface ChildNotFoundException extends __SmithyException, $MetadataBear
 }
 
 export namespace ChildNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ChildNotFoundException): any => ({
     ...obj,
   });
@@ -3482,6 +3821,9 @@ export interface ListParentsRequest {
 }
 
 export namespace ListParentsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListParentsRequest): any => ({
     ...obj,
   });
@@ -3524,6 +3866,9 @@ export interface Parent {
 }
 
 export namespace Parent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Parent): any => ({
     ...obj,
   });
@@ -3545,6 +3890,9 @@ export interface ListParentsResponse {
 }
 
 export namespace ListParentsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListParentsResponse): any => ({
     ...obj,
   });
@@ -3602,6 +3950,9 @@ export interface ListPoliciesRequest {
 }
 
 export namespace ListPoliciesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPoliciesRequest): any => ({
     ...obj,
   });
@@ -3624,6 +3975,9 @@ export interface ListPoliciesResponse {
 }
 
 export namespace ListPoliciesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPoliciesResponse): any => ({
     ...obj,
   });
@@ -3706,6 +4060,9 @@ export interface ListPoliciesForTargetRequest {
 }
 
 export namespace ListPoliciesForTargetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPoliciesForTargetRequest): any => ({
     ...obj,
   });
@@ -3727,6 +4084,9 @@ export interface ListPoliciesForTargetResponse {
 }
 
 export namespace ListPoliciesForTargetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPoliciesForTargetResponse): any => ({
     ...obj,
   });
@@ -3756,6 +4116,9 @@ export interface ListRootsRequest {
 }
 
 export namespace ListRootsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRootsRequest): any => ({
     ...obj,
   });
@@ -3777,6 +4140,9 @@ export interface ListRootsResponse {
 }
 
 export namespace ListRootsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRootsResponse): any => ({
     ...obj,
   });
@@ -3823,6 +4189,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -3844,6 +4213,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -3880,6 +4252,9 @@ export interface ListTargetsForPolicyRequest {
 }
 
 export namespace ListTargetsForPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTargetsForPolicyRequest): any => ({
     ...obj,
   });
@@ -3941,6 +4316,9 @@ export interface PolicyTargetSummary {
 }
 
 export namespace PolicyTargetSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyTargetSummary): any => ({
     ...obj,
   });
@@ -3963,6 +4341,9 @@ export interface ListTargetsForPolicyResponse {
 }
 
 export namespace ListTargetsForPolicyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTargetsForPolicyResponse): any => ({
     ...obj,
   });
@@ -3979,6 +4360,9 @@ export interface DestinationParentNotFoundException extends __SmithyException, $
 }
 
 export namespace DestinationParentNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DestinationParentNotFoundException): any => ({
     ...obj,
   });
@@ -3994,6 +4378,9 @@ export interface DuplicateAccountException extends __SmithyException, $MetadataB
 }
 
 export namespace DuplicateAccountException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicateAccountException): any => ({
     ...obj,
   });
@@ -4051,6 +4438,9 @@ export interface MoveAccountRequest {
 }
 
 export namespace MoveAccountRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MoveAccountRequest): any => ({
     ...obj,
   });
@@ -4067,6 +4457,9 @@ export interface SourceParentNotFoundException extends __SmithyException, $Metad
 }
 
 export namespace SourceParentNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SourceParentNotFoundException): any => ({
     ...obj,
   });
@@ -4087,6 +4480,9 @@ export interface RegisterDelegatedAdministratorRequest {
 }
 
 export namespace RegisterDelegatedAdministratorRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterDelegatedAdministratorRequest): any => ({
     ...obj,
   });
@@ -4103,6 +4499,9 @@ export interface RemoveAccountFromOrganizationRequest {
 }
 
 export namespace RemoveAccountFromOrganizationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveAccountFromOrganizationRequest): any => ({
     ...obj,
   });
@@ -4152,6 +4551,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -4194,6 +4596,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -4220,6 +4625,9 @@ export interface UpdateOrganizationalUnitRequest {
 }
 
 export namespace UpdateOrganizationalUnitRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateOrganizationalUnitRequest): any => ({
     ...obj,
   });
@@ -4234,6 +4642,9 @@ export interface UpdateOrganizationalUnitResponse {
 }
 
 export namespace UpdateOrganizationalUnitResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateOrganizationalUnitResponse): any => ({
     ...obj,
   });
@@ -4270,6 +4681,9 @@ export interface UpdatePolicyRequest {
 }
 
 export namespace UpdatePolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdatePolicyRequest): any => ({
     ...obj,
   });
@@ -4284,6 +4698,9 @@ export interface UpdatePolicyResponse {
 }
 
 export namespace UpdatePolicyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdatePolicyResponse): any => ({
     ...obj,
   });
@@ -4343,6 +4760,9 @@ export interface HandshakeResource {
 }
 
 export namespace HandshakeResource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HandshakeResource): any => ({
     ...obj,
     ...(obj.Value && { Value: SENSITIVE_STRING }),
@@ -4475,6 +4895,9 @@ export interface Handshake {
 }
 
 export namespace Handshake {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Handshake): any => ({
     ...obj,
     ...(obj.Parties && { Parties: obj.Parties.map((item) => HandshakeParty.filterSensitiveLog(item)) }),
@@ -4490,6 +4913,9 @@ export interface AcceptHandshakeResponse {
 }
 
 export namespace AcceptHandshakeResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AcceptHandshakeResponse): any => ({
     ...obj,
     ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
@@ -4504,6 +4930,9 @@ export interface CancelHandshakeResponse {
 }
 
 export namespace CancelHandshakeResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelHandshakeResponse): any => ({
     ...obj,
     ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
@@ -4519,6 +4948,9 @@ export interface DeclineHandshakeResponse {
 }
 
 export namespace DeclineHandshakeResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeclineHandshakeResponse): any => ({
     ...obj,
     ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
@@ -4533,6 +4965,9 @@ export interface DescribeHandshakeResponse {
 }
 
 export namespace DescribeHandshakeResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeHandshakeResponse): any => ({
     ...obj,
     ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
@@ -4548,6 +4983,9 @@ export interface EnableAllFeaturesResponse {
 }
 
 export namespace EnableAllFeaturesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnableAllFeaturesResponse): any => ({
     ...obj,
     ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
@@ -4563,6 +5001,9 @@ export interface InviteAccountToOrganizationResponse {
 }
 
 export namespace InviteAccountToOrganizationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InviteAccountToOrganizationResponse): any => ({
     ...obj,
     ...(obj.Handshake && { Handshake: Handshake.filterSensitiveLog(obj.Handshake) }),
@@ -4586,6 +5027,9 @@ export interface ListHandshakesForAccountResponse {
 }
 
 export namespace ListHandshakesForAccountResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListHandshakesForAccountResponse): any => ({
     ...obj,
   });
@@ -4608,6 +5052,9 @@ export interface ListHandshakesForOrganizationResponse {
 }
 
 export namespace ListHandshakesForOrganizationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListHandshakesForOrganizationResponse): any => ({
     ...obj,
   });

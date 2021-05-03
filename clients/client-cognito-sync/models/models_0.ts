@@ -14,6 +14,9 @@ export interface AlreadyStreamedException extends __SmithyException, $MetadataBe
 }
 
 export namespace AlreadyStreamedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AlreadyStreamedException): any => ({
     ...obj,
   });
@@ -32,6 +35,9 @@ export interface BulkPublishRequest {
 }
 
 export namespace BulkPublishRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BulkPublishRequest): any => ({
     ...obj,
   });
@@ -50,6 +56,9 @@ export interface BulkPublishResponse {
 }
 
 export namespace BulkPublishResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BulkPublishResponse): any => ({
     ...obj,
   });
@@ -68,6 +77,9 @@ export interface DuplicateRequestException extends __SmithyException, $MetadataB
 }
 
 export namespace DuplicateRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicateRequestException): any => ({
     ...obj,
   });
@@ -88,6 +100,9 @@ export interface InternalErrorException extends __SmithyException, $MetadataBear
 }
 
 export namespace InternalErrorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalErrorException): any => ({
     ...obj,
   });
@@ -108,6 +123,9 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidParameterException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
@@ -128,6 +146,9 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
 }
 
 export namespace NotAuthorizedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj,
   });
@@ -148,6 +169,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -181,6 +205,9 @@ export interface DeleteDatasetRequest {
 }
 
 export namespace DeleteDatasetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
     ...obj,
   });
@@ -238,6 +265,9 @@ export interface Dataset {
 }
 
 export namespace Dataset {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Dataset): any => ({
     ...obj,
   });
@@ -259,6 +289,9 @@ export interface DeleteDatasetResponse {
 }
 
 export namespace DeleteDatasetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
     ...obj,
   });
@@ -279,6 +312,9 @@ export interface ResourceConflictException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
     ...obj,
   });
@@ -299,6 +335,9 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
 }
 
 export namespace TooManyRequestsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
@@ -332,6 +371,9 @@ export interface DescribeDatasetRequest {
 }
 
 export namespace DescribeDatasetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
     ...obj,
   });
@@ -353,6 +395,9 @@ export interface DescribeDatasetResponse {
 }
 
 export namespace DescribeDatasetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
     ...obj,
   });
@@ -372,6 +417,9 @@ export interface DescribeIdentityPoolUsageRequest {
 }
 
 export namespace DescribeIdentityPoolUsageRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeIdentityPoolUsageRequest): any => ({
     ...obj,
   });
@@ -409,6 +457,9 @@ export interface IdentityPoolUsage {
 }
 
 export namespace IdentityPoolUsage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IdentityPoolUsage): any => ({
     ...obj,
   });
@@ -427,6 +478,9 @@ export interface DescribeIdentityPoolUsageResponse {
 }
 
 export namespace DescribeIdentityPoolUsageResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeIdentityPoolUsageResponse): any => ({
     ...obj,
   });
@@ -453,6 +507,9 @@ export interface DescribeIdentityUsageRequest {
 }
 
 export namespace DescribeIdentityUsageRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeIdentityUsageRequest): any => ({
     ...obj,
   });
@@ -496,6 +553,9 @@ export interface IdentityUsage {
 }
 
 export namespace IdentityUsage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IdentityUsage): any => ({
     ...obj,
   });
@@ -514,6 +574,9 @@ export interface DescribeIdentityUsageResponse {
 }
 
 export namespace DescribeIdentityUsageResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeIdentityUsageResponse): any => ({
     ...obj,
   });
@@ -532,6 +595,9 @@ export interface GetBulkPublishDetailsRequest {
 }
 
 export namespace GetBulkPublishDetailsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBulkPublishDetailsRequest): any => ({
     ...obj,
   });
@@ -581,6 +647,9 @@ export interface GetBulkPublishDetailsResponse {
 }
 
 export namespace GetBulkPublishDetailsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBulkPublishDetailsResponse): any => ({
     ...obj,
   });
@@ -597,6 +666,9 @@ export interface GetCognitoEventsRequest {
 }
 
 export namespace GetCognitoEventsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetCognitoEventsRequest): any => ({
     ...obj,
   });
@@ -613,6 +685,9 @@ export interface GetCognitoEventsResponse {
 }
 
 export namespace GetCognitoEventsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetCognitoEventsResponse): any => ({
     ...obj,
   });
@@ -630,6 +705,9 @@ export interface GetIdentityPoolConfigurationRequest {
 }
 
 export namespace GetIdentityPoolConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetIdentityPoolConfigurationRequest): any => ({
     ...obj,
   });
@@ -660,6 +738,9 @@ export interface CognitoStreams {
 }
 
 export namespace CognitoStreams {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CognitoStreams): any => ({
     ...obj,
   });
@@ -681,6 +762,9 @@ export interface PushSync {
 }
 
 export namespace PushSync {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PushSync): any => ({
     ...obj,
   });
@@ -708,6 +792,9 @@ export interface GetIdentityPoolConfigurationResponse {
 }
 
 export namespace GetIdentityPoolConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetIdentityPoolConfigurationResponse): any => ({
     ...obj,
   });
@@ -746,6 +833,9 @@ export interface ListDatasetsRequest {
 }
 
 export namespace ListDatasetsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDatasetsRequest): any => ({
     ...obj,
   });
@@ -774,6 +864,9 @@ export interface ListDatasetsResponse {
 }
 
 export namespace ListDatasetsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
     ...obj,
   });
@@ -798,6 +891,9 @@ export interface ListIdentityPoolUsageRequest {
 }
 
 export namespace ListIdentityPoolUsageRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListIdentityPoolUsageRequest): any => ({
     ...obj,
   });
@@ -834,6 +930,9 @@ export interface ListIdentityPoolUsageResponse {
 }
 
 export namespace ListIdentityPoolUsageResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListIdentityPoolUsageResponse): any => ({
     ...obj,
   });
@@ -889,6 +988,9 @@ export interface ListRecordsRequest {
 }
 
 export namespace ListRecordsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRecordsRequest): any => ({
     ...obj,
   });
@@ -933,6 +1035,9 @@ export interface _Record {
 }
 
 export namespace _Record {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: _Record): any => ({
     ...obj,
   });
@@ -997,6 +1102,9 @@ export interface ListRecordsResponse {
 }
 
 export namespace ListRecordsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListRecordsResponse): any => ({
     ...obj,
   });
@@ -1013,6 +1121,9 @@ export interface InvalidConfigurationException extends __SmithyException, $Metad
 }
 
 export namespace InvalidConfigurationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidConfigurationException): any => ({
     ...obj,
   });
@@ -1047,6 +1158,9 @@ export interface RegisterDeviceRequest {
 }
 
 export namespace RegisterDeviceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterDeviceRequest): any => ({
     ...obj,
   });
@@ -1063,6 +1177,9 @@ export interface RegisterDeviceResponse {
 }
 
 export namespace RegisterDeviceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterDeviceResponse): any => ({
     ...obj,
   });
@@ -1084,6 +1201,9 @@ export interface SetCognitoEventsRequest {
 }
 
 export namespace SetCognitoEventsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetCognitoEventsRequest): any => ({
     ...obj,
   });
@@ -1102,6 +1222,9 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
 }
 
 export namespace ConcurrentModificationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
@@ -1129,6 +1252,9 @@ export interface SetIdentityPoolConfigurationRequest {
 }
 
 export namespace SetIdentityPoolConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetIdentityPoolConfigurationRequest): any => ({
     ...obj,
   });
@@ -1156,6 +1282,9 @@ export interface SetIdentityPoolConfigurationResponse {
 }
 
 export namespace SetIdentityPoolConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetIdentityPoolConfigurationResponse): any => ({
     ...obj,
   });
@@ -1188,6 +1317,9 @@ export interface SubscribeToDatasetRequest {
 }
 
 export namespace SubscribeToDatasetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubscribeToDatasetRequest): any => ({
     ...obj,
   });
@@ -1199,6 +1331,9 @@ export namespace SubscribeToDatasetRequest {
 export interface SubscribeToDatasetResponse {}
 
 export namespace SubscribeToDatasetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubscribeToDatasetResponse): any => ({
     ...obj,
   });
@@ -1231,6 +1366,9 @@ export interface UnsubscribeFromDatasetRequest {
 }
 
 export namespace UnsubscribeFromDatasetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsubscribeFromDatasetRequest): any => ({
     ...obj,
   });
@@ -1242,6 +1380,9 @@ export namespace UnsubscribeFromDatasetRequest {
 export interface UnsubscribeFromDatasetResponse {}
 
 export namespace UnsubscribeFromDatasetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsubscribeFromDatasetResponse): any => ({
     ...obj,
   });
@@ -1260,6 +1401,9 @@ export interface InvalidLambdaFunctionOutputException extends __SmithyException,
 }
 
 export namespace InvalidLambdaFunctionOutputException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidLambdaFunctionOutputException): any => ({
     ...obj,
   });
@@ -1278,6 +1422,9 @@ export interface LambdaThrottledException extends __SmithyException, $MetadataBe
 }
 
 export namespace LambdaThrottledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LambdaThrottledException): any => ({
     ...obj,
   });
@@ -1298,6 +1445,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -1339,6 +1489,9 @@ export interface RecordPatch {
 }
 
 export namespace RecordPatch {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecordPatch): any => ({
     ...obj,
   });
@@ -1396,6 +1549,9 @@ export interface UpdateRecordsRequest {
 }
 
 export namespace UpdateRecordsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateRecordsRequest): any => ({
     ...obj,
   });
@@ -1414,6 +1570,9 @@ export interface UpdateRecordsResponse {
 }
 
 export namespace UpdateRecordsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateRecordsResponse): any => ({
     ...obj,
   });

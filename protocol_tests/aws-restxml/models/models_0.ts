@@ -32,6 +32,9 @@ export interface AllQueryStringTypesInput {
 }
 
 export namespace AllQueryStringTypesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AllQueryStringTypesInput): any => ({
     ...obj,
   });
@@ -42,6 +45,9 @@ export interface ComplexNestedErrorData {
 }
 
 export namespace ComplexNestedErrorData {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ComplexNestedErrorData): any => ({
     ...obj,
   });
@@ -59,6 +65,9 @@ export interface ComplexError extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ComplexError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ComplexError): any => ({
     ...obj,
   });
@@ -70,6 +79,9 @@ export interface ConstantAndVariableQueryStringInput {
 }
 
 export namespace ConstantAndVariableQueryStringInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConstantAndVariableQueryStringInput): any => ({
     ...obj,
   });
@@ -80,6 +92,9 @@ export interface ConstantQueryStringInput {
 }
 
 export namespace ConstantQueryStringInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConstantQueryStringInput): any => ({
     ...obj,
   });
@@ -88,6 +103,9 @@ export namespace ConstantQueryStringInput {
 export interface EmptyInputAndEmptyOutputInput {}
 
 export namespace EmptyInputAndEmptyOutputInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EmptyInputAndEmptyOutputInput): any => ({
     ...obj,
   });
@@ -96,6 +114,9 @@ export namespace EmptyInputAndEmptyOutputInput {
 export interface EmptyInputAndEmptyOutputOutput {}
 
 export namespace EmptyInputAndEmptyOutputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EmptyInputAndEmptyOutputOutput): any => ({
     ...obj,
   });
@@ -106,6 +127,9 @@ export interface HostLabelHeaderInput {
 }
 
 export namespace HostLabelHeaderInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HostLabelHeaderInput): any => ({
     ...obj,
   });
@@ -116,6 +140,9 @@ export interface HostLabelInput {
 }
 
 export namespace HostLabelInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HostLabelInput): any => ({
     ...obj,
   });
@@ -126,6 +153,9 @@ export interface FlattenedXmlMapInputOutput {
 }
 
 export namespace FlattenedXmlMapInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FlattenedXmlMapInputOutput): any => ({
     ...obj,
   });
@@ -136,6 +166,9 @@ export interface FlattenedXmlMapWithXmlNameInputOutput {
 }
 
 export namespace FlattenedXmlMapWithXmlNameInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FlattenedXmlMapWithXmlNameInputOutput): any => ({
     ...obj,
   });
@@ -146,6 +179,9 @@ export interface FlattenedXmlMapWithXmlNamespaceOutput {
 }
 
 export namespace FlattenedXmlMapWithXmlNamespaceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FlattenedXmlMapWithXmlNamespaceOutput): any => ({
     ...obj,
   });
@@ -156,6 +192,9 @@ export interface GreetingWithErrorsOutput {
 }
 
 export namespace GreetingWithErrorsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GreetingWithErrorsOutput): any => ({
     ...obj,
   });
@@ -171,6 +210,9 @@ export interface InvalidGreeting extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidGreeting {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidGreeting): any => ({
     ...obj,
   });
@@ -182,6 +224,9 @@ export interface HttpPayloadTraitsInputOutput {
 }
 
 export namespace HttpPayloadTraitsInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpPayloadTraitsInputOutput): any => ({
     ...obj,
   });
@@ -193,6 +238,9 @@ export interface HttpPayloadTraitsWithMediaTypeInputOutput {
 }
 
 export namespace HttpPayloadTraitsWithMediaTypeInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpPayloadTraitsWithMediaTypeInputOutput): any => ({
     ...obj,
   });
@@ -203,6 +251,9 @@ export interface PayloadWithXmlName {
 }
 
 export namespace PayloadWithXmlName {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PayloadWithXmlName): any => ({
     ...obj,
   });
@@ -213,6 +264,9 @@ export interface HttpPayloadWithMemberXmlNameInputOutput {
 }
 
 export namespace HttpPayloadWithMemberXmlNameInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpPayloadWithMemberXmlNameInputOutput): any => ({
     ...obj,
   });
@@ -224,6 +278,9 @@ export interface NestedPayload {
 }
 
 export namespace NestedPayload {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NestedPayload): any => ({
     ...obj,
   });
@@ -234,6 +291,9 @@ export interface HttpPayloadWithStructureInputOutput {
 }
 
 export namespace HttpPayloadWithStructureInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpPayloadWithStructureInputOutput): any => ({
     ...obj,
   });
@@ -244,6 +304,9 @@ export interface HttpPayloadWithXmlNameInputOutput {
 }
 
 export namespace HttpPayloadWithXmlNameInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpPayloadWithXmlNameInputOutput): any => ({
     ...obj,
   });
@@ -254,6 +317,9 @@ export interface PayloadWithXmlNamespace {
 }
 
 export namespace PayloadWithXmlNamespace {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PayloadWithXmlNamespace): any => ({
     ...obj,
   });
@@ -264,6 +330,9 @@ export interface HttpPayloadWithXmlNamespaceInputOutput {
 }
 
 export namespace HttpPayloadWithXmlNamespaceInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpPayloadWithXmlNamespaceInputOutput): any => ({
     ...obj,
   });
@@ -274,6 +343,9 @@ export interface PayloadWithXmlNamespaceAndPrefix {
 }
 
 export namespace PayloadWithXmlNamespaceAndPrefix {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PayloadWithXmlNamespaceAndPrefix): any => ({
     ...obj,
   });
@@ -284,6 +356,9 @@ export interface HttpPayloadWithXmlNamespaceAndPrefixInputOutput {
 }
 
 export namespace HttpPayloadWithXmlNamespaceAndPrefixInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpPayloadWithXmlNamespaceAndPrefixInputOutput): any => ({
     ...obj,
   });
@@ -295,6 +370,9 @@ export interface HttpPrefixHeadersInputOutput {
 }
 
 export namespace HttpPrefixHeadersInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpPrefixHeadersInputOutput): any => ({
     ...obj,
   });
@@ -306,6 +384,9 @@ export interface HttpRequestWithGreedyLabelInPathInput {
 }
 
 export namespace HttpRequestWithGreedyLabelInPathInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpRequestWithGreedyLabelInPathInput): any => ({
     ...obj,
   });
@@ -330,6 +411,9 @@ export interface HttpRequestWithLabelsInput {
 }
 
 export namespace HttpRequestWithLabelsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpRequestWithLabelsInput): any => ({
     ...obj,
   });
@@ -346,6 +430,9 @@ export interface HttpRequestWithLabelsAndTimestampFormatInput {
 }
 
 export namespace HttpRequestWithLabelsAndTimestampFormatInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpRequestWithLabelsAndTimestampFormatInput): any => ({
     ...obj,
   });
@@ -356,6 +443,9 @@ export interface HttpResponseCodeOutput {
 }
 
 export namespace HttpResponseCodeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HttpResponseCodeOutput): any => ({
     ...obj,
   });
@@ -366,6 +456,9 @@ export interface IgnoreQueryParamsInResponseOutput {
 }
 
 export namespace IgnoreQueryParamsInResponseOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IgnoreQueryParamsInResponseOutput): any => ({
     ...obj,
   });
@@ -391,6 +484,9 @@ export interface InputAndOutputWithHeadersIO {
 }
 
 export namespace InputAndOutputWithHeadersIO {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InputAndOutputWithHeadersIO): any => ({
     ...obj,
   });
@@ -402,6 +498,9 @@ export interface NestedXmlMapsInputOutput {
 }
 
 export namespace NestedXmlMapsInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NestedXmlMapsInputOutput): any => ({
     ...obj,
   });
@@ -410,6 +509,9 @@ export namespace NestedXmlMapsInputOutput {
 export interface NoInputAndOutputOutput {}
 
 export namespace NoInputAndOutputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NoInputAndOutputOutput): any => ({
     ...obj,
   });
@@ -422,6 +524,9 @@ export interface NullAndEmptyHeadersIO {
 }
 
 export namespace NullAndEmptyHeadersIO {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NullAndEmptyHeadersIO): any => ({
     ...obj,
   });
@@ -433,6 +538,9 @@ export interface OmitsNullSerializesEmptyStringInput {
 }
 
 export namespace OmitsNullSerializesEmptyStringInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OmitsNullSerializesEmptyStringInput): any => ({
     ...obj,
   });
@@ -443,6 +551,9 @@ export interface QueryIdempotencyTokenAutoFillInput {
 }
 
 export namespace QueryIdempotencyTokenAutoFillInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryIdempotencyTokenAutoFillInput): any => ({
     ...obj,
   });
@@ -454,6 +565,9 @@ export interface QueryParamsAsStringListMapInput {
 }
 
 export namespace QueryParamsAsStringListMapInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryParamsAsStringListMapInput): any => ({
     ...obj,
   });
@@ -465,6 +579,9 @@ export interface QueryPrecedenceInput {
 }
 
 export namespace QueryPrecedenceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryPrecedenceInput): any => ({
     ...obj,
   });
@@ -484,6 +601,9 @@ export interface SimpleScalarPropertiesInputOutput {
 }
 
 export namespace SimpleScalarPropertiesInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SimpleScalarPropertiesInputOutput): any => ({
     ...obj,
   });
@@ -500,6 +620,9 @@ export interface TimestampFormatHeadersIO {
 }
 
 export namespace TimestampFormatHeadersIO {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TimestampFormatHeadersIO): any => ({
     ...obj,
   });
@@ -511,6 +634,9 @@ export interface XmlAttributesInputOutput {
 }
 
 export namespace XmlAttributesInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: XmlAttributesInputOutput): any => ({
     ...obj,
   });
@@ -521,6 +647,9 @@ export interface XmlAttributesOnPayloadInputOutput {
 }
 
 export namespace XmlAttributesOnPayloadInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: XmlAttributesOnPayloadInputOutput): any => ({
     ...obj,
   });
@@ -531,6 +660,9 @@ export interface XmlBlobsInputOutput {
 }
 
 export namespace XmlBlobsInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: XmlBlobsInputOutput): any => ({
     ...obj,
   });
@@ -542,6 +674,9 @@ export interface StructureListMember {
 }
 
 export namespace StructureListMember {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StructureListMember): any => ({
     ...obj,
   });
@@ -568,6 +703,9 @@ export interface XmlListsInputOutput {
 }
 
 export namespace XmlListsInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: XmlListsInputOutput): any => ({
     ...obj,
   });
@@ -578,6 +716,9 @@ export interface GreetingStruct {
 }
 
 export namespace GreetingStruct {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GreetingStruct): any => ({
     ...obj,
   });
@@ -588,6 +729,9 @@ export interface XmlMapsInputOutput {
 }
 
 export namespace XmlMapsInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: XmlMapsInputOutput): any => ({
     ...obj,
   });
@@ -598,6 +742,9 @@ export interface XmlEmptyStringsInputOutput {
 }
 
 export namespace XmlEmptyStringsInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: XmlEmptyStringsInputOutput): any => ({
     ...obj,
   });
@@ -613,6 +760,9 @@ export interface XmlEnumsInputOutput {
 }
 
 export namespace XmlEnumsInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: XmlEnumsInputOutput): any => ({
     ...obj,
   });
@@ -623,6 +773,9 @@ export interface XmlMapsXmlNameInputOutput {
 }
 
 export namespace XmlMapsXmlNameInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: XmlMapsXmlNameInputOutput): any => ({
     ...obj,
   });
@@ -634,6 +787,9 @@ export interface XmlNamespaceNested {
 }
 
 export namespace XmlNamespaceNested {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: XmlNamespaceNested): any => ({
     ...obj,
   });
@@ -644,6 +800,9 @@ export interface XmlNamespacesInputOutput {
 }
 
 export namespace XmlNamespacesInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: XmlNamespacesInputOutput): any => ({
     ...obj,
   });
@@ -657,6 +816,9 @@ export interface XmlTimestampsInputOutput {
 }
 
 export namespace XmlTimestampsInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: XmlTimestampsInputOutput): any => ({
     ...obj,
   });
@@ -674,6 +836,9 @@ export interface XmlNestedUnionStruct {
 }
 
 export namespace XmlNestedUnionStruct {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: XmlNestedUnionStruct): any => ({
     ...obj,
   });
@@ -875,6 +1040,9 @@ export namespace XmlUnionShape {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: XmlUnionShape): any => {
     if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
     if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
@@ -896,6 +1064,9 @@ export interface RecursiveShapesInputOutputNested1 {
 }
 
 export namespace RecursiveShapesInputOutputNested1 {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecursiveShapesInputOutputNested1): any => ({
     ...obj,
   });
@@ -907,6 +1078,9 @@ export interface RecursiveShapesInputOutputNested2 {
 }
 
 export namespace RecursiveShapesInputOutputNested2 {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecursiveShapesInputOutputNested2): any => ({
     ...obj,
   });
@@ -917,6 +1091,9 @@ export interface XmlUnionsInputOutput {
 }
 
 export namespace XmlUnionsInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: XmlUnionsInputOutput): any => ({
     ...obj,
     ...(obj.unionValue && { unionValue: XmlUnionShape.filterSensitiveLog(obj.unionValue) }),
@@ -928,6 +1105,9 @@ export interface RecursiveShapesInputOutput {
 }
 
 export namespace RecursiveShapesInputOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecursiveShapesInputOutput): any => ({
     ...obj,
   });

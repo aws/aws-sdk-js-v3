@@ -11,6 +11,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -35,6 +38,9 @@ export interface CompleteAttachmentUploadRequest {
 }
 
 export namespace CompleteAttachmentUploadRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CompleteAttachmentUploadRequest): any => ({
     ...obj,
   });
@@ -43,6 +49,9 @@ export namespace CompleteAttachmentUploadRequest {
 export interface CompleteAttachmentUploadResponse {}
 
 export namespace CompleteAttachmentUploadResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CompleteAttachmentUploadResponse): any => ({
     ...obj,
   });
@@ -58,6 +67,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -73,6 +85,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -88,6 +103,9 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
 }
 
 export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
@@ -103,6 +121,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -118,6 +139,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -143,6 +167,9 @@ export interface CreateParticipantConnectionRequest {
 }
 
 export namespace CreateParticipantConnectionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateParticipantConnectionRequest): any => ({
     ...obj,
   });
@@ -166,6 +193,9 @@ export interface ConnectionCredentials {
 }
 
 export namespace ConnectionCredentials {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConnectionCredentials): any => ({
     ...obj,
   });
@@ -189,6 +219,9 @@ export interface Websocket {
 }
 
 export namespace Websocket {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Websocket): any => ({
     ...obj,
   });
@@ -208,6 +241,9 @@ export interface CreateParticipantConnectionResponse {
 }
 
 export namespace CreateParticipantConnectionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateParticipantConnectionResponse): any => ({
     ...obj,
   });
@@ -227,6 +263,9 @@ export interface DisconnectParticipantRequest {
 }
 
 export namespace DisconnectParticipantRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisconnectParticipantRequest): any => ({
     ...obj,
   });
@@ -235,6 +274,9 @@ export namespace DisconnectParticipantRequest {
 export interface DisconnectParticipantResponse {}
 
 export namespace DisconnectParticipantResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisconnectParticipantResponse): any => ({
     ...obj,
   });
@@ -253,6 +295,9 @@ export interface GetAttachmentRequest {
 }
 
 export namespace GetAttachmentRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetAttachmentRequest): any => ({
     ...obj,
   });
@@ -271,6 +316,9 @@ export interface GetAttachmentResponse {
 }
 
 export namespace GetAttachmentResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetAttachmentResponse): any => ({
     ...obj,
   });
@@ -310,6 +358,9 @@ export interface StartPosition {
 }
 
 export namespace StartPosition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartPosition): any => ({
     ...obj,
   });
@@ -355,6 +406,9 @@ export interface GetTranscriptRequest {
 }
 
 export namespace GetTranscriptRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTranscriptRequest): any => ({
     ...obj,
   });
@@ -393,6 +447,9 @@ export interface AttachmentItem {
 }
 
 export namespace AttachmentItem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttachmentItem): any => ({
     ...obj,
   });
@@ -470,6 +527,9 @@ export interface Item {
 }
 
 export namespace Item {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Item): any => ({
     ...obj,
   });
@@ -494,6 +554,9 @@ export interface GetTranscriptResponse {
 }
 
 export namespace GetTranscriptResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTranscriptResponse): any => ({
     ...obj,
   });
@@ -533,6 +596,9 @@ export interface SendEventRequest {
 }
 
 export namespace SendEventRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendEventRequest): any => ({
     ...obj,
   });
@@ -553,6 +619,9 @@ export interface SendEventResponse {
 }
 
 export namespace SendEventResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendEventResponse): any => ({
     ...obj,
   });
@@ -582,6 +651,9 @@ export interface SendMessageRequest {
 }
 
 export namespace SendMessageRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendMessageRequest): any => ({
     ...obj,
   });
@@ -602,6 +674,9 @@ export interface SendMessageResponse {
 }
 
 export namespace SendMessageResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendMessageResponse): any => ({
     ...obj,
   });
@@ -635,6 +710,9 @@ export interface StartAttachmentUploadRequest {
 }
 
 export namespace StartAttachmentUploadRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartAttachmentUploadRequest): any => ({
     ...obj,
   });
@@ -661,6 +739,9 @@ export interface UploadMetadata {
 }
 
 export namespace UploadMetadata {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UploadMetadata): any => ({
     ...obj,
   });
@@ -679,6 +760,9 @@ export interface StartAttachmentUploadResponse {
 }
 
 export namespace StartAttachmentUploadResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartAttachmentUploadResponse): any => ({
     ...obj,
   });

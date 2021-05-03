@@ -11,6 +11,9 @@ export interface ActiveStatementsExceededException extends __SmithyException, $M
 }
 
 export namespace ActiveStatementsExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActiveStatementsExceededException): any => ({
     ...obj,
   });
@@ -25,6 +28,9 @@ export interface CancelStatementRequest {
 }
 
 export namespace CancelStatementRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelStatementRequest): any => ({
     ...obj,
   });
@@ -38,6 +44,9 @@ export interface CancelStatementResponse {
 }
 
 export namespace CancelStatementResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelStatementResponse): any => ({
     ...obj,
   });
@@ -56,6 +65,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -79,6 +91,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -155,6 +170,9 @@ export interface ColumnMetadata {
 }
 
 export namespace ColumnMetadata {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ColumnMetadata): any => ({
     ...obj,
   });
@@ -169,6 +187,9 @@ export interface DescribeStatementRequest {
 }
 
 export namespace DescribeStatementRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStatementRequest): any => ({
     ...obj,
   });
@@ -293,6 +314,9 @@ export interface DescribeStatementResponse {
 }
 
 export namespace DescribeStatementResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStatementResponse): any => ({
     ...obj,
   });
@@ -311,6 +335,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -367,6 +394,9 @@ export interface DescribeTableRequest {
 }
 
 export namespace DescribeTableRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTableRequest): any => ({
     ...obj,
   });
@@ -390,6 +420,9 @@ export interface DescribeTableResponse {
 }
 
 export namespace DescribeTableResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTableResponse): any => ({
     ...obj,
   });
@@ -413,6 +446,9 @@ export interface ExecuteStatementException extends __SmithyException, $MetadataB
 }
 
 export namespace ExecuteStatementException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteStatementException): any => ({
     ...obj,
   });
@@ -456,6 +492,9 @@ export interface ExecuteStatementInput {
 }
 
 export namespace ExecuteStatementInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteStatementInput): any => ({
     ...obj,
   });
@@ -494,6 +533,9 @@ export interface ExecuteStatementOutput {
 }
 
 export namespace ExecuteStatementOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteStatementOutput): any => ({
     ...obj,
   });
@@ -620,6 +662,9 @@ export namespace Field {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Field): any => {
     if (obj.isNull !== undefined) return { isNull: obj.isNull };
     if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
@@ -645,6 +690,9 @@ export interface GetStatementResultRequest {
 }
 
 export namespace GetStatementResultRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetStatementResultRequest): any => ({
     ...obj,
   });
@@ -674,6 +722,9 @@ export interface GetStatementResultResponse {
 }
 
 export namespace GetStatementResultResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetStatementResultResponse): any => ({
     ...obj,
     ...(obj.Records && { Records: obj.Records.map((item) => item.map((item) => Field.filterSensitiveLog(item))) }),
@@ -714,6 +765,9 @@ export interface ListDatabasesRequest {
 }
 
 export namespace ListDatabasesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDatabasesRequest): any => ({
     ...obj,
   });
@@ -732,6 +786,9 @@ export interface ListDatabasesResponse {
 }
 
 export namespace ListDatabasesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDatabasesResponse): any => ({
     ...obj,
   });
@@ -784,6 +841,9 @@ export interface ListSchemasRequest {
 }
 
 export namespace ListSchemasRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSchemasRequest): any => ({
     ...obj,
   });
@@ -802,6 +862,9 @@ export interface ListSchemasResponse {
 }
 
 export namespace ListSchemasResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSchemasResponse): any => ({
     ...obj,
   });
@@ -863,6 +926,9 @@ export interface ListStatementsRequest {
 }
 
 export namespace ListStatementsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStatementsRequest): any => ({
     ...obj,
   });
@@ -911,6 +977,9 @@ export interface StatementData {
 }
 
 export namespace StatementData {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StatementData): any => ({
     ...obj,
   });
@@ -929,6 +998,9 @@ export interface ListStatementsResponse {
 }
 
 export namespace ListStatementsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStatementsResponse): any => ({
     ...obj,
   });
@@ -992,6 +1064,9 @@ export interface ListTablesRequest {
 }
 
 export namespace ListTablesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTablesRequest): any => ({
     ...obj,
   });
@@ -1019,6 +1094,9 @@ export interface TableMember {
 }
 
 export namespace TableMember {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TableMember): any => ({
     ...obj,
   });
@@ -1037,6 +1115,9 @@ export interface ListTablesResponse {
 }
 
 export namespace ListTablesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTablesResponse): any => ({
     ...obj,
   });

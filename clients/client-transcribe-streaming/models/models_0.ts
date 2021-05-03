@@ -54,6 +54,9 @@ export interface Item {
 }
 
 export namespace Item {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Item): any => ({
     ...obj,
   });
@@ -75,6 +78,9 @@ export interface Alternative {
 }
 
 export namespace Alternative {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Alternative): any => ({
     ...obj,
   });
@@ -92,6 +98,9 @@ export interface AudioEvent {
 }
 
 export namespace AudioEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AudioEvent): any => ({
     ...obj,
   });
@@ -129,6 +138,9 @@ export namespace AudioStream {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AudioStream): any => {
     if (obj.AudioEvent !== undefined) return { AudioEvent: AudioEvent.filterSensitiveLog(obj.AudioEvent) };
     if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
@@ -148,6 +160,9 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace BadRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
@@ -164,6 +179,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -180,6 +198,9 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
 }
 
 export namespace InternalFailureException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
@@ -213,6 +234,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -258,6 +282,9 @@ export interface MedicalEntity {
 }
 
 export namespace MedicalEntity {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MedicalEntity): any => ({
     ...obj,
   });
@@ -310,6 +337,9 @@ export interface MedicalItem {
 }
 
 export namespace MedicalItem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MedicalItem): any => ({
     ...obj,
   });
@@ -337,6 +367,9 @@ export interface MedicalAlternative {
 }
 
 export namespace MedicalAlternative {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MedicalAlternative): any => ({
     ...obj,
   });
@@ -393,6 +426,9 @@ export interface MedicalResult {
 }
 
 export namespace MedicalResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MedicalResult): any => ({
     ...obj,
   });
@@ -411,6 +447,9 @@ export interface MedicalTranscript {
 }
 
 export namespace MedicalTranscript {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MedicalTranscript): any => ({
     ...obj,
   });
@@ -429,6 +468,9 @@ export interface MedicalTranscriptEvent {
 }
 
 export namespace MedicalTranscriptEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MedicalTranscriptEvent): any => ({
     ...obj,
   });
@@ -444,6 +486,9 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
 }
 
 export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
@@ -583,6 +628,9 @@ export namespace MedicalTranscriptResultStream {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MedicalTranscriptResultStream): any => {
     if (obj.TranscriptEvent !== undefined)
       return { TranscriptEvent: MedicalTranscriptEvent.filterSensitiveLog(obj.TranscriptEvent) };
@@ -646,6 +694,9 @@ export interface Result {
 }
 
 export namespace Result {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Result): any => ({
     ...obj,
   });
@@ -742,6 +793,9 @@ export interface StartMedicalStreamTranscriptionRequest {
 }
 
 export namespace StartMedicalStreamTranscriptionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartMedicalStreamTranscriptionRequest): any => ({
     ...obj,
     ...(obj.AudioStream && { AudioStream: "STREAMING_CONTENT" }),
@@ -819,6 +873,9 @@ export interface StartMedicalStreamTranscriptionResponse {
 }
 
 export namespace StartMedicalStreamTranscriptionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartMedicalStreamTranscriptionResponse): any => ({
     ...obj,
     ...(obj.TranscriptResultStream && { TranscriptResultStream: "STREAMING_CONTENT" }),
@@ -901,6 +958,9 @@ export interface StartStreamTranscriptionRequest {
 }
 
 export namespace StartStreamTranscriptionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartStreamTranscriptionRequest): any => ({
     ...obj,
     ...(obj.AudioStream && { AudioStream: "STREAMING_CONTENT" }),
@@ -920,6 +980,9 @@ export interface Transcript {
 }
 
 export namespace Transcript {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Transcript): any => ({
     ...obj,
   });
@@ -938,6 +1001,9 @@ export interface TranscriptEvent {
 }
 
 export namespace TranscriptEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TranscriptEvent): any => ({
     ...obj,
   });
@@ -1072,6 +1138,9 @@ export namespace TranscriptResultStream {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TranscriptResultStream): any => {
     if (obj.TranscriptEvent !== undefined)
       return { TranscriptEvent: TranscriptEvent.filterSensitiveLog(obj.TranscriptEvent) };
@@ -1155,6 +1224,9 @@ export interface StartStreamTranscriptionResponse {
 }
 
 export namespace StartStreamTranscriptionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartStreamTranscriptionResponse): any => ({
     ...obj,
     ...(obj.TranscriptResultStream && { TranscriptResultStream: "STREAMING_CONTENT" }),

@@ -11,6 +11,9 @@ export interface ActivityDoesNotExist extends __SmithyException, $MetadataBearer
 }
 
 export namespace ActivityDoesNotExist {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActivityDoesNotExist): any => ({
     ...obj,
   });
@@ -32,6 +35,9 @@ export interface ActivityFailedEventDetails {
 }
 
 export namespace ActivityFailedEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActivityFailedEventDetails): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -50,6 +56,9 @@ export interface ActivityLimitExceeded extends __SmithyException, $MetadataBeare
 }
 
 export namespace ActivityLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActivityLimitExceeded): any => ({
     ...obj,
   });
@@ -98,6 +107,9 @@ export interface ActivityListItem {
 }
 
 export namespace ActivityListItem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActivityListItem): any => ({
     ...obj,
   });
@@ -115,6 +127,9 @@ export interface HistoryEventExecutionDataDetails {
 }
 
 export namespace HistoryEventExecutionDataDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HistoryEventExecutionDataDetails): any => ({
     ...obj,
   });
@@ -151,6 +166,9 @@ export interface ActivityScheduledEventDetails {
 }
 
 export namespace ActivityScheduledEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActivityScheduledEventDetails): any => ({
     ...obj,
     ...(obj.input && { input: SENSITIVE_STRING }),
@@ -174,6 +192,9 @@ export interface ActivityScheduleFailedEventDetails {
 }
 
 export namespace ActivityScheduleFailedEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActivityScheduleFailedEventDetails): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -193,6 +214,9 @@ export interface ActivityStartedEventDetails {
 }
 
 export namespace ActivityStartedEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActivityStartedEventDetails): any => ({
     ...obj,
   });
@@ -215,6 +239,9 @@ export interface ActivitySucceededEventDetails {
 }
 
 export namespace ActivitySucceededEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActivitySucceededEventDetails): any => ({
     ...obj,
     ...(obj.output && { output: SENSITIVE_STRING }),
@@ -237,6 +264,9 @@ export interface ActivityTimedOutEventDetails {
 }
 
 export namespace ActivityTimedOutEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActivityTimedOutEventDetails): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -255,6 +285,9 @@ export interface ActivityWorkerLimitExceeded extends __SmithyException, $Metadat
 }
 
 export namespace ActivityWorkerLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActivityWorkerLimitExceeded): any => ({
     ...obj,
   });
@@ -282,6 +315,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -329,6 +365,9 @@ export interface CreateActivityInput {
 }
 
 export namespace CreateActivityInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateActivityInput): any => ({
     ...obj,
   });
@@ -347,6 +386,9 @@ export interface CreateActivityOutput {
 }
 
 export namespace CreateActivityOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateActivityOutput): any => ({
     ...obj,
   });
@@ -362,6 +404,9 @@ export interface InvalidName extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidName {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidName): any => ({
     ...obj,
   });
@@ -379,6 +424,9 @@ export interface TooManyTags extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TooManyTags {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyTags): any => ({
     ...obj,
   });
@@ -397,6 +445,9 @@ export interface CloudWatchLogsLogGroup {
 }
 
 export namespace CloudWatchLogsLogGroup {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudWatchLogsLogGroup): any => ({
     ...obj,
   });
@@ -413,6 +464,9 @@ export interface LogDestination {
 }
 
 export namespace LogDestination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LogDestination): any => ({
     ...obj,
   });
@@ -444,6 +498,9 @@ export interface LoggingConfiguration {
 }
 
 export namespace LoggingConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
     ...obj,
   });
@@ -461,6 +518,9 @@ export interface TracingConfiguration {
 }
 
 export namespace TracingConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TracingConfiguration): any => ({
     ...obj,
   });
@@ -540,6 +600,9 @@ export interface CreateStateMachineInput {
 }
 
 export namespace CreateStateMachineInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateStateMachineInput): any => ({
     ...obj,
     ...(obj.definition && { definition: SENSITIVE_STRING }),
@@ -559,6 +622,9 @@ export interface CreateStateMachineOutput {
 }
 
 export namespace CreateStateMachineOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateStateMachineOutput): any => ({
     ...obj,
   });
@@ -574,6 +640,9 @@ export interface InvalidArn extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidArn {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidArn): any => ({
     ...obj,
   });
@@ -589,6 +658,9 @@ export interface InvalidDefinition extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidDefinition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidDefinition): any => ({
     ...obj,
   });
@@ -604,6 +676,9 @@ export interface InvalidLoggingConfiguration extends __SmithyException, $Metadat
 }
 
 export namespace InvalidLoggingConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidLoggingConfiguration): any => ({
     ...obj,
   });
@@ -619,6 +694,9 @@ export interface InvalidTracingConfiguration extends __SmithyException, $Metadat
 }
 
 export namespace InvalidTracingConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidTracingConfiguration): any => ({
     ...obj,
   });
@@ -635,6 +713,9 @@ export interface StateMachineAlreadyExists extends __SmithyException, $MetadataB
 }
 
 export namespace StateMachineAlreadyExists {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StateMachineAlreadyExists): any => ({
     ...obj,
   });
@@ -650,6 +731,9 @@ export interface StateMachineDeleting extends __SmithyException, $MetadataBearer
 }
 
 export namespace StateMachineDeleting {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StateMachineDeleting): any => ({
     ...obj,
   });
@@ -666,6 +750,9 @@ export interface StateMachineLimitExceeded extends __SmithyException, $MetadataB
 }
 
 export namespace StateMachineLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StateMachineLimitExceeded): any => ({
     ...obj,
   });
@@ -681,6 +768,9 @@ export interface StateMachineTypeNotSupported extends __SmithyException, $Metada
 }
 
 export namespace StateMachineTypeNotSupported {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StateMachineTypeNotSupported): any => ({
     ...obj,
   });
@@ -694,6 +784,9 @@ export interface DeleteActivityInput {
 }
 
 export namespace DeleteActivityInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteActivityInput): any => ({
     ...obj,
   });
@@ -702,6 +795,9 @@ export namespace DeleteActivityInput {
 export interface DeleteActivityOutput {}
 
 export namespace DeleteActivityOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteActivityOutput): any => ({
     ...obj,
   });
@@ -715,6 +811,9 @@ export interface DeleteStateMachineInput {
 }
 
 export namespace DeleteStateMachineInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteStateMachineInput): any => ({
     ...obj,
   });
@@ -723,6 +822,9 @@ export namespace DeleteStateMachineInput {
 export interface DeleteStateMachineOutput {}
 
 export namespace DeleteStateMachineOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteStateMachineOutput): any => ({
     ...obj,
   });
@@ -736,6 +838,9 @@ export interface DescribeActivityInput {
 }
 
 export namespace DescribeActivityInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeActivityInput): any => ({
     ...obj,
   });
@@ -781,6 +886,9 @@ export interface DescribeActivityOutput {
 }
 
 export namespace DescribeActivityOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeActivityOutput): any => ({
     ...obj,
   });
@@ -794,6 +902,9 @@ export interface DescribeExecutionInput {
 }
 
 export namespace DescribeExecutionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeExecutionInput): any => ({
     ...obj,
   });
@@ -811,6 +922,9 @@ export interface CloudWatchEventsExecutionDataDetails {
 }
 
 export namespace CloudWatchEventsExecutionDataDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudWatchEventsExecutionDataDetails): any => ({
     ...obj,
   });
@@ -902,6 +1016,9 @@ export interface DescribeExecutionOutput {
 }
 
 export namespace DescribeExecutionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeExecutionOutput): any => ({
     ...obj,
     ...(obj.input && { input: SENSITIVE_STRING }),
@@ -919,6 +1036,9 @@ export interface ExecutionDoesNotExist extends __SmithyException, $MetadataBeare
 }
 
 export namespace ExecutionDoesNotExist {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecutionDoesNotExist): any => ({
     ...obj,
   });
@@ -932,6 +1052,9 @@ export interface DescribeStateMachineInput {
 }
 
 export namespace DescribeStateMachineInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStateMachineInput): any => ({
     ...obj,
   });
@@ -1012,6 +1135,9 @@ export interface DescribeStateMachineOutput {
 }
 
 export namespace DescribeStateMachineOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStateMachineOutput): any => ({
     ...obj,
     ...(obj.definition && { definition: SENSITIVE_STRING }),
@@ -1028,6 +1154,9 @@ export interface StateMachineDoesNotExist extends __SmithyException, $MetadataBe
 }
 
 export namespace StateMachineDoesNotExist {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StateMachineDoesNotExist): any => ({
     ...obj,
   });
@@ -1041,6 +1170,9 @@ export interface DescribeStateMachineForExecutionInput {
 }
 
 export namespace DescribeStateMachineForExecutionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStateMachineForExecutionInput): any => ({
     ...obj,
   });
@@ -1086,6 +1218,9 @@ export interface DescribeStateMachineForExecutionOutput {
 }
 
 export namespace DescribeStateMachineForExecutionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStateMachineForExecutionOutput): any => ({
     ...obj,
     ...(obj.definition && { definition: SENSITIVE_STRING }),
@@ -1107,6 +1242,9 @@ export interface GetActivityTaskInput {
 }
 
 export namespace GetActivityTaskInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetActivityTaskInput): any => ({
     ...obj,
   });
@@ -1128,6 +1266,9 @@ export interface GetActivityTaskOutput {
 }
 
 export namespace GetActivityTaskOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetActivityTaskOutput): any => ({
     ...obj,
     ...(obj.input && { input: SENSITIVE_STRING }),
@@ -1166,6 +1307,9 @@ export interface GetExecutionHistoryInput {
 }
 
 export namespace GetExecutionHistoryInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetExecutionHistoryInput): any => ({
     ...obj,
   });
@@ -1187,6 +1331,9 @@ export interface ExecutionAbortedEventDetails {
 }
 
 export namespace ExecutionAbortedEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecutionAbortedEventDetails): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -1210,6 +1357,9 @@ export interface ExecutionFailedEventDetails {
 }
 
 export namespace ExecutionFailedEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecutionFailedEventDetails): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -1238,6 +1388,9 @@ export interface ExecutionStartedEventDetails {
 }
 
 export namespace ExecutionStartedEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecutionStartedEventDetails): any => ({
     ...obj,
     ...(obj.input && { input: SENSITIVE_STRING }),
@@ -1260,6 +1413,9 @@ export interface ExecutionSucceededEventDetails {
 }
 
 export namespace ExecutionSucceededEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecutionSucceededEventDetails): any => ({
     ...obj,
     ...(obj.output && { output: SENSITIVE_STRING }),
@@ -1282,6 +1438,9 @@ export interface ExecutionTimedOutEventDetails {
 }
 
 export namespace ExecutionTimedOutEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecutionTimedOutEventDetails): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -1305,6 +1464,9 @@ export interface LambdaFunctionFailedEventDetails {
 }
 
 export namespace LambdaFunctionFailedEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LambdaFunctionFailedEventDetails): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -1338,6 +1500,9 @@ export interface LambdaFunctionScheduledEventDetails {
 }
 
 export namespace LambdaFunctionScheduledEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LambdaFunctionScheduledEventDetails): any => ({
     ...obj,
     ...(obj.input && { input: SENSITIVE_STRING }),
@@ -1361,6 +1526,9 @@ export interface LambdaFunctionScheduleFailedEventDetails {
 }
 
 export namespace LambdaFunctionScheduleFailedEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LambdaFunctionScheduleFailedEventDetails): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -1384,6 +1552,9 @@ export interface LambdaFunctionStartFailedEventDetails {
 }
 
 export namespace LambdaFunctionStartFailedEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LambdaFunctionStartFailedEventDetails): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -1408,6 +1579,9 @@ export interface LambdaFunctionSucceededEventDetails {
 }
 
 export namespace LambdaFunctionSucceededEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LambdaFunctionSucceededEventDetails): any => ({
     ...obj,
     ...(obj.output && { output: SENSITIVE_STRING }),
@@ -1430,6 +1604,9 @@ export interface LambdaFunctionTimedOutEventDetails {
 }
 
 export namespace LambdaFunctionTimedOutEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LambdaFunctionTimedOutEventDetails): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -1453,6 +1630,9 @@ export interface MapIterationEventDetails {
 }
 
 export namespace MapIterationEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MapIterationEventDetails): any => ({
     ...obj,
   });
@@ -1469,6 +1649,9 @@ export interface MapStateStartedEventDetails {
 }
 
 export namespace MapStateStartedEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MapStateStartedEventDetails): any => ({
     ...obj,
   });
@@ -1495,6 +1678,9 @@ export interface StateEnteredEventDetails {
 }
 
 export namespace StateEnteredEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StateEnteredEventDetails): any => ({
     ...obj,
     ...(obj.input && { input: SENSITIVE_STRING }),
@@ -1544,6 +1730,9 @@ export interface StateExitedEventDetails {
 }
 
 export namespace StateExitedEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StateExitedEventDetails): any => ({
     ...obj,
     ...(obj.output && { output: SENSITIVE_STRING }),
@@ -1576,6 +1765,9 @@ export interface TaskFailedEventDetails {
 }
 
 export namespace TaskFailedEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TaskFailedEventDetails): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -1620,6 +1812,9 @@ export interface TaskScheduledEventDetails {
 }
 
 export namespace TaskScheduledEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TaskScheduledEventDetails): any => ({
     ...obj,
     ...(obj.parameters && { parameters: SENSITIVE_STRING }),
@@ -1642,6 +1837,9 @@ export interface TaskStartedEventDetails {
 }
 
 export namespace TaskStartedEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TaskStartedEventDetails): any => ({
     ...obj,
   });
@@ -1673,6 +1871,9 @@ export interface TaskStartFailedEventDetails {
 }
 
 export namespace TaskStartFailedEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TaskStartFailedEventDetails): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -1706,6 +1907,9 @@ export interface TaskSubmitFailedEventDetails {
 }
 
 export namespace TaskSubmitFailedEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TaskSubmitFailedEventDetails): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -1739,6 +1943,9 @@ export interface TaskSubmittedEventDetails {
 }
 
 export namespace TaskSubmittedEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TaskSubmittedEventDetails): any => ({
     ...obj,
     ...(obj.output && { output: SENSITIVE_STRING }),
@@ -1772,6 +1979,9 @@ export interface TaskSucceededEventDetails {
 }
 
 export namespace TaskSucceededEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TaskSucceededEventDetails): any => ({
     ...obj,
     ...(obj.output && { output: SENSITIVE_STRING }),
@@ -1804,6 +2014,9 @@ export interface TaskTimedOutEventDetails {
 }
 
 export namespace TaskTimedOutEventDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TaskTimedOutEventDetails): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -2057,6 +2270,9 @@ export interface HistoryEvent {
 }
 
 export namespace HistoryEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HistoryEvent): any => ({
     ...obj,
     ...(obj.activityFailedEventDetails && {
@@ -2173,6 +2389,9 @@ export interface GetExecutionHistoryOutput {
 }
 
 export namespace GetExecutionHistoryOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetExecutionHistoryOutput): any => ({
     ...obj,
     ...(obj.events && { events: obj.events.map((item) => HistoryEvent.filterSensitiveLog(item)) }),
@@ -2189,6 +2408,9 @@ export interface InvalidToken extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidToken {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidToken): any => ({
     ...obj,
   });
@@ -2210,6 +2432,9 @@ export interface ListActivitiesInput {
 }
 
 export namespace ListActivitiesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListActivitiesInput): any => ({
     ...obj,
   });
@@ -2229,6 +2454,9 @@ export interface ListActivitiesOutput {
 }
 
 export namespace ListActivitiesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListActivitiesOutput): any => ({
     ...obj,
   });
@@ -2261,6 +2489,9 @@ export interface ListExecutionsInput {
 }
 
 export namespace ListExecutionsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListExecutionsInput): any => ({
     ...obj,
   });
@@ -2324,6 +2555,9 @@ export interface ExecutionListItem {
 }
 
 export namespace ExecutionListItem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecutionListItem): any => ({
     ...obj,
   });
@@ -2343,6 +2577,9 @@ export interface ListExecutionsOutput {
 }
 
 export namespace ListExecutionsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListExecutionsOutput): any => ({
     ...obj,
   });
@@ -2364,6 +2601,9 @@ export interface ListStateMachinesInput {
 }
 
 export namespace ListStateMachinesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStateMachinesInput): any => ({
     ...obj,
   });
@@ -2417,6 +2657,9 @@ export interface StateMachineListItem {
 }
 
 export namespace StateMachineListItem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StateMachineListItem): any => ({
     ...obj,
   });
@@ -2432,6 +2675,9 @@ export interface ListStateMachinesOutput {
 }
 
 export namespace ListStateMachinesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStateMachinesOutput): any => ({
     ...obj,
   });
@@ -2445,6 +2691,9 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
@@ -2458,6 +2707,9 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
   });
@@ -2475,6 +2727,9 @@ export interface ResourceNotFound extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ResourceNotFound {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFound): any => ({
     ...obj,
   });
@@ -2500,6 +2755,9 @@ export interface SendTaskFailureInput {
 }
 
 export namespace SendTaskFailureInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendTaskFailureInput): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -2510,6 +2768,9 @@ export namespace SendTaskFailureInput {
 export interface SendTaskFailureOutput {}
 
 export namespace SendTaskFailureOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendTaskFailureOutput): any => ({
     ...obj,
   });
@@ -2522,6 +2783,9 @@ export interface TaskDoesNotExist extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TaskDoesNotExist {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TaskDoesNotExist): any => ({
     ...obj,
   });
@@ -2534,6 +2798,9 @@ export interface TaskTimedOut extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TaskTimedOut {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TaskTimedOut): any => ({
     ...obj,
   });
@@ -2549,6 +2816,9 @@ export interface SendTaskHeartbeatInput {
 }
 
 export namespace SendTaskHeartbeatInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendTaskHeartbeatInput): any => ({
     ...obj,
   });
@@ -2557,6 +2827,9 @@ export namespace SendTaskHeartbeatInput {
 export interface SendTaskHeartbeatOutput {}
 
 export namespace SendTaskHeartbeatOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendTaskHeartbeatOutput): any => ({
     ...obj,
   });
@@ -2572,6 +2845,9 @@ export interface InvalidOutput extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidOutput): any => ({
     ...obj,
   });
@@ -2592,6 +2868,9 @@ export interface SendTaskSuccessInput {
 }
 
 export namespace SendTaskSuccessInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendTaskSuccessInput): any => ({
     ...obj,
     ...(obj.output && { output: SENSITIVE_STRING }),
@@ -2601,6 +2880,9 @@ export namespace SendTaskSuccessInput {
 export interface SendTaskSuccessOutput {}
 
 export namespace SendTaskSuccessOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendTaskSuccessOutput): any => ({
     ...obj,
   });
@@ -2621,6 +2903,9 @@ export interface ExecutionAlreadyExists extends __SmithyException, $MetadataBear
 }
 
 export namespace ExecutionAlreadyExists {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecutionAlreadyExists): any => ({
     ...obj,
   });
@@ -2637,6 +2922,9 @@ export interface ExecutionLimitExceeded extends __SmithyException, $MetadataBear
 }
 
 export namespace ExecutionLimitExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecutionLimitExceeded): any => ({
     ...obj,
   });
@@ -2652,6 +2940,9 @@ export interface InvalidExecutionInput extends __SmithyException, $MetadataBeare
 }
 
 export namespace InvalidExecutionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidExecutionInput): any => ({
     ...obj,
   });
@@ -2713,6 +3004,9 @@ export interface StartExecutionInput {
 }
 
 export namespace StartExecutionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartExecutionInput): any => ({
     ...obj,
     ...(obj.input && { input: SENSITIVE_STRING }),
@@ -2732,6 +3026,9 @@ export interface StartExecutionOutput {
 }
 
 export namespace StartExecutionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartExecutionOutput): any => ({
     ...obj,
   });
@@ -2769,6 +3066,9 @@ export interface StartSyncExecutionInput {
 }
 
 export namespace StartSyncExecutionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartSyncExecutionInput): any => ({
     ...obj,
     ...(obj.input && { input: SENSITIVE_STRING }),
@@ -2791,6 +3091,9 @@ export interface BillingDetails {
 }
 
 export namespace BillingDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BillingDetails): any => ({
     ...obj,
   });
@@ -2876,6 +3179,9 @@ export interface StartSyncExecutionOutput {
 }
 
 export namespace StartSyncExecutionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartSyncExecutionOutput): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -2903,6 +3209,9 @@ export interface StopExecutionInput {
 }
 
 export namespace StopExecutionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopExecutionInput): any => ({
     ...obj,
     ...(obj.error && { error: SENSITIVE_STRING }),
@@ -2918,6 +3227,9 @@ export interface StopExecutionOutput {
 }
 
 export namespace StopExecutionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopExecutionOutput): any => ({
     ...obj,
   });
@@ -2937,6 +3249,9 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
@@ -2945,6 +3260,9 @@ export namespace TagResourceInput {
 export interface TagResourceOutput {}
 
 export namespace TagResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
     ...obj,
   });
@@ -2963,6 +3281,9 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
@@ -2971,6 +3292,9 @@ export namespace UntagResourceInput {
 export interface UntagResourceOutput {}
 
 export namespace UntagResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
     ...obj,
   });
@@ -2987,6 +3311,9 @@ export interface MissingRequiredParameter extends __SmithyException, $MetadataBe
 }
 
 export namespace MissingRequiredParameter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MissingRequiredParameter): any => ({
     ...obj,
   });
@@ -3021,6 +3348,9 @@ export interface UpdateStateMachineInput {
 }
 
 export namespace UpdateStateMachineInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateStateMachineInput): any => ({
     ...obj,
     ...(obj.definition && { definition: SENSITIVE_STRING }),
@@ -3035,6 +3365,9 @@ export interface UpdateStateMachineOutput {
 }
 
 export namespace UpdateStateMachineOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateStateMachineOutput): any => ({
     ...obj,
   });

@@ -11,6 +11,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -42,6 +45,9 @@ export interface AutoScalingGroupConfiguration {
 }
 
 export namespace AutoScalingGroupConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AutoScalingGroupConfiguration): any => ({
     ...obj,
   });
@@ -153,6 +159,9 @@ export interface UtilizationMetric {
 }
 
 export namespace UtilizationMetric {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UtilizationMetric): any => ({
     ...obj,
   });
@@ -198,6 +207,9 @@ export interface AutoScalingGroupRecommendationOption {
 }
 
 export namespace AutoScalingGroupRecommendationOption {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AutoScalingGroupRecommendationOption): any => ({
     ...obj,
   });
@@ -276,6 +288,9 @@ export interface AutoScalingGroupRecommendation {
 }
 
 export namespace AutoScalingGroupRecommendation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AutoScalingGroupRecommendation): any => ({
     ...obj,
   });
@@ -329,6 +344,9 @@ export interface JobFilter {
 }
 
 export namespace JobFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: JobFilter): any => ({
     ...obj,
   });
@@ -367,6 +385,9 @@ export interface DescribeRecommendationExportJobsRequest {
 }
 
 export namespace DescribeRecommendationExportJobsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeRecommendationExportJobsRequest): any => ({
     ...obj,
   });
@@ -396,6 +417,9 @@ export interface S3Destination {
 }
 
 export namespace S3Destination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3Destination): any => ({
     ...obj,
   });
@@ -413,6 +437,9 @@ export interface ExportDestination {
 }
 
 export namespace ExportDestination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportDestination): any => ({
     ...obj,
   });
@@ -480,6 +507,9 @@ export interface RecommendationExportJob {
 }
 
 export namespace RecommendationExportJob {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecommendationExportJob): any => ({
     ...obj,
   });
@@ -499,6 +529,9 @@ export interface DescribeRecommendationExportJobsResponse {
 }
 
 export namespace DescribeRecommendationExportJobsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeRecommendationExportJobsResponse): any => ({
     ...obj,
   });
@@ -514,6 +547,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -529,6 +565,9 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
 }
 
 export namespace InvalidParameterValueException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
@@ -545,6 +584,9 @@ export interface MissingAuthenticationToken extends __SmithyException, $Metadata
 }
 
 export namespace MissingAuthenticationToken {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MissingAuthenticationToken): any => ({
     ...obj,
   });
@@ -560,6 +602,9 @@ export interface OptInRequiredException extends __SmithyException, $MetadataBear
 }
 
 export namespace OptInRequiredException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OptInRequiredException): any => ({
     ...obj,
   });
@@ -575,6 +620,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -590,6 +638,9 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
 }
 
 export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
@@ -605,6 +656,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -707,6 +761,9 @@ export interface Filter {
 }
 
 export namespace Filter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Filter): any => ({
     ...obj,
   });
@@ -736,6 +793,9 @@ export interface S3DestinationConfig {
 }
 
 export namespace S3DestinationConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3DestinationConfig): any => ({
     ...obj,
   });
@@ -800,6 +860,9 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
 }
 
 export namespace ExportAutoScalingGroupRecommendationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportAutoScalingGroupRecommendationsRequest): any => ({
     ...obj,
   });
@@ -821,6 +884,9 @@ export interface ExportAutoScalingGroupRecommendationsResponse {
 }
 
 export namespace ExportAutoScalingGroupRecommendationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportAutoScalingGroupRecommendationsResponse): any => ({
     ...obj,
   });
@@ -836,6 +902,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -934,6 +1003,9 @@ export interface ExportEC2InstanceRecommendationsRequest {
 }
 
 export namespace ExportEC2InstanceRecommendationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportEC2InstanceRecommendationsRequest): any => ({
     ...obj,
   });
@@ -955,6 +1027,9 @@ export interface ExportEC2InstanceRecommendationsResponse {
 }
 
 export namespace ExportEC2InstanceRecommendationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportEC2InstanceRecommendationsResponse): any => ({
     ...obj,
   });
@@ -997,6 +1072,9 @@ export interface GetAutoScalingGroupRecommendationsRequest {
 }
 
 export namespace GetAutoScalingGroupRecommendationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetAutoScalingGroupRecommendationsRequest): any => ({
     ...obj,
   });
@@ -1026,6 +1104,9 @@ export interface GetRecommendationError {
 }
 
 export namespace GetRecommendationError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRecommendationError): any => ({
     ...obj,
   });
@@ -1053,6 +1134,9 @@ export interface GetAutoScalingGroupRecommendationsResponse {
 }
 
 export namespace GetAutoScalingGroupRecommendationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetAutoScalingGroupRecommendationsResponse): any => ({
     ...obj,
   });
@@ -1086,6 +1170,9 @@ export interface EBSFilter {
 }
 
 export namespace EBSFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EBSFilter): any => ({
     ...obj,
   });
@@ -1126,6 +1213,9 @@ export interface GetEBSVolumeRecommendationsRequest {
 }
 
 export namespace GetEBSVolumeRecommendationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEBSVolumeRecommendationsRequest): any => ({
     ...obj,
   });
@@ -1171,6 +1261,9 @@ export interface VolumeConfiguration {
 }
 
 export namespace VolumeConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VolumeConfiguration): any => ({
     ...obj,
   });
@@ -1251,6 +1344,9 @@ export interface EBSUtilizationMetric {
 }
 
 export namespace EBSUtilizationMetric {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EBSUtilizationMetric): any => ({
     ...obj,
   });
@@ -1282,6 +1378,9 @@ export interface VolumeRecommendationOption {
 }
 
 export namespace VolumeRecommendationOption {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VolumeRecommendationOption): any => ({
     ...obj,
   });
@@ -1355,6 +1454,9 @@ export interface VolumeRecommendation {
 }
 
 export namespace VolumeRecommendation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VolumeRecommendation): any => ({
     ...obj,
   });
@@ -1382,6 +1484,9 @@ export interface GetEBSVolumeRecommendationsResponse {
 }
 
 export namespace GetEBSVolumeRecommendationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEBSVolumeRecommendationsResponse): any => ({
     ...obj,
   });
@@ -1422,6 +1527,9 @@ export interface GetEC2InstanceRecommendationsRequest {
 }
 
 export namespace GetEC2InstanceRecommendationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEC2InstanceRecommendationsRequest): any => ({
     ...obj,
   });
@@ -1467,6 +1575,9 @@ export interface InstanceRecommendationOption {
 }
 
 export namespace InstanceRecommendationOption {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InstanceRecommendationOption): any => ({
     ...obj,
   });
@@ -1496,6 +1607,9 @@ export interface RecommendationSource {
 }
 
 export namespace RecommendationSource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecommendationSource): any => ({
     ...obj,
   });
@@ -1593,6 +1707,9 @@ export interface InstanceRecommendation {
 }
 
 export namespace InstanceRecommendation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InstanceRecommendation): any => ({
     ...obj,
   });
@@ -1620,6 +1737,9 @@ export interface GetEC2InstanceRecommendationsResponse {
 }
 
 export namespace GetEC2InstanceRecommendationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEC2InstanceRecommendationsResponse): any => ({
     ...obj,
   });
@@ -1654,6 +1774,9 @@ export interface GetEC2RecommendationProjectedMetricsRequest {
 }
 
 export namespace GetEC2RecommendationProjectedMetricsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEC2RecommendationProjectedMetricsRequest): any => ({
     ...obj,
   });
@@ -1722,6 +1845,9 @@ export interface ProjectedMetric {
 }
 
 export namespace ProjectedMetric {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProjectedMetric): any => ({
     ...obj,
   });
@@ -1761,6 +1887,9 @@ export interface RecommendedOptionProjectedMetric {
 }
 
 export namespace RecommendedOptionProjectedMetric {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecommendedOptionProjectedMetric): any => ({
     ...obj,
   });
@@ -1774,6 +1903,9 @@ export interface GetEC2RecommendationProjectedMetricsResponse {
 }
 
 export namespace GetEC2RecommendationProjectedMetricsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEC2RecommendationProjectedMetricsResponse): any => ({
     ...obj,
   });
@@ -1782,6 +1914,9 @@ export namespace GetEC2RecommendationProjectedMetricsResponse {
 export interface GetEnrollmentStatusRequest {}
 
 export namespace GetEnrollmentStatusRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEnrollmentStatusRequest): any => ({
     ...obj,
   });
@@ -1815,6 +1950,9 @@ export interface GetEnrollmentStatusResponse {
 }
 
 export namespace GetEnrollmentStatusResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEnrollmentStatusResponse): any => ({
     ...obj,
   });
@@ -1865,6 +2003,9 @@ export interface LambdaFunctionRecommendationFilter {
 }
 
 export namespace LambdaFunctionRecommendationFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LambdaFunctionRecommendationFilter): any => ({
     ...obj,
   });
@@ -1915,6 +2056,9 @@ export interface GetLambdaFunctionRecommendationsRequest {
 }
 
 export namespace GetLambdaFunctionRecommendationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetLambdaFunctionRecommendationsRequest): any => ({
     ...obj,
   });
@@ -1965,6 +2109,9 @@ export interface LambdaFunctionMemoryProjectedMetric {
 }
 
 export namespace LambdaFunctionMemoryProjectedMetric {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LambdaFunctionMemoryProjectedMetric): any => ({
     ...obj,
   });
@@ -1994,6 +2141,9 @@ export interface LambdaFunctionMemoryRecommendationOption {
 }
 
 export namespace LambdaFunctionMemoryRecommendationOption {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LambdaFunctionMemoryRecommendationOption): any => ({
     ...obj,
   });
@@ -2053,6 +2203,9 @@ export interface LambdaFunctionUtilizationMetric {
 }
 
 export namespace LambdaFunctionUtilizationMetric {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LambdaFunctionUtilizationMetric): any => ({
     ...obj,
   });
@@ -2212,6 +2365,9 @@ export interface LambdaFunctionRecommendation {
 }
 
 export namespace LambdaFunctionRecommendation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LambdaFunctionRecommendation): any => ({
     ...obj,
   });
@@ -2233,6 +2389,9 @@ export interface GetLambdaFunctionRecommendationsResponse {
 }
 
 export namespace GetLambdaFunctionRecommendationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetLambdaFunctionRecommendationsResponse): any => ({
     ...obj,
   });
@@ -2261,6 +2420,9 @@ export interface GetRecommendationSummariesRequest {
 }
 
 export namespace GetRecommendationSummariesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRecommendationSummariesRequest): any => ({
     ...obj,
   });
@@ -2287,6 +2449,9 @@ export interface ReasonCodeSummary {
 }
 
 export namespace ReasonCodeSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReasonCodeSummary): any => ({
     ...obj,
   });
@@ -2313,6 +2478,9 @@ export interface Summary {
 }
 
 export namespace Summary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Summary): any => ({
     ...obj,
   });
@@ -2339,6 +2507,9 @@ export interface RecommendationSummary {
 }
 
 export namespace RecommendationSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecommendationSummary): any => ({
     ...obj,
   });
@@ -2359,6 +2530,9 @@ export interface GetRecommendationSummariesResponse {
 }
 
 export namespace GetRecommendationSummariesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRecommendationSummariesResponse): any => ({
     ...obj,
   });
@@ -2399,6 +2573,9 @@ export interface UpdateEnrollmentStatusRequest {
 }
 
 export namespace UpdateEnrollmentStatusRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateEnrollmentStatusRequest): any => ({
     ...obj,
   });
@@ -2419,6 +2596,9 @@ export interface UpdateEnrollmentStatusResponse {
 }
 
 export namespace UpdateEnrollmentStatusResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateEnrollmentStatusResponse): any => ({
     ...obj,
   });

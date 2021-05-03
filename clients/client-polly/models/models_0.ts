@@ -10,6 +10,9 @@ export interface DeleteLexiconInput {
 }
 
 export namespace DeleteLexiconInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteLexiconInput): any => ({
     ...obj,
   });
@@ -18,6 +21,9 @@ export namespace DeleteLexiconInput {
 export interface DeleteLexiconOutput {}
 
 export namespace DeleteLexiconOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteLexiconOutput): any => ({
     ...obj,
   });
@@ -37,6 +43,9 @@ export interface LexiconNotFoundException extends __SmithyException, $MetadataBe
 }
 
 export namespace LexiconNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LexiconNotFoundException): any => ({
     ...obj,
   });
@@ -52,6 +61,9 @@ export interface ServiceFailureException extends __SmithyException, $MetadataBea
 }
 
 export namespace ServiceFailureException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceFailureException): any => ({
     ...obj,
   });
@@ -124,6 +136,9 @@ export interface DescribeVoicesInput {
 }
 
 export namespace DescribeVoicesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeVoicesInput): any => ({
     ...obj,
   });
@@ -243,6 +258,9 @@ export interface Voice {
 }
 
 export namespace Voice {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Voice): any => ({
     ...obj,
   });
@@ -262,6 +280,9 @@ export interface DescribeVoicesOutput {
 }
 
 export namespace DescribeVoicesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeVoicesOutput): any => ({
     ...obj,
   });
@@ -278,6 +299,9 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidNextTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
@@ -294,6 +318,9 @@ export interface EngineNotSupportedException extends __SmithyException, $Metadat
 }
 
 export namespace EngineNotSupportedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EngineNotSupportedException): any => ({
     ...obj,
   });
@@ -307,6 +334,9 @@ export interface GetLexiconInput {
 }
 
 export namespace GetLexiconInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetLexiconInput): any => ({
     ...obj,
   });
@@ -331,6 +361,9 @@ export interface Lexicon {
 }
 
 export namespace Lexicon {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Lexicon): any => ({
     ...obj,
     ...(obj.Content && { Content: SENSITIVE_STRING }),
@@ -377,6 +410,9 @@ export interface LexiconAttributes {
 }
 
 export namespace LexiconAttributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LexiconAttributes): any => ({
     ...obj,
   });
@@ -396,6 +432,9 @@ export interface GetLexiconOutput {
 }
 
 export namespace GetLexiconOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetLexiconOutput): any => ({
     ...obj,
     ...(obj.Lexicon && { Lexicon: Lexicon.filterSensitiveLog(obj.Lexicon) }),
@@ -410,6 +449,9 @@ export interface GetSpeechSynthesisTaskInput {
 }
 
 export namespace GetSpeechSynthesisTaskInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSpeechSynthesisTaskInput): any => ({
     ...obj,
   });
@@ -539,6 +581,9 @@ export interface SynthesisTask {
 }
 
 export namespace SynthesisTask {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SynthesisTask): any => ({
     ...obj,
   });
@@ -553,6 +598,9 @@ export interface GetSpeechSynthesisTaskOutput {
 }
 
 export namespace GetSpeechSynthesisTaskOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSpeechSynthesisTaskOutput): any => ({
     ...obj,
   });
@@ -568,6 +616,9 @@ export interface InvalidTaskIdException extends __SmithyException, $MetadataBear
 }
 
 export namespace InvalidTaskIdException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidTaskIdException): any => ({
     ...obj,
   });
@@ -583,6 +634,9 @@ export interface SynthesisTaskNotFoundException extends __SmithyException, $Meta
 }
 
 export namespace SynthesisTaskNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SynthesisTaskNotFoundException): any => ({
     ...obj,
   });
@@ -599,6 +653,9 @@ export interface InvalidLexiconException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidLexiconException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidLexiconException): any => ({
     ...obj,
   });
@@ -615,6 +672,9 @@ export interface InvalidS3BucketException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidS3BucketException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidS3BucketException): any => ({
     ...obj,
   });
@@ -631,6 +691,9 @@ export interface InvalidS3KeyException extends __SmithyException, $MetadataBeare
 }
 
 export namespace InvalidS3KeyException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidS3KeyException): any => ({
     ...obj,
   });
@@ -646,6 +709,9 @@ export interface InvalidSampleRateException extends __SmithyException, $Metadata
 }
 
 export namespace InvalidSampleRateException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidSampleRateException): any => ({
     ...obj,
   });
@@ -662,6 +728,9 @@ export interface InvalidSnsTopicArnException extends __SmithyException, $Metadat
 }
 
 export namespace InvalidSnsTopicArnException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidSnsTopicArnException): any => ({
     ...obj,
   });
@@ -678,6 +747,9 @@ export interface InvalidSsmlException extends __SmithyException, $MetadataBearer
 }
 
 export namespace InvalidSsmlException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidSsmlException): any => ({
     ...obj,
   });
@@ -693,6 +765,9 @@ export interface LanguageNotSupportedException extends __SmithyException, $Metad
 }
 
 export namespace LanguageNotSupportedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LanguageNotSupportedException): any => ({
     ...obj,
   });
@@ -714,6 +789,9 @@ export interface LexiconDescription {
 }
 
 export namespace LexiconDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LexiconDescription): any => ({
     ...obj,
   });
@@ -730,6 +808,9 @@ export interface LexiconSizeExceededException extends __SmithyException, $Metada
 }
 
 export namespace LexiconSizeExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LexiconSizeExceededException): any => ({
     ...obj,
   });
@@ -744,6 +825,9 @@ export interface ListLexiconsInput {
 }
 
 export namespace ListLexiconsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListLexiconsInput): any => ({
     ...obj,
   });
@@ -763,6 +847,9 @@ export interface ListLexiconsOutput {
 }
 
 export namespace ListLexiconsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListLexiconsOutput): any => ({
     ...obj,
   });
@@ -787,6 +874,9 @@ export interface ListSpeechSynthesisTasksInput {
 }
 
 export namespace ListSpeechSynthesisTasksInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSpeechSynthesisTasksInput): any => ({
     ...obj,
   });
@@ -807,6 +897,9 @@ export interface ListSpeechSynthesisTasksOutput {
 }
 
 export namespace ListSpeechSynthesisTasksOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSpeechSynthesisTasksOutput): any => ({
     ...obj,
   });
@@ -823,6 +916,9 @@ export interface MarksNotSupportedForFormatException extends __SmithyException, 
 }
 
 export namespace MarksNotSupportedForFormatException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MarksNotSupportedForFormatException): any => ({
     ...obj,
   });
@@ -838,6 +934,9 @@ export interface MaxLexemeLengthExceededException extends __SmithyException, $Me
 }
 
 export namespace MaxLexemeLengthExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MaxLexemeLengthExceededException): any => ({
     ...obj,
   });
@@ -853,6 +952,9 @@ export interface MaxLexiconsNumberExceededException extends __SmithyException, $
 }
 
 export namespace MaxLexiconsNumberExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MaxLexiconsNumberExceededException): any => ({
     ...obj,
   });
@@ -872,6 +974,9 @@ export interface PutLexiconInput {
 }
 
 export namespace PutLexiconInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutLexiconInput): any => ({
     ...obj,
     ...(obj.Content && { Content: SENSITIVE_STRING }),
@@ -881,6 +986,9 @@ export namespace PutLexiconInput {
 export interface PutLexiconOutput {}
 
 export namespace PutLexiconOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutLexiconOutput): any => ({
     ...obj,
   });
@@ -897,6 +1005,9 @@ export interface UnsupportedPlsAlphabetException extends __SmithyException, $Met
 }
 
 export namespace UnsupportedPlsAlphabetException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedPlsAlphabetException): any => ({
     ...obj,
   });
@@ -914,6 +1025,9 @@ export interface UnsupportedPlsLanguageException extends __SmithyException, $Met
 }
 
 export namespace UnsupportedPlsLanguageException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedPlsLanguageException): any => ({
     ...obj,
   });
@@ -929,6 +1043,9 @@ export interface SsmlMarksNotSupportedForTextTypeException extends __SmithyExcep
 }
 
 export namespace SsmlMarksNotSupportedForTextTypeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SsmlMarksNotSupportedForTextTypeException): any => ({
     ...obj,
   });
@@ -1015,6 +1132,9 @@ export interface StartSpeechSynthesisTaskInput {
 }
 
 export namespace StartSpeechSynthesisTaskInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartSpeechSynthesisTaskInput): any => ({
     ...obj,
   });
@@ -1029,6 +1149,9 @@ export interface StartSpeechSynthesisTaskOutput {
 }
 
 export namespace StartSpeechSynthesisTaskOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartSpeechSynthesisTaskOutput): any => ({
     ...obj,
   });
@@ -1049,6 +1172,9 @@ export interface TextLengthExceededException extends __SmithyException, $Metadat
 }
 
 export namespace TextLengthExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TextLengthExceededException): any => ({
     ...obj,
   });
@@ -1139,6 +1265,9 @@ export interface SynthesizeSpeechInput {
 }
 
 export namespace SynthesizeSpeechInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SynthesizeSpeechInput): any => ({
     ...obj,
   });
@@ -1183,6 +1312,9 @@ export interface SynthesizeSpeechOutput {
 }
 
 export namespace SynthesizeSpeechOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SynthesizeSpeechOutput): any => ({
     ...obj,
   });

@@ -23,6 +23,9 @@ export interface Alarm {
 }
 
 export namespace Alarm {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Alarm): any => ({
     ...obj,
   });
@@ -39,6 +42,9 @@ export interface ConcurrentUpdateException extends __SmithyException, $MetadataB
 }
 
 export namespace ConcurrentUpdateException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConcurrentUpdateException): any => ({
     ...obj,
   });
@@ -231,6 +237,9 @@ export interface DeleteScalingPolicyRequest {
 }
 
 export namespace DeleteScalingPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteScalingPolicyRequest): any => ({
     ...obj,
   });
@@ -239,6 +248,9 @@ export namespace DeleteScalingPolicyRequest {
 export interface DeleteScalingPolicyResponse {}
 
 export namespace DeleteScalingPolicyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteScalingPolicyResponse): any => ({
     ...obj,
   });
@@ -254,6 +266,9 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
 }
 
 export namespace InternalServiceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
@@ -273,6 +288,9 @@ export interface ObjectNotFoundException extends __SmithyException, $MetadataBea
 }
 
 export namespace ObjectNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ObjectNotFoundException): any => ({
     ...obj,
   });
@@ -289,6 +307,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -446,6 +467,9 @@ export interface DeleteScheduledActionRequest {
 }
 
 export namespace DeleteScheduledActionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteScheduledActionRequest): any => ({
     ...obj,
   });
@@ -454,6 +478,9 @@ export namespace DeleteScheduledActionRequest {
 export interface DeleteScheduledActionResponse {}
 
 export namespace DeleteScheduledActionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteScheduledActionResponse): any => ({
     ...obj,
   });
@@ -607,6 +634,9 @@ export interface DeregisterScalableTargetRequest {
 }
 
 export namespace DeregisterScalableTargetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeregisterScalableTargetRequest): any => ({
     ...obj,
   });
@@ -615,6 +645,9 @@ export namespace DeregisterScalableTargetRequest {
 export interface DeregisterScalableTargetResponse {}
 
 export namespace DeregisterScalableTargetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeregisterScalableTargetResponse): any => ({
     ...obj,
   });
@@ -784,6 +817,9 @@ export interface DescribeScalableTargetsRequest {
 }
 
 export namespace DescribeScalableTargetsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeScalableTargetsRequest): any => ({
     ...obj,
   });
@@ -817,6 +853,9 @@ export interface SuspendedState {
 }
 
 export namespace SuspendedState {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SuspendedState): any => ({
     ...obj,
   });
@@ -1000,6 +1039,9 @@ export interface ScalableTarget {
 }
 
 export namespace ScalableTarget {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ScalableTarget): any => ({
     ...obj,
   });
@@ -1019,6 +1061,9 @@ export interface DescribeScalableTargetsResponse {
 }
 
 export namespace DescribeScalableTargetsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeScalableTargetsResponse): any => ({
     ...obj,
   });
@@ -1034,6 +1079,9 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidNextTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
@@ -1203,6 +1251,9 @@ export interface DescribeScalingActivitiesRequest {
 }
 
 export namespace DescribeScalingActivitiesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeScalingActivitiesRequest): any => ({
     ...obj,
   });
@@ -1407,6 +1458,9 @@ export interface ScalingActivity {
 }
 
 export namespace ScalingActivity {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ScalingActivity): any => ({
     ...obj,
   });
@@ -1426,6 +1480,9 @@ export interface DescribeScalingActivitiesResponse {
 }
 
 export namespace DescribeScalingActivitiesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeScalingActivitiesResponse): any => ({
     ...obj,
   });
@@ -1600,6 +1657,9 @@ export interface DescribeScalingPoliciesRequest {
 }
 
 export namespace DescribeScalingPoliciesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeScalingPoliciesRequest): any => ({
     ...obj,
   });
@@ -1681,6 +1741,9 @@ export interface StepAdjustment {
 }
 
 export namespace StepAdjustment {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StepAdjustment): any => ({
     ...obj,
   });
@@ -1793,6 +1856,9 @@ export interface StepScalingPolicyConfiguration {
 }
 
 export namespace StepScalingPolicyConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StepScalingPolicyConfiguration): any => ({
     ...obj,
   });
@@ -1814,6 +1880,9 @@ export interface MetricDimension {
 }
 
 export namespace MetricDimension {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MetricDimension): any => ({
     ...obj,
   });
@@ -1881,6 +1950,9 @@ export interface CustomizedMetricSpecification {
 }
 
 export namespace CustomizedMetricSpecification {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomizedMetricSpecification): any => ({
     ...obj,
   });
@@ -1949,6 +2021,9 @@ export interface PredefinedMetricSpecification {
 }
 
 export namespace PredefinedMetricSpecification {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PredefinedMetricSpecification): any => ({
     ...obj,
   });
@@ -2104,6 +2179,9 @@ export interface TargetTrackingScalingPolicyConfiguration {
 }
 
 export namespace TargetTrackingScalingPolicyConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TargetTrackingScalingPolicyConfiguration): any => ({
     ...obj,
   });
@@ -2297,6 +2375,9 @@ export interface ScalingPolicy {
 }
 
 export namespace ScalingPolicy {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ScalingPolicy): any => ({
     ...obj,
   });
@@ -2316,6 +2397,9 @@ export interface DescribeScalingPoliciesResponse {
 }
 
 export namespace DescribeScalingPoliciesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeScalingPoliciesResponse): any => ({
     ...obj,
   });
@@ -2334,6 +2418,9 @@ export interface FailedResourceAccessException extends __SmithyException, $Metad
 }
 
 export namespace FailedResourceAccessException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FailedResourceAccessException): any => ({
     ...obj,
   });
@@ -2508,6 +2595,9 @@ export interface DescribeScheduledActionsRequest {
 }
 
 export namespace DescribeScheduledActionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeScheduledActionsRequest): any => ({
     ...obj,
   });
@@ -2538,6 +2628,9 @@ export interface ScalableTargetAction {
 }
 
 export namespace ScalableTargetAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ScalableTargetAction): any => ({
     ...obj,
   });
@@ -2758,6 +2851,9 @@ export interface ScheduledAction {
 }
 
 export namespace ScheduledAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ScheduledAction): any => ({
     ...obj,
   });
@@ -2777,6 +2873,9 @@ export interface DescribeScheduledActionsResponse {
 }
 
 export namespace DescribeScheduledActionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeScheduledActionsResponse): any => ({
     ...obj,
   });
@@ -2792,6 +2891,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -2977,6 +3079,9 @@ export interface PutScalingPolicyRequest {
 }
 
 export namespace PutScalingPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutScalingPolicyRequest): any => ({
     ...obj,
   });
@@ -2995,6 +3100,9 @@ export interface PutScalingPolicyResponse {
 }
 
 export namespace PutScalingPolicyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutScalingPolicyResponse): any => ({
     ...obj,
   });
@@ -3205,6 +3313,9 @@ export interface PutScheduledActionRequest {
 }
 
 export namespace PutScheduledActionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutScheduledActionRequest): any => ({
     ...obj,
   });
@@ -3213,6 +3324,9 @@ export namespace PutScheduledActionRequest {
 export interface PutScheduledActionResponse {}
 
 export namespace PutScheduledActionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutScheduledActionResponse): any => ({
     ...obj,
   });
@@ -3425,6 +3539,9 @@ export interface RegisterScalableTargetRequest {
 }
 
 export namespace RegisterScalableTargetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterScalableTargetRequest): any => ({
     ...obj,
   });
@@ -3433,6 +3550,9 @@ export namespace RegisterScalableTargetRequest {
 export interface RegisterScalableTargetResponse {}
 
 export namespace RegisterScalableTargetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterScalableTargetResponse): any => ({
     ...obj,
   });

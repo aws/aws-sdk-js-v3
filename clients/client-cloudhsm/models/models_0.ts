@@ -18,6 +18,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -36,6 +39,9 @@ export interface AddTagsToResourceRequest {
 }
 
 export namespace AddTagsToResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddTagsToResourceRequest): any => ({
     ...obj,
   });
@@ -49,6 +55,9 @@ export interface AddTagsToResourceResponse {
 }
 
 export namespace AddTagsToResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddTagsToResourceResponse): any => ({
     ...obj,
   });
@@ -72,6 +81,9 @@ export interface CloudHsmInternalException extends __SmithyException, $MetadataB
 }
 
 export namespace CloudHsmInternalException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudHsmInternalException): any => ({
     ...obj,
   });
@@ -95,6 +107,9 @@ export interface CloudHsmServiceException extends __SmithyException, $MetadataBe
 }
 
 export namespace CloudHsmServiceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudHsmServiceException): any => ({
     ...obj,
   });
@@ -118,6 +133,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -139,6 +157,9 @@ export interface CreateHapgRequest {
 }
 
 export namespace CreateHapgRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateHapgRequest): any => ({
     ...obj,
   });
@@ -155,6 +176,9 @@ export interface CreateHapgResponse {
 }
 
 export namespace CreateHapgResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateHapgResponse): any => ({
     ...obj,
   });
@@ -227,6 +251,9 @@ export interface CreateHsmRequest {
 }
 
 export namespace CreateHsmRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateHsmRequest): any => ({
     ...obj,
   });
@@ -243,6 +270,9 @@ export interface CreateHsmResponse {
 }
 
 export namespace CreateHsmResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateHsmResponse): any => ({
     ...obj,
   });
@@ -265,6 +295,9 @@ export interface CreateLunaClientRequest {
 }
 
 export namespace CreateLunaClientRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateLunaClientRequest): any => ({
     ...obj,
   });
@@ -281,6 +314,9 @@ export interface CreateLunaClientResponse {
 }
 
 export namespace CreateLunaClientResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateLunaClientResponse): any => ({
     ...obj,
   });
@@ -297,6 +333,9 @@ export interface DeleteHapgRequest {
 }
 
 export namespace DeleteHapgRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteHapgRequest): any => ({
     ...obj,
   });
@@ -313,6 +352,9 @@ export interface DeleteHapgResponse {
 }
 
 export namespace DeleteHapgResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteHapgResponse): any => ({
     ...obj,
   });
@@ -329,6 +371,9 @@ export interface DeleteHsmRequest {
 }
 
 export namespace DeleteHsmRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteHsmRequest): any => ({
     ...obj,
   });
@@ -345,6 +390,9 @@ export interface DeleteHsmResponse {
 }
 
 export namespace DeleteHsmResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteHsmResponse): any => ({
     ...obj,
   });
@@ -358,6 +406,9 @@ export interface DeleteLunaClientRequest {
 }
 
 export namespace DeleteLunaClientRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteLunaClientRequest): any => ({
     ...obj,
   });
@@ -371,6 +422,9 @@ export interface DeleteLunaClientResponse {
 }
 
 export namespace DeleteLunaClientResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteLunaClientResponse): any => ({
     ...obj,
   });
@@ -387,6 +441,9 @@ export interface DescribeHapgRequest {
 }
 
 export namespace DescribeHapgRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeHapgRequest): any => ({
     ...obj,
   });
@@ -450,6 +507,9 @@ export interface DescribeHapgResponse {
 }
 
 export namespace DescribeHapgResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeHapgResponse): any => ({
     ...obj,
   });
@@ -473,6 +533,9 @@ export interface DescribeHsmRequest {
 }
 
 export namespace DescribeHsmRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeHsmRequest): any => ({
     ...obj,
   });
@@ -611,6 +674,9 @@ export interface DescribeHsmResponse {
 }
 
 export namespace DescribeHsmResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeHsmResponse): any => ({
     ...obj,
   });
@@ -629,6 +695,9 @@ export interface DescribeLunaClientRequest {
 }
 
 export namespace DescribeLunaClientRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeLunaClientRequest): any => ({
     ...obj,
   });
@@ -662,6 +731,9 @@ export interface DescribeLunaClientResponse {
 }
 
 export namespace DescribeLunaClientResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeLunaClientResponse): any => ({
     ...obj,
   });
@@ -686,6 +758,9 @@ export interface GetConfigRequest {
 }
 
 export namespace GetConfigRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetConfigRequest): any => ({
     ...obj,
   });
@@ -709,6 +784,9 @@ export interface GetConfigResponse {
 }
 
 export namespace GetConfigResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetConfigResponse): any => ({
     ...obj,
   });
@@ -720,6 +798,9 @@ export namespace GetConfigResponse {
 export interface ListAvailableZonesRequest {}
 
 export namespace ListAvailableZonesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAvailableZonesRequest): any => ({
     ...obj,
   });
@@ -733,6 +814,9 @@ export interface ListAvailableZonesResponse {
 }
 
 export namespace ListAvailableZonesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAvailableZonesResponse): any => ({
     ...obj,
   });
@@ -747,6 +831,9 @@ export interface ListHapgsRequest {
 }
 
 export namespace ListHapgsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListHapgsRequest): any => ({
     ...obj,
   });
@@ -766,6 +853,9 @@ export interface ListHapgsResponse {
 }
 
 export namespace ListHapgsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListHapgsResponse): any => ({
     ...obj,
   });
@@ -780,6 +870,9 @@ export interface ListHsmsRequest {
 }
 
 export namespace ListHsmsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListHsmsRequest): any => ({
     ...obj,
   });
@@ -802,6 +895,9 @@ export interface ListHsmsResponse {
 }
 
 export namespace ListHsmsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListHsmsResponse): any => ({
     ...obj,
   });
@@ -816,6 +912,9 @@ export interface ListLunaClientsRequest {
 }
 
 export namespace ListLunaClientsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListLunaClientsRequest): any => ({
     ...obj,
   });
@@ -835,6 +934,9 @@ export interface ListLunaClientsResponse {
 }
 
 export namespace ListLunaClientsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListLunaClientsResponse): any => ({
     ...obj,
   });
@@ -848,6 +950,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -861,6 +966,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -885,6 +993,9 @@ export interface ModifyHapgRequest {
 }
 
 export namespace ModifyHapgRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyHapgRequest): any => ({
     ...obj,
   });
@@ -898,6 +1009,9 @@ export interface ModifyHapgResponse {
 }
 
 export namespace ModifyHapgResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyHapgResponse): any => ({
     ...obj,
   });
@@ -944,6 +1058,9 @@ export interface ModifyHsmRequest {
 }
 
 export namespace ModifyHsmRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyHsmRequest): any => ({
     ...obj,
   });
@@ -960,6 +1077,9 @@ export interface ModifyHsmResponse {
 }
 
 export namespace ModifyHsmResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyHsmResponse): any => ({
     ...obj,
   });
@@ -978,6 +1098,9 @@ export interface ModifyLunaClientRequest {
 }
 
 export namespace ModifyLunaClientRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyLunaClientRequest): any => ({
     ...obj,
   });
@@ -991,6 +1114,9 @@ export interface ModifyLunaClientResponse {
 }
 
 export namespace ModifyLunaClientResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyLunaClientResponse): any => ({
     ...obj,
   });
@@ -1011,6 +1137,9 @@ export interface RemoveTagsFromResourceRequest {
 }
 
 export namespace RemoveTagsFromResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveTagsFromResourceRequest): any => ({
     ...obj,
   });
@@ -1024,6 +1153,9 @@ export interface RemoveTagsFromResourceResponse {
 }
 
 export namespace RemoveTagsFromResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveTagsFromResourceResponse): any => ({
     ...obj,
   });

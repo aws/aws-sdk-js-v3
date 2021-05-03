@@ -42,6 +42,9 @@ export interface Encryption {
 }
 
 export namespace Encryption {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Encryption): any => ({
     ...obj,
     ...(obj.KMSKeyId && { KMSKeyId: SENSITIVE_STRING }),
@@ -64,6 +67,9 @@ export interface MetadataEntry {
 }
 
 export namespace MetadataEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MetadataEntry): any => ({
     ...obj,
   });
@@ -115,6 +121,9 @@ export interface S3Location {
 }
 
 export namespace S3Location {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3Location): any => ({
     ...obj,
     ...(obj.Encryption && { Encryption: Encryption.filterSensitiveLog(obj.Encryption) }),
@@ -132,6 +141,9 @@ export interface OutputLocation {
 }
 
 export namespace OutputLocation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OutputLocation): any => ({
     ...obj,
     ...(obj.S3 && { S3: S3Location.filterSensitiveLog(obj.S3) }),
@@ -221,6 +233,9 @@ export interface CSVInput {
 }
 
 export namespace CSVInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CSVInput): any => ({
     ...obj,
   });
@@ -242,6 +257,9 @@ export interface JSONInput {
 }
 
 export namespace JSONInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: JSONInput): any => ({
     ...obj,
   });
@@ -253,6 +271,9 @@ export namespace JSONInput {
 export interface ParquetInput {}
 
 export namespace ParquetInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParquetInput): any => ({
     ...obj,
   });
@@ -285,6 +306,9 @@ export interface InputSerialization {
 }
 
 export namespace InputSerialization {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InputSerialization): any => ({
     ...obj,
   });
@@ -342,6 +366,9 @@ export interface CSVOutput {
 }
 
 export namespace CSVOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CSVOutput): any => ({
     ...obj,
   });
@@ -359,6 +386,9 @@ export interface JSONOutput {
 }
 
 export namespace JSONOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: JSONOutput): any => ({
     ...obj,
   });
@@ -380,6 +410,9 @@ export interface OutputSerialization {
 }
 
 export namespace OutputSerialization {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OutputSerialization): any => ({
     ...obj,
   });
@@ -411,6 +444,9 @@ export interface SelectParameters {
 }
 
 export namespace SelectParameters {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SelectParameters): any => ({
     ...obj,
   });
@@ -465,6 +501,9 @@ export interface RestoreRequest {
 }
 
 export namespace RestoreRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreRequest): any => ({
     ...obj,
     ...(obj.OutputLocation && { OutputLocation: OutputLocation.filterSensitiveLog(obj.OutputLocation) }),
@@ -509,6 +548,9 @@ export interface RestoreObjectRequest {
 }
 
 export namespace RestoreObjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreObjectRequest): any => ({
     ...obj,
     ...(obj.RestoreRequest && { RestoreRequest: RestoreRequest.filterSensitiveLog(obj.RestoreRequest) }),
@@ -521,6 +563,9 @@ export namespace RestoreObjectRequest {
 export interface ContinuationEvent {}
 
 export namespace ContinuationEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ContinuationEvent): any => ({
     ...obj,
   });
@@ -534,6 +579,9 @@ export namespace ContinuationEvent {
 export interface EndEvent {}
 
 export namespace EndEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EndEvent): any => ({
     ...obj,
   });
@@ -560,6 +608,9 @@ export interface Progress {
 }
 
 export namespace Progress {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Progress): any => ({
     ...obj,
   });
@@ -576,6 +627,9 @@ export interface ProgressEvent {
 }
 
 export namespace ProgressEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProgressEvent): any => ({
     ...obj,
   });
@@ -592,6 +646,9 @@ export interface RecordsEvent {
 }
 
 export namespace RecordsEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecordsEvent): any => ({
     ...obj,
   });
@@ -618,6 +675,9 @@ export interface Stats {
 }
 
 export namespace Stats {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Stats): any => ({
     ...obj,
   });
@@ -634,6 +694,9 @@ export interface StatsEvent {
 }
 
 export namespace StatsEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StatsEvent): any => ({
     ...obj,
   });
@@ -738,6 +801,9 @@ export namespace SelectObjectContentEventStream {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SelectObjectContentEventStream): any => {
     if (obj.Records !== undefined) return { Records: RecordsEvent.filterSensitiveLog(obj.Records) };
     if (obj.Stats !== undefined) return { Stats: StatsEvent.filterSensitiveLog(obj.Stats) };
@@ -756,6 +822,9 @@ export interface SelectObjectContentOutput {
 }
 
 export namespace SelectObjectContentOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SelectObjectContentOutput): any => ({
     ...obj,
     ...(obj.Payload && { Payload: "STREAMING_CONTENT" }),
@@ -775,6 +844,9 @@ export interface RequestProgress {
 }
 
 export namespace RequestProgress {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RequestProgress): any => ({
     ...obj,
   });
@@ -808,6 +880,9 @@ export interface ScanRange {
 }
 
 export namespace ScanRange {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ScanRange): any => ({
     ...obj,
   });
@@ -909,6 +984,9 @@ export interface SelectObjectContentRequest {
 }
 
 export namespace SelectObjectContentRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SelectObjectContentRequest): any => ({
     ...obj,
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
@@ -959,6 +1037,9 @@ export interface UploadPartOutput {
 }
 
 export namespace UploadPartOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UploadPartOutput): any => ({
     ...obj,
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
@@ -1044,6 +1125,9 @@ export interface UploadPartRequest {
 }
 
 export namespace UploadPartRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UploadPartRequest): any => ({
     ...obj,
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
@@ -1066,6 +1150,9 @@ export interface CopyPartResult {
 }
 
 export namespace CopyPartResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CopyPartResult): any => ({
     ...obj,
   });
@@ -1121,6 +1208,9 @@ export interface UploadPartCopyOutput {
 }
 
 export namespace UploadPartCopyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UploadPartCopyOutput): any => ({
     ...obj,
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),
@@ -1270,6 +1360,9 @@ export interface UploadPartCopyRequest {
 }
 
 export namespace UploadPartCopyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UploadPartCopyRequest): any => ({
     ...obj,
     ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
@@ -1558,6 +1651,9 @@ export interface WriteGetObjectResponseRequest {
 }
 
 export namespace WriteGetObjectResponseRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: WriteGetObjectResponseRequest): any => ({
     ...obj,
     ...(obj.SSEKMSKeyId && { SSEKMSKeyId: SENSITIVE_STRING }),

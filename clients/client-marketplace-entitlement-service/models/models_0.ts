@@ -39,6 +39,9 @@ export interface GetEntitlementsRequest {
 }
 
 export namespace GetEntitlementsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEntitlementsRequest): any => ({
     ...obj,
   });
@@ -128,6 +131,9 @@ export namespace EntitlementValue {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EntitlementValue): any => {
     if (obj.IntegerValue !== undefined) return { IntegerValue: obj.IntegerValue };
     if (obj.DoubleValue !== undefined) return { DoubleValue: obj.DoubleValue };
@@ -179,6 +185,9 @@ export interface Entitlement {
 }
 
 export namespace Entitlement {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Entitlement): any => ({
     ...obj,
     ...(obj.Value && { Value: EntitlementValue.filterSensitiveLog(obj.Value) }),
@@ -205,6 +214,9 @@ export interface GetEntitlementsResult {
 }
 
 export namespace GetEntitlementsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEntitlementsResult): any => ({
     ...obj,
     ...(obj.Entitlements && { Entitlements: obj.Entitlements.map((item) => Entitlement.filterSensitiveLog(item)) }),
@@ -222,6 +234,9 @@ export interface InternalServiceErrorException extends __SmithyException, $Metad
 }
 
 export namespace InternalServiceErrorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
     ...obj,
   });
@@ -237,6 +252,9 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidParameterException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
@@ -252,6 +270,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });

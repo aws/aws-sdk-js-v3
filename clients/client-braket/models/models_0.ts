@@ -11,6 +11,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -24,6 +27,9 @@ export interface GetDeviceRequest {
 }
 
 export namespace GetDeviceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDeviceRequest): any => ({
     ...obj,
   });
@@ -72,6 +78,9 @@ export interface GetDeviceResponse {
 }
 
 export namespace GetDeviceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDeviceResponse): any => ({
     ...obj,
   });
@@ -87,6 +96,9 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
 }
 
 export namespace InternalServiceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
@@ -102,6 +114,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -117,6 +132,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -132,6 +150,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -153,6 +174,9 @@ export interface SearchDevicesFilter {
 }
 
 export namespace SearchDevicesFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchDevicesFilter): any => ({
     ...obj,
   });
@@ -176,6 +200,9 @@ export interface SearchDevicesRequest {
 }
 
 export namespace SearchDevicesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchDevicesRequest): any => ({
     ...obj,
   });
@@ -212,6 +239,9 @@ export interface DeviceSummary {
 }
 
 export namespace DeviceSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeviceSummary): any => ({
     ...obj,
   });
@@ -230,6 +260,9 @@ export interface SearchDevicesResponse {
 }
 
 export namespace SearchDevicesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchDevicesResponse): any => ({
     ...obj,
   });
@@ -243,6 +276,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -256,6 +292,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -274,6 +313,9 @@ export interface CancelQuantumTaskRequest {
 }
 
 export namespace CancelQuantumTaskRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelQuantumTaskRequest): any => ({
     ...obj,
   });
@@ -297,6 +339,9 @@ export interface CancelQuantumTaskResponse {
 }
 
 export namespace CancelQuantumTaskResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelQuantumTaskResponse): any => ({
     ...obj,
   });
@@ -312,6 +357,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -360,6 +408,9 @@ export interface CreateQuantumTaskRequest {
 }
 
 export namespace CreateQuantumTaskRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateQuantumTaskRequest): any => ({
     ...obj,
   });
@@ -373,6 +424,9 @@ export interface CreateQuantumTaskResponse {
 }
 
 export namespace CreateQuantumTaskResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateQuantumTaskResponse): any => ({
     ...obj,
   });
@@ -388,6 +442,9 @@ export interface DeviceOfflineException extends __SmithyException, $MetadataBear
 }
 
 export namespace DeviceOfflineException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeviceOfflineException): any => ({
     ...obj,
   });
@@ -403,6 +460,9 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
 }
 
 export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
@@ -416,6 +476,9 @@ export interface GetQuantumTaskRequest {
 }
 
 export namespace GetQuantumTaskRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetQuantumTaskRequest): any => ({
     ...obj,
   });
@@ -489,6 +552,9 @@ export interface GetQuantumTaskResponse {
 }
 
 export namespace GetQuantumTaskResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetQuantumTaskResponse): any => ({
     ...obj,
   });
@@ -524,6 +590,9 @@ export interface SearchQuantumTasksFilter {
 }
 
 export namespace SearchQuantumTasksFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchQuantumTasksFilter): any => ({
     ...obj,
   });
@@ -547,6 +616,9 @@ export interface SearchQuantumTasksRequest {
 }
 
 export namespace SearchQuantumTasksRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchQuantumTasksRequest): any => ({
     ...obj,
   });
@@ -603,6 +675,9 @@ export interface QuantumTaskSummary {
 }
 
 export namespace QuantumTaskSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QuantumTaskSummary): any => ({
     ...obj,
   });
@@ -621,6 +696,9 @@ export interface SearchQuantumTasksResponse {
 }
 
 export namespace SearchQuantumTasksResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchQuantumTasksResponse): any => ({
     ...obj,
   });
@@ -639,6 +717,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -647,6 +728,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -665,6 +749,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -673,6 +760,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });

@@ -27,6 +27,9 @@ export interface AudioChannelTaggingSettings {
 }
 
 export namespace AudioChannelTaggingSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AudioChannelTaggingSettings): any => ({
     ...obj,
   });
@@ -90,6 +93,9 @@ export interface AudioNormalizationSettings {
 }
 
 export namespace AudioNormalizationSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AudioNormalizationSettings): any => ({
     ...obj,
   });
@@ -192,6 +198,9 @@ export interface AacSettings {
 }
 
 export namespace AacSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AacSettings): any => ({
     ...obj,
   });
@@ -304,6 +313,9 @@ export interface Ac3Settings {
 }
 
 export namespace Ac3Settings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Ac3Settings): any => ({
     ...obj,
   });
@@ -330,6 +342,9 @@ export interface AiffSettings {
 }
 
 export namespace AiffSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AiffSettings): any => ({
     ...obj,
   });
@@ -486,6 +501,9 @@ export interface Eac3AtmosSettings {
 }
 
 export namespace Eac3AtmosSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Eac3AtmosSettings): any => ({
     ...obj,
   });
@@ -688,6 +706,9 @@ export interface Eac3Settings {
 }
 
 export namespace Eac3Settings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Eac3Settings): any => ({
     ...obj,
   });
@@ -714,6 +735,9 @@ export interface Mp2Settings {
 }
 
 export namespace Mp2Settings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Mp2Settings): any => ({
     ...obj,
   });
@@ -755,6 +779,9 @@ export interface Mp3Settings {
 }
 
 export namespace Mp3Settings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Mp3Settings): any => ({
     ...obj,
   });
@@ -781,6 +808,9 @@ export interface OpusSettings {
 }
 
 export namespace OpusSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OpusSettings): any => ({
     ...obj,
   });
@@ -807,6 +837,9 @@ export interface VorbisSettings {
 }
 
 export namespace VorbisSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VorbisSettings): any => ({
     ...obj,
   });
@@ -843,6 +876,9 @@ export interface WavSettings {
 }
 
 export namespace WavSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: WavSettings): any => ({
     ...obj,
   });
@@ -909,6 +945,9 @@ export interface AudioCodecSettings {
 }
 
 export namespace AudioCodecSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AudioCodecSettings): any => ({
     ...obj,
   });
@@ -1129,6 +1168,9 @@ export interface OutputChannelMapping {
 }
 
 export namespace OutputChannelMapping {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OutputChannelMapping): any => ({
     ...obj,
   });
@@ -1145,6 +1187,9 @@ export interface ChannelMapping {
 }
 
 export namespace ChannelMapping {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ChannelMapping): any => ({
     ...obj,
   });
@@ -1171,6 +1216,9 @@ export interface RemixSettings {
 }
 
 export namespace RemixSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemixSettings): any => ({
     ...obj,
   });
@@ -1237,6 +1285,9 @@ export interface AudioDescription {
 }
 
 export namespace AudioDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AudioDescription): any => ({
     ...obj,
   });
@@ -1383,6 +1434,9 @@ export interface BurninDestinationSettings {
 }
 
 export namespace BurninDestinationSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BurninDestinationSettings): any => ({
     ...obj,
   });
@@ -1548,6 +1602,9 @@ export interface DvbSubDestinationSettings {
 }
 
 export namespace DvbSubDestinationSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DvbSubDestinationSettings): any => ({
     ...obj,
   });
@@ -1569,6 +1626,9 @@ export interface EmbeddedDestinationSettings {
 }
 
 export namespace EmbeddedDestinationSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EmbeddedDestinationSettings): any => ({
     ...obj,
   });
@@ -1590,6 +1650,9 @@ export interface ImscDestinationSettings {
 }
 
 export namespace ImscDestinationSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImscDestinationSettings): any => ({
     ...obj,
   });
@@ -1614,6 +1677,9 @@ export interface SccDestinationSettings {
 }
 
 export namespace SccDestinationSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SccDestinationSettings): any => ({
     ...obj,
   });
@@ -1643,6 +1709,9 @@ export interface TeletextDestinationSettings {
 }
 
 export namespace TeletextDestinationSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TeletextDestinationSettings): any => ({
     ...obj,
   });
@@ -1664,6 +1733,9 @@ export interface TtmlDestinationSettings {
 }
 
 export namespace TtmlDestinationSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TtmlDestinationSettings): any => ({
     ...obj,
   });
@@ -1685,6 +1757,9 @@ export interface WebvttDestinationSettings {
 }
 
 export namespace WebvttDestinationSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: WebvttDestinationSettings): any => ({
     ...obj,
   });
@@ -1741,6 +1816,9 @@ export interface CaptionDestinationSettings {
 }
 
 export namespace CaptionDestinationSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CaptionDestinationSettings): any => ({
     ...obj,
   });
@@ -1777,6 +1855,9 @@ export interface CaptionDescription {
 }
 
 export namespace CaptionDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CaptionDescription): any => ({
     ...obj,
   });
@@ -1808,6 +1889,9 @@ export interface CaptionDescriptionPreset {
 }
 
 export namespace CaptionDescriptionPreset {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CaptionDescriptionPreset): any => ({
     ...obj,
   });
@@ -1829,6 +1913,9 @@ export interface CmafAdditionalManifest {
 }
 
 export namespace CmafAdditionalManifest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CmafAdditionalManifest): any => ({
     ...obj,
   });
@@ -1850,6 +1937,9 @@ export interface DashAdditionalManifest {
 }
 
 export namespace DashAdditionalManifest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DashAdditionalManifest): any => ({
     ...obj,
   });
@@ -1866,6 +1956,9 @@ export interface Endpoint {
 }
 
 export namespace Endpoint {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj,
   });
@@ -1887,6 +1980,9 @@ export interface HlsAdditionalManifest {
 }
 
 export namespace HlsAdditionalManifest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HlsAdditionalManifest): any => ({
     ...obj,
   });
@@ -1923,6 +2019,9 @@ export interface HlsCaptionLanguageMapping {
 }
 
 export namespace HlsCaptionLanguageMapping {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HlsCaptionLanguageMapping): any => ({
     ...obj,
   });
@@ -1949,6 +2048,9 @@ export interface HopDestination {
 }
 
 export namespace HopDestination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HopDestination): any => ({
     ...obj,
   });
@@ -1970,6 +2072,9 @@ export interface Id3Insertion {
 }
 
 export namespace Id3Insertion {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Id3Insertion): any => ({
     ...obj,
   });
@@ -1986,6 +2091,9 @@ export interface AudioSelectorGroup {
 }
 
 export namespace AudioSelectorGroup {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AudioSelectorGroup): any => ({
     ...obj,
   });
@@ -2058,6 +2166,9 @@ export interface AudioSelector {
 }
 
 export namespace AudioSelector {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AudioSelector): any => ({
     ...obj,
   });
@@ -2094,6 +2205,9 @@ export interface AncillarySourceSettings {
 }
 
 export namespace AncillarySourceSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AncillarySourceSettings): any => ({
     ...obj,
   });
@@ -2110,6 +2224,9 @@ export interface DvbSubSourceSettings {
 }
 
 export namespace DvbSubSourceSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DvbSubSourceSettings): any => ({
     ...obj,
   });
@@ -2151,6 +2268,9 @@ export interface EmbeddedSourceSettings {
 }
 
 export namespace EmbeddedSourceSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EmbeddedSourceSettings): any => ({
     ...obj,
   });
@@ -2177,6 +2297,9 @@ export interface CaptionSourceFramerate {
 }
 
 export namespace CaptionSourceFramerate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CaptionSourceFramerate): any => ({
     ...obj,
   });
@@ -2208,6 +2331,9 @@ export interface FileSourceSettings {
 }
 
 export namespace FileSourceSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FileSourceSettings): any => ({
     ...obj,
   });
@@ -2241,6 +2367,9 @@ export interface TeletextSourceSettings {
 }
 
 export namespace TeletextSourceSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TeletextSourceSettings): any => ({
     ...obj,
   });
@@ -2257,6 +2386,9 @@ export interface TrackSourceSettings {
 }
 
 export namespace TrackSourceSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TrackSourceSettings): any => ({
     ...obj,
   });
@@ -2303,6 +2435,9 @@ export interface CaptionSourceSettings {
 }
 
 export namespace CaptionSourceSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CaptionSourceSettings): any => ({
     ...obj,
   });
@@ -2329,6 +2464,9 @@ export interface CaptionSelector {
 }
 
 export namespace CaptionSelector {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CaptionSelector): any => ({
     ...obj,
   });
@@ -2360,6 +2498,9 @@ export interface Rectangle {
 }
 
 export namespace Rectangle {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Rectangle): any => ({
     ...obj,
   });
@@ -2402,6 +2543,9 @@ export interface InputDecryptionSettings {
 }
 
 export namespace InputDecryptionSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InputDecryptionSettings): any => ({
     ...obj,
   });
@@ -2479,6 +2623,9 @@ export interface InsertableImage {
 }
 
 export namespace InsertableImage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InsertableImage): any => ({
     ...obj,
   });
@@ -2495,6 +2642,9 @@ export interface ImageInserter {
 }
 
 export namespace ImageInserter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImageInserter): any => ({
     ...obj,
   });
@@ -2516,6 +2666,9 @@ export interface InputClipping {
 }
 
 export namespace InputClipping {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InputClipping): any => ({
     ...obj,
   });
@@ -2621,6 +2774,9 @@ export interface Hdr10Metadata {
 }
 
 export namespace Hdr10Metadata {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Hdr10Metadata): any => ({
     ...obj,
   });
@@ -2675,6 +2831,9 @@ export interface VideoSelector {
 }
 
 export namespace VideoSelector {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VideoSelector): any => ({
     ...obj,
   });
@@ -2786,6 +2945,9 @@ export interface Input {
 }
 
 export namespace Input {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Input): any => ({
     ...obj,
   });
@@ -2882,6 +3044,9 @@ export interface InputTemplate {
 }
 
 export namespace InputTemplate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InputTemplate): any => ({
     ...obj,
   });
@@ -2904,6 +3069,9 @@ export interface AccelerationSettings {
 }
 
 export namespace AccelerationSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccelerationSettings): any => ({
     ...obj,
   });
@@ -2945,6 +3113,9 @@ export interface JobMessages {
 }
 
 export namespace JobMessages {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: JobMessages): any => ({
     ...obj,
   });
@@ -2966,6 +3137,9 @@ export interface VideoDetail {
 }
 
 export namespace VideoDetail {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VideoDetail): any => ({
     ...obj,
   });
@@ -2987,6 +3161,9 @@ export interface OutputDetail {
 }
 
 export namespace OutputDetail {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OutputDetail): any => ({
     ...obj,
   });
@@ -3003,6 +3180,9 @@ export interface OutputGroupDetail {
 }
 
 export namespace OutputGroupDetail {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OutputGroupDetail): any => ({
     ...obj,
   });
@@ -3029,6 +3209,9 @@ export interface QueueTransition {
 }
 
 export namespace QueueTransition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueueTransition): any => ({
     ...obj,
   });
@@ -3045,6 +3228,9 @@ export interface AvailBlanking {
 }
 
 export namespace AvailBlanking {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AvailBlanking): any => ({
     ...obj,
   });
@@ -3061,6 +3247,9 @@ export interface EsamManifestConfirmConditionNotification {
 }
 
 export namespace EsamManifestConfirmConditionNotification {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EsamManifestConfirmConditionNotification): any => ({
     ...obj,
   });
@@ -3077,6 +3266,9 @@ export interface EsamSignalProcessingNotification {
 }
 
 export namespace EsamSignalProcessingNotification {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EsamSignalProcessingNotification): any => ({
     ...obj,
   });
@@ -3103,6 +3295,9 @@ export interface EsamSettings {
 }
 
 export namespace EsamSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EsamSettings): any => ({
     ...obj,
   });
@@ -3124,6 +3319,9 @@ export interface MotionImageInsertionFramerate {
 }
 
 export namespace MotionImageInsertionFramerate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MotionImageInsertionFramerate): any => ({
     ...obj,
   });
@@ -3150,6 +3348,9 @@ export interface MotionImageInsertionOffset {
 }
 
 export namespace MotionImageInsertionOffset {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MotionImageInsertionOffset): any => ({
     ...obj,
   });
@@ -3196,6 +3397,9 @@ export interface MotionImageInserter {
 }
 
 export namespace MotionImageInserter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MotionImageInserter): any => ({
     ...obj,
   });
@@ -3217,6 +3421,9 @@ export interface NielsenConfiguration {
 }
 
 export namespace NielsenConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NielsenConfiguration): any => ({
     ...obj,
   });
@@ -3299,6 +3506,9 @@ export interface NielsenNonLinearWatermarkSettings {
 }
 
 export namespace NielsenNonLinearWatermarkSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NielsenNonLinearWatermarkSettings): any => ({
     ...obj,
   });
@@ -3325,6 +3535,9 @@ export interface AutomatedAbrSettings {
 }
 
 export namespace AutomatedAbrSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AutomatedAbrSettings): any => ({
     ...obj,
   });
@@ -3341,6 +3554,9 @@ export interface AutomatedEncodingSettings {
 }
 
 export namespace AutomatedEncodingSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AutomatedEncodingSettings): any => ({
     ...obj,
   });
@@ -3374,6 +3590,9 @@ export interface S3DestinationAccessControl {
 }
 
 export namespace S3DestinationAccessControl {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3DestinationAccessControl): any => ({
     ...obj,
   });
@@ -3400,6 +3619,9 @@ export interface S3EncryptionSettings {
 }
 
 export namespace S3EncryptionSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3EncryptionSettings): any => ({
     ...obj,
   });
@@ -3421,6 +3643,9 @@ export interface S3DestinationSettings {
 }
 
 export namespace S3DestinationSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3DestinationSettings): any => ({
     ...obj,
   });
@@ -3437,6 +3662,9 @@ export interface DestinationSettings {
 }
 
 export namespace DestinationSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DestinationSettings): any => ({
     ...obj,
   });
@@ -3483,6 +3711,9 @@ export interface SpekeKeyProviderCmaf {
 }
 
 export namespace SpekeKeyProviderCmaf {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SpekeKeyProviderCmaf): any => ({
     ...obj,
   });
@@ -3514,6 +3745,9 @@ export interface StaticKeyProvider {
 }
 
 export namespace StaticKeyProvider {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StaticKeyProvider): any => ({
     ...obj,
   });
@@ -3560,6 +3794,9 @@ export interface CmafEncryptionSettings {
 }
 
 export namespace CmafEncryptionSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CmafEncryptionSettings): any => ({
     ...obj,
   });
@@ -3716,6 +3953,9 @@ export interface CmafGroupSettings {
 }
 
 export namespace CmafGroupSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CmafGroupSettings): any => ({
     ...obj,
   });
@@ -3758,6 +3998,9 @@ export interface SpekeKeyProvider {
 }
 
 export namespace SpekeKeyProvider {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SpekeKeyProvider): any => ({
     ...obj,
   });
@@ -3779,6 +4022,9 @@ export interface DashIsoEncryptionSettings {
 }
 
 export namespace DashIsoEncryptionSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DashIsoEncryptionSettings): any => ({
     ...obj,
   });
@@ -3890,6 +4136,9 @@ export interface DashIsoGroupSettings {
 }
 
 export namespace DashIsoGroupSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DashIsoGroupSettings): any => ({
     ...obj,
   });
@@ -3911,6 +4160,9 @@ export interface FileGroupSettings {
 }
 
 export namespace FileGroupSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FileGroupSettings): any => ({
     ...obj,
   });
@@ -4003,6 +4255,9 @@ export interface HlsEncryptionSettings {
 }
 
 export namespace HlsEncryptionSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HlsEncryptionSettings): any => ({
     ...obj,
   });
@@ -4180,6 +4435,9 @@ export interface HlsGroupSettings {
 }
 
 export namespace HlsGroupSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HlsGroupSettings): any => ({
     ...obj,
   });
@@ -4201,6 +4459,9 @@ export interface MsSmoothAdditionalManifest {
 }
 
 export namespace MsSmoothAdditionalManifest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MsSmoothAdditionalManifest): any => ({
     ...obj,
   });
@@ -4222,6 +4483,9 @@ export interface MsSmoothEncryptionSettings {
 }
 
 export namespace MsSmoothEncryptionSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MsSmoothEncryptionSettings): any => ({
     ...obj,
   });
@@ -4273,6 +4537,9 @@ export interface MsSmoothGroupSettings {
 }
 
 export namespace MsSmoothGroupSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MsSmoothGroupSettings): any => ({
     ...obj,
   });
@@ -4322,6 +4589,9 @@ export interface OutputGroupSettings {
 }
 
 export namespace OutputGroupSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OutputGroupSettings): any => ({
     ...obj,
   });
@@ -4404,6 +4674,9 @@ export interface CmfcSettings {
 }
 
 export namespace CmfcSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CmfcSettings): any => ({
     ...obj,
   });
@@ -4439,6 +4712,9 @@ export interface F4vSettings {
 }
 
 export namespace F4vSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: F4vSettings): any => ({
     ...obj,
   });
@@ -4480,6 +4756,9 @@ export interface DvbNitSettings {
 }
 
 export namespace DvbNitSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DvbNitSettings): any => ({
     ...obj,
   });
@@ -4518,6 +4797,9 @@ export interface DvbSdtSettings {
 }
 
 export namespace DvbSdtSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DvbSdtSettings): any => ({
     ...obj,
   });
@@ -4534,6 +4816,9 @@ export interface DvbTdtSettings {
 }
 
 export namespace DvbTdtSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DvbTdtSettings): any => ({
     ...obj,
   });
@@ -4585,6 +4870,9 @@ export interface M2tsScte35Esam {
 }
 
 export namespace M2tsScte35Esam {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: M2tsScte35Esam): any => ({
     ...obj,
   });
@@ -4800,6 +5088,9 @@ export interface M2tsSettings {
 }
 
 export namespace M2tsSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: M2tsSettings): any => ({
     ...obj,
   });
@@ -4921,6 +5212,9 @@ export interface M3u8Settings {
 }
 
 export namespace M3u8Settings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: M3u8Settings): any => ({
     ...obj,
   });
@@ -4982,6 +5276,9 @@ export interface MovSettings {
 }
 
 export namespace MovSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MovSettings): any => ({
     ...obj,
   });
@@ -5038,6 +5335,9 @@ export interface Mp4Settings {
 }
 
 export namespace Mp4Settings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Mp4Settings): any => ({
     ...obj,
   });
@@ -5099,6 +5399,9 @@ export interface MpdSettings {
 }
 
 export namespace MpdSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MpdSettings): any => ({
     ...obj,
   });
@@ -5131,6 +5434,9 @@ export interface MxfSettings {
 }
 
 export namespace MxfSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MxfSettings): any => ({
     ...obj,
   });
@@ -5187,6 +5493,9 @@ export interface ContainerSettings {
 }
 
 export namespace ContainerSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ContainerSettings): any => ({
     ...obj,
   });
@@ -5255,6 +5564,9 @@ export interface HlsSettings {
 }
 
 export namespace HlsSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HlsSettings): any => ({
     ...obj,
   });
@@ -5271,6 +5583,9 @@ export interface OutputSettings {
 }
 
 export namespace OutputSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OutputSettings): any => ({
     ...obj,
   });
@@ -5323,6 +5638,9 @@ export interface Av1QvbrSettings {
 }
 
 export namespace Av1QvbrSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Av1QvbrSettings): any => ({
     ...obj,
   });
@@ -5403,6 +5721,9 @@ export interface Av1Settings {
 }
 
 export namespace Av1Settings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Av1Settings): any => ({
     ...obj,
   });

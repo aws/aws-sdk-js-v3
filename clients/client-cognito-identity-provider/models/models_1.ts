@@ -42,6 +42,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -50,6 +53,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
@@ -83,6 +89,9 @@ export interface UpdateAuthEventFeedbackRequest {
 }
 
 export namespace UpdateAuthEventFeedbackRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAuthEventFeedbackRequest): any => ({
     ...obj,
     ...(obj.Username && { Username: SENSITIVE_STRING }),
@@ -93,6 +102,9 @@ export namespace UpdateAuthEventFeedbackRequest {
 export interface UpdateAuthEventFeedbackResponse {}
 
 export namespace UpdateAuthEventFeedbackResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAuthEventFeedbackResponse): any => ({
     ...obj,
   });
@@ -119,6 +131,9 @@ export interface UpdateDeviceStatusRequest {
 }
 
 export namespace UpdateDeviceStatusRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDeviceStatusRequest): any => ({
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
@@ -131,6 +146,9 @@ export namespace UpdateDeviceStatusRequest {
 export interface UpdateDeviceStatusResponse {}
 
 export namespace UpdateDeviceStatusResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDeviceStatusResponse): any => ({
     ...obj,
   });
@@ -167,6 +185,9 @@ export interface UpdateGroupRequest {
 }
 
 export namespace UpdateGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGroupRequest): any => ({
     ...obj,
   });
@@ -180,6 +201,9 @@ export interface UpdateGroupResponse {
 }
 
 export namespace UpdateGroupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGroupResponse): any => ({
     ...obj,
   });
@@ -214,6 +238,9 @@ export interface UpdateIdentityProviderRequest {
 }
 
 export namespace UpdateIdentityProviderRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateIdentityProviderRequest): any => ({
     ...obj,
   });
@@ -227,6 +254,9 @@ export interface UpdateIdentityProviderResponse {
 }
 
 export namespace UpdateIdentityProviderResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateIdentityProviderResponse): any => ({
     ...obj,
   });
@@ -255,6 +285,9 @@ export interface UpdateResourceServerRequest {
 }
 
 export namespace UpdateResourceServerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateResourceServerRequest): any => ({
     ...obj,
   });
@@ -268,6 +301,9 @@ export interface UpdateResourceServerResponse {
 }
 
 export namespace UpdateResourceServerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateResourceServerResponse): any => ({
     ...obj,
   });
@@ -326,6 +362,9 @@ export interface UpdateUserAttributesRequest {
 }
 
 export namespace UpdateUserAttributesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateUserAttributesRequest): any => ({
     ...obj,
     ...(obj.UserAttributes && {
@@ -348,6 +387,9 @@ export interface UpdateUserAttributesResponse {
 }
 
 export namespace UpdateUserAttributesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateUserAttributesResponse): any => ({
     ...obj,
   });
@@ -473,6 +515,9 @@ export interface UpdateUserPoolRequest {
 }
 
 export namespace UpdateUserPoolRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateUserPoolRequest): any => ({
     ...obj,
   });
@@ -485,6 +530,9 @@ export namespace UpdateUserPoolRequest {
 export interface UpdateUserPoolResponse {}
 
 export namespace UpdateUserPoolResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateUserPoolResponse): any => ({
     ...obj,
   });
@@ -709,6 +757,9 @@ export interface UpdateUserPoolClientRequest {
 }
 
 export namespace UpdateUserPoolClientRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateUserPoolClientRequest): any => ({
     ...obj,
     ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
@@ -728,6 +779,9 @@ export interface UpdateUserPoolClientResponse {
 }
 
 export namespace UpdateUserPoolClientResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateUserPoolClientResponse): any => ({
     ...obj,
     ...(obj.UserPoolClient && { UserPoolClient: UserPoolClientType.filterSensitiveLog(obj.UserPoolClient) }),
@@ -761,6 +815,9 @@ export interface UpdateUserPoolDomainRequest {
 }
 
 export namespace UpdateUserPoolDomainRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateUserPoolDomainRequest): any => ({
     ...obj,
   });
@@ -778,6 +835,9 @@ export interface UpdateUserPoolDomainResponse {
 }
 
 export namespace UpdateUserPoolDomainResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateUserPoolDomainResponse): any => ({
     ...obj,
   });
@@ -794,6 +854,9 @@ export interface EnableSoftwareTokenMFAException extends __SmithyException, $Met
 }
 
 export namespace EnableSoftwareTokenMFAException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnableSoftwareTokenMFAException): any => ({
     ...obj,
   });
@@ -823,6 +886,9 @@ export interface VerifySoftwareTokenRequest {
 }
 
 export namespace VerifySoftwareTokenRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VerifySoftwareTokenRequest): any => ({
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
@@ -848,6 +914,9 @@ export interface VerifySoftwareTokenResponse {
 }
 
 export namespace VerifySoftwareTokenResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VerifySoftwareTokenResponse): any => ({
     ...obj,
   });
@@ -874,6 +943,9 @@ export interface VerifyUserAttributeRequest {
 }
 
 export namespace VerifyUserAttributeRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VerifyUserAttributeRequest): any => ({
     ...obj,
     ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
@@ -887,6 +959,9 @@ export namespace VerifyUserAttributeRequest {
 export interface VerifyUserAttributeResponse {}
 
 export namespace VerifyUserAttributeResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VerifyUserAttributeResponse): any => ({
     ...obj,
   });

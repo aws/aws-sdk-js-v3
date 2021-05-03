@@ -41,6 +41,9 @@ export interface PutResourceConfigRequest {
 }
 
 export namespace PutResourceConfigRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutResourceConfigRequest): any => ({
     ...obj,
   });
@@ -59,6 +62,9 @@ export interface PutRetentionConfigurationRequest {
 }
 
 export namespace PutRetentionConfigurationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRetentionConfigurationRequest): any => ({
     ...obj,
   });
@@ -72,6 +78,9 @@ export interface PutRetentionConfigurationResponse {
 }
 
 export namespace PutRetentionConfigurationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRetentionConfigurationResponse): any => ({
     ...obj,
   });
@@ -95,6 +104,9 @@ export interface PutStoredQueryRequest {
 }
 
 export namespace PutStoredQueryRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutStoredQueryRequest): any => ({
     ...obj,
   });
@@ -109,6 +121,9 @@ export interface PutStoredQueryResponse {
 }
 
 export namespace PutStoredQueryResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutStoredQueryResponse): any => ({
     ...obj,
   });
@@ -124,6 +139,9 @@ export interface ResourceConcurrentModificationException extends __SmithyExcepti
 }
 
 export namespace ResourceConcurrentModificationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceConcurrentModificationException): any => ({
     ...obj,
   });
@@ -142,6 +160,9 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
 }
 
 export namespace TooManyTagsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj,
   });
@@ -158,6 +179,9 @@ export interface QueryInfo {
 }
 
 export namespace QueryInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryInfo): any => ({
     ...obj,
   });
@@ -191,6 +215,9 @@ export interface SelectAggregateResourceConfigRequest {
 }
 
 export namespace SelectAggregateResourceConfigRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SelectAggregateResourceConfigRequest): any => ({
     ...obj,
   });
@@ -214,6 +241,9 @@ export interface SelectAggregateResourceConfigResponse {
 }
 
 export namespace SelectAggregateResourceConfigResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SelectAggregateResourceConfigResponse): any => ({
     ...obj,
   });
@@ -237,6 +267,9 @@ export interface SelectResourceConfigRequest {
 }
 
 export namespace SelectResourceConfigRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SelectResourceConfigRequest): any => ({
     ...obj,
   });
@@ -260,6 +293,9 @@ export interface SelectResourceConfigResponse {
 }
 
 export namespace SelectResourceConfigResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SelectResourceConfigResponse): any => ({
     ...obj,
   });
@@ -277,6 +313,9 @@ export interface StartConfigRulesEvaluationRequest {
 }
 
 export namespace StartConfigRulesEvaluationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartConfigRulesEvaluationRequest): any => ({
     ...obj,
   });
@@ -289,6 +328,9 @@ export namespace StartConfigRulesEvaluationRequest {
 export interface StartConfigRulesEvaluationResponse {}
 
 export namespace StartConfigRulesEvaluationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartConfigRulesEvaluationResponse): any => ({
     ...obj,
   });
@@ -307,6 +349,9 @@ export interface StartConfigurationRecorderRequest {
 }
 
 export namespace StartConfigurationRecorderRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartConfigurationRecorderRequest): any => ({
     ...obj,
   });
@@ -325,6 +370,9 @@ export interface StartRemediationExecutionRequest {
 }
 
 export namespace StartRemediationExecutionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartRemediationExecutionRequest): any => ({
     ...obj,
   });
@@ -343,6 +391,9 @@ export interface StartRemediationExecutionResponse {
 }
 
 export namespace StartRemediationExecutionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartRemediationExecutionResponse): any => ({
     ...obj,
   });
@@ -359,6 +410,9 @@ export interface StopConfigurationRecorderRequest {
 }
 
 export namespace StopConfigurationRecorderRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopConfigurationRecorderRequest): any => ({
     ...obj,
   });
@@ -377,6 +431,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -395,6 +452,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });

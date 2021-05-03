@@ -11,6 +11,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -28,6 +31,9 @@ export interface EventFilter {
 }
 
 export namespace EventFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventFilter): any => ({
     ...obj,
   });
@@ -67,6 +73,9 @@ export interface CreateEventIntegrationRequest {
 }
 
 export namespace CreateEventIntegrationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateEventIntegrationRequest): any => ({
     ...obj,
   });
@@ -80,6 +89,9 @@ export interface CreateEventIntegrationResponse {
 }
 
 export namespace CreateEventIntegrationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateEventIntegrationResponse): any => ({
     ...obj,
   });
@@ -95,6 +107,9 @@ export interface DuplicateResourceException extends __SmithyException, $Metadata
 }
 
 export namespace DuplicateResourceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicateResourceException): any => ({
     ...obj,
   });
@@ -110,6 +125,9 @@ export interface InternalServiceError extends __SmithyException, $MetadataBearer
 }
 
 export namespace InternalServiceError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceError): any => ({
     ...obj,
   });
@@ -125,6 +143,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -140,6 +161,9 @@ export interface ResourceQuotaExceededException extends __SmithyException, $Meta
 }
 
 export namespace ResourceQuotaExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceQuotaExceededException): any => ({
     ...obj,
   });
@@ -155,6 +179,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -168,6 +195,9 @@ export interface DeleteEventIntegrationRequest {
 }
 
 export namespace DeleteEventIntegrationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteEventIntegrationRequest): any => ({
     ...obj,
   });
@@ -176,6 +206,9 @@ export namespace DeleteEventIntegrationRequest {
 export interface DeleteEventIntegrationResponse {}
 
 export namespace DeleteEventIntegrationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteEventIntegrationResponse): any => ({
     ...obj,
   });
@@ -191,6 +224,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -204,6 +240,9 @@ export interface GetEventIntegrationRequest {
 }
 
 export namespace GetEventIntegrationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEventIntegrationRequest): any => ({
     ...obj,
   });
@@ -242,6 +281,9 @@ export interface GetEventIntegrationResponse {
 }
 
 export namespace GetEventIntegrationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEventIntegrationResponse): any => ({
     ...obj,
   });
@@ -266,6 +308,9 @@ export interface ListEventIntegrationAssociationsRequest {
 }
 
 export namespace ListEventIntegrationAssociationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEventIntegrationAssociationsRequest): any => ({
     ...obj,
   });
@@ -308,6 +353,9 @@ export interface EventIntegrationAssociation {
 }
 
 export namespace EventIntegrationAssociation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventIntegrationAssociation): any => ({
     ...obj,
   });
@@ -326,6 +374,9 @@ export interface ListEventIntegrationAssociationsResponse {
 }
 
 export namespace ListEventIntegrationAssociationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEventIntegrationAssociationsResponse): any => ({
     ...obj,
   });
@@ -345,6 +396,9 @@ export interface ListEventIntegrationsRequest {
 }
 
 export namespace ListEventIntegrationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEventIntegrationsRequest): any => ({
     ...obj,
   });
@@ -387,6 +441,9 @@ export interface EventIntegration {
 }
 
 export namespace EventIntegration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventIntegration): any => ({
     ...obj,
   });
@@ -405,6 +462,9 @@ export interface ListEventIntegrationsResponse {
 }
 
 export namespace ListEventIntegrationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEventIntegrationsResponse): any => ({
     ...obj,
   });
@@ -418,6 +478,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -431,6 +494,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -449,6 +515,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -457,6 +526,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -475,6 +547,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -483,6 +558,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
@@ -501,6 +579,9 @@ export interface UpdateEventIntegrationRequest {
 }
 
 export namespace UpdateEventIntegrationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateEventIntegrationRequest): any => ({
     ...obj,
   });
@@ -509,6 +590,9 @@ export namespace UpdateEventIntegrationRequest {
 export interface UpdateEventIntegrationResponse {}
 
 export namespace UpdateEventIntegrationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateEventIntegrationResponse): any => ({
     ...obj,
   });

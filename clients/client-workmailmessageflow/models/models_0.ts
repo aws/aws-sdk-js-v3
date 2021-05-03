@@ -10,6 +10,9 @@ export interface GetRawMessageContentRequest {
 }
 
 export namespace GetRawMessageContentRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRawMessageContentRequest): any => ({
     ...obj,
   });
@@ -23,6 +26,9 @@ export interface GetRawMessageContentResponse {
 }
 
 export namespace GetRawMessageContentResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRawMessageContentResponse): any => ({
     ...obj,
   });
@@ -38,6 +44,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -69,6 +78,9 @@ export interface InvalidContentLocation extends __SmithyException, $MetadataBear
 }
 
 export namespace InvalidContentLocation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidContentLocation): any => ({
     ...obj,
   });
@@ -84,6 +96,9 @@ export interface MessageFrozen extends __SmithyException, $MetadataBearer {
 }
 
 export namespace MessageFrozen {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MessageFrozen): any => ({
     ...obj,
   });
@@ -100,6 +115,9 @@ export interface MessageRejected extends __SmithyException, $MetadataBearer {
 }
 
 export namespace MessageRejected {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MessageRejected): any => ({
     ...obj,
   });
@@ -132,6 +150,9 @@ export interface S3Reference {
 }
 
 export namespace S3Reference {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3Reference): any => ({
     ...obj,
   });
@@ -174,6 +195,9 @@ export interface RawMessageContent {
 }
 
 export namespace RawMessageContent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RawMessageContent): any => ({
     ...obj,
   });
@@ -192,6 +216,9 @@ export interface PutRawMessageContentRequest {
 }
 
 export namespace PutRawMessageContentRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRawMessageContentRequest): any => ({
     ...obj,
   });
@@ -200,6 +227,9 @@ export namespace PutRawMessageContentRequest {
 export interface PutRawMessageContentResponse {}
 
 export namespace PutRawMessageContentResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRawMessageContentResponse): any => ({
     ...obj,
   });

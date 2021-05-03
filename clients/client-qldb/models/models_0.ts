@@ -14,6 +14,9 @@ export interface CancelJournalKinesisStreamRequest {
 }
 
 export namespace CancelJournalKinesisStreamRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelJournalKinesisStreamRequest): any => ({
     ...obj,
   });
@@ -27,6 +30,9 @@ export interface CancelJournalKinesisStreamResponse {
 }
 
 export namespace CancelJournalKinesisStreamResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelJournalKinesisStreamResponse): any => ({
     ...obj,
   });
@@ -46,6 +52,9 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidParameterException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
@@ -70,6 +79,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -94,6 +106,9 @@ export interface ResourcePreconditionNotMetException extends __SmithyException, 
 }
 
 export namespace ResourcePreconditionNotMetException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourcePreconditionNotMetException): any => ({
     ...obj,
   });
@@ -135,6 +150,9 @@ export interface CreateLedgerRequest {
 }
 
 export namespace CreateLedgerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateLedgerRequest): any => ({
     ...obj,
   });
@@ -181,6 +199,9 @@ export interface CreateLedgerResponse {
 }
 
 export namespace CreateLedgerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateLedgerResponse): any => ({
     ...obj,
   });
@@ -200,6 +221,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -224,6 +248,9 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
 }
 
 export namespace ResourceAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
@@ -248,6 +275,9 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
 }
 
 export namespace ResourceInUseException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
@@ -261,6 +291,9 @@ export interface DeleteLedgerRequest {
 }
 
 export namespace DeleteLedgerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteLedgerRequest): any => ({
     ...obj,
   });
@@ -279,6 +312,9 @@ export interface DescribeJournalKinesisStreamRequest {
 }
 
 export namespace DescribeJournalKinesisStreamRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeJournalKinesisStreamRequest): any => ({
     ...obj,
   });
@@ -308,6 +344,9 @@ export interface KinesisConfiguration {
 }
 
 export namespace KinesisConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KinesisConfiguration): any => ({
     ...obj,
   });
@@ -391,6 +430,9 @@ export interface JournalKinesisStreamDescription {
 }
 
 export namespace JournalKinesisStreamDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: JournalKinesisStreamDescription): any => ({
     ...obj,
   });
@@ -405,6 +447,9 @@ export interface DescribeJournalKinesisStreamResponse {
 }
 
 export namespace DescribeJournalKinesisStreamResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeJournalKinesisStreamResponse): any => ({
     ...obj,
   });
@@ -423,6 +468,9 @@ export interface DescribeJournalS3ExportRequest {
 }
 
 export namespace DescribeJournalS3ExportRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeJournalS3ExportRequest): any => ({
     ...obj,
   });
@@ -460,6 +508,9 @@ export interface S3EncryptionConfiguration {
 }
 
 export namespace S3EncryptionConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3EncryptionConfiguration): any => ({
     ...obj,
   });
@@ -513,6 +564,9 @@ export interface S3ExportConfiguration {
 }
 
 export namespace S3ExportConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3ExportConfiguration): any => ({
     ...obj,
   });
@@ -585,6 +639,9 @@ export interface JournalS3ExportDescription {
 }
 
 export namespace JournalS3ExportDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: JournalS3ExportDescription): any => ({
     ...obj,
   });
@@ -599,6 +656,9 @@ export interface DescribeJournalS3ExportResponse {
 }
 
 export namespace DescribeJournalS3ExportResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeJournalS3ExportResponse): any => ({
     ...obj,
   });
@@ -612,6 +672,9 @@ export interface DescribeLedgerRequest {
 }
 
 export namespace DescribeLedgerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeLedgerRequest): any => ({
     ...obj,
   });
@@ -651,6 +714,9 @@ export interface DescribeLedgerResponse {
 }
 
 export namespace DescribeLedgerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeLedgerResponse): any => ({
     ...obj,
   });
@@ -711,6 +777,9 @@ export interface ExportJournalToS3Request {
 }
 
 export namespace ExportJournalToS3Request {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportJournalToS3Request): any => ({
     ...obj,
   });
@@ -726,6 +795,9 @@ export interface ExportJournalToS3Response {
 }
 
 export namespace ExportJournalToS3Response {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExportJournalToS3Response): any => ({
     ...obj,
   });
@@ -742,6 +814,9 @@ export interface ValueHolder {
 }
 
 export namespace ValueHolder {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValueHolder): any => ({
     ...obj,
     ...(obj.IonText && { IonText: SENSITIVE_STRING }),
@@ -773,6 +848,9 @@ export interface GetBlockRequest {
 }
 
 export namespace GetBlockRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBlockRequest): any => ({
     ...obj,
     ...(obj.BlockAddress && { BlockAddress: SENSITIVE_STRING }),
@@ -795,6 +873,9 @@ export interface GetBlockResponse {
 }
 
 export namespace GetBlockResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBlockResponse): any => ({
     ...obj,
     ...(obj.Block && { Block: SENSITIVE_STRING }),
@@ -810,6 +891,9 @@ export interface GetDigestRequest {
 }
 
 export namespace GetDigestRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDigestRequest): any => ({
     ...obj,
   });
@@ -831,6 +915,9 @@ export interface GetDigestResponse {
 }
 
 export namespace GetDigestResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDigestResponse): any => ({
     ...obj,
     ...(obj.DigestTipAddress && { DigestTipAddress: SENSITIVE_STRING }),
@@ -867,6 +954,9 @@ export interface GetRevisionRequest {
 }
 
 export namespace GetRevisionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRevisionRequest): any => ({
     ...obj,
     ...(obj.BlockAddress && { BlockAddress: SENSITIVE_STRING }),
@@ -889,6 +979,9 @@ export interface GetRevisionResponse {
 }
 
 export namespace GetRevisionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRevisionResponse): any => ({
     ...obj,
     ...(obj.Proof && { Proof: SENSITIVE_STRING }),
@@ -919,6 +1012,9 @@ export interface ListJournalKinesisStreamsForLedgerRequest {
 }
 
 export namespace ListJournalKinesisStreamsForLedgerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListJournalKinesisStreamsForLedgerRequest): any => ({
     ...obj,
   });
@@ -949,6 +1045,9 @@ export interface ListJournalKinesisStreamsForLedgerResponse {
 }
 
 export namespace ListJournalKinesisStreamsForLedgerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListJournalKinesisStreamsForLedgerResponse): any => ({
     ...obj,
   });
@@ -971,6 +1070,9 @@ export interface ListJournalS3ExportsRequest {
 }
 
 export namespace ListJournalS3ExportsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListJournalS3ExportsRequest): any => ({
     ...obj,
   });
@@ -1001,6 +1103,9 @@ export interface ListJournalS3ExportsResponse {
 }
 
 export namespace ListJournalS3ExportsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListJournalS3ExportsResponse): any => ({
     ...obj,
   });
@@ -1029,6 +1134,9 @@ export interface ListJournalS3ExportsForLedgerRequest {
 }
 
 export namespace ListJournalS3ExportsForLedgerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListJournalS3ExportsForLedgerRequest): any => ({
     ...obj,
   });
@@ -1059,6 +1167,9 @@ export interface ListJournalS3ExportsForLedgerResponse {
 }
 
 export namespace ListJournalS3ExportsForLedgerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListJournalS3ExportsForLedgerResponse): any => ({
     ...obj,
   });
@@ -1080,6 +1191,9 @@ export interface ListLedgersRequest {
 }
 
 export namespace ListLedgersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListLedgersRequest): any => ({
     ...obj,
   });
@@ -1107,6 +1221,9 @@ export interface LedgerSummary {
 }
 
 export namespace LedgerSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LedgerSummary): any => ({
     ...obj,
   });
@@ -1137,6 +1254,9 @@ export interface ListLedgersResponse {
 }
 
 export namespace ListLedgersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListLedgersResponse): any => ({
     ...obj,
   });
@@ -1153,6 +1273,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -1166,6 +1289,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -1229,6 +1355,9 @@ export interface StreamJournalToKinesisRequest {
 }
 
 export namespace StreamJournalToKinesisRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StreamJournalToKinesisRequest): any => ({
     ...obj,
   });
@@ -1242,6 +1371,9 @@ export interface StreamJournalToKinesisResponse {
 }
 
 export namespace StreamJournalToKinesisResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StreamJournalToKinesisResponse): any => ({
     ...obj,
   });
@@ -1265,6 +1397,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -1273,6 +1408,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -1295,6 +1433,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -1303,6 +1444,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
@@ -1326,6 +1470,9 @@ export interface UpdateLedgerRequest {
 }
 
 export namespace UpdateLedgerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateLedgerRequest): any => ({
     ...obj,
   });
@@ -1365,6 +1512,9 @@ export interface UpdateLedgerResponse {
 }
 
 export namespace UpdateLedgerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateLedgerResponse): any => ({
     ...obj,
   });

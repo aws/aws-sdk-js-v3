@@ -23,6 +23,9 @@ export interface DescribeStreamInput {
 }
 
 export namespace DescribeStreamInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStreamInput): any => ({
     ...obj,
   });
@@ -76,6 +79,9 @@ export interface KeySchemaElement {
 }
 
 export namespace KeySchemaElement {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KeySchemaElement): any => ({
     ...obj,
   });
@@ -97,6 +103,9 @@ export interface SequenceNumberRange {
 }
 
 export namespace SequenceNumberRange {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SequenceNumberRange): any => ({
     ...obj,
   });
@@ -123,6 +132,9 @@ export interface Shard {
 }
 
 export namespace Shard {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Shard): any => ({
     ...obj,
   });
@@ -239,6 +251,9 @@ export interface StreamDescription {
 }
 
 export namespace StreamDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StreamDescription): any => ({
     ...obj,
   });
@@ -255,6 +270,9 @@ export interface DescribeStreamOutput {
 }
 
 export namespace DescribeStreamOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStreamOutput): any => ({
     ...obj,
   });
@@ -273,6 +291,9 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
 }
 
 export namespace InternalServerError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
@@ -293,6 +314,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -313,6 +337,9 @@ export interface ExpiredIteratorException extends __SmithyException, $MetadataBe
 }
 
 export namespace ExpiredIteratorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExpiredIteratorException): any => ({
     ...obj,
   });
@@ -334,6 +361,9 @@ export interface GetRecordsInput {
 }
 
 export namespace GetRecordsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRecordsInput): any => ({
     ...obj,
   });
@@ -358,6 +388,9 @@ export interface Identity {
 }
 
 export namespace Identity {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Identity): any => ({
     ...obj,
   });
@@ -387,6 +420,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -416,6 +452,9 @@ export interface TrimmedDataAccessException extends __SmithyException, $Metadata
 }
 
 export namespace TrimmedDataAccessException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TrimmedDataAccessException): any => ({
     ...obj,
   });
@@ -473,6 +512,9 @@ export interface GetShardIteratorInput {
 }
 
 export namespace GetShardIteratorInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetShardIteratorInput): any => ({
     ...obj,
   });
@@ -489,6 +531,9 @@ export interface GetShardIteratorOutput {
 }
 
 export namespace GetShardIteratorOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetShardIteratorOutput): any => ({
     ...obj,
   });
@@ -517,6 +562,9 @@ export interface ListStreamsInput {
 }
 
 export namespace ListStreamsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStreamsInput): any => ({
     ...obj,
   });
@@ -558,6 +606,9 @@ export interface _Stream {
 }
 
 export namespace _Stream {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: _Stream): any => ({
     ...obj,
   });
@@ -584,6 +635,9 @@ export interface ListStreamsOutput {
 }
 
 export namespace ListStreamsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStreamsOutput): any => ({
     ...obj,
   });
@@ -853,6 +907,9 @@ export namespace AttributeValue {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttributeValue): any => {
     if (obj.S !== undefined) return { S: obj.S };
     if (obj.N !== undefined) return { N: obj.N };
@@ -936,6 +993,9 @@ export interface StreamRecord {
 }
 
 export namespace StreamRecord {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StreamRecord): any => ({
     ...obj,
     ...(obj.Keys && {
@@ -1036,6 +1096,9 @@ export interface _Record {
 }
 
 export namespace _Record {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: _Record): any => ({
     ...obj,
     ...(obj.dynamodb && { dynamodb: StreamRecord.filterSensitiveLog(obj.dynamodb) }),
@@ -1060,6 +1123,9 @@ export interface GetRecordsOutput {
 }
 
 export namespace GetRecordsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRecordsOutput): any => ({
     ...obj,
     ...(obj.Records && { Records: obj.Records.map((item) => _Record.filterSensitiveLog(item)) }),

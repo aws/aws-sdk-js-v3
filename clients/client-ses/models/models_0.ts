@@ -12,6 +12,9 @@ export interface AccountSendingPausedException extends __SmithyException, $Metad
 }
 
 export namespace AccountSendingPausedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccountSendingPausedException): any => ({
     ...obj,
   });
@@ -38,6 +41,9 @@ export interface AddHeaderAction {
 }
 
 export namespace AddHeaderAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddHeaderAction): any => ({
     ...obj,
   });
@@ -59,6 +65,9 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
 }
 
 export namespace AlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AlreadyExistsException): any => ({
     ...obj,
   });
@@ -88,6 +97,9 @@ export interface Content {
 }
 
 export namespace Content {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Content): any => ({
     ...obj,
   });
@@ -114,6 +126,9 @@ export interface Body {
 }
 
 export namespace Body {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Body): any => ({
     ...obj,
   });
@@ -159,6 +174,9 @@ export interface BounceAction {
 }
 
 export namespace BounceAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BounceAction): any => ({
     ...obj,
   });
@@ -202,6 +220,9 @@ export interface ExtensionField {
 }
 
 export namespace ExtensionField {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExtensionField): any => ({
     ...obj,
   });
@@ -266,6 +287,9 @@ export interface RecipientDsnFields {
 }
 
 export namespace RecipientDsnFields {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecipientDsnFields): any => ({
     ...obj,
   });
@@ -307,6 +331,9 @@ export interface BouncedRecipientInfo {
 }
 
 export namespace BouncedRecipientInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BouncedRecipientInfo): any => ({
     ...obj,
   });
@@ -342,6 +369,9 @@ export interface Destination {
 }
 
 export namespace Destination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Destination): any => ({
     ...obj,
   });
@@ -384,6 +414,9 @@ export interface MessageTag {
 }
 
 export namespace MessageTag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MessageTag): any => ({
     ...obj,
   });
@@ -424,6 +457,9 @@ export interface BulkEmailDestination {
 }
 
 export namespace BulkEmailDestination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BulkEmailDestination): any => ({
     ...obj,
   });
@@ -547,6 +583,9 @@ export interface BulkEmailDestinationStatus {
 }
 
 export namespace BulkEmailDestinationStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BulkEmailDestinationStatus): any => ({
     ...obj,
   });
@@ -568,6 +607,9 @@ export interface CannotDeleteException extends __SmithyException, $MetadataBeare
 }
 
 export namespace CannotDeleteException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CannotDeleteException): any => ({
     ...obj,
   });
@@ -602,6 +644,9 @@ export interface CloneReceiptRuleSetRequest {
 }
 
 export namespace CloneReceiptRuleSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloneReceiptRuleSetRequest): any => ({
     ...obj,
   });
@@ -613,6 +658,9 @@ export namespace CloneReceiptRuleSetRequest {
 export interface CloneReceiptRuleSetResponse {}
 
 export namespace CloneReceiptRuleSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloneReceiptRuleSetResponse): any => ({
     ...obj,
   });
@@ -630,6 +678,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -650,6 +701,9 @@ export interface RuleSetDoesNotExistException extends __SmithyException, $Metada
 }
 
 export namespace RuleSetDoesNotExistException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RuleSetDoesNotExistException): any => ({
     ...obj,
   });
@@ -709,6 +763,9 @@ export interface CloudWatchDimensionConfiguration {
 }
 
 export namespace CloudWatchDimensionConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudWatchDimensionConfiguration): any => ({
     ...obj,
   });
@@ -731,6 +788,9 @@ export interface CloudWatchDestination {
 }
 
 export namespace CloudWatchDestination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloudWatchDestination): any => ({
     ...obj,
   });
@@ -759,6 +819,9 @@ export interface ConfigurationSet {
 }
 
 export namespace ConfigurationSet {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConfigurationSet): any => ({
     ...obj,
   });
@@ -780,6 +843,9 @@ export interface ConfigurationSetAlreadyExistsException extends __SmithyExceptio
 }
 
 export namespace ConfigurationSetAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConfigurationSetAlreadyExistsException): any => ({
     ...obj,
   });
@@ -807,6 +873,9 @@ export interface ConfigurationSetDoesNotExistException extends __SmithyException
 }
 
 export namespace ConfigurationSetDoesNotExistException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConfigurationSetDoesNotExistException): any => ({
     ...obj,
   });
@@ -828,6 +897,9 @@ export interface ConfigurationSetSendingPausedException extends __SmithyExceptio
 }
 
 export namespace ConfigurationSetSendingPausedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConfigurationSetSendingPausedException): any => ({
     ...obj,
   });
@@ -847,6 +919,9 @@ export interface CreateConfigurationSetRequest {
 }
 
 export namespace CreateConfigurationSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateConfigurationSetRequest): any => ({
     ...obj,
   });
@@ -858,6 +933,9 @@ export namespace CreateConfigurationSetRequest {
 export interface CreateConfigurationSetResponse {}
 
 export namespace CreateConfigurationSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateConfigurationSetResponse): any => ({
     ...obj,
   });
@@ -874,6 +952,9 @@ export interface InvalidConfigurationSetException extends __SmithyException, $Me
 }
 
 export namespace InvalidConfigurationSetException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidConfigurationSetException): any => ({
     ...obj,
   });
@@ -901,6 +982,9 @@ export interface KinesisFirehoseDestination {
 }
 
 export namespace KinesisFirehoseDestination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KinesisFirehoseDestination): any => ({
     ...obj,
   });
@@ -934,6 +1018,9 @@ export interface SNSDestination {
 }
 
 export namespace SNSDestination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SNSDestination): any => ({
     ...obj,
   });
@@ -999,6 +1086,9 @@ export interface EventDestination {
 }
 
 export namespace EventDestination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventDestination): any => ({
     ...obj,
   });
@@ -1026,6 +1116,9 @@ export interface CreateConfigurationSetEventDestinationRequest {
 }
 
 export namespace CreateConfigurationSetEventDestinationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationRequest): any => ({
     ...obj,
   });
@@ -1037,6 +1130,9 @@ export namespace CreateConfigurationSetEventDestinationRequest {
 export interface CreateConfigurationSetEventDestinationResponse {}
 
 export namespace CreateConfigurationSetEventDestinationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateConfigurationSetEventDestinationResponse): any => ({
     ...obj,
   });
@@ -1063,6 +1159,9 @@ export interface EventDestinationAlreadyExistsException extends __SmithyExceptio
 }
 
 export namespace EventDestinationAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventDestinationAlreadyExistsException): any => ({
     ...obj,
   });
@@ -1089,6 +1188,9 @@ export interface InvalidCloudWatchDestinationException extends __SmithyException
 }
 
 export namespace InvalidCloudWatchDestinationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidCloudWatchDestinationException): any => ({
     ...obj,
   });
@@ -1115,6 +1217,9 @@ export interface InvalidFirehoseDestinationException extends __SmithyException, 
 }
 
 export namespace InvalidFirehoseDestinationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidFirehoseDestinationException): any => ({
     ...obj,
   });
@@ -1141,6 +1246,9 @@ export interface InvalidSNSDestinationException extends __SmithyException, $Meta
 }
 
 export namespace InvalidSNSDestinationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidSNSDestinationException): any => ({
     ...obj,
   });
@@ -1162,6 +1270,9 @@ export interface TrackingOptions {
 }
 
 export namespace TrackingOptions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TrackingOptions): any => ({
     ...obj,
   });
@@ -1189,6 +1300,9 @@ export interface CreateConfigurationSetTrackingOptionsRequest {
 }
 
 export namespace CreateConfigurationSetTrackingOptionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateConfigurationSetTrackingOptionsRequest): any => ({
     ...obj,
   });
@@ -1200,6 +1314,9 @@ export namespace CreateConfigurationSetTrackingOptionsRequest {
 export interface CreateConfigurationSetTrackingOptionsResponse {}
 
 export namespace CreateConfigurationSetTrackingOptionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateConfigurationSetTrackingOptionsResponse): any => ({
     ...obj,
   });
@@ -1225,6 +1342,9 @@ export interface InvalidTrackingOptionsException extends __SmithyException, $Met
 }
 
 export namespace InvalidTrackingOptionsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidTrackingOptionsException): any => ({
     ...obj,
   });
@@ -1247,6 +1367,9 @@ export interface TrackingOptionsAlreadyExistsException extends __SmithyException
 }
 
 export namespace TrackingOptionsAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TrackingOptionsAlreadyExistsException): any => ({
     ...obj,
   });
@@ -1293,6 +1416,9 @@ export interface CreateCustomVerificationEmailTemplateRequest {
 }
 
 export namespace CreateCustomVerificationEmailTemplateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCustomVerificationEmailTemplateRequest): any => ({
     ...obj,
   });
@@ -1308,6 +1434,9 @@ export interface CustomVerificationEmailInvalidContentException extends __Smithy
 }
 
 export namespace CustomVerificationEmailInvalidContentException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomVerificationEmailInvalidContentException): any => ({
     ...obj,
   });
@@ -1330,6 +1459,9 @@ export interface CustomVerificationEmailTemplateAlreadyExistsException extends _
 }
 
 export namespace CustomVerificationEmailTemplateAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomVerificationEmailTemplateAlreadyExistsException): any => ({
     ...obj,
   });
@@ -1352,6 +1484,9 @@ export interface FromEmailAddressNotVerifiedException extends __SmithyException,
 }
 
 export namespace FromEmailAddressNotVerifiedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FromEmailAddressNotVerifiedException): any => ({
     ...obj,
   });
@@ -1384,6 +1519,9 @@ export interface ReceiptIpFilter {
 }
 
 export namespace ReceiptIpFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReceiptIpFilter): any => ({
     ...obj,
   });
@@ -1420,6 +1558,9 @@ export interface ReceiptFilter {
 }
 
 export namespace ReceiptFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReceiptFilter): any => ({
     ...obj,
   });
@@ -1438,6 +1579,9 @@ export interface CreateReceiptFilterRequest {
 }
 
 export namespace CreateReceiptFilterRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateReceiptFilterRequest): any => ({
     ...obj,
   });
@@ -1449,6 +1593,9 @@ export namespace CreateReceiptFilterRequest {
 export interface CreateReceiptFilterResponse {}
 
 export namespace CreateReceiptFilterResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateReceiptFilterResponse): any => ({
     ...obj,
   });
@@ -1499,6 +1646,9 @@ export interface LambdaAction {
 }
 
 export namespace LambdaAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LambdaAction): any => ({
     ...obj,
   });
@@ -1575,6 +1725,9 @@ export interface S3Action {
 }
 
 export namespace S3Action {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3Action): any => ({
     ...obj,
   });
@@ -1622,6 +1775,9 @@ export interface SNSAction {
 }
 
 export namespace SNSAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SNSAction): any => ({
     ...obj,
   });
@@ -1653,6 +1809,9 @@ export interface StopAction {
 }
 
 export namespace StopAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopAction): any => ({
     ...obj,
   });
@@ -1686,6 +1845,9 @@ export interface WorkmailAction {
 }
 
 export namespace WorkmailAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: WorkmailAction): any => ({
     ...obj,
   });
@@ -1740,6 +1902,9 @@ export interface ReceiptAction {
 }
 
 export namespace ReceiptAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReceiptAction): any => ({
     ...obj,
   });
@@ -1812,6 +1977,9 @@ export interface ReceiptRule {
 }
 
 export namespace ReceiptRule {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReceiptRule): any => ({
     ...obj,
   });
@@ -1843,6 +2011,9 @@ export interface CreateReceiptRuleRequest {
 }
 
 export namespace CreateReceiptRuleRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateReceiptRuleRequest): any => ({
     ...obj,
   });
@@ -1854,6 +2025,9 @@ export namespace CreateReceiptRuleRequest {
 export interface CreateReceiptRuleResponse {}
 
 export namespace CreateReceiptRuleResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateReceiptRuleResponse): any => ({
     ...obj,
   });
@@ -1877,6 +2051,9 @@ export interface InvalidLambdaFunctionException extends __SmithyException, $Meta
 }
 
 export namespace InvalidLambdaFunctionException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidLambdaFunctionException): any => ({
     ...obj,
   });
@@ -1900,6 +2077,9 @@ export interface InvalidS3ConfigurationException extends __SmithyException, $Met
 }
 
 export namespace InvalidS3ConfigurationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidS3ConfigurationException): any => ({
     ...obj,
   });
@@ -1923,6 +2103,9 @@ export interface InvalidSnsTopicException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidSnsTopicException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidSnsTopicException): any => ({
     ...obj,
   });
@@ -1943,6 +2126,9 @@ export interface RuleDoesNotExistException extends __SmithyException, $MetadataB
 }
 
 export namespace RuleDoesNotExistException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RuleDoesNotExistException): any => ({
     ...obj,
   });
@@ -1973,6 +2159,9 @@ export interface CreateReceiptRuleSetRequest {
 }
 
 export namespace CreateReceiptRuleSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateReceiptRuleSetRequest): any => ({
     ...obj,
   });
@@ -1984,6 +2173,9 @@ export namespace CreateReceiptRuleSetRequest {
 export interface CreateReceiptRuleSetResponse {}
 
 export namespace CreateReceiptRuleSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateReceiptRuleSetResponse): any => ({
     ...obj,
   });
@@ -2019,6 +2211,9 @@ export interface Template {
 }
 
 export namespace Template {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Template): any => ({
     ...obj,
   });
@@ -2037,6 +2232,9 @@ export interface CreateTemplateRequest {
 }
 
 export namespace CreateTemplateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTemplateRequest): any => ({
     ...obj,
   });
@@ -2045,6 +2243,9 @@ export namespace CreateTemplateRequest {
 export interface CreateTemplateResponse {}
 
 export namespace CreateTemplateResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTemplateResponse): any => ({
     ...obj,
   });
@@ -2062,6 +2263,9 @@ export interface InvalidTemplateException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidTemplateException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidTemplateException): any => ({
     ...obj,
   });
@@ -2107,6 +2311,9 @@ export interface CustomVerificationEmailTemplate {
 }
 
 export namespace CustomVerificationEmailTemplate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomVerificationEmailTemplate): any => ({
     ...obj,
   });
@@ -2128,6 +2335,9 @@ export interface CustomVerificationEmailTemplateDoesNotExistException extends __
 }
 
 export namespace CustomVerificationEmailTemplateDoesNotExistException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CustomVerificationEmailTemplateDoesNotExistException): any => ({
     ...obj,
   });
@@ -2147,6 +2357,9 @@ export interface DeleteConfigurationSetRequest {
 }
 
 export namespace DeleteConfigurationSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteConfigurationSetRequest): any => ({
     ...obj,
   });
@@ -2158,6 +2371,9 @@ export namespace DeleteConfigurationSetRequest {
 export interface DeleteConfigurationSetResponse {}
 
 export namespace DeleteConfigurationSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteConfigurationSetResponse): any => ({
     ...obj,
   });
@@ -2183,6 +2399,9 @@ export interface DeleteConfigurationSetEventDestinationRequest {
 }
 
 export namespace DeleteConfigurationSetEventDestinationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationRequest): any => ({
     ...obj,
   });
@@ -2194,6 +2413,9 @@ export namespace DeleteConfigurationSetEventDestinationRequest {
 export interface DeleteConfigurationSetEventDestinationResponse {}
 
 export namespace DeleteConfigurationSetEventDestinationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteConfigurationSetEventDestinationResponse): any => ({
     ...obj,
   });
@@ -2219,6 +2441,9 @@ export interface EventDestinationDoesNotExistException extends __SmithyException
 }
 
 export namespace EventDestinationDoesNotExistException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventDestinationDoesNotExistException): any => ({
     ...obj,
   });
@@ -2237,6 +2462,9 @@ export interface DeleteConfigurationSetTrackingOptionsRequest {
 }
 
 export namespace DeleteConfigurationSetTrackingOptionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteConfigurationSetTrackingOptionsRequest): any => ({
     ...obj,
   });
@@ -2248,6 +2476,9 @@ export namespace DeleteConfigurationSetTrackingOptionsRequest {
 export interface DeleteConfigurationSetTrackingOptionsResponse {}
 
 export namespace DeleteConfigurationSetTrackingOptionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteConfigurationSetTrackingOptionsResponse): any => ({
     ...obj,
   });
@@ -2269,6 +2500,9 @@ export interface TrackingOptionsDoesNotExistException extends __SmithyException,
 }
 
 export namespace TrackingOptionsDoesNotExistException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TrackingOptionsDoesNotExistException): any => ({
     ...obj,
   });
@@ -2285,6 +2519,9 @@ export interface DeleteCustomVerificationEmailTemplateRequest {
 }
 
 export namespace DeleteCustomVerificationEmailTemplateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteCustomVerificationEmailTemplateRequest): any => ({
     ...obj,
   });
@@ -2302,6 +2539,9 @@ export interface DeleteIdentityRequest {
 }
 
 export namespace DeleteIdentityRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteIdentityRequest): any => ({
     ...obj,
   });
@@ -2313,6 +2553,9 @@ export namespace DeleteIdentityRequest {
 export interface DeleteIdentityResponse {}
 
 export namespace DeleteIdentityResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteIdentityResponse): any => ({
     ...obj,
   });
@@ -2341,6 +2584,9 @@ export interface DeleteIdentityPolicyRequest {
 }
 
 export namespace DeleteIdentityPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteIdentityPolicyRequest): any => ({
     ...obj,
   });
@@ -2352,6 +2598,9 @@ export namespace DeleteIdentityPolicyRequest {
 export interface DeleteIdentityPolicyResponse {}
 
 export namespace DeleteIdentityPolicyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteIdentityPolicyResponse): any => ({
     ...obj,
   });
@@ -2370,6 +2619,9 @@ export interface DeleteReceiptFilterRequest {
 }
 
 export namespace DeleteReceiptFilterRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteReceiptFilterRequest): any => ({
     ...obj,
   });
@@ -2381,6 +2633,9 @@ export namespace DeleteReceiptFilterRequest {
 export interface DeleteReceiptFilterResponse {}
 
 export namespace DeleteReceiptFilterResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteReceiptFilterResponse): any => ({
     ...obj,
   });
@@ -2404,6 +2659,9 @@ export interface DeleteReceiptRuleRequest {
 }
 
 export namespace DeleteReceiptRuleRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteReceiptRuleRequest): any => ({
     ...obj,
   });
@@ -2415,6 +2673,9 @@ export namespace DeleteReceiptRuleRequest {
 export interface DeleteReceiptRuleResponse {}
 
 export namespace DeleteReceiptRuleResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteReceiptRuleResponse): any => ({
     ...obj,
   });
@@ -2434,6 +2695,9 @@ export interface DeleteReceiptRuleSetRequest {
 }
 
 export namespace DeleteReceiptRuleSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteReceiptRuleSetRequest): any => ({
     ...obj,
   });
@@ -2445,6 +2709,9 @@ export namespace DeleteReceiptRuleSetRequest {
 export interface DeleteReceiptRuleSetResponse {}
 
 export namespace DeleteReceiptRuleSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteReceiptRuleSetResponse): any => ({
     ...obj,
   });
@@ -2462,6 +2729,9 @@ export interface DeleteTemplateRequest {
 }
 
 export namespace DeleteTemplateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTemplateRequest): any => ({
     ...obj,
   });
@@ -2470,6 +2740,9 @@ export namespace DeleteTemplateRequest {
 export interface DeleteTemplateResponse {}
 
 export namespace DeleteTemplateResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTemplateResponse): any => ({
     ...obj,
   });
@@ -2487,6 +2760,9 @@ export interface DeleteVerifiedEmailAddressRequest {
 }
 
 export namespace DeleteVerifiedEmailAddressRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteVerifiedEmailAddressRequest): any => ({
     ...obj,
   });
@@ -2507,6 +2783,9 @@ export interface DeliveryOptions {
 }
 
 export namespace DeliveryOptions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeliveryOptions): any => ({
     ...obj,
   });
@@ -2521,6 +2800,9 @@ export namespace DeliveryOptions {
 export interface DescribeActiveReceiptRuleSetRequest {}
 
 export namespace DescribeActiveReceiptRuleSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeActiveReceiptRuleSetRequest): any => ({
     ...obj,
   });
@@ -2558,6 +2840,9 @@ export interface ReceiptRuleSetMetadata {
 }
 
 export namespace ReceiptRuleSetMetadata {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReceiptRuleSetMetadata): any => ({
     ...obj,
   });
@@ -2581,6 +2866,9 @@ export interface DescribeActiveReceiptRuleSetResponse {
 }
 
 export namespace DescribeActiveReceiptRuleSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeActiveReceiptRuleSetResponse): any => ({
     ...obj,
   });
@@ -2605,6 +2893,9 @@ export interface DescribeConfigurationSetRequest {
 }
 
 export namespace DescribeConfigurationSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeConfigurationSetRequest): any => ({
     ...obj,
   });
@@ -2645,6 +2936,9 @@ export interface ReputationOptions {
 }
 
 export namespace ReputationOptions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReputationOptions): any => ({
     ...obj,
   });
@@ -2686,6 +2980,9 @@ export interface DescribeConfigurationSetResponse {
 }
 
 export namespace DescribeConfigurationSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeConfigurationSetResponse): any => ({
     ...obj,
   });
@@ -2709,6 +3006,9 @@ export interface DescribeReceiptRuleRequest {
 }
 
 export namespace DescribeReceiptRuleRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeReceiptRuleRequest): any => ({
     ...obj,
   });
@@ -2726,6 +3026,9 @@ export interface DescribeReceiptRuleResponse {
 }
 
 export namespace DescribeReceiptRuleResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeReceiptRuleResponse): any => ({
     ...obj,
   });
@@ -2743,6 +3046,9 @@ export interface DescribeReceiptRuleSetRequest {
 }
 
 export namespace DescribeReceiptRuleSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeReceiptRuleSetRequest): any => ({
     ...obj,
   });
@@ -2765,6 +3071,9 @@ export interface DescribeReceiptRuleSetResponse {
 }
 
 export namespace DescribeReceiptRuleSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeReceiptRuleSetResponse): any => ({
     ...obj,
   });
@@ -2803,6 +3112,9 @@ export interface IdentityDkimAttributes {
 }
 
 export namespace IdentityDkimAttributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IdentityDkimAttributes): any => ({
     ...obj,
   });
@@ -2821,6 +3133,9 @@ export interface GetAccountSendingEnabledResponse {
 }
 
 export namespace GetAccountSendingEnabledResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetAccountSendingEnabledResponse): any => ({
     ...obj,
   });
@@ -2838,6 +3153,9 @@ export interface GetCustomVerificationEmailTemplateRequest {
 }
 
 export namespace GetCustomVerificationEmailTemplateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetCustomVerificationEmailTemplateRequest): any => ({
     ...obj,
   });
@@ -2881,6 +3199,9 @@ export interface GetCustomVerificationEmailTemplateResponse {
 }
 
 export namespace GetCustomVerificationEmailTemplateResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetCustomVerificationEmailTemplateResponse): any => ({
     ...obj,
   });
@@ -2900,6 +3221,9 @@ export interface GetIdentityDkimAttributesRequest {
 }
 
 export namespace GetIdentityDkimAttributesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetIdentityDkimAttributesRequest): any => ({
     ...obj,
   });
@@ -2919,6 +3243,9 @@ export interface GetIdentityDkimAttributesResponse {
 }
 
 export namespace GetIdentityDkimAttributesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetIdentityDkimAttributesResponse): any => ({
     ...obj,
   });
@@ -2937,6 +3264,9 @@ export interface GetIdentityMailFromDomainAttributesRequest {
 }
 
 export namespace GetIdentityMailFromDomainAttributesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetIdentityMailFromDomainAttributesRequest): any => ({
     ...obj,
   });
@@ -2975,6 +3305,9 @@ export interface IdentityMailFromDomainAttributes {
 }
 
 export namespace IdentityMailFromDomainAttributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IdentityMailFromDomainAttributes): any => ({
     ...obj,
   });
@@ -2991,6 +3324,9 @@ export interface GetIdentityMailFromDomainAttributesResponse {
 }
 
 export namespace GetIdentityMailFromDomainAttributesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetIdentityMailFromDomainAttributesResponse): any => ({
     ...obj,
   });
@@ -3012,6 +3348,9 @@ export interface GetIdentityNotificationAttributesRequest {
 }
 
 export namespace GetIdentityNotificationAttributesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetIdentityNotificationAttributesRequest): any => ({
     ...obj,
   });
@@ -3077,6 +3416,9 @@ export interface IdentityNotificationAttributes {
 }
 
 export namespace IdentityNotificationAttributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IdentityNotificationAttributes): any => ({
     ...obj,
   });
@@ -3093,6 +3435,9 @@ export interface GetIdentityNotificationAttributesResponse {
 }
 
 export namespace GetIdentityNotificationAttributesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetIdentityNotificationAttributesResponse): any => ({
     ...obj,
   });
@@ -3123,6 +3468,9 @@ export interface GetIdentityPoliciesRequest {
 }
 
 export namespace GetIdentityPoliciesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetIdentityPoliciesRequest): any => ({
     ...obj,
   });
@@ -3139,6 +3487,9 @@ export interface GetIdentityPoliciesResponse {
 }
 
 export namespace GetIdentityPoliciesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetIdentityPoliciesResponse): any => ({
     ...obj,
   });
@@ -3158,6 +3509,9 @@ export interface GetIdentityVerificationAttributesRequest {
 }
 
 export namespace GetIdentityVerificationAttributesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetIdentityVerificationAttributesRequest): any => ({
     ...obj,
   });
@@ -3181,6 +3535,9 @@ export interface IdentityVerificationAttributes {
 }
 
 export namespace IdentityVerificationAttributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IdentityVerificationAttributes): any => ({
     ...obj,
   });
@@ -3198,6 +3555,9 @@ export interface GetIdentityVerificationAttributesResponse {
 }
 
 export namespace GetIdentityVerificationAttributesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetIdentityVerificationAttributesResponse): any => ({
     ...obj,
   });
@@ -3231,6 +3591,9 @@ export interface GetSendQuotaResponse {
 }
 
 export namespace GetSendQuotaResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSendQuotaResponse): any => ({
     ...obj,
   });
@@ -3268,6 +3631,9 @@ export interface SendDataPoint {
 }
 
 export namespace SendDataPoint {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendDataPoint): any => ({
     ...obj,
   });
@@ -3285,6 +3651,9 @@ export interface GetSendStatisticsResponse {
 }
 
 export namespace GetSendStatisticsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSendStatisticsResponse): any => ({
     ...obj,
   });
@@ -3298,6 +3667,9 @@ export interface GetTemplateRequest {
 }
 
 export namespace GetTemplateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTemplateRequest): any => ({
     ...obj,
   });
@@ -3312,6 +3684,9 @@ export interface GetTemplateResponse {
 }
 
 export namespace GetTemplateResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTemplateResponse): any => ({
     ...obj,
   });
@@ -3329,6 +3704,9 @@ export interface TemplateDoesNotExistException extends __SmithyException, $Metad
 }
 
 export namespace TemplateDoesNotExistException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TemplateDoesNotExistException): any => ({
     ...obj,
   });
@@ -3346,6 +3724,9 @@ export interface InvalidDeliveryOptionsException extends __SmithyException, $Met
 }
 
 export namespace InvalidDeliveryOptionsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidDeliveryOptionsException): any => ({
     ...obj,
   });
@@ -3362,6 +3743,9 @@ export interface InvalidPolicyException extends __SmithyException, $MetadataBear
 }
 
 export namespace InvalidPolicyException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidPolicyException): any => ({
     ...obj,
   });
@@ -3379,6 +3763,9 @@ export interface InvalidRenderingParameterException extends __SmithyException, $
 }
 
 export namespace InvalidRenderingParameterException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRenderingParameterException): any => ({
     ...obj,
   });
@@ -3404,6 +3791,9 @@ export interface ListConfigurationSetsRequest {
 }
 
 export namespace ListConfigurationSetsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListConfigurationSetsRequest): any => ({
     ...obj,
   });
@@ -3430,6 +3820,9 @@ export interface ListConfigurationSetsResponse {
 }
 
 export namespace ListConfigurationSetsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListConfigurationSetsResponse): any => ({
     ...obj,
   });
@@ -3459,6 +3852,9 @@ export interface ListCustomVerificationEmailTemplatesRequest {
 }
 
 export namespace ListCustomVerificationEmailTemplatesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCustomVerificationEmailTemplatesRequest): any => ({
     ...obj,
   });
@@ -3483,6 +3879,9 @@ export interface ListCustomVerificationEmailTemplatesResponse {
 }
 
 export namespace ListCustomVerificationEmailTemplatesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListCustomVerificationEmailTemplatesResponse): any => ({
     ...obj,
   });
@@ -3513,6 +3912,9 @@ export interface ListIdentitiesRequest {
 }
 
 export namespace ListIdentitiesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListIdentitiesRequest): any => ({
     ...obj,
   });
@@ -3535,6 +3937,9 @@ export interface ListIdentitiesResponse {
 }
 
 export namespace ListIdentitiesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListIdentitiesResponse): any => ({
     ...obj,
   });
@@ -3557,6 +3962,9 @@ export interface ListIdentityPoliciesRequest {
 }
 
 export namespace ListIdentityPoliciesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListIdentityPoliciesRequest): any => ({
     ...obj,
   });
@@ -3573,6 +3981,9 @@ export interface ListIdentityPoliciesResponse {
 }
 
 export namespace ListIdentityPoliciesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListIdentityPoliciesResponse): any => ({
     ...obj,
   });
@@ -3587,6 +3998,9 @@ export namespace ListIdentityPoliciesResponse {
 export interface ListReceiptFiltersRequest {}
 
 export namespace ListReceiptFiltersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListReceiptFiltersRequest): any => ({
     ...obj,
   });
@@ -3604,6 +4018,9 @@ export interface ListReceiptFiltersResponse {
 }
 
 export namespace ListReceiptFiltersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListReceiptFiltersResponse): any => ({
     ...obj,
   });
@@ -3624,6 +4041,9 @@ export interface ListReceiptRuleSetsRequest {
 }
 
 export namespace ListReceiptRuleSetsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListReceiptRuleSetsRequest): any => ({
     ...obj,
   });
@@ -3648,6 +4068,9 @@ export interface ListReceiptRuleSetsResponse {
 }
 
 export namespace ListReceiptRuleSetsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListReceiptRuleSetsResponse): any => ({
     ...obj,
   });
@@ -3669,6 +4092,9 @@ export interface ListTemplatesRequest {
 }
 
 export namespace ListTemplatesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTemplatesRequest): any => ({
     ...obj,
   });
@@ -3690,6 +4116,9 @@ export interface TemplateMetadata {
 }
 
 export namespace TemplateMetadata {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TemplateMetadata): any => ({
     ...obj,
   });
@@ -3711,6 +4140,9 @@ export interface ListTemplatesResponse {
 }
 
 export namespace ListTemplatesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTemplatesResponse): any => ({
     ...obj,
   });
@@ -3728,6 +4160,9 @@ export interface ListVerifiedEmailAddressesResponse {
 }
 
 export namespace ListVerifiedEmailAddressesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListVerifiedEmailAddressesResponse): any => ({
     ...obj,
   });
@@ -3746,6 +4181,9 @@ export interface MailFromDomainNotVerifiedException extends __SmithyException, $
 }
 
 export namespace MailFromDomainNotVerifiedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MailFromDomainNotVerifiedException): any => ({
     ...obj,
   });
@@ -3768,6 +4206,9 @@ export interface Message {
 }
 
 export namespace Message {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Message): any => ({
     ...obj,
   });
@@ -3800,6 +4241,9 @@ export interface MessageDsn {
 }
 
 export namespace MessageDsn {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MessageDsn): any => ({
     ...obj,
   });
@@ -3816,6 +4260,9 @@ export interface MessageRejected extends __SmithyException, $MetadataBearer {
 }
 
 export namespace MessageRejected {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MessageRejected): any => ({
     ...obj,
   });
@@ -3834,6 +4281,9 @@ export interface MissingRenderingAttributeException extends __SmithyException, $
 }
 
 export namespace MissingRenderingAttributeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MissingRenderingAttributeException): any => ({
     ...obj,
   });
@@ -3851,6 +4301,9 @@ export interface ProductionAccessNotGrantedException extends __SmithyException, 
 }
 
 export namespace ProductionAccessNotGrantedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProductionAccessNotGrantedException): any => ({
     ...obj,
   });
@@ -3874,6 +4327,9 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
 }
 
 export namespace PutConfigurationSetDeliveryOptionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutConfigurationSetDeliveryOptionsRequest): any => ({
     ...obj,
   });
@@ -3886,6 +4342,9 @@ export namespace PutConfigurationSetDeliveryOptionsRequest {
 export interface PutConfigurationSetDeliveryOptionsResponse {}
 
 export namespace PutConfigurationSetDeliveryOptionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutConfigurationSetDeliveryOptionsResponse): any => ({
     ...obj,
   });
@@ -3923,6 +4382,9 @@ export interface PutIdentityPolicyRequest {
 }
 
 export namespace PutIdentityPolicyRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutIdentityPolicyRequest): any => ({
     ...obj,
   });
@@ -3934,6 +4396,9 @@ export namespace PutIdentityPolicyRequest {
 export interface PutIdentityPolicyResponse {}
 
 export namespace PutIdentityPolicyResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutIdentityPolicyResponse): any => ({
     ...obj,
   });
@@ -3964,6 +4429,9 @@ export interface RawMessage {
 }
 
 export namespace RawMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RawMessage): any => ({
     ...obj,
   });
@@ -3987,6 +4455,9 @@ export interface ReorderReceiptRuleSetRequest {
 }
 
 export namespace ReorderReceiptRuleSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReorderReceiptRuleSetRequest): any => ({
     ...obj,
   });
@@ -3998,6 +4469,9 @@ export namespace ReorderReceiptRuleSetRequest {
 export interface ReorderReceiptRuleSetResponse {}
 
 export namespace ReorderReceiptRuleSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReorderReceiptRuleSetResponse): any => ({
     ...obj,
   });
@@ -4048,6 +4522,9 @@ export interface SendBounceRequest {
 }
 
 export namespace SendBounceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendBounceRequest): any => ({
     ...obj,
   });
@@ -4064,6 +4541,9 @@ export interface SendBounceResponse {
 }
 
 export namespace SendBounceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendBounceResponse): any => ({
     ...obj,
   });
@@ -4186,6 +4666,9 @@ export interface SendBulkTemplatedEmailRequest {
 }
 
 export namespace SendBulkTemplatedEmailRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendBulkTemplatedEmailRequest): any => ({
     ...obj,
   });
@@ -4200,6 +4683,9 @@ export interface SendBulkTemplatedEmailResponse {
 }
 
 export namespace SendBulkTemplatedEmailResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendBulkTemplatedEmailResponse): any => ({
     ...obj,
   });
@@ -4228,6 +4714,9 @@ export interface SendCustomVerificationEmailRequest {
 }
 
 export namespace SendCustomVerificationEmailRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendCustomVerificationEmailRequest): any => ({
     ...obj,
   });
@@ -4245,6 +4734,9 @@ export interface SendCustomVerificationEmailResponse {
 }
 
 export namespace SendCustomVerificationEmailResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendCustomVerificationEmailResponse): any => ({
     ...obj,
   });
@@ -4351,6 +4843,9 @@ export interface SendEmailRequest {
 }
 
 export namespace SendEmailRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendEmailRequest): any => ({
     ...obj,
   });
@@ -4367,6 +4862,9 @@ export interface SendEmailResponse {
 }
 
 export namespace SendEmailResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendEmailResponse): any => ({
     ...obj,
   });
@@ -4515,6 +5013,9 @@ export interface SendRawEmailRequest {
 }
 
 export namespace SendRawEmailRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendRawEmailRequest): any => ({
     ...obj,
   });
@@ -4532,6 +5033,9 @@ export interface SendRawEmailResponse {
 }
 
 export namespace SendRawEmailResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendRawEmailResponse): any => ({
     ...obj,
   });
@@ -4651,6 +5155,9 @@ export interface SendTemplatedEmailRequest {
 }
 
 export namespace SendTemplatedEmailRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendTemplatedEmailRequest): any => ({
     ...obj,
   });
@@ -4665,6 +5172,9 @@ export interface SendTemplatedEmailResponse {
 }
 
 export namespace SendTemplatedEmailResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendTemplatedEmailResponse): any => ({
     ...obj,
   });
@@ -4683,6 +5193,9 @@ export interface SetActiveReceiptRuleSetRequest {
 }
 
 export namespace SetActiveReceiptRuleSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetActiveReceiptRuleSetRequest): any => ({
     ...obj,
   });
@@ -4694,6 +5207,9 @@ export namespace SetActiveReceiptRuleSetRequest {
 export interface SetActiveReceiptRuleSetResponse {}
 
 export namespace SetActiveReceiptRuleSetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetActiveReceiptRuleSetResponse): any => ({
     ...obj,
   });
@@ -4717,6 +5233,9 @@ export interface SetIdentityDkimEnabledRequest {
 }
 
 export namespace SetIdentityDkimEnabledRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetIdentityDkimEnabledRequest): any => ({
     ...obj,
   });
@@ -4728,6 +5247,9 @@ export namespace SetIdentityDkimEnabledRequest {
 export interface SetIdentityDkimEnabledResponse {}
 
 export namespace SetIdentityDkimEnabledResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetIdentityDkimEnabledResponse): any => ({
     ...obj,
   });
@@ -4759,6 +5281,9 @@ export interface SetIdentityFeedbackForwardingEnabledRequest {
 }
 
 export namespace SetIdentityFeedbackForwardingEnabledRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetIdentityFeedbackForwardingEnabledRequest): any => ({
     ...obj,
   });
@@ -4770,6 +5295,9 @@ export namespace SetIdentityFeedbackForwardingEnabledRequest {
 export interface SetIdentityFeedbackForwardingEnabledResponse {}
 
 export namespace SetIdentityFeedbackForwardingEnabledResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetIdentityFeedbackForwardingEnabledResponse): any => ({
     ...obj,
   });
@@ -4805,6 +5333,9 @@ export interface SetIdentityHeadersInNotificationsEnabledRequest {
 }
 
 export namespace SetIdentityHeadersInNotificationsEnabledRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetIdentityHeadersInNotificationsEnabledRequest): any => ({
     ...obj,
   });
@@ -4816,6 +5347,9 @@ export namespace SetIdentityHeadersInNotificationsEnabledRequest {
 export interface SetIdentityHeadersInNotificationsEnabledResponse {}
 
 export namespace SetIdentityHeadersInNotificationsEnabledResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetIdentityHeadersInNotificationsEnabledResponse): any => ({
     ...obj,
   });
@@ -4858,6 +5392,9 @@ export interface SetIdentityMailFromDomainRequest {
 }
 
 export namespace SetIdentityMailFromDomainRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetIdentityMailFromDomainRequest): any => ({
     ...obj,
   });
@@ -4869,6 +5406,9 @@ export namespace SetIdentityMailFromDomainRequest {
 export interface SetIdentityMailFromDomainResponse {}
 
 export namespace SetIdentityMailFromDomainResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetIdentityMailFromDomainResponse): any => ({
     ...obj,
   });
@@ -4908,6 +5448,9 @@ export interface SetIdentityNotificationTopicRequest {
 }
 
 export namespace SetIdentityNotificationTopicRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetIdentityNotificationTopicRequest): any => ({
     ...obj,
   });
@@ -4919,6 +5462,9 @@ export namespace SetIdentityNotificationTopicRequest {
 export interface SetIdentityNotificationTopicResponse {}
 
 export namespace SetIdentityNotificationTopicResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetIdentityNotificationTopicResponse): any => ({
     ...obj,
   });
@@ -4946,6 +5492,9 @@ export interface SetReceiptRulePositionRequest {
 }
 
 export namespace SetReceiptRulePositionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetReceiptRulePositionRequest): any => ({
     ...obj,
   });
@@ -4957,6 +5506,9 @@ export namespace SetReceiptRulePositionRequest {
 export interface SetReceiptRulePositionResponse {}
 
 export namespace SetReceiptRulePositionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetReceiptRulePositionResponse): any => ({
     ...obj,
   });
@@ -4977,6 +5529,9 @@ export interface TestRenderTemplateRequest {
 }
 
 export namespace TestRenderTemplateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TestRenderTemplateRequest): any => ({
     ...obj,
   });
@@ -4991,6 +5546,9 @@ export interface TestRenderTemplateResponse {
 }
 
 export namespace TestRenderTemplateResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TestRenderTemplateResponse): any => ({
     ...obj,
   });
@@ -5009,6 +5567,9 @@ export interface UpdateAccountSendingEnabledRequest {
 }
 
 export namespace UpdateAccountSendingEnabledRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAccountSendingEnabledRequest): any => ({
     ...obj,
   });
@@ -5035,6 +5596,9 @@ export interface UpdateConfigurationSetEventDestinationRequest {
 }
 
 export namespace UpdateConfigurationSetEventDestinationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationRequest): any => ({
     ...obj,
   });
@@ -5046,6 +5610,9 @@ export namespace UpdateConfigurationSetEventDestinationRequest {
 export interface UpdateConfigurationSetEventDestinationResponse {}
 
 export namespace UpdateConfigurationSetEventDestinationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateConfigurationSetEventDestinationResponse): any => ({
     ...obj,
   });
@@ -5069,6 +5636,9 @@ export interface UpdateConfigurationSetReputationMetricsEnabledRequest {
 }
 
 export namespace UpdateConfigurationSetReputationMetricsEnabledRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateConfigurationSetReputationMetricsEnabledRequest): any => ({
     ...obj,
   });
@@ -5092,6 +5662,9 @@ export interface UpdateConfigurationSetSendingEnabledRequest {
 }
 
 export namespace UpdateConfigurationSetSendingEnabledRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateConfigurationSetSendingEnabledRequest): any => ({
     ...obj,
   });
@@ -5118,6 +5691,9 @@ export interface UpdateConfigurationSetTrackingOptionsRequest {
 }
 
 export namespace UpdateConfigurationSetTrackingOptionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateConfigurationSetTrackingOptionsRequest): any => ({
     ...obj,
   });
@@ -5129,6 +5705,9 @@ export namespace UpdateConfigurationSetTrackingOptionsRequest {
 export interface UpdateConfigurationSetTrackingOptionsResponse {}
 
 export namespace UpdateConfigurationSetTrackingOptionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateConfigurationSetTrackingOptionsResponse): any => ({
     ...obj,
   });
@@ -5175,6 +5754,9 @@ export interface UpdateCustomVerificationEmailTemplateRequest {
 }
 
 export namespace UpdateCustomVerificationEmailTemplateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateCustomVerificationEmailTemplateRequest): any => ({
     ...obj,
   });
@@ -5198,6 +5780,9 @@ export interface UpdateReceiptRuleRequest {
 }
 
 export namespace UpdateReceiptRuleRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateReceiptRuleRequest): any => ({
     ...obj,
   });
@@ -5209,6 +5794,9 @@ export namespace UpdateReceiptRuleRequest {
 export interface UpdateReceiptRuleResponse {}
 
 export namespace UpdateReceiptRuleResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateReceiptRuleResponse): any => ({
     ...obj,
   });
@@ -5223,6 +5811,9 @@ export interface UpdateTemplateRequest {
 }
 
 export namespace UpdateTemplateRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTemplateRequest): any => ({
     ...obj,
   });
@@ -5231,6 +5822,9 @@ export namespace UpdateTemplateRequest {
 export interface UpdateTemplateResponse {}
 
 export namespace UpdateTemplateResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTemplateResponse): any => ({
     ...obj,
   });
@@ -5249,6 +5843,9 @@ export interface VerifyDomainDkimRequest {
 }
 
 export namespace VerifyDomainDkimRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VerifyDomainDkimRequest): any => ({
     ...obj,
   });
@@ -5274,6 +5871,9 @@ export interface VerifyDomainDkimResponse {
 }
 
 export namespace VerifyDomainDkimResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VerifyDomainDkimResponse): any => ({
     ...obj,
   });
@@ -5293,6 +5893,9 @@ export interface VerifyDomainIdentityRequest {
 }
 
 export namespace VerifyDomainIdentityRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VerifyDomainIdentityRequest): any => ({
     ...obj,
   });
@@ -5316,6 +5919,9 @@ export interface VerifyDomainIdentityResponse {
 }
 
 export namespace VerifyDomainIdentityResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VerifyDomainIdentityResponse): any => ({
     ...obj,
   });
@@ -5334,6 +5940,9 @@ export interface VerifyEmailAddressRequest {
 }
 
 export namespace VerifyEmailAddressRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VerifyEmailAddressRequest): any => ({
     ...obj,
   });
@@ -5352,6 +5961,9 @@ export interface VerifyEmailIdentityRequest {
 }
 
 export namespace VerifyEmailIdentityRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VerifyEmailIdentityRequest): any => ({
     ...obj,
   });
@@ -5363,6 +5975,9 @@ export namespace VerifyEmailIdentityRequest {
 export interface VerifyEmailIdentityResponse {}
 
 export namespace VerifyEmailIdentityResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VerifyEmailIdentityResponse): any => ({
     ...obj,
   });

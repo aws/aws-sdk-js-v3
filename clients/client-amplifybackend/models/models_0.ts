@@ -21,6 +21,9 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace BadRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
@@ -47,6 +50,9 @@ export interface CloneBackendRequest {
 }
 
 export namespace CloneBackendRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloneBackendRequest): any => ({
     ...obj,
   });
@@ -85,6 +91,9 @@ export interface CloneBackendResponse {
 }
 
 export namespace CloneBackendResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CloneBackendResponse): any => ({
     ...obj,
   });
@@ -103,6 +112,9 @@ export interface GatewayTimeoutException extends __SmithyException, $MetadataBea
 }
 
 export namespace GatewayTimeoutException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GatewayTimeoutException): any => ({
     ...obj,
   });
@@ -126,6 +138,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
@@ -149,6 +164,9 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
 }
 
 export namespace TooManyRequestsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
@@ -160,6 +178,9 @@ export namespace TooManyRequestsException {
 export interface ResourceConfig {}
 
 export namespace ResourceConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceConfig): any => ({
     ...obj,
   });
@@ -196,6 +217,9 @@ export interface CreateBackendRequest {
 }
 
 export namespace CreateBackendRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackendRequest): any => ({
     ...obj,
   });
@@ -234,6 +258,9 @@ export interface CreateBackendResponse {
 }
 
 export namespace CreateBackendResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackendResponse): any => ({
     ...obj,
   });
@@ -292,6 +319,9 @@ export interface BackendAPIAppSyncAuthSettings {
 }
 
 export namespace BackendAPIAppSyncAuthSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackendAPIAppSyncAuthSettings): any => ({
     ...obj,
   });
@@ -313,6 +343,9 @@ export interface BackendAPIAuthType {
 }
 
 export namespace BackendAPIAuthType {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackendAPIAuthType): any => ({
     ...obj,
   });
@@ -336,6 +369,9 @@ export interface BackendAPIConflictResolution {
 }
 
 export namespace BackendAPIConflictResolution {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackendAPIConflictResolution): any => ({
     ...obj,
   });
@@ -377,6 +413,9 @@ export interface BackendAPIResourceConfig {
 }
 
 export namespace BackendAPIResourceConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackendAPIResourceConfig): any => ({
     ...obj,
   });
@@ -408,6 +447,9 @@ export interface CreateBackendAPIRequest {
 }
 
 export namespace CreateBackendAPIRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackendAPIRequest): any => ({
     ...obj,
   });
@@ -446,6 +488,9 @@ export interface CreateBackendAPIResponse {
 }
 
 export namespace CreateBackendAPIResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackendAPIResponse): any => ({
     ...obj,
   });
@@ -472,6 +517,9 @@ export interface CreateBackendAuthIdentityPoolConfig {
 }
 
 export namespace CreateBackendAuthIdentityPoolConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackendAuthIdentityPoolConfig): any => ({
     ...obj,
   });
@@ -502,6 +550,9 @@ export interface EmailSettings {
 }
 
 export namespace EmailSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EmailSettings): any => ({
     ...obj,
   });
@@ -518,6 +569,9 @@ export interface SmsSettings {
 }
 
 export namespace SmsSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SmsSettings): any => ({
     ...obj,
   });
@@ -544,6 +598,9 @@ export interface CreateBackendAuthForgotPasswordConfig {
 }
 
 export namespace CreateBackendAuthForgotPasswordConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackendAuthForgotPasswordConfig): any => ({
     ...obj,
   });
@@ -576,6 +633,9 @@ export interface Settings {
 }
 
 export namespace Settings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Settings): any => ({
     ...obj,
   });
@@ -597,6 +657,9 @@ export interface CreateBackendAuthMFAConfig {
 }
 
 export namespace CreateBackendAuthMFAConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackendAuthMFAConfig): any => ({
     ...obj,
   });
@@ -631,6 +694,9 @@ export interface BackendAuthSocialProviderConfig {
 }
 
 export namespace BackendAuthSocialProviderConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackendAuthSocialProviderConfig): any => ({
     ...obj,
   });
@@ -657,6 +723,9 @@ export interface SocialProviderSettings {
 }
 
 export namespace SocialProviderSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SocialProviderSettings): any => ({
     ...obj,
   });
@@ -698,6 +767,9 @@ export interface CreateBackendAuthOAuthConfig {
 }
 
 export namespace CreateBackendAuthOAuthConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackendAuthOAuthConfig): any => ({
     ...obj,
   });
@@ -719,6 +791,9 @@ export interface CreateBackendAuthPasswordPolicyConfig {
 }
 
 export namespace CreateBackendAuthPasswordPolicyConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackendAuthPasswordPolicyConfig): any => ({
     ...obj,
   });
@@ -792,6 +867,9 @@ export interface CreateBackendAuthUserPoolConfig {
 }
 
 export namespace CreateBackendAuthUserPoolConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackendAuthUserPoolConfig): any => ({
     ...obj,
   });
@@ -823,6 +901,9 @@ export interface CreateBackendAuthResourceConfig {
 }
 
 export namespace CreateBackendAuthResourceConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackendAuthResourceConfig): any => ({
     ...obj,
   });
@@ -854,6 +935,9 @@ export interface CreateBackendAuthRequest {
 }
 
 export namespace CreateBackendAuthRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackendAuthRequest): any => ({
     ...obj,
   });
@@ -892,6 +976,9 @@ export interface CreateBackendAuthResponse {
 }
 
 export namespace CreateBackendAuthResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackendAuthResponse): any => ({
     ...obj,
   });
@@ -913,6 +1000,9 @@ export interface CreateBackendConfigRequest {
 }
 
 export namespace CreateBackendConfigRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackendConfigRequest): any => ({
     ...obj,
   });
@@ -941,6 +1031,9 @@ export interface CreateBackendConfigResponse {
 }
 
 export namespace CreateBackendConfigResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateBackendConfigResponse): any => ({
     ...obj,
   });
@@ -954,6 +1047,9 @@ export interface CreateTokenRequest {
 }
 
 export namespace CreateTokenRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTokenRequest): any => ({
     ...obj,
   });
@@ -982,6 +1078,9 @@ export interface CreateTokenResponse {
 }
 
 export namespace CreateTokenResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTokenResponse): any => ({
     ...obj,
   });
@@ -1000,6 +1099,9 @@ export interface DeleteBackendRequest {
 }
 
 export namespace DeleteBackendRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackendRequest): any => ({
     ...obj,
   });
@@ -1038,6 +1140,9 @@ export interface DeleteBackendResponse {
 }
 
 export namespace DeleteBackendResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackendResponse): any => ({
     ...obj,
   });
@@ -1069,6 +1174,9 @@ export interface DeleteBackendAPIRequest {
 }
 
 export namespace DeleteBackendAPIRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackendAPIRequest): any => ({
     ...obj,
   });
@@ -1107,6 +1215,9 @@ export interface DeleteBackendAPIResponse {
 }
 
 export namespace DeleteBackendAPIResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackendAPIResponse): any => ({
     ...obj,
   });
@@ -1133,6 +1244,9 @@ export interface DeleteBackendAuthRequest {
 }
 
 export namespace DeleteBackendAuthRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackendAuthRequest): any => ({
     ...obj,
   });
@@ -1171,6 +1285,9 @@ export interface DeleteBackendAuthResponse {
 }
 
 export namespace DeleteBackendAuthResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBackendAuthResponse): any => ({
     ...obj,
   });
@@ -1189,6 +1306,9 @@ export interface DeleteTokenRequest {
 }
 
 export namespace DeleteTokenRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTokenRequest): any => ({
     ...obj,
   });
@@ -1202,6 +1322,9 @@ export interface DeleteTokenResponse {
 }
 
 export namespace DeleteTokenResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTokenResponse): any => ({
     ...obj,
   });
@@ -1228,6 +1351,9 @@ export interface GenerateBackendAPIModelsRequest {
 }
 
 export namespace GenerateBackendAPIModelsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GenerateBackendAPIModelsRequest): any => ({
     ...obj,
   });
@@ -1266,6 +1392,9 @@ export interface GenerateBackendAPIModelsResponse {
 }
 
 export namespace GenerateBackendAPIModelsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GenerateBackendAPIModelsResponse): any => ({
     ...obj,
   });
@@ -1287,6 +1416,9 @@ export interface GetBackendRequest {
 }
 
 export namespace GetBackendRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackendRequest): any => ({
     ...obj,
   });
@@ -1325,6 +1457,9 @@ export interface GetBackendResponse {
 }
 
 export namespace GetBackendResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackendResponse): any => ({
     ...obj,
   });
@@ -1356,6 +1491,9 @@ export interface GetBackendAPIRequest {
 }
 
 export namespace GetBackendAPIRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackendAPIRequest): any => ({
     ...obj,
   });
@@ -1389,6 +1527,9 @@ export interface GetBackendAPIResponse {
 }
 
 export namespace GetBackendAPIResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackendAPIResponse): any => ({
     ...obj,
   });
@@ -1415,6 +1556,9 @@ export interface GetBackendAPIModelsRequest {
 }
 
 export namespace GetBackendAPIModelsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackendAPIModelsRequest): any => ({
     ...obj,
   });
@@ -1438,6 +1582,9 @@ export interface GetBackendAPIModelsResponse {
 }
 
 export namespace GetBackendAPIModelsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackendAPIModelsResponse): any => ({
     ...obj,
   });
@@ -1464,6 +1611,9 @@ export interface GetBackendAuthRequest {
 }
 
 export namespace GetBackendAuthRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackendAuthRequest): any => ({
     ...obj,
   });
@@ -1497,6 +1647,9 @@ export interface GetBackendAuthResponse {
 }
 
 export namespace GetBackendAuthResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackendAuthResponse): any => ({
     ...obj,
   });
@@ -1520,6 +1673,9 @@ export interface GetBackendJobRequest {
 }
 
 export namespace GetBackendJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackendJobRequest): any => ({
     ...obj,
   });
@@ -1568,6 +1724,9 @@ export interface GetBackendJobResponse {
 }
 
 export namespace GetBackendJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetBackendJobResponse): any => ({
     ...obj,
   });
@@ -1586,6 +1745,9 @@ export interface GetTokenRequest {
 }
 
 export namespace GetTokenRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTokenRequest): any => ({
     ...obj,
   });
@@ -1614,6 +1776,9 @@ export interface GetTokenResponse {
 }
 
 export namespace GetTokenResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTokenResponse): any => ({
     ...obj,
   });
@@ -1660,6 +1825,9 @@ export interface ListBackendJobsRequest {
 }
 
 export namespace ListBackendJobsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBackendJobsRequest): any => ({
     ...obj,
   });
@@ -1711,6 +1879,9 @@ export interface BackendJobRespObj {
 }
 
 export namespace BackendJobRespObj {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackendJobRespObj): any => ({
     ...obj,
   });
@@ -1729,6 +1900,9 @@ export interface ListBackendJobsResponse {
 }
 
 export namespace ListBackendJobsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListBackendJobsResponse): any => ({
     ...obj,
   });
@@ -1750,6 +1924,9 @@ export interface RemoveAllBackendsRequest {
 }
 
 export namespace RemoveAllBackendsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveAllBackendsRequest): any => ({
     ...obj,
   });
@@ -1783,6 +1960,9 @@ export interface RemoveAllBackendsResponse {
 }
 
 export namespace RemoveAllBackendsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveAllBackendsResponse): any => ({
     ...obj,
   });
@@ -1796,6 +1976,9 @@ export interface RemoveBackendConfigRequest {
 }
 
 export namespace RemoveBackendConfigRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveBackendConfigRequest): any => ({
     ...obj,
   });
@@ -1809,6 +1992,9 @@ export interface RemoveBackendConfigResponse {
 }
 
 export namespace RemoveBackendConfigResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveBackendConfigResponse): any => ({
     ...obj,
   });
@@ -1840,6 +2026,9 @@ export interface UpdateBackendAPIRequest {
 }
 
 export namespace UpdateBackendAPIRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackendAPIRequest): any => ({
     ...obj,
   });
@@ -1878,6 +2067,9 @@ export interface UpdateBackendAPIResponse {
 }
 
 export namespace UpdateBackendAPIResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackendAPIResponse): any => ({
     ...obj,
   });
@@ -1894,6 +2086,9 @@ export interface UpdateBackendAuthIdentityPoolConfig {
 }
 
 export namespace UpdateBackendAuthIdentityPoolConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackendAuthIdentityPoolConfig): any => ({
     ...obj,
   });
@@ -1920,6 +2115,9 @@ export interface UpdateBackendAuthForgotPasswordConfig {
 }
 
 export namespace UpdateBackendAuthForgotPasswordConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackendAuthForgotPasswordConfig): any => ({
     ...obj,
   });
@@ -1941,6 +2139,9 @@ export interface UpdateBackendAuthMFAConfig {
 }
 
 export namespace UpdateBackendAuthMFAConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackendAuthMFAConfig): any => ({
     ...obj,
   });
@@ -1982,6 +2183,9 @@ export interface UpdateBackendAuthOAuthConfig {
 }
 
 export namespace UpdateBackendAuthOAuthConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackendAuthOAuthConfig): any => ({
     ...obj,
   });
@@ -2003,6 +2207,9 @@ export interface UpdateBackendAuthPasswordPolicyConfig {
 }
 
 export namespace UpdateBackendAuthPasswordPolicyConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackendAuthPasswordPolicyConfig): any => ({
     ...obj,
   });
@@ -2034,6 +2241,9 @@ export interface UpdateBackendAuthUserPoolConfig {
 }
 
 export namespace UpdateBackendAuthUserPoolConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackendAuthUserPoolConfig): any => ({
     ...obj,
   });
@@ -2065,6 +2275,9 @@ export interface UpdateBackendAuthResourceConfig {
 }
 
 export namespace UpdateBackendAuthResourceConfig {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackendAuthResourceConfig): any => ({
     ...obj,
   });
@@ -2096,6 +2309,9 @@ export interface UpdateBackendAuthRequest {
 }
 
 export namespace UpdateBackendAuthRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackendAuthRequest): any => ({
     ...obj,
   });
@@ -2134,6 +2350,9 @@ export interface UpdateBackendAuthResponse {
 }
 
 export namespace UpdateBackendAuthResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackendAuthResponse): any => ({
     ...obj,
   });
@@ -2165,6 +2384,9 @@ export interface LoginAuthConfigReqObj {
 }
 
 export namespace LoginAuthConfigReqObj {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LoginAuthConfigReqObj): any => ({
     ...obj,
   });
@@ -2186,6 +2408,9 @@ export interface UpdateBackendConfigRequest {
 }
 
 export namespace UpdateBackendConfigRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackendConfigRequest): any => ({
     ...obj,
   });
@@ -2214,6 +2439,9 @@ export interface UpdateBackendConfigResponse {
 }
 
 export namespace UpdateBackendConfigResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackendConfigResponse): any => ({
     ...obj,
   });
@@ -2250,6 +2478,9 @@ export interface UpdateBackendJobRequest {
 }
 
 export namespace UpdateBackendJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackendJobRequest): any => ({
     ...obj,
   });
@@ -2298,6 +2529,9 @@ export interface UpdateBackendJobResponse {
 }
 
 export namespace UpdateBackendJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBackendJobResponse): any => ({
     ...obj,
   });

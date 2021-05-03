@@ -11,6 +11,9 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
 }
 
 export namespace InvalidInputException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
@@ -26,6 +29,9 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidNextTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
@@ -41,6 +47,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -86,6 +95,9 @@ export interface QueryForecastRequest {
 }
 
 export namespace QueryForecastRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryForecastRequest): any => ({
     ...obj,
   });
@@ -108,6 +120,9 @@ export interface DataPoint {
 }
 
 export namespace DataPoint {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataPoint): any => ({
     ...obj,
   });
@@ -137,6 +152,9 @@ export interface Forecast {
 }
 
 export namespace Forecast {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Forecast): any => ({
     ...obj,
   });
@@ -150,6 +168,9 @@ export interface QueryForecastResponse {
 }
 
 export namespace QueryForecastResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: QueryForecastResponse): any => ({
     ...obj,
   });
@@ -165,6 +186,9 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
 }
 
 export namespace ResourceInUseException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
@@ -181,6 +205,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });

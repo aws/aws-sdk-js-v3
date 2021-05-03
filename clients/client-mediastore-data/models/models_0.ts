@@ -12,6 +12,9 @@ export interface ContainerNotFoundException extends __SmithyException, $Metadata
 }
 
 export namespace ContainerNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ContainerNotFoundException): any => ({
     ...obj,
   });
@@ -26,6 +29,9 @@ export interface DeleteObjectRequest {
 }
 
 export namespace DeleteObjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteObjectRequest): any => ({
     ...obj,
   });
@@ -34,6 +40,9 @@ export namespace DeleteObjectRequest {
 export interface DeleteObjectResponse {}
 
 export namespace DeleteObjectResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteObjectResponse): any => ({
     ...obj,
   });
@@ -49,6 +58,9 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
 }
 
 export namespace InternalServerError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
@@ -64,6 +76,9 @@ export interface ObjectNotFoundException extends __SmithyException, $MetadataBea
 }
 
 export namespace ObjectNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ObjectNotFoundException): any => ({
     ...obj,
   });
@@ -78,6 +93,9 @@ export interface DescribeObjectRequest {
 }
 
 export namespace DescribeObjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeObjectRequest): any => ({
     ...obj,
   });
@@ -113,6 +131,9 @@ export interface DescribeObjectResponse {
 }
 
 export namespace DescribeObjectResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeObjectResponse): any => ({
     ...obj,
   });
@@ -149,6 +170,9 @@ export interface GetObjectRequest {
 }
 
 export namespace GetObjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetObjectRequest): any => ({
     ...obj,
   });
@@ -200,6 +224,9 @@ export interface GetObjectResponse {
 }
 
 export namespace GetObjectResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetObjectResponse): any => ({
     ...obj,
   });
@@ -215,6 +242,9 @@ export interface RequestedRangeNotSatisfiableException extends __SmithyException
 }
 
 export namespace RequestedRangeNotSatisfiableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RequestedRangeNotSatisfiableException): any => ({
     ...obj,
   });
@@ -261,6 +291,9 @@ export interface Item {
 }
 
 export namespace Item {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Item): any => ({
     ...obj,
   });
@@ -297,6 +330,9 @@ export interface ListItemsRequest {
 }
 
 export namespace ListItemsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListItemsRequest): any => ({
     ...obj,
   });
@@ -319,6 +355,9 @@ export interface ListItemsResponse {
 }
 
 export namespace ListItemsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListItemsResponse): any => ({
     ...obj,
   });
@@ -390,6 +429,9 @@ export interface PutObjectRequest {
 }
 
 export namespace PutObjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutObjectRequest): any => ({
     ...obj,
   });
@@ -414,6 +456,9 @@ export interface PutObjectResponse {
 }
 
 export namespace PutObjectResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutObjectResponse): any => ({
     ...obj,
   });

@@ -11,6 +11,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -24,6 +27,9 @@ export interface CreateCliTokenRequest {
 }
 
 export namespace CreateCliTokenRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCliTokenRequest): any => ({
     ...obj,
   });
@@ -42,6 +48,9 @@ export interface CreateCliTokenResponse {
 }
 
 export namespace CreateCliTokenResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCliTokenResponse): any => ({
     ...obj,
     ...(obj.CliToken && { CliToken: SENSITIVE_STRING }),
@@ -58,6 +67,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -88,6 +100,9 @@ export interface ModuleLoggingConfigurationInput {
 }
 
 export namespace ModuleLoggingConfigurationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModuleLoggingConfigurationInput): any => ({
     ...obj,
   });
@@ -129,6 +144,9 @@ export interface LoggingConfigurationInput {
 }
 
 export namespace LoggingConfigurationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LoggingConfigurationInput): any => ({
     ...obj,
   });
@@ -150,6 +168,9 @@ export interface NetworkConfiguration {
 }
 
 export namespace NetworkConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NetworkConfiguration): any => ({
     ...obj,
   });
@@ -261,6 +282,9 @@ export interface CreateEnvironmentInput {
 }
 
 export namespace CreateEnvironmentInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateEnvironmentInput): any => ({
     ...obj,
     ...(obj.AirflowConfigurationOptions && { AirflowConfigurationOptions: SENSITIVE_STRING }),
@@ -275,6 +299,9 @@ export interface CreateEnvironmentOutput {
 }
 
 export namespace CreateEnvironmentOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateEnvironmentOutput): any => ({
     ...obj,
   });
@@ -290,6 +317,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -305,6 +335,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -318,6 +351,9 @@ export interface CreateWebLoginTokenRequest {
 }
 
 export namespace CreateWebLoginTokenRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateWebLoginTokenRequest): any => ({
     ...obj,
   });
@@ -336,6 +372,9 @@ export interface CreateWebLoginTokenResponse {
 }
 
 export namespace CreateWebLoginTokenResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateWebLoginTokenResponse): any => ({
     ...obj,
     ...(obj.WebToken && { WebToken: SENSITIVE_STRING }),
@@ -350,6 +389,9 @@ export interface DeleteEnvironmentInput {
 }
 
 export namespace DeleteEnvironmentInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteEnvironmentInput): any => ({
     ...obj,
   });
@@ -358,6 +400,9 @@ export namespace DeleteEnvironmentInput {
 export interface DeleteEnvironmentOutput {}
 
 export namespace DeleteEnvironmentOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteEnvironmentOutput): any => ({
     ...obj,
   });
@@ -371,6 +416,9 @@ export interface GetEnvironmentInput {
 }
 
 export namespace GetEnvironmentInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEnvironmentInput): any => ({
     ...obj,
   });
@@ -392,6 +440,9 @@ export interface UpdateError {
 }
 
 export namespace UpdateError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateError): any => ({
     ...obj,
   });
@@ -424,6 +475,9 @@ export interface LastUpdate {
 }
 
 export namespace LastUpdate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LastUpdate): any => ({
     ...obj,
   });
@@ -451,6 +505,9 @@ export interface ModuleLoggingConfiguration {
 }
 
 export namespace ModuleLoggingConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModuleLoggingConfiguration): any => ({
     ...obj,
   });
@@ -492,6 +549,9 @@ export interface LoggingConfiguration {
 }
 
 export namespace LoggingConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LoggingConfiguration): any => ({
     ...obj,
   });
@@ -639,6 +699,9 @@ export interface Environment {
 }
 
 export namespace Environment {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Environment): any => ({
     ...obj,
   });
@@ -652,6 +715,9 @@ export interface GetEnvironmentOutput {
 }
 
 export namespace GetEnvironmentOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetEnvironmentOutput): any => ({
     ...obj,
   });
@@ -670,6 +736,9 @@ export interface ListEnvironmentsInput {
 }
 
 export namespace ListEnvironmentsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEnvironmentsInput): any => ({
     ...obj,
   });
@@ -688,6 +757,9 @@ export interface ListEnvironmentsOutput {
 }
 
 export namespace ListEnvironmentsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEnvironmentsOutput): any => ({
     ...obj,
   });
@@ -701,6 +773,9 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
@@ -714,6 +789,9 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
   });
@@ -735,6 +813,9 @@ export interface Dimension {
 }
 
 export namespace Dimension {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Dimension): any => ({
     ...obj,
   });
@@ -766,6 +847,9 @@ export interface StatisticSet {
 }
 
 export namespace StatisticSet {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StatisticSet): any => ({
     ...obj,
   });
@@ -837,6 +921,9 @@ export interface MetricDatum {
 }
 
 export namespace MetricDatum {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MetricDatum): any => ({
     ...obj,
   });
@@ -855,6 +942,9 @@ export interface PublishMetricsInput {
 }
 
 export namespace PublishMetricsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PublishMetricsInput): any => ({
     ...obj,
   });
@@ -863,6 +953,9 @@ export namespace PublishMetricsInput {
 export interface PublishMetricsOutput {}
 
 export namespace PublishMetricsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PublishMetricsOutput): any => ({
     ...obj,
   });
@@ -881,6 +974,9 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
@@ -889,6 +985,9 @@ export namespace TagResourceInput {
 export interface TagResourceOutput {}
 
 export namespace TagResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
     ...obj,
   });
@@ -907,6 +1006,9 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
@@ -915,6 +1017,9 @@ export namespace UntagResourceInput {
 export interface UntagResourceOutput {}
 
 export namespace UntagResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
     ...obj,
   });
@@ -931,6 +1036,9 @@ export interface UpdateNetworkConfigurationInput {
 }
 
 export namespace UpdateNetworkConfigurationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateNetworkConfigurationInput): any => ({
     ...obj,
   });
@@ -1024,6 +1132,9 @@ export interface UpdateEnvironmentInput {
 }
 
 export namespace UpdateEnvironmentInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateEnvironmentInput): any => ({
     ...obj,
     ...(obj.AirflowConfigurationOptions && { AirflowConfigurationOptions: SENSITIVE_STRING }),
@@ -1038,6 +1149,9 @@ export interface UpdateEnvironmentOutput {
 }
 
 export namespace UpdateEnvironmentOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateEnvironmentOutput): any => ({
     ...obj,
   });

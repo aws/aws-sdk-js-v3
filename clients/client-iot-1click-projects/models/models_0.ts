@@ -26,6 +26,9 @@ export interface AssociateDeviceWithPlacementRequest {
 }
 
 export namespace AssociateDeviceWithPlacementRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateDeviceWithPlacementRequest): any => ({
     ...obj,
   });
@@ -34,6 +37,9 @@ export namespace AssociateDeviceWithPlacementRequest {
 export interface AssociateDeviceWithPlacementResponse {}
 
 export namespace AssociateDeviceWithPlacementResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateDeviceWithPlacementResponse): any => ({
     ...obj,
   });
@@ -50,6 +56,9 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
 }
 
 export namespace InternalFailureException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
@@ -66,6 +75,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -82,6 +94,9 @@ export interface ResourceConflictException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceConflictException): any => ({
     ...obj,
   });
@@ -98,6 +113,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -122,6 +140,9 @@ export interface CreatePlacementRequest {
 }
 
 export namespace CreatePlacementRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreatePlacementRequest): any => ({
     ...obj,
   });
@@ -130,6 +151,9 @@ export namespace CreatePlacementRequest {
 export interface CreatePlacementResponse {}
 
 export namespace CreatePlacementResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreatePlacementResponse): any => ({
     ...obj,
   });
@@ -152,6 +176,9 @@ export interface DeviceTemplate {
 }
 
 export namespace DeviceTemplate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeviceTemplate): any => ({
     ...obj,
   });
@@ -175,6 +202,9 @@ export interface PlacementTemplate {
 }
 
 export namespace PlacementTemplate {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PlacementTemplate): any => ({
     ...obj,
   });
@@ -208,6 +238,9 @@ export interface CreateProjectRequest {
 }
 
 export namespace CreateProjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateProjectRequest): any => ({
     ...obj,
   });
@@ -216,6 +249,9 @@ export namespace CreateProjectRequest {
 export interface CreateProjectResponse {}
 
 export namespace CreateProjectResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateProjectResponse): any => ({
     ...obj,
   });
@@ -234,6 +270,9 @@ export interface DeletePlacementRequest {
 }
 
 export namespace DeletePlacementRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeletePlacementRequest): any => ({
     ...obj,
   });
@@ -242,6 +281,9 @@ export namespace DeletePlacementRequest {
 export interface DeletePlacementResponse {}
 
 export namespace DeletePlacementResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeletePlacementResponse): any => ({
     ...obj,
   });
@@ -258,6 +300,9 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
 }
 
 export namespace TooManyRequestsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
@@ -271,6 +316,9 @@ export interface DeleteProjectRequest {
 }
 
 export namespace DeleteProjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteProjectRequest): any => ({
     ...obj,
   });
@@ -279,6 +327,9 @@ export namespace DeleteProjectRequest {
 export interface DeleteProjectResponse {}
 
 export namespace DeleteProjectResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteProjectResponse): any => ({
     ...obj,
   });
@@ -297,6 +348,9 @@ export interface DescribePlacementRequest {
 }
 
 export namespace DescribePlacementRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribePlacementRequest): any => ({
     ...obj,
   });
@@ -335,6 +389,9 @@ export interface PlacementDescription {
 }
 
 export namespace PlacementDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PlacementDescription): any => ({
     ...obj,
   });
@@ -348,6 +405,9 @@ export interface DescribePlacementResponse {
 }
 
 export namespace DescribePlacementResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribePlacementResponse): any => ({
     ...obj,
   });
@@ -361,6 +421,9 @@ export interface DescribeProjectRequest {
 }
 
 export namespace DescribeProjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeProjectRequest): any => ({
     ...obj,
   });
@@ -409,6 +472,9 @@ export interface ProjectDescription {
 }
 
 export namespace ProjectDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProjectDescription): any => ({
     ...obj,
   });
@@ -422,6 +488,9 @@ export interface DescribeProjectResponse {
 }
 
 export namespace DescribeProjectResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeProjectResponse): any => ({
     ...obj,
   });
@@ -445,6 +514,9 @@ export interface DisassociateDeviceFromPlacementRequest {
 }
 
 export namespace DisassociateDeviceFromPlacementRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateDeviceFromPlacementRequest): any => ({
     ...obj,
   });
@@ -453,6 +525,9 @@ export namespace DisassociateDeviceFromPlacementRequest {
 export interface DisassociateDeviceFromPlacementResponse {}
 
 export namespace DisassociateDeviceFromPlacementResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateDeviceFromPlacementResponse): any => ({
     ...obj,
   });
@@ -471,6 +546,9 @@ export interface GetDevicesInPlacementRequest {
 }
 
 export namespace GetDevicesInPlacementRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDevicesInPlacementRequest): any => ({
     ...obj,
   });
@@ -484,6 +562,9 @@ export interface GetDevicesInPlacementResponse {
 }
 
 export namespace GetDevicesInPlacementResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetDevicesInPlacementResponse): any => ({
     ...obj,
   });
@@ -508,6 +589,9 @@ export interface ListPlacementsRequest {
 }
 
 export namespace ListPlacementsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPlacementsRequest): any => ({
     ...obj,
   });
@@ -541,6 +625,9 @@ export interface PlacementSummary {
 }
 
 export namespace PlacementSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PlacementSummary): any => ({
     ...obj,
   });
@@ -560,6 +647,9 @@ export interface ListPlacementsResponse {
 }
 
 export namespace ListPlacementsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListPlacementsResponse): any => ({
     ...obj,
   });
@@ -579,6 +669,9 @@ export interface ListProjectsRequest {
 }
 
 export namespace ListProjectsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListProjectsRequest): any => ({
     ...obj,
   });
@@ -617,6 +710,9 @@ export interface ProjectSummary {
 }
 
 export namespace ProjectSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProjectSummary): any => ({
     ...obj,
   });
@@ -636,6 +732,9 @@ export interface ListProjectsResponse {
 }
 
 export namespace ListProjectsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListProjectsResponse): any => ({
     ...obj,
   });
@@ -649,6 +748,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -662,6 +764,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -681,6 +786,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -689,6 +797,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -707,6 +818,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -715,6 +829,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
@@ -739,6 +856,9 @@ export interface UpdatePlacementRequest {
 }
 
 export namespace UpdatePlacementRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdatePlacementRequest): any => ({
     ...obj,
   });
@@ -747,6 +867,9 @@ export namespace UpdatePlacementRequest {
 export interface UpdatePlacementResponse {}
 
 export namespace UpdatePlacementResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdatePlacementResponse): any => ({
     ...obj,
   });
@@ -773,6 +896,9 @@ export interface UpdateProjectRequest {
 }
 
 export namespace UpdateProjectRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateProjectRequest): any => ({
     ...obj,
   });
@@ -781,6 +907,9 @@ export namespace UpdateProjectRequest {
 export interface UpdateProjectResponse {}
 
 export namespace UpdateProjectResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateProjectResponse): any => ({
     ...obj,
   });

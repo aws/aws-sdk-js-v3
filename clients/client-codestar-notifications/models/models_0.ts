@@ -12,6 +12,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -28,6 +31,9 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
 }
 
 export namespace ConcurrentModificationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
@@ -43,6 +49,9 @@ export interface ConfigurationException extends __SmithyException, $MetadataBear
 }
 
 export namespace ConfigurationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConfigurationException): any => ({
     ...obj,
   });
@@ -74,6 +83,9 @@ export interface Target {
 }
 
 export namespace Target {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Target): any => ({
     ...obj,
     ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
@@ -137,6 +149,9 @@ export interface CreateNotificationRuleRequest {
 }
 
 export namespace CreateNotificationRuleRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateNotificationRuleRequest): any => ({
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -152,6 +167,9 @@ export interface CreateNotificationRuleResult {
 }
 
 export namespace CreateNotificationRuleResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateNotificationRuleResult): any => ({
     ...obj,
   });
@@ -169,6 +187,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -185,6 +206,9 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
 }
 
 export namespace ResourceAlreadyExistsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
     ...obj,
   });
@@ -200,6 +224,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -213,6 +240,9 @@ export interface DeleteNotificationRuleRequest {
 }
 
 export namespace DeleteNotificationRuleRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteNotificationRuleRequest): any => ({
     ...obj,
   });
@@ -226,6 +256,9 @@ export interface DeleteNotificationRuleResult {
 }
 
 export namespace DeleteNotificationRuleResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteNotificationRuleResult): any => ({
     ...obj,
   });
@@ -246,6 +279,9 @@ export interface DeleteTargetRequest {
 }
 
 export namespace DeleteTargetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTargetRequest): any => ({
     ...obj,
     ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
@@ -255,6 +291,9 @@ export namespace DeleteTargetRequest {
 export interface DeleteTargetResult {}
 
 export namespace DeleteTargetResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTargetResult): any => ({
     ...obj,
   });
@@ -268,6 +307,9 @@ export interface DescribeNotificationRuleRequest {
 }
 
 export namespace DescribeNotificationRuleRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeNotificationRuleRequest): any => ({
     ...obj,
   });
@@ -299,6 +341,9 @@ export interface EventTypeSummary {
 }
 
 export namespace EventTypeSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EventTypeSummary): any => ({
     ...obj,
   });
@@ -333,6 +378,9 @@ export interface TargetSummary {
 }
 
 export namespace TargetSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TargetSummary): any => ({
     ...obj,
     ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
@@ -402,6 +450,9 @@ export interface DescribeNotificationRuleResult {
 }
 
 export namespace DescribeNotificationRuleResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeNotificationRuleResult): any => ({
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -419,6 +470,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -434,6 +488,9 @@ export interface InvalidNextTokenException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidNextTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidNextTokenException): any => ({
     ...obj,
   });
@@ -462,6 +519,9 @@ export interface ListEventTypesFilter {
 }
 
 export namespace ListEventTypesFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEventTypesFilter): any => ({
     ...obj,
   });
@@ -487,6 +547,9 @@ export interface ListEventTypesRequest {
 }
 
 export namespace ListEventTypesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEventTypesRequest): any => ({
     ...obj,
   });
@@ -506,6 +569,9 @@ export interface ListEventTypesResult {
 }
 
 export namespace ListEventTypesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListEventTypesResult): any => ({
     ...obj,
   });
@@ -536,6 +602,9 @@ export interface ListNotificationRulesFilter {
 }
 
 export namespace ListNotificationRulesFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListNotificationRulesFilter): any => ({
     ...obj,
   });
@@ -565,6 +634,9 @@ export interface ListNotificationRulesRequest {
 }
 
 export namespace ListNotificationRulesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListNotificationRulesRequest): any => ({
     ...obj,
   });
@@ -586,6 +658,9 @@ export interface NotificationRuleSummary {
 }
 
 export namespace NotificationRuleSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotificationRuleSummary): any => ({
     ...obj,
   });
@@ -604,6 +679,9 @@ export interface ListNotificationRulesResult {
 }
 
 export namespace ListNotificationRulesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListNotificationRulesResult): any => ({
     ...obj,
   });
@@ -617,6 +695,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -630,6 +711,9 @@ export interface ListTagsForResourceResult {
 }
 
 export namespace ListTagsForResourceResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
     ...obj,
   });
@@ -663,6 +747,9 @@ export interface ListTargetsFilter {
 }
 
 export namespace ListTargetsFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTargetsFilter): any => ({
     ...obj,
   });
@@ -692,6 +779,9 @@ export interface ListTargetsRequest {
 }
 
 export namespace ListTargetsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTargetsRequest): any => ({
     ...obj,
   });
@@ -711,6 +801,9 @@ export interface ListTargetsResult {
 }
 
 export namespace ListTargetsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTargetsResult): any => ({
     ...obj,
     ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetSummary.filterSensitiveLog(item)) }),
@@ -736,6 +829,9 @@ export interface SubscribeRequest {
 }
 
 export namespace SubscribeRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubscribeRequest): any => ({
     ...obj,
     ...(obj.Target && { Target: Target.filterSensitiveLog(obj.Target) }),
@@ -750,6 +846,9 @@ export interface SubscribeResult {
 }
 
 export namespace SubscribeResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubscribeResult): any => ({
     ...obj,
   });
@@ -768,6 +867,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -781,6 +883,9 @@ export interface TagResourceResult {
 }
 
 export namespace TagResourceResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResult): any => ({
     ...obj,
   });
@@ -799,6 +904,9 @@ export interface UnsubscribeRequest {
 }
 
 export namespace UnsubscribeRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsubscribeRequest): any => ({
     ...obj,
     ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
@@ -813,6 +921,9 @@ export interface UnsubscribeResult {
 }
 
 export namespace UnsubscribeResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsubscribeResult): any => ({
     ...obj,
   });
@@ -832,6 +943,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -840,6 +954,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResult {}
 
 export namespace UntagResourceResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResult): any => ({
     ...obj,
   });
@@ -882,6 +999,9 @@ export interface UpdateNotificationRuleRequest {
 }
 
 export namespace UpdateNotificationRuleRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateNotificationRuleRequest): any => ({
     ...obj,
     ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -892,6 +1012,9 @@ export namespace UpdateNotificationRuleRequest {
 export interface UpdateNotificationRuleResult {}
 
 export namespace UpdateNotificationRuleResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateNotificationRuleResult): any => ({
     ...obj,
   });

@@ -24,6 +24,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -54,6 +57,9 @@ export interface CreateConnectionInput {
 }
 
 export namespace CreateConnectionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateConnectionInput): any => ({
     ...obj,
   });
@@ -76,6 +82,9 @@ export interface CreateConnectionOutput {
 }
 
 export namespace CreateConnectionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateConnectionOutput): any => ({
     ...obj,
   });
@@ -91,6 +100,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -106,6 +118,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -121,6 +136,9 @@ export interface ResourceUnavailableException extends __SmithyException, $Metada
 }
 
 export namespace ResourceUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceUnavailableException): any => ({
     ...obj,
   });
@@ -155,6 +173,9 @@ export interface VpcConfiguration {
 }
 
 export namespace VpcConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VpcConfiguration): any => ({
     ...obj,
   });
@@ -190,6 +211,9 @@ export interface CreateHostInput {
 }
 
 export namespace CreateHostInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateHostInput): any => ({
     ...obj,
   });
@@ -205,6 +229,9 @@ export interface CreateHostOutput {
 }
 
 export namespace CreateHostOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateHostOutput): any => ({
     ...obj,
   });
@@ -221,6 +248,9 @@ export interface DeleteConnectionInput {
 }
 
 export namespace DeleteConnectionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteConnectionInput): any => ({
     ...obj,
   });
@@ -229,6 +259,9 @@ export namespace DeleteConnectionInput {
 export interface DeleteConnectionOutput {}
 
 export namespace DeleteConnectionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteConnectionOutput): any => ({
     ...obj,
   });
@@ -242,6 +275,9 @@ export interface DeleteHostInput {
 }
 
 export namespace DeleteHostInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteHostInput): any => ({
     ...obj,
   });
@@ -250,6 +286,9 @@ export namespace DeleteHostInput {
 export interface DeleteHostOutput {}
 
 export namespace DeleteHostOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteHostOutput): any => ({
     ...obj,
   });
@@ -263,6 +302,9 @@ export interface GetConnectionInput {
 }
 
 export namespace GetConnectionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetConnectionInput): any => ({
     ...obj,
   });
@@ -318,6 +360,9 @@ export interface Connection {
 }
 
 export namespace Connection {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Connection): any => ({
     ...obj,
   });
@@ -331,6 +376,9 @@ export interface GetConnectionOutput {
 }
 
 export namespace GetConnectionOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetConnectionOutput): any => ({
     ...obj,
   });
@@ -344,6 +392,9 @@ export interface GetHostInput {
 }
 
 export namespace GetHostInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetHostInput): any => ({
     ...obj,
   });
@@ -377,6 +428,9 @@ export interface GetHostOutput {
 }
 
 export namespace GetHostOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetHostOutput): any => ({
     ...obj,
   });
@@ -408,6 +462,9 @@ export interface ListConnectionsInput {
 }
 
 export namespace ListConnectionsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListConnectionsInput): any => ({
     ...obj,
   });
@@ -429,6 +486,9 @@ export interface ListConnectionsOutput {
 }
 
 export namespace ListConnectionsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListConnectionsOutput): any => ({
     ...obj,
   });
@@ -449,6 +509,9 @@ export interface ListHostsInput {
 }
 
 export namespace ListHostsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListHostsInput): any => ({
     ...obj,
   });
@@ -503,6 +566,9 @@ export interface Host {
 }
 
 export namespace Host {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Host): any => ({
     ...obj,
   });
@@ -524,6 +590,9 @@ export interface ListHostsOutput {
 }
 
 export namespace ListHostsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListHostsOutput): any => ({
     ...obj,
   });
@@ -537,6 +606,9 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
@@ -550,6 +622,9 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
   });
@@ -568,6 +643,9 @@ export interface TagResourceInput {
 }
 
 export namespace TagResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceInput): any => ({
     ...obj,
   });
@@ -576,6 +654,9 @@ export namespace TagResourceInput {
 export interface TagResourceOutput {}
 
 export namespace TagResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceOutput): any => ({
     ...obj,
   });
@@ -594,6 +675,9 @@ export interface UntagResourceInput {
 }
 
 export namespace UntagResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceInput): any => ({
     ...obj,
   });
@@ -602,6 +686,9 @@ export namespace UntagResourceInput {
 export interface UntagResourceOutput {}
 
 export namespace UntagResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceOutput): any => ({
     ...obj,
   });
@@ -617,6 +704,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -632,6 +722,9 @@ export interface UnsupportedOperationException extends __SmithyException, $Metad
 }
 
 export namespace UnsupportedOperationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
     ...obj,
   });
@@ -656,6 +749,9 @@ export interface UpdateHostInput {
 }
 
 export namespace UpdateHostInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateHostInput): any => ({
     ...obj,
   });
@@ -664,6 +760,9 @@ export namespace UpdateHostInput {
 export interface UpdateHostOutput {}
 
 export namespace UpdateHostOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateHostOutput): any => ({
     ...obj,
   });

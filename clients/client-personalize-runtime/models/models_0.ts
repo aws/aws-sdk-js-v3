@@ -49,6 +49,9 @@ export interface GetPersonalizedRankingRequest {
 }
 
 export namespace GetPersonalizedRankingRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetPersonalizedRankingRequest): any => ({
     ...obj,
     ...(obj.context && { context: SENSITIVE_STRING }),
@@ -75,6 +78,9 @@ export interface PredictedItem {
 }
 
 export namespace PredictedItem {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PredictedItem): any => ({
     ...obj,
   });
@@ -93,6 +99,9 @@ export interface GetPersonalizedRankingResponse {
 }
 
 export namespace GetPersonalizedRankingResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetPersonalizedRankingResponse): any => ({
     ...obj,
   });
@@ -108,6 +117,9 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
 }
 
 export namespace InvalidInputException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
@@ -123,6 +135,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -181,6 +196,9 @@ export interface GetRecommendationsRequest {
 }
 
 export namespace GetRecommendationsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRecommendationsRequest): any => ({
     ...obj,
     ...(obj.context && { context: SENSITIVE_STRING }),
@@ -202,6 +220,9 @@ export interface GetRecommendationsResponse {
 }
 
 export namespace GetRecommendationsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
     ...obj,
   });

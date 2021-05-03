@@ -17,6 +17,9 @@ export interface DataPoint {
 }
 
 export namespace DataPoint {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataPoint): any => ({
     ...obj,
   });
@@ -169,6 +172,9 @@ export interface DimensionGroup {
 }
 
 export namespace DimensionGroup {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DimensionGroup): any => ({
     ...obj,
   });
@@ -312,6 +318,9 @@ export interface DescribeDimensionKeysRequest {
 }
 
 export namespace DescribeDimensionKeysRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDimensionKeysRequest): any => ({
     ...obj,
   });
@@ -339,6 +348,9 @@ export interface DimensionKeyDescription {
 }
 
 export namespace DimensionKeyDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DimensionKeyDescription): any => ({
     ...obj,
   });
@@ -357,6 +369,9 @@ export interface ResponsePartitionKey {
 }
 
 export namespace ResponsePartitionKey {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResponsePartitionKey): any => ({
     ...obj,
   });
@@ -396,6 +411,9 @@ export interface DescribeDimensionKeysResponse {
 }
 
 export namespace DescribeDimensionKeysResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDimensionKeysResponse): any => ({
     ...obj,
   });
@@ -411,6 +429,9 @@ export interface InternalServiceError extends __SmithyException, $MetadataBearer
 }
 
 export namespace InternalServiceError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceError): any => ({
     ...obj,
   });
@@ -426,6 +447,9 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidArgumentException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj,
   });
@@ -441,6 +465,9 @@ export interface NotAuthorizedException extends __SmithyException, $MetadataBear
 }
 
 export namespace NotAuthorizedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotAuthorizedException): any => ({
     ...obj,
   });
@@ -499,6 +526,9 @@ export interface MetricQuery {
 }
 
 export namespace MetricQuery {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MetricQuery): any => ({
     ...obj,
   });
@@ -591,6 +621,9 @@ export interface GetResourceMetricsRequest {
 }
 
 export namespace GetResourceMetricsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetResourceMetricsRequest): any => ({
     ...obj,
   });
@@ -630,6 +663,9 @@ export interface ResponseResourceMetricKey {
 }
 
 export namespace ResponseResourceMetricKey {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResponseResourceMetricKey): any => ({
     ...obj,
   });
@@ -652,6 +688,9 @@ export interface MetricKeyDataPoints {
 }
 
 export namespace MetricKeyDataPoints {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MetricKeyDataPoints): any => ({
     ...obj,
   });
@@ -696,6 +735,9 @@ export interface GetResourceMetricsResponse {
 }
 
 export namespace GetResourceMetricsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetResourceMetricsResponse): any => ({
     ...obj,
   });

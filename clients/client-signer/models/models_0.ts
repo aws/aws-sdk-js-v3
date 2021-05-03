@@ -12,6 +12,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -51,6 +54,9 @@ export interface AddProfilePermissionRequest {
 }
 
 export namespace AddProfilePermissionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddProfilePermissionRequest): any => ({
     ...obj,
   });
@@ -64,6 +70,9 @@ export interface AddProfilePermissionResponse {
 }
 
 export namespace AddProfilePermissionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddProfilePermissionResponse): any => ({
     ...obj,
   });
@@ -80,6 +89,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -96,6 +108,9 @@ export interface InternalServiceErrorException extends __SmithyException, $Metad
 }
 
 export namespace InternalServiceErrorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceErrorException): any => ({
     ...obj,
   });
@@ -112,6 +127,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -128,6 +146,9 @@ export interface ServiceLimitExceededException extends __SmithyException, $Metad
 }
 
 export namespace ServiceLimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceLimitExceededException): any => ({
     ...obj,
   });
@@ -145,6 +166,9 @@ export interface TooManyRequestsException extends __SmithyException, $MetadataBe
 }
 
 export namespace TooManyRequestsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyRequestsException): any => ({
     ...obj,
   });
@@ -161,6 +185,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -178,6 +205,9 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace BadRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
@@ -191,6 +221,9 @@ export interface CancelSigningProfileRequest {
 }
 
 export namespace CancelSigningProfileRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelSigningProfileRequest): any => ({
     ...obj,
   });
@@ -206,6 +239,9 @@ export interface DescribeSigningJobRequest {
 }
 
 export namespace DescribeSigningJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSigningJobRequest): any => ({
     ...obj,
   });
@@ -234,6 +270,9 @@ export interface SigningConfigurationOverrides {
 }
 
 export namespace SigningConfigurationOverrides {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SigningConfigurationOverrides): any => ({
     ...obj,
   });
@@ -264,6 +303,9 @@ export interface SigningPlatformOverrides {
 }
 
 export namespace SigningPlatformOverrides {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SigningPlatformOverrides): any => ({
     ...obj,
   });
@@ -290,6 +332,9 @@ export interface SigningJobRevocationRecord {
 }
 
 export namespace SigningJobRevocationRecord {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SigningJobRevocationRecord): any => ({
     ...obj,
   });
@@ -311,6 +356,9 @@ export interface S3SignedObject {
 }
 
 export namespace S3SignedObject {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3SignedObject): any => ({
     ...obj,
   });
@@ -328,6 +376,9 @@ export interface SignedObject {
 }
 
 export namespace SignedObject {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SignedObject): any => ({
     ...obj,
   });
@@ -345,6 +396,9 @@ export interface SigningMaterial {
 }
 
 export namespace SigningMaterial {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SigningMaterial): any => ({
     ...obj,
   });
@@ -371,6 +425,9 @@ export interface S3Source {
 }
 
 export namespace S3Source {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3Source): any => ({
     ...obj,
   });
@@ -388,6 +445,9 @@ export interface Source {
 }
 
 export namespace Source {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Source): any => ({
     ...obj,
   });
@@ -496,6 +556,9 @@ export interface DescribeSigningJobResponse {
 }
 
 export namespace DescribeSigningJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSigningJobResponse): any => ({
     ...obj,
   });
@@ -518,6 +581,9 @@ export interface S3Destination {
 }
 
 export namespace S3Destination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3Destination): any => ({
     ...obj,
   });
@@ -535,6 +601,9 @@ export interface Destination {
 }
 
 export namespace Destination {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Destination): any => ({
     ...obj,
   });
@@ -556,6 +625,9 @@ export interface EncryptionAlgorithmOptions {
 }
 
 export namespace EncryptionAlgorithmOptions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EncryptionAlgorithmOptions): any => ({
     ...obj,
   });
@@ -569,6 +641,9 @@ export interface GetSigningPlatformRequest {
 }
 
 export namespace GetSigningPlatformRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSigningPlatformRequest): any => ({
     ...obj,
   });
@@ -590,6 +665,9 @@ export interface HashAlgorithmOptions {
 }
 
 export namespace HashAlgorithmOptions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HashAlgorithmOptions): any => ({
     ...obj,
   });
@@ -611,6 +689,9 @@ export interface SigningConfiguration {
 }
 
 export namespace SigningConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SigningConfiguration): any => ({
     ...obj,
   });
@@ -632,6 +713,9 @@ export interface SigningImageFormat {
 }
 
 export namespace SigningImageFormat {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SigningImageFormat): any => ({
     ...obj,
   });
@@ -687,6 +771,9 @@ export interface GetSigningPlatformResponse {
 }
 
 export namespace GetSigningPlatformResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSigningPlatformResponse): any => ({
     ...obj,
   });
@@ -705,6 +792,9 @@ export interface GetSigningProfileRequest {
 }
 
 export namespace GetSigningProfileRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSigningProfileRequest): any => ({
     ...obj,
   });
@@ -731,6 +821,9 @@ export interface SigningProfileRevocationRecord {
 }
 
 export namespace SigningProfileRevocationRecord {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SigningProfileRevocationRecord): any => ({
     ...obj,
   });
@@ -755,6 +848,9 @@ export interface SignatureValidityPeriod {
 }
 
 export namespace SignatureValidityPeriod {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SignatureValidityPeriod): any => ({
     ...obj,
   });
@@ -838,6 +934,9 @@ export interface GetSigningProfileResponse {
 }
 
 export namespace GetSigningProfileResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSigningProfileResponse): any => ({
     ...obj,
   });
@@ -856,6 +955,9 @@ export interface ListProfilePermissionsRequest {
 }
 
 export namespace ListProfilePermissionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListProfilePermissionsRequest): any => ({
     ...obj,
   });
@@ -887,6 +989,9 @@ export interface Permission {
 }
 
 export namespace Permission {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Permission): any => ({
     ...obj,
   });
@@ -915,6 +1020,9 @@ export interface ListProfilePermissionsResponse {
 }
 
 export namespace ListProfilePermissionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListProfilePermissionsResponse): any => ({
     ...obj,
   });
@@ -978,6 +1086,9 @@ export interface ListSigningJobsRequest {
 }
 
 export namespace ListSigningJobsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSigningJobsRequest): any => ({
     ...obj,
   });
@@ -1062,6 +1173,9 @@ export interface SigningJob {
 }
 
 export namespace SigningJob {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SigningJob): any => ({
     ...obj,
   });
@@ -1080,6 +1194,9 @@ export interface ListSigningJobsResponse {
 }
 
 export namespace ListSigningJobsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSigningJobsResponse): any => ({
     ...obj,
   });
@@ -1115,6 +1232,9 @@ export interface ListSigningPlatformsRequest {
 }
 
 export namespace ListSigningPlatformsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSigningPlatformsRequest): any => ({
     ...obj,
   });
@@ -1173,6 +1293,9 @@ export interface SigningPlatform {
 }
 
 export namespace SigningPlatform {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SigningPlatform): any => ({
     ...obj,
   });
@@ -1191,6 +1314,9 @@ export interface ListSigningPlatformsResponse {
 }
 
 export namespace ListSigningPlatformsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSigningPlatformsResponse): any => ({
     ...obj,
   });
@@ -1229,6 +1355,9 @@ export interface ListSigningProfilesRequest {
 }
 
 export namespace ListSigningProfilesRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSigningProfilesRequest): any => ({
     ...obj,
   });
@@ -1296,6 +1425,9 @@ export interface SigningProfile {
 }
 
 export namespace SigningProfile {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SigningProfile): any => ({
     ...obj,
   });
@@ -1316,6 +1448,9 @@ export interface ListSigningProfilesResponse {
 }
 
 export namespace ListSigningProfilesResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListSigningProfilesResponse): any => ({
     ...obj,
   });
@@ -1329,6 +1464,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -1342,6 +1480,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -1358,6 +1499,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
@@ -1406,6 +1550,9 @@ export interface PutSigningProfileRequest {
 }
 
 export namespace PutSigningProfileRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutSigningProfileRequest): any => ({
     ...obj,
   });
@@ -1429,6 +1576,9 @@ export interface PutSigningProfileResponse {
 }
 
 export namespace PutSigningProfileResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutSigningProfileResponse): any => ({
     ...obj,
   });
@@ -1452,6 +1602,9 @@ export interface RemoveProfilePermissionRequest {
 }
 
 export namespace RemoveProfilePermissionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveProfilePermissionRequest): any => ({
     ...obj,
   });
@@ -1465,6 +1618,9 @@ export interface RemoveProfilePermissionResponse {
 }
 
 export namespace RemoveProfilePermissionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveProfilePermissionResponse): any => ({
     ...obj,
   });
@@ -1488,6 +1644,9 @@ export interface RevokeSignatureRequest {
 }
 
 export namespace RevokeSignatureRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RevokeSignatureRequest): any => ({
     ...obj,
   });
@@ -1518,6 +1677,9 @@ export interface RevokeSigningProfileRequest {
 }
 
 export namespace RevokeSigningProfileRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RevokeSigningProfileRequest): any => ({
     ...obj,
   });
@@ -1554,6 +1716,9 @@ export interface StartSigningJobRequest {
 }
 
 export namespace StartSigningJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartSigningJobRequest): any => ({
     ...obj,
   });
@@ -1572,6 +1737,9 @@ export interface StartSigningJobResponse {
 }
 
 export namespace StartSigningJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartSigningJobResponse): any => ({
     ...obj,
   });
@@ -1591,6 +1759,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -1609,6 +1780,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -1617,6 +1791,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -1635,6 +1812,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -1643,6 +1823,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });

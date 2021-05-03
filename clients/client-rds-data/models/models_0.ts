@@ -14,6 +14,9 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace BadRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
@@ -41,6 +44,9 @@ export interface ForbiddenException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ForbiddenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ForbiddenException): any => ({
     ...obj,
   });
@@ -55,6 +61,9 @@ export interface InternalServerErrorException extends __SmithyException, $Metada
 }
 
 export namespace InternalServerErrorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerErrorException): any => ({
     ...obj,
   });
@@ -70,6 +79,9 @@ export interface ServiceUnavailableError extends __SmithyException, $MetadataBea
 }
 
 export namespace ServiceUnavailableError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailableError): any => ({
     ...obj,
   });
@@ -93,6 +105,9 @@ export interface StatementTimeoutException extends __SmithyException, $MetadataB
 }
 
 export namespace StatementTimeoutException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StatementTimeoutException): any => ({
     ...obj,
   });
@@ -125,6 +140,9 @@ export interface BeginTransactionRequest {
 }
 
 export namespace BeginTransactionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BeginTransactionRequest): any => ({
     ...obj,
   });
@@ -142,6 +160,9 @@ export interface BeginTransactionResponse {
 }
 
 export namespace BeginTransactionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BeginTransactionResponse): any => ({
     ...obj,
   });
@@ -223,6 +244,9 @@ export interface ColumnMetadata {
 }
 
 export namespace ColumnMetadata {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ColumnMetadata): any => ({
     ...obj,
   });
@@ -249,6 +273,9 @@ export interface CommitTransactionRequest {
 }
 
 export namespace CommitTransactionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CommitTransactionRequest): any => ({
     ...obj,
   });
@@ -265,6 +292,9 @@ export interface CommitTransactionResponse {
 }
 
 export namespace CommitTransactionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CommitTransactionResponse): any => ({
     ...obj,
   });
@@ -283,6 +313,9 @@ export interface NotFoundException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotFoundException): any => ({
     ...obj,
   });
@@ -328,6 +361,9 @@ export interface ExecuteSqlRequest {
 }
 
 export namespace ExecuteSqlRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteSqlRequest): any => ({
     ...obj,
   });
@@ -349,6 +385,9 @@ export interface ResultSetMetadata {
 }
 
 export namespace ResultSetMetadata {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResultSetMetadata): any => ({
     ...obj,
   });
@@ -373,6 +412,9 @@ export interface ResultSetOptions {
 }
 
 export namespace ResultSetOptions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResultSetOptions): any => ({
     ...obj,
   });
@@ -400,6 +442,9 @@ export interface RollbackTransactionRequest {
 }
 
 export namespace RollbackTransactionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RollbackTransactionRequest): any => ({
     ...obj,
   });
@@ -417,6 +462,9 @@ export interface RollbackTransactionResponse {
 }
 
 export namespace RollbackTransactionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RollbackTransactionResponse): any => ({
     ...obj,
   });
@@ -521,6 +569,9 @@ export namespace ArrayValue {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ArrayValue): any => {
     if (obj.booleanValues !== undefined) return { booleanValues: obj.booleanValues };
     if (obj.longValues !== undefined) return { longValues: obj.longValues };
@@ -677,6 +728,9 @@ export namespace Field {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Field): any => {
     if (obj.isNull !== undefined) return { isNull: obj.isNull };
     if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
@@ -744,6 +798,9 @@ export interface SqlParameter {
 }
 
 export namespace SqlParameter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SqlParameter): any => ({
     ...obj,
     ...(obj.value && { value: Field.filterSensitiveLog(obj.value) }),
@@ -761,6 +818,9 @@ export interface UpdateResult {
 }
 
 export namespace UpdateResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateResult): any => ({
     ...obj,
     ...(obj.generatedFields && { generatedFields: obj.generatedFields.map((item) => Field.filterSensitiveLog(item)) }),
@@ -1000,6 +1060,9 @@ export namespace Value {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Value): any => {
     if (obj.isNull !== undefined) return { isNull: obj.isNull };
     if (obj.bitValue !== undefined) return { bitValue: obj.bitValue };
@@ -1089,6 +1152,9 @@ export interface ExecuteStatementRequest {
 }
 
 export namespace ExecuteStatementRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
     ...obj,
     ...(obj.parameters && { parameters: obj.parameters.map((item) => SqlParameter.filterSensitiveLog(item)) }),
@@ -1106,6 +1172,9 @@ export interface StructValue {
 }
 
 export namespace StructValue {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StructValue): any => ({
     ...obj,
     ...(obj.attributes && { attributes: obj.attributes.map((item) => Value.filterSensitiveLog(item)) }),
@@ -1171,6 +1240,9 @@ export interface BatchExecuteStatementRequest {
 }
 
 export namespace BatchExecuteStatementRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchExecuteStatementRequest): any => ({
     ...obj,
     ...(obj.parameterSets && {
@@ -1191,6 +1263,9 @@ export interface BatchExecuteStatementResponse {
 }
 
 export namespace BatchExecuteStatementResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchExecuteStatementResponse): any => ({
     ...obj,
     ...(obj.updateResults && { updateResults: obj.updateResults.map((item) => UpdateResult.filterSensitiveLog(item)) }),
@@ -1208,6 +1283,9 @@ export interface _Record {
 }
 
 export namespace _Record {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: _Record): any => ({
     ...obj,
     ...(obj.values && { values: obj.values.map((item) => Value.filterSensitiveLog(item)) }),
@@ -1248,6 +1326,9 @@ export interface ExecuteStatementResponse {
 }
 
 export namespace ExecuteStatementResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteStatementResponse): any => ({
     ...obj,
     ...(obj.records && { records: obj.records.map((item) => item.map((item) => Field.filterSensitiveLog(item))) }),
@@ -1271,6 +1352,9 @@ export interface ResultFrame {
 }
 
 export namespace ResultFrame {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResultFrame): any => ({
     ...obj,
     ...(obj.records && { records: obj.records.map((item) => _Record.filterSensitiveLog(item)) }),
@@ -1297,6 +1381,9 @@ export interface SqlStatementResult {
 }
 
 export namespace SqlStatementResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SqlStatementResult): any => ({
     ...obj,
   });
@@ -1314,6 +1401,9 @@ export interface ExecuteSqlResponse {
 }
 
 export namespace ExecuteSqlResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteSqlResponse): any => ({
     ...obj,
   });

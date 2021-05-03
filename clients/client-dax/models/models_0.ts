@@ -11,6 +11,9 @@ export interface ClusterAlreadyExistsFault extends __SmithyException, $MetadataB
 }
 
 export namespace ClusterAlreadyExistsFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ClusterAlreadyExistsFault): any => ({
     ...obj,
   });
@@ -27,6 +30,9 @@ export interface ClusterQuotaForCustomerExceededFault extends __SmithyException,
 }
 
 export namespace ClusterQuotaForCustomerExceededFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ClusterQuotaForCustomerExceededFault): any => ({
     ...obj,
   });
@@ -43,6 +49,9 @@ export interface SSESpecification {
 }
 
 export namespace SSESpecification {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SSESpecification): any => ({
     ...obj,
   });
@@ -71,6 +80,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -230,6 +242,9 @@ export interface CreateClusterRequest {
 }
 
 export namespace CreateClusterRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateClusterRequest): any => ({
     ...obj,
   });
@@ -253,6 +268,9 @@ export interface Endpoint {
 }
 
 export namespace Endpoint {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Endpoint): any => ({
     ...obj,
   });
@@ -298,6 +316,9 @@ export interface Node {
 }
 
 export namespace Node {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Node): any => ({
     ...obj,
   });
@@ -321,6 +342,9 @@ export interface NotificationConfiguration {
 }
 
 export namespace NotificationConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotificationConfiguration): any => ({
     ...obj,
   });
@@ -347,6 +371,9 @@ export interface ParameterGroupStatus {
 }
 
 export namespace ParameterGroupStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParameterGroupStatus): any => ({
     ...obj,
   });
@@ -368,6 +395,9 @@ export interface SecurityGroupMembership {
 }
 
 export namespace SecurityGroupMembership {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SecurityGroupMembership): any => ({
     ...obj,
   });
@@ -404,6 +434,9 @@ export interface SSEDescription {
 }
 
 export namespace SSEDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SSEDescription): any => ({
     ...obj,
   });
@@ -512,6 +545,9 @@ export interface Cluster {
 }
 
 export namespace Cluster {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Cluster): any => ({
     ...obj,
   });
@@ -525,6 +561,9 @@ export interface CreateClusterResponse {
 }
 
 export namespace CreateClusterResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateClusterResponse): any => ({
     ...obj,
   });
@@ -541,6 +580,9 @@ export interface InsufficientClusterCapacityFault extends __SmithyException, $Me
 }
 
 export namespace InsufficientClusterCapacityFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InsufficientClusterCapacityFault): any => ({
     ...obj,
   });
@@ -557,6 +599,9 @@ export interface InvalidClusterStateFault extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidClusterStateFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidClusterStateFault): any => ({
     ...obj,
   });
@@ -572,6 +617,9 @@ export interface InvalidParameterCombinationException extends __SmithyException,
 }
 
 export namespace InvalidParameterCombinationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterCombinationException): any => ({
     ...obj,
   });
@@ -587,6 +635,9 @@ export interface InvalidParameterGroupStateFault extends __SmithyException, $Met
 }
 
 export namespace InvalidParameterGroupStateFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterGroupStateFault): any => ({
     ...obj,
   });
@@ -602,6 +653,9 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
 }
 
 export namespace InvalidParameterValueException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterValueException): any => ({
     ...obj,
   });
@@ -617,6 +671,9 @@ export interface InvalidVPCNetworkStateFault extends __SmithyException, $Metadat
 }
 
 export namespace InvalidVPCNetworkStateFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidVPCNetworkStateFault): any => ({
     ...obj,
   });
@@ -633,6 +690,9 @@ export interface NodeQuotaForClusterExceededFault extends __SmithyException, $Me
 }
 
 export namespace NodeQuotaForClusterExceededFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NodeQuotaForClusterExceededFault): any => ({
     ...obj,
   });
@@ -649,6 +709,9 @@ export interface NodeQuotaForCustomerExceededFault extends __SmithyException, $M
 }
 
 export namespace NodeQuotaForCustomerExceededFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NodeQuotaForCustomerExceededFault): any => ({
     ...obj,
   });
@@ -664,6 +727,9 @@ export interface ParameterGroupNotFoundFault extends __SmithyException, $Metadat
 }
 
 export namespace ParameterGroupNotFoundFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParameterGroupNotFoundFault): any => ({
     ...obj,
   });
@@ -679,6 +745,9 @@ export interface ServiceLinkedRoleNotFoundFault extends __SmithyException, $Meta
 }
 
 export namespace ServiceLinkedRoleNotFoundFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceLinkedRoleNotFoundFault): any => ({
     ...obj,
   });
@@ -695,6 +764,9 @@ export interface SubnetGroupNotFoundFault extends __SmithyException, $MetadataBe
 }
 
 export namespace SubnetGroupNotFoundFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubnetGroupNotFoundFault): any => ({
     ...obj,
   });
@@ -710,6 +782,9 @@ export interface TagQuotaPerResourceExceeded extends __SmithyException, $Metadat
 }
 
 export namespace TagQuotaPerResourceExceeded {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagQuotaPerResourceExceeded): any => ({
     ...obj,
   });
@@ -729,6 +804,9 @@ export interface CreateParameterGroupRequest {
 }
 
 export namespace CreateParameterGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateParameterGroupRequest): any => ({
     ...obj,
   });
@@ -751,6 +829,9 @@ export interface ParameterGroup {
 }
 
 export namespace ParameterGroup {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParameterGroup): any => ({
     ...obj,
   });
@@ -765,6 +846,9 @@ export interface CreateParameterGroupResponse {
 }
 
 export namespace CreateParameterGroupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateParameterGroupResponse): any => ({
     ...obj,
   });
@@ -780,6 +864,9 @@ export interface ParameterGroupAlreadyExistsFault extends __SmithyException, $Me
 }
 
 export namespace ParameterGroupAlreadyExistsFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParameterGroupAlreadyExistsFault): any => ({
     ...obj,
   });
@@ -795,6 +882,9 @@ export interface ParameterGroupQuotaExceededFault extends __SmithyException, $Me
 }
 
 export namespace ParameterGroupQuotaExceededFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParameterGroupQuotaExceededFault): any => ({
     ...obj,
   });
@@ -818,6 +908,9 @@ export interface CreateSubnetGroupRequest {
 }
 
 export namespace CreateSubnetGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateSubnetGroupRequest): any => ({
     ...obj,
   });
@@ -841,6 +934,9 @@ export interface Subnet {
 }
 
 export namespace Subnet {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Subnet): any => ({
     ...obj,
   });
@@ -884,6 +980,9 @@ export interface SubnetGroup {
 }
 
 export namespace SubnetGroup {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubnetGroup): any => ({
     ...obj,
   });
@@ -898,6 +997,9 @@ export interface CreateSubnetGroupResponse {
 }
 
 export namespace CreateSubnetGroupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateSubnetGroupResponse): any => ({
     ...obj,
   });
@@ -913,6 +1015,9 @@ export interface InvalidSubnet extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidSubnet {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidSubnet): any => ({
     ...obj,
   });
@@ -928,6 +1033,9 @@ export interface SubnetGroupAlreadyExistsFault extends __SmithyException, $Metad
 }
 
 export namespace SubnetGroupAlreadyExistsFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubnetGroupAlreadyExistsFault): any => ({
     ...obj,
   });
@@ -944,6 +1052,9 @@ export interface SubnetGroupQuotaExceededFault extends __SmithyException, $Metad
 }
 
 export namespace SubnetGroupQuotaExceededFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubnetGroupQuotaExceededFault): any => ({
     ...obj,
   });
@@ -960,6 +1071,9 @@ export interface SubnetQuotaExceededFault extends __SmithyException, $MetadataBe
 }
 
 export namespace SubnetQuotaExceededFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubnetQuotaExceededFault): any => ({
     ...obj,
   });
@@ -975,6 +1089,9 @@ export interface ClusterNotFoundFault extends __SmithyException, $MetadataBearer
 }
 
 export namespace ClusterNotFoundFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ClusterNotFoundFault): any => ({
     ...obj,
   });
@@ -1003,6 +1120,9 @@ export interface DecreaseReplicationFactorRequest {
 }
 
 export namespace DecreaseReplicationFactorRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DecreaseReplicationFactorRequest): any => ({
     ...obj,
   });
@@ -1017,6 +1137,9 @@ export interface DecreaseReplicationFactorResponse {
 }
 
 export namespace DecreaseReplicationFactorResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DecreaseReplicationFactorResponse): any => ({
     ...obj,
   });
@@ -1032,6 +1155,9 @@ export interface NodeNotFoundFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace NodeNotFoundFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NodeNotFoundFault): any => ({
     ...obj,
   });
@@ -1045,6 +1171,9 @@ export interface DeleteClusterRequest {
 }
 
 export namespace DeleteClusterRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteClusterRequest): any => ({
     ...obj,
   });
@@ -1058,6 +1187,9 @@ export interface DeleteClusterResponse {
 }
 
 export namespace DeleteClusterResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteClusterResponse): any => ({
     ...obj,
   });
@@ -1071,6 +1203,9 @@ export interface DeleteParameterGroupRequest {
 }
 
 export namespace DeleteParameterGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteParameterGroupRequest): any => ({
     ...obj,
   });
@@ -1085,6 +1220,9 @@ export interface DeleteParameterGroupResponse {
 }
 
 export namespace DeleteParameterGroupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteParameterGroupResponse): any => ({
     ...obj,
   });
@@ -1098,6 +1236,9 @@ export interface DeleteSubnetGroupRequest {
 }
 
 export namespace DeleteSubnetGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteSubnetGroupRequest): any => ({
     ...obj,
   });
@@ -1112,6 +1253,9 @@ export interface DeleteSubnetGroupResponse {
 }
 
 export namespace DeleteSubnetGroupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteSubnetGroupResponse): any => ({
     ...obj,
   });
@@ -1127,6 +1271,9 @@ export interface SubnetGroupInUseFault extends __SmithyException, $MetadataBeare
 }
 
 export namespace SubnetGroupInUseFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubnetGroupInUseFault): any => ({
     ...obj,
   });
@@ -1156,6 +1303,9 @@ export interface DescribeClustersRequest {
 }
 
 export namespace DescribeClustersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeClustersRequest): any => ({
     ...obj,
   });
@@ -1175,6 +1325,9 @@ export interface DescribeClustersResponse {
 }
 
 export namespace DescribeClustersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeClustersResponse): any => ({
     ...obj,
   });
@@ -1199,6 +1352,9 @@ export interface DescribeDefaultParametersRequest {
 }
 
 export namespace DescribeDefaultParametersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDefaultParametersRequest): any => ({
     ...obj,
   });
@@ -1225,6 +1381,9 @@ export interface NodeTypeSpecificValue {
 }
 
 export namespace NodeTypeSpecificValue {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NodeTypeSpecificValue): any => ({
     ...obj,
   });
@@ -1293,6 +1452,9 @@ export interface Parameter {
 }
 
 export namespace Parameter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Parameter): any => ({
     ...obj,
   });
@@ -1311,6 +1473,9 @@ export interface DescribeDefaultParametersResponse {
 }
 
 export namespace DescribeDefaultParametersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDefaultParametersResponse): any => ({
     ...obj,
   });
@@ -1366,6 +1531,9 @@ export interface DescribeEventsRequest {
 }
 
 export namespace DescribeEventsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEventsRequest): any => ({
     ...obj,
   });
@@ -1401,6 +1569,9 @@ export interface Event {
 }
 
 export namespace Event {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Event): any => ({
     ...obj,
   });
@@ -1419,6 +1590,9 @@ export interface DescribeEventsResponse {
 }
 
 export namespace DescribeEventsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEventsResponse): any => ({
     ...obj,
   });
@@ -1448,6 +1622,9 @@ export interface DescribeParameterGroupsRequest {
 }
 
 export namespace DescribeParameterGroupsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeParameterGroupsRequest): any => ({
     ...obj,
   });
@@ -1466,6 +1643,9 @@ export interface DescribeParameterGroupsResponse {
 }
 
 export namespace DescribeParameterGroupsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeParameterGroupsResponse): any => ({
     ...obj,
   });
@@ -1501,6 +1681,9 @@ export interface DescribeParametersRequest {
 }
 
 export namespace DescribeParametersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeParametersRequest): any => ({
     ...obj,
   });
@@ -1519,6 +1702,9 @@ export interface DescribeParametersResponse {
 }
 
 export namespace DescribeParametersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeParametersResponse): any => ({
     ...obj,
   });
@@ -1548,6 +1734,9 @@ export interface DescribeSubnetGroupsRequest {
 }
 
 export namespace DescribeSubnetGroupsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSubnetGroupsRequest): any => ({
     ...obj,
   });
@@ -1566,6 +1755,9 @@ export interface DescribeSubnetGroupsResponse {
 }
 
 export namespace DescribeSubnetGroupsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSubnetGroupsResponse): any => ({
     ...obj,
   });
@@ -1591,6 +1783,9 @@ export interface IncreaseReplicationFactorRequest {
 }
 
 export namespace IncreaseReplicationFactorRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IncreaseReplicationFactorRequest): any => ({
     ...obj,
   });
@@ -1604,6 +1799,9 @@ export interface IncreaseReplicationFactorResponse {
 }
 
 export namespace IncreaseReplicationFactorResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IncreaseReplicationFactorResponse): any => ({
     ...obj,
   });
@@ -1619,6 +1817,9 @@ export interface InvalidARNFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidARNFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidARNFault): any => ({
     ...obj,
   });
@@ -1639,6 +1840,9 @@ export interface ListTagsRequest {
 }
 
 export namespace ListTagsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsRequest): any => ({
     ...obj,
   });
@@ -1658,6 +1862,9 @@ export interface ListTagsResponse {
 }
 
 export namespace ListTagsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsResponse): any => ({
     ...obj,
   });
@@ -1676,6 +1883,9 @@ export interface RebootNodeRequest {
 }
 
 export namespace RebootNodeRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RebootNodeRequest): any => ({
     ...obj,
   });
@@ -1689,6 +1899,9 @@ export interface RebootNodeResponse {
 }
 
 export namespace RebootNodeResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RebootNodeResponse): any => ({
     ...obj,
   });
@@ -1707,6 +1920,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -1720,6 +1936,9 @@ export interface TagResourceResponse {
 }
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -1735,6 +1954,9 @@ export interface TagNotFoundFault extends __SmithyException, $MetadataBearer {
 }
 
 export namespace TagNotFoundFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagNotFoundFault): any => ({
     ...obj,
   });
@@ -1753,6 +1975,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -1766,6 +1991,9 @@ export interface UntagResourceResponse {
 }
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
@@ -1812,6 +2040,9 @@ export interface UpdateClusterRequest {
 }
 
 export namespace UpdateClusterRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateClusterRequest): any => ({
     ...obj,
   });
@@ -1825,6 +2056,9 @@ export interface UpdateClusterResponse {
 }
 
 export namespace UpdateClusterResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateClusterResponse): any => ({
     ...obj,
   });
@@ -1846,6 +2080,9 @@ export interface ParameterNameValue {
 }
 
 export namespace ParameterNameValue {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ParameterNameValue): any => ({
     ...obj,
   });
@@ -1865,6 +2102,9 @@ export interface UpdateParameterGroupRequest {
 }
 
 export namespace UpdateParameterGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateParameterGroupRequest): any => ({
     ...obj,
   });
@@ -1878,6 +2118,9 @@ export interface UpdateParameterGroupResponse {
 }
 
 export namespace UpdateParameterGroupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateParameterGroupResponse): any => ({
     ...obj,
   });
@@ -1893,6 +2136,9 @@ export interface SubnetInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SubnetInUse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubnetInUse): any => ({
     ...obj,
   });
@@ -1916,6 +2162,9 @@ export interface UpdateSubnetGroupRequest {
 }
 
 export namespace UpdateSubnetGroupRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSubnetGroupRequest): any => ({
     ...obj,
   });
@@ -1929,6 +2178,9 @@ export interface UpdateSubnetGroupResponse {
 }
 
 export namespace UpdateSubnetGroupResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSubnetGroupResponse): any => ({
     ...obj,
   });

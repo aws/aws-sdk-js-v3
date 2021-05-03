@@ -43,6 +43,9 @@ export interface SnapshotCopyGrantMessage {
 }
 
 export namespace SnapshotCopyGrantMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SnapshotCopyGrantMessage): any => ({
     ...obj,
   });
@@ -90,6 +93,9 @@ export interface DescribeSnapshotSchedulesMessage {
 }
 
 export namespace DescribeSnapshotSchedulesMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSnapshotSchedulesMessage): any => ({
     ...obj,
   });
@@ -112,6 +118,9 @@ export interface DescribeSnapshotSchedulesOutputMessage {
 }
 
 export namespace DescribeSnapshotSchedulesOutputMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSnapshotSchedulesOutputMessage): any => ({
     ...obj,
   });
@@ -151,6 +160,9 @@ export interface DescribeTableRestoreStatusMessage {
 }
 
 export namespace DescribeTableRestoreStatusMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTableRestoreStatusMessage): any => ({
     ...obj,
   });
@@ -166,6 +178,9 @@ export interface TableRestoreNotFoundFault extends __SmithyException, $MetadataB
 }
 
 export namespace TableRestoreNotFoundFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TableRestoreNotFoundFault): any => ({
     ...obj,
   });
@@ -257,6 +272,9 @@ export interface TableRestoreStatus {
 }
 
 export namespace TableRestoreStatus {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TableRestoreStatus): any => ({
     ...obj,
   });
@@ -278,6 +296,9 @@ export interface TableRestoreStatusMessage {
 }
 
 export namespace TableRestoreStatusMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TableRestoreStatusMessage): any => ({
     ...obj,
   });
@@ -371,6 +392,9 @@ export interface DescribeTagsMessage {
 }
 
 export namespace DescribeTagsMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTagsMessage): any => ({
     ...obj,
   });
@@ -430,6 +454,9 @@ export interface TaggedResource {
 }
 
 export namespace TaggedResource {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TaggedResource): any => ({
     ...obj,
   });
@@ -455,6 +482,9 @@ export interface TaggedResourceListMessage {
 }
 
 export namespace TaggedResourceListMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TaggedResourceListMessage): any => ({
     ...obj,
   });
@@ -519,6 +549,9 @@ export interface DescribeUsageLimitsMessage {
 }
 
 export namespace DescribeUsageLimitsMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeUsageLimitsMessage): any => ({
     ...obj,
   });
@@ -542,6 +575,9 @@ export interface UsageLimitList {
 }
 
 export namespace UsageLimitList {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UsageLimitList): any => ({
     ...obj,
   });
@@ -560,6 +596,9 @@ export interface DisableLoggingMessage {
 }
 
 export namespace DisableLoggingMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisableLoggingMessage): any => ({
     ...obj,
   });
@@ -579,6 +618,9 @@ export interface DisableSnapshotCopyMessage {
 }
 
 export namespace DisableSnapshotCopyMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisableSnapshotCopyMessage): any => ({
     ...obj,
   });
@@ -592,6 +634,9 @@ export interface DisableSnapshotCopyResult {
 }
 
 export namespace DisableSnapshotCopyResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisableSnapshotCopyResult): any => ({
     ...obj,
   });
@@ -607,6 +652,9 @@ export interface SnapshotCopyAlreadyDisabledFault extends __SmithyException, $Me
 }
 
 export namespace SnapshotCopyAlreadyDisabledFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SnapshotCopyAlreadyDisabledFault): any => ({
     ...obj,
   });
@@ -671,6 +719,9 @@ export interface EnableLoggingMessage {
 }
 
 export namespace EnableLoggingMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnableLoggingMessage): any => ({
     ...obj,
   });
@@ -687,6 +738,9 @@ export interface InsufficientS3BucketPolicyFault extends __SmithyException, $Met
 }
 
 export namespace InsufficientS3BucketPolicyFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InsufficientS3BucketPolicyFault): any => ({
     ...obj,
   });
@@ -705,6 +759,9 @@ export interface InvalidS3BucketNameFault extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidS3BucketNameFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidS3BucketNameFault): any => ({
     ...obj,
   });
@@ -721,6 +778,9 @@ export interface InvalidS3KeyPrefixFault extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidS3KeyPrefixFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidS3KeyPrefixFault): any => ({
     ...obj,
   });
@@ -769,6 +829,9 @@ export interface EnableSnapshotCopyMessage {
 }
 
 export namespace EnableSnapshotCopyMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnableSnapshotCopyMessage): any => ({
     ...obj,
   });
@@ -782,6 +845,9 @@ export interface EnableSnapshotCopyResult {
 }
 
 export namespace EnableSnapshotCopyResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnableSnapshotCopyResult): any => ({
     ...obj,
   });
@@ -797,6 +863,9 @@ export interface IncompatibleOrderableOptions extends __SmithyException, $Metada
 }
 
 export namespace IncompatibleOrderableOptions {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IncompatibleOrderableOptions): any => ({
     ...obj,
   });
@@ -812,6 +881,9 @@ export interface SnapshotCopyAlreadyEnabledFault extends __SmithyException, $Met
 }
 
 export namespace SnapshotCopyAlreadyEnabledFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SnapshotCopyAlreadyEnabledFault): any => ({
     ...obj,
   });
@@ -827,6 +899,9 @@ export interface UnknownSnapshotCopyRegionFault extends __SmithyException, $Meta
 }
 
 export namespace UnknownSnapshotCopyRegionFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnknownSnapshotCopyRegionFault): any => ({
     ...obj,
   });
@@ -842,6 +917,9 @@ export interface EndpointAuthorizationNotFoundFault extends __SmithyException, $
 }
 
 export namespace EndpointAuthorizationNotFoundFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EndpointAuthorizationNotFoundFault): any => ({
     ...obj,
   });
@@ -962,6 +1040,9 @@ export interface GetClusterCredentialsMessage {
 }
 
 export namespace GetClusterCredentialsMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetClusterCredentialsMessage): any => ({
     ...obj,
   });
@@ -991,6 +1072,9 @@ export interface GetReservedNodeExchangeOfferingsInputMessage {
 }
 
 export namespace GetReservedNodeExchangeOfferingsInputMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetReservedNodeExchangeOfferingsInputMessage): any => ({
     ...obj,
   });
@@ -1014,6 +1098,9 @@ export interface GetReservedNodeExchangeOfferingsOutputMessage {
 }
 
 export namespace GetReservedNodeExchangeOfferingsOutputMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetReservedNodeExchangeOfferingsOutputMessage): any => ({
     ...obj,
   });
@@ -1030,6 +1117,9 @@ export interface InProgressTableRestoreQuotaExceededFault extends __SmithyExcept
 }
 
 export namespace InProgressTableRestoreQuotaExceededFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InProgressTableRestoreQuotaExceededFault): any => ({
     ...obj,
   });
@@ -1045,6 +1135,9 @@ export interface InvalidRestoreFault extends __SmithyException, $MetadataBearer 
 }
 
 export namespace InvalidRestoreFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRestoreFault): any => ({
     ...obj,
   });
@@ -1062,6 +1155,9 @@ export interface InvalidTableRestoreArgumentFault extends __SmithyException, $Me
 }
 
 export namespace InvalidTableRestoreArgumentFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidTableRestoreArgumentFault): any => ({
     ...obj,
   });
@@ -1091,6 +1187,9 @@ export interface ModifyAquaInputMessage {
 }
 
 export namespace ModifyAquaInputMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyAquaInputMessage): any => ({
     ...obj,
   });
@@ -1104,6 +1203,9 @@ export interface ModifyAquaOutputMessage {
 }
 
 export namespace ModifyAquaOutputMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyAquaOutputMessage): any => ({
     ...obj,
   });
@@ -1392,6 +1494,9 @@ export interface ModifyClusterMessage {
 }
 
 export namespace ModifyClusterMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyClusterMessage): any => ({
     ...obj,
   });
@@ -1405,6 +1510,9 @@ export interface ModifyClusterResult {
 }
 
 export namespace ModifyClusterResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyClusterResult): any => ({
     ...obj,
   });
@@ -1421,6 +1529,9 @@ export interface TableLimitExceededFault extends __SmithyException, $MetadataBea
 }
 
 export namespace TableLimitExceededFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TableLimitExceededFault): any => ({
     ...obj,
   });
@@ -1436,6 +1547,9 @@ export interface UnsupportedOptionFault extends __SmithyException, $MetadataBear
 }
 
 export namespace UnsupportedOptionFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedOptionFault): any => ({
     ...obj,
   });
@@ -1457,6 +1571,9 @@ export interface ModifyClusterDbRevisionMessage {
 }
 
 export namespace ModifyClusterDbRevisionMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyClusterDbRevisionMessage): any => ({
     ...obj,
   });
@@ -1470,6 +1587,9 @@ export interface ModifyClusterDbRevisionResult {
 }
 
 export namespace ModifyClusterDbRevisionResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyClusterDbRevisionResult): any => ({
     ...obj,
   });
@@ -1500,6 +1620,9 @@ export interface ModifyClusterIamRolesMessage {
 }
 
 export namespace ModifyClusterIamRolesMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyClusterIamRolesMessage): any => ({
     ...obj,
   });
@@ -1513,6 +1636,9 @@ export interface ModifyClusterIamRolesResult {
 }
 
 export namespace ModifyClusterIamRolesResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyClusterIamRolesResult): any => ({
     ...obj,
   });
@@ -1553,6 +1679,9 @@ export interface ModifyClusterMaintenanceMessage {
 }
 
 export namespace ModifyClusterMaintenanceMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyClusterMaintenanceMessage): any => ({
     ...obj,
   });
@@ -1566,6 +1695,9 @@ export interface ModifyClusterMaintenanceResult {
 }
 
 export namespace ModifyClusterMaintenanceResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyClusterMaintenanceResult): any => ({
     ...obj,
   });
@@ -1592,6 +1724,9 @@ export interface ModifyClusterParameterGroupMessage {
 }
 
 export namespace ModifyClusterParameterGroupMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyClusterParameterGroupMessage): any => ({
     ...obj,
   });
@@ -1620,6 +1755,9 @@ export interface ModifyClusterSnapshotMessage {
 }
 
 export namespace ModifyClusterSnapshotMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyClusterSnapshotMessage): any => ({
     ...obj,
   });
@@ -1633,6 +1771,9 @@ export interface ModifyClusterSnapshotResult {
 }
 
 export namespace ModifyClusterSnapshotResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyClusterSnapshotResult): any => ({
     ...obj,
   });
@@ -1659,6 +1800,9 @@ export interface ModifyClusterSnapshotScheduleMessage {
 }
 
 export namespace ModifyClusterSnapshotScheduleMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyClusterSnapshotScheduleMessage): any => ({
     ...obj,
   });
@@ -1686,6 +1830,9 @@ export interface ModifyClusterSubnetGroupMessage {
 }
 
 export namespace ModifyClusterSubnetGroupMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyClusterSubnetGroupMessage): any => ({
     ...obj,
   });
@@ -1699,6 +1846,9 @@ export interface ModifyClusterSubnetGroupResult {
 }
 
 export namespace ModifyClusterSubnetGroupResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyClusterSubnetGroupResult): any => ({
     ...obj,
   });
@@ -1714,6 +1864,9 @@ export interface SubnetAlreadyInUse extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SubnetAlreadyInUse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubnetAlreadyInUse): any => ({
     ...obj,
   });
@@ -1732,6 +1885,9 @@ export interface ModifyEndpointAccessMessage {
 }
 
 export namespace ModifyEndpointAccessMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyEndpointAccessMessage): any => ({
     ...obj,
   });
@@ -1794,6 +1950,9 @@ export interface ModifyEventSubscriptionMessage {
 }
 
 export namespace ModifyEventSubscriptionMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyEventSubscriptionMessage): any => ({
     ...obj,
   });
@@ -1807,6 +1966,9 @@ export interface ModifyEventSubscriptionResult {
 }
 
 export namespace ModifyEventSubscriptionResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyEventSubscriptionResult): any => ({
     ...obj,
   });
@@ -1860,6 +2022,9 @@ export interface ModifyScheduledActionMessage {
 }
 
 export namespace ModifyScheduledActionMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyScheduledActionMessage): any => ({
     ...obj,
   });
@@ -1904,6 +2069,9 @@ export interface ModifySnapshotCopyRetentionPeriodMessage {
 }
 
 export namespace ModifySnapshotCopyRetentionPeriodMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifySnapshotCopyRetentionPeriodMessage): any => ({
     ...obj,
   });
@@ -1917,6 +2085,9 @@ export interface ModifySnapshotCopyRetentionPeriodResult {
 }
 
 export namespace ModifySnapshotCopyRetentionPeriodResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifySnapshotCopyRetentionPeriodResult): any => ({
     ...obj,
   });
@@ -1933,6 +2104,9 @@ export interface SnapshotCopyDisabledFault extends __SmithyException, $MetadataB
 }
 
 export namespace SnapshotCopyDisabledFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SnapshotCopyDisabledFault): any => ({
     ...obj,
   });
@@ -1952,6 +2126,9 @@ export interface ModifySnapshotScheduleMessage {
 }
 
 export namespace ModifySnapshotScheduleMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifySnapshotScheduleMessage): any => ({
     ...obj,
   });
@@ -1967,6 +2144,9 @@ export interface SnapshotScheduleUpdateInProgressFault extends __SmithyException
 }
 
 export namespace SnapshotScheduleUpdateInProgressFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SnapshotScheduleUpdateInProgressFault): any => ({
     ...obj,
   });
@@ -1992,6 +2172,9 @@ export interface ModifyUsageLimitMessage {
 }
 
 export namespace ModifyUsageLimitMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyUsageLimitMessage): any => ({
     ...obj,
   });
@@ -2005,6 +2188,9 @@ export interface PauseClusterResult {
 }
 
 export namespace PauseClusterResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PauseClusterResult): any => ({
     ...obj,
   });
@@ -2028,6 +2214,9 @@ export interface PurchaseReservedNodeOfferingMessage {
 }
 
 export namespace PurchaseReservedNodeOfferingMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PurchaseReservedNodeOfferingMessage): any => ({
     ...obj,
   });
@@ -2042,6 +2231,9 @@ export interface PurchaseReservedNodeOfferingResult {
 }
 
 export namespace PurchaseReservedNodeOfferingResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PurchaseReservedNodeOfferingResult): any => ({
     ...obj,
   });
@@ -2060,6 +2252,9 @@ export interface ReservedNodeQuotaExceededFault extends __SmithyException, $Meta
 }
 
 export namespace ReservedNodeQuotaExceededFault {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ReservedNodeQuotaExceededFault): any => ({
     ...obj,
   });
@@ -2076,6 +2271,9 @@ export interface RebootClusterMessage {
 }
 
 export namespace RebootClusterMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RebootClusterMessage): any => ({
     ...obj,
   });
@@ -2089,6 +2287,9 @@ export interface RebootClusterResult {
 }
 
 export namespace RebootClusterResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RebootClusterResult): any => ({
     ...obj,
   });
@@ -2121,6 +2322,9 @@ export interface ResetClusterParameterGroupMessage {
 }
 
 export namespace ResetClusterParameterGroupMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResetClusterParameterGroupMessage): any => ({
     ...obj,
   });
@@ -2134,6 +2338,9 @@ export interface ResizeClusterResult {
 }
 
 export namespace ResizeClusterResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResizeClusterResult): any => ({
     ...obj,
   });
@@ -2395,6 +2602,9 @@ export interface RestoreFromClusterSnapshotMessage {
 }
 
 export namespace RestoreFromClusterSnapshotMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreFromClusterSnapshotMessage): any => ({
     ...obj,
   });
@@ -2408,6 +2618,9 @@ export interface RestoreFromClusterSnapshotResult {
 }
 
 export namespace RestoreFromClusterSnapshotResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreFromClusterSnapshotResult): any => ({
     ...obj,
   });
@@ -2470,6 +2683,9 @@ export interface RestoreTableFromClusterSnapshotMessage {
 }
 
 export namespace RestoreTableFromClusterSnapshotMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreTableFromClusterSnapshotMessage): any => ({
     ...obj,
   });
@@ -2484,6 +2700,9 @@ export interface RestoreTableFromClusterSnapshotResult {
 }
 
 export namespace RestoreTableFromClusterSnapshotResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RestoreTableFromClusterSnapshotResult): any => ({
     ...obj,
   });
@@ -2497,6 +2716,9 @@ export interface ResumeClusterResult {
 }
 
 export namespace ResumeClusterResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResumeClusterResult): any => ({
     ...obj,
   });
@@ -2539,6 +2761,9 @@ export interface RevokeClusterSecurityGroupIngressMessage {
 }
 
 export namespace RevokeClusterSecurityGroupIngressMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RevokeClusterSecurityGroupIngressMessage): any => ({
     ...obj,
   });
@@ -2552,6 +2777,9 @@ export interface RevokeClusterSecurityGroupIngressResult {
 }
 
 export namespace RevokeClusterSecurityGroupIngressResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RevokeClusterSecurityGroupIngressResult): any => ({
     ...obj,
   });
@@ -2581,6 +2809,9 @@ export interface RevokeEndpointAccessMessage {
 }
 
 export namespace RevokeEndpointAccessMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RevokeEndpointAccessMessage): any => ({
     ...obj,
   });
@@ -2610,6 +2841,9 @@ export interface RevokeSnapshotAccessMessage {
 }
 
 export namespace RevokeSnapshotAccessMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RevokeSnapshotAccessMessage): any => ({
     ...obj,
   });
@@ -2623,6 +2857,9 @@ export interface RevokeSnapshotAccessResult {
 }
 
 export namespace RevokeSnapshotAccessResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RevokeSnapshotAccessResult): any => ({
     ...obj,
   });
@@ -2642,6 +2879,9 @@ export interface RotateEncryptionKeyMessage {
 }
 
 export namespace RotateEncryptionKeyMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RotateEncryptionKeyMessage): any => ({
     ...obj,
   });
@@ -2655,6 +2895,9 @@ export interface RotateEncryptionKeyResult {
 }
 
 export namespace RotateEncryptionKeyResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RotateEncryptionKeyResult): any => ({
     ...obj,
   });
@@ -2693,6 +2936,9 @@ export interface UpdatePartnerStatusInputMessage {
 }
 
 export namespace UpdatePartnerStatusInputMessage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdatePartnerStatusInputMessage): any => ({
     ...obj,
   });

@@ -11,6 +11,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -39,6 +42,9 @@ export interface Target {
 }
 
 export namespace Target {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Target): any => ({
     ...obj,
   });
@@ -64,6 +70,9 @@ export interface CreateHomeRegionControlRequest {
 }
 
 export namespace CreateHomeRegionControlRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateHomeRegionControlRequest): any => ({
     ...obj,
   });
@@ -102,6 +111,9 @@ export interface HomeRegionControl {
 }
 
 export namespace HomeRegionControl {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HomeRegionControl): any => ({
     ...obj,
   });
@@ -116,6 +128,9 @@ export interface CreateHomeRegionControlResult {
 }
 
 export namespace CreateHomeRegionControlResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateHomeRegionControlResult): any => ({
     ...obj,
   });
@@ -132,6 +147,9 @@ export interface DryRunOperation extends __SmithyException, $MetadataBearer {
 }
 
 export namespace DryRunOperation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DryRunOperation): any => ({
     ...obj,
   });
@@ -148,6 +166,9 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
 }
 
 export namespace InternalServerError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
@@ -164,6 +185,9 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
 }
 
 export namespace InvalidInputException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidInputException): any => ({
     ...obj,
   });
@@ -180,6 +204,9 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
 }
 
 export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
@@ -199,6 +226,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -237,6 +267,9 @@ export interface DescribeHomeRegionControlsRequest {
 }
 
 export namespace DescribeHomeRegionControlsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeHomeRegionControlsRequest): any => ({
     ...obj,
   });
@@ -257,6 +290,9 @@ export interface DescribeHomeRegionControlsResult {
 }
 
 export namespace DescribeHomeRegionControlsResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeHomeRegionControlsResult): any => ({
     ...obj,
   });
@@ -265,6 +301,9 @@ export namespace DescribeHomeRegionControlsResult {
 export interface GetHomeRegionRequest {}
 
 export namespace GetHomeRegionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetHomeRegionRequest): any => ({
     ...obj,
   });
@@ -278,6 +317,9 @@ export interface GetHomeRegionResult {
 }
 
 export namespace GetHomeRegionResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetHomeRegionResult): any => ({
     ...obj,
   });

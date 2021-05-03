@@ -17,6 +17,9 @@ export interface AddTagsToStreamInput {
 }
 
 export namespace AddTagsToStreamInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddTagsToStreamInput): any => ({
     ...obj,
   });
@@ -36,6 +39,9 @@ export interface InvalidArgumentException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidArgumentException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidArgumentException): any => ({
     ...obj,
   });
@@ -55,6 +61,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -74,6 +83,9 @@ export interface ResourceInUseException extends __SmithyException, $MetadataBear
 }
 
 export namespace ResourceInUseException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
@@ -93,6 +105,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -115,6 +130,9 @@ export interface HashKeyRange {
 }
 
 export namespace HashKeyRange {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HashKeyRange): any => ({
     ...obj,
   });
@@ -131,6 +149,9 @@ export interface ChildShard {
 }
 
 export namespace ChildShard {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ChildShard): any => ({
     ...obj,
   });
@@ -175,6 +196,9 @@ export interface Consumer {
 }
 
 export namespace Consumer {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Consumer): any => ({
     ...obj,
   });
@@ -218,6 +242,9 @@ export interface ConsumerDescription {
 }
 
 export namespace ConsumerDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConsumerDescription): any => ({
     ...obj,
   });
@@ -244,6 +271,9 @@ export interface CreateStreamInput {
 }
 
 export namespace CreateStreamInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateStreamInput): any => ({
     ...obj,
   });
@@ -266,6 +296,9 @@ export interface DecreaseStreamRetentionPeriodInput {
 }
 
 export namespace DecreaseStreamRetentionPeriodInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DecreaseStreamRetentionPeriodInput): any => ({
     ...obj,
   });
@@ -289,6 +322,9 @@ export interface DeleteStreamInput {
 }
 
 export namespace DeleteStreamInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteStreamInput): any => ({
     ...obj,
   });
@@ -317,6 +353,9 @@ export interface DeregisterStreamConsumerInput {
 }
 
 export namespace DeregisterStreamConsumerInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeregisterStreamConsumerInput): any => ({
     ...obj,
   });
@@ -325,6 +364,9 @@ export namespace DeregisterStreamConsumerInput {
 export interface DescribeLimitsInput {}
 
 export namespace DescribeLimitsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeLimitsInput): any => ({
     ...obj,
   });
@@ -343,6 +385,9 @@ export interface DescribeLimitsOutput {
 }
 
 export namespace DescribeLimitsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeLimitsOutput): any => ({
     ...obj,
   });
@@ -370,6 +415,9 @@ export interface DescribeStreamInput {
 }
 
 export namespace DescribeStreamInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStreamInput): any => ({
     ...obj,
   });
@@ -449,6 +497,9 @@ export interface EnhancedMetrics {
 }
 
 export namespace EnhancedMetrics {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnhancedMetrics): any => ({
     ...obj,
   });
@@ -471,6 +522,9 @@ export interface SequenceNumberRange {
 }
 
 export namespace SequenceNumberRange {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SequenceNumberRange): any => ({
     ...obj,
   });
@@ -508,6 +562,9 @@ export interface Shard {
 }
 
 export namespace Shard {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Shard): any => ({
     ...obj,
   });
@@ -646,6 +703,9 @@ export interface StreamDescription {
 }
 
 export namespace StreamDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StreamDescription): any => ({
     ...obj,
   });
@@ -664,6 +724,9 @@ export interface DescribeStreamOutput {
 }
 
 export namespace DescribeStreamOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStreamOutput): any => ({
     ...obj,
   });
@@ -688,6 +751,9 @@ export interface DescribeStreamConsumerInput {
 }
 
 export namespace DescribeStreamConsumerInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStreamConsumerInput): any => ({
     ...obj,
   });
@@ -701,6 +767,9 @@ export interface DescribeStreamConsumerOutput {
 }
 
 export namespace DescribeStreamConsumerOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStreamConsumerOutput): any => ({
     ...obj,
   });
@@ -714,6 +783,9 @@ export interface DescribeStreamSummaryInput {
 }
 
 export namespace DescribeStreamSummaryInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStreamSummaryInput): any => ({
     ...obj,
   });
@@ -844,6 +916,9 @@ export interface StreamDescriptionSummary {
 }
 
 export namespace StreamDescriptionSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StreamDescriptionSummary): any => ({
     ...obj,
   });
@@ -858,6 +933,9 @@ export interface DescribeStreamSummaryOutput {
 }
 
 export namespace DescribeStreamSummaryOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStreamSummaryOutput): any => ({
     ...obj,
   });
@@ -927,6 +1005,9 @@ export interface DisableEnhancedMonitoringInput {
 }
 
 export namespace DisableEnhancedMonitoringInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisableEnhancedMonitoringInput): any => ({
     ...obj,
   });
@@ -955,6 +1036,9 @@ export interface EnhancedMonitoringOutput {
 }
 
 export namespace EnhancedMonitoringOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnhancedMonitoringOutput): any => ({
     ...obj,
   });
@@ -1023,6 +1107,9 @@ export interface EnableEnhancedMonitoringInput {
 }
 
 export namespace EnableEnhancedMonitoringInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EnableEnhancedMonitoringInput): any => ({
     ...obj,
   });
@@ -1041,6 +1128,9 @@ export interface ExpiredIteratorException extends __SmithyException, $MetadataBe
 }
 
 export namespace ExpiredIteratorException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExpiredIteratorException): any => ({
     ...obj,
   });
@@ -1056,6 +1146,9 @@ export interface ExpiredNextTokenException extends __SmithyException, $MetadataB
 }
 
 export namespace ExpiredNextTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExpiredNextTokenException): any => ({
     ...obj,
   });
@@ -1081,6 +1174,9 @@ export interface GetRecordsInput {
 }
 
 export namespace GetRecordsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRecordsInput): any => ({
     ...obj,
   });
@@ -1133,6 +1229,9 @@ export interface _Record {
 }
 
 export namespace _Record {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: _Record): any => ({
     ...obj,
   });
@@ -1166,6 +1265,9 @@ export interface GetRecordsOutput {
 }
 
 export namespace GetRecordsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetRecordsOutput): any => ({
     ...obj,
   });
@@ -1185,6 +1287,9 @@ export interface KMSAccessDeniedException extends __SmithyException, $MetadataBe
 }
 
 export namespace KMSAccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KMSAccessDeniedException): any => ({
     ...obj,
   });
@@ -1204,6 +1309,9 @@ export interface KMSDisabledException extends __SmithyException, $MetadataBearer
 }
 
 export namespace KMSDisabledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KMSDisabledException): any => ({
     ...obj,
   });
@@ -1225,6 +1333,9 @@ export interface KMSInvalidStateException extends __SmithyException, $MetadataBe
 }
 
 export namespace KMSInvalidStateException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KMSInvalidStateException): any => ({
     ...obj,
   });
@@ -1244,6 +1355,9 @@ export interface KMSNotFoundException extends __SmithyException, $MetadataBearer
 }
 
 export namespace KMSNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KMSNotFoundException): any => ({
     ...obj,
   });
@@ -1262,6 +1376,9 @@ export interface KMSOptInRequired extends __SmithyException, $MetadataBearer {
 }
 
 export namespace KMSOptInRequired {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KMSOptInRequired): any => ({
     ...obj,
   });
@@ -1282,6 +1399,9 @@ export interface KMSThrottlingException extends __SmithyException, $MetadataBear
 }
 
 export namespace KMSThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: KMSThrottlingException): any => ({
     ...obj,
   });
@@ -1305,6 +1425,9 @@ export interface ProvisionedThroughputExceededException extends __SmithyExceptio
 }
 
 export namespace ProvisionedThroughputExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ProvisionedThroughputExceededException): any => ({
     ...obj,
   });
@@ -1387,6 +1510,9 @@ export interface GetShardIteratorInput {
 }
 
 export namespace GetShardIteratorInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetShardIteratorInput): any => ({
     ...obj,
   });
@@ -1405,6 +1531,9 @@ export interface GetShardIteratorOutput {
 }
 
 export namespace GetShardIteratorOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetShardIteratorOutput): any => ({
     ...obj,
   });
@@ -1427,6 +1556,9 @@ export interface IncreaseStreamRetentionPeriodInput {
 }
 
 export namespace IncreaseStreamRetentionPeriodInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IncreaseStreamRetentionPeriodInput): any => ({
     ...obj,
   });
@@ -1443,6 +1575,9 @@ export interface InternalFailureException extends __SmithyException {
 }
 
 export namespace InternalFailureException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
@@ -1464,6 +1599,9 @@ export interface ShardFilter {
 }
 
 export namespace ShardFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ShardFilter): any => ({
     ...obj,
   });
@@ -1538,6 +1676,9 @@ export interface ListShardsInput {
 }
 
 export namespace ListShardsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListShardsInput): any => ({
     ...obj,
   });
@@ -1572,6 +1713,9 @@ export interface ListShardsOutput {
 }
 
 export namespace ListShardsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListShardsOutput): any => ({
     ...obj,
   });
@@ -1628,6 +1772,9 @@ export interface ListStreamConsumersInput {
 }
 
 export namespace ListStreamConsumersInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStreamConsumersInput): any => ({
     ...obj,
   });
@@ -1660,6 +1807,9 @@ export interface ListStreamConsumersOutput {
 }
 
 export namespace ListStreamConsumersOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStreamConsumersOutput): any => ({
     ...obj,
   });
@@ -1681,6 +1831,9 @@ export interface ListStreamsInput {
 }
 
 export namespace ListStreamsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStreamsInput): any => ({
     ...obj,
   });
@@ -1703,6 +1856,9 @@ export interface ListStreamsOutput {
 }
 
 export namespace ListStreamsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListStreamsOutput): any => ({
     ...obj,
   });
@@ -1734,6 +1890,9 @@ export interface ListTagsForStreamInput {
 }
 
 export namespace ListTagsForStreamInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForStreamInput): any => ({
     ...obj,
   });
@@ -1758,6 +1917,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -1782,6 +1944,9 @@ export interface ListTagsForStreamOutput {
 }
 
 export namespace ListTagsForStreamOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForStreamOutput): any => ({
     ...obj,
   });
@@ -1809,6 +1974,9 @@ export interface MergeShardsInput {
 }
 
 export namespace MergeShardsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MergeShardsInput): any => ({
     ...obj,
   });
@@ -1859,6 +2027,9 @@ export interface PutRecordInput {
 }
 
 export namespace PutRecordInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRecordInput): any => ({
     ...obj,
   });
@@ -1899,6 +2070,9 @@ export interface PutRecordOutput {
 }
 
 export namespace PutRecordOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRecordOutput): any => ({
     ...obj,
   });
@@ -1935,6 +2109,9 @@ export interface PutRecordsRequestEntry {
 }
 
 export namespace PutRecordsRequestEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRecordsRequestEntry): any => ({
     ...obj,
   });
@@ -1956,6 +2133,9 @@ export interface PutRecordsInput {
 }
 
 export namespace PutRecordsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRecordsInput): any => ({
     ...obj,
   });
@@ -1997,6 +2177,9 @@ export interface PutRecordsResultEntry {
 }
 
 export namespace PutRecordsResultEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRecordsResultEntry): any => ({
     ...obj,
   });
@@ -2041,6 +2224,9 @@ export interface PutRecordsOutput {
 }
 
 export namespace PutRecordsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutRecordsOutput): any => ({
     ...obj,
   });
@@ -2061,6 +2247,9 @@ export interface RegisterStreamConsumerInput {
 }
 
 export namespace RegisterStreamConsumerInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterStreamConsumerInput): any => ({
     ...obj,
   });
@@ -2075,6 +2264,9 @@ export interface RegisterStreamConsumerOutput {
 }
 
 export namespace RegisterStreamConsumerOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterStreamConsumerOutput): any => ({
     ...obj,
   });
@@ -2096,6 +2288,9 @@ export interface RemoveTagsFromStreamInput {
 }
 
 export namespace RemoveTagsFromStreamInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveTagsFromStreamInput): any => ({
     ...obj,
   });
@@ -2128,6 +2323,9 @@ export interface SplitShardInput {
 }
 
 export namespace SplitShardInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SplitShardInput): any => ({
     ...obj,
   });
@@ -2181,6 +2379,9 @@ export interface StartStreamEncryptionInput {
 }
 
 export namespace StartStreamEncryptionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartStreamEncryptionInput): any => ({
     ...obj,
   });
@@ -2234,6 +2435,9 @@ export interface StopStreamEncryptionInput {
 }
 
 export namespace StopStreamEncryptionInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopStreamEncryptionInput): any => ({
     ...obj,
   });
@@ -2283,6 +2487,9 @@ export interface StartingPosition {
 }
 
 export namespace StartingPosition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartingPosition): any => ({
     ...obj,
   });
@@ -2307,6 +2514,9 @@ export interface SubscribeToShardInput {
 }
 
 export namespace SubscribeToShardInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubscribeToShardInput): any => ({
     ...obj,
   });
@@ -2341,6 +2551,9 @@ export interface SubscribeToShardEvent {
 }
 
 export namespace SubscribeToShardEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubscribeToShardEvent): any => ({
     ...obj,
   });
@@ -2593,6 +2806,9 @@ export namespace SubscribeToShardEventStream {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubscribeToShardEventStream): any => {
     if (obj.SubscribeToShardEvent !== undefined)
       return { SubscribeToShardEvent: SubscribeToShardEvent.filterSensitiveLog(obj.SubscribeToShardEvent) };
@@ -2626,6 +2842,9 @@ export interface SubscribeToShardOutput {
 }
 
 export namespace SubscribeToShardOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubscribeToShardOutput): any => ({
     ...obj,
     ...(obj.EventStream && { EventStream: "STREAMING_CONTENT" }),
@@ -2673,6 +2892,9 @@ export interface UpdateShardCountInput {
 }
 
 export namespace UpdateShardCountInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateShardCountInput): any => ({
     ...obj,
   });
@@ -2696,6 +2918,9 @@ export interface UpdateShardCountOutput {
 }
 
 export namespace UpdateShardCountOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateShardCountOutput): any => ({
     ...obj,
   });

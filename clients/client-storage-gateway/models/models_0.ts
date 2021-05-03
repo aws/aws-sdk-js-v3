@@ -19,6 +19,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -157,6 +160,9 @@ export interface ActivateGatewayInput {
 }
 
 export namespace ActivateGatewayInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActivateGatewayInput): any => ({
     ...obj,
   });
@@ -183,6 +189,9 @@ export interface ActivateGatewayOutput {
 }
 
 export namespace ActivateGatewayOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActivateGatewayOutput): any => ({
     ...obj,
   });
@@ -270,6 +279,9 @@ export interface StorageGatewayError {
 }
 
 export namespace StorageGatewayError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StorageGatewayError): any => ({
     ...obj,
   });
@@ -295,6 +307,9 @@ export interface InternalServerError extends __SmithyException, $MetadataBearer 
 }
 
 export namespace InternalServerError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerError): any => ({
     ...obj,
   });
@@ -320,6 +335,9 @@ export interface InvalidGatewayRequestException extends __SmithyException, $Meta
 }
 
 export namespace InvalidGatewayRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidGatewayRequestException): any => ({
     ...obj,
   });
@@ -350,6 +368,9 @@ export interface AddCacheInput {
 }
 
 export namespace AddCacheInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddCacheInput): any => ({
     ...obj,
   });
@@ -364,6 +385,9 @@ export interface AddCacheOutput {
 }
 
 export namespace AddCacheOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddCacheOutput): any => ({
     ...obj,
   });
@@ -393,6 +417,9 @@ export interface AddTagsToResourceInput {
 }
 
 export namespace AddTagsToResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddTagsToResourceInput): any => ({
     ...obj,
   });
@@ -409,6 +436,9 @@ export interface AddTagsToResourceOutput {
 }
 
 export namespace AddTagsToResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddTagsToResourceOutput): any => ({
     ...obj,
   });
@@ -430,6 +460,9 @@ export interface AddUploadBufferInput {
 }
 
 export namespace AddUploadBufferInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddUploadBufferInput): any => ({
     ...obj,
   });
@@ -444,6 +477,9 @@ export interface AddUploadBufferOutput {
 }
 
 export namespace AddUploadBufferOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddUploadBufferOutput): any => ({
     ...obj,
   });
@@ -476,6 +512,9 @@ export interface AddWorkingStorageInput {
 }
 
 export namespace AddWorkingStorageInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddWorkingStorageInput): any => ({
     ...obj,
   });
@@ -494,6 +533,9 @@ export interface AddWorkingStorageOutput {
 }
 
 export namespace AddWorkingStorageOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddWorkingStorageOutput): any => ({
     ...obj,
   });
@@ -532,6 +574,9 @@ export interface AssignTapePoolInput {
 }
 
 export namespace AssignTapePoolInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssignTapePoolInput): any => ({
     ...obj,
   });
@@ -546,6 +591,9 @@ export interface AssignTapePoolOutput {
 }
 
 export namespace AssignTapePoolOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssignTapePoolOutput): any => ({
     ...obj,
   });
@@ -567,6 +615,9 @@ export interface CacheAttributes {
 }
 
 export namespace CacheAttributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CacheAttributes): any => ({
     ...obj,
   });
@@ -620,6 +671,9 @@ export interface AssociateFileSystemInput {
 }
 
 export namespace AssociateFileSystemInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateFileSystemInput): any => ({
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
@@ -634,6 +688,9 @@ export interface AssociateFileSystemOutput {
 }
 
 export namespace AssociateFileSystemOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AssociateFileSystemOutput): any => ({
     ...obj,
   });
@@ -684,6 +741,9 @@ export interface AttachVolumeInput {
 }
 
 export namespace AttachVolumeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttachVolumeInput): any => ({
     ...obj,
   });
@@ -706,6 +766,9 @@ export interface AttachVolumeOutput {
 }
 
 export namespace AttachVolumeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttachVolumeOutput): any => ({
     ...obj,
   });
@@ -761,6 +824,9 @@ export interface AutomaticTapeCreationRule {
 }
 
 export namespace AutomaticTapeCreationRule {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AutomaticTapeCreationRule): any => ({
     ...obj,
   });
@@ -786,6 +852,9 @@ export interface AutomaticTapeCreationPolicyInfo {
 }
 
 export namespace AutomaticTapeCreationPolicyInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AutomaticTapeCreationPolicyInfo): any => ({
     ...obj,
   });
@@ -863,6 +932,9 @@ export interface BandwidthRateLimitInterval {
 }
 
 export namespace BandwidthRateLimitInterval {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BandwidthRateLimitInterval): any => ({
     ...obj,
   });
@@ -899,6 +971,9 @@ export interface VolumeiSCSIAttributes {
 }
 
 export namespace VolumeiSCSIAttributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VolumeiSCSIAttributes): any => ({
     ...obj,
   });
@@ -1000,6 +1075,9 @@ export interface CachediSCSIVolume {
 }
 
 export namespace CachediSCSIVolume {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CachediSCSIVolume): any => ({
     ...obj,
   });
@@ -1023,6 +1101,9 @@ export interface CancelArchivalInput {
 }
 
 export namespace CancelArchivalInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelArchivalInput): any => ({
     ...obj,
   });
@@ -1040,6 +1121,9 @@ export interface CancelArchivalOutput {
 }
 
 export namespace CancelArchivalOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelArchivalOutput): any => ({
     ...obj,
   });
@@ -1063,6 +1147,9 @@ export interface CancelRetrievalInput {
 }
 
 export namespace CancelRetrievalInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelRetrievalInput): any => ({
     ...obj,
   });
@@ -1080,6 +1167,9 @@ export interface CancelRetrievalOutput {
 }
 
 export namespace CancelRetrievalOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CancelRetrievalOutput): any => ({
     ...obj,
   });
@@ -1118,6 +1208,9 @@ export interface ChapInfo {
 }
 
 export namespace ChapInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ChapInfo): any => ({
     ...obj,
     ...(obj.SecretToAuthenticateInitiator && { SecretToAuthenticateInitiator: SENSITIVE_STRING }),
@@ -1211,6 +1304,9 @@ export interface CreateCachediSCSIVolumeInput {
 }
 
 export namespace CreateCachediSCSIVolumeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCachediSCSIVolumeInput): any => ({
     ...obj,
   });
@@ -1230,6 +1326,9 @@ export interface CreateCachediSCSIVolumeOutput {
 }
 
 export namespace CreateCachediSCSIVolumeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateCachediSCSIVolumeOutput): any => ({
     ...obj,
   });
@@ -1270,6 +1369,9 @@ export interface NFSFileShareDefaults {
 }
 
 export namespace NFSFileShareDefaults {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NFSFileShareDefaults): any => ({
     ...obj,
   });
@@ -1473,6 +1575,9 @@ export interface CreateNFSFileShareInput {
 }
 
 export namespace CreateNFSFileShareInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateNFSFileShareInput): any => ({
     ...obj,
   });
@@ -1489,6 +1594,9 @@ export interface CreateNFSFileShareOutput {
 }
 
 export namespace CreateNFSFileShareOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateNFSFileShareOutput): any => ({
     ...obj,
   });
@@ -1723,6 +1831,9 @@ export interface CreateSMBFileShareInput {
 }
 
 export namespace CreateSMBFileShareInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateSMBFileShareInput): any => ({
     ...obj,
   });
@@ -1739,6 +1850,9 @@ export interface CreateSMBFileShareOutput {
 }
 
 export namespace CreateSMBFileShareOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateSMBFileShareOutput): any => ({
     ...obj,
   });
@@ -1790,6 +1904,9 @@ export interface CreateSnapshotInput {
 }
 
 export namespace CreateSnapshotInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateSnapshotInput): any => ({
     ...obj,
   });
@@ -1813,6 +1930,9 @@ export interface CreateSnapshotOutput {
 }
 
 export namespace CreateSnapshotOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateSnapshotOutput): any => ({
     ...obj,
   });
@@ -1838,6 +1958,9 @@ export interface ServiceUnavailableError extends __SmithyException, $MetadataBea
 }
 
 export namespace ServiceUnavailableError {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailableError): any => ({
     ...obj,
   });
@@ -1873,6 +1996,9 @@ export interface CreateSnapshotFromVolumeRecoveryPointInput {
 }
 
 export namespace CreateSnapshotFromVolumeRecoveryPointInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateSnapshotFromVolumeRecoveryPointInput): any => ({
     ...obj,
   });
@@ -1897,6 +2023,9 @@ export interface CreateSnapshotFromVolumeRecoveryPointOutput {
 }
 
 export namespace CreateSnapshotFromVolumeRecoveryPointOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateSnapshotFromVolumeRecoveryPointOutput): any => ({
     ...obj,
   });
@@ -2016,6 +2145,9 @@ export interface CreateStorediSCSIVolumeInput {
 }
 
 export namespace CreateStorediSCSIVolumeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateStorediSCSIVolumeInput): any => ({
     ...obj,
   });
@@ -2043,6 +2175,9 @@ export interface CreateStorediSCSIVolumeOutput {
 }
 
 export namespace CreateStorediSCSIVolumeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateStorediSCSIVolumeOutput): any => ({
     ...obj,
   });
@@ -2094,6 +2229,9 @@ export interface CreateTapePoolInput {
 }
 
 export namespace CreateTapePoolInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTapePoolInput): any => ({
     ...obj,
   });
@@ -2109,6 +2247,9 @@ export interface CreateTapePoolOutput {
 }
 
 export namespace CreateTapePoolOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTapePoolOutput): any => ({
     ...obj,
   });
@@ -2209,6 +2350,9 @@ export interface CreateTapesInput {
 }
 
 export namespace CreateTapesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTapesInput): any => ({
     ...obj,
   });
@@ -2226,6 +2370,9 @@ export interface CreateTapesOutput {
 }
 
 export namespace CreateTapesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTapesOutput): any => ({
     ...obj,
   });
@@ -2309,6 +2456,9 @@ export interface CreateTapeWithBarcodeInput {
 }
 
 export namespace CreateTapeWithBarcodeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTapeWithBarcodeInput): any => ({
     ...obj,
   });
@@ -2326,6 +2476,9 @@ export interface CreateTapeWithBarcodeOutput {
 }
 
 export namespace CreateTapeWithBarcodeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTapeWithBarcodeOutput): any => ({
     ...obj,
   });
@@ -2340,6 +2493,9 @@ export interface DeleteAutomaticTapeCreationPolicyInput {
 }
 
 export namespace DeleteAutomaticTapeCreationPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteAutomaticTapeCreationPolicyInput): any => ({
     ...obj,
   });
@@ -2354,6 +2510,9 @@ export interface DeleteAutomaticTapeCreationPolicyOutput {
 }
 
 export namespace DeleteAutomaticTapeCreationPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteAutomaticTapeCreationPolicyOutput): any => ({
     ...obj,
   });
@@ -2388,6 +2547,9 @@ export interface DeleteBandwidthRateLimitInput {
 }
 
 export namespace DeleteBandwidthRateLimitInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBandwidthRateLimitInput): any => ({
     ...obj,
   });
@@ -2406,6 +2568,9 @@ export interface DeleteBandwidthRateLimitOutput {
 }
 
 export namespace DeleteBandwidthRateLimitOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteBandwidthRateLimitOutput): any => ({
     ...obj,
   });
@@ -2441,6 +2606,9 @@ export interface DeleteChapCredentialsInput {
 }
 
 export namespace DeleteChapCredentialsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteChapCredentialsInput): any => ({
     ...obj,
   });
@@ -2462,6 +2630,9 @@ export interface DeleteChapCredentialsOutput {
 }
 
 export namespace DeleteChapCredentialsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteChapCredentialsOutput): any => ({
     ...obj,
   });
@@ -2489,6 +2660,9 @@ export interface DeleteFileShareInput {
 }
 
 export namespace DeleteFileShareInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteFileShareInput): any => ({
     ...obj,
   });
@@ -2505,6 +2679,9 @@ export interface DeleteFileShareOutput {
 }
 
 export namespace DeleteFileShareOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteFileShareOutput): any => ({
     ...obj,
   });
@@ -2522,6 +2699,9 @@ export interface DeleteGatewayInput {
 }
 
 export namespace DeleteGatewayInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteGatewayInput): any => ({
     ...obj,
   });
@@ -2539,6 +2719,9 @@ export interface DeleteGatewayOutput {
 }
 
 export namespace DeleteGatewayOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteGatewayOutput): any => ({
     ...obj,
   });
@@ -2552,6 +2735,9 @@ export interface DeleteSnapshotScheduleInput {
 }
 
 export namespace DeleteSnapshotScheduleInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteSnapshotScheduleInput): any => ({
     ...obj,
   });
@@ -2565,6 +2751,9 @@ export interface DeleteSnapshotScheduleOutput {
 }
 
 export namespace DeleteSnapshotScheduleOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteSnapshotScheduleOutput): any => ({
     ...obj,
   });
@@ -2596,6 +2785,9 @@ export interface DeleteTapeInput {
 }
 
 export namespace DeleteTapeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTapeInput): any => ({
     ...obj,
   });
@@ -2612,6 +2804,9 @@ export interface DeleteTapeOutput {
 }
 
 export namespace DeleteTapeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTapeOutput): any => ({
     ...obj,
   });
@@ -2637,6 +2832,9 @@ export interface DeleteTapeArchiveInput {
 }
 
 export namespace DeleteTapeArchiveInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTapeArchiveInput): any => ({
     ...obj,
   });
@@ -2654,6 +2852,9 @@ export interface DeleteTapeArchiveOutput {
 }
 
 export namespace DeleteTapeArchiveOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTapeArchiveOutput): any => ({
     ...obj,
   });
@@ -2667,6 +2868,9 @@ export interface DeleteTapePoolInput {
 }
 
 export namespace DeleteTapePoolInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTapePoolInput): any => ({
     ...obj,
   });
@@ -2680,6 +2884,9 @@ export interface DeleteTapePoolOutput {
 }
 
 export namespace DeleteTapePoolOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteTapePoolOutput): any => ({
     ...obj,
   });
@@ -2698,6 +2905,9 @@ export interface DeleteVolumeInput {
 }
 
 export namespace DeleteVolumeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteVolumeInput): any => ({
     ...obj,
   });
@@ -2716,6 +2926,9 @@ export interface DeleteVolumeOutput {
 }
 
 export namespace DeleteVolumeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteVolumeOutput): any => ({
     ...obj,
   });
@@ -2730,6 +2943,9 @@ export interface DescribeAvailabilityMonitorTestInput {
 }
 
 export namespace DescribeAvailabilityMonitorTestInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAvailabilityMonitorTestInput): any => ({
     ...obj,
   });
@@ -2756,6 +2972,9 @@ export interface DescribeAvailabilityMonitorTestOutput {
 }
 
 export namespace DescribeAvailabilityMonitorTestOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAvailabilityMonitorTestOutput): any => ({
     ...obj,
   });
@@ -2773,6 +2992,9 @@ export interface DescribeBandwidthRateLimitInput {
 }
 
 export namespace DescribeBandwidthRateLimitInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBandwidthRateLimitInput): any => ({
     ...obj,
   });
@@ -2802,6 +3024,9 @@ export interface DescribeBandwidthRateLimitOutput {
 }
 
 export namespace DescribeBandwidthRateLimitOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBandwidthRateLimitOutput): any => ({
     ...obj,
   });
@@ -2816,6 +3041,9 @@ export interface DescribeBandwidthRateLimitScheduleInput {
 }
 
 export namespace DescribeBandwidthRateLimitScheduleInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBandwidthRateLimitScheduleInput): any => ({
     ...obj,
   });
@@ -2837,6 +3065,9 @@ export interface DescribeBandwidthRateLimitScheduleOutput {
 }
 
 export namespace DescribeBandwidthRateLimitScheduleOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeBandwidthRateLimitScheduleOutput): any => ({
     ...obj,
   });
@@ -2851,6 +3082,9 @@ export interface DescribeCacheInput {
 }
 
 export namespace DescribeCacheInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCacheInput): any => ({
     ...obj,
   });
@@ -2902,6 +3136,9 @@ export interface DescribeCacheOutput {
 }
 
 export namespace DescribeCacheOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCacheOutput): any => ({
     ...obj,
   });
@@ -2916,6 +3153,9 @@ export interface DescribeCachediSCSIVolumesInput {
 }
 
 export namespace DescribeCachediSCSIVolumesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCachediSCSIVolumesInput): any => ({
     ...obj,
   });
@@ -2932,6 +3172,9 @@ export interface DescribeCachediSCSIVolumesOutput {
 }
 
 export namespace DescribeCachediSCSIVolumesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeCachediSCSIVolumesOutput): any => ({
     ...obj,
   });
@@ -2950,6 +3193,9 @@ export interface DescribeChapCredentialsInput {
 }
 
 export namespace DescribeChapCredentialsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeChapCredentialsInput): any => ({
     ...obj,
   });
@@ -2998,6 +3244,9 @@ export interface DescribeChapCredentialsOutput {
 }
 
 export namespace DescribeChapCredentialsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeChapCredentialsOutput): any => ({
     ...obj,
     ...(obj.ChapCredentials && {
@@ -3014,6 +3263,9 @@ export interface DescribeFileSystemAssociationsInput {
 }
 
 export namespace DescribeFileSystemAssociationsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFileSystemAssociationsInput): any => ({
     ...obj,
   });
@@ -3067,6 +3319,9 @@ export interface FileSystemAssociationInfo {
 }
 
 export namespace FileSystemAssociationInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FileSystemAssociationInfo): any => ({
     ...obj,
   });
@@ -3081,6 +3336,9 @@ export interface DescribeFileSystemAssociationsOutput {
 }
 
 export namespace DescribeFileSystemAssociationsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeFileSystemAssociationsOutput): any => ({
     ...obj,
   });
@@ -3098,6 +3356,9 @@ export interface DescribeGatewayInformationInput {
 }
 
 export namespace DescribeGatewayInformationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeGatewayInformationInput): any => ({
     ...obj,
   });
@@ -3129,6 +3390,9 @@ export interface NetworkInterface {
 }
 
 export namespace NetworkInterface {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NetworkInterface): any => ({
     ...obj,
   });
@@ -3247,6 +3511,9 @@ export interface DescribeGatewayInformationOutput {
 }
 
 export namespace DescribeGatewayInformationOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeGatewayInformationOutput): any => ({
     ...obj,
   });
@@ -3264,6 +3531,9 @@ export interface DescribeMaintenanceStartTimeInput {
 }
 
 export namespace DescribeMaintenanceStartTimeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeMaintenanceStartTimeInput): any => ({
     ...obj,
   });
@@ -3343,6 +3613,9 @@ export interface DescribeMaintenanceStartTimeOutput {
 }
 
 export namespace DescribeMaintenanceStartTimeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeMaintenanceStartTimeOutput): any => ({
     ...obj,
   });
@@ -3360,6 +3633,9 @@ export interface DescribeNFSFileSharesInput {
 }
 
 export namespace DescribeNFSFileSharesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeNFSFileSharesInput): any => ({
     ...obj,
   });
@@ -3570,6 +3846,9 @@ export interface NFSFileShareInfo {
 }
 
 export namespace NFSFileShareInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NFSFileShareInfo): any => ({
     ...obj,
   });
@@ -3586,6 +3865,9 @@ export interface DescribeNFSFileSharesOutput {
 }
 
 export namespace DescribeNFSFileSharesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeNFSFileSharesOutput): any => ({
     ...obj,
   });
@@ -3603,6 +3885,9 @@ export interface DescribeSMBFileSharesInput {
 }
 
 export namespace DescribeSMBFileSharesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSMBFileSharesInput): any => ({
     ...obj,
   });
@@ -3844,6 +4129,9 @@ export interface SMBFileShareInfo {
 }
 
 export namespace SMBFileShareInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SMBFileShareInfo): any => ({
     ...obj,
   });
@@ -3860,6 +4148,9 @@ export interface DescribeSMBFileSharesOutput {
 }
 
 export namespace DescribeSMBFileSharesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSMBFileSharesOutput): any => ({
     ...obj,
   });
@@ -3874,6 +4165,9 @@ export interface DescribeSMBSettingsInput {
 }
 
 export namespace DescribeSMBSettingsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSMBSettingsInput): any => ({
     ...obj,
   });
@@ -3979,6 +4273,9 @@ export interface DescribeSMBSettingsOutput {
 }
 
 export namespace DescribeSMBSettingsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSMBSettingsOutput): any => ({
     ...obj,
   });
@@ -3997,6 +4294,9 @@ export interface DescribeSnapshotScheduleInput {
 }
 
 export namespace DescribeSnapshotScheduleInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSnapshotScheduleInput): any => ({
     ...obj,
   });
@@ -4039,6 +4339,9 @@ export interface DescribeSnapshotScheduleOutput {
 }
 
 export namespace DescribeSnapshotScheduleOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeSnapshotScheduleOutput): any => ({
     ...obj,
   });
@@ -4056,6 +4359,9 @@ export interface DescribeStorediSCSIVolumesInput {
 }
 
 export namespace DescribeStorediSCSIVolumesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStorediSCSIVolumesInput): any => ({
     ...obj,
   });
@@ -4171,6 +4477,9 @@ export interface StorediSCSIVolume {
 }
 
 export namespace StorediSCSIVolume {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StorediSCSIVolume): any => ({
     ...obj,
   });
@@ -4267,6 +4576,9 @@ export interface DescribeStorediSCSIVolumesOutput {
 }
 
 export namespace DescribeStorediSCSIVolumesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeStorediSCSIVolumesOutput): any => ({
     ...obj,
   });
@@ -4296,6 +4608,9 @@ export interface DescribeTapeArchivesInput {
 }
 
 export namespace DescribeTapeArchivesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTapeArchivesInput): any => ({
     ...obj,
   });
@@ -4393,6 +4708,9 @@ export interface TapeArchive {
 }
 
 export namespace TapeArchive {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TapeArchive): any => ({
     ...obj,
   });
@@ -4420,6 +4738,9 @@ export interface DescribeTapeArchivesOutput {
 }
 
 export namespace DescribeTapeArchivesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTapeArchivesOutput): any => ({
     ...obj,
   });
@@ -4449,6 +4770,9 @@ export interface DescribeTapeRecoveryPointsInput {
 }
 
 export namespace DescribeTapeRecoveryPointsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTapeRecoveryPointsInput): any => ({
     ...obj,
   });
@@ -4484,6 +4808,9 @@ export interface TapeRecoveryPointInfo {
 }
 
 export namespace TapeRecoveryPointInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TapeRecoveryPointInfo): any => ({
     ...obj,
   });
@@ -4516,6 +4843,9 @@ export interface DescribeTapeRecoveryPointsOutput {
 }
 
 export namespace DescribeTapeRecoveryPointsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTapeRecoveryPointsOutput): any => ({
     ...obj,
   });
@@ -4558,6 +4888,9 @@ export interface DescribeTapesInput {
 }
 
 export namespace DescribeTapesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTapesInput): any => ({
     ...obj,
   });
@@ -4650,6 +4983,9 @@ export interface Tape {
 }
 
 export namespace Tape {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tape): any => ({
     ...obj,
   });
@@ -4675,6 +5011,9 @@ export interface DescribeTapesOutput {
 }
 
 export namespace DescribeTapesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTapesOutput): any => ({
     ...obj,
   });
@@ -4689,6 +5028,9 @@ export interface DescribeUploadBufferInput {
 }
 
 export namespace DescribeUploadBufferInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeUploadBufferInput): any => ({
     ...obj,
   });
@@ -4721,6 +5063,9 @@ export interface DescribeUploadBufferOutput {
 }
 
 export namespace DescribeUploadBufferOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeUploadBufferOutput): any => ({
     ...obj,
   });
@@ -4761,6 +5106,9 @@ export interface DescribeVTLDevicesInput {
 }
 
 export namespace DescribeVTLDevicesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeVTLDevicesInput): any => ({
     ...obj,
   });
@@ -4793,6 +5141,9 @@ export interface DeviceiSCSIAttributes {
 }
 
 export namespace DeviceiSCSIAttributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeviceiSCSIAttributes): any => ({
     ...obj,
   });
@@ -4830,6 +5181,9 @@ export interface VTLDevice {
 }
 
 export namespace VTLDevice {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VTLDevice): any => ({
     ...obj,
   });
@@ -4861,6 +5215,9 @@ export interface DescribeVTLDevicesOutput {
 }
 
 export namespace DescribeVTLDevicesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeVTLDevicesOutput): any => ({
     ...obj,
   });
@@ -4878,6 +5235,9 @@ export interface DescribeWorkingStorageInput {
 }
 
 export namespace DescribeWorkingStorageInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeWorkingStorageInput): any => ({
     ...obj,
   });
@@ -4915,6 +5275,9 @@ export interface DescribeWorkingStorageOutput {
 }
 
 export namespace DescribeWorkingStorageOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeWorkingStorageOutput): any => ({
     ...obj,
   });
@@ -4942,6 +5305,9 @@ export interface DetachVolumeInput {
 }
 
 export namespace DetachVolumeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetachVolumeInput): any => ({
     ...obj,
   });
@@ -4958,6 +5324,9 @@ export interface DetachVolumeOutput {
 }
 
 export namespace DetachVolumeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetachVolumeOutput): any => ({
     ...obj,
   });
@@ -4975,6 +5344,9 @@ export interface DisableGatewayInput {
 }
 
 export namespace DisableGatewayInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisableGatewayInput): any => ({
     ...obj,
   });
@@ -4991,6 +5363,9 @@ export interface DisableGatewayOutput {
 }
 
 export namespace DisableGatewayOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisableGatewayOutput): any => ({
     ...obj,
   });
@@ -5012,6 +5387,9 @@ export interface DisassociateFileSystemInput {
 }
 
 export namespace DisassociateFileSystemInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateFileSystemInput): any => ({
     ...obj,
   });
@@ -5025,6 +5403,9 @@ export interface DisassociateFileSystemOutput {
 }
 
 export namespace DisassociateFileSystemOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisassociateFileSystemOutput): any => ({
     ...obj,
   });
@@ -5082,6 +5463,9 @@ export interface Disk {
 }
 
 export namespace Disk {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Disk): any => ({
     ...obj,
   });
@@ -5125,6 +5509,9 @@ export interface FileShareInfo {
 }
 
 export namespace FileShareInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FileShareInfo): any => ({
     ...obj,
   });
@@ -5160,6 +5547,9 @@ export interface FileSystemAssociationSummary {
 }
 
 export namespace FileSystemAssociationSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FileSystemAssociationSummary): any => ({
     ...obj,
   });
@@ -5212,6 +5602,9 @@ export interface GatewayInfo {
 }
 
 export namespace GatewayInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GatewayInfo): any => ({
     ...obj,
   });
@@ -5268,6 +5661,9 @@ export interface JoinDomainInput {
 }
 
 export namespace JoinDomainInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: JoinDomainInput): any => ({
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
@@ -5327,6 +5723,9 @@ export interface JoinDomainOutput {
 }
 
 export namespace JoinDomainOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: JoinDomainOutput): any => ({
     ...obj,
   });
@@ -5341,6 +5740,9 @@ export interface ListAutomaticTapeCreationPoliciesInput {
 }
 
 export namespace ListAutomaticTapeCreationPoliciesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAutomaticTapeCreationPoliciesInput): any => ({
     ...obj,
   });
@@ -5356,6 +5758,9 @@ export interface ListAutomaticTapeCreationPoliciesOutput {
 }
 
 export namespace ListAutomaticTapeCreationPoliciesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListAutomaticTapeCreationPoliciesOutput): any => ({
     ...obj,
   });
@@ -5386,6 +5791,9 @@ export interface ListFileSharesInput {
 }
 
 export namespace ListFileSharesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListFileSharesInput): any => ({
     ...obj,
   });
@@ -5415,6 +5823,9 @@ export interface ListFileSharesOutput {
 }
 
 export namespace ListFileSharesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListFileSharesOutput): any => ({
     ...obj,
   });
@@ -5439,6 +5850,9 @@ export interface ListFileSystemAssociationsInput {
 }
 
 export namespace ListFileSystemAssociationsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListFileSystemAssociationsInput): any => ({
     ...obj,
   });
@@ -5463,6 +5877,9 @@ export interface ListFileSystemAssociationsOutput {
 }
 
 export namespace ListFileSystemAssociationsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListFileSystemAssociationsOutput): any => ({
     ...obj,
   });
@@ -5499,6 +5916,9 @@ export interface ListGatewaysInput {
 }
 
 export namespace ListGatewaysInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGatewaysInput): any => ({
     ...obj,
   });
@@ -5518,6 +5938,9 @@ export interface ListGatewaysOutput {
 }
 
 export namespace ListGatewaysOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListGatewaysOutput): any => ({
     ...obj,
   });
@@ -5535,6 +5958,9 @@ export interface ListLocalDisksInput {
 }
 
 export namespace ListLocalDisksInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListLocalDisksInput): any => ({
     ...obj,
   });
@@ -5562,6 +5988,9 @@ export interface ListLocalDisksOutput {
 }
 
 export namespace ListLocalDisksOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListLocalDisksOutput): any => ({
     ...obj,
   });
@@ -5590,6 +6019,9 @@ export interface ListTagsForResourceInput {
 }
 
 export namespace ListTagsForResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
     ...obj,
   });
@@ -5617,6 +6049,9 @@ export interface ListTagsForResourceOutput {
 }
 
 export namespace ListTagsForResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
     ...obj,
   });
@@ -5642,6 +6077,9 @@ export interface ListTapePoolsInput {
 }
 
 export namespace ListTapePoolsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTapePoolsInput): any => ({
     ...obj,
   });
@@ -5694,6 +6132,9 @@ export interface PoolInfo {
 }
 
 export namespace PoolInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PoolInfo): any => ({
     ...obj,
   });
@@ -5716,6 +6157,9 @@ export interface ListTapePoolsOutput {
 }
 
 export namespace ListTapePoolsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTapePoolsOutput): any => ({
     ...obj,
   });
@@ -5762,6 +6206,9 @@ export interface ListTapesInput {
 }
 
 export namespace ListTapesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTapesInput): any => ({
     ...obj,
   });
@@ -5821,6 +6268,9 @@ export interface TapeInfo {
 }
 
 export namespace TapeInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TapeInfo): any => ({
     ...obj,
   });
@@ -5859,6 +6309,9 @@ export interface ListTapesOutput {
 }
 
 export namespace ListTapesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTapesOutput): any => ({
     ...obj,
   });
@@ -5876,6 +6329,9 @@ export interface ListVolumeInitiatorsInput {
 }
 
 export namespace ListVolumeInitiatorsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListVolumeInitiatorsInput): any => ({
     ...obj,
   });
@@ -5893,6 +6349,9 @@ export interface ListVolumeInitiatorsOutput {
 }
 
 export namespace ListVolumeInitiatorsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListVolumeInitiatorsOutput): any => ({
     ...obj,
   });
@@ -5907,6 +6366,9 @@ export interface ListVolumeRecoveryPointsInput {
 }
 
 export namespace ListVolumeRecoveryPointsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListVolumeRecoveryPointsInput): any => ({
     ...obj,
   });
@@ -5943,6 +6405,9 @@ export interface VolumeRecoveryPointInfo {
 }
 
 export namespace VolumeRecoveryPointInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VolumeRecoveryPointInfo): any => ({
     ...obj,
   });
@@ -5962,6 +6427,9 @@ export interface ListVolumeRecoveryPointsOutput {
 }
 
 export namespace ListVolumeRecoveryPointsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListVolumeRecoveryPointsOutput): any => ({
     ...obj,
   });
@@ -6004,6 +6472,9 @@ export interface ListVolumesInput {
 }
 
 export namespace ListVolumesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListVolumesInput): any => ({
     ...obj,
   });
@@ -6067,6 +6538,9 @@ export interface VolumeInfo {
 }
 
 export namespace VolumeInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VolumeInfo): any => ({
     ...obj,
   });
@@ -6110,6 +6584,9 @@ export interface ListVolumesOutput {
 }
 
 export namespace ListVolumesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListVolumesOutput): any => ({
     ...obj,
   });
@@ -6123,6 +6600,9 @@ export interface NotifyWhenUploadedInput {
 }
 
 export namespace NotifyWhenUploadedInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotifyWhenUploadedInput): any => ({
     ...obj,
   });
@@ -6142,6 +6622,9 @@ export interface NotifyWhenUploadedOutput {
 }
 
 export namespace NotifyWhenUploadedOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: NotifyWhenUploadedOutput): any => ({
     ...obj,
   });
@@ -6180,6 +6663,9 @@ export interface RefreshCacheInput {
 }
 
 export namespace RefreshCacheInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RefreshCacheInput): any => ({
     ...obj,
   });
@@ -6202,6 +6688,9 @@ export interface RefreshCacheOutput {
 }
 
 export namespace RefreshCacheOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RefreshCacheOutput): any => ({
     ...obj,
   });
@@ -6224,6 +6713,9 @@ export interface RemoveTagsFromResourceInput {
 }
 
 export namespace RemoveTagsFromResourceInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveTagsFromResourceInput): any => ({
     ...obj,
   });
@@ -6240,6 +6732,9 @@ export interface RemoveTagsFromResourceOutput {
 }
 
 export namespace RemoveTagsFromResourceOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveTagsFromResourceOutput): any => ({
     ...obj,
   });
@@ -6254,6 +6749,9 @@ export interface ResetCacheInput {
 }
 
 export namespace ResetCacheInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResetCacheInput): any => ({
     ...obj,
   });
@@ -6268,6 +6766,9 @@ export interface ResetCacheOutput {
 }
 
 export namespace ResetCacheOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResetCacheOutput): any => ({
     ...obj,
   });
@@ -6295,6 +6796,9 @@ export interface RetrieveTapeArchiveInput {
 }
 
 export namespace RetrieveTapeArchiveInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RetrieveTapeArchiveInput): any => ({
     ...obj,
   });
@@ -6311,6 +6815,9 @@ export interface RetrieveTapeArchiveOutput {
 }
 
 export namespace RetrieveTapeArchiveOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RetrieveTapeArchiveOutput): any => ({
     ...obj,
   });
@@ -6334,6 +6841,9 @@ export interface RetrieveTapeRecoveryPointInput {
 }
 
 export namespace RetrieveTapeRecoveryPointInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RetrieveTapeRecoveryPointInput): any => ({
     ...obj,
   });
@@ -6351,6 +6861,9 @@ export interface RetrieveTapeRecoveryPointOutput {
 }
 
 export namespace RetrieveTapeRecoveryPointOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RetrieveTapeRecoveryPointOutput): any => ({
     ...obj,
   });
@@ -6373,6 +6886,9 @@ export interface SetLocalConsolePasswordInput {
 }
 
 export namespace SetLocalConsolePasswordInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetLocalConsolePasswordInput): any => ({
     ...obj,
     ...(obj.LocalConsolePassword && { LocalConsolePassword: SENSITIVE_STRING }),
@@ -6388,6 +6904,9 @@ export interface SetLocalConsolePasswordOutput {
 }
 
 export namespace SetLocalConsolePasswordOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetLocalConsolePasswordOutput): any => ({
     ...obj,
   });
@@ -6410,6 +6929,9 @@ export interface SetSMBGuestPasswordInput {
 }
 
 export namespace SetSMBGuestPasswordInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetSMBGuestPasswordInput): any => ({
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
@@ -6425,6 +6947,9 @@ export interface SetSMBGuestPasswordOutput {
 }
 
 export namespace SetSMBGuestPasswordOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetSMBGuestPasswordOutput): any => ({
     ...obj,
   });
@@ -6443,6 +6968,9 @@ export interface ShutdownGatewayInput {
 }
 
 export namespace ShutdownGatewayInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ShutdownGatewayInput): any => ({
     ...obj,
   });
@@ -6461,6 +6989,9 @@ export interface ShutdownGatewayOutput {
 }
 
 export namespace ShutdownGatewayOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ShutdownGatewayOutput): any => ({
     ...obj,
   });
@@ -6475,6 +7006,9 @@ export interface StartAvailabilityMonitorTestInput {
 }
 
 export namespace StartAvailabilityMonitorTestInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartAvailabilityMonitorTestInput): any => ({
     ...obj,
   });
@@ -6489,6 +7023,9 @@ export interface StartAvailabilityMonitorTestOutput {
 }
 
 export namespace StartAvailabilityMonitorTestOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartAvailabilityMonitorTestOutput): any => ({
     ...obj,
   });
@@ -6506,6 +7043,9 @@ export interface StartGatewayInput {
 }
 
 export namespace StartGatewayInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartGatewayInput): any => ({
     ...obj,
   });
@@ -6524,6 +7064,9 @@ export interface StartGatewayOutput {
 }
 
 export namespace StartGatewayOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartGatewayOutput): any => ({
     ...obj,
   });
@@ -6544,6 +7087,9 @@ export interface UpdateAutomaticTapeCreationPolicyInput {
 }
 
 export namespace UpdateAutomaticTapeCreationPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAutomaticTapeCreationPolicyInput): any => ({
     ...obj,
   });
@@ -6558,6 +7104,9 @@ export interface UpdateAutomaticTapeCreationPolicyOutput {
 }
 
 export namespace UpdateAutomaticTapeCreationPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateAutomaticTapeCreationPolicyOutput): any => ({
     ...obj,
   });
@@ -6598,6 +7147,9 @@ export interface UpdateBandwidthRateLimitInput {
 }
 
 export namespace UpdateBandwidthRateLimitInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBandwidthRateLimitInput): any => ({
     ...obj,
   });
@@ -6616,6 +7168,9 @@ export interface UpdateBandwidthRateLimitOutput {
 }
 
 export namespace UpdateBandwidthRateLimitOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBandwidthRateLimitOutput): any => ({
     ...obj,
   });
@@ -6638,6 +7193,9 @@ export interface UpdateBandwidthRateLimitScheduleInput {
 }
 
 export namespace UpdateBandwidthRateLimitScheduleInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBandwidthRateLimitScheduleInput): any => ({
     ...obj,
   });
@@ -6652,6 +7210,9 @@ export interface UpdateBandwidthRateLimitScheduleOutput {
 }
 
 export namespace UpdateBandwidthRateLimitScheduleOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateBandwidthRateLimitScheduleOutput): any => ({
     ...obj,
   });
@@ -6720,6 +7281,9 @@ export interface UpdateChapCredentialsInput {
 }
 
 export namespace UpdateChapCredentialsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateChapCredentialsInput): any => ({
     ...obj,
     ...(obj.SecretToAuthenticateInitiator && { SecretToAuthenticateInitiator: SENSITIVE_STRING }),
@@ -6745,6 +7309,9 @@ export interface UpdateChapCredentialsOutput {
 }
 
 export namespace UpdateChapCredentialsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateChapCredentialsOutput): any => ({
     ...obj,
   });
@@ -6780,6 +7347,9 @@ export interface UpdateFileSystemAssociationInput {
 }
 
 export namespace UpdateFileSystemAssociationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateFileSystemAssociationInput): any => ({
     ...obj,
     ...(obj.Password && { Password: SENSITIVE_STRING }),
@@ -6794,6 +7364,9 @@ export interface UpdateFileSystemAssociationOutput {
 }
 
 export namespace UpdateFileSystemAssociationOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateFileSystemAssociationOutput): any => ({
     ...obj,
   });
@@ -6828,6 +7401,9 @@ export interface UpdateGatewayInformationInput {
 }
 
 export namespace UpdateGatewayInformationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGatewayInformationInput): any => ({
     ...obj,
   });
@@ -6851,6 +7427,9 @@ export interface UpdateGatewayInformationOutput {
 }
 
 export namespace UpdateGatewayInformationOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGatewayInformationOutput): any => ({
     ...obj,
   });
@@ -6868,6 +7447,9 @@ export interface UpdateGatewaySoftwareNowInput {
 }
 
 export namespace UpdateGatewaySoftwareNowInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGatewaySoftwareNowInput): any => ({
     ...obj,
   });
@@ -6886,6 +7468,9 @@ export interface UpdateGatewaySoftwareNowOutput {
 }
 
 export namespace UpdateGatewaySoftwareNowOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateGatewaySoftwareNowOutput): any => ({
     ...obj,
   });
@@ -6953,6 +7538,9 @@ export interface UpdateMaintenanceStartTimeInput {
 }
 
 export namespace UpdateMaintenanceStartTimeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateMaintenanceStartTimeInput): any => ({
     ...obj,
   });
@@ -6971,6 +7559,9 @@ export interface UpdateMaintenanceStartTimeOutput {
 }
 
 export namespace UpdateMaintenanceStartTimeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateMaintenanceStartTimeOutput): any => ({
     ...obj,
   });
@@ -7133,6 +7724,9 @@ export interface UpdateNFSFileShareInput {
 }
 
 export namespace UpdateNFSFileShareInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateNFSFileShareInput): any => ({
     ...obj,
   });
@@ -7149,6 +7743,9 @@ export interface UpdateNFSFileShareOutput {
 }
 
 export namespace UpdateNFSFileShareOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateNFSFileShareOutput): any => ({
     ...obj,
   });
@@ -7339,6 +7936,9 @@ export interface UpdateSMBFileShareInput {
 }
 
 export namespace UpdateSMBFileShareInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSMBFileShareInput): any => ({
     ...obj,
   });
@@ -7355,6 +7955,9 @@ export interface UpdateSMBFileShareOutput {
 }
 
 export namespace UpdateSMBFileShareOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSMBFileShareOutput): any => ({
     ...obj,
   });
@@ -7374,6 +7977,9 @@ export interface UpdateSMBFileShareVisibilityInput {
 }
 
 export namespace UpdateSMBFileShareVisibilityInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSMBFileShareVisibilityInput): any => ({
     ...obj,
   });
@@ -7388,6 +7994,9 @@ export interface UpdateSMBFileShareVisibilityOutput {
 }
 
 export namespace UpdateSMBFileShareVisibilityOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSMBFileShareVisibilityOutput): any => ({
     ...obj,
   });
@@ -7420,6 +8029,9 @@ export interface UpdateSMBSecurityStrategyInput {
 }
 
 export namespace UpdateSMBSecurityStrategyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSMBSecurityStrategyInput): any => ({
     ...obj,
   });
@@ -7434,6 +8046,9 @@ export interface UpdateSMBSecurityStrategyOutput {
 }
 
 export namespace UpdateSMBSecurityStrategyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSMBSecurityStrategyOutput): any => ({
     ...obj,
   });
@@ -7504,6 +8119,9 @@ export interface UpdateSnapshotScheduleInput {
 }
 
 export namespace UpdateSnapshotScheduleInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSnapshotScheduleInput): any => ({
     ...obj,
   });
@@ -7522,6 +8140,9 @@ export interface UpdateSnapshotScheduleOutput {
 }
 
 export namespace UpdateSnapshotScheduleOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateSnapshotScheduleOutput): any => ({
     ...obj,
   });
@@ -7544,6 +8165,9 @@ export interface UpdateVTLDeviceTypeInput {
 }
 
 export namespace UpdateVTLDeviceTypeInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateVTLDeviceTypeInput): any => ({
     ...obj,
   });
@@ -7560,6 +8184,9 @@ export interface UpdateVTLDeviceTypeOutput {
 }
 
 export namespace UpdateVTLDeviceTypeOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateVTLDeviceTypeOutput): any => ({
     ...obj,
   });

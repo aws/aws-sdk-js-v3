@@ -20,6 +20,9 @@ export interface UpdateTrialResponse {
 }
 
 export namespace UpdateTrialResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTrialResponse): any => ({
     ...obj,
   });
@@ -85,6 +88,9 @@ export interface UpdateTrialComponentRequest {
 }
 
 export namespace UpdateTrialComponentRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTrialComponentRequest): any => ({
     ...obj,
     ...(obj.Parameters && {
@@ -107,6 +113,9 @@ export interface UpdateTrialComponentResponse {
 }
 
 export namespace UpdateTrialComponentResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateTrialComponentResponse): any => ({
     ...obj,
   });
@@ -130,6 +139,9 @@ export interface UpdateUserProfileRequest {
 }
 
 export namespace UpdateUserProfileRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateUserProfileRequest): any => ({
     ...obj,
   });
@@ -143,6 +155,9 @@ export interface UpdateUserProfileResponse {
 }
 
 export namespace UpdateUserProfileResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateUserProfileResponse): any => ({
     ...obj,
   });
@@ -170,6 +185,9 @@ export interface UpdateWorkforceRequest {
 }
 
 export namespace UpdateWorkforceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateWorkforceRequest): any => ({
     ...obj,
     ...(obj.OidcConfig && { OidcConfig: OidcConfig.filterSensitiveLog(obj.OidcConfig) }),
@@ -186,6 +204,9 @@ export interface UpdateWorkforceResponse {
 }
 
 export namespace UpdateWorkforceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateWorkforceResponse): any => ({
     ...obj,
   });
@@ -233,6 +254,9 @@ export interface UpdateWorkteamRequest {
 }
 
 export namespace UpdateWorkteamRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateWorkteamRequest): any => ({
     ...obj,
   });
@@ -246,6 +270,9 @@ export interface UpdateWorkteamResponse {
 }
 
 export namespace UpdateWorkteamResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateWorkteamResponse): any => ({
     ...obj,
   });
@@ -305,6 +332,9 @@ export interface SearchExpression {
 }
 
 export namespace SearchExpression {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchExpression): any => ({
     ...obj,
   });
@@ -352,6 +382,9 @@ export interface SearchRequest {
 }
 
 export namespace SearchRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SearchRequest): any => ({
     ...obj,
   });

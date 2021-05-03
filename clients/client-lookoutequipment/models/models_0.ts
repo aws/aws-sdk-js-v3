@@ -12,6 +12,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -28,6 +31,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -45,6 +51,9 @@ export interface DatasetSchema {
 }
 
 export namespace DatasetSchema {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DatasetSchema): any => ({
     ...obj,
   });
@@ -66,6 +75,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -101,6 +113,9 @@ export interface CreateDatasetRequest {
 }
 
 export namespace CreateDatasetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateDatasetRequest): any => ({
     ...obj,
   });
@@ -130,6 +145,9 @@ export interface CreateDatasetResponse {
 }
 
 export namespace CreateDatasetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateDatasetResponse): any => ({
     ...obj,
   });
@@ -146,6 +164,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -161,6 +182,9 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
 }
 
 export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
@@ -176,6 +200,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -192,6 +219,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -215,6 +245,9 @@ export interface InferenceInputNameConfiguration {
 }
 
 export namespace InferenceInputNameConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InferenceInputNameConfiguration): any => ({
     ...obj,
   });
@@ -237,6 +270,9 @@ export interface InferenceS3InputConfiguration {
 }
 
 export namespace InferenceS3InputConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InferenceS3InputConfiguration): any => ({
     ...obj,
   });
@@ -266,6 +302,9 @@ export interface InferenceInputConfiguration {
 }
 
 export namespace InferenceInputConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InferenceInputConfiguration): any => ({
     ...obj,
   });
@@ -288,6 +327,9 @@ export interface InferenceS3OutputConfiguration {
 }
 
 export namespace InferenceS3OutputConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InferenceS3OutputConfiguration): any => ({
     ...obj,
   });
@@ -311,6 +353,9 @@ export interface InferenceOutputConfiguration {
 }
 
 export namespace InferenceOutputConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InferenceOutputConfiguration): any => ({
     ...obj,
   });
@@ -391,6 +436,9 @@ export interface CreateInferenceSchedulerRequest {
 }
 
 export namespace CreateInferenceSchedulerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateInferenceSchedulerRequest): any => ({
     ...obj,
   });
@@ -421,6 +469,9 @@ export interface CreateInferenceSchedulerResponse {
 }
 
 export namespace CreateInferenceSchedulerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateInferenceSchedulerResponse): any => ({
     ...obj,
   });
@@ -437,6 +488,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -486,6 +540,9 @@ export interface DataPreProcessingConfiguration {
 }
 
 export namespace DataPreProcessingConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataPreProcessingConfiguration): any => ({
     ...obj,
   });
@@ -508,6 +565,9 @@ export interface LabelsS3InputConfiguration {
 }
 
 export namespace LabelsS3InputConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LabelsS3InputConfiguration): any => ({
     ...obj,
   });
@@ -525,6 +585,9 @@ export interface LabelsInputConfiguration {
 }
 
 export namespace LabelsInputConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LabelsInputConfiguration): any => ({
     ...obj,
   });
@@ -615,6 +678,9 @@ export interface CreateModelRequest {
 }
 
 export namespace CreateModelRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateModelRequest): any => ({
     ...obj,
   });
@@ -639,6 +705,9 @@ export interface CreateModelResponse {
 }
 
 export namespace CreateModelResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateModelResponse): any => ({
     ...obj,
   });
@@ -652,6 +721,9 @@ export interface DeleteDatasetRequest {
 }
 
 export namespace DeleteDatasetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
     ...obj,
   });
@@ -665,6 +737,9 @@ export interface DeleteInferenceSchedulerRequest {
 }
 
 export namespace DeleteInferenceSchedulerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteInferenceSchedulerRequest): any => ({
     ...obj,
   });
@@ -678,6 +753,9 @@ export interface DeleteModelRequest {
 }
 
 export namespace DeleteModelRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteModelRequest): any => ({
     ...obj,
   });
@@ -691,6 +769,9 @@ export interface DescribeDataIngestionJobRequest {
 }
 
 export namespace DescribeDataIngestionJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDataIngestionJobRequest): any => ({
     ...obj,
   });
@@ -714,6 +795,9 @@ export interface IngestionS3InputConfiguration {
 }
 
 export namespace IngestionS3InputConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IngestionS3InputConfiguration): any => ({
     ...obj,
   });
@@ -732,6 +816,9 @@ export interface IngestionInputConfiguration {
 }
 
 export namespace IngestionInputConfiguration {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IngestionInputConfiguration): any => ({
     ...obj,
   });
@@ -784,6 +871,9 @@ export interface DescribeDataIngestionJobResponse {
 }
 
 export namespace DescribeDataIngestionJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDataIngestionJobResponse): any => ({
     ...obj,
   });
@@ -797,6 +887,9 @@ export interface DescribeDatasetRequest {
 }
 
 export namespace DescribeDatasetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
     ...obj,
   });
@@ -846,6 +939,9 @@ export interface DescribeDatasetResponse {
 }
 
 export namespace DescribeDatasetResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
     ...obj,
   });
@@ -859,6 +955,9 @@ export interface DescribeInferenceSchedulerRequest {
 }
 
 export namespace DescribeInferenceSchedulerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeInferenceSchedulerRequest): any => ({
     ...obj,
   });
@@ -945,6 +1044,9 @@ export interface DescribeInferenceSchedulerResponse {
 }
 
 export namespace DescribeInferenceSchedulerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeInferenceSchedulerResponse): any => ({
     ...obj,
   });
@@ -958,6 +1060,9 @@ export interface DescribeModelRequest {
 }
 
 export namespace DescribeModelRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeModelRequest): any => ({
     ...obj,
   });
@@ -1088,6 +1193,9 @@ export interface DescribeModelResponse {
 }
 
 export namespace DescribeModelResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeModelResponse): any => ({
     ...obj,
   });
@@ -1117,6 +1225,9 @@ export interface ListDataIngestionJobsRequest {
 }
 
 export namespace ListDataIngestionJobsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDataIngestionJobsRequest): any => ({
     ...obj,
   });
@@ -1155,6 +1266,9 @@ export interface DataIngestionJobSummary {
 }
 
 export namespace DataIngestionJobSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DataIngestionJobSummary): any => ({
     ...obj,
   });
@@ -1175,6 +1289,9 @@ export interface ListDataIngestionJobsResponse {
 }
 
 export namespace ListDataIngestionJobsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDataIngestionJobsResponse): any => ({
     ...obj,
   });
@@ -1199,6 +1316,9 @@ export interface ListDatasetsRequest {
 }
 
 export namespace ListDatasetsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDatasetsRequest): any => ({
     ...obj,
   });
@@ -1231,6 +1351,9 @@ export interface DatasetSummary {
 }
 
 export namespace DatasetSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DatasetSummary): any => ({
     ...obj,
   });
@@ -1251,6 +1374,9 @@ export interface ListDatasetsResponse {
 }
 
 export namespace ListDatasetsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDatasetsResponse): any => ({
     ...obj,
   });
@@ -1298,6 +1424,9 @@ export interface ListInferenceExecutionsRequest {
 }
 
 export namespace ListInferenceExecutionsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListInferenceExecutionsRequest): any => ({
     ...obj,
   });
@@ -1320,6 +1449,9 @@ export interface S3Object {
 }
 
 export namespace S3Object {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: S3Object): any => ({
     ...obj,
   });
@@ -1399,6 +1531,9 @@ export interface InferenceExecutionSummary {
 }
 
 export namespace InferenceExecutionSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InferenceExecutionSummary): any => ({
     ...obj,
   });
@@ -1420,6 +1555,9 @@ export interface ListInferenceExecutionsResponse {
 }
 
 export namespace ListInferenceExecutionsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListInferenceExecutionsResponse): any => ({
     ...obj,
   });
@@ -1449,6 +1587,9 @@ export interface ListInferenceSchedulersRequest {
 }
 
 export namespace ListInferenceSchedulersRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListInferenceSchedulersRequest): any => ({
     ...obj,
   });
@@ -1506,6 +1647,9 @@ export interface InferenceSchedulerSummary {
 }
 
 export namespace InferenceSchedulerSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InferenceSchedulerSummary): any => ({
     ...obj,
   });
@@ -1526,6 +1670,9 @@ export interface ListInferenceSchedulersResponse {
 }
 
 export namespace ListInferenceSchedulersResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListInferenceSchedulersResponse): any => ({
     ...obj,
   });
@@ -1560,6 +1707,9 @@ export interface ListModelsRequest {
 }
 
 export namespace ListModelsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListModelsRequest): any => ({
     ...obj,
   });
@@ -1602,6 +1752,9 @@ export interface ModelSummary {
 }
 
 export namespace ModelSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModelSummary): any => ({
     ...obj,
   });
@@ -1622,6 +1775,9 @@ export interface ListModelsResponse {
 }
 
 export namespace ListModelsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListModelsResponse): any => ({
     ...obj,
   });
@@ -1636,6 +1792,9 @@ export interface ListTagsForResourceRequest {
 }
 
 export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
     ...obj,
   });
@@ -1649,6 +1808,9 @@ export interface ListTagsForResourceResponse {
 }
 
 export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
     ...obj,
   });
@@ -1680,6 +1842,9 @@ export interface StartDataIngestionJobRequest {
 }
 
 export namespace StartDataIngestionJobRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartDataIngestionJobRequest): any => ({
     ...obj,
   });
@@ -1698,6 +1863,9 @@ export interface StartDataIngestionJobResponse {
 }
 
 export namespace StartDataIngestionJobResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartDataIngestionJobResponse): any => ({
     ...obj,
   });
@@ -1711,6 +1879,9 @@ export interface StartInferenceSchedulerRequest {
 }
 
 export namespace StartInferenceSchedulerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartInferenceSchedulerRequest): any => ({
     ...obj,
   });
@@ -1745,6 +1916,9 @@ export interface StartInferenceSchedulerResponse {
 }
 
 export namespace StartInferenceSchedulerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartInferenceSchedulerResponse): any => ({
     ...obj,
   });
@@ -1758,6 +1932,9 @@ export interface StopInferenceSchedulerRequest {
 }
 
 export namespace StopInferenceSchedulerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopInferenceSchedulerRequest): any => ({
     ...obj,
   });
@@ -1792,6 +1969,9 @@ export interface StopInferenceSchedulerResponse {
 }
 
 export namespace StopInferenceSchedulerResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopInferenceSchedulerResponse): any => ({
     ...obj,
   });
@@ -1812,6 +1992,9 @@ export interface TagResourceRequest {
 }
 
 export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
     ...obj,
   });
@@ -1820,6 +2003,9 @@ export namespace TagResourceRequest {
 export interface TagResourceResponse {}
 
 export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
     ...obj,
   });
@@ -1839,6 +2025,9 @@ export interface UntagResourceRequest {
 }
 
 export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
     ...obj,
   });
@@ -1847,6 +2036,9 @@ export namespace UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
@@ -1896,6 +2088,9 @@ export interface UpdateInferenceSchedulerRequest {
 }
 
 export namespace UpdateInferenceSchedulerRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateInferenceSchedulerRequest): any => ({
     ...obj,
   });

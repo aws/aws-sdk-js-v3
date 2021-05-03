@@ -12,6 +12,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -28,6 +31,9 @@ export interface AuthorizationPendingException extends __SmithyException, $Metad
 }
 
 export namespace AuthorizationPendingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AuthorizationPendingException): any => ({
     ...obj,
   });
@@ -80,6 +86,9 @@ export interface CreateTokenRequest {
 }
 
 export namespace CreateTokenRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTokenRequest): any => ({
     ...obj,
   });
@@ -115,6 +124,9 @@ export interface CreateTokenResponse {
 }
 
 export namespace CreateTokenResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateTokenResponse): any => ({
     ...obj,
   });
@@ -131,6 +143,9 @@ export interface ExpiredTokenException extends __SmithyException, $MetadataBeare
 }
 
 export namespace ExpiredTokenException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExpiredTokenException): any => ({
     ...obj,
   });
@@ -147,6 +162,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -165,6 +183,9 @@ export interface InvalidClientException extends __SmithyException, $MetadataBear
 }
 
 export namespace InvalidClientException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidClientException): any => ({
     ...obj,
   });
@@ -181,6 +202,9 @@ export interface InvalidGrantException extends __SmithyException, $MetadataBeare
 }
 
 export namespace InvalidGrantException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidGrantException): any => ({
     ...obj,
   });
@@ -198,6 +222,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -214,6 +241,9 @@ export interface InvalidScopeException extends __SmithyException, $MetadataBeare
 }
 
 export namespace InvalidScopeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidScopeException): any => ({
     ...obj,
   });
@@ -230,6 +260,9 @@ export interface SlowDownException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace SlowDownException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SlowDownException): any => ({
     ...obj,
   });
@@ -247,6 +280,9 @@ export interface UnauthorizedClientException extends __SmithyException, $Metadat
 }
 
 export namespace UnauthorizedClientException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnauthorizedClientException): any => ({
     ...obj,
   });
@@ -263,6 +299,9 @@ export interface UnsupportedGrantTypeException extends __SmithyException, $Metad
 }
 
 export namespace UnsupportedGrantTypeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedGrantTypeException): any => ({
     ...obj,
   });
@@ -279,6 +318,9 @@ export interface InvalidClientMetadataException extends __SmithyException, $Meta
 }
 
 export namespace InvalidClientMetadataException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidClientMetadataException): any => ({
     ...obj,
   });
@@ -303,6 +345,9 @@ export interface RegisterClientRequest {
 }
 
 export namespace RegisterClientRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterClientRequest): any => ({
     ...obj,
   });
@@ -343,6 +388,9 @@ export interface RegisterClientResponse {
 }
 
 export namespace RegisterClientResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterClientResponse): any => ({
     ...obj,
   });
@@ -370,6 +418,9 @@ export interface StartDeviceAuthorizationRequest {
 }
 
 export namespace StartDeviceAuthorizationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartDeviceAuthorizationRequest): any => ({
     ...obj,
   });
@@ -410,6 +461,9 @@ export interface StartDeviceAuthorizationResponse {
 }
 
 export namespace StartDeviceAuthorizationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartDeviceAuthorizationResponse): any => ({
     ...obj,
   });

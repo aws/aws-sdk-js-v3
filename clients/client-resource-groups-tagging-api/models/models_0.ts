@@ -24,6 +24,9 @@ export interface ComplianceDetails {
 }
 
 export namespace ComplianceDetails {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ComplianceDetails): any => ({
     ...obj,
   });
@@ -40,6 +43,9 @@ export interface ConcurrentModificationException extends __SmithyException, $Met
 }
 
 export namespace ConcurrentModificationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
     ...obj,
   });
@@ -74,6 +80,9 @@ export interface ConstraintViolationException extends __SmithyException, $Metada
 }
 
 export namespace ConstraintViolationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConstraintViolationException): any => ({
     ...obj,
   });
@@ -82,6 +91,9 @@ export namespace ConstraintViolationException {
 export interface DescribeReportCreationInput {}
 
 export namespace DescribeReportCreationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeReportCreationInput): any => ({
     ...obj,
   });
@@ -132,6 +144,9 @@ export interface DescribeReportCreationOutput {
 }
 
 export namespace DescribeReportCreationOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeReportCreationOutput): any => ({
     ...obj,
   });
@@ -148,6 +163,9 @@ export interface InternalServiceException extends __SmithyException, $MetadataBe
 }
 
 export namespace InternalServiceException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServiceException): any => ({
     ...obj,
   });
@@ -183,6 +201,9 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
 }
 
 export namespace InvalidParameterException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidParameterException): any => ({
     ...obj,
   });
@@ -198,6 +219,9 @@ export interface ThrottledException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ThrottledException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottledException): any => ({
     ...obj,
   });
@@ -263,6 +287,9 @@ export interface FailureInfo {
 }
 
 export namespace FailureInfo {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FailureInfo): any => ({
     ...obj,
   });
@@ -347,6 +374,9 @@ export interface GetComplianceSummaryInput {
 }
 
 export namespace GetComplianceSummaryInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetComplianceSummaryInput): any => ({
     ...obj,
   });
@@ -395,6 +425,9 @@ export interface Summary {
 }
 
 export namespace Summary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Summary): any => ({
     ...obj,
   });
@@ -415,6 +448,9 @@ export interface GetComplianceSummaryOutput {
 }
 
 export namespace GetComplianceSummaryOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetComplianceSummaryOutput): any => ({
     ...obj,
   });
@@ -437,6 +473,9 @@ export interface TagFilter {
 }
 
 export namespace TagFilter {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagFilter): any => ({
     ...obj,
   });
@@ -588,6 +627,9 @@ export interface GetResourcesInput {
 }
 
 export namespace GetResourcesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetResourcesInput): any => ({
     ...obj,
   });
@@ -612,6 +654,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -640,6 +685,9 @@ export interface ResourceTagMapping {
 }
 
 export namespace ResourceTagMapping {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceTagMapping): any => ({
     ...obj,
   });
@@ -661,6 +709,9 @@ export interface GetResourcesOutput {
 }
 
 export namespace GetResourcesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetResourcesOutput): any => ({
     ...obj,
   });
@@ -677,6 +728,9 @@ export interface PaginationTokenExpiredException extends __SmithyException, $Met
 }
 
 export namespace PaginationTokenExpiredException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PaginationTokenExpiredException): any => ({
     ...obj,
   });
@@ -692,6 +746,9 @@ export interface GetTagKeysInput {
 }
 
 export namespace GetTagKeysInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTagKeysInput): any => ({
     ...obj,
   });
@@ -712,6 +769,9 @@ export interface GetTagKeysOutput {
 }
 
 export namespace GetTagKeysOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTagKeysOutput): any => ({
     ...obj,
   });
@@ -733,6 +793,9 @@ export interface GetTagValuesInput {
 }
 
 export namespace GetTagValuesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTagValuesInput): any => ({
     ...obj,
   });
@@ -754,6 +817,9 @@ export interface GetTagValuesOutput {
 }
 
 export namespace GetTagValuesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetTagValuesOutput): any => ({
     ...obj,
   });
@@ -772,6 +838,9 @@ export interface StartReportCreationInput {
 }
 
 export namespace StartReportCreationInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartReportCreationInput): any => ({
     ...obj,
   });
@@ -780,6 +849,9 @@ export namespace StartReportCreationInput {
 export interface StartReportCreationOutput {}
 
 export namespace StartReportCreationOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartReportCreationOutput): any => ({
     ...obj,
   });
@@ -803,6 +875,9 @@ export interface TagResourcesInput {
 }
 
 export namespace TagResourcesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourcesInput): any => ({
     ...obj,
   });
@@ -819,6 +894,9 @@ export interface TagResourcesOutput {
 }
 
 export namespace TagResourcesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagResourcesOutput): any => ({
     ...obj,
   });
@@ -842,6 +920,9 @@ export interface UntagResourcesInput {
 }
 
 export namespace UntagResourcesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourcesInput): any => ({
     ...obj,
   });
@@ -858,6 +939,9 @@ export interface UntagResourcesOutput {
 }
 
 export namespace UntagResourcesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UntagResourcesOutput): any => ({
     ...obj,
   });

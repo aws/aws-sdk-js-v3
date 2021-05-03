@@ -24,6 +24,9 @@ export interface Message {
 }
 
 export namespace Message {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Message): any => ({
     ...obj,
   });
@@ -39,6 +42,9 @@ export interface BatchPutMessageRequest {
 }
 
 export namespace BatchPutMessageRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchPutMessageRequest): any => ({
     ...obj,
   });
@@ -74,6 +80,9 @@ export interface BatchPutMessageErrorEntry {
 }
 
 export namespace BatchPutMessageErrorEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchPutMessageErrorEntry): any => ({
     ...obj,
   });
@@ -87,6 +96,9 @@ export interface BatchPutMessageResponse {
 }
 
 export namespace BatchPutMessageResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchPutMessageResponse): any => ({
     ...obj,
   });
@@ -105,6 +117,9 @@ export interface InternalFailureException extends __SmithyException, $MetadataBe
 }
 
 export namespace InternalFailureException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalFailureException): any => ({
     ...obj,
   });
@@ -123,6 +138,9 @@ export interface InvalidRequestException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidRequestException): any => ({
     ...obj,
   });
@@ -141,6 +159,9 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
 }
 
 export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
     ...obj,
   });
@@ -159,6 +180,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -180,6 +204,9 @@ export interface TimerDefinition {
 }
 
 export namespace TimerDefinition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TimerDefinition): any => ({
     ...obj,
   });
@@ -201,6 +228,9 @@ export interface VariableDefinition {
 }
 
 export namespace VariableDefinition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: VariableDefinition): any => ({
     ...obj,
   });
@@ -228,6 +258,9 @@ export interface DetectorStateDefinition {
 }
 
 export namespace DetectorStateDefinition {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectorStateDefinition): any => ({
     ...obj,
   });
@@ -261,6 +294,9 @@ export interface UpdateDetectorRequest {
 }
 
 export namespace UpdateDetectorRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UpdateDetectorRequest): any => ({
     ...obj,
   });
@@ -274,6 +310,9 @@ export interface BatchUpdateDetectorRequest {
 }
 
 export namespace BatchUpdateDetectorRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchUpdateDetectorRequest): any => ({
     ...obj,
   });
@@ -301,6 +340,9 @@ export interface BatchUpdateDetectorErrorEntry {
 }
 
 export namespace BatchUpdateDetectorErrorEntry {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchUpdateDetectorErrorEntry): any => ({
     ...obj,
   });
@@ -315,6 +357,9 @@ export interface BatchUpdateDetectorResponse {
 }
 
 export namespace BatchUpdateDetectorResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BatchUpdateDetectorResponse): any => ({
     ...obj,
   });
@@ -333,6 +378,9 @@ export interface DescribeDetectorRequest {
 }
 
 export namespace DescribeDetectorRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDetectorRequest): any => ({
     ...obj,
   });
@@ -354,6 +402,9 @@ export interface Timer {
 }
 
 export namespace Timer {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Timer): any => ({
     ...obj,
   });
@@ -375,6 +426,9 @@ export interface Variable {
 }
 
 export namespace Variable {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Variable): any => ({
     ...obj,
   });
@@ -401,6 +455,9 @@ export interface DetectorState {
 }
 
 export namespace DetectorState {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectorState): any => ({
     ...obj,
   });
@@ -443,6 +500,9 @@ export interface Detector {
 }
 
 export namespace Detector {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Detector): any => ({
     ...obj,
   });
@@ -456,6 +516,9 @@ export interface DescribeDetectorResponse {
 }
 
 export namespace DescribeDetectorResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeDetectorResponse): any => ({
     ...obj,
   });
@@ -474,6 +537,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -490,6 +556,9 @@ export interface DetectorStateSummary {
 }
 
 export namespace DetectorStateSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectorStateSummary): any => ({
     ...obj,
   });
@@ -532,6 +601,9 @@ export interface DetectorSummary {
 }
 
 export namespace DetectorSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetectorSummary): any => ({
     ...obj,
   });
@@ -560,6 +632,9 @@ export interface ListDetectorsRequest {
 }
 
 export namespace ListDetectorsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDetectorsRequest): any => ({
     ...obj,
   });
@@ -579,6 +654,9 @@ export interface ListDetectorsResponse {
 }
 
 export namespace ListDetectorsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListDetectorsResponse): any => ({
     ...obj,
   });

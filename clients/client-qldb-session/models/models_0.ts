@@ -7,6 +7,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export interface AbortTransactionRequest {}
 
 export namespace AbortTransactionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AbortTransactionRequest): any => ({
     ...obj,
   });
@@ -26,6 +29,9 @@ export interface TimingInformation {
 }
 
 export namespace TimingInformation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TimingInformation): any => ({
     ...obj,
   });
@@ -42,6 +48,9 @@ export interface AbortTransactionResult {
 }
 
 export namespace AbortTransactionResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AbortTransactionResult): any => ({
     ...obj,
   });
@@ -59,6 +68,9 @@ export interface BadRequestException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace BadRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
     ...obj,
   });
@@ -74,6 +86,9 @@ export interface CapacityExceededException extends __SmithyException, $MetadataB
 }
 
 export namespace CapacityExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CapacityExceededException): any => ({
     ...obj,
   });
@@ -101,6 +116,9 @@ export interface CommitTransactionRequest {
 }
 
 export namespace CommitTransactionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CommitTransactionRequest): any => ({
     ...obj,
   });
@@ -122,6 +140,9 @@ export interface IOUsage {
 }
 
 export namespace IOUsage {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IOUsage): any => ({
     ...obj,
   });
@@ -153,6 +174,9 @@ export interface CommitTransactionResult {
 }
 
 export namespace CommitTransactionResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CommitTransactionResult): any => ({
     ...obj,
   });
@@ -164,6 +188,9 @@ export namespace CommitTransactionResult {
 export interface EndSessionRequest {}
 
 export namespace EndSessionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EndSessionRequest): any => ({
     ...obj,
   });
@@ -180,6 +207,9 @@ export interface EndSessionResult {
 }
 
 export namespace EndSessionResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: EndSessionResult): any => ({
     ...obj,
   });
@@ -201,6 +231,9 @@ export interface ValueHolder {
 }
 
 export namespace ValueHolder {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValueHolder): any => ({
     ...obj,
   });
@@ -227,6 +260,9 @@ export interface ExecuteStatementRequest {
 }
 
 export namespace ExecuteStatementRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteStatementRequest): any => ({
     ...obj,
   });
@@ -248,6 +284,9 @@ export interface Page {
 }
 
 export namespace Page {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Page): any => ({
     ...obj,
   });
@@ -274,6 +313,9 @@ export interface ExecuteStatementResult {
 }
 
 export namespace ExecuteStatementResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ExecuteStatementResult): any => ({
     ...obj,
   });
@@ -295,6 +337,9 @@ export interface FetchPageRequest {
 }
 
 export namespace FetchPageRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FetchPageRequest): any => ({
     ...obj,
   });
@@ -321,6 +366,9 @@ export interface FetchPageResult {
 }
 
 export namespace FetchPageResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: FetchPageResult): any => ({
     ...obj,
   });
@@ -337,6 +385,9 @@ export interface InvalidSessionException extends __SmithyException, $MetadataBea
 }
 
 export namespace InvalidSessionException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidSessionException): any => ({
     ...obj,
   });
@@ -352,6 +403,9 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
 }
 
 export namespace LimitExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
@@ -368,6 +422,9 @@ export interface OccConflictException extends __SmithyException, $MetadataBearer
 }
 
 export namespace OccConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OccConflictException): any => ({
     ...obj,
   });
@@ -383,6 +440,9 @@ export interface RateExceededException extends __SmithyException, $MetadataBeare
 }
 
 export namespace RateExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RateExceededException): any => ({
     ...obj,
   });
@@ -399,6 +459,9 @@ export interface StartSessionRequest {
 }
 
 export namespace StartSessionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartSessionRequest): any => ({
     ...obj,
   });
@@ -410,6 +473,9 @@ export namespace StartSessionRequest {
 export interface StartTransactionRequest {}
 
 export namespace StartTransactionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartTransactionRequest): any => ({
     ...obj,
   });
@@ -463,6 +529,9 @@ export interface SendCommandRequest {
 }
 
 export namespace SendCommandRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendCommandRequest): any => ({
     ...obj,
   });
@@ -485,6 +554,9 @@ export interface StartSessionResult {
 }
 
 export namespace StartSessionResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartSessionResult): any => ({
     ...obj,
   });
@@ -506,6 +578,9 @@ export interface StartTransactionResult {
 }
 
 export namespace StartTransactionResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartTransactionResult): any => ({
     ...obj,
   });
@@ -551,6 +626,9 @@ export interface SendCommandResult {
 }
 
 export namespace SendCommandResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SendCommandResult): any => ({
     ...obj,
   });

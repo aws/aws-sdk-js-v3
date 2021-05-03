@@ -9,6 +9,9 @@ export interface DeleteHumanLoopRequest {
 }
 
 export namespace DeleteHumanLoopRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteHumanLoopRequest): any => ({
     ...obj,
   });
@@ -17,6 +20,9 @@ export namespace DeleteHumanLoopRequest {
 export interface DeleteHumanLoopResponse {}
 
 export namespace DeleteHumanLoopResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteHumanLoopResponse): any => ({
     ...obj,
   });
@@ -33,6 +39,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -50,6 +59,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -67,6 +79,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -83,6 +98,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -96,6 +114,9 @@ export interface DescribeHumanLoopRequest {
 }
 
 export namespace DescribeHumanLoopRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeHumanLoopRequest): any => ({
     ...obj,
   });
@@ -112,6 +133,9 @@ export interface HumanLoopOutput {
 }
 
 export namespace HumanLoopOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HumanLoopOutput): any => ({
     ...obj,
   });
@@ -172,6 +196,9 @@ export interface DescribeHumanLoopResponse {
 }
 
 export namespace DescribeHumanLoopResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeHumanLoopResponse): any => ({
     ...obj,
   });
@@ -218,6 +245,9 @@ export interface ListHumanLoopsRequest {
 }
 
 export namespace ListHumanLoopsRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListHumanLoopsRequest): any => ({
     ...obj,
   });
@@ -256,6 +286,9 @@ export interface HumanLoopSummary {
 }
 
 export namespace HumanLoopSummary {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HumanLoopSummary): any => ({
     ...obj,
   });
@@ -274,6 +307,9 @@ export interface ListHumanLoopsResponse {
 }
 
 export namespace ListHumanLoopsResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListHumanLoopsResponse): any => ({
     ...obj,
   });
@@ -290,6 +326,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -309,6 +348,9 @@ export interface ServiceQuotaExceededException extends __SmithyException, $Metad
 }
 
 export namespace ServiceQuotaExceededException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
@@ -331,6 +373,9 @@ export interface HumanLoopDataAttributes {
 }
 
 export namespace HumanLoopDataAttributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HumanLoopDataAttributes): any => ({
     ...obj,
   });
@@ -347,6 +392,9 @@ export interface HumanLoopInput {
 }
 
 export namespace HumanLoopInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HumanLoopInput): any => ({
     ...obj,
   });
@@ -377,6 +425,9 @@ export interface StartHumanLoopRequest {
 }
 
 export namespace StartHumanLoopRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartHumanLoopRequest): any => ({
     ...obj,
   });
@@ -390,6 +441,9 @@ export interface StartHumanLoopResponse {
 }
 
 export namespace StartHumanLoopResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartHumanLoopResponse): any => ({
     ...obj,
   });
@@ -403,6 +457,9 @@ export interface StopHumanLoopRequest {
 }
 
 export namespace StopHumanLoopRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopHumanLoopRequest): any => ({
     ...obj,
   });
@@ -411,6 +468,9 @@ export namespace StopHumanLoopRequest {
 export interface StopHumanLoopResponse {}
 
 export namespace StopHumanLoopResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StopHumanLoopResponse): any => ({
     ...obj,
   });

@@ -12,6 +12,9 @@ export interface AccessDeniedException extends __SmithyException, $MetadataBeare
 }
 
 export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
     ...obj,
   });
@@ -36,6 +39,9 @@ export interface ActiveContextTimeToLive {
 }
 
 export namespace ActiveContextTimeToLive {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActiveContextTimeToLive): any => ({
     ...obj,
   });
@@ -76,6 +82,9 @@ export interface ActiveContext {
 }
 
 export namespace ActiveContext {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ActiveContext): any => ({
     ...obj,
     ...(obj.contextAttributes && { contextAttributes: SENSITIVE_STRING }),
@@ -119,6 +128,9 @@ export interface AudioInputEvent {
 }
 
 export namespace AudioInputEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AudioInputEvent): any => ({
     ...obj,
   });
@@ -151,6 +163,9 @@ export interface AudioResponseEvent {
 }
 
 export namespace AudioResponseEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AudioResponseEvent): any => ({
     ...obj,
   });
@@ -166,6 +181,9 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ConflictException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConflictException): any => ({
     ...obj,
   });
@@ -195,6 +213,9 @@ export interface DeleteSessionRequest {
 }
 
 export namespace DeleteSessionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteSessionRequest): any => ({
     ...obj,
   });
@@ -224,6 +245,9 @@ export interface DeleteSessionResponse {
 }
 
 export namespace DeleteSessionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteSessionResponse): any => ({
     ...obj,
   });
@@ -239,6 +263,9 @@ export interface InternalServerException extends __SmithyException, $MetadataBea
 }
 
 export namespace InternalServerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InternalServerException): any => ({
     ...obj,
   });
@@ -254,6 +281,9 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
@@ -269,6 +299,9 @@ export interface ThrottlingException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ThrottlingException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ThrottlingException): any => ({
     ...obj,
   });
@@ -284,6 +317,9 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace ValidationException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
@@ -313,6 +349,9 @@ export interface GetSessionRequest {
 }
 
 export namespace GetSessionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSessionRequest): any => ({
     ...obj,
   });
@@ -350,6 +389,9 @@ export interface Value {
 }
 
 export namespace Value {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Value): any => ({
     ...obj,
   });
@@ -366,6 +408,9 @@ export interface Slot {
 }
 
 export namespace Slot {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Slot): any => ({
     ...obj,
   });
@@ -408,6 +453,9 @@ export interface Intent {
 }
 
 export namespace Intent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Intent): any => ({
     ...obj,
   });
@@ -427,6 +475,9 @@ export interface ConfidenceScore {
 }
 
 export namespace ConfidenceScore {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConfidenceScore): any => ({
     ...obj,
   });
@@ -469,6 +520,9 @@ export interface SentimentScore {
 }
 
 export namespace SentimentScore {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SentimentScore): any => ({
     ...obj,
   });
@@ -498,6 +552,9 @@ export interface SentimentResponse {
 }
 
 export namespace SentimentResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SentimentResponse): any => ({
     ...obj,
   });
@@ -534,6 +591,9 @@ export interface Interpretation {
 }
 
 export namespace Interpretation {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Interpretation): any => ({
     ...obj,
   });
@@ -562,6 +622,9 @@ export interface Button {
 }
 
 export namespace Button {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Button): any => ({
     ...obj,
   });
@@ -603,6 +666,9 @@ export interface ImageResponseCard {
 }
 
 export namespace ImageResponseCard {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ImageResponseCard): any => ({
     ...obj,
   });
@@ -632,6 +698,9 @@ export interface Message {
 }
 
 export namespace Message {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Message): any => ({
     ...obj,
     ...(obj.content && { content: SENSITIVE_STRING }),
@@ -687,6 +756,9 @@ export interface DialogAction {
 }
 
 export namespace DialogAction {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DialogAction): any => ({
     ...obj,
   });
@@ -728,6 +800,9 @@ export interface SessionState {
 }
 
 export namespace SessionState {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SessionState): any => ({
     ...obj,
     ...(obj.activeContexts && {
@@ -770,6 +845,9 @@ export interface GetSessionResponse {
 }
 
 export namespace GetSessionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GetSessionResponse): any => ({
     ...obj,
     ...(obj.messages && { messages: obj.messages.map((item) => Message.filterSensitiveLog(item)) }),
@@ -787,6 +865,9 @@ export interface BadGatewayException extends __SmithyException, $MetadataBearer 
 }
 
 export namespace BadGatewayException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BadGatewayException): any => ({
     ...obj,
   });
@@ -802,6 +883,9 @@ export interface DependencyFailedException extends __SmithyException, $MetadataB
 }
 
 export namespace DependencyFailedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DependencyFailedException): any => ({
     ...obj,
   });
@@ -866,6 +950,9 @@ export interface PutSessionRequest {
 }
 
 export namespace PutSessionRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutSessionRequest): any => ({
     ...obj,
     ...(obj.messages && { messages: obj.messages.map((item) => Message.filterSensitiveLog(item)) }),
@@ -915,6 +1002,9 @@ export interface PutSessionResponse {
 }
 
 export namespace PutSessionResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PutSessionResponse): any => ({
     ...obj,
   });
@@ -964,6 +1054,9 @@ export interface RecognizeTextRequest {
 }
 
 export namespace RecognizeTextRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecognizeTextRequest): any => ({
     ...obj,
     ...(obj.text && { text: SENSITIVE_STRING }),
@@ -1009,6 +1102,9 @@ export interface RecognizeTextResponse {
 }
 
 export namespace RecognizeTextResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecognizeTextResponse): any => ({
     ...obj,
     ...(obj.messages && { messages: obj.messages.map((item) => Message.filterSensitiveLog(item)) }),
@@ -1148,6 +1244,9 @@ export interface RecognizeUtteranceRequest {
 }
 
 export namespace RecognizeUtteranceRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecognizeUtteranceRequest): any => ({
     ...obj,
     ...(obj.sessionState && { sessionState: SENSITIVE_STRING }),
@@ -1230,6 +1329,9 @@ export interface RecognizeUtteranceResponse {
 }
 
 export namespace RecognizeUtteranceResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RecognizeUtteranceResponse): any => ({
     ...obj,
   });
@@ -1332,6 +1434,9 @@ export interface ConfigurationEvent {
 }
 
 export namespace ConfigurationEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConfigurationEvent): any => ({
     ...obj,
     ...(obj.sessionState && { sessionState: SessionState.filterSensitiveLog(obj.sessionState) }),
@@ -1361,6 +1466,9 @@ export interface DisconnectionEvent {
 }
 
 export namespace DisconnectionEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DisconnectionEvent): any => ({
     ...obj,
   });
@@ -1393,6 +1501,9 @@ export interface DTMFInputEvent {
 }
 
 export namespace DTMFInputEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DTMFInputEvent): any => ({
     ...obj,
     ...(obj.inputCharacter && { inputCharacter: SENSITIVE_STRING }),
@@ -1419,6 +1530,9 @@ export interface PlaybackCompletionEvent {
 }
 
 export namespace PlaybackCompletionEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PlaybackCompletionEvent): any => ({
     ...obj,
   });
@@ -1449,6 +1563,9 @@ export interface TextInputEvent {
 }
 
 export namespace TextInputEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TextInputEvent): any => ({
     ...obj,
     ...(obj.text && { text: SENSITIVE_STRING }),
@@ -1601,6 +1718,9 @@ export namespace StartConversationRequestEventStream {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartConversationRequestEventStream): any => {
     if (obj.ConfigurationEvent !== undefined)
       return { ConfigurationEvent: ConfigurationEvent.filterSensitiveLog(obj.ConfigurationEvent) };
@@ -1657,6 +1777,9 @@ export interface StartConversationRequest {
 }
 
 export namespace StartConversationRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartConversationRequest): any => ({
     ...obj,
     ...(obj.requestEventStream && { requestEventStream: "STREAMING_CONTENT" }),
@@ -1678,6 +1801,9 @@ export interface HeartbeatEvent {
 }
 
 export namespace HeartbeatEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HeartbeatEvent): any => ({
     ...obj,
   });
@@ -1735,6 +1861,9 @@ export interface IntentResultEvent {
 }
 
 export namespace IntentResultEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: IntentResultEvent): any => ({
     ...obj,
     ...(obj.sessionState && { sessionState: SessionState.filterSensitiveLog(obj.sessionState) }),
@@ -1777,6 +1906,9 @@ export interface PlaybackInterruptionEvent {
 }
 
 export namespace PlaybackInterruptionEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PlaybackInterruptionEvent): any => ({
     ...obj,
   });
@@ -1804,6 +1936,9 @@ export interface TextResponseEvent {
 }
 
 export namespace TextResponseEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TextResponseEvent): any => ({
     ...obj,
     ...(obj.messages && { messages: obj.messages.map((item) => Message.filterSensitiveLog(item)) }),
@@ -1830,6 +1965,9 @@ export interface TranscriptEvent {
 }
 
 export namespace TranscriptEvent {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TranscriptEvent): any => ({
     ...obj,
   });
@@ -2228,6 +2366,9 @@ export namespace StartConversationResponseEventStream {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartConversationResponseEventStream): any => {
     if (obj.PlaybackInterruptionEvent !== undefined)
       return { PlaybackInterruptionEvent: PlaybackInterruptionEvent.filterSensitiveLog(obj.PlaybackInterruptionEvent) };
@@ -2270,6 +2411,9 @@ export interface StartConversationResponse {
 }
 
 export namespace StartConversationResponse {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartConversationResponse): any => ({
     ...obj,
     ...(obj.responseEventStream && { responseEventStream: "STREAMING_CONTENT" }),

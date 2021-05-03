@@ -29,6 +29,9 @@ export interface AccessLog {
 }
 
 export namespace AccessLog {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessLog): any => ({
     ...obj,
   });
@@ -44,6 +47,9 @@ export interface AccessPointNotFoundException extends __SmithyException, $Metada
 }
 
 export namespace AccessPointNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AccessPointNotFoundException): any => ({
     ...obj,
   });
@@ -65,6 +71,9 @@ export interface AddAvailabilityZonesInput {
 }
 
 export namespace AddAvailabilityZonesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddAvailabilityZonesInput): any => ({
     ...obj,
   });
@@ -81,6 +90,9 @@ export interface AddAvailabilityZonesOutput {
 }
 
 export namespace AddAvailabilityZonesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddAvailabilityZonesOutput): any => ({
     ...obj,
   });
@@ -111,6 +123,9 @@ export interface AdditionalAttribute {
 }
 
 export namespace AdditionalAttribute {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AdditionalAttribute): any => ({
     ...obj,
   });
@@ -132,6 +147,9 @@ export interface Tag {
 }
 
 export namespace Tag {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Tag): any => ({
     ...obj,
   });
@@ -153,6 +171,9 @@ export interface AddTagsInput {
 }
 
 export namespace AddTagsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddTagsInput): any => ({
     ...obj,
   });
@@ -164,6 +185,9 @@ export namespace AddTagsInput {
 export interface AddTagsOutput {}
 
 export namespace AddTagsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AddTagsOutput): any => ({
     ...obj,
   });
@@ -179,6 +203,9 @@ export interface DuplicateTagKeysException extends __SmithyException, $MetadataB
 }
 
 export namespace DuplicateTagKeysException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicateTagKeysException): any => ({
     ...obj,
   });
@@ -194,6 +221,9 @@ export interface TooManyTagsException extends __SmithyException, $MetadataBearer
 }
 
 export namespace TooManyTagsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyTagsException): any => ({
     ...obj,
   });
@@ -215,6 +245,9 @@ export interface AppCookieStickinessPolicy {
 }
 
 export namespace AppCookieStickinessPolicy {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AppCookieStickinessPolicy): any => ({
     ...obj,
   });
@@ -236,6 +269,9 @@ export interface ApplySecurityGroupsToLoadBalancerInput {
 }
 
 export namespace ApplySecurityGroupsToLoadBalancerInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ApplySecurityGroupsToLoadBalancerInput): any => ({
     ...obj,
   });
@@ -252,6 +288,9 @@ export interface ApplySecurityGroupsToLoadBalancerOutput {
 }
 
 export namespace ApplySecurityGroupsToLoadBalancerOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ApplySecurityGroupsToLoadBalancerOutput): any => ({
     ...obj,
   });
@@ -267,6 +306,9 @@ export interface InvalidConfigurationRequestException extends __SmithyException,
 }
 
 export namespace InvalidConfigurationRequestException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidConfigurationRequestException): any => ({
     ...obj,
   });
@@ -282,6 +324,9 @@ export interface InvalidSecurityGroupException extends __SmithyException, $Metad
 }
 
 export namespace InvalidSecurityGroupException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidSecurityGroupException): any => ({
     ...obj,
   });
@@ -303,6 +348,9 @@ export interface AttachLoadBalancerToSubnetsInput {
 }
 
 export namespace AttachLoadBalancerToSubnetsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttachLoadBalancerToSubnetsInput): any => ({
     ...obj,
   });
@@ -319,6 +367,9 @@ export interface AttachLoadBalancerToSubnetsOutput {
 }
 
 export namespace AttachLoadBalancerToSubnetsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: AttachLoadBalancerToSubnetsOutput): any => ({
     ...obj,
   });
@@ -334,6 +385,9 @@ export interface InvalidSubnetException extends __SmithyException, $MetadataBear
 }
 
 export namespace InvalidSubnetException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidSubnetException): any => ({
     ...obj,
   });
@@ -349,6 +403,9 @@ export interface SubnetNotFoundException extends __SmithyException, $MetadataBea
 }
 
 export namespace SubnetNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SubnetNotFoundException): any => ({
     ...obj,
   });
@@ -370,6 +427,9 @@ export interface BackendServerDescription {
 }
 
 export namespace BackendServerDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: BackendServerDescription): any => ({
     ...obj,
   });
@@ -387,6 +447,9 @@ export interface CertificateNotFoundException extends __SmithyException, $Metada
 }
 
 export namespace CertificateNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CertificateNotFoundException): any => ({
     ...obj,
   });
@@ -428,6 +491,9 @@ export interface HealthCheck {
 }
 
 export namespace HealthCheck {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: HealthCheck): any => ({
     ...obj,
   });
@@ -449,6 +515,9 @@ export interface ConfigureHealthCheckInput {
 }
 
 export namespace ConfigureHealthCheckInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConfigureHealthCheckInput): any => ({
     ...obj,
   });
@@ -465,6 +534,9 @@ export interface ConfigureHealthCheckOutput {
 }
 
 export namespace ConfigureHealthCheckOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConfigureHealthCheckOutput): any => ({
     ...obj,
   });
@@ -486,6 +558,9 @@ export interface ConnectionDraining {
 }
 
 export namespace ConnectionDraining {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConnectionDraining): any => ({
     ...obj,
   });
@@ -502,6 +577,9 @@ export interface ConnectionSettings {
 }
 
 export namespace ConnectionSettings {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ConnectionSettings): any => ({
     ...obj,
   });
@@ -546,6 +624,9 @@ export interface Listener {
 }
 
 export namespace Listener {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Listener): any => ({
     ...obj,
   });
@@ -605,6 +686,9 @@ export interface CreateAccessPointInput {
 }
 
 export namespace CreateAccessPointInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateAccessPointInput): any => ({
     ...obj,
   });
@@ -621,6 +705,9 @@ export interface CreateAccessPointOutput {
 }
 
 export namespace CreateAccessPointOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateAccessPointOutput): any => ({
     ...obj,
   });
@@ -647,6 +734,9 @@ export interface CreateAppCookieStickinessPolicyInput {
 }
 
 export namespace CreateAppCookieStickinessPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateAppCookieStickinessPolicyInput): any => ({
     ...obj,
   });
@@ -658,6 +748,9 @@ export namespace CreateAppCookieStickinessPolicyInput {
 export interface CreateAppCookieStickinessPolicyOutput {}
 
 export namespace CreateAppCookieStickinessPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateAppCookieStickinessPolicyOutput): any => ({
     ...obj,
   });
@@ -673,6 +766,9 @@ export interface DuplicatePolicyNameException extends __SmithyException, $Metada
 }
 
 export namespace DuplicatePolicyNameException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicatePolicyNameException): any => ({
     ...obj,
   });
@@ -688,6 +784,9 @@ export interface TooManyPoliciesException extends __SmithyException, $MetadataBe
 }
 
 export namespace TooManyPoliciesException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyPoliciesException): any => ({
     ...obj,
   });
@@ -714,6 +813,9 @@ export interface CreateLBCookieStickinessPolicyInput {
 }
 
 export namespace CreateLBCookieStickinessPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateLBCookieStickinessPolicyInput): any => ({
     ...obj,
   });
@@ -725,6 +827,9 @@ export namespace CreateLBCookieStickinessPolicyInput {
 export interface CreateLBCookieStickinessPolicyOutput {}
 
 export namespace CreateLBCookieStickinessPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateLBCookieStickinessPolicyOutput): any => ({
     ...obj,
   });
@@ -740,6 +845,9 @@ export interface DuplicateAccessPointNameException extends __SmithyException, $M
 }
 
 export namespace DuplicateAccessPointNameException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicateAccessPointNameException): any => ({
     ...obj,
   });
@@ -755,6 +863,9 @@ export interface InvalidSchemeException extends __SmithyException, $MetadataBear
 }
 
 export namespace InvalidSchemeException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidSchemeException): any => ({
     ...obj,
   });
@@ -770,6 +881,9 @@ export interface OperationNotPermittedException extends __SmithyException, $Meta
 }
 
 export namespace OperationNotPermittedException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: OperationNotPermittedException): any => ({
     ...obj,
   });
@@ -785,6 +899,9 @@ export interface TooManyAccessPointsException extends __SmithyException, $Metada
 }
 
 export namespace TooManyAccessPointsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TooManyAccessPointsException): any => ({
     ...obj,
   });
@@ -800,6 +917,9 @@ export interface UnsupportedProtocolException extends __SmithyException, $Metada
 }
 
 export namespace UnsupportedProtocolException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: UnsupportedProtocolException): any => ({
     ...obj,
   });
@@ -821,6 +941,9 @@ export interface CreateLoadBalancerListenerInput {
 }
 
 export namespace CreateLoadBalancerListenerInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateLoadBalancerListenerInput): any => ({
     ...obj,
   });
@@ -832,6 +955,9 @@ export namespace CreateLoadBalancerListenerInput {
 export interface CreateLoadBalancerListenerOutput {}
 
 export namespace CreateLoadBalancerListenerOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateLoadBalancerListenerOutput): any => ({
     ...obj,
   });
@@ -847,6 +973,9 @@ export interface DuplicateListenerException extends __SmithyException, $Metadata
 }
 
 export namespace DuplicateListenerException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DuplicateListenerException): any => ({
     ...obj,
   });
@@ -868,6 +997,9 @@ export interface PolicyAttribute {
 }
 
 export namespace PolicyAttribute {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyAttribute): any => ({
     ...obj,
   });
@@ -900,6 +1032,9 @@ export interface CreateLoadBalancerPolicyInput {
 }
 
 export namespace CreateLoadBalancerPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateLoadBalancerPolicyInput): any => ({
     ...obj,
   });
@@ -911,6 +1046,9 @@ export namespace CreateLoadBalancerPolicyInput {
 export interface CreateLoadBalancerPolicyOutput {}
 
 export namespace CreateLoadBalancerPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CreateLoadBalancerPolicyOutput): any => ({
     ...obj,
   });
@@ -926,6 +1064,9 @@ export interface PolicyTypeNotFoundException extends __SmithyException, $Metadat
 }
 
 export namespace PolicyTypeNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyTypeNotFoundException): any => ({
     ...obj,
   });
@@ -942,6 +1083,9 @@ export interface CrossZoneLoadBalancing {
 }
 
 export namespace CrossZoneLoadBalancing {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: CrossZoneLoadBalancing): any => ({
     ...obj,
   });
@@ -958,6 +1102,9 @@ export interface DeleteAccessPointInput {
 }
 
 export namespace DeleteAccessPointInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteAccessPointInput): any => ({
     ...obj,
   });
@@ -969,6 +1116,9 @@ export namespace DeleteAccessPointInput {
 export interface DeleteAccessPointOutput {}
 
 export namespace DeleteAccessPointOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteAccessPointOutput): any => ({
     ...obj,
   });
@@ -990,6 +1140,9 @@ export interface DeleteLoadBalancerListenerInput {
 }
 
 export namespace DeleteLoadBalancerListenerInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteLoadBalancerListenerInput): any => ({
     ...obj,
   });
@@ -1001,6 +1154,9 @@ export namespace DeleteLoadBalancerListenerInput {
 export interface DeleteLoadBalancerListenerOutput {}
 
 export namespace DeleteLoadBalancerListenerOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteLoadBalancerListenerOutput): any => ({
     ...obj,
   });
@@ -1022,6 +1178,9 @@ export interface DeleteLoadBalancerPolicyInput {
 }
 
 export namespace DeleteLoadBalancerPolicyInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteLoadBalancerPolicyInput): any => ({
     ...obj,
   });
@@ -1033,6 +1192,9 @@ export namespace DeleteLoadBalancerPolicyInput {
 export interface DeleteLoadBalancerPolicyOutput {}
 
 export namespace DeleteLoadBalancerPolicyOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeleteLoadBalancerPolicyOutput): any => ({
     ...obj,
   });
@@ -1048,6 +1210,9 @@ export interface DependencyThrottleException extends __SmithyException, $Metadat
 }
 
 export namespace DependencyThrottleException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DependencyThrottleException): any => ({
     ...obj,
   });
@@ -1064,6 +1229,9 @@ export interface Instance {
 }
 
 export namespace Instance {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Instance): any => ({
     ...obj,
   });
@@ -1085,6 +1253,9 @@ export interface DeregisterEndPointsInput {
 }
 
 export namespace DeregisterEndPointsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeregisterEndPointsInput): any => ({
     ...obj,
   });
@@ -1101,6 +1272,9 @@ export interface DeregisterEndPointsOutput {
 }
 
 export namespace DeregisterEndPointsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DeregisterEndPointsOutput): any => ({
     ...obj,
   });
@@ -1116,6 +1290,9 @@ export interface InvalidEndPointException extends __SmithyException, $MetadataBe
 }
 
 export namespace InvalidEndPointException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InvalidEndPointException): any => ({
     ...obj,
   });
@@ -1142,6 +1319,9 @@ export interface DescribeAccessPointsInput {
 }
 
 export namespace DescribeAccessPointsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAccessPointsInput): any => ({
     ...obj,
   });
@@ -1163,6 +1343,9 @@ export interface ListenerDescription {
 }
 
 export namespace ListenerDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListenerDescription): any => ({
     ...obj,
   });
@@ -1184,6 +1367,9 @@ export interface LBCookieStickinessPolicy {
 }
 
 export namespace LBCookieStickinessPolicy {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LBCookieStickinessPolicy): any => ({
     ...obj,
   });
@@ -1210,6 +1396,9 @@ export interface Policies {
 }
 
 export namespace Policies {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Policies): any => ({
     ...obj,
   });
@@ -1231,6 +1420,9 @@ export interface SourceSecurityGroup {
 }
 
 export namespace SourceSecurityGroup {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SourceSecurityGroup): any => ({
     ...obj,
   });
@@ -1329,6 +1521,9 @@ export interface LoadBalancerDescription {
 }
 
 export namespace LoadBalancerDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LoadBalancerDescription): any => ({
     ...obj,
   });
@@ -1350,6 +1545,9 @@ export interface DescribeAccessPointsOutput {
 }
 
 export namespace DescribeAccessPointsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAccessPointsOutput): any => ({
     ...obj,
   });
@@ -1368,6 +1566,9 @@ export interface DescribeAccountLimitsInput {
 }
 
 export namespace DescribeAccountLimitsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAccountLimitsInput): any => ({
     ...obj,
   });
@@ -1400,6 +1601,9 @@ export interface Limit {
 }
 
 export namespace Limit {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: Limit): any => ({
     ...obj,
   });
@@ -1418,6 +1622,9 @@ export interface DescribeAccountLimitsOutput {
 }
 
 export namespace DescribeAccountLimitsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeAccountLimitsOutput): any => ({
     ...obj,
   });
@@ -1439,6 +1646,9 @@ export interface DescribeEndPointStateInput {
 }
 
 export namespace DescribeEndPointStateInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEndPointStateInput): any => ({
     ...obj,
   });
@@ -1537,6 +1747,9 @@ export interface InstanceState {
 }
 
 export namespace InstanceState {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: InstanceState): any => ({
     ...obj,
   });
@@ -1553,6 +1766,9 @@ export interface DescribeEndPointStateOutput {
 }
 
 export namespace DescribeEndPointStateOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeEndPointStateOutput): any => ({
     ...obj,
   });
@@ -1569,6 +1785,9 @@ export interface DescribeLoadBalancerAttributesInput {
 }
 
 export namespace DescribeLoadBalancerAttributesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeLoadBalancerAttributesInput): any => ({
     ...obj,
   });
@@ -1614,6 +1833,9 @@ export interface LoadBalancerAttributes {
 }
 
 export namespace LoadBalancerAttributes {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LoadBalancerAttributes): any => ({
     ...obj,
   });
@@ -1630,6 +1852,9 @@ export interface DescribeLoadBalancerAttributesOutput {
 }
 
 export namespace DescribeLoadBalancerAttributesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeLoadBalancerAttributesOutput): any => ({
     ...obj,
   });
@@ -1645,6 +1870,9 @@ export interface LoadBalancerAttributeNotFoundException extends __SmithyExceptio
 }
 
 export namespace LoadBalancerAttributeNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: LoadBalancerAttributeNotFoundException): any => ({
     ...obj,
   });
@@ -1666,6 +1894,9 @@ export interface DescribeLoadBalancerPoliciesInput {
 }
 
 export namespace DescribeLoadBalancerPoliciesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeLoadBalancerPoliciesInput): any => ({
     ...obj,
   });
@@ -1687,6 +1918,9 @@ export interface PolicyAttributeDescription {
 }
 
 export namespace PolicyAttributeDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyAttributeDescription): any => ({
     ...obj,
   });
@@ -1713,6 +1947,9 @@ export interface PolicyDescription {
 }
 
 export namespace PolicyDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyDescription): any => ({
     ...obj,
   });
@@ -1729,6 +1966,9 @@ export interface DescribeLoadBalancerPoliciesOutput {
 }
 
 export namespace DescribeLoadBalancerPoliciesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeLoadBalancerPoliciesOutput): any => ({
     ...obj,
   });
@@ -1744,6 +1984,9 @@ export interface PolicyNotFoundException extends __SmithyException, $MetadataBea
 }
 
 export namespace PolicyNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyNotFoundException): any => ({
     ...obj,
   });
@@ -1760,6 +2003,9 @@ export interface DescribeLoadBalancerPolicyTypesInput {
 }
 
 export namespace DescribeLoadBalancerPolicyTypesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeLoadBalancerPolicyTypesInput): any => ({
     ...obj,
   });
@@ -1811,6 +2057,9 @@ export interface PolicyAttributeTypeDescription {
 }
 
 export namespace PolicyAttributeTypeDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyAttributeTypeDescription): any => ({
     ...obj,
   });
@@ -1837,6 +2086,9 @@ export interface PolicyTypeDescription {
 }
 
 export namespace PolicyTypeDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: PolicyTypeDescription): any => ({
     ...obj,
   });
@@ -1853,6 +2105,9 @@ export interface DescribeLoadBalancerPolicyTypesOutput {
 }
 
 export namespace DescribeLoadBalancerPolicyTypesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeLoadBalancerPolicyTypesOutput): any => ({
     ...obj,
   });
@@ -1869,6 +2124,9 @@ export interface DescribeTagsInput {
 }
 
 export namespace DescribeTagsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTagsInput): any => ({
     ...obj,
   });
@@ -1890,6 +2148,9 @@ export interface TagDescription {
 }
 
 export namespace TagDescription {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagDescription): any => ({
     ...obj,
   });
@@ -1906,6 +2167,9 @@ export interface DescribeTagsOutput {
 }
 
 export namespace DescribeTagsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DescribeTagsOutput): any => ({
     ...obj,
   });
@@ -1927,6 +2191,9 @@ export interface DetachLoadBalancerFromSubnetsInput {
 }
 
 export namespace DetachLoadBalancerFromSubnetsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetachLoadBalancerFromSubnetsInput): any => ({
     ...obj,
   });
@@ -1943,6 +2210,9 @@ export interface DetachLoadBalancerFromSubnetsOutput {
 }
 
 export namespace DetachLoadBalancerFromSubnetsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: DetachLoadBalancerFromSubnetsOutput): any => ({
     ...obj,
   });
@@ -1964,6 +2234,9 @@ export interface RemoveAvailabilityZonesInput {
 }
 
 export namespace RemoveAvailabilityZonesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveAvailabilityZonesInput): any => ({
     ...obj,
   });
@@ -1980,6 +2253,9 @@ export interface RemoveAvailabilityZonesOutput {
 }
 
 export namespace RemoveAvailabilityZonesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveAvailabilityZonesOutput): any => ({
     ...obj,
   });
@@ -2001,6 +2277,9 @@ export interface ModifyLoadBalancerAttributesInput {
 }
 
 export namespace ModifyLoadBalancerAttributesInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyLoadBalancerAttributesInput): any => ({
     ...obj,
   });
@@ -2022,6 +2301,9 @@ export interface ModifyLoadBalancerAttributesOutput {
 }
 
 export namespace ModifyLoadBalancerAttributesOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ModifyLoadBalancerAttributesOutput): any => ({
     ...obj,
   });
@@ -2043,6 +2325,9 @@ export interface RegisterEndPointsInput {
 }
 
 export namespace RegisterEndPointsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterEndPointsInput): any => ({
     ...obj,
   });
@@ -2059,6 +2344,9 @@ export interface RegisterEndPointsOutput {
 }
 
 export namespace RegisterEndPointsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RegisterEndPointsOutput): any => ({
     ...obj,
   });
@@ -2075,6 +2363,9 @@ export interface TagKeyOnly {
 }
 
 export namespace TagKeyOnly {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: TagKeyOnly): any => ({
     ...obj,
   });
@@ -2096,6 +2387,9 @@ export interface RemoveTagsInput {
 }
 
 export namespace RemoveTagsInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveTagsInput): any => ({
     ...obj,
   });
@@ -2107,6 +2401,9 @@ export namespace RemoveTagsInput {
 export interface RemoveTagsOutput {}
 
 export namespace RemoveTagsOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: RemoveTagsOutput): any => ({
     ...obj,
   });
@@ -2122,6 +2419,9 @@ export interface ListenerNotFoundException extends __SmithyException, $MetadataB
 }
 
 export namespace ListenerNotFoundException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: ListenerNotFoundException): any => ({
     ...obj,
   });
@@ -2148,6 +2448,9 @@ export interface SetLoadBalancerListenerSSLCertificateInput {
 }
 
 export namespace SetLoadBalancerListenerSSLCertificateInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetLoadBalancerListenerSSLCertificateInput): any => ({
     ...obj,
   });
@@ -2159,6 +2462,9 @@ export namespace SetLoadBalancerListenerSSLCertificateInput {
 export interface SetLoadBalancerListenerSSLCertificateOutput {}
 
 export namespace SetLoadBalancerListenerSSLCertificateOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetLoadBalancerListenerSSLCertificateOutput): any => ({
     ...obj,
   });
@@ -2185,6 +2491,9 @@ export interface SetLoadBalancerPoliciesForBackendServerInput {
 }
 
 export namespace SetLoadBalancerPoliciesForBackendServerInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetLoadBalancerPoliciesForBackendServerInput): any => ({
     ...obj,
   });
@@ -2196,6 +2505,9 @@ export namespace SetLoadBalancerPoliciesForBackendServerInput {
 export interface SetLoadBalancerPoliciesForBackendServerOutput {}
 
 export namespace SetLoadBalancerPoliciesForBackendServerOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetLoadBalancerPoliciesForBackendServerOutput): any => ({
     ...obj,
   });
@@ -2222,6 +2534,9 @@ export interface SetLoadBalancerPoliciesOfListenerInput {
 }
 
 export namespace SetLoadBalancerPoliciesOfListenerInput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetLoadBalancerPoliciesOfListenerInput): any => ({
     ...obj,
   });
@@ -2233,6 +2548,9 @@ export namespace SetLoadBalancerPoliciesOfListenerInput {
 export interface SetLoadBalancerPoliciesOfListenerOutput {}
 
 export namespace SetLoadBalancerPoliciesOfListenerOutput {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: SetLoadBalancerPoliciesOfListenerOutput): any => ({
     ...obj,
   });

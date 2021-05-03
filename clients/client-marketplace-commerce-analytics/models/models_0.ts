@@ -186,6 +186,9 @@ export interface GenerateDataSetRequest {
 }
 
 export namespace GenerateDataSetRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GenerateDataSetRequest): any => ({
     ...obj,
   });
@@ -203,6 +206,9 @@ export interface GenerateDataSetResult {
 }
 
 export namespace GenerateDataSetResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: GenerateDataSetResult): any => ({
     ...obj,
   });
@@ -221,6 +227,9 @@ export interface MarketplaceCommerceAnalyticsException extends __SmithyException
 }
 
 export namespace MarketplaceCommerceAnalyticsException {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: MarketplaceCommerceAnalyticsException): any => ({
     ...obj,
   });
@@ -287,6 +296,9 @@ export interface StartSupportDataExportRequest {
 }
 
 export namespace StartSupportDataExportRequest {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartSupportDataExportRequest): any => ({
     ...obj,
   });
@@ -304,6 +316,9 @@ export interface StartSupportDataExportResult {
 }
 
 export namespace StartSupportDataExportResult {
+  /**
+   * @internal
+   */
   export const filterSensitiveLog = (obj: StartSupportDataExportResult): any => ({
     ...obj,
   });
