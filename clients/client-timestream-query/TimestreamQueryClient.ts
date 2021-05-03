@@ -17,6 +17,11 @@ import {
   getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
+import {
+  EndpointDiscoveryClientInputConfig,
+  EndpointDiscoveryClientResolvedConfig,
+  resolveEndpointDiscoveryClientConfig,
+} from "@aws-sdk/middleware-endpoint-discovery";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
 import {
@@ -155,6 +160,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 type TimestreamQueryClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
+  EndpointDiscoveryClientInputConfig &
   EndpointsInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
@@ -168,6 +174,7 @@ export interface TimestreamQueryClientConfig extends TimestreamQueryClientConfig
 type TimestreamQueryClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
+  EndpointDiscoveryClientResolvedConfig &
   EndpointsResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
@@ -205,8 +212,10 @@ export class TimestreamQueryClient extends __Client<
     let _config_4 = resolveHostHeaderConfig(_config_3);
     let _config_5 = resolveAwsAuthConfig(_config_4);
     let _config_6 = resolveUserAgentConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    let _config_7 = resolveEndpointDiscoveryClientConfig(_config_6);
+    super(_config_7);
+    _config_7.client = this;
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

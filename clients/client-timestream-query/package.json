@@ -34,6 +34,7 @@
     "@aws-sdk/hash-node": "3.13.1",
     "@aws-sdk/invalid-dependency": "3.13.1",
     "@aws-sdk/middleware-content-length": "3.13.1",
+    "@aws-sdk/middleware-endpoint-discovery": "3.0.0",
     "@aws-sdk/middleware-host-header": "3.13.1",
     "@aws-sdk/middleware-logger": "3.13.1",
     "@aws-sdk/middleware-retry": "3.13.1",
