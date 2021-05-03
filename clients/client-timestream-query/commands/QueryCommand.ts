@@ -13,6 +13,8 @@ import {
   MetadataBearer as __MetadataBearer,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import { getEndpointDiscoveryCommandPlugin } from "@aws-sdk/middleware-endpoint-discovery";
+import { DescribeEndpointsCommand } from "./DescribeEndpointsCommand";
 
 export interface QueryCommandInput extends QueryRequest {}
 export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
@@ -55,6 +57,14 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     options?: __HttpHandlerOptions
   ): Handler<QueryCommandInput, QueryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getEndpointDiscoveryCommandPlugin(configuration, {
+        isDiscoveredEndpointRequired: true,
+        // @ts-ignore
+        getEndpointDiscoveryId: undefined,
+        discoveryEndpointCommandCtor: DescribeEndpointsCommand,
+      })
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
