@@ -5,7 +5,7 @@ import { EndpointDiscoveryClientResolvedConfig } from "./resolveEndpointDiscover
 
 export type updateDiscoveredEndpointInCacheOptions = {
   commandName: string;
-  discoveryEndpointCommandCtor: new (comandConfig: any) => Command<any, any, any, any, any>;
+  endpointDiscoveryCommandCtor: new (comandConfig: any) => Command<any, any, any, any, any>;
   getEndpointDiscoveryId: () => string | undefined;
 };
 
@@ -38,7 +38,7 @@ export const updateDiscoveredEndpointInCache = async (
     ]);
 
     try {
-      const command = new options.discoveryEndpointCommandCtor({
+      const command = new options.endpointDiscoveryCommandCtor({
         Operation: commandName.substr(0, commandName.length - 7), // strip "Command"
         Identifiers: getEndpointDiscoveryId ? getEndpointDiscoveryId() : undefined,
       });

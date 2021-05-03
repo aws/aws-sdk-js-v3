@@ -7,7 +7,7 @@ interface PreviouslyResolved {}
 
 export interface EndpointDiscoveryClientResolvedConfig {
   client?: Client<any, any, any>;
-  discoveryEndpointCommandCtor?: new (comandConfig: any) => Command<any, any, any, any, any>;
+  endpointDiscoveryCommandCtor?: new (comandConfig: any) => Command<any, any, any, any, any>;
   endpointCache: LRUCache<string, string>;
 }
 

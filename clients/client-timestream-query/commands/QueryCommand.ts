@@ -14,7 +14,6 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { getEndpointDiscoveryCommandPlugin } from "@aws-sdk/middleware-endpoint-discovery";
-import { DescribeEndpointsCommand } from "./DescribeEndpointsCommand";
 
 export interface QueryCommandInput extends QueryRequest {}
 export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}

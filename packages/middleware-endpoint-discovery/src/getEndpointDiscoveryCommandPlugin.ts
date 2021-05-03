@@ -36,7 +36,7 @@ export const endpointDiscoveryMiddleware = (
   args: FinalizeHandlerArguments<any>
 ): Promise<FinalizeHandlerOutput<Output>> => {
   const { client } = config;
-  const { discoveryEndpointCommandCtor } = client?.config;
+  const { endpointDiscoveryCommandCtor } = client?.config;
   const { isDiscoveredEndpointRequired, getEndpointDiscoveryId } = middlewareConfig;
   const { commandName } = context;
 
@@ -45,7 +45,7 @@ export const endpointDiscoveryMiddleware = (
     // till discovered endpoint is updated in cache
     await updateDiscoveredEndpointInCache(config, {
       commandName,
-      discoveryEndpointCommandCtor,
+      endpointDiscoveryCommandCtor,
       getEndpointDiscoveryId,
     });
   } else if (isDiscoveredEndpointRequired === false) {
@@ -53,7 +53,7 @@ export const endpointDiscoveryMiddleware = (
     // does not block, the command will use discovered endpoint, if available.
     updateDiscoveredEndpointInCache(config, {
       commandName,
-      discoveryEndpointCommandCtor,
+      endpointDiscoveryCommandCtor,
       getEndpointDiscoveryId,
     });
   }

@@ -219,7 +219,7 @@ export class TimestreamQueryClient extends __Client<
     let _config_7 = resolveEndpointDiscoveryClientConfig(_config_6);
     super(_config_7);
     _config_7.client = this;
-    _config_7.discoveryEndpointCommandCtor = DescribeEndpointsCommand;
+    _config_7.endpointDiscoveryCommandCtor = DescribeEndpointsCommand;
     this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
