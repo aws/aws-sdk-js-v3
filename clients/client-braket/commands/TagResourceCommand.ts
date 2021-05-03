@@ -23,8 +23,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * <p>Add a tag to the specified resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BraketClient, TagResourceCommand } from "@aws-sdk/client-braket"; // ES Modules import
+ * // const { BraketClient, TagResourceCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

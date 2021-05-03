@@ -28,8 +28,10 @@ export interface CreateEgressOnlyInternetGatewayCommandOutput
  * 			your VPC to the internet, and prevents hosts outside of your VPC from initiating an IPv6
  * 			connection with your instance.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, CreateEgressOnlyInternetGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateEgressOnlyInternetGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new CreateEgressOnlyInternetGatewayCommand(input);
  * const response = await client.send(command);

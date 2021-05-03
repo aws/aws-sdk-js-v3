@@ -23,8 +23,10 @@ export interface DeleteDestinationCommandOutput extends DeleteDestinationRespons
 /**
  * <p>Deletes a destination.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTWirelessClient, DeleteDestinationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, DeleteDestinationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const command = new DeleteDestinationCommand(input);
  * const response = await client.send(command);

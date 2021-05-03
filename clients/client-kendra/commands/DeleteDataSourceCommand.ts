@@ -27,8 +27,10 @@ export interface DeleteDataSourceCommandOutput extends __MetadataBearer {}
  *         <code>DescribeDataSource</code> operation is set to
  *         <code>DELETING</code>. For more information, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/delete-data-source.html">Deleting Data Sources</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KendraClient, DeleteDataSourceCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, DeleteDataSourceCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
  * const command = new DeleteDataSourceCommand(input);
  * const response = await client.send(command);

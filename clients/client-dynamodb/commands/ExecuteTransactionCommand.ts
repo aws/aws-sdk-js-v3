@@ -25,8 +25,10 @@ export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutpu
  * This operation allows you to perform transactional reads or writes on data stored in DynamoDB, using PartiQL.
  * </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DynamoDBClient, ExecuteTransactionCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, ExecuteTransactionCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const command = new ExecuteTransactionCommand(input);
  * const response = await client.send(command);

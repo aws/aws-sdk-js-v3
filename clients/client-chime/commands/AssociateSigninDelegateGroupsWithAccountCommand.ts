@@ -29,8 +29,10 @@ export interface AssociateSigninDelegateGroupsWithAccountCommandOutput
 /**
  * <p>Associates the specified sign-in delegate groups with the specified Amazon Chime account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, AssociateSigninDelegateGroupsWithAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, AssociateSigninDelegateGroupsWithAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new AssociateSigninDelegateGroupsWithAccountCommand(input);
  * const response = await client.send(command);

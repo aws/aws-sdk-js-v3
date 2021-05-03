@@ -37,8 +37,10 @@ export interface SendContactMethodVerificationCommandOutput
  *         confirmed as valid.</p>
  *          </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, SendContactMethodVerificationCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, SendContactMethodVerificationCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new SendContactMethodVerificationCommand(input);
  * const response = await client.send(command);

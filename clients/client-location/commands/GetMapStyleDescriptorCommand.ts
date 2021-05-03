@@ -26,8 +26,10 @@ export interface GetMapStyleDescriptorCommandOutput extends GetMapStyleDescripto
  *             example, what data to display, what order to display the data in, and the style for the
  *             data. Style descriptors follow the Mapbox Style Specification.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LocationClient, GetMapStyleDescriptorCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, GetMapStyleDescriptorCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
  * const command = new GetMapStyleDescriptorCommand(input);
  * const response = await client.send(command);

@@ -33,8 +33,10 @@ export interface CreateTrialCommandOutput extends CreateTrialResponse, __Metadat
  *       trial's properties, call the <a>DescribeTrial</a> API. To create a trial component,
  *       call the <a>CreateTrialComponent</a> API.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, CreateTrialCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, CreateTrialCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new CreateTrialCommand(input);
  * const response = await client.send(command);

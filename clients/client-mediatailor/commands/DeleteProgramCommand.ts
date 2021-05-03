@@ -23,8 +23,10 @@ export interface DeleteProgramCommandOutput extends DeleteProgramResponse, __Met
 /**
  * <p>Deletes a specific program on a specific channel.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaTailorClient, DeleteProgramCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
+ * // const { MediaTailorClient, DeleteProgramCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const command = new DeleteProgramCommand(input);
  * const response = await client.send(command);

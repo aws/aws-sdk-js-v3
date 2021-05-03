@@ -26,8 +26,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:TagResource</code> operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutVisionClient, TagResourceCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
+ * // const { LookoutVisionClient, TagResourceCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

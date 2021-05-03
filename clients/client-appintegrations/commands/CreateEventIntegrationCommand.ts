@@ -27,8 +27,10 @@ export interface CreateEventIntegrationCommandOutput extends CreateEventIntegrat
  *       objects are created in the your account, only metadata that is persisted on the EventIntegration
  *       control plane.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppIntegrationsClient, CreateEventIntegrationCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
+ * // const { AppIntegrationsClient, CreateEventIntegrationCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
  * const command = new CreateEventIntegrationCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBea
  * <p>Provides a list of metadata entries about folders and objects in the specified
  *          folder.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaStoreDataClient, ListItemsCommand } from "@aws-sdk/client-mediastore-data"; // ES Modules import
+ * // const { MediaStoreDataClient, ListItemsCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
  * const client = new MediaStoreDataClient(config);
  * const command = new ListItemsCommand(input);
  * const response = await client.send(command);

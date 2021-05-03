@@ -27,8 +27,10 @@ export interface GetPlatformApplicationAttributesCommandOutput
  *             notification services, such as APNS and GCM (Firebase Cloud Messaging). For more
  *             information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SNSClient, GetPlatformApplicationAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
+ * // const { SNSClient, GetPlatformApplicationAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
  * const command = new GetPlatformApplicationAttributesCommand(input);
  * const response = await client.send(command);

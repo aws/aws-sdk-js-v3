@@ -23,8 +23,10 @@ export interface UpdateApiKeyCommandOutput extends ApiKey, __MetadataBearer {}
 /**
  * <p>Changes information about an <a>ApiKey</a> resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { APIGatewayClient, UpdateApiKeyCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, UpdateApiKeyCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const command = new UpdateApiKeyCommand(input);
  * const response = await client.send(command);

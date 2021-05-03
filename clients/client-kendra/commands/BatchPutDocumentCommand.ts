@@ -31,8 +31,10 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  *       the batch using AWS CloudWatch. Any error messages related to processing
  *       the batch are sent to your AWS CloudWatch log.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KendraClient, BatchPutDocumentCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, BatchPutDocumentCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
  * const command = new BatchPutDocumentCommand(input);
  * const response = await client.send(command);

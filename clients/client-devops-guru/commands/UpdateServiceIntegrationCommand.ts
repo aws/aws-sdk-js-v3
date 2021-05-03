@@ -26,8 +26,10 @@ export interface UpdateServiceIntegrationCommandOutput extends UpdateServiceInte
  * 			DevOps Guru is AWS Systems Manager, which can be used to create an OpsItem for each generated insight.
  * 		</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DevOpsGuruClient, UpdateServiceIntegrationCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
+ * // const { DevOpsGuruClient, UpdateServiceIntegrationCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const command = new UpdateServiceIntegrationCommand(input);
  * const response = await client.send(command);

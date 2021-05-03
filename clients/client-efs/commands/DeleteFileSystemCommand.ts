@@ -37,8 +37,10 @@ export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
  *          <p>This operation requires permissions for the
  *         <code>elasticfilesystem:DeleteFileSystem</code> action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EFSClient, DeleteFileSystemCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, DeleteFileSystemCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
  * const command = new DeleteFileSystemCommand(input);
  * const response = await client.send(command);

@@ -64,8 +64,10 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PersonalizeClient, CreateDatasetImportJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
+ * // const { PersonalizeClient, CreateDatasetImportJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const command = new CreateDatasetImportJobCommand(input);
  * const response = await client.send(command);

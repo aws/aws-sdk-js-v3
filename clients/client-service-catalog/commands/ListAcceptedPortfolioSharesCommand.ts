@@ -23,8 +23,10 @@ export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPo
 /**
  * <p>Lists all portfolios for which sharing was accepted by this account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, ListAcceptedPortfolioSharesCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, ListAcceptedPortfolioSharesCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new ListAcceptedPortfolioSharesCommand(input);
  * const response = await client.send(command);

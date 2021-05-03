@@ -27,8 +27,10 @@ export interface CancelJournalKinesisStreamCommandOutput extends CancelJournalKi
  *          subject to a 7-day retention period, so they are automatically deleted after this limit
  *          expires.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { QLDBClient, CancelJournalKinesisStreamCommand } from "@aws-sdk/client-qldb"; // ES Modules import
+ * // const { QLDBClient, CancelJournalKinesisStreamCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
  * const command = new CancelJournalKinesisStreamCommand(input);
  * const response = await client.send(command);

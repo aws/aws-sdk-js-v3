@@ -23,8 +23,10 @@ export interface GetDataLakeSettingsCommandOutput extends GetDataLakeSettingsRes
 /**
  * <p>Retrieves the list of the data lake administrators of a Lake Formation-managed data lake. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LakeFormationClient, GetDataLakeSettingsCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
+ * // const { LakeFormationClient, GetDataLakeSettingsCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const command = new GetDataLakeSettingsCommand(input);
  * const response = await client.send(command);

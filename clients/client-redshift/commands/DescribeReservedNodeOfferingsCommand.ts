@@ -32,8 +32,10 @@ export interface DescribeReservedNodeOfferingsCommandOutput extends ReservedNode
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html">Purchasing Reserved Nodes</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RedshiftClient, DescribeReservedNodeOfferingsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, DescribeReservedNodeOfferingsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
  * const command = new DescribeReservedNodeOfferingsCommand(input);
  * const response = await client.send(command);

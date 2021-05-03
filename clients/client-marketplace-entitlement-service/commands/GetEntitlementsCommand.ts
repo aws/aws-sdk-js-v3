@@ -28,8 +28,10 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  * <p>GetEntitlements retrieves entitlement values for a given product. The results can be
  *       filtered based on customer identifier or product dimensions.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MarketplaceEntitlementServiceClient, GetEntitlementsCommand } from "@aws-sdk/client-marketplace-entitlement-service"; // ES Modules import
+ * // const { MarketplaceEntitlementServiceClient, GetEntitlementsCommand } = require("@aws-sdk/client-marketplace-entitlement-service"); // CommonJS import
  * const client = new MarketplaceEntitlementServiceClient(config);
  * const command = new GetEntitlementsCommand(input);
  * const response = await client.send(command);

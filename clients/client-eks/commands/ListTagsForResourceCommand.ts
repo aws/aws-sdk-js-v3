@@ -23,8 +23,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>List the tags for an Amazon EKS resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EKSClient, ListTagsForResourceCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, ListTagsForResourceCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

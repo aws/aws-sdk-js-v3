@@ -32,8 +32,10 @@ export interface DisassociateFromAdministratorAccountCommandOutput
  *          organization accounts, only the administrator account can
  *          disassociate a member account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SecurityHubClient, DisassociateFromAdministratorAccountCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, DisassociateFromAdministratorAccountCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const command = new DisassociateFromAdministratorAccountCommand(input);
  * const response = await client.send(command);

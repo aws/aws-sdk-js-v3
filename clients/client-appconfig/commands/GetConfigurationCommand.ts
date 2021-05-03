@@ -35,8 +35,10 @@ export interface GetConfigurationCommandOutput extends Configuration, __Metadata
  *                <code>ClientConfigurationVersion</code> parameter. </p>
  *          </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppConfigClient, GetConfigurationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
+ * // const { AppConfigClient, GetConfigurationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
  * const command = new GetConfigurationCommand(input);
  * const response = await client.send(command);

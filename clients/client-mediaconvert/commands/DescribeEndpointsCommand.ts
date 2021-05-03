@@ -23,8 +23,10 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
 /**
  * Send an request with an empty body to the regional API endpoint to get your account API endpoint.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaConvertClient, DescribeEndpointsCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
+ * // const { MediaConvertClient, DescribeEndpointsCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
  * const command = new DescribeEndpointsCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *       limit of 50 tags per directory. All 50 tags are returned for a given directory with this API
  *       call.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudDirectoryClient, ListTagsForResourceCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, ListTagsForResourceCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

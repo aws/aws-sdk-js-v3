@@ -28,8 +28,10 @@ export interface DescribeRemediationConfigurationsCommandOutput
 /**
  * <p>Returns the details of one or more remediation configurations.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConfigServiceClient, DescribeRemediationConfigurationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, DescribeRemediationConfigurationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const command = new DescribeRemediationConfigurationsCommand(input);
  * const response = await client.send(command);

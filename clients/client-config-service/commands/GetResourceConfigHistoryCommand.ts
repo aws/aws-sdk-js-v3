@@ -42,8 +42,10 @@ export interface GetResourceConfigHistoryCommandOutput extends GetResourceConfig
  * 				<code>nextToken</code>.</p>
  * 		       </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConfigServiceClient, GetResourceConfigHistoryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, GetResourceConfigHistoryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const command = new GetResourceConfigHistoryCommand(input);
  * const response = await client.send(command);

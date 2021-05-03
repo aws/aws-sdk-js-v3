@@ -23,8 +23,10 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
 /**
  * <p>List  the workload invitations.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WellArchitectedClient, ListShareInvitationsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, ListShareInvitationsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const command = new ListShareInvitationsCommand(input);
  * const response = await client.send(command);

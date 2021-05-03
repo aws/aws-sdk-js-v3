@@ -31,8 +31,10 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *          </note>
  *          <p></p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFRegionalClient, UntagResourceCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
+ * // const { WAFRegionalClient, UntagResourceCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);

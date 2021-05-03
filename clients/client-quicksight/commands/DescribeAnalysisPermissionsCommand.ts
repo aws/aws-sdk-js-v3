@@ -25,8 +25,10 @@ export interface DescribeAnalysisPermissionsCommandOutput
 /**
  * <p>Provides the read and write permissions for an analysis.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { QuickSightClient, DescribeAnalysisPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, DescribeAnalysisPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
  * const command = new DescribeAnalysisPermissionsCommand(input);
  * const response = await client.send(command);

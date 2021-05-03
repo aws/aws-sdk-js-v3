@@ -30,8 +30,10 @@ export interface UpdateRepositoryDescriptionCommandOutput extends __MetadataBear
  *                 the repository description on a webpage.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeCommitClient, UpdateRepositoryDescriptionCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, UpdateRepositoryDescriptionCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const command = new UpdateRepositoryDescriptionCommand(input);
  * const response = await client.send(command);

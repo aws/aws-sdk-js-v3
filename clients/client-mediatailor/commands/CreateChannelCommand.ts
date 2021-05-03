@@ -23,8 +23,10 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
 /**
  * <p>Creates a channel.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaTailorClient, CreateChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
+ * // const { MediaTailorClient, CreateChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);

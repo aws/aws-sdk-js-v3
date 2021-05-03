@@ -25,8 +25,10 @@ export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __M
  *          has access to a specified product, and is necessary when provisioning a product. A path
  *          also determines the constraints put on the product.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, ListLaunchPathsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, ListLaunchPathsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new ListLaunchPathsCommand(input);
  * const response = await client.send(command);

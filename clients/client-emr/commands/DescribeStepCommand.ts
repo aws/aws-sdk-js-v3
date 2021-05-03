@@ -23,8 +23,10 @@ export interface DescribeStepCommandOutput extends DescribeStepOutput, __Metadat
 /**
  * <p>Provides more detail about the cluster step.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EMRClient, DescribeStepCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, DescribeStepCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
  * const command = new DescribeStepCommand(input);
  * const response = await client.send(command);

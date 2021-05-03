@@ -23,8 +23,10 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
 /**
  * <p>Describes one or more of your capacity providers.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECSClient, DescribeCapacityProvidersCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, DescribeCapacityProvidersCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const command = new DescribeCapacityProvidersCommand(input);
  * const response = await client.send(command);

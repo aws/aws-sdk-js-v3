@@ -33,8 +33,10 @@ export interface PutDashboardCommandOutput extends PutDashboardOutput, __Metadat
  * 		of the <code>DashboardBody</code> script or the CloudFormation template used to create the
  * 		dashboard.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudWatchClient, PutDashboardCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
+ * // const { CloudWatchClient, PutDashboardCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const command = new PutDashboardCommand(input);
  * const response = await client.send(command);

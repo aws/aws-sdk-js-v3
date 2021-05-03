@@ -26,8 +26,10 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  *          To list the principals the policy is attached to, use the ListPrincipalPolicy
  *          API.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, SetDefaultPolicyVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, SetDefaultPolicyVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new SetDefaultPolicyVersionCommand(input);
  * const response = await client.send(command);

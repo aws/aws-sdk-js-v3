@@ -23,8 +23,10 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
 /**
  * <p>Creates an authorizer.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, CreateAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, CreateAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new CreateAuthorizerCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface ListDistributionConfigurationsCommandOutput
 /**
  * <p>Returns a list of distribution configurations.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ImagebuilderClient, ListDistributionConfigurationsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, ListDistributionConfigurationsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const command = new ListDistributionConfigurationsCommand(input);
  * const response = await client.send(command);

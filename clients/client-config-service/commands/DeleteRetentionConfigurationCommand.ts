@@ -23,8 +23,10 @@ export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBea
 /**
  * <p>Deletes the retention configuration.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConfigServiceClient, DeleteRetentionConfigurationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, DeleteRetentionConfigurationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const command = new DeleteRetentionConfigurationCommand(input);
  * const response = await client.send(command);

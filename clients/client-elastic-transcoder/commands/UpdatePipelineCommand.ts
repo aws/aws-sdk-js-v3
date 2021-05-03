@@ -32,8 +32,10 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  *             affected in addition to jobs that you submit after you change settings. </p>
  *          </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticTranscoderClient, UpdatePipelineCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
+ * // const { ElasticTranscoderClient, UpdatePipelineCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
  * const command = new UpdatePipelineCommand(input);
  * const response = await client.send(command);

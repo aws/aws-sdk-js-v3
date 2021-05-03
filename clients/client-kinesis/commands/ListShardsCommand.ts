@@ -31,8 +31,10 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  *                 IAM</a>.</p>
  *         </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisClient, ListShardsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
+ * // const { KinesisClient, ListShardsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
  * const command = new ListShardsCommand(input);
  * const response = await client.send(command);

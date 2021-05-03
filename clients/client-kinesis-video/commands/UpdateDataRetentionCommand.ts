@@ -49,8 +49,10 @@ export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOut
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisVideoClient, UpdateDataRetentionCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
+ * // const { KinesisVideoClient, UpdateDataRetentionCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const command = new UpdateDataRetentionCommand(input);
  * const response = await client.send(command);

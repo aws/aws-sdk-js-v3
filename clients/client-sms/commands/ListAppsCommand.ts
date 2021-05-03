@@ -20,8 +20,10 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
 /**
  * <p>Retrieves summaries for all applications.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SMSClient, ListAppsCommand } from "@aws-sdk/client-sms"; // ES Modules import
+ * // const { SMSClient, ListAppsCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
  * const command = new ListAppsCommand(input);
  * const response = await client.send(command);

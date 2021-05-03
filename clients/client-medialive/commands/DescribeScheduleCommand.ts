@@ -23,8 +23,10 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
 /**
  * Get a channel schedule
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaLiveClient, DescribeScheduleCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, DescribeScheduleCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const command = new DescribeScheduleCommand(input);
  * const response = await client.send(command);

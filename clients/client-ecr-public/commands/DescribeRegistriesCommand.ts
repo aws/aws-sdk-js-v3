@@ -23,8 +23,10 @@ export interface DescribeRegistriesCommandOutput extends DescribeRegistriesRespo
 /**
  * <p>Returns details for a public registry.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECRPUBLICClient, DescribeRegistriesCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
+ * // const { ECRPUBLICClient, DescribeRegistriesCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const command = new DescribeRegistriesCommand(input);
  * const response = await client.send(command);

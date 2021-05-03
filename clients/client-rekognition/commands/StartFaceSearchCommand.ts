@@ -32,8 +32,10 @@ export interface StartFaceSearchCommandOutput extends StartFaceSearchResponse, _
  *       (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>. For more information, see
  *       <a>procedure-person-search-videos</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RekognitionClient, StartFaceSearchCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, StartFaceSearchCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
  * const command = new StartFaceSearchCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface GetGroupCertificateAuthorityCommandOutput
 /**
  * Retreives the CA associated with a group. Returns the public key of the CA.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassClient, GetGroupCertificateAuthorityCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, GetGroupCertificateAuthorityCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
  * const command = new GetGroupCertificateAuthorityCommand(input);
  * const response = await client.send(command);

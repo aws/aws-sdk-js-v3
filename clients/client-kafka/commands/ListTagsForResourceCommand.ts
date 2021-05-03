@@ -23,8 +23,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>Returns a list of the tags associated with the specified resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KafkaClient, ListTagsForResourceCommand } from "@aws-sdk/client-kafka"; // ES Modules import
+ * // const { KafkaClient, ListTagsForResourceCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

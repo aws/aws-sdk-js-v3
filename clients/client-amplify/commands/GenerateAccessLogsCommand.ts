@@ -24,8 +24,10 @@ export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResul
  * <p> Returns the website access logs for a specific time range using a presigned URL.
  *         </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AmplifyClient, GenerateAccessLogsCommand } from "@aws-sdk/client-amplify"; // ES Modules import
+ * // const { AmplifyClient, GenerateAccessLogsCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
  * const command = new GenerateAccessLogsCommand(input);
  * const response = await client.send(command);

@@ -26,8 +26,10 @@ export interface DisassociateSubnetsCommandOutput extends DisassociateSubnetsRes
  *           were providing.
  *       </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NetworkFirewallClient, DisassociateSubnetsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
+ * // const { NetworkFirewallClient, DisassociateSubnetsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const command = new DisassociateSubnetsCommand(input);
  * const response = await client.send(command);

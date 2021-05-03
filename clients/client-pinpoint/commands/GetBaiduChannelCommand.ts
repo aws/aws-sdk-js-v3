@@ -23,8 +23,10 @@ export interface GetBaiduChannelCommandOutput extends GetBaiduChannelResponse, _
 /**
  * <p>Retrieves information about the status and settings of the Baidu channel for an application.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointClient, GetBaiduChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, GetBaiduChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
  * const command = new GetBaiduChannelCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
 /**
  * <p>Describes one or more Auto Scaling instances.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AutoScalingClient, DescribeAutoScalingInstancesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, DescribeAutoScalingInstancesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const command = new DescribeAutoScalingInstancesCommand(input);
  * const response = await client.send(command);

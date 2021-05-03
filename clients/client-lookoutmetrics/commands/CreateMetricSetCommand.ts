@@ -23,8 +23,10 @@ export interface CreateMetricSetCommandOutput extends CreateMetricSetResponse, _
 /**
  * <p>Creates a dataset.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutMetricsClient, CreateMetricSetCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
+ * // const { LookoutMetricsClient, CreateMetricSetCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const command = new CreateMetricSetCommand(input);
  * const response = await client.send(command);

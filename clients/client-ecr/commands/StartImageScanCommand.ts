@@ -26,8 +26,10 @@ export interface StartImageScanCommandOutput extends StartImageScanResponse, __M
  *             more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html">Image Scanning</a> in the
  *                 <i>Amazon Elastic Container Registry User Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECRClient, StartImageScanCommand } from "@aws-sdk/client-ecr"; // ES Modules import
+ * // const { ECRClient, StartImageScanCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
  * const command = new StartImageScanCommand(input);
  * const response = await client.send(command);

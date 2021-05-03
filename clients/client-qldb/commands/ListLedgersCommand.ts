@@ -26,8 +26,10 @@ export interface ListLedgersCommandOutput extends ListLedgersResponse, __Metadat
  *          <p>This action returns a maximum of 100 items and is paginated so that you can
  *          retrieve all the items by calling <code>ListLedgers</code> multiple times.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { QLDBClient, ListLedgersCommand } from "@aws-sdk/client-qldb"; // ES Modules import
+ * // const { QLDBClient, ListLedgersCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
  * const command = new ListLedgersCommand(input);
  * const response = await client.send(command);

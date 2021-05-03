@@ -23,8 +23,10 @@ export interface ListMissionProfilesCommandOutput extends ListMissionProfilesRes
 /**
  * <p>Returns a list of mission profiles.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GroundStationClient, ListMissionProfilesCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
+ * // const { GroundStationClient, ListMissionProfilesCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
  * const command = new ListMissionProfilesCommand(input);
  * const response = await client.send(command);

@@ -58,8 +58,10 @@ export interface ListJobsCommandOutput extends ListJobsOutput, __MetadataBearer 
  *          <p>For more information about using this operation,
  *          see the documentation for the underlying REST API <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-jobs-get.html">List Jobs</a>. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlacierClient, ListJobsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
+ * // const { GlacierClient, ListJobsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);

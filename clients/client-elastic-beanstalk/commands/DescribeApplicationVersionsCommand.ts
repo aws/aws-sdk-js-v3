@@ -25,8 +25,10 @@ export interface DescribeApplicationVersionsCommandOutput
 /**
  * <p>Retrieve a list of application versions.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticBeanstalkClient, DescribeApplicationVersionsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
+ * // const { ElasticBeanstalkClient, DescribeApplicationVersionsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const command = new DescribeApplicationVersionsCommand(input);
  * const response = await client.send(command);

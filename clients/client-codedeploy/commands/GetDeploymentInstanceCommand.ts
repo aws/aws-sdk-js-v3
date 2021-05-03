@@ -25,8 +25,10 @@ export interface GetDeploymentInstanceCommandOutput extends GetDeploymentInstanc
  *
  * <p>Gets information about an instance as part of a deployment.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeDeployClient, GetDeploymentInstanceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
+ * // const { CodeDeployClient, GetDeploymentInstanceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const command = new GetDeploymentInstanceCommand(input);
  * const response = await client.send(command);

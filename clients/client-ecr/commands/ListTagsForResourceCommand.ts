@@ -23,8 +23,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>List the tags for an Amazon ECR resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECRClient, ListTagsForResourceCommand } from "@aws-sdk/client-ecr"; // ES Modules import
+ * // const { ECRClient, ListTagsForResourceCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

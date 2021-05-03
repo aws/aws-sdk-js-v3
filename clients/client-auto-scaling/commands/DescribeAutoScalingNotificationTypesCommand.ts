@@ -25,8 +25,10 @@ export interface DescribeAutoScalingNotificationTypesCommandOutput
 /**
  * <p>Describes the notification types that are supported by Amazon EC2 Auto Scaling.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AutoScalingClient, DescribeAutoScalingNotificationTypesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, DescribeAutoScalingNotificationTypesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const command = new DescribeAutoScalingNotificationTypesCommand(input);
  * const response = await client.send(command);

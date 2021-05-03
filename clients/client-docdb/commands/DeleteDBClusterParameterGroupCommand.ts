@@ -24,8 +24,10 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  * <p>Deletes a specified cluster parameter group. The cluster parameter group to be
  *             deleted can't be associated with any clusters.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DocDBClient, DeleteDBClusterParameterGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, DeleteDBClusterParameterGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
  * const command = new DeleteDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);

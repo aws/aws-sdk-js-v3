@@ -24,8 +24,10 @@ export interface DisassociateMembershipCommandOutput extends __MetadataBearer {}
  * <p>Removes the member account from the specified behavior graph. This operation can only be
  *          called by a member account that has the <code>ENABLED</code> status.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DetectiveClient, DisassociateMembershipCommand } from "@aws-sdk/client-detective"; // ES Modules import
+ * // const { DetectiveClient, DisassociateMembershipCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
  * const command = new DisassociateMembershipCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DescribeScheduledAuditCommandOutput extends DescribeScheduledAu
 /**
  * <p>Gets information about a scheduled audit.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, DescribeScheduledAuditCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DescribeScheduledAuditCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new DescribeScheduledAuditCommand(input);
  * const response = await client.send(command);

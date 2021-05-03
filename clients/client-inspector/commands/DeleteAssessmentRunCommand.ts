@@ -24,8 +24,10 @@ export interface DeleteAssessmentRunCommandOutput extends __MetadataBearer {}
  * <p>Deletes the assessment run that is specified by the ARN of the assessment
  *          run.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { InspectorClient, DeleteAssessmentRunCommand } from "@aws-sdk/client-inspector"; // ES Modules import
+ * // const { InspectorClient, DeleteAssessmentRunCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
  * const command = new DeleteAssessmentRunCommand(input);
  * const response = await client.send(command);

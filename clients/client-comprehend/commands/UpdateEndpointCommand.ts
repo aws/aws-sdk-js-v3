@@ -23,8 +23,10 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
 /**
  * <p>Updates information about the specified endpoint.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, UpdateEndpointCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, UpdateEndpointCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new UpdateEndpointCommand(input);
  * const response = await client.send(command);

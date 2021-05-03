@@ -25,8 +25,10 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResponse, _
  *         caution
  *         when deleting directories.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudDirectoryClient, DeleteDirectoryCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, DeleteDirectoryCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const command = new DeleteDirectoryCommand(input);
  * const response = await client.send(command);

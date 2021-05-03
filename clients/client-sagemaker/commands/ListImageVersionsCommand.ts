@@ -24,8 +24,10 @@ export interface ListImageVersionsCommandOutput extends ListImageVersionsRespons
  * <p>Lists the versions of a specified image and their properties. The list can be filtered
  *         by creation time or modified time.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, ListImageVersionsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListImageVersionsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new ListImageVersionsCommand(input);
  * const response = await client.send(command);

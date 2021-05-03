@@ -26,8 +26,10 @@ export interface GetCustomerGatewayAssociationsCommandOutput
  * <p>Gets the association information for customer gateways that are associated with
  *             devices and links in your global network.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NetworkManagerClient, GetCustomerGatewayAssociationsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
+ * // const { NetworkManagerClient, GetCustomerGatewayAssociationsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const command = new GetCustomerGatewayAssociationsCommand(input);
  * const response = await client.send(command);

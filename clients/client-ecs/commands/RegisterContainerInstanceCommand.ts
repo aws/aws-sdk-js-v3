@@ -28,8 +28,10 @@ export interface RegisterContainerInstanceCommandOutput extends RegisterContaine
  * 			instance into the specified cluster. This instance becomes available to place containers
  * 			on.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECSClient, RegisterContainerInstanceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, RegisterContainerInstanceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const command = new RegisterContainerInstanceCommand(input);
  * const response = await client.send(command);

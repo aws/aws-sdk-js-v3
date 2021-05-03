@@ -50,8 +50,10 @@ export interface GetVaultLockCommandOutput extends GetVaultLockOutput, __Metadat
  *             Not found</code> error. For more information about vault lock policies, <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html">Amazon
  *             Glacier Access Control with Vault Lock Policies</a>. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlacierClient, GetVaultLockCommand } from "@aws-sdk/client-glacier"; // ES Modules import
+ * // const { GlacierClient, GetVaultLockCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
  * const command = new GetVaultLockCommand(input);
  * const response = await client.send(command);

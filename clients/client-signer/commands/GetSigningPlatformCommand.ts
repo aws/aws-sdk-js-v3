@@ -23,8 +23,10 @@ export interface GetSigningPlatformCommandOutput extends GetSigningPlatformRespo
 /**
  * <p>Returns information on a specific signing platform.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SignerClient, GetSigningPlatformCommand } from "@aws-sdk/client-signer"; // ES Modules import
+ * // const { SignerClient, GetSigningPlatformCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
  * const command = new GetSigningPlatformCommand(input);
  * const response = await client.send(command);

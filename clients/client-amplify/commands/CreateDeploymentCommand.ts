@@ -24,8 +24,10 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  * <p> Creates a deployment for a manually deployed Amplify app. Manually deployed apps are
  *             not connected to a repository. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AmplifyClient, CreateDeploymentCommand } from "@aws-sdk/client-amplify"; // ES Modules import
+ * // const { AmplifyClient, CreateDeploymentCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
  * const command = new CreateDeploymentCommand(input);
  * const response = await client.send(command);

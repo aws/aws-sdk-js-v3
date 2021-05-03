@@ -23,8 +23,10 @@ export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrase
 /**
  * <p>Detects the key noun phrases found in a batch of documents.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, BatchDetectKeyPhrasesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, BatchDetectKeyPhrasesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new BatchDetectKeyPhrasesCommand(input);
  * const response = await client.send(command);

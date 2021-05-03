@@ -23,8 +23,10 @@ export interface DeleteSiteCommandOutput extends DeleteSiteResponse, __MetadataB
 /**
  * <p>Deletes an existing site. The site cannot be associated with any device or link.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NetworkManagerClient, DeleteSiteCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
+ * // const { NetworkManagerClient, DeleteSiteCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const command = new DeleteSiteCommand(input);
  * const response = await client.send(command);

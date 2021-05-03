@@ -24,8 +24,10 @@ export interface GetInstancesCommandOutput extends GetInstancesResult, __Metadat
  * <p>Returns information about all Amazon Lightsail virtual private servers, or
  *         <i>instances</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, GetInstancesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetInstancesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new GetInstancesCommand(input);
  * const response = await client.send(command);

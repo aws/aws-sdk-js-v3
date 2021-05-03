@@ -23,8 +23,10 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
 /**
  * <p>Removes a contact from a contact list.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SESv2Client, DeleteContactCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, DeleteContactCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
  * const command = new DeleteContactCommand(input);
  * const response = await client.send(command);

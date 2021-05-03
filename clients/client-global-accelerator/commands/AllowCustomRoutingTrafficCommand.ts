@@ -32,8 +32,10 @@ export interface AllowCustomRoutingTrafficCommandOutput extends __MetadataBearer
  * 		       <p>After you make changes, you can verify that the updates are complete by checking the status of your
  * 			accelerator: the status changes from IN_PROGRESS to DEPLOYED.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlobalAcceleratorClient, AllowCustomRoutingTrafficCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
+ * // const { GlobalAcceleratorClient, AllowCustomRoutingTrafficCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const command = new AllowCustomRoutingTrafficCommand(input);
  * const response = await client.send(command);

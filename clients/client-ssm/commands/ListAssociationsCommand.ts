@@ -25,8 +25,10 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  *    the results to a specific State Manager association document or instance by specifying a
  *    filter.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, ListAssociationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, ListAssociationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new ListAssociationsCommand(input);
  * const response = await client.send(command);

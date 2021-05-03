@@ -23,8 +23,10 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
 /**
  * <p>Updates an AWS Batch compute environment.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BatchClient, UpdateComputeEnvironmentCommand } from "@aws-sdk/client-batch"; // ES Modules import
+ * // const { BatchClient, UpdateComputeEnvironmentCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
  * const command = new UpdateComputeEnvironmentCommand(input);
  * const response = await client.send(command);

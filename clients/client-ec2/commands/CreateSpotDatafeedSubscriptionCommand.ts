@@ -28,8 +28,10 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
  *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot Instance data feed</a>
  *         in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, CreateSpotDatafeedSubscriptionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateSpotDatafeedSubscriptionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new CreateSpotDatafeedSubscriptionCommand(input);
  * const response = await client.send(command);

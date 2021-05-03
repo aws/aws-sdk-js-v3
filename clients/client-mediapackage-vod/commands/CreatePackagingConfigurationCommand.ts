@@ -25,8 +25,10 @@ export interface CreatePackagingConfigurationCommandOutput
 /**
  * Creates a new MediaPackage VOD PackagingConfiguration resource.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaPackageVodClient, CreatePackagingConfigurationCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
+ * // const { MediaPackageVodClient, CreatePackagingConfigurationCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
  * const command = new CreatePackagingConfigurationCommand(input);
  * const response = await client.send(command);

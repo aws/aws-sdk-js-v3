@@ -31,8 +31,10 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  *          </note>
  *          <p>Associates a web ACL with a resource, either an application load balancer or Amazon API Gateway stage.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFRegionalClient, AssociateWebACLCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
+ * // const { WAFRegionalClient, AssociateWebACLCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const command = new AssociateWebACLCommand(input);
  * const response = await client.send(command);

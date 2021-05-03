@@ -26,8 +26,10 @@ export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePas
  *          set a new password. You don't need to know the default password to set a new
  *          password.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { StorageGatewayClient, SetLocalConsolePasswordCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, SetLocalConsolePasswordCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const command = new SetLocalConsolePasswordCommand(input);
  * const response = await client.send(command);

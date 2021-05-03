@@ -31,8 +31,10 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  *          or is not enabled for the alias, you receive a
  *             <code>BadRequestException</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LexRuntimeV2Client, GetSessionCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
+ * // const { LexRuntimeV2Client, GetSessionCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
  * const client = new LexRuntimeV2Client(config);
  * const command = new GetSessionCommand(input);
  * const response = await client.send(command);

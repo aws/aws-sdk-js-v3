@@ -25,8 +25,10 @@ export interface CreateConnectorDefinitionVersionCommandOutput
 /**
  * Creates a version of a connector definition which has already been defined.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassClient, CreateConnectorDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, CreateConnectorDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
  * const command = new CreateConnectorDefinitionVersionCommand(input);
  * const response = await client.send(command);

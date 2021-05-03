@@ -31,8 +31,10 @@ export interface CreateMaintenanceWindowCommandOutput extends CreateMaintenanceW
  *     after 5 PM.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, CreateMaintenanceWindowCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, CreateMaintenanceWindowCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new CreateMaintenanceWindowCommand(input);
  * const response = await client.send(command);

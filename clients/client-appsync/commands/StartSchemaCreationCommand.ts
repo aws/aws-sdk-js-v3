@@ -25,8 +25,10 @@ export interface StartSchemaCreationCommandOutput extends StartSchemaCreationRes
  *          <p>This operation is asynchronous. Use  to
  *          determine when it has completed.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppSyncClient, StartSchemaCreationCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, StartSchemaCreationCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
  * const command = new StartSchemaCreationCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBea
  *       more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing
  *         Lexicons</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PollyClient, GetLexiconCommand } from "@aws-sdk/client-polly"; // ES Modules import
+ * // const { PollyClient, GetLexiconCommand } = require("@aws-sdk/client-polly"); // CommonJS import
  * const client = new PollyClient(config);
  * const command = new GetLexiconCommand(input);
  * const response = await client.send(command);

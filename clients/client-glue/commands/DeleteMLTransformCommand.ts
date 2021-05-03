@@ -28,8 +28,10 @@ export interface DeleteMLTransformCommandOutput extends DeleteMLTransformRespons
  *         <code>DeleteMLTransforms</code>. However, any AWS Glue jobs that still reference the deleted
  *       transform will no longer succeed.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlueClient, DeleteMLTransformCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, DeleteMLTransformCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
  * const command = new DeleteMLTransformCommand(input);
  * const response = await client.send(command);

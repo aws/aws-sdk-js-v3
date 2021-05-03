@@ -27,8 +27,10 @@ export interface GetConnectionCommandOutput extends GetConnectionOutput, __Metad
 /**
  * <p>Returns the connection ARN and details such as status, owner, and provider type.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeStarConnectionsClient, GetConnectionCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
+ * // const { CodeStarConnectionsClient, GetConnectionCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
  * const command = new GetConnectionCommand(input);
  * const response = await client.send(command);

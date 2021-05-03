@@ -46,8 +46,10 @@ export interface DeleteJobTaggingCommandOutput extends DeleteJobTaggingResult, _
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { S3ControlClient, DeleteJobTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
+ * // const { S3ControlClient, DeleteJobTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
  * const command = new DeleteJobTaggingCommand(input);
  * const response = await client.send(command);

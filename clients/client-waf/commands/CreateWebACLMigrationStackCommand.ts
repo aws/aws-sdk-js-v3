@@ -30,8 +30,10 @@ export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMig
  *            <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-migrating-from-classic.html">Migrating your AWS WAF Classic resources to AWS WAF</a> in the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">AWS WAF
  *   Developer Guide</a>.  </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFClient, CreateWebACLMigrationStackCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, CreateWebACLMigrationStackCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
  * const command = new CreateWebACLMigrationStackCommand(input);
  * const response = await client.send(command);

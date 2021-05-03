@@ -25,8 +25,10 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  *          either delete all images in the repository or use the <code>force</code> option which
  *          deletes all images on your behalf before deleting the repository.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECRPUBLICClient, DeleteRepositoryCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
+ * // const { ECRPUBLICClient, DeleteRepositoryCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const command = new DeleteRepositoryCommand(input);
  * const response = await client.send(command);

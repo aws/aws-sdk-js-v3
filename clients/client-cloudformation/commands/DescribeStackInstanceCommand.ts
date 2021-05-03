@@ -26,8 +26,10 @@ export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanc
  *          <p>For a list of stack instances that are associated with a specific stack set, use
  *             <a>ListStackInstances</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFormationClient, DescribeStackInstanceCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, DescribeStackInstanceCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const command = new DescribeStackInstanceCommand(input);
  * const response = await client.send(command);

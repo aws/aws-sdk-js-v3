@@ -52,8 +52,10 @@ export interface CreateBackupCommandOutput extends CreateBackupOutput, __Metadat
  *               </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DynamoDBClient, CreateBackupCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, CreateBackupCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const command = new CreateBackupCommand(input);
  * const response = await client.send(command);

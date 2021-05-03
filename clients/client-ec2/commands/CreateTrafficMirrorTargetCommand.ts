@@ -28,8 +28,10 @@ export interface CreateTrafficMirrorTargetCommandOutput extends CreateTrafficMir
  *          <p>A Traffic Mirror target can be a network interface, or a Network Load Balancer.</p>
  *          <p>To use the target in a Traffic Mirror session, use  <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm">CreateTrafficMirrorSession</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, CreateTrafficMirrorTargetCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateTrafficMirrorTargetCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new CreateTrafficMirrorTargetCommand(input);
  * const response = await client.send(command);

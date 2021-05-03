@@ -40,8 +40,10 @@ export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIde
  *          better option for higher-volume operations for user authentication.</p>
  *          <p>You must use AWS Developer credentials to call this API.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityClient, LookupDeveloperIdentityCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
+ * // const { CognitoIdentityClient, LookupDeveloperIdentityCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const command = new LookupDeveloperIdentityCommand(input);
  * const response = await client.send(command);

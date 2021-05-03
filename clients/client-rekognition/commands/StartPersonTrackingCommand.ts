@@ -31,8 +31,10 @@ export interface StartPersonTrackingCommandOutput extends StartPersonTrackingRes
  *        topic is <code>SUCCEEDED</code>. If so, call  <a>GetPersonTracking</a> and pass the job identifier
  *       (<code>JobId</code>) from the initial call to <code>StartPersonTracking</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RekognitionClient, StartPersonTrackingCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, StartPersonTrackingCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
  * const command = new StartPersonTrackingCommand(input);
  * const response = await client.send(command);

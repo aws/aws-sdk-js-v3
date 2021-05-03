@@ -28,8 +28,10 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __
  *         <p>This operation is idempotent; it does not fail or return an error if you try to remove
  *             a client ID that does not exist.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IAMClient, RemoveClientIDFromOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, RemoveClientIDFromOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
  * const command = new RemoveClientIDFromOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);

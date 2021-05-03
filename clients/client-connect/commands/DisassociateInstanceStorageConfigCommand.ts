@@ -25,8 +25,10 @@ export interface DisassociateInstanceStorageConfigCommandOutput extends __Metada
  *          <p>Removes the storage type configurations for the specified resource type and association
  *    ID.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, DisassociateInstanceStorageConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DisassociateInstanceStorageConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new DisassociateInstanceStorageConfigCommand(input);
  * const response = await client.send(command);

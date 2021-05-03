@@ -30,8 +30,10 @@ export interface DeleteSlotTypeVersionCommandOutput extends __MetadataBearer {}
  *          <p>This operation requires permissions for the
  *         <code>lex:DeleteSlotTypeVersion</code> action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LexModelBuildingServiceClient, DeleteSlotTypeVersionCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
+ * // const { LexModelBuildingServiceClient, DeleteSlotTypeVersionCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const command = new DeleteSlotTypeVersionCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DescribeOriginEndpointCommandOutput extends DescribeOriginEndpo
 /**
  * Gets details about an existing OriginEndpoint.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaPackageClient, DescribeOriginEndpointCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
+ * // const { MediaPackageClient, DescribeOriginEndpointCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
  * const command = new DescribeOriginEndpointCommand(input);
  * const response = await client.send(command);

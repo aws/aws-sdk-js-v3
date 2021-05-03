@@ -27,8 +27,10 @@ export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioS
  *          whether TagOptions are included with the share.</p>
  *          <p>The <code>PortfolioId</code> and <code>Type</code> parameters are both required.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, DescribePortfolioSharesCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, DescribePortfolioSharesCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new DescribePortfolioSharesCommand(input);
  * const response = await client.send(command);

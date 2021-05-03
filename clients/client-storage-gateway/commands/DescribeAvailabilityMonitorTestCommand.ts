@@ -27,8 +27,10 @@ export interface DescribeAvailabilityMonitorTestCommandOutput
  *          performed on the host in a cluster. If a test isn't performed, the status and start
  *          time in the response would be null.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { StorageGatewayClient, DescribeAvailabilityMonitorTestCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, DescribeAvailabilityMonitorTestCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const command = new DescribeAvailabilityMonitorTestCommand(input);
  * const response = await client.send(command);

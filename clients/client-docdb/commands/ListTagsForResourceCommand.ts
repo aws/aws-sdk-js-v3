@@ -23,8 +23,10 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
 /**
  * <p>Lists all tags on an Amazon DocumentDB resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DocDBClient, ListTagsForResourceCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, ListTagsForResourceCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

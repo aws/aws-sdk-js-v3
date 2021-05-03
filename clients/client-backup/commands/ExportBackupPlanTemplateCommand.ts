@@ -23,8 +23,10 @@ export interface ExportBackupPlanTemplateCommandOutput extends ExportBackupPlanT
 /**
  * <p>Returns the backup plan that is specified by the plan ID as a backup template.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BackupClient, ExportBackupPlanTemplateCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, ExportBackupPlanTemplateCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
  * const command = new ExportBackupPlanTemplateCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface CreateStackSetCommandOutput extends CreateStackSetOutput, __Met
 /**
  * <p>Creates a stack set.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFormationClient, CreateStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, CreateStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const command = new CreateStackSetCommand(input);
  * const response = await client.send(command);

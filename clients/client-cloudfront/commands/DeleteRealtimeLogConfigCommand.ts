@@ -29,8 +29,10 @@ export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {
  * 			Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront
  * 			uses the name to identify the real-time log configuration to delete.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFrontClient, DeleteRealtimeLogConfigCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, DeleteRealtimeLogConfigCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const command = new DeleteRealtimeLogConfigCommand(input);
  * const response = await client.send(command);

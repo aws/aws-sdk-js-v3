@@ -28,8 +28,10 @@ export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __Me
  *         <p>A resize operation can be requested using <a>ModifyCluster</a> and
  *             specifying a different number or type of nodes for the cluster. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RedshiftClient, DescribeResizeCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, DescribeResizeCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
  * const command = new DescribeResizeCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface ListThingRegistrationTasksCommandOutput extends ListThingRegist
 /**
  * <p>List bulk thing provisioning tasks.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, ListThingRegistrationTasksCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListThingRegistrationTasksCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new ListThingRegistrationTasksCommand(input);
  * const response = await client.send(command);

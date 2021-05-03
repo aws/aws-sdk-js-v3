@@ -27,8 +27,10 @@ export interface DescribeBudgetActionsForAccountCommandOutput
  *          Describes all of the budget actions for an account.
  *       </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BudgetsClient, DescribeBudgetActionsForAccountCommand } from "@aws-sdk/client-budgets"; // ES Modules import
+ * // const { BudgetsClient, DescribeBudgetActionsForAccountCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
  * const command = new DescribeBudgetActionsForAccountCommand(input);
  * const response = await client.send(command);

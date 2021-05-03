@@ -27,8 +27,10 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
 /**
  * <p>Uploads the specified certificate.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DatabaseMigrationServiceClient, ImportCertificateCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, ImportCertificateCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const command = new ImportCertificateCommand(input);
  * const response = await client.send(command);

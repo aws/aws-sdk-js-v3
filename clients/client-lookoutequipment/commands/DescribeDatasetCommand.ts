@@ -24,8 +24,10 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * <p>Provides information on a specified dataset such as the schema location, status, and so
  *          on.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutEquipmentClient, DescribeDatasetCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, DescribeDatasetCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);

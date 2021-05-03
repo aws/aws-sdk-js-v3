@@ -41,8 +41,10 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  *          parameters that identify the scalable target: resource ID, scalable dimension, and
  *          namespace. Any parameters that you don't specify are not changed by this update request. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ApplicationAutoScalingClient, RegisterScalableTargetCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
+ * // const { ApplicationAutoScalingClient, RegisterScalableTargetCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
  * const command = new RegisterScalableTargetCommand(input);
  * const response = await client.send(command);

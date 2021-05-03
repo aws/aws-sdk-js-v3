@@ -30,8 +30,10 @@ export interface AssociateHostedConnectionCommandOutput extends Connection, __Me
  *             <p>Intended for use by AWS Direct Connect Partners only.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectConnectClient, AssociateHostedConnectionCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, AssociateHostedConnectionCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const command = new AssociateHostedConnectionCommand(input);
  * const response = await client.send(command);

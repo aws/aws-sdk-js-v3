@@ -28,8 +28,10 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  *    queue, the job queue with a higher priority is given preference for scheduling jobs to that compute
  *    environment.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BatchClient, CreateJobQueueCommand } from "@aws-sdk/client-batch"; // ES Modules import
+ * // const { BatchClient, CreateJobQueueCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
  * const command = new CreateJobQueueCommand(input);
  * const response = await client.send(command);

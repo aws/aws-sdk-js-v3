@@ -33,8 +33,10 @@ export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataB
  *       Reference</a>.</p>
  *          <p>Deletes a high-availability partition group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudHSMClient, DeleteHapgCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
+ * // const { CloudHSMClient, DeleteHapgCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const command = new DeleteHapgCommand(input);
  * const response = await client.send(command);

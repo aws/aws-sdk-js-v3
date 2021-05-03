@@ -24,8 +24,10 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * <p>Creates a <code>Config</code> with the specified <code>configData</code> parameters.</p>
  *          <p>Only one type of <code>configData</code> can be specified.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GroundStationClient, CreateConfigCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
+ * // const { GroundStationClient, CreateConfigCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
  * const command = new CreateConfigCommand(input);
  * const response = await client.send(command);

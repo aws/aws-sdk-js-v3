@@ -48,8 +48,10 @@ export interface UpdateLoggingConfigurationCommandOutput extends UpdateLoggingCo
  *             <code>LogDestinationConfig</code> object and create a new one, using two separate calls
  *          to this update operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NetworkFirewallClient, UpdateLoggingConfigurationCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
+ * // const { NetworkFirewallClient, UpdateLoggingConfigurationCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const command = new UpdateLoggingConfigurationCommand(input);
  * const response = await client.send(command);

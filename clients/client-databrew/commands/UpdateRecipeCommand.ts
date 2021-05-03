@@ -24,8 +24,10 @@ export interface UpdateRecipeCommandOutput extends UpdateRecipeResponse, __Metad
  * <p>Modifies the definition of the <code>LATEST_WORKING</code> version of a DataBrew
  *             recipe.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataBrewClient, UpdateRecipeCommand } from "@aws-sdk/client-databrew"; // ES Modules import
+ * // const { DataBrewClient, UpdateRecipeCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
  * const command = new UpdateRecipeCommand(input);
  * const response = await client.send(command);

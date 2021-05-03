@@ -23,8 +23,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>Returns a list of tags for a specified resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GroundStationClient, ListTagsForResourceCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
+ * // const { GroundStationClient, ListTagsForResourceCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

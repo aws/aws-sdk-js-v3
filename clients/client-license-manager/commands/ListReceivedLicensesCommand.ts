@@ -23,8 +23,10 @@ export interface ListReceivedLicensesCommandOutput extends ListReceivedLicensesR
 /**
  * <p>Lists received licenses.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LicenseManagerClient, ListReceivedLicensesCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, ListReceivedLicensesCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const command = new ListReceivedLicensesCommand(input);
  * const response = await client.send(command);

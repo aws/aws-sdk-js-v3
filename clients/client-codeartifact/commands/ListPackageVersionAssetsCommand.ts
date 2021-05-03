@@ -29,8 +29,10 @@ export interface ListPackageVersionAssetsCommandOutput extends ListPackageVersio
  *        objects for assets in a package version.
  *      </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeartifactClient, ListPackageVersionAssetsCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
+ * // const { CodeartifactClient, ListPackageVersionAssetsCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const command = new ListPackageVersionAssetsCommand(input);
  * const response = await client.send(command);

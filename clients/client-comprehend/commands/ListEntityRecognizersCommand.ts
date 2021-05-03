@@ -28,8 +28,10 @@ export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizer
  *          <p>The results of this list are not in any particular order. Please get the list and sort
  *       locally if needed.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, ListEntityRecognizersCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, ListEntityRecognizersCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new ListEntityRecognizersCommand(input);
  * const response = await client.send(command);

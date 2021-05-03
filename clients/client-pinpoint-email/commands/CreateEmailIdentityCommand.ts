@@ -36,8 +36,10 @@ export interface CreateEmailIdentityCommandOutput extends CreateEmailIdentityRes
  *             configuration for your domain. It usually takes around 72 hours to complete the domain
  *             verification process.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointEmailClient, CreateEmailIdentityCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
+ * // const { PinpointEmailClient, CreateEmailIdentityCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const command = new CreateEmailIdentityCommand(input);
  * const response = await client.send(command);

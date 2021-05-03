@@ -23,8 +23,10 @@ export interface DescribeClusterOperationCommandOutput extends DescribeClusterOp
 /**
  * <p>Returns a description of the cluster operation specified by the ARN.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KafkaClient, DescribeClusterOperationCommand } from "@aws-sdk/client-kafka"; // ES Modules import
+ * // const { KafkaClient, DescribeClusterOperationCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
  * const command = new DescribeClusterOperationCommand(input);
  * const response = await client.send(command);

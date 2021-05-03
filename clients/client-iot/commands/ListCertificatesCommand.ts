@@ -25,8 +25,10 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  *          <p>The results are paginated with a default page size of 25. You can use the returned
  *          marker to retrieve additional results.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, ListCertificatesCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListCertificatesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new ListCertificatesCommand(input);
  * const response = await client.send(command);

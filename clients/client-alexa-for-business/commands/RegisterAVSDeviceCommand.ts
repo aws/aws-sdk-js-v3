@@ -24,8 +24,10 @@ export interface RegisterAVSDeviceCommandOutput extends RegisterAVSDeviceRespons
  * <p>Registers an Alexa-enabled device built by an Original Equipment Manufacturer (OEM)
  *          using Alexa Voice Service (AVS).</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AlexaForBusinessClient, RegisterAVSDeviceCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, RegisterAVSDeviceCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const command = new RegisterAVSDeviceCommand(input);
  * const response = await client.send(command);

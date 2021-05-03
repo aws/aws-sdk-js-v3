@@ -31,8 +31,10 @@ export interface GetRegexPatternSetCommandOutput extends GetRegexPatternSetRespo
  *          </note>
  *         <p>Returns the <a>RegexPatternSet</a> specified by <code>RegexPatternSetId</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFRegionalClient, GetRegexPatternSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
+ * // const { WAFRegionalClient, GetRegexPatternSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const command = new GetRegexPatternSetCommand(input);
  * const response = await client.send(command);

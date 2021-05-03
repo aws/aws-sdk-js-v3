@@ -27,8 +27,10 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
  *             Use this operation to disallow access from an Amazon EC2 security group
  *             that had been previously authorized.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElastiCacheClient, RevokeCacheSecurityGroupIngressCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, RevokeCacheSecurityGroupIngressCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const command = new RevokeCacheSecurityGroupIngressCommand(input);
  * const response = await client.send(command);

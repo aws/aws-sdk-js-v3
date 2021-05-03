@@ -24,8 +24,10 @@ export interface DeleteTagOptionCommandOutput extends DeleteTagOptionOutput, __M
  * <p>Deletes the specified TagOption.</p>
  *          <p>You cannot delete a TagOption if it is associated with a product or portfolio.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, DeleteTagOptionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, DeleteTagOptionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new DeleteTagOptionCommand(input);
  * const response = await client.send(command);

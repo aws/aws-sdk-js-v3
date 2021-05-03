@@ -26,8 +26,10 @@ export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyA
  * 			Assignment names are unique per AWS account. To avoid overwriting rules in other namespaces,
  * 			use assignment names that are unique.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { QuickSightClient, CreateIAMPolicyAssignmentCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, CreateIAMPolicyAssignmentCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
  * const command = new CreateIAMPolicyAssignmentCommand(input);
  * const response = await client.send(command);

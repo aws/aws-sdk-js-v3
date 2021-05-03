@@ -23,8 +23,10 @@ export interface PutAppsListCommandOutput extends PutAppsListResponse, __Metadat
 /**
  * <p>Creates an AWS Firewall Manager applications list.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FMSClient, PutAppsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
+ * // const { FMSClient, PutAppsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
  * const command = new PutAppsListCommand(input);
  * const response = await client.send(command);

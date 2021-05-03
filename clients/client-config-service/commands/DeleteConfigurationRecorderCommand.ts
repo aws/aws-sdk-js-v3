@@ -32,8 +32,10 @@ export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBear
  * 			be able to access this information in the AWS Config console until
  * 			you create a new configuration recorder.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConfigServiceClient, DeleteConfigurationRecorderCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, DeleteConfigurationRecorderCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const command = new DeleteConfigurationRecorderCommand(input);
  * const response = await client.send(command);

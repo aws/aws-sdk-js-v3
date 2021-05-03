@@ -23,8 +23,10 @@ export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer 
  *           If you specify a key without a value, the tag will be created with the specified key and a value of null.
  *           You can tag a trail that applies to all AWS Regions only from the Region in which the trail was created (also known as its home region).</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudTrailClient, AddTagsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
+ * // const { CloudTrailClient, AddTagsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);

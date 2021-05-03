@@ -23,8 +23,10 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
 /**
  * <p>Creates a new version of the specified grant.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LicenseManagerClient, CreateGrantVersionCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, CreateGrantVersionCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const command = new CreateGrantVersionCommand(input);
  * const response = await client.send(command);

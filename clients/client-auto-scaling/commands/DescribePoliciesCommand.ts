@@ -23,8 +23,10 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
 /**
  * <p>Describes the policies for the specified Auto Scaling group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AutoScalingClient, DescribePoliciesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, DescribePoliciesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const command = new DescribePoliciesCommand(input);
  * const response = await client.send(command);

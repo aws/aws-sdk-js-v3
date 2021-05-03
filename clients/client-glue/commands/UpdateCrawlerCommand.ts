@@ -25,8 +25,10 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  *       running, you must stop it using <code>StopCrawler</code> before updating
  *       it.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlueClient, UpdateCrawlerCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, UpdateCrawlerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
  * const command = new UpdateCrawlerCommand(input);
  * const response = await client.send(command);

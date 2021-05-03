@@ -23,8 +23,10 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
 /**
  * Creates a new channel
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaLiveClient, CreateChannelCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, CreateChannelCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);

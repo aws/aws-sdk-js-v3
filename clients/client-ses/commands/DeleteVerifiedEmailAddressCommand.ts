@@ -24,8 +24,10 @@ export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBeare
  * <p>Deprecated. Use the <code>DeleteIdentity</code> operation to delete email addresses
  *             and domains.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SESClient, DeleteVerifiedEmailAddressCommand } from "@aws-sdk/client-ses"; // ES Modules import
+ * // const { SESClient, DeleteVerifiedEmailAddressCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
  * const command = new DeleteVerifiedEmailAddressCommand(input);
  * const response = await client.send(command);

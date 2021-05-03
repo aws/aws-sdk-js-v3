@@ -59,8 +59,10 @@ export interface GetCelebrityRecognitionCommandOutput extends GetCelebrityRecogn
  *       and populate the <code>NextToken</code> request parameter with the token
  *       value returned from the previous call to <code>GetCelebrityRecognition</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RekognitionClient, GetCelebrityRecognitionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, GetCelebrityRecognitionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
  * const command = new GetCelebrityRecognitionCommand(input);
  * const response = await client.send(command);

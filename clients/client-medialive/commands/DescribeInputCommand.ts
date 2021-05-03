@@ -23,8 +23,10 @@ export interface DescribeInputCommandOutput extends DescribeInputResponse, __Met
 /**
  * Produces details about an input
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaLiveClient, DescribeInputCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, DescribeInputCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const command = new DescribeInputCommand(input);
  * const response = await client.send(command);

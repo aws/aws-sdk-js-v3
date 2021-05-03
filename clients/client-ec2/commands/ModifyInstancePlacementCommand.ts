@@ -50,8 +50,10 @@ export interface ModifyInstancePlacementCommandOutput extends ModifyInstancePlac
  *         <p>To modify the host ID, tenancy, placement group, or partition for an instance, the
  *             instance must be in the <code>stopped</code> state.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, ModifyInstancePlacementCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, ModifyInstancePlacementCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new ModifyInstancePlacementCommand(input);
  * const response = await client.send(command);

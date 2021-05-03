@@ -30,8 +30,10 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  *                 your Linux instance using EC2 Instance Connect</a> in the <i>Amazon EC2
  *                 User Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2InstanceConnectClient, SendSSHPublicKeyCommand } from "@aws-sdk/client-ec2-instance-connect"; // ES Modules import
+ * // const { EC2InstanceConnectClient, SendSSHPublicKeyCommand } = require("@aws-sdk/client-ec2-instance-connect"); // CommonJS import
  * const client = new EC2InstanceConnectClient(config);
  * const command = new SendSSHPublicKeyCommand(input);
  * const response = await client.send(command);

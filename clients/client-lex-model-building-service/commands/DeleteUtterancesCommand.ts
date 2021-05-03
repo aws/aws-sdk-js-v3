@@ -38,8 +38,10 @@ export interface DeleteUtterancesCommandOutput extends __MetadataBearer {}
  *          <p>This operation requires permissions for the
  *         <code>lex:DeleteUtterances</code> action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LexModelBuildingServiceClient, DeleteUtterancesCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
+ * // const { LexModelBuildingServiceClient, DeleteUtterancesCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const command = new DeleteUtterancesCommand(input);
  * const response = await client.send(command);

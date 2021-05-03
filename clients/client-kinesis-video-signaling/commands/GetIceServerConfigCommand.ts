@@ -40,8 +40,10 @@ export interface GetIceServerConfigCommandOutput extends GetIceServerConfigRespo
  *             must specify either a signaling channel ARN or the client ID in order to invoke this
  *             API.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisVideoSignalingClient, GetIceServerConfigCommand } from "@aws-sdk/client-kinesis-video-signaling"; // ES Modules import
+ * // const { KinesisVideoSignalingClient, GetIceServerConfigCommand } = require("@aws-sdk/client-kinesis-video-signaling"); // CommonJS import
  * const client = new KinesisVideoSignalingClient(config);
  * const command = new GetIceServerConfigCommand(input);
  * const response = await client.send(command);

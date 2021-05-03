@@ -23,8 +23,10 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>Removes tags from an IoT Device Advisor resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IotDeviceAdvisorClient, UntagResourceCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
+ * // const { IotDeviceAdvisorClient, UntagResourceCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);

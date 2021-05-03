@@ -23,8 +23,10 @@ export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __Metad
 /**
  * Reboots a broker. Note: This API is asynchronous.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MqClient, RebootBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
+ * // const { MqClient, RebootBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
  * const command = new RebootBrokerCommand(input);
  * const response = await client.send(command);

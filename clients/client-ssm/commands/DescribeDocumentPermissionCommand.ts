@@ -25,8 +25,10 @@ export interface DescribeDocumentPermissionCommandOutput extends DescribeDocumen
  *    owner. If a document is shared, it can either be shared privately (by specifying a user's AWS
  *    account ID) or publicly (<i>All</i>). </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, DescribeDocumentPermissionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DescribeDocumentPermissionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new DescribeDocumentPermissionCommand(input);
  * const response = await client.send(command);

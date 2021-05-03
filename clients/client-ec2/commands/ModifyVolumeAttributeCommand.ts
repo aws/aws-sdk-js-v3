@@ -29,8 +29,10 @@ export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
  *          <p>You can change the default behavior to resume I/O operations. We recommend that you change
  *       this only for boot volumes or for volumes that are stateless or disposable.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, ModifyVolumeAttributeCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, ModifyVolumeAttributeCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new ModifyVolumeAttributeCommand(input);
  * const response = await client.send(command);

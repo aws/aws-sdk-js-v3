@@ -25,8 +25,10 @@ export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConf
  *         signing configurations</a>. A request returns up to 10,000 configurations per
  *       call. You can use the <code>MaxItems</code> parameter to return fewer configurations per call. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LambdaClient, ListCodeSigningConfigsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, ListCodeSigningConfigsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
  * const command = new ListCodeSigningConfigsCommand(input);
  * const response = await client.send(command);

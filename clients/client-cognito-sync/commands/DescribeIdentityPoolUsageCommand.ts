@@ -71,8 +71,10 @@ export interface DescribeIdentityPoolUsageCommandOutput extends DescribeIdentity
  *          </example>
  *       </examples>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoSyncClient, DescribeIdentityPoolUsageCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
+ * // const { CognitoSyncClient, DescribeIdentityPoolUsageCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const command = new DescribeIdentityPoolUsageCommand(input);
  * const response = await client.send(command);

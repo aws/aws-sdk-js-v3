@@ -30,8 +30,10 @@ export interface DeletePipelineCommandOutput extends DeletePipelineResponse, __M
  *             (doesn't contain any active jobs). If the pipeline is currently in use,
  *                 <code>DeletePipeline</code> returns an error. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticTranscoderClient, DeletePipelineCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
+ * // const { ElasticTranscoderClient, DeletePipelineCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
  * const command = new DeletePipelineCommand(input);
  * const response = await client.send(command);

@@ -37,8 +37,10 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
  * 			It is only applicable, when you request all the organization config rules.</p>
  * 			      </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConfigServiceClient, DescribeOrganizationConfigRuleStatusesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, DescribeOrganizationConfigRuleStatusesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const command = new DescribeOrganizationConfigRuleStatusesCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface CreateEndpointCommandOutput extends CreateEndpointResponse, __M
  *       custom model
  *       </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, CreateEndpointCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, CreateEndpointCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new CreateEndpointCommand(input);
  * const response = await client.send(command);

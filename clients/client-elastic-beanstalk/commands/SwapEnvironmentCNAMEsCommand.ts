@@ -23,8 +23,10 @@ export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
 /**
  * <p>Swaps the CNAMEs of two environments.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticBeanstalkClient, SwapEnvironmentCNAMEsCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
+ * // const { ElasticBeanstalkClient, SwapEnvironmentCNAMEsCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const command = new SwapEnvironmentCNAMEsCommand(input);
  * const response = await client.send(command);

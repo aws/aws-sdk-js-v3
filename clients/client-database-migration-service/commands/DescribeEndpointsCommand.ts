@@ -27,8 +27,10 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
 /**
  * <p>Returns information about the endpoints for your account in the current region.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DatabaseMigrationServiceClient, DescribeEndpointsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeEndpointsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const command = new DescribeEndpointsCommand(input);
  * const response = await client.send(command);

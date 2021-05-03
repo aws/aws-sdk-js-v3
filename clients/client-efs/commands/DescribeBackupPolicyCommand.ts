@@ -23,8 +23,10 @@ export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescripti
 /**
  * <p>Returns the backup policy for the specified EFS file system.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EFSClient, DescribeBackupPolicyCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, DescribeBackupPolicyCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
  * const command = new DescribeBackupPolicyCommand(input);
  * const response = await client.send(command);

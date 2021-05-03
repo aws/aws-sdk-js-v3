@@ -23,8 +23,10 @@ export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput
 /**
  * Recursive shapes
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RestJsonProtocolClient, RecursiveShapesCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, RecursiveShapesCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
  * const command = new RecursiveShapesCommand(input);
  * const response = await client.send(command);

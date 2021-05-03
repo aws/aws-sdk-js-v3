@@ -23,8 +23,10 @@ export interface ListTestGridSessionActionsCommandOutput extends ListTestGridSes
 /**
  * <p>Returns a list of the actions taken in a <a>TestGridSession</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, ListTestGridSessionActionsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, ListTestGridSessionActionsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new ListTestGridSessionActionsCommand(input);
  * const response = await client.send(command);

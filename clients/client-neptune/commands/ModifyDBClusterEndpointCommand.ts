@@ -23,8 +23,10 @@ export interface ModifyDBClusterEndpointCommandOutput extends ModifyDBClusterEnd
 /**
  * <p>Modifies the properties of an endpoint in an Amazon Neptune DB cluster.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NeptuneClient, ModifyDBClusterEndpointCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, ModifyDBClusterEndpointCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
  * const command = new ModifyDBClusterEndpointCommand(input);
  * const response = await client.send(command);

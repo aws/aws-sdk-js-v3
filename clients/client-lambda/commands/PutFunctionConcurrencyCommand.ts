@@ -31,8 +31,10 @@ export interface PutFunctionConcurrencyCommandOutput extends Concurrency, __Meta
  *       for as many functions as you like, as long as you leave at least 100 simultaneous executions unreserved for
  *       functions that aren't configured with a per-function limit. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing Concurrency</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LambdaClient, PutFunctionConcurrencyCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, PutFunctionConcurrencyCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
  * const command = new PutFunctionConcurrencyCommand(input);
  * const response = await client.send(command);

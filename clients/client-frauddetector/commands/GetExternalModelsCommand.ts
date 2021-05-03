@@ -28,8 +28,10 @@ export interface GetExternalModelsCommandOutput extends GetExternalModelsResult,
  *          results, provide the pagination token from the <code>GetExternalModelsResult</code> as part
  *          of your request. A null pagination token fetches the records from the beginning. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FraudDetectorClient, GetExternalModelsCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, GetExternalModelsCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const command = new GetExternalModelsCommand(input);
  * const response = await client.send(command);

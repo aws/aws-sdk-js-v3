@@ -25,8 +25,10 @@ export interface ListMobileDeviceAccessRulesCommandOutput
 /**
  * <p>Lists the mobile device access rules for the specified Amazon WorkMail organization.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, ListMobileDeviceAccessRulesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, ListMobileDeviceAccessRulesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new ListMobileDeviceAccessRulesCommand(input);
  * const response = await client.send(command);

@@ -42,8 +42,10 @@ export interface UpdateLagCommandOutput extends Lag, __MetadataBearer {}
  *       non-operational.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectConnectClient, UpdateLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, UpdateLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const command = new UpdateLagCommand(input);
  * const response = await client.send(command);

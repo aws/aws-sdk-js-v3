@@ -26,8 +26,10 @@ export interface CreateMissionProfileCommandOutput extends MissionProfileIdRespo
  *             <code>dataflowEdges</code> is a list of lists of strings. Each lower level list of strings
  *          has two elements: a <i>from</i> ARN and a <i>to</i> ARN.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GroundStationClient, CreateMissionProfileCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
+ * // const { GroundStationClient, CreateMissionProfileCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
  * const command = new CreateMissionProfileCommand(input);
  * const response = await client.send(command);

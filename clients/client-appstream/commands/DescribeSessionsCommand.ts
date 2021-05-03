@@ -25,8 +25,10 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  *             only streaming sessions for that user are described. If an authentication type is not provided,
  *             the default is to authenticate users using a streaming URL.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppStreamClient, DescribeSessionsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
+ * // const { AppStreamClient, DescribeSessionsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
  * const command = new DescribeSessionsCommand(input);
  * const response = await client.send(command);

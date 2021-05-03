@@ -24,8 +24,10 @@ export interface GetGlobalSettingsCommandOutput extends GetGlobalSettingsRespons
  * <p>Retrieves global settings for the administrator's AWS account, such as Amazon Chime Business
  *             Calling and Amazon Chime Voice Connector settings.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, GetGlobalSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, GetGlobalSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new GetGlobalSettingsCommand(input);
  * const response = await client.send(command);

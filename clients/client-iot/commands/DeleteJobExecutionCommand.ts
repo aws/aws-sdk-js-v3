@@ -23,8 +23,10 @@ export interface DeleteJobExecutionCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes a job execution.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, DeleteJobExecutionCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DeleteJobExecutionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new DeleteJobExecutionCommand(input);
  * const response = await client.send(command);

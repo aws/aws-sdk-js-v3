@@ -25,8 +25,10 @@ export interface RegisterCertificateWithoutCACommandOutput
 /**
  * <p>Register a certificate that does not have a certificate authority (CA).</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, RegisterCertificateWithoutCACommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, RegisterCertificateWithoutCACommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new RegisterCertificateWithoutCACommand(input);
  * const response = await client.send(command);

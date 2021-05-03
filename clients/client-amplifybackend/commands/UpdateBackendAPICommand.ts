@@ -23,8 +23,10 @@ export interface UpdateBackendAPICommandOutput extends UpdateBackendAPIResponse,
 /**
  * <p>Updates an existing backend API resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AmplifyBackendClient, UpdateBackendAPICommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
+ * // const { AmplifyBackendClient, UpdateBackendAPICommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const command = new UpdateBackendAPICommand(input);
  * const response = await client.send(command);

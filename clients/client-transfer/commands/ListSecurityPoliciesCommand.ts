@@ -24,8 +24,10 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  * <p>Lists the security policies that are attached to your file transfer protocol-enabled
  *       servers.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TransferClient, ListSecurityPoliciesCommand } from "@aws-sdk/client-transfer"; // ES Modules import
+ * // const { TransferClient, ListSecurityPoliciesCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
  * const command = new ListSecurityPoliciesCommand(input);
  * const response = await client.send(command);

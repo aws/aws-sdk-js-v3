@@ -23,8 +23,10 @@ export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataB
 /**
  * <p>Gets information about unique device types.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, ListDevicesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, ListDevicesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new ListDevicesCommand(input);
  * const response = await client.send(command);

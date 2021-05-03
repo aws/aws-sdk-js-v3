@@ -24,8 +24,10 @@ export interface DescribeInferenceSchedulerCommandOutput extends DescribeInferen
  * <p> Specifies information about the inference scheduler being used, including name, model,
  *          status, and associated metadata </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutEquipmentClient, DescribeInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, DescribeInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const command = new DescribeInferenceSchedulerCommand(input);
  * const response = await client.send(command);

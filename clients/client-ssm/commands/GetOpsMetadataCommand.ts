@@ -23,8 +23,10 @@ export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __Met
 /**
  * <p>View operational metadata related to an application in Application Manager.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, GetOpsMetadataCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, GetOpsMetadataCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new GetOpsMetadataCommand(input);
  * const response = await client.send(command);

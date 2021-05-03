@@ -25,8 +25,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *       IP sets, and threat intel sets, with a limit of 50 tags per resource. When invoked, this
  *       operation returns all assigned tags for a given resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GuardDutyClient, ListTagsForResourceCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, ListTagsForResourceCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

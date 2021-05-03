@@ -23,8 +23,10 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 /**
  * Removes tags for a resource
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaLiveClient, DeleteTagsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, DeleteTagsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const command = new DeleteTagsCommand(input);
  * const response = await client.send(command);

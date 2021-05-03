@@ -31,8 +31,10 @@ export interface ListDetectMitigationActionsExecutionsCommandOutput
  *       Lists mitigation actions executions for a Device Defender ML Detect Security Profile.
  *     </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, ListDetectMitigationActionsExecutionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListDetectMitigationActionsExecutionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new ListDetectMitigationActionsExecutionsCommand(input);
  * const response = await client.send(command);

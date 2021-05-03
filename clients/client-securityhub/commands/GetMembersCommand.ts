@@ -27,8 +27,10 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  *          <p>The results include both member accounts that are managed using Organizations and accounts that
  *          were invited manually.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SecurityHubClient, GetMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, GetMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const command = new GetMembersCommand(input);
  * const response = await client.send(command);

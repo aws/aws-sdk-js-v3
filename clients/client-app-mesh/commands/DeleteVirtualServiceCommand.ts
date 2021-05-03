@@ -23,8 +23,10 @@ export interface DeleteVirtualServiceCommandOutput extends DeleteVirtualServiceO
 /**
  * <p>Deletes an existing virtual service.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppMeshClient, DeleteVirtualServiceCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
+ * // const { AppMeshClient, DeleteVirtualServiceCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
  * const command = new DeleteVirtualServiceCommand(input);
  * const response = await client.send(command);

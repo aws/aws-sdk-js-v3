@@ -25,8 +25,10 @@ export interface DisassociateMemberFromGroupCommandOutput
 /**
  * <p>Removes a member from a group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, DisassociateMemberFromGroupCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, DisassociateMemberFromGroupCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new DisassociateMemberFromGroupCommand(input);
  * const response = await client.send(command);

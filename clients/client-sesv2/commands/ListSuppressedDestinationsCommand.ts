@@ -24,8 +24,10 @@ export interface ListSuppressedDestinationsCommandOutput extends ListSuppressedD
  * <p>Retrieves a list of email addresses that are on the suppression list for your
  *             account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SESv2Client, ListSuppressedDestinationsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, ListSuppressedDestinationsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
  * const command = new ListSuppressedDestinationsCommand(input);
  * const response = await client.send(command);

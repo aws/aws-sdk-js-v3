@@ -23,8 +23,10 @@ export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpo
 /**
  * <p>Deletes a real time endpoint of an <code>MLModel</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MachineLearningClient, DeleteRealtimeEndpointCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
+ * // const { MachineLearningClient, DeleteRealtimeEndpointCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const command = new DeleteRealtimeEndpointCommand(input);
  * const response = await client.send(command);

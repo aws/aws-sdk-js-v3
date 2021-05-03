@@ -25,8 +25,10 @@ export interface ListTagsForCertificateCommandOutput extends ListTagsForCertific
  *       Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM certificate,
  *       use the <a>AddTagsToCertificate</a> action. To delete a tag, use the <a>RemoveTagsFromCertificate</a> action. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ACMClient, ListTagsForCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
+ * // const { ACMClient, ListTagsForCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
  * const command = new ListTagsForCertificateCommand(input);
  * const response = await client.send(command);

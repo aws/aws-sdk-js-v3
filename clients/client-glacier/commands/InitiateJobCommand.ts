@@ -27,8 +27,10 @@ export interface InitiateJobCommandOutput extends InitiateJobOutput, __MetadataB
  *             a Job</a>.
  *       </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlacierClient, InitiateJobCommand } from "@aws-sdk/client-glacier"; // ES Modules import
+ * // const { GlacierClient, InitiateJobCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
  * const command = new InitiateJobCommand(input);
  * const response = await client.send(command);

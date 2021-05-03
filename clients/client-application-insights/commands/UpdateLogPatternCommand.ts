@@ -27,8 +27,10 @@ export interface UpdateLogPatternCommandOutput extends UpdateLogPatternResponse,
 /**
  * <p>Adds a log pattern to a <code>LogPatternSet</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ApplicationInsightsClient, UpdateLogPatternCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
+ * // const { ApplicationInsightsClient, UpdateLogPatternCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const command = new UpdateLogPatternCommand(input);
  * const response = await client.send(command);

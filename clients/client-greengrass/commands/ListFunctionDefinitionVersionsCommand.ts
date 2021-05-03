@@ -25,8 +25,10 @@ export interface ListFunctionDefinitionVersionsCommandOutput
 /**
  * Lists the versions of a Lambda function definition.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassClient, ListFunctionDefinitionVersionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, ListFunctionDefinitionVersionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
  * const command = new ListFunctionDefinitionVersionsCommand(input);
  * const response = await client.send(command);

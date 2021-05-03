@@ -25,8 +25,10 @@ export interface DetachVpnGatewayCommandOutput extends __MetadataBearer {}
  *         <p>You must wait for the attachment's state to switch to <code>detached</code> before
  *             you can delete the VPC or attach a different VPC to the virtual private gateway.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, DetachVpnGatewayCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DetachVpnGatewayCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new DetachVpnGatewayCommand(input);
  * const response = await client.send(command);

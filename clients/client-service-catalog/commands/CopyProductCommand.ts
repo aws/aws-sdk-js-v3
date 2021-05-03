@@ -27,8 +27,10 @@ export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataB
  *          <p>This operation is performed asynchronously. To track the progress of the
  *          operation, use <a>DescribeCopyProductStatus</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, CopyProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, CopyProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new CopyProductCommand(input);
  * const response = await client.send(command);

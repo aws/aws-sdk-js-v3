@@ -29,8 +29,10 @@ export interface DeleteSolutionCommandOutput extends __MetadataBearer {}
  *       CREATE PENDING or IN PROGRESS state.
  *       For more information on solutions, see <a>CreateSolution</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PersonalizeClient, DeleteSolutionCommand } from "@aws-sdk/client-personalize"; // ES Modules import
+ * // const { PersonalizeClient, DeleteSolutionCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const command = new DeleteSolutionCommand(input);
  * const response = await client.send(command);

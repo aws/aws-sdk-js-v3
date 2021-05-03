@@ -37,8 +37,10 @@ export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGr
  *       has a description, you do not have to specify the description to revoke the rule.</p>
  *          <p>Rule changes are propagated to instances within the security group as quickly as possible. However, a small delay might occur.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, RevokeSecurityGroupEgressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, RevokeSecurityGroupEgressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new RevokeSecurityGroupEgressCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __Metadat
 /**
  * <p>Retrieves the geofence details from a geofence collection.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LocationClient, GetGeofenceCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, GetGeofenceCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
  * const command = new GetGeofenceCommand(input);
  * const response = await client.send(command);

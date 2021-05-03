@@ -25,8 +25,10 @@ export interface GetMapSpritesCommandOutput extends GetMapSpritesResponse, __Met
  *             image paired with a JSON document describing the offsets of individual icons that will
  *             be displayed on a rendered map.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LocationClient, GetMapSpritesCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, GetMapSpritesCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
  * const command = new GetMapSpritesCommand(input);
  * const response = await client.send(command);

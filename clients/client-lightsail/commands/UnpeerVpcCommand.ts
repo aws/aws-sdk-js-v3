@@ -20,8 +20,10 @@ export interface UnpeerVpcCommandOutput extends UnpeerVpcResult, __MetadataBeare
 /**
  * <p>Attempts to unpeer the Lightsail VPC from the user's default VPC.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, UnpeerVpcCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, UnpeerVpcCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new UnpeerVpcCommand(input);
  * const response = await client.send(command);

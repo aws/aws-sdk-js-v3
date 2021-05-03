@@ -25,8 +25,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based
  *     Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, ListTagsForResourceCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ListTagsForResourceCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

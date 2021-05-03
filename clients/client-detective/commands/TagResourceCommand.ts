@@ -23,8 +23,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * <p>Applies tag values to a behavior graph.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DetectiveClient, TagResourceCommand } from "@aws-sdk/client-detective"; // ES Modules import
+ * // const { DetectiveClient, TagResourceCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

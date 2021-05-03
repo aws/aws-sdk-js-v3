@@ -23,8 +23,10 @@ export interface UpdateArchiveRuleCommandOutput extends __MetadataBearer {}
 /**
  * <p>Updates the criteria and values for the specified archive rule.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AccessAnalyzerClient, UpdateArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
+ * // const { AccessAnalyzerClient, UpdateArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const command = new UpdateArchiveRuleCommand(input);
  * const response = await client.send(command);

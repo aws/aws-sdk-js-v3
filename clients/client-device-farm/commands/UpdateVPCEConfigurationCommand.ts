@@ -23,8 +23,10 @@ export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigur
 /**
  * <p>Updates information about an Amazon Virtual Private Cloud (VPC) endpoint configuration.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, UpdateVPCEConfigurationCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, UpdateVPCEConfigurationCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new UpdateVPCEConfigurationCommand(input);
  * const response = await client.send(command);

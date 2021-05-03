@@ -24,8 +24,10 @@ export interface CreateThesaurusCommandOutput extends CreateThesaurusResponse, _
  * <p>Creates a thesaurus for an index. The thesaurus
  *       contains a list of synonyms in Solr format.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KendraClient, CreateThesaurusCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, CreateThesaurusCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
  * const command = new CreateThesaurusCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface GetDeviceProfileCommandOutput extends GetDeviceProfileResponse,
 /**
  * <p>Gets information about a device profile.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTWirelessClient, GetDeviceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, GetDeviceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const command = new GetDeviceProfileCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface DescribeCacheParameterGroupsCommandOutput extends CacheParamete
  *             descriptions. If a cache parameter group name is specified, the list contains only
  *             the descriptions for that group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElastiCacheClient, DescribeCacheParameterGroupsCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, DescribeCacheParameterGroupsCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const command = new DescribeCacheParameterGroupsCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *             Returns all tags of an Elastic Inference Accelerator.
  *         </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticInferenceClient, ListTagsForResourceCommand } from "@aws-sdk/client-elastic-inference"; // ES Modules import
+ * // const { ElasticInferenceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-elastic-inference"); // CommonJS import
  * const client = new ElasticInferenceClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DescribeStackSetCommandOutput extends DescribeStackSetOutput, _
 /**
  * <p>Returns the description of the specified stack set. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFormationClient, DescribeStackSetCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, DescribeStackSetCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const command = new DescribeStackSetCommand(input);
  * const response = await client.send(command);

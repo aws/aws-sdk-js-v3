@@ -23,8 +23,10 @@ export interface CreateImportJobCommandOutput extends CreateImportJobResponse, _
 /**
  * <p>Creates an import job for a data destination.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SESv2Client, CreateImportJobCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, CreateImportJobCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
  * const command = new CreateImportJobCommand(input);
  * const response = await client.send(command);

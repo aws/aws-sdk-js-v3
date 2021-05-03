@@ -23,8 +23,10 @@ export interface AssociateDomainCommandOutput extends AssociateDomainResponse, _
 /**
  * <p>Specifies a domain to be associated to Amazon WorkLink.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkLinkClient, AssociateDomainCommand } from "@aws-sdk/client-worklink"; // ES Modules import
+ * // const { WorkLinkClient, AssociateDomainCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const command = new AssociateDomainCommand(input);
  * const response = await client.send(command);

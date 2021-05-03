@@ -29,8 +29,10 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  *             <p>When you delete a user from a server, the user's information is lost.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TransferClient, DeleteUserCommand } from "@aws-sdk/client-transfer"; // ES Modules import
+ * // const { TransferClient, DeleteUserCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);

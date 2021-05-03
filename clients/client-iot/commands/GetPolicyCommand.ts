@@ -24,8 +24,10 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * <p>Gets information about the specified policy with the policy document of the default
  *          version.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, GetPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, GetPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new GetPolicyCommand(input);
  * const response = await client.send(command);

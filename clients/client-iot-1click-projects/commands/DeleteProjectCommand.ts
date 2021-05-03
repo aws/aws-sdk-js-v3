@@ -31,8 +31,10 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  *             <p>When you delete a project, all associated data becomes irretrievable.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoT1ClickProjectsClient, DeleteProjectCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
+ * // const { IoT1ClickProjectsClient, DeleteProjectCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);

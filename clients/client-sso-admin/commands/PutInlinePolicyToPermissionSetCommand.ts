@@ -30,8 +30,10 @@ export interface PutInlinePolicyToPermissionSetCommandOutput
  *                </code> after this action to apply the corresponding IAM policy updates to all assigned accounts.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSOAdminClient, PutInlinePolicyToPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
+ * // const { SSOAdminClient, PutInlinePolicyToPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const command = new PutInlinePolicyToPermissionSetCommand(input);
  * const response = await client.send(command);

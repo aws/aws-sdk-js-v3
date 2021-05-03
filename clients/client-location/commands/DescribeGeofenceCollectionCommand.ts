@@ -23,8 +23,10 @@ export interface DescribeGeofenceCollectionCommandOutput extends DescribeGeofenc
 /**
  * <p>Retrieves the geofence collection details.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LocationClient, DescribeGeofenceCollectionCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, DescribeGeofenceCollectionCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
  * const command = new DescribeGeofenceCollectionCommand(input);
  * const response = await client.send(command);

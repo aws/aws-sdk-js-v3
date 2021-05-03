@@ -23,8 +23,10 @@ export interface GetOutpostInstanceTypesCommandOutput extends GetOutpostInstance
 /**
  * <p>Lists the instance types for the specified Outpost.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { OutpostsClient, GetOutpostInstanceTypesCommand } from "@aws-sdk/client-outposts"; // ES Modules import
+ * // const { OutpostsClient, GetOutpostInstanceTypesCommand } = require("@aws-sdk/client-outposts"); // CommonJS import
  * const client = new OutpostsClient(config);
  * const command = new GetOutpostInstanceTypesCommand(input);
  * const response = await client.send(command);

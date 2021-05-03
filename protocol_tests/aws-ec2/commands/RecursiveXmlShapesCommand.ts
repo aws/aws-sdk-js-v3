@@ -23,8 +23,10 @@ export interface RecursiveXmlShapesCommandOutput extends RecursiveXmlShapesOutpu
 /**
  * Recursive shapes
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2ProtocolClient, RecursiveXmlShapesCommand } from "@aws-sdk/aws-ec2"; // ES Modules import
+ * // const { EC2ProtocolClient, RecursiveXmlShapesCommand } = require("@aws-sdk/aws-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
  * const command = new RecursiveXmlShapesCommand(input);
  * const response = await client.send(command);

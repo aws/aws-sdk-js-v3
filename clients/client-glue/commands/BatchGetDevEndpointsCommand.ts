@@ -26,8 +26,10 @@ export interface BatchGetDevEndpointsCommandOutput extends BatchGetDevEndpointsR
  *       data to which you have been granted permissions. This operation supports all IAM permissions,
  *       including permission conditions that uses tags.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlueClient, BatchGetDevEndpointsCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, BatchGetDevEndpointsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
  * const command = new BatchGetDevEndpointsCommand(input);
  * const response = await client.send(command);

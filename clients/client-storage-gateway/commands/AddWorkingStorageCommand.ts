@@ -35,8 +35,10 @@ export interface AddWorkingStorageCommandOutput extends AddWorkingStorageOutput,
  *          add working storage, and one or more disk IDs that you want to configure as working
  *          storage.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { StorageGatewayClient, AddWorkingStorageCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, AddWorkingStorageCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const command = new AddWorkingStorageCommand(input);
  * const response = await client.send(command);

@@ -33,8 +33,10 @@ export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataB
  *       Reference</a>.</p>
  *          <p>Modifies an existing high-availability partition group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudHSMClient, ModifyHapgCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
+ * // const { CloudHSMClient, ModifyHapgCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const command = new ModifyHapgCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface RevokeDomainAccessCommandOutput extends RevokeDomainAccessRespo
 /**
  * <p>Moves a domain to INACTIVE status if it was in the ACTIVE status.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkLinkClient, RevokeDomainAccessCommand } from "@aws-sdk/client-worklink"; // ES Modules import
+ * // const { WorkLinkClient, RevokeDomainAccessCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const command = new RevokeDomainAccessCommand(input);
  * const response = await client.send(command);

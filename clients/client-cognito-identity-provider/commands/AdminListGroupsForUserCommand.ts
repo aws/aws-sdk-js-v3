@@ -29,8 +29,10 @@ export interface AdminListGroupsForUserCommandOutput extends AdminListGroupsForU
  * <p>Lists the groups that the user belongs to.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityProviderClient, AdminListGroupsForUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminListGroupsForUserCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const command = new AdminListGroupsForUserCommand(input);
  * const response = await client.send(command);

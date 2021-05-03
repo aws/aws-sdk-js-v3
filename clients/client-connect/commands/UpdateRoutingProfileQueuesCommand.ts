@@ -23,8 +23,10 @@ export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBeare
 /**
  * <p>Updates the properties associated with a set of queues for a routing profile.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, UpdateRoutingProfileQueuesCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, UpdateRoutingProfileQueuesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new UpdateRoutingProfileQueuesCommand(input);
  * const response = await client.send(command);

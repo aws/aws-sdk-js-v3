@@ -35,8 +35,10 @@ export interface DeleteBotAliasCommandOutput extends __MetadataBearer {}
  *       same exception again, delete the referring association until the
  *         <code>DeleteBotAlias</code> operation is successful.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LexModelBuildingServiceClient, DeleteBotAliasCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
+ * // const { LexModelBuildingServiceClient, DeleteBotAliasCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const command = new DeleteBotAliasCommand(input);
  * const response = await client.send(command);

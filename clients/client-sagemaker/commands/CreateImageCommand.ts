@@ -25,8 +25,10 @@ export interface CreateImageCommandOutput extends CreateImageResponse, __Metadat
  *         version represents a container image stored in Amazon Container Registry (ECR). For more information, see
  *         <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html">Bring your own SageMaker image</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, CreateImageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, CreateImageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new CreateImageCommand(input);
  * const response = await client.send(command);

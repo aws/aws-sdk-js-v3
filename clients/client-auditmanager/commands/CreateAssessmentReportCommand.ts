@@ -25,8 +25,10 @@ export interface CreateAssessmentReportCommandOutput extends CreateAssessmentRep
  * Creates an assessment report for the specified assessment.
  * </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AuditManagerClient, CreateAssessmentReportCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
+ * // const { AuditManagerClient, CreateAssessmentReportCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const command = new CreateAssessmentReportCommand(input);
  * const response = await client.send(command);

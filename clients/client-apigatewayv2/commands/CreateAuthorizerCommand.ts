@@ -23,8 +23,10 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
 /**
  * <p>Creates an Authorizer for an API.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ApiGatewayV2Client, CreateAuthorizerCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
+ * // const { ApiGatewayV2Client, CreateAuthorizerCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const command = new CreateAuthorizerCommand(input);
  * const response = await client.send(command);

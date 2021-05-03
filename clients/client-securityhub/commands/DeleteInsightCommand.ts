@@ -23,8 +23,10 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
 /**
  * <p>Deletes the insight specified by the <code>InsightArn</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SecurityHubClient, DeleteInsightCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, DeleteInsightCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const command = new DeleteInsightCommand(input);
  * const response = await client.send(command);

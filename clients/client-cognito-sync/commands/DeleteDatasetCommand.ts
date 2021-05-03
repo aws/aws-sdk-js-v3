@@ -27,8 +27,10 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  *             ResourceNotFoundException.</p>
  *           <p>This API can be called with temporary user credentials provided by Cognito Identity or with developer credentials.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoSyncClient, DeleteDatasetCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
+ * // const { CognitoSyncClient, DeleteDatasetCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const command = new DeleteDatasetCommand(input);
  * const response = await client.send(command);

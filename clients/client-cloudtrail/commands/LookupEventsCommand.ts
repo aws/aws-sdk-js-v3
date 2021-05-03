@@ -70,8 +70,10 @@ export interface LookupEventsCommandOutput extends LookupEventsResponse, __Metad
  *             limit is exceeded, a throttling error occurs.</p>
  *          </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudTrailClient, LookupEventsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
+ * // const { CloudTrailClient, LookupEventsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const command = new LookupEventsCommand(input);
  * const response = await client.send(command);

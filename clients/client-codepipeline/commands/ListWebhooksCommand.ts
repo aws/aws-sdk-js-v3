@@ -25,8 +25,10 @@ export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __Metadat
  *             lists all webhooks and includes the webhook URL and ARN and the configuration for each
  *             webhook.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodePipelineClient, ListWebhooksCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
+ * // const { CodePipelineClient, ListWebhooksCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const command = new ListWebhooksCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface CreateDatabaseCommandOutput extends CreateDatabaseResponse, __M
 /**
  * <p>Creates a new database in a Data Catalog.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlueClient, CreateDatabaseCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, CreateDatabaseCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
  * const command = new CreateDatabaseCommand(input);
  * const response = await client.send(command);

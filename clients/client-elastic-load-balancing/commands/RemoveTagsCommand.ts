@@ -24,8 +24,10 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
 /**
  * <p>Removes one or more tags from the specified load balancer.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticLoadBalancingClient, RemoveTagsCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
+ * // const { ElasticLoadBalancingClient, RemoveTagsCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const command = new RemoveTagsCommand(input);
  * const response = await client.send(command);

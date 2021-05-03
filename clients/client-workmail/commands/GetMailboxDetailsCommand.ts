@@ -23,8 +23,10 @@ export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsRespons
 /**
  * <p>Requests a user's mailbox details for a specified organization and user.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, GetMailboxDetailsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, GetMailboxDetailsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new GetMailboxDetailsCommand(input);
  * const response = await client.send(command);

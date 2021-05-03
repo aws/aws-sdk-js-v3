@@ -25,8 +25,10 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/create-custom-bundle.html">
  *             Create a Custom WorkSpaces Image and Bundle</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkSpacesClient, CreateWorkspaceBundleCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
+ * // const { WorkSpacesClient, CreateWorkspaceBundleCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const command = new CreateWorkspaceBundleCommand(input);
  * const response = await client.send(command);

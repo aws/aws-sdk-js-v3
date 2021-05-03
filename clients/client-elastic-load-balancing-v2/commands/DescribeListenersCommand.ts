@@ -29,8 +29,10 @@ export interface DescribeListenersCommandOutput extends DescribeListenersOutput,
  *       Balancer, Network Load Balancer, or Gateway Load Balancer. You must specify either a load
  *       balancer or one or more listeners.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticLoadBalancingV2Client, DescribeListenersCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, DescribeListenersCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const command = new DescribeListenersCommand(input);
  * const response = await client.send(command);

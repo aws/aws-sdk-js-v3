@@ -23,8 +23,10 @@ export interface DescribeScheduledInstancesCommandOutput extends DescribeSchedul
 /**
  * <p>Describes the specified Scheduled Instances or all your Scheduled Instances.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, DescribeScheduledInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeScheduledInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new DescribeScheduledInstancesCommand(input);
  * const response = await client.send(command);

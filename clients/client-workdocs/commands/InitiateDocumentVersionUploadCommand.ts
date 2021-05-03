@@ -30,8 +30,10 @@ export interface InitiateDocumentVersionUploadCommandOutput
  *             the call, and then call <a>UpdateDocumentVersion</a>.</p>
  *         <p>To cancel the document upload, call <a>AbortDocumentVersionUpload</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkDocsClient, InitiateDocumentVersionUploadCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
+ * // const { WorkDocsClient, InitiateDocumentVersionUploadCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const command = new InitiateDocumentVersionUploadCommand(input);
  * const response = await client.send(command);

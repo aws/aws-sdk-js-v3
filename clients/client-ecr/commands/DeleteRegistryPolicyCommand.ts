@@ -23,8 +23,10 @@ export interface DeleteRegistryPolicyCommandOutput extends DeleteRegistryPolicyR
 /**
  * <p>Deletes the registry permissions policy.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECRClient, DeleteRegistryPolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
+ * // const { ECRClient, DeleteRegistryPolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
  * const command = new DeleteRegistryPolicyCommand(input);
  * const response = await client.send(command);

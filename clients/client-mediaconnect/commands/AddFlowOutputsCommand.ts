@@ -23,8 +23,10 @@ export interface AddFlowOutputsCommandOutput extends AddFlowOutputsResponse, __M
 /**
  * Adds outputs to an existing flow. You can create up to 50 outputs per flow.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaConnectClient, AddFlowOutputsCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
+ * // const { MediaConnectClient, AddFlowOutputsCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const command = new AddFlowOutputsCommand(input);
  * const response = await client.send(command);

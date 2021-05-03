@@ -24,8 +24,10 @@ export interface ScanProvisionedProductsCommandOutput extends ScanProvisionedPro
  * <p>Lists the provisioned products that are available (not terminated).</p>
  *          <p>To use additional filtering, see <a>SearchProvisionedProducts</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, ScanProvisionedProductsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, ScanProvisionedProductsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new ScanProvisionedProductsCommand(input);
  * const response = await client.send(command);

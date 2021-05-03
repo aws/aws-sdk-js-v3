@@ -43,8 +43,10 @@ export interface DescribeMountTargetSecurityGroupsCommandOutput
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EFSClient, DescribeMountTargetSecurityGroupsCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, DescribeMountTargetSecurityGroupsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
  * const command = new DescribeMountTargetSecurityGroupsCommand(input);
  * const response = await client.send(command);

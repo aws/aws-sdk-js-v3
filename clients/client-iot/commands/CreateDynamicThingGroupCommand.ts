@@ -23,8 +23,10 @@ export interface CreateDynamicThingGroupCommandOutput extends CreateDynamicThing
 /**
  * <p>Creates a dynamic thing group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, CreateDynamicThingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, CreateDynamicThingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new CreateDynamicThingGroupCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface ListDataCatalogsCommandOutput extends ListDataCatalogsOutput, _
 /**
  * <p>Lists the data catalogs in the current AWS account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AthenaClient, ListDataCatalogsCommand } from "@aws-sdk/client-athena"; // ES Modules import
+ * // const { AthenaClient, ListDataCatalogsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
  * const command = new ListDataCatalogsCommand(input);
  * const response = await client.send(command);

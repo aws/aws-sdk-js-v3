@@ -32,8 +32,10 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *         <p>This operation requires permission for the
  *             <code>kinesisanalytics:UpdateApplication</code> action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisAnalyticsClient, UpdateApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
+ * // const { KinesisAnalyticsClient, UpdateApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);

@@ -28,8 +28,10 @@ export interface AttachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  *          <p>
  *             <b>Note:</b> This API is deprecated. Please use <a>AttachPolicy</a> instead.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, AttachPrincipalPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, AttachPrincipalPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new AttachPrincipalPolicyCommand(input);
  * const response = await client.send(command);

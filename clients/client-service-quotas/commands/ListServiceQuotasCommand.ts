@@ -25,8 +25,10 @@ export interface ListServiceQuotasCommandOutput extends ListServiceQuotasRespons
  *       default values are available. If the applied quota value is not available for a quota, the
  *       quota is not retrieved.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceQuotasClient, ListServiceQuotasCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
+ * // const { ServiceQuotasClient, ListServiceQuotasCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
  * const command = new ListServiceQuotasCommand(input);
  * const response = await client.send(command);

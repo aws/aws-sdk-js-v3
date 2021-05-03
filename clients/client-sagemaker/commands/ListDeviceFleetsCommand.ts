@@ -23,8 +23,10 @@ export interface ListDeviceFleetsCommandOutput extends ListDeviceFleetsResponse,
 /**
  * <p>Returns a list of devices in the fleet.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, ListDeviceFleetsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListDeviceFleetsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new ListDeviceFleetsCommand(input);
  * const response = await client.send(command);

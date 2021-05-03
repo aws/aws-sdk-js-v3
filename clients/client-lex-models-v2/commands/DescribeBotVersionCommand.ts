@@ -23,8 +23,10 @@ export interface DescribeBotVersionCommandOutput extends DescribeBotVersionRespo
 /**
  * <p>Provides metadata about a version of a bot.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LexModelsV2Client, DescribeBotVersionCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, DescribeBotVersionCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const command = new DescribeBotVersionCommand(input);
  * const response = await client.send(command);

@@ -26,8 +26,10 @@ export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
  *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">Using roles to
  *                 delegate permissions and federate identities</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IAMClient, UpdateAssumeRolePolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, UpdateAssumeRolePolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
  * const command = new UpdateAssumeRolePolicyCommand(input);
  * const response = await client.send(command);

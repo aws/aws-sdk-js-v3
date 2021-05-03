@@ -23,8 +23,10 @@ export interface CreateRobotCommandOutput extends CreateRobotResponse, __Metadat
 /**
  * <p>Creates a robot.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RoboMakerClient, CreateRobotCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
+ * // const { RoboMakerClient, CreateRobotCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const command = new CreateRobotCommand(input);
  * const response = await client.send(command);

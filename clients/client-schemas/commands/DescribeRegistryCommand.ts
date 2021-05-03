@@ -23,8 +23,10 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
 /**
  * <p>Describes the registry.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SchemasClient, DescribeRegistryCommand } from "@aws-sdk/client-schemas"; // ES Modules import
+ * // const { SchemasClient, DescribeRegistryCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
  * const command = new DescribeRegistryCommand(input);
  * const response = await client.send(command);

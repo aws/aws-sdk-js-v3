@@ -23,8 +23,10 @@ export interface ListLensReviewsCommandOutput extends ListLensReviewsOutput, __M
 /**
  * <p>List lens reviews.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WellArchitectedClient, ListLensReviewsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, ListLensReviewsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const command = new ListLensReviewsCommand(input);
  * const response = await client.send(command);

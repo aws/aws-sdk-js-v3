@@ -33,8 +33,10 @@ export interface AttachObjectCommandOutput extends AttachObjectResponse, __Metad
  *             </li>
  *          </ol>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudDirectoryClient, AttachObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, AttachObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const command = new AttachObjectCommand(input);
  * const response = await client.send(command);

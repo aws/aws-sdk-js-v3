@@ -24,8 +24,10 @@ export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParamete
  * <p>Updates room skill parameter details by room, skill, and parameter key ID. Not all
  *          skills have a room skill parameter.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AlexaForBusinessClient, PutRoomSkillParameterCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, PutRoomSkillParameterCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const command = new PutRoomSkillParameterCommand(input);
  * const response = await client.send(command);

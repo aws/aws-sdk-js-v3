@@ -24,8 +24,10 @@ export interface DescribeSMBFileSharesCommandOutput extends DescribeSMBFileShare
  * <p>Gets a description for one or more Server Message Block (SMB) file shares from a file
  *          gateway. This operation is only supported for file gateways.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { StorageGatewayClient, DescribeSMBFileSharesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, DescribeSMBFileSharesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const command = new DescribeSMBFileSharesCommand(input);
  * const response = await client.send(command);

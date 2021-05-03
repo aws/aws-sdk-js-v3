@@ -23,8 +23,10 @@ export interface FlushStageAuthorizersCacheCommandOutput extends __MetadataBeare
 /**
  * <p>Flushes all authorizer cache entries on a stage.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { APIGatewayClient, FlushStageAuthorizersCacheCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, FlushStageAuthorizersCacheCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const command = new FlushStageAuthorizersCacheCommand(input);
  * const response = await client.send(command);

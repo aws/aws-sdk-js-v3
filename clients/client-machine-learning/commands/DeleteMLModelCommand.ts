@@ -28,8 +28,10 @@ export interface DeleteMLModelCommandOutput extends DeleteMLModelOutput, __Metad
  *         <p>
  *             <b>Caution:</b> The result of the <code>DeleteMLModel</code> operation is irreversible.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MachineLearningClient, DeleteMLModelCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
+ * // const { MachineLearningClient, DeleteMLModelCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const command = new DeleteMLModelCommand(input);
  * const response = await client.send(command);

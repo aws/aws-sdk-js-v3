@@ -26,8 +26,10 @@ export interface DescribeSubscriptionFiltersCommandOutput
  * <p>Lists the subscription filters for the specified log group. You can list all the subscription filters or filter the results by prefix.
  *       The results are ASCII-sorted by filter name.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudWatchLogsClient, DescribeSubscriptionFiltersCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
+ * // const { CloudWatchLogsClient, DescribeSubscriptionFiltersCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const command = new DescribeSubscriptionFiltersCommand(input);
  * const response = await client.send(command);

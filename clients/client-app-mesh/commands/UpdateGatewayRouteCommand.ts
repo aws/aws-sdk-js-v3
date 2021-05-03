@@ -24,8 +24,10 @@ export interface UpdateGatewayRouteCommandOutput extends UpdateGatewayRouteOutpu
  * <p>Updates an existing gateway route that is associated to a specified virtual gateway in a
  *          service mesh.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppMeshClient, UpdateGatewayRouteCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
+ * // const { AppMeshClient, UpdateGatewayRouteCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
  * const command = new UpdateGatewayRouteCommand(input);
  * const response = await client.send(command);

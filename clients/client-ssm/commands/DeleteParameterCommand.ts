@@ -23,8 +23,10 @@ export interface DeleteParameterCommandOutput extends DeleteParameterResult, __M
 /**
  * <p>Delete a parameter from the system.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, DeleteParameterCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DeleteParameterCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new DeleteParameterCommand(input);
  * const response = await client.send(command);

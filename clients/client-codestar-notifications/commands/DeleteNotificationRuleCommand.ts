@@ -27,8 +27,10 @@ export interface DeleteNotificationRuleCommandOutput extends DeleteNotificationR
 /**
  * <p>Deletes a notification rule for a resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodestarNotificationsClient, DeleteNotificationRuleCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
+ * // const { CodestarNotificationsClient, DeleteNotificationRuleCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
  * const command = new DeleteNotificationRuleCommand(input);
  * const response = await client.send(command);

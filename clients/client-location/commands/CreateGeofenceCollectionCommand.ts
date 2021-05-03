@@ -23,8 +23,10 @@ export interface CreateGeofenceCollectionCommandOutput extends CreateGeofenceCol
 /**
  * <p>Creates a geofence collection, which manages and stores geofences.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LocationClient, CreateGeofenceCollectionCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, CreateGeofenceCollectionCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
  * const command = new CreateGeofenceCollectionCommand(input);
  * const response = await client.send(command);

@@ -29,8 +29,10 @@ export interface ListAccountAssignmentCreationStatusCommandOutput
  * <p>Lists the status of the AWS account assignment creation requests for a specified SSO
  *        instance.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSOAdminClient, ListAccountAssignmentCreationStatusCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
+ * // const { SSOAdminClient, ListAccountAssignmentCreationStatusCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const command = new ListAccountAssignmentCreationStatusCommand(input);
  * const response = await client.send(command);

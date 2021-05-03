@@ -23,8 +23,10 @@ export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGro
 /**
  * <p>Gets a list of the model groups in your AWS account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, ListModelPackageGroupsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListModelPackageGroupsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new ListModelPackageGroupsCommand(input);
  * const response = await client.send(command);

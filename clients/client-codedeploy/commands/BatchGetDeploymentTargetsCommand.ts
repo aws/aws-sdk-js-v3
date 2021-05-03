@@ -50,8 +50,10 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeDeployClient, BatchGetDeploymentTargetsCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
+ * // const { CodeDeployClient, BatchGetDeploymentTargetsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const command = new BatchGetDeploymentTargetsCommand(input);
  * const response = await client.send(command);

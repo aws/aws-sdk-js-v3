@@ -24,8 +24,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
  *          <p>Adds the specified tags to the specified resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppIntegrationsClient, TagResourceCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
+ * // const { AppIntegrationsClient, TagResourceCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

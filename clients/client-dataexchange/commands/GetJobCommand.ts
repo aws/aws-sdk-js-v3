@@ -20,8 +20,10 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
 /**
  * <p>This operation returns information about a job.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataExchangeClient, GetJobCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
+ * // const { DataExchangeClient, GetJobCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
  * const command = new GetJobCommand(input);
  * const response = await client.send(command);

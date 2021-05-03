@@ -25,8 +25,10 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  *       list will contain only the descriptions of the specified DBSubnetGroup.</p>
  *          <p>For an overview of CIDR ranges, go to the <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Wikipedia Tutorial</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NeptuneClient, DescribeDBSubnetGroupsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, DescribeDBSubnetGroupsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
  * const command = new DescribeDBSubnetGroupsCommand(input);
  * const response = await client.send(command);

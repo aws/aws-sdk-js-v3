@@ -24,8 +24,10 @@ export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSet
  * <p>Describes the permissions on a dataset.</p>
  * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { QuickSightClient, DescribeDataSetPermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, DescribeDataSetPermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
  * const command = new DescribeDataSetPermissionsCommand(input);
  * const response = await client.send(command);

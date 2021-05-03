@@ -23,8 +23,10 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
 /**
  * <p>Gets a list of available bots.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LexModelsV2Client, ListBotsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, ListBotsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const command = new ListBotsCommand(input);
  * const response = await client.send(command);

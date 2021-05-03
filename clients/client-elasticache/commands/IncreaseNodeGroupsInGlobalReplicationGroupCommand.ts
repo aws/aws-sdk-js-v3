@@ -29,8 +29,10 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput
 /**
  * <p>Increase the number of node groups in the Global datastore</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElastiCacheClient, IncreaseNodeGroupsInGlobalReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, IncreaseNodeGroupsInGlobalReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const command = new IncreaseNodeGroupsInGlobalReplicationGroupCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicat
 /**
  * <p>Adds one or more nodes to a DAX cluster.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DAXClient, IncreaseReplicationFactorCommand } from "@aws-sdk/client-dax"; // ES Modules import
+ * // const { DAXClient, IncreaseReplicationFactorCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
  * const command = new IncreaseReplicationFactorCommand(input);
  * const response = await client.send(command);

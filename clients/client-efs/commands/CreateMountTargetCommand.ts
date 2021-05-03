@@ -164,8 +164,10 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EFSClient, CreateMountTargetCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, CreateMountTargetCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
  * const command = new CreateMountTargetCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface PutLaunchProfileMembersCommandOutput extends PutLaunchProfileMe
 /**
  * <p>Add/update users with given persona to launch profile membership.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NimbleClient, PutLaunchProfileMembersCommand } from "@aws-sdk/client-nimble"; // ES Modules import
+ * // const { NimbleClient, PutLaunchProfileMembersCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
  * const command = new PutLaunchProfileMembersCommand(input);
  * const response = await client.send(command);

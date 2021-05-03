@@ -28,8 +28,10 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  * 	           <p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
  *          </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SQSClient, SendMessageCommand } from "@aws-sdk/client-sqs"; // ES Modules import
+ * // const { SQSClient, SendMessageCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
  * const command = new SendMessageCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse,
  *             written to it. Completing the snapshot changes the status to <code>completed</code>. You
  *             cannot write new blocks to a snapshot after it has been completed.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EBSClient, CompleteSnapshotCommand } from "@aws-sdk/client-ebs"; // ES Modules import
+ * // const { EBSClient, CompleteSnapshotCommand } = require("@aws-sdk/client-ebs"); // CommonJS import
  * const client = new EBSClient(config);
  * const command = new CompleteSnapshotCommand(input);
  * const response = await client.send(command);

@@ -27,8 +27,10 @@ export interface CreateDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  *          <p>When a contact uses multiple <code>DataflowEndpointConfig</code> objects, each <code>Config</code>
  *          must match a <code>DataflowEndpoint</code> in the same group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GroundStationClient, CreateDataflowEndpointGroupCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
+ * // const { GroundStationClient, CreateDataflowEndpointGroupCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
  * const command = new CreateDataflowEndpointGroupCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataB
  * <p>Deletes an existing link. You must first disassociate the link from any devices and
  *             customer gateways.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NetworkManagerClient, DeleteLinkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
+ * // const { NetworkManagerClient, DeleteLinkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const command = new DeleteLinkCommand(input);
  * const response = await client.send(command);

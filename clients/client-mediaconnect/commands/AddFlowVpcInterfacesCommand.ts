@@ -23,8 +23,10 @@ export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesR
 /**
  * Adds VPC interfaces to flow
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaConnectClient, AddFlowVpcInterfacesCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
+ * // const { MediaConnectClient, AddFlowVpcInterfacesCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const command = new AddFlowVpcInterfacesCommand(input);
  * const response = await client.send(command);

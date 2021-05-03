@@ -33,8 +33,10 @@ export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackR
  *          resources, or <a>DetectStackDrift</a> to detect drift on all supported resources
  *          for a given stack.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFormationClient, DescribeStackResourceDriftsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, DescribeStackResourceDriftsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const command = new DescribeStackResourceDriftsCommand(input);
  * const response = await client.send(command);

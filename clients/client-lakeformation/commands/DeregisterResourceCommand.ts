@@ -25,8 +25,10 @@ export interface DeregisterResourceCommandOutput extends DeregisterResourceRespo
  *
  *          <p>When you deregister a path, Lake Formation removes the path from the inline policy attached to your service-linked role.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LakeFormationClient, DeregisterResourceCommand } from "@aws-sdk/client-lakeformation"; // ES Modules import
+ * // const { LakeFormationClient, DeregisterResourceCommand } = require("@aws-sdk/client-lakeformation"); // CommonJS import
  * const client = new LakeFormationClient(config);
  * const command = new DeregisterResourceCommand(input);
  * const response = await client.send(command);

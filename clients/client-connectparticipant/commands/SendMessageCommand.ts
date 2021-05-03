@@ -32,8 +32,10 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  *                     authentication</a>.</p>
  *         </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectParticipantClient, SendMessageCommand } from "@aws-sdk/client-connectparticipant"; // ES Modules import
+ * // const { ConnectParticipantClient, SendMessageCommand } = require("@aws-sdk/client-connectparticipant"); // CommonJS import
  * const client = new ConnectParticipantClient(config);
  * const command = new SendMessageCommand(input);
  * const response = await client.send(command);

@@ -28,8 +28,10 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
 /**
  * <p>Lists information about all identity providers for a user pool.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityProviderClient, ListIdentityProvidersCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, ListIdentityProvidersCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const command = new ListIdentityProvidersCommand(input);
  * const response = await client.send(command);

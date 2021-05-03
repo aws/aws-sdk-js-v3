@@ -24,8 +24,10 @@ export interface CreateFacetCommandOutput extends CreateFacetResponse, __Metadat
  * <p>Creates a new <a>Facet</a> in a schema. Facet creation is allowed only
  *       in development or applied schemas.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudDirectoryClient, CreateFacetCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, CreateFacetCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const command = new CreateFacetCommand(input);
  * const response = await client.send(command);

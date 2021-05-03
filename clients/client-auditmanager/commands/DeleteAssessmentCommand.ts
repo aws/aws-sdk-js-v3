@@ -25,8 +25,10 @@ export interface DeleteAssessmentCommandOutput extends DeleteAssessmentResponse,
  *    Deletes an assessment in AWS Audit Manager.
  * </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AuditManagerClient, DeleteAssessmentCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
+ * // const { AuditManagerClient, DeleteAssessmentCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const command = new DeleteAssessmentCommand(input);
  * const response = await client.send(command);

@@ -30,8 +30,10 @@ export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysRespons
  *         <p>Although each user is limited to a small number of keys, you can still paginate the
  *             results using the <code>MaxItems</code> and <code>Marker</code> parameters.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IAMClient, ListSSHPublicKeysCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, ListSSHPublicKeysCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
  * const command = new ListSSHPublicKeysCommand(input);
  * const response = await client.send(command);

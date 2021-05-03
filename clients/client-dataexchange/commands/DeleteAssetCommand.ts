@@ -23,8 +23,10 @@ export interface DeleteAssetCommandOutput extends __MetadataBearer {}
 /**
  * <p>This operation deletes an asset.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataExchangeClient, DeleteAssetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
+ * // const { DataExchangeClient, DeleteAssetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
  * const command = new DeleteAssetCommand(input);
  * const response = await client.send(command);

@@ -31,8 +31,10 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  *         days. </p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SFNClient, StartExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
+ * // const { SFNClient, StartExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
  * const command = new StartExecutionCommand(input);
  * const response = await client.send(command);

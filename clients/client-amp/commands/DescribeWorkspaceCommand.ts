@@ -23,8 +23,10 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
 /**
  * Describes an existing AMP workspace.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AmpClient, DescribeWorkspaceCommand } from "@aws-sdk/client-amp"; // ES Modules import
+ * // const { AmpClient, DescribeWorkspaceCommand } = require("@aws-sdk/client-amp"); // CommonJS import
  * const client = new AmpClient(config);
  * const command = new DescribeWorkspaceCommand(input);
  * const response = await client.send(command);

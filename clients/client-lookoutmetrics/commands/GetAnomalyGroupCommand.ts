@@ -23,8 +23,10 @@ export interface GetAnomalyGroupCommandOutput extends GetAnomalyGroupResponse, _
 /**
  * <p>Returns details about a group of anomalous metrics.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutMetricsClient, GetAnomalyGroupCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
+ * // const { LookoutMetricsClient, GetAnomalyGroupCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const command = new GetAnomalyGroupCommand(input);
  * const response = await client.send(command);

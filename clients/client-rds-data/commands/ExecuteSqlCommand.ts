@@ -29,8 +29,10 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  *                     <code>ExecuteStatement</code> operation.</p>
  *         </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSDataClient, ExecuteSqlCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
+ * // const { RDSDataClient, ExecuteSqlCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
  * const client = new RDSDataClient(config);
  * const command = new ExecuteSqlCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, _
  * <p>Returns the AWS Organizations master account that is associated with AWS Firewall Manager
  *       as the AWS Firewall Manager administrator.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FMSClient, GetAdminAccountCommand } from "@aws-sdk/client-fms"; // ES Modules import
+ * // const { FMSClient, GetAdminAccountCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
  * const command = new GetAdminAccountCommand(input);
  * const response = await client.send(command);

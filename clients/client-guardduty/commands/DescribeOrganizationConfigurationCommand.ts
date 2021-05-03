@@ -29,8 +29,10 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * <p>Returns information about the account selected as the delegated administrator for
  *       GuardDuty.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GuardDutyClient, DescribeOrganizationConfigurationCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, DescribeOrganizationConfigurationCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);

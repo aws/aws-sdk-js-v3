@@ -23,8 +23,10 @@ export interface DescribeAlgorithmCommandOutput extends DescribeAlgorithmOutput,
 /**
  * <p>Returns a description of the specified algorithm that is in your account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, DescribeAlgorithmCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DescribeAlgorithmCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new DescribeAlgorithmCommand(input);
  * const response = await client.send(command);

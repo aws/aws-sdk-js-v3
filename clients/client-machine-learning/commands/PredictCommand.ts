@@ -24,8 +24,10 @@ export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
  *             <b>Note:</b> Not all response parameters will be populated. Whether a
  *           response parameter is populated depends on the type of model requested.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MachineLearningClient, PredictCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
+ * // const { MachineLearningClient, PredictCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const command = new PredictCommand(input);
  * const response = await client.send(command);

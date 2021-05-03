@@ -30,8 +30,10 @@ export interface DescribeRecommendationExportJobsCommandOutput
  *             recommendations. Then use the <code>DescribeRecommendationExportJobs</code> action to
  *             view your export jobs.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComputeOptimizerClient, DescribeRecommendationExportJobsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
+ * // const { ComputeOptimizerClient, DescribeRecommendationExportJobsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const command = new DescribeRecommendationExportJobsCommand(input);
  * const response = await client.send(command);

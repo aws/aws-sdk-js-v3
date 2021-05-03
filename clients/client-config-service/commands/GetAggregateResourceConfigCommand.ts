@@ -23,8 +23,10 @@ export interface GetAggregateResourceConfigCommandOutput extends GetAggregateRes
 /**
  * <p>Returns configuration item that is aggregated for your specific resource in a specific source account and region.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConfigServiceClient, GetAggregateResourceConfigCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, GetAggregateResourceConfigCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const command = new GetAggregateResourceConfigCommand(input);
  * const response = await client.send(command);

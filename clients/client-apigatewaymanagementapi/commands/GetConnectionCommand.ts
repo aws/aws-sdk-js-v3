@@ -27,8 +27,10 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
 /**
  * <p>Get information about the connection with the provided id.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ApiGatewayManagementApiClient, GetConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi"; // ES Modules import
+ * // const { ApiGatewayManagementApiClient, GetConnectionCommand } = require("@aws-sdk/client-apigatewaymanagementapi"); // CommonJS import
  * const client = new ApiGatewayManagementApiClient(config);
  * const command = new GetConnectionCommand(input);
  * const response = await client.send(command);

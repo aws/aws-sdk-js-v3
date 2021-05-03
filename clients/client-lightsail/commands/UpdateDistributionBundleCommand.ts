@@ -32,8 +32,10 @@ export interface UpdateDistributionBundleCommandOutput extends UpdateDistributio
  *         <code>GetDistributions</code> action. The <code>ableToUpdateBundle</code> parameter in the
  *       result will indicate whether you can currently update your distribution's bundle.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, UpdateDistributionBundleCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, UpdateDistributionBundleCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new UpdateDistributionBundleCommand(input);
  * const response = await client.send(command);

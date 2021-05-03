@@ -23,8 +23,10 @@ export interface SetTypeDefaultVersionCommandOutput extends SetTypeDefaultVersio
 /**
  * <p>Specify the default version of an extension. The default version of an extension will be used in CloudFormation operations.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFormationClient, SetTypeDefaultVersionCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, SetTypeDefaultVersionCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const command = new SetTypeDefaultVersionCommand(input);
  * const response = await client.send(command);

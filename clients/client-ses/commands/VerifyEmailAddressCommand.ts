@@ -24,8 +24,10 @@ export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
  * <p>Deprecated. Use the <code>VerifyEmailIdentity</code> operation to verify a new email
  *             address.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SESClient, VerifyEmailAddressCommand } from "@aws-sdk/client-ses"; // ES Modules import
+ * // const { SESClient, VerifyEmailAddressCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
  * const command = new VerifyEmailAddressCommand(input);
  * const response = await client.send(command);

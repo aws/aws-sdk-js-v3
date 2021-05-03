@@ -23,8 +23,10 @@ export interface RestoreDomainAccessCommandOutput extends RestoreDomainAccessRes
 /**
  * <p>Moves a domain to ACTIVE status if it was in the INACTIVE status.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkLinkClient, RestoreDomainAccessCommand } from "@aws-sdk/client-worklink"; // ES Modules import
+ * // const { WorkLinkClient, RestoreDomainAccessCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const command = new RestoreDomainAccessCommand(input);
  * const response = await client.send(command);

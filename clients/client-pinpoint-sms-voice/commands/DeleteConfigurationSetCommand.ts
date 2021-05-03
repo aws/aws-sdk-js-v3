@@ -23,8 +23,10 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
 /**
  * Deletes an existing configuration set.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointSMSVoiceClient, DeleteConfigurationSetCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
+ * // const { PinpointSMSVoiceClient, DeleteConfigurationSetCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
  * const client = new PinpointSMSVoiceClient(config);
  * const command = new DeleteConfigurationSetCommand(input);
  * const response = await client.send(command);

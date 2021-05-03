@@ -29,8 +29,10 @@ export interface CreateProductCommandOutput extends CreateProductOutput, __Metad
  *          required when using the <code>ImportFromPhysicalId</code> template source in the
  *          information data section.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, CreateProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, CreateProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new CreateProductCommand(input);
  * const response = await client.send(command);

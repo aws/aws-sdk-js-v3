@@ -20,8 +20,10 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
 /**
  * <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KendraClient, CreateFaqCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, CreateFaqCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
  * const command = new CreateFaqCommand(input);
  * const response = await client.send(command);

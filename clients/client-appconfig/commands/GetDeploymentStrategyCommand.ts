@@ -27,8 +27,10 @@ export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, 
  *          receive the deployment during each interval, an algorithm that defines how percentage
  *          grows, and bake time.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppConfigClient, GetDeploymentStrategyCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
+ * // const { AppConfigClient, GetDeploymentStrategyCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
  * const command = new GetDeploymentStrategyCommand(input);
  * const response = await client.send(command);

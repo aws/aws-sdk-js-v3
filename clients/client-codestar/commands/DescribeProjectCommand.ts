@@ -23,8 +23,10 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResult, __M
 /**
  * <p>Describes a project and its resources.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeStarClient, DescribeProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
+ * // const { CodeStarClient, DescribeProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);

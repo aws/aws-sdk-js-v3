@@ -24,8 +24,10 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * <p>Deletes a namespace from the current account. If the namespace still contains one or more services, the request
  *    fails.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceDiscoveryClient, DeleteNamespaceCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
+ * // const { ServiceDiscoveryClient, DeleteNamespaceCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
  * const command = new DeleteNamespaceCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface ListConfigurationRevisionsCommandOutput extends ListConfigurati
 /**
  * <p>Returns a list of all the MSK configurations in this Region.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KafkaClient, ListConfigurationRevisionsCommand } from "@aws-sdk/client-kafka"; // ES Modules import
+ * // const { KafkaClient, ListConfigurationRevisionsCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
  * const command = new ListConfigurationRevisionsCommand(input);
  * const response = await client.send(command);

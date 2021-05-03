@@ -25,8 +25,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *             <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the
  *             <i>Amazon Simple Notification Service Developer Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SNSClient, ListTagsForResourceCommand } from "@aws-sdk/client-sns"; // ES Modules import
+ * // const { SNSClient, ListTagsForResourceCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

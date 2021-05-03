@@ -23,8 +23,10 @@ export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsRes
 /**
  * <p>Lists logging levels.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, ListV2LoggingLevelsCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListV2LoggingLevelsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new ListV2LoggingLevelsCommand(input);
  * const response = await client.send(command);

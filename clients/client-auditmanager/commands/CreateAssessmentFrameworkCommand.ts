@@ -25,8 +25,10 @@ export interface CreateAssessmentFrameworkCommandOutput extends CreateAssessment
  * Creates a custom framework in AWS Audit Manager.
  * </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AuditManagerClient, CreateAssessmentFrameworkCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
+ * // const { AuditManagerClient, CreateAssessmentFrameworkCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const command = new CreateAssessmentFrameworkCommand(input);
  * const response = await client.send(command);

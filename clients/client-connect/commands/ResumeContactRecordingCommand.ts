@@ -26,8 +26,10 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  *
  *          <p>Only voice recordings are supported at this time.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, ResumeContactRecordingCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ResumeContactRecordingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new ResumeContactRecordingCommand(input);
  * const response = await client.send(command);

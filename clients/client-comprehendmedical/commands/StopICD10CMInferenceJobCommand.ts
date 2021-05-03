@@ -27,8 +27,10 @@ export interface StopICD10CMInferenceJobCommandOutput extends StopICD10CMInferen
 /**
  * <p>Stops an InferICD10CM inference job in progress.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendMedicalClient, StopICD10CMInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
+ * // const { ComprehendMedicalClient, StopICD10CMInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
  * const command = new StopICD10CMInferenceJobCommand(input);
  * const response = await client.send(command);

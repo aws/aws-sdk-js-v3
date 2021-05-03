@@ -23,8 +23,10 @@ export interface BatchGetVariableCommandOutput extends BatchGetVariableResult, _
 /**
  * <p>Gets a batch of variables.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FraudDetectorClient, BatchGetVariableCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, BatchGetVariableCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const command = new BatchGetVariableCommand(input);
  * const response = await client.send(command);

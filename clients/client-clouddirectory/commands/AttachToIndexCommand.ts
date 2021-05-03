@@ -23,8 +23,10 @@ export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __Met
 /**
  * <p>Attaches the specified object to the specified index.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudDirectoryClient, AttachToIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, AttachToIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const command = new AttachToIndexCommand(input);
  * const response = await client.send(command);

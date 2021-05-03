@@ -23,8 +23,10 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
 /**
  * <p>List the registries.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SchemasClient, ListRegistriesCommand } from "@aws-sdk/client-schemas"; // ES Modules import
+ * // const { SchemasClient, ListRegistriesCommand } = require("@aws-sdk/client-schemas"); // CommonJS import
  * const client = new SchemasClient(config);
  * const command = new ListRegistriesCommand(input);
  * const response = await client.send(command);

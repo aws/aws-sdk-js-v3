@@ -32,8 +32,10 @@ export interface DescribeProvisioningParametersCommandOutput
  *          "Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>".
  *          Tag the provisioned product with the value <code>sc-tagoption-conflict-portfolioId-productId</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, DescribeProvisioningParametersCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, DescribeProvisioningParametersCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new DescribeProvisioningParametersCommand(input);
  * const response = await client.send(command);

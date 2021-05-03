@@ -20,8 +20,10 @@ export interface ModifyUserCommandOutput extends User, __MetadataBearer {}
 /**
  * <p>Changes user password(s) and/or access string.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElastiCacheClient, ModifyUserCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, ModifyUserCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const command = new ModifyUserCommand(input);
  * const response = await client.send(command);

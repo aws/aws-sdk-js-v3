@@ -28,8 +28,10 @@ export interface GetMapTileCommandOutput extends GetMapTileResponse, __MetadataB
  *             both the X and Y dimensions, so a tile containing data for the entire world at (0/0/0)
  *             will be split into 4 tiles at zoom 1 (1/0/0, 1/0/1, 1/1/0, 1/1/1).</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LocationClient, GetMapTileCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, GetMapTileCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
  * const command = new GetMapTileCommand(input);
  * const response = await client.send(command);

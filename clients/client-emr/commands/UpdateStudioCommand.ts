@@ -23,8 +23,10 @@ export interface UpdateStudioCommandOutput extends __MetadataBearer {}
 /**
  * <p>Updates an Amazon EMR Studio configuration, including attributes such as name, description, and subnets.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EMRClient, UpdateStudioCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, UpdateStudioCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
  * const command = new UpdateStudioCommand(input);
  * const response = await client.send(command);

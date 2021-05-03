@@ -25,8 +25,10 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  *             existing topic preferences in the TopicPreferences object, just the ones that need
  *             updating.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SESv2Client, UpdateContactCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, UpdateContactCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
  * const command = new UpdateContactCommand(input);
  * const response = await client.send(command);

@@ -30,8 +30,10 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  *          <p>This operation requires permission for the <code>elasticfilesystem:CreateTags</code>
  *       action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EFSClient, CreateTagsCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, CreateTagsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
  * const command = new CreateTagsCommand(input);
  * const response = await client.send(command);

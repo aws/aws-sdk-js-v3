@@ -28,8 +28,10 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  *       This operation is synchronous.
  *     </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { OpsWorksCMClient, UpdateServerCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
+ * // const { OpsWorksCMClient, UpdateServerCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
  * const command = new UpdateServerCommand(input);
  * const response = await client.send(command);

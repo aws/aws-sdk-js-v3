@@ -24,8 +24,10 @@ export interface GetStatementResultCommandOutput extends GetStatementResultRespo
  * <p>Fetches the temporarily cached result of an SQL statement.
  *        A token is returned to page through the statement results. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RedshiftDataClient, GetStatementResultCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
+ * // const { RedshiftDataClient, GetStatementResultCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
  * const client = new RedshiftDataClient(config);
  * const command = new GetStatementResultCommand(input);
  * const response = await client.send(command);

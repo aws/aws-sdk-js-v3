@@ -23,8 +23,10 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResponse, __Met
 /**
  * <p>Lists the artifacts in your account and their properties.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, ListArtifactsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListArtifactsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new ListArtifactsCommand(input);
  * const response = await client.send(command);

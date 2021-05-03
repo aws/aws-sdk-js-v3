@@ -23,8 +23,10 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
 /**
  * <p>Returns a list of all of the Amazon QuickSight users belonging to this account. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { QuickSightClient, ListUsersCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, ListUsersCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);

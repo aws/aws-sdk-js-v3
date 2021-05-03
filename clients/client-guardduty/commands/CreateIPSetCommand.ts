@@ -26,8 +26,10 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  *       infrastructure and applications. GuardDuty doesn't generate findings for IP addresses that are
  *       included in IPSets. Only users from the administrator account can use this operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GuardDutyClient, CreateIPSetCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, CreateIPSetCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const command = new CreateIPSetCommand(input);
  * const response = await client.send(command);

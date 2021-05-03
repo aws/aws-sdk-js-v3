@@ -25,8 +25,10 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  *                 <code>DBSubnetGroupName</code> is specified, the list will contain only the
  *             descriptions of the specified <code>DBSubnetGroup</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DocDBClient, DescribeDBSubnetGroupsCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, DescribeDBSubnetGroupsCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
  * const command = new DescribeDBSubnetGroupsCommand(input);
  * const response = await client.send(command);

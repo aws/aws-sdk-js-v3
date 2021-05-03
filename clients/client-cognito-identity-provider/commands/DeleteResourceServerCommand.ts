@@ -28,8 +28,10 @@ export interface DeleteResourceServerCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes a resource server.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityProviderClient, DeleteResourceServerCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, DeleteResourceServerCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const command = new DeleteResourceServerCommand(input);
  * const response = await client.send(command);

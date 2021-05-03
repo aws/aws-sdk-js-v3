@@ -25,8 +25,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *          Use to assign one or more tags to a resource.
  *       </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeGuruProfilerClient, TagResourceCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
+ * // const { CodeGuruProfilerClient, TagResourceCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

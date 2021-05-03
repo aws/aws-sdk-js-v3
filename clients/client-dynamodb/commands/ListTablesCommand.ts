@@ -25,8 +25,10 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  *       from <code>ListTables</code> is paginated, with each page returning a maximum of 100 table
  *       names.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DynamoDBClient, ListTablesCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, ListTablesCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const command = new ListTablesCommand(input);
  * const response = await client.send(command);

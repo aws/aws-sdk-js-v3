@@ -24,8 +24,10 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
  * <p>Returns information about reserved cache
  *             nodes for this account, or about a specified reserved cache node.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElastiCacheClient, DescribeReservedCacheNodesCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, DescribeReservedCacheNodesCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const command = new DescribeReservedCacheNodesCommand(input);
  * const response = await client.send(command);

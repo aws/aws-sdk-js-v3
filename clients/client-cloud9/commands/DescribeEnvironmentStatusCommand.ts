@@ -23,8 +23,10 @@ export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironm
 /**
  * <p>Gets status information for an AWS Cloud9 development environment.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Cloud9Client, DescribeEnvironmentStatusCommand } from "@aws-sdk/client-cloud9"; // ES Modules import
+ * // const { Cloud9Client, DescribeEnvironmentStatusCommand } = require("@aws-sdk/client-cloud9"); // CommonJS import
  * const client = new Cloud9Client(config);
  * const command = new DescribeEnvironmentStatusCommand(input);
  * const response = await client.send(command);

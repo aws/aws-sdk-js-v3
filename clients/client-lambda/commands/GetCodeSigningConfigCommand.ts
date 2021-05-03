@@ -23,8 +23,10 @@ export interface GetCodeSigningConfigCommandOutput extends GetCodeSigningConfigR
 /**
  * <p>Returns information about the specified code signing configuration.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LambdaClient, GetCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, GetCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
  * const command = new GetCodeSigningConfigCommand(input);
  * const response = await client.send(command);

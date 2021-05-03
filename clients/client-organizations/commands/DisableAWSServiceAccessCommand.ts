@@ -78,8 +78,10 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  *          </p>
  *         <p>This operation can be called only from the organization's management account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { OrganizationsClient, DisableAWSServiceAccessCommand } from "@aws-sdk/client-organizations"; // ES Modules import
+ * // const { OrganizationsClient, DisableAWSServiceAccessCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const command = new DisableAWSServiceAccessCommand(input);
  * const response = await client.send(command);

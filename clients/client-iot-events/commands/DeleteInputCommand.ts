@@ -23,8 +23,10 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
 /**
  * <p>Deletes an input.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTEventsClient, DeleteInputCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
+ * // const { IoTEventsClient, DeleteInputCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const command = new DeleteInputCommand(input);
  * const response = await client.send(command);

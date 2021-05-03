@@ -34,8 +34,10 @@ export interface TestRoleCommandOutput extends TestRoleResponse, __MetadataBeare
  *             input and output buckets, and tries to send a test notification to Amazon SNS topics
  *             that you specify.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticTranscoderClient, TestRoleCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
+ * // const { ElasticTranscoderClient, TestRoleCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
  * const command = new TestRoleCommand(input);
  * const response = await client.send(command);

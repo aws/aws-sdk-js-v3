@@ -31,8 +31,10 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
  *             disassociation, users can't load any associated websites that require this authorization
  *             provider.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkLinkClient, DisassociateWebsiteAuthorizationProviderCommand } from "@aws-sdk/client-worklink"; // ES Modules import
+ * // const { WorkLinkClient, DisassociateWebsiteAuthorizationProviderCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const command = new DisassociateWebsiteAuthorizationProviderCommand(input);
  * const response = await client.send(command);

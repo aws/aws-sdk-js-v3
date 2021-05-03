@@ -28,8 +28,10 @@ export interface DescribeExportTasksCommandOutput extends DescribeExportTasksRes
  * <p>Retrieve status of one or more export tasks. You can retrieve the status of up to 100
  *       export tasks.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ApplicationDiscoveryServiceClient, DescribeExportTasksCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, DescribeExportTasksCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const command = new DescribeExportTasksCommand(input);
  * const response = await client.send(command);

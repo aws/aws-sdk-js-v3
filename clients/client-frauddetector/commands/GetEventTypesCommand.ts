@@ -28,8 +28,10 @@ export interface GetEventTypesCommandOutput extends GetEventTypesResult, __Metad
  *             <code>GetEventTypesResponse</code> as part of your request. A null pagination token
  *          fetches the records from the beginning. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FraudDetectorClient, GetEventTypesCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, GetEventTypesCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const command = new GetEventTypesCommand(input);
  * const response = await client.send(command);

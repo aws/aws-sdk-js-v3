@@ -23,8 +23,10 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
 /**
  * <p>Lists the set of CA certificates provided by Amazon RDS for this AWS account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSClient, DescribeCertificatesCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeCertificatesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
  * const command = new DescribeCertificatesCommand(input);
  * const response = await client.send(command);

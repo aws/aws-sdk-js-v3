@@ -23,8 +23,10 @@ export interface DisassociateIpGroupsCommandOutput extends DisassociateIpGroupsR
 /**
  * <p>Disassociates the specified IP access control group from the specified directory.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkSpacesClient, DisassociateIpGroupsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
+ * // const { WorkSpacesClient, DisassociateIpGroupsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const command = new DisassociateIpGroupsCommand(input);
  * const response = await client.send(command);

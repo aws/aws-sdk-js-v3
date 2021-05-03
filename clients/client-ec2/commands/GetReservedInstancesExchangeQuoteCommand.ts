@@ -27,8 +27,10 @@ export interface GetReservedInstancesExchangeQuoteCommandOutput
  *             Convertible Reserved Instances for a new Convertible Reserved Instance. If the exchange
  *             cannot be performed, the reason is returned in the response. Use <a>AcceptReservedInstancesExchangeQuote</a> to perform the exchange.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, GetReservedInstancesExchangeQuoteCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, GetReservedInstancesExchangeQuoteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new GetReservedInstancesExchangeQuoteCommand(input);
  * const response = await client.send(command);

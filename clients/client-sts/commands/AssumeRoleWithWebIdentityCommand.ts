@@ -158,8 +158,10 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { STSClient, AssumeRoleWithWebIdentityCommand } from "@aws-sdk/client-sts"; // ES Modules import
+ * // const { STSClient, AssumeRoleWithWebIdentityCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
  * const command = new AssumeRoleWithWebIdentityCommand(input);
  * const response = await client.send(command);

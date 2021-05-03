@@ -23,8 +23,10 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
 /**
  * <p>Retrieves a list of channels.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTAnalyticsClient, ListChannelsCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
+ * // const { IoTAnalyticsClient, ListChannelsCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);

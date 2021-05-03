@@ -23,8 +23,10 @@ export interface CreateBackendAPICommandOutput extends CreateBackendAPIResponse,
 /**
  * <p>Creates a new backend API resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AmplifyBackendClient, CreateBackendAPICommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
+ * // const { AmplifyBackendClient, CreateBackendAPICommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const command = new CreateBackendAPICommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
  *         <code>DatasetImportJob</code> or <code>SolutionVersion</code> is in the CREATE PENDING or IN
  *       PROGRESS state. For more information on datasets, see <a>CreateDataset</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PersonalizeClient, DeleteDatasetCommand } from "@aws-sdk/client-personalize"; // ES Modules import
+ * // const { PersonalizeClient, DeleteDatasetCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const command = new DeleteDatasetCommand(input);
  * const response = await client.send(command);

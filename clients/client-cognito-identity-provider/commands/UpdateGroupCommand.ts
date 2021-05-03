@@ -33,8 +33,10 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  *                 value.</p>
  *         </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityProviderClient, UpdateGroupCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, UpdateGroupCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const command = new UpdateGroupCommand(input);
  * const response = await client.send(command);

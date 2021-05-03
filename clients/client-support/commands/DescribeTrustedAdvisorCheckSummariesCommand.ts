@@ -45,8 +45,10 @@ export interface DescribeTrustedAdvisorCheckSummariesCommandOutput
  *             </ul>
  *         </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SupportClient, DescribeTrustedAdvisorCheckSummariesCommand } from "@aws-sdk/client-support"; // ES Modules import
+ * // const { SupportClient, DescribeTrustedAdvisorCheckSummariesCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
  * const command = new DescribeTrustedAdvisorCheckSummariesCommand(input);
  * const response = await client.send(command);

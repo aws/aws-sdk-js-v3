@@ -24,8 +24,10 @@ export interface AssociateIamInstanceProfileCommandOutput extends AssociateIamIn
  * <p>Associates an IAM instance profile with a running or stopped instance. You cannot
  *             associate more than one IAM instance profile with an instance.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, AssociateIamInstanceProfileCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, AssociateIamInstanceProfileCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new AssociateIamInstanceProfileCommand(input);
  * const response = await client.send(command);

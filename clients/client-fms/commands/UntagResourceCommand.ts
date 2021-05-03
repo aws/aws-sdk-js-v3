@@ -23,8 +23,10 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 /**
  * <p>Removes one or more tags from an AWS resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FMSClient, UntagResourceCommand } from "@aws-sdk/client-fms"; // ES Modules import
+ * // const { FMSClient, UntagResourceCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);

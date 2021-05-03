@@ -25,8 +25,10 @@ export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, _
  *       team member's role in the project, or change whether they have remote access to project
  *       resources.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeStarClient, UpdateTeamMemberCommand } from "@aws-sdk/client-codestar"; // ES Modules import
+ * // const { CodeStarClient, UpdateTeamMemberCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
  * const command = new UpdateTeamMemberCommand(input);
  * const response = await client.send(command);

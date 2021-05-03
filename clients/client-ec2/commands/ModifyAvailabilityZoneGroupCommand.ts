@@ -26,8 +26,10 @@ export interface ModifyAvailabilityZoneGroupCommandOutput extends ModifyAvailabi
  *          <p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">
  *   		DescribeAvailabilityZones</a> to view the value for <code>GroupName</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, ModifyAvailabilityZoneGroupCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, ModifyAvailabilityZoneGroupCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new ModifyAvailabilityZoneGroupCommand(input);
  * const response = await client.send(command);

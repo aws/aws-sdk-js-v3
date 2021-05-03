@@ -23,8 +23,10 @@ export interface ListResolversByFunctionCommandOutput extends ListResolversByFun
 /**
  * <p>List the resolvers that are associated with a specific function.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppSyncClient, ListResolversByFunctionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, ListResolversByFunctionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
  * const command = new ListResolversByFunctionCommand(input);
  * const response = await client.send(command);

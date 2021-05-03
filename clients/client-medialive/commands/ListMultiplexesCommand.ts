@@ -23,8 +23,10 @@ export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, _
 /**
  * Retrieve a list of the existing multiplexes.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaLiveClient, ListMultiplexesCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, ListMultiplexesCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const command = new ListMultiplexesCommand(input);
  * const response = await client.send(command);

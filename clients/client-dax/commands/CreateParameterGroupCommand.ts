@@ -24,8 +24,10 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * <p>Creates a new parameter group. A parameter group is a collection of parameters that
  *             you apply to all of the nodes in a DAX cluster.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DAXClient, CreateParameterGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
+ * // const { DAXClient, CreateParameterGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
  * const command = new CreateParameterGroupCommand(input);
  * const response = await client.send(command);

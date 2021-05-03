@@ -27,8 +27,10 @@ export interface GetDistributionMetricDataCommandOutput extends GetDistributionM
  *       Monitor and collect metric data regularly to maintain the reliability, availability, and
  *       performance of your resources.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, GetDistributionMetricDataCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetDistributionMetricDataCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new GetDistributionMetricDataCommand(input);
  * const response = await client.send(command);

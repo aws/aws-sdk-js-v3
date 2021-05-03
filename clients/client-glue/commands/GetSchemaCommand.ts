@@ -20,8 +20,10 @@ export interface GetSchemaCommandOutput extends GetSchemaResponse, __MetadataBea
 /**
  * <p>Describes the specified schema in detail.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlueClient, GetSchemaCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetSchemaCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
  * const command = new GetSchemaCommand(input);
  * const response = await client.send(command);

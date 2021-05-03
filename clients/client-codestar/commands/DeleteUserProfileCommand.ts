@@ -25,8 +25,10 @@ export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult,
  *       that profile, such as display name and email address. It does not delete the history of that
  *       user, for example the history of commits made by that user.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeStarClient, DeleteUserProfileCommand } from "@aws-sdk/client-codestar"; // ES Modules import
+ * // const { CodeStarClient, DeleteUserProfileCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
  * const command = new DeleteUserProfileCommand(input);
  * const response = await client.send(command);

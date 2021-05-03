@@ -25,8 +25,10 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResult, __M
  *             Gets details about a project in AWS Mobile Hub.
  *         </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MobileClient, DescribeProjectCommand } from "@aws-sdk/client-mobile"; // ES Modules import
+ * // const { MobileClient, DescribeProjectCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
  * const command = new DescribeProjectCommand(input);
  * const response = await client.send(command);

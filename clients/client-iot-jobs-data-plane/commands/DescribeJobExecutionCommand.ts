@@ -23,8 +23,10 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
 /**
  * <p>Gets details of a job execution.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTJobsDataPlaneClient, DescribeJobExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane"; // ES Modules import
+ * // const { IoTJobsDataPlaneClient, DescribeJobExecutionCommand } = require("@aws-sdk/client-iot-jobs-data-plane"); // CommonJS import
  * const client = new IoTJobsDataPlaneClient(config);
  * const command = new DescribeJobExecutionCommand(input);
  * const response = await client.send(command);

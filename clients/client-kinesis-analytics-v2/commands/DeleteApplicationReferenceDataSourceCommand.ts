@@ -34,8 +34,10 @@ export interface DeleteApplicationReferenceDataSourceCommandOutput
  *          <p>If the application is running, Kinesis Data Analytics immediately removes the in-application table
  *       that you created using the <a>AddApplicationReferenceDataSource</a> operation.  </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisAnalyticsV2Client, DeleteApplicationReferenceDataSourceCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, DeleteApplicationReferenceDataSourceCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const command = new DeleteApplicationReferenceDataSourceCommand(input);
  * const response = await client.send(command);

@@ -28,8 +28,10 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  *          region in which the trail was created; otherwise, an
  *             <code>InvalidHomeRegionException</code> is thrown.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudTrailClient, UpdateTrailCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
+ * // const { CloudTrailClient, UpdateTrailCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const command = new UpdateTrailCommand(input);
  * const response = await client.send(command);

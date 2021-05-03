@@ -23,8 +23,10 @@ export interface GetDeviceInstanceCommandOutput extends GetDeviceInstanceResult,
 /**
  * <p>Returns information about a device instance that belongs to a private device fleet.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, GetDeviceInstanceCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, GetDeviceInstanceCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new GetDeviceInstanceCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface CreateImageRecipeCommandOutput extends CreateImageRecipeRespons
  * <p> Creates a new image recipe. Image recipes define how images are configured, tested, and
  *       assessed.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ImagebuilderClient, CreateImageRecipeCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, CreateImageRecipeCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const command = new CreateImageRecipeCommand(input);
  * const response = await client.send(command);

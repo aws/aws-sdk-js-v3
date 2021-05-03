@@ -23,8 +23,10 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
 /**
  * <p>Creates a resource share.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RAMClient, CreateResourceShareCommand } from "@aws-sdk/client-ram"; // ES Modules import
+ * // const { RAMClient, CreateResourceShareCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
  * const command = new CreateResourceShareCommand(input);
  * const response = await client.send(command);

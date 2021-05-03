@@ -31,8 +31,10 @@ export interface CreateDeliverabilityTestReportCommandOutput
  *                 <code>GetDeliverabilityTestReport</code> operation to view the results of the
  *             test.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointEmailClient, CreateDeliverabilityTestReportCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
+ * // const { PinpointEmailClient, CreateDeliverabilityTestReportCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const command = new CreateDeliverabilityTestReportCommand(input);
  * const response = await client.send(command);

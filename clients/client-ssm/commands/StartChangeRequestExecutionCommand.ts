@@ -25,8 +25,10 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  *    change request run only after all required approvals for the change request have been
  *    received.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, StartChangeRequestExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, StartChangeRequestExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new StartChangeRequestExecutionCommand(input);
  * const response = await client.send(command);

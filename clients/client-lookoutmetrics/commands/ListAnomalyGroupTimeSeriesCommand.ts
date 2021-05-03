@@ -23,8 +23,10 @@ export interface ListAnomalyGroupTimeSeriesCommandOutput extends ListAnomalyGrou
 /**
  * <p>Gets a list of anomalous metrics for a measure in an anomaly group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutMetricsClient, ListAnomalyGroupTimeSeriesCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
+ * // const { LookoutMetricsClient, ListAnomalyGroupTimeSeriesCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const command = new ListAnomalyGroupTimeSeriesCommand(input);
  * const response = await client.send(command);

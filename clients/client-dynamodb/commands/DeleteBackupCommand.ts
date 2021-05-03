@@ -24,8 +24,10 @@ export interface DeleteBackupCommandOutput extends DeleteBackupOutput, __Metadat
  * <p>Deletes an existing backup of a table.</p>
  *          <p>You can call <code>DeleteBackup</code> at a maximum rate of 10 times per second.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DynamoDBClient, DeleteBackupCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, DeleteBackupCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const command = new DeleteBackupCommand(input);
  * const response = await client.send(command);

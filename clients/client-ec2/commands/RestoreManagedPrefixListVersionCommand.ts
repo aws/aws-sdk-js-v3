@@ -25,8 +25,10 @@ export interface RestoreManagedPrefixListVersionCommandOutput
 /**
  * <p>Restores the entries from a previous version of a managed prefix list to a new version of the prefix list.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, RestoreManagedPrefixListVersionCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, RestoreManagedPrefixListVersionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new RestoreManagedPrefixListVersionCommand(input);
  * const response = await client.send(command);

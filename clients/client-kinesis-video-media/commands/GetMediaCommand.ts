@@ -72,8 +72,10 @@ export interface GetMediaCommandOutput extends GetMediaOutput, __MetadataBearer 
  *         bottom of this topic, as well as <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/CommonErrors.html">Common Errors</a>. </p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisVideoMediaClient, GetMediaCommand } from "@aws-sdk/client-kinesis-video-media"; // ES Modules import
+ * // const { KinesisVideoMediaClient, GetMediaCommand } = require("@aws-sdk/client-kinesis-video-media"); // CommonJS import
  * const client = new KinesisVideoMediaClient(config);
  * const command = new GetMediaCommand(input);
  * const response = await client.send(command);

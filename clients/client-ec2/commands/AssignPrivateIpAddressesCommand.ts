@@ -34,8 +34,10 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  *             metadata to confirm that the remapping is complete.</p>
  *         <p>You must specify either the IP addresses or the IP address count in the request.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, AssignPrivateIpAddressesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, AssignPrivateIpAddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new AssignPrivateIpAddressesCommand(input);
  * const response = await client.send(command);

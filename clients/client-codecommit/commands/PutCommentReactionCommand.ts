@@ -24,8 +24,10 @@ export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
  * <p>Adds or updates a reaction to a specified comment for the user whose identity is used to make the request. You can only add or
  *         update a reaction for yourself. You cannot add, modify, or delete a reaction for another user.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeCommitClient, PutCommentReactionCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, PutCommentReactionCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const command = new PutCommentReactionCommand(input);
  * const response = await client.send(command);

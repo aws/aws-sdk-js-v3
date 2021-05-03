@@ -42,8 +42,10 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  *                 receiving a message more than once does not cause issues.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SQSClient, DeleteMessageCommand } from "@aws-sdk/client-sqs"; // ES Modules import
+ * // const { SQSClient, DeleteMessageCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
  * const command = new DeleteMessageCommand(input);
  * const response = await client.send(command);

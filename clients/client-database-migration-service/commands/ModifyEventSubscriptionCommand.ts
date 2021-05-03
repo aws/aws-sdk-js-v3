@@ -27,8 +27,10 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
 /**
  * <p>Modifies an existing AWS DMS event notification subscription. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DatabaseMigrationServiceClient, ModifyEventSubscriptionCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, ModifyEventSubscriptionCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const command = new ModifyEventSubscriptionCommand(input);
  * const response = await client.send(command);

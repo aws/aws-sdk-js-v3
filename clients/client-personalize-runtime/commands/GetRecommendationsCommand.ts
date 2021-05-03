@@ -41,8 +41,10 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  *         PERSONALIZED_RANKING use the  API.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PersonalizeRuntimeClient, GetRecommendationsCommand } from "@aws-sdk/client-personalize-runtime"; // ES Modules import
+ * // const { PersonalizeRuntimeClient, GetRecommendationsCommand } = require("@aws-sdk/client-personalize-runtime"); // CommonJS import
  * const client = new PersonalizeRuntimeClient(config);
  * const command = new GetRecommendationsCommand(input);
  * const response = await client.send(command);

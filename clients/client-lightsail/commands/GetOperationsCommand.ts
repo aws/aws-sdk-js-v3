@@ -26,8 +26,10 @@ export interface GetOperationsCommandOutput extends GetOperationsResult, __Metad
  *       by making each subsequent call to <code>GetOperations</code> use the maximum (last)
  *         <code>statusChangedAt</code> value from the previous request.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, GetOperationsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetOperationsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new GetOperationsCommand(input);
  * const response = await client.send(command);

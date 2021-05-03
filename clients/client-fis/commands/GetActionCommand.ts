@@ -23,8 +23,10 @@ export interface GetActionCommandOutput extends GetActionResponse, __MetadataBea
 /**
  * <p>Gets information about the specified AWS FIS action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FisClient, GetActionCommand } from "@aws-sdk/client-fis"; // ES Modules import
+ * // const { FisClient, GetActionCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
  * const command = new GetActionCommand(input);
  * const response = await client.send(command);

@@ -26,8 +26,10 @@ export interface GetTransitGatewayRegistrationsCommandOutput
  * <p>Gets information about the transit gateway registrations in a specified
  *             global network.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NetworkManagerClient, GetTransitGatewayRegistrationsCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
+ * // const { NetworkManagerClient, GetTransitGatewayRegistrationsCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const command = new GetTransitGatewayRegistrationsCommand(input);
  * const response = await client.send(command);

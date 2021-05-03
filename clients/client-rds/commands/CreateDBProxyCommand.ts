@@ -23,8 +23,10 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
 /**
  * <p>Creates a new DB proxy.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSClient, CreateDBProxyCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, CreateDBProxyCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
  * const command = new CreateDBProxyCommand(input);
  * const response = await client.send(command);

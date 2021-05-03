@@ -29,8 +29,10 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  *         <p>If the cluster is not in the <i>available</i> state, <code>ListTagsForResource</code>
  *             returns an error.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElastiCacheClient, ListTagsForResourceCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, ListTagsForResourceCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

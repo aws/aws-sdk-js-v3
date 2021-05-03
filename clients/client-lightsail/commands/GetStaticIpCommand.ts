@@ -23,8 +23,10 @@ export interface GetStaticIpCommandOutput extends GetStaticIpResult, __MetadataB
 /**
  * <p>Returns information about a specific static IP.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, GetStaticIpCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetStaticIpCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new GetStaticIpCommand(input);
  * const response = await client.send(command);

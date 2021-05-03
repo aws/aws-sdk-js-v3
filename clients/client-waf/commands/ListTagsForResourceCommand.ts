@@ -32,8 +32,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *         <p>Retrieves the tags associated with the specified AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing. For example, you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.</p>
  *         <p>Tagging is only available through the API, SDKs, and CLI. You can't manage or view tags through the AWS WAF Classic console. You can tag the AWS resources that you manage through AWS WAF Classic: web ACLs, rule groups, and rules.  </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFClient, ListTagsForResourceCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, ListTagsForResourceCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

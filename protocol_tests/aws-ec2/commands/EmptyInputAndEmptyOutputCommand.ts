@@ -26,8 +26,10 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  *
  * While this should be rare, code generators must support this.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2ProtocolClient, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-ec2"; // ES Modules import
+ * // const { EC2ProtocolClient, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
  * const command = new EmptyInputAndEmptyOutputCommand(input);
  * const response = await client.send(command);

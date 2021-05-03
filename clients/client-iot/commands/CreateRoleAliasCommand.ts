@@ -23,8 +23,10 @@ export interface CreateRoleAliasCommandOutput extends CreateRoleAliasResponse, _
 /**
  * <p>Creates a role alias.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, CreateRoleAliasCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, CreateRoleAliasCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new CreateRoleAliasCommand(input);
  * const response = await client.send(command);

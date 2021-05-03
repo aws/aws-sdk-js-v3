@@ -23,8 +23,10 @@ export interface ListRoomsCommandOutput extends ListRoomsResponse, __MetadataBea
 /**
  * <p>Lists the room details for the specified Amazon Chime Enterprise account. Optionally, filter the results by a member ID (user ID or bot ID) to see a list of rooms that the member belongs to.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, ListRoomsCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, ListRoomsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new ListRoomsCommand(input);
  * const response = await client.send(command);

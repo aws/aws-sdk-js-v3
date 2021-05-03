@@ -29,8 +29,10 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  *       that it can access third-party code repositories. The connection is in pending status until
  *       the third-party connection handshake is completed from the console.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeStarConnectionsClient, CreateConnectionCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
+ * // const { CodeStarConnectionsClient, CreateConnectionCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);

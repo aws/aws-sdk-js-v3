@@ -35,8 +35,10 @@ export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBea
  *             disk for your gateway to function properly.</p>
  *          </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { StorageGatewayClient, ResetCacheCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, ResetCacheCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const command = new ResetCacheCommand(input);
  * const response = await client.send(command);

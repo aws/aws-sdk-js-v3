@@ -24,8 +24,10 @@ export interface ListEventIntegrationsCommandOutput extends ListEventIntegration
  * <p>The Amazon AppIntegrations APIs are in preview release and are subject to change.</p>
  *          <p>Returns a paginated list of event integrations in the account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppIntegrationsClient, ListEventIntegrationsCommand } from "@aws-sdk/client-appintegrations"; // ES Modules import
+ * // const { AppIntegrationsClient, ListEventIntegrationsCommand } = require("@aws-sdk/client-appintegrations"); // CommonJS import
  * const client = new AppIntegrationsClient(config);
  * const command = new ListEventIntegrationsCommand(input);
  * const response = await client.send(command);

@@ -36,8 +36,10 @@ export interface AssociateConnectionWithLagCommandOutput extends Connection, __M
  *       LAG. If the interconnect was originally associated with a different LAG, the hosted
  *       connections remain associated with the original LAG.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectConnectClient, AssociateConnectionWithLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, AssociateConnectionWithLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const command = new AssociateConnectionWithLagCommand(input);
  * const response = await client.send(command);

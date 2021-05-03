@@ -24,8 +24,10 @@ export interface CancelImageCreationCommandOutput extends CancelImageCreationRes
  * <p>CancelImageCreation cancels the creation of Image. This operation can only be used on
  *       images in a non-terminal state.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ImagebuilderClient, CancelImageCreationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, CancelImageCreationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const command = new CancelImageCreationCommand(input);
  * const response = await client.send(command);

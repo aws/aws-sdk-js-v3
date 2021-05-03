@@ -24,8 +24,10 @@ export interface DescribeDetectorModelCommandOutput extends DescribeDetectorMode
  * <p>Describes a detector model. If the <code>version</code> parameter is not specified,
  *       information about the latest version is returned.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTEventsClient, DescribeDetectorModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
+ * // const { IoTEventsClient, DescribeDetectorModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const command = new DescribeDetectorModelCommand(input);
  * const response = await client.send(command);

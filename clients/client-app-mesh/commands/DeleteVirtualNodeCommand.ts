@@ -25,8 +25,10 @@ export interface DeleteVirtualNodeCommandOutput extends DeleteVirtualNodeOutput,
  *          <p>You must delete any virtual services that list a virtual node as a service provider
  *          before you can delete the virtual node itself.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppMeshClient, DeleteVirtualNodeCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
+ * // const { AppMeshClient, DeleteVirtualNodeCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
  * const command = new DeleteVirtualNodeCommand(input);
  * const response = await client.send(command);

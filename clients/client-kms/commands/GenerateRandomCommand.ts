@@ -31,8 +31,10 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateRandom</a> (IAM policy)</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KMSClient, GenerateRandomCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, GenerateRandomCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
  * const command = new GenerateRandomCommand(input);
  * const response = await client.send(command);

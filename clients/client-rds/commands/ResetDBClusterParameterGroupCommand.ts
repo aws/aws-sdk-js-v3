@@ -44,8 +44,10 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *             <p>This action only applies to Aurora DB clusters.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSClient, ResetDBClusterParameterGroupCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, ResetDBClusterParameterGroupCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
  * const command = new ResetDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);

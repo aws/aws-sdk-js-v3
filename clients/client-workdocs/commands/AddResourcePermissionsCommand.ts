@@ -25,8 +25,10 @@ export interface AddResourcePermissionsCommandOutput extends AddResourcePermissi
  *             permissions are overwritten if the principals already have different
  *             permissions.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkDocsClient, AddResourcePermissionsCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
+ * // const { WorkDocsClient, AddResourcePermissionsCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const command = new AddResourcePermissionsCommand(input);
  * const response = await client.send(command);

@@ -30,8 +30,10 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteAccessPointOutput
  *         <p>If the load balancer does not exist or has already been deleted, the call to
  *             <code>DeleteLoadBalancer</code> still succeeds.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticLoadBalancingClient, DeleteLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
+ * // const { ElasticLoadBalancingClient, DeleteLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const command = new DeleteLoadBalancerCommand(input);
  * const response = await client.send(command);

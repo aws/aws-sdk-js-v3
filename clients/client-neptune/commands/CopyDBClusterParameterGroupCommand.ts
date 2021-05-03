@@ -23,8 +23,10 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
 /**
  * <p>Copies the specified DB cluster parameter group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NeptuneClient, CopyDBClusterParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, CopyDBClusterParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
  * const command = new CopyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);

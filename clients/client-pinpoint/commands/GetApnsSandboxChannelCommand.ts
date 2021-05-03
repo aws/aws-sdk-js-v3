@@ -23,8 +23,10 @@ export interface GetApnsSandboxChannelCommandOutput extends GetApnsSandboxChanne
 /**
  * <p>Retrieves information about the status and settings of the APNs sandbox channel for an application.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointClient, GetApnsSandboxChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, GetApnsSandboxChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
  * const command = new GetApnsSandboxChannelCommand(input);
  * const response = await client.send(command);

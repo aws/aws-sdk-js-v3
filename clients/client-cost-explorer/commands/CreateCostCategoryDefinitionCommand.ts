@@ -25,8 +25,10 @@ export interface CreateCostCategoryDefinitionCommandOutput
 /**
  * <p>Creates a new Cost Category with the requested name and rules.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CostExplorerClient, CreateCostCategoryDefinitionCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
+ * // const { CostExplorerClient, CreateCostCategoryDefinitionCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const command = new CreateCostCategoryDefinitionCommand(input);
  * const response = await client.send(command);

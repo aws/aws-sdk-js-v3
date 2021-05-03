@@ -26,8 +26,10 @@ export interface CreateCustomMetricCommandOutput extends CreateCustomMetricRespo
  *       Metric
  *       published by your devices to Device Defender. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, CreateCustomMetricCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, CreateCustomMetricCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new CreateCustomMetricCommand(input);
  * const response = await client.send(command);

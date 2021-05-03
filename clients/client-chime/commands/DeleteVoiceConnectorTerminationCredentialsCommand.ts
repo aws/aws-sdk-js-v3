@@ -24,8 +24,10 @@ export interface DeleteVoiceConnectorTerminationCredentialsCommandOutput extends
 /**
  * <p>Deletes the specified SIP credentials used by your equipment to authenticate during call termination.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, DeleteVoiceConnectorTerminationCredentialsCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, DeleteVoiceConnectorTerminationCredentialsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new DeleteVoiceConnectorTerminationCredentialsCommand(input);
  * const response = await client.send(command);

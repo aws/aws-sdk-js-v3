@@ -54,8 +54,10 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { S3Client, DeleteObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, DeleteObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);

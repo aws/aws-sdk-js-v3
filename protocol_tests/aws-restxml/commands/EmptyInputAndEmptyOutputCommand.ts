@@ -26,8 +26,10 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  * and empty output structure that reuses the same shape. While this should
  * be rare, code generators must support this.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RestXmlProtocolClient, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
  * const command = new EmptyInputAndEmptyOutputCommand(input);
  * const response = await client.send(command);

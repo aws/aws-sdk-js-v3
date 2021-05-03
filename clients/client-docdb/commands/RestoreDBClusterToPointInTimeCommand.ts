@@ -29,8 +29,10 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *             source cluster with the same configuration as the original cluster, except that
  *             the new cluster is created with the default security group. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DocDBClient, RestoreDBClusterToPointInTimeCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, RestoreDBClusterToPointInTimeCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
  * const response = await client.send(command);

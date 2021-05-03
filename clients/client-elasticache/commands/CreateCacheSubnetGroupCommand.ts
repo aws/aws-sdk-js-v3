@@ -24,8 +24,10 @@ export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGr
  * <p>Creates a new cache subnet group.</p>
  *         <p>Use this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (Amazon VPC).</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElastiCacheClient, CreateCacheSubnetGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, CreateCacheSubnetGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const command = new CreateCacheSubnetGroupCommand(input);
  * const response = await client.send(command);

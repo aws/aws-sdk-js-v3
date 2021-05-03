@@ -23,8 +23,10 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
 /**
  * <p>Retrieves a list of analyzers.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AccessAnalyzerClient, ListAnalyzersCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
+ * // const { AccessAnalyzerClient, ListAnalyzersCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const command = new ListAnalyzersCommand(input);
  * const response = await client.send(command);

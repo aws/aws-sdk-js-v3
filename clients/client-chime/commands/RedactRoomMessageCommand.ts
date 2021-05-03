@@ -23,8 +23,10 @@ export interface RedactRoomMessageCommandOutput extends RedactRoomMessageRespons
 /**
  * <p>Redacts the specified message from the specified Amazon Chime channel.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, RedactRoomMessageCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, RedactRoomMessageCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new RedactRoomMessageCommand(input);
  * const response = await client.send(command);

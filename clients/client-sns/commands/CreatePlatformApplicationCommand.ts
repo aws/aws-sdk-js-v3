@@ -61,8 +61,10 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  *         <p>You can use the returned <code>PlatformApplicationArn</code> as an attribute for the
  *                 <code>CreatePlatformEndpoint</code> action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SNSClient, CreatePlatformApplicationCommand } from "@aws-sdk/client-sns"; // ES Modules import
+ * // const { SNSClient, CreatePlatformApplicationCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
  * const command = new CreatePlatformApplicationCommand(input);
  * const response = await client.send(command);

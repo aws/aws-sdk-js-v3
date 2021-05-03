@@ -37,8 +37,10 @@ export interface GetContainerServiceDeploymentsCommandOutput
  *           endpoints and quotas</a> in the <i>AWS General Reference</i>.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, GetContainerServiceDeploymentsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetContainerServiceDeploymentsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new GetContainerServiceDeploymentsCommand(input);
  * const response = await client.send(command);

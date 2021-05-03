@@ -27,8 +27,10 @@ export interface UpdateApprovalRuleTemplateContentCommandOutput
  *             required approvals, the membership of the approval rule, and whether an approval pool is
  *             defined.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeCommitClient, UpdateApprovalRuleTemplateContentCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, UpdateApprovalRuleTemplateContentCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const command = new UpdateApprovalRuleTemplateContentCommand(input);
  * const response = await client.send(command);

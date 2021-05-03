@@ -23,8 +23,10 @@ export interface PutSuppressedDestinationCommandOutput extends PutSuppressedDest
 /**
  * <p>Adds an email address to the suppression list for your account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SESv2Client, PutSuppressedDestinationCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, PutSuppressedDestinationCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
  * const command = new PutSuppressedDestinationCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DeleteLicenseCommandOutput extends DeleteLicenseResponse, __Met
 /**
  * <p>Deletes the specified license.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LicenseManagerClient, DeleteLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, DeleteLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const command = new DeleteLicenseCommand(input);
  * const response = await client.send(command);

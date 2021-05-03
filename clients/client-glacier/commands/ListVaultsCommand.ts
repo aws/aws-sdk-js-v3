@@ -41,8 +41,10 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  *             Amazon S3 Glacier</a> and <a href="https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vaults-get.html">List Vaults </a> in the
  *             <i>Amazon Glacier Developer Guide</i>. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlacierClient, ListVaultsCommand } from "@aws-sdk/client-glacier"; // ES Modules import
+ * // const { GlacierClient, ListVaultsCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
  * const command = new ListVaultsCommand(input);
  * const response = await client.send(command);

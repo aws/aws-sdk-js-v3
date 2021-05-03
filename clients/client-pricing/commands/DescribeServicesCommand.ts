@@ -29,8 +29,10 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  *          <code>volumeType</code>, <code>maxIopsVolume</code>, <code>operation</code>,
  *          <code>locationType</code>, and <code>instanceCapacity10xlarge</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PricingClient, DescribeServicesCommand } from "@aws-sdk/client-pricing"; // ES Modules import
+ * // const { PricingClient, DescribeServicesCommand } = require("@aws-sdk/client-pricing"); // CommonJS import
  * const client = new PricingClient(config);
  * const command = new DescribeServicesCommand(input);
  * const response = await client.send(command);

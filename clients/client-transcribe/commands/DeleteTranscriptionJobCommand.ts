@@ -24,8 +24,10 @@ export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
  * <p>Deletes a previously submitted transcription job along with any other generated
  *             results such as the transcription, models, and so on.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TranscribeClient, DeleteTranscriptionJobCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
+ * // const { TranscribeClient, DeleteTranscriptionJobCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
  * const command = new DeleteTranscriptionJobCommand(input);
  * const response = await client.send(command);

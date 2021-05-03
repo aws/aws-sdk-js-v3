@@ -24,8 +24,10 @@ export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __Met
  * <p>Deletes a specified trigger. If the trigger is not found, no
  *       exception is thrown.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlueClient, DeleteTriggerCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, DeleteTriggerCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
  * const command = new DeleteTriggerCommand(input);
  * const response = await client.send(command);

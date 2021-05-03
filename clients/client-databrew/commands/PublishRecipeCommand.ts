@@ -23,8 +23,10 @@ export interface PublishRecipeCommandOutput extends PublishRecipeResponse, __Met
 /**
  * <p>Publishes a new version of a DataBrew recipe.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataBrewClient, PublishRecipeCommand } from "@aws-sdk/client-databrew"; // ES Modules import
+ * // const { DataBrewClient, PublishRecipeCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
  * const command = new PublishRecipeCommand(input);
  * const response = await client.send(command);

@@ -29,8 +29,10 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  *       were enabled previously, with their existing configurations, plus any additional
  *       subnets.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticLoadBalancingV2Client, SetSubnetsCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, SetSubnetsCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const command = new SetSubnetsCommand(input);
  * const response = await client.send(command);

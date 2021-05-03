@@ -25,8 +25,10 @@ export interface ListPackagingConfigurationsCommandOutput
 /**
  * Returns a collection of MediaPackage VOD PackagingConfiguration resources.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaPackageVodClient, ListPackagingConfigurationsCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
+ * // const { MediaPackageVodClient, ListPackagingConfigurationsCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
  * const command = new ListPackagingConfigurationsCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface GetResolverRuleAssociationCommandOutput extends GetResolverRule
  * <p>Gets information about an association between a specified Resolver rule and a VPC. You associate a Resolver rule and a VPC using
  * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html">AssociateResolverRule</a>. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53ResolverClient, GetResolverRuleAssociationCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, GetResolverRuleAssociationCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const command = new GetResolverRuleAssociationCommand(input);
  * const response = await client.send(command);

@@ -26,8 +26,10 @@ export interface PublishLayerVersionCommandOutput extends PublishLayerVersionRes
  *       layer name, a new version is created.</p>
  *          <p>Add layers to your function with <a>CreateFunction</a> or <a>UpdateFunctionConfiguration</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LambdaClient, PublishLayerVersionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, PublishLayerVersionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
  * const command = new PublishLayerVersionCommand(input);
  * const response = await client.send(command);

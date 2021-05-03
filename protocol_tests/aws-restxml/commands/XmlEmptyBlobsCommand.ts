@@ -23,8 +23,10 @@ export interface XmlEmptyBlobsCommandOutput extends XmlBlobsInputOutput, __Metad
 /**
  * Blobs are base64 encoded
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RestXmlProtocolClient, XmlEmptyBlobsCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, XmlEmptyBlobsCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
  * const command = new XmlEmptyBlobsCommand(input);
  * const response = await client.send(command);

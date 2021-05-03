@@ -27,8 +27,10 @@ export interface ListHumanLoopsCommandOutput extends ListHumanLoopsResponse, __M
 /**
  * <p>Returns information about human loops, given the specified parameters. If a human loop was deleted, it will not be included.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerA2IRuntimeClient, ListHumanLoopsCommand } from "@aws-sdk/client-sagemaker-a2i-runtime"; // ES Modules import
+ * // const { SageMakerA2IRuntimeClient, ListHumanLoopsCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime"); // CommonJS import
  * const client = new SageMakerA2IRuntimeClient(config);
  * const command = new ListHumanLoopsCommand(input);
  * const response = await client.send(command);

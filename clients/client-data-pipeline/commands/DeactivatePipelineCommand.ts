@@ -26,8 +26,10 @@ export interface DeactivatePipelineCommandOutput extends DeactivatePipelineOutpu
  *         <p>To resume a deactivated pipeline, use <a>ActivatePipeline</a>. By default, the pipeline resumes from the last completed execution.
  *           Optionally, you can specify the date and time to resume the pipeline.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataPipelineClient, DeactivatePipelineCommand } from "@aws-sdk/client-data-pipeline"; // ES Modules import
+ * // const { DataPipelineClient, DeactivatePipelineCommand } = require("@aws-sdk/client-data-pipeline"); // CommonJS import
  * const client = new DataPipelineClient(config);
  * const command = new DeactivatePipelineCommand(input);
  * const response = await client.send(command);

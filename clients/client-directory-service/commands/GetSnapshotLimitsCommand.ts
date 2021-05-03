@@ -23,8 +23,10 @@ export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult,
 /**
  * <p>Obtains the manual snapshot limits for a directory.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectoryServiceClient, GetSnapshotLimitsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
+ * // const { DirectoryServiceClient, GetSnapshotLimitsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const command = new GetSnapshotLimitsCommand(input);
  * const response = await client.send(command);

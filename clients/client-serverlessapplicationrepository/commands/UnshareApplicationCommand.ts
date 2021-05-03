@@ -27,8 +27,10 @@ export interface UnshareApplicationCommandOutput extends __MetadataBearer {}
 /**
  * <p>Unshares an application from an AWS Organization.</p><p>This operation can be called only from the organization's master account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServerlessApplicationRepositoryClient, UnshareApplicationCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
+ * // const { ServerlessApplicationRepositoryClient, UnshareApplicationCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
  * const command = new UnshareApplicationCommand(input);
  * const response = await client.send(command);

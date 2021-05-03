@@ -24,8 +24,10 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * <p> Associates the list of tags in the input <code>Tags</code> parameter with the
  *             resource identified by the <code>ResourceArn</code> input parameter. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeDeployClient, TagResourceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
+ * // const { CodeDeployClient, TagResourceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

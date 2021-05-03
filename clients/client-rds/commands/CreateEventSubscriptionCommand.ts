@@ -45,8 +45,10 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  *               encrypted SNS topic, event notifications aren't sent for the topic.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSClient, CreateEventSubscriptionCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, CreateEventSubscriptionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
  * const command = new CreateEventSubscriptionCommand(input);
  * const response = await client.send(command);

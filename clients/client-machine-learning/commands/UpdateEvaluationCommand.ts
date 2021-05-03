@@ -24,8 +24,10 @@ export interface UpdateEvaluationCommandOutput extends UpdateEvaluationOutput, _
  * <p>Updates the <code>EvaluationName</code> of an <code>Evaluation</code>.</p>
  *         <p>You can use the <code>GetEvaluation</code> operation to view the contents of the updated data element.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MachineLearningClient, UpdateEvaluationCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
+ * // const { MachineLearningClient, UpdateEvaluationCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const command = new UpdateEvaluationCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface DeleteBotLocaleCommandOutput extends DeleteBotLocaleResponse, _
  *          <p>When you delete a locale, all intents, slots, and slot types defined
  *          for the locale are also deleted.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LexModelsV2Client, DeleteBotLocaleCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, DeleteBotLocaleCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const command = new DeleteBotLocaleCommand(input);
  * const response = await client.send(command);

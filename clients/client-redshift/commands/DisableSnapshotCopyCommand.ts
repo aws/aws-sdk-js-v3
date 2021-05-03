@@ -27,8 +27,10 @@ export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyRes
  *             from AWS KMS, use <a>DeleteSnapshotCopyGrant</a> to delete the grant that
  *             grants Amazon Redshift permission to the CMK in the destination region. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RedshiftClient, DisableSnapshotCopyCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, DisableSnapshotCopyCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
  * const command = new DisableSnapshotCopyCommand(input);
  * const response = await client.send(command);

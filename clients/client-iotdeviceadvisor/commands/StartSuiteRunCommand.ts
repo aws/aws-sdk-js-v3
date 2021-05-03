@@ -23,8 +23,10 @@ export interface StartSuiteRunCommandOutput extends StartSuiteRunResponse, __Met
 /**
  * <p>Starts a Device Advisor test suite run.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IotDeviceAdvisorClient, StartSuiteRunCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
+ * // const { IotDeviceAdvisorClient, StartSuiteRunCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
  * const command = new StartSuiteRunCommand(input);
  * const response = await client.send(command);

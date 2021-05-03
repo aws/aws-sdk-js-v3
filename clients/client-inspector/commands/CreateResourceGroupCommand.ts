@@ -26,8 +26,10 @@ export interface CreateResourceGroupCommandOutput extends CreateResourceGroupRes
  *          target. The created resource group is then used to create an Amazon Inspector assessment
  *          target. For more information, see <a>CreateAssessmentTarget</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { InspectorClient, CreateResourceGroupCommand } from "@aws-sdk/client-inspector"; // ES Modules import
+ * // const { InspectorClient, CreateResourceGroupCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
  * const command = new CreateResourceGroupCommand(input);
  * const response = await client.send(command);

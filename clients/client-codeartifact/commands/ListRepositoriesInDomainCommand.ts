@@ -30,8 +30,10 @@ export interface ListRepositoriesInDomainCommandOutput extends ListRepositoriesI
  *        parameters.
  *      </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeartifactClient, ListRepositoriesInDomainCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
+ * // const { CodeartifactClient, ListRepositoriesInDomainCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const command = new ListRepositoriesInDomainCommand(input);
  * const response = await client.send(command);

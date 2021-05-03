@@ -26,8 +26,10 @@ export interface UpdateServiceSpecificCredentialCommandOutput extends __Metadata
  *             for authentication to the service. This operation can be used to disable a user's
  *             service-specific credential as part of a credential rotation work flow.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IAMClient, UpdateServiceSpecificCredentialCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, UpdateServiceSpecificCredentialCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
  * const command = new UpdateServiceSpecificCredentialCommand(input);
  * const response = await client.send(command);

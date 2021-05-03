@@ -25,8 +25,10 @@ export interface DescribeBatchInferenceJobCommandOutput extends DescribeBatchInf
  *       status, input and output configurations, and the ARN of the solution version used to generate
  *       the recommendations.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PersonalizeClient, DescribeBatchInferenceJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
+ * // const { PersonalizeClient, DescribeBatchInferenceJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const command = new DescribeBatchInferenceJobCommand(input);
  * const response = await client.send(command);

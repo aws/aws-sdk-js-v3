@@ -23,8 +23,10 @@ export interface CreateDestinationCommandOutput extends CreateDestinationRespons
 /**
  * <p>Creates a new destination that maps a device message to an AWS IoT rule.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTWirelessClient, CreateDestinationCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, CreateDestinationCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const command = new CreateDestinationCommand(input);
  * const response = await client.send(command);

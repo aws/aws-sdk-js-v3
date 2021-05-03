@@ -35,8 +35,10 @@ export interface StartReportCreationCommandOutput extends StartReportCreationOut
  *         <p>You can call this operation only from the organization's
  *     management account and from the us-east-1 Region.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ResourceGroupsTaggingAPIClient, StartReportCreationCommand } from "@aws-sdk/client-resource-groups-tagging-api"; // ES Modules import
+ * // const { ResourceGroupsTaggingAPIClient, StartReportCreationCommand } = require("@aws-sdk/client-resource-groups-tagging-api"); // CommonJS import
  * const client = new ResourceGroupsTaggingAPIClient(config);
  * const command = new StartReportCreationCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  *          <p>DescribeRule does not list the targets of a rule. To see the targets associated with a
  *       rule, use <a>ListTargetsByRule</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudWatchEventsClient, DescribeRuleCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
+ * // const { CloudWatchEventsClient, DescribeRuleCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const command = new DescribeRuleCommand(input);
  * const response = await client.send(command);

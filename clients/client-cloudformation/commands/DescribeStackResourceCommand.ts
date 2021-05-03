@@ -25,8 +25,10 @@ export interface DescribeStackResourceCommandOutput extends DescribeStackResourc
  *          <p>For deleted stacks, DescribeStackResource returns resource information for up to 90
  *          days after the stack has been deleted.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFormationClient, DescribeStackResourceCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, DescribeStackResourceCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const command = new DescribeStackResourceCommand(input);
  * const response = await client.send(command);

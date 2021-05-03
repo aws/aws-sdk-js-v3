@@ -28,8 +28,10 @@ export interface DescribeTransitGatewayConnectPeersCommandOutput
 /**
  * <p>Describes one or more Connect peers.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, DescribeTransitGatewayConnectPeersCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeTransitGatewayConnectPeersCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new DescribeTransitGatewayConnectPeersCommand(input);
  * const response = await client.send(command);

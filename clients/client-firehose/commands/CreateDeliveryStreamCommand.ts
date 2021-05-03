@@ -91,8 +91,10 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *             Firehose Access to an Amazon S3 Destination</a> in the <i>Amazon Kinesis Data
  *             Firehose Developer Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FirehoseClient, CreateDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
+ * // const { FirehoseClient, CreateDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
  * const command = new CreateDeliveryStreamCommand(input);
  * const response = await client.send(command);

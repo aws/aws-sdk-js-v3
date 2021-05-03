@@ -37,8 +37,10 @@ export interface ListLunaClientsCommandOutput extends ListLunaClientsResponse, _
  *       token that you pass in the next call to <code>ListLunaClients</code> to retrieve the next set
  *       of items.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudHSMClient, ListLunaClientsCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
+ * // const { CloudHSMClient, ListLunaClientsCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const command = new ListLunaClientsCommand(input);
  * const response = await client.send(command);

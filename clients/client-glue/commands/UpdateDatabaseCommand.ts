@@ -23,8 +23,10 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
 /**
  * <p>Updates an existing database definition in a Data Catalog.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlueClient, UpdateDatabaseCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, UpdateDatabaseCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
  * const command = new UpdateDatabaseCommand(input);
  * const response = await client.send(command);

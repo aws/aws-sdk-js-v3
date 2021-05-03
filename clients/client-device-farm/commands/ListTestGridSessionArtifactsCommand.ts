@@ -25,8 +25,10 @@ export interface ListTestGridSessionArtifactsCommandOutput
 /**
  * <p>Retrieves a list of artifacts created during the session.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, ListTestGridSessionArtifactsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, ListTestGridSessionArtifactsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new ListTestGridSessionArtifactsCommand(input);
  * const response = await client.send(command);

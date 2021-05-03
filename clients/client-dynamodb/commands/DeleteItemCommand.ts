@@ -28,8 +28,10 @@ export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBea
  *       multiple times on the same item or attribute does <i>not</i> result in an error response.</p>
  *          <p>Conditional deletes are useful for deleting items only if specific conditions are met. If those conditions are met, DynamoDB performs the delete. Otherwise, the item is not deleted.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DynamoDBClient, DeleteItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, DeleteItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const command = new DeleteItemCommand(input);
  * const response = await client.send(command);

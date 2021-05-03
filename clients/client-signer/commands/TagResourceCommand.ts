@@ -26,8 +26,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * 			value. To specify the signing profile, use its Amazon Resource Name (ARN). To specify
  * 			the tag, use a key-value pair.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SignerClient, TagResourceCommand } from "@aws-sdk/client-signer"; // ES Modules import
+ * // const { SignerClient, TagResourceCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermi
 /**
  * <p>Removes cross-account permissions from a signing profile.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SignerClient, RemoveProfilePermissionCommand } from "@aws-sdk/client-signer"; // ES Modules import
+ * // const { SignerClient, RemoveProfilePermissionCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
  * const command = new RemoveProfilePermissionCommand(input);
  * const response = await client.send(command);

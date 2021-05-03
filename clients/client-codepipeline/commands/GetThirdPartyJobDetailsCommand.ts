@@ -30,8 +30,10 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  *                 values defined for the action.</p>
  *         </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodePipelineClient, GetThirdPartyJobDetailsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
+ * // const { CodePipelineClient, GetThirdPartyJobDetailsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const command = new GetThirdPartyJobDetailsCommand(input);
  * const response = await client.send(command);

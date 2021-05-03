@@ -29,8 +29,10 @@ export interface ListVoiceConnectorTerminationCredentialsCommandOutput
 /**
  * <p>Lists the SIP credentials for the specified Amazon Chime Voice Connector.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, ListVoiceConnectorTerminationCredentialsCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, ListVoiceConnectorTerminationCredentialsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new ListVoiceConnectorTerminationCredentialsCommand(input);
  * const response = await client.send(command);

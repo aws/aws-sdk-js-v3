@@ -25,8 +25,10 @@ export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectCon
  *       attached to the Direct Connect gateway and disassociate all virtual private gateways associated
  *       with the Direct Connect gateway.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectConnectClient, DeleteDirectConnectGatewayCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, DeleteDirectConnectGatewayCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const command = new DeleteDirectConnectGatewayCommand(input);
  * const response = await client.send(command);

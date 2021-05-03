@@ -28,8 +28,10 @@ export interface DescribeComputeEnvironmentsCommandOutput
  *    operation to determine the <code>ecsClusterArn</code> that you should launch your Amazon ECS container instances
  *    into.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BatchClient, DescribeComputeEnvironmentsCommand } from "@aws-sdk/client-batch"; // ES Modules import
+ * // const { BatchClient, DescribeComputeEnvironmentsCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
  * const command = new DescribeComputeEnvironmentsCommand(input);
  * const response = await client.send(command);

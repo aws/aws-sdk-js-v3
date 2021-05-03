@@ -25,8 +25,10 @@ export interface DeleteServerCommandOutput extends __MetadataBearer {}
  *
  *          <p>No response returns from this operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TransferClient, DeleteServerCommand } from "@aws-sdk/client-transfer"; // ES Modules import
+ * // const { TransferClient, DeleteServerCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
  * const command = new DeleteServerCommand(input);
  * const response = await client.send(command);

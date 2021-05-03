@@ -27,8 +27,10 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  *             </code>.</p>
  * 		       <p>The response is a group object.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { QuickSightClient, CreateGroupCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, CreateGroupCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);

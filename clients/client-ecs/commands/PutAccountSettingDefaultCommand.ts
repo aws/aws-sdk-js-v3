@@ -25,8 +25,10 @@ export interface PutAccountSettingDefaultCommandOutput extends PutAccountSetting
  * 			account setting has been specified. Account settings are set on a per-Region
  * 			basis.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECSClient, PutAccountSettingDefaultCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, PutAccountSettingDefaultCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const command = new PutAccountSettingDefaultCommand(input);
  * const response = await client.send(command);

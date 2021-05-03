@@ -28,8 +28,10 @@ export interface CreateEndpointGroupCommandOutput extends CreateEndpointGroupRes
  * <p>Create an endpoint group for the specified listener. An endpoint group is a collection of endpoints in one AWS
  * 			Region. A resource must be valid and active when you add it as an endpoint.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlobalAcceleratorClient, CreateEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
+ * // const { GlobalAcceleratorClient, CreateEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const command = new CreateEndpointGroupCommand(input);
  * const response = await client.send(command);

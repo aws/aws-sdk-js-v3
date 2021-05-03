@@ -33,8 +33,10 @@ export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefini
  *          <code>Mapping</code>, <code>Enum</code>.
  *          </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTThingsGraphClient, UploadEntityDefinitionsCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
+ * // const { IoTThingsGraphClient, UploadEntityDefinitionsCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const command = new UploadEntityDefinitionsCommand(input);
  * const response = await client.send(command);

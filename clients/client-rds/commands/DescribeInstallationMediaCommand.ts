@@ -24,8 +24,10 @@ export interface DescribeInstallationMediaCommandOutput extends InstallationMedi
  * <p>Describes the available installation media for a DB engine that requires an
  *           on-premises customer provided license, such as Microsoft SQL Server.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSClient, DescribeInstallationMediaCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeInstallationMediaCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
  * const command = new DescribeInstallationMediaCommand(input);
  * const response = await client.send(command);

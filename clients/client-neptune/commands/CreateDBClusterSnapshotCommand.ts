@@ -23,8 +23,10 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
 /**
  * <p>Creates a snapshot of a DB cluster.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NeptuneClient, CreateDBClusterSnapshotCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, CreateDBClusterSnapshotCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
  * const command = new CreateDBClusterSnapshotCommand(input);
  * const response = await client.send(command);

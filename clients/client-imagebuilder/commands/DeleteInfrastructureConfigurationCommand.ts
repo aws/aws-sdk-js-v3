@@ -28,8 +28,10 @@ export interface DeleteInfrastructureConfigurationCommandOutput
 /**
  * <p> Deletes an infrastructure configuration.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ImagebuilderClient, DeleteInfrastructureConfigurationCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, DeleteInfrastructureConfigurationCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const command = new DeleteInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);

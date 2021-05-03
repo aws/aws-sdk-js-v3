@@ -25,8 +25,10 @@ export interface DeletePredictorCommandOutput extends __MetadataBearer {}
  *       delete only predictor that have a status of <code>ACTIVE</code> or <code>CREATE_FAILED</code>.
  *       To get the status, use the <a>DescribePredictor</a> operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ForecastClient, DeletePredictorCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, DeletePredictorCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
  * const command = new DeletePredictorCommand(input);
  * const response = await client.send(command);

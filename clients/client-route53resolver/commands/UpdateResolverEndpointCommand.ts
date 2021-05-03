@@ -23,8 +23,10 @@ export interface UpdateResolverEndpointCommandOutput extends UpdateResolverEndpo
 /**
  * <p>Updates the name of an inbound or an outbound Resolver endpoint.  </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53ResolverClient, UpdateResolverEndpointCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, UpdateResolverEndpointCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const command = new UpdateResolverEndpointCommand(input);
  * const response = await client.send(command);

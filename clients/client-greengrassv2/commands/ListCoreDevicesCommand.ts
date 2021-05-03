@@ -23,8 +23,10 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
 /**
  * <p>Retrieves a paginated list of AWS IoT Greengrass core devices.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassV2Client, ListCoreDevicesCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
+ * // const { GreengrassV2Client, ListCoreDevicesCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const command = new ListCoreDevicesCommand(input);
  * const response = await client.send(command);

@@ -34,8 +34,10 @@ export interface ExportConfigurationsCommandOutput extends ExportConfigurationsR
  *       using the <i>DescribeExportConfigurations</i> API. The system imposes a limit of
  *       two configuration exports in six hours.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ApplicationDiscoveryServiceClient, ExportConfigurationsCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, ExportConfigurationsCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const command = new ExportConfigurationsCommand(input);
  * const response = await client.send(command);

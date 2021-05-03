@@ -30,8 +30,10 @@ export interface GetBuiltinIntentsCommandOutput extends GetBuiltinIntentsRespons
  *          <p>This operation requires permission for the
  *         <code>lex:GetBuiltinIntents</code> action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LexModelBuildingServiceClient, GetBuiltinIntentsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
+ * // const { LexModelBuildingServiceClient, GetBuiltinIntentsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const command = new GetBuiltinIntentsCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DeleteBackendAuthCommandOutput extends DeleteBackendAuthRespons
 /**
  * <p>Deletes an existing backend authentication resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AmplifyBackendClient, DeleteBackendAuthCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
+ * // const { AmplifyBackendClient, DeleteBackendAuthCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const command = new DeleteBackendAuthCommand(input);
  * const response = await client.send(command);

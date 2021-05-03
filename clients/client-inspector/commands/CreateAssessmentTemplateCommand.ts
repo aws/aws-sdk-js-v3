@@ -26,8 +26,10 @@ export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentT
  *          registers a service-linked role to grant Amazon Inspector access to AWS Services needed to
  *          perform security assessments.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { InspectorClient, CreateAssessmentTemplateCommand } from "@aws-sdk/client-inspector"; // ES Modules import
+ * // const { InspectorClient, CreateAssessmentTemplateCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
  * const command = new CreateAssessmentTemplateCommand(input);
  * const response = await client.send(command);

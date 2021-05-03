@@ -24,8 +24,10 @@ export interface GetPullRequestOverrideStateCommandOutput extends GetPullRequest
  * <p>Returns information about whether approval rules have been set aside (overridden) for a
  *             pull request, and if so, the Amazon Resource Name (ARN) of the user or identity that overrode the rules and their requirements for the pull request.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeCommitClient, GetPullRequestOverrideStateCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, GetPullRequestOverrideStateCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const command = new GetPullRequestOverrideStateCommand(input);
  * const response = await client.send(command);

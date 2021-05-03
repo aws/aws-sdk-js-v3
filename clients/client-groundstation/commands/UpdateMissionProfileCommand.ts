@@ -25,8 +25,10 @@ export interface UpdateMissionProfileCommandOutput extends MissionProfileIdRespo
  *          <p>Updating a mission profile will not update the execution parameters
  *          for existing future contacts.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GroundStationClient, UpdateMissionProfileCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
+ * // const { GroundStationClient, UpdateMissionProfileCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
  * const command = new UpdateMissionProfileCommand(input);
  * const response = await client.send(command);

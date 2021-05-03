@@ -23,8 +23,10 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
 /**
  * <p>Describes one or more of your clusters.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECSClient, DescribeClustersCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, DescribeClustersCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const command = new DescribeClustersCommand(input);
  * const response = await client.send(command);

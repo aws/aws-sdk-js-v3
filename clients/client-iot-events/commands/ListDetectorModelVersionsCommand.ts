@@ -24,8 +24,10 @@ export interface ListDetectorModelVersionsCommandOutput extends ListDetectorMode
  * <p>Lists all the versions of a detector model. Only the metadata associated with each
  *       detector model version is returned.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTEventsClient, ListDetectorModelVersionsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
+ * // const { IoTEventsClient, ListDetectorModelVersionsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const command = new ListDetectorModelVersionsCommand(input);
  * const response = await client.send(command);

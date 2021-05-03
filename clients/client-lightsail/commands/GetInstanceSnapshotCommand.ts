@@ -23,8 +23,10 @@ export interface GetInstanceSnapshotCommandOutput extends GetInstanceSnapshotRes
 /**
  * <p>Returns information about a specific instance snapshot.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, GetInstanceSnapshotCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetInstanceSnapshotCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new GetInstanceSnapshotCommand(input);
  * const response = await client.send(command);

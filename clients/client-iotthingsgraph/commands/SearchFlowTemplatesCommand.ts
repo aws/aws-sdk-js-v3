@@ -23,8 +23,10 @@ export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesRes
 /**
  * <p>Searches for summary information about workflows.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTThingsGraphClient, SearchFlowTemplatesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
+ * // const { IoTThingsGraphClient, SearchFlowTemplatesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const command = new SearchFlowTemplatesCommand(input);
  * const response = await client.send(command);

@@ -67,8 +67,10 @@ export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromData
  *          </example>
  *       </examples>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoSyncClient, UnsubscribeFromDatasetCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
+ * // const { CognitoSyncClient, UnsubscribeFromDatasetCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const command = new UnsubscribeFromDatasetCommand(input);
  * const response = await client.send(command);

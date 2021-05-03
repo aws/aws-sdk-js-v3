@@ -23,8 +23,10 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
 /**
  * <p>Describes the specified Savings Plans.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SavingsplansClient, DescribeSavingsPlansCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
+ * // const { SavingsplansClient, DescribeSavingsPlansCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
  * const client = new SavingsplansClient(config);
  * const command = new DescribeSavingsPlansCommand(input);
  * const response = await client.send(command);

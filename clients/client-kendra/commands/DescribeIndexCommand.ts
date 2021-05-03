@@ -23,8 +23,10 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
 /**
  * <p>Describes an existing Amazon Kendra index</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KendraClient, DescribeIndexCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, DescribeIndexCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
  * const command = new DescribeIndexCommand(input);
  * const response = await client.send(command);

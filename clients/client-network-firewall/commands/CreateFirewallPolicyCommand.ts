@@ -26,8 +26,10 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  *          stateless and stateful rule groups and other settings. You can use one firewall policy for
  *          multiple firewalls. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NetworkFirewallClient, CreateFirewallPolicyCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
+ * // const { NetworkFirewallClient, CreateFirewallPolicyCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const command = new CreateFirewallPolicyCommand(input);
  * const response = await client.send(command);

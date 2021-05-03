@@ -23,8 +23,10 @@ export interface DescribeResourcePoliciesCommandOutput extends DescribeResourceP
 /**
  * <p>Lists the resource policies in this account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudWatchLogsClient, DescribeResourcePoliciesCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
+ * // const { CloudWatchLogsClient, DescribeResourcePoliciesCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const command = new DescribeResourcePoliciesCommand(input);
  * const response = await client.send(command);

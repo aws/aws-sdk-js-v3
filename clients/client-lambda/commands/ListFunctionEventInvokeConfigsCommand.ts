@@ -26,8 +26,10 @@ export interface ListFunctionEventInvokeConfigsCommandOutput
  * <p>Retrieves a list of configurations for asynchronous invocation for a function.</p>
  *          <p>To configure options for asynchronous invocation, use <a>PutFunctionEventInvokeConfig</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LambdaClient, ListFunctionEventInvokeConfigsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, ListFunctionEventInvokeConfigsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
  * const command = new ListFunctionEventInvokeConfigsCommand(input);
  * const response = await client.send(command);

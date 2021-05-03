@@ -23,8 +23,10 @@ export interface GetRequestValidatorCommandOutput extends RequestValidator, __Me
 /**
  * <p>Gets a <a>RequestValidator</a> of a given <a>RestApi</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { APIGatewayClient, GetRequestValidatorCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, GetRequestValidatorCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const command = new GetRequestValidatorCommand(input);
  * const response = await client.send(command);

@@ -30,8 +30,10 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  * <p>Returns the default engine and system parameter information for the cluster database
  *       engine.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NeptuneClient, DescribeEngineDefaultClusterParametersCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, DescribeEngineDefaultClusterParametersCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
  * const command = new DescribeEngineDefaultClusterParametersCommand(input);
  * const response = await client.send(command);

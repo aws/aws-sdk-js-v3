@@ -26,8 +26,10 @@ export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNamese
  * 		       <p>If successful, this operation returns an operation ID that you can use to track the progress and completion of the action.
  * 			If the request is not completed successfully, the domain registrant will be notified by email.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53DomainsClient, UpdateDomainNameserversCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
+ * // const { Route53DomainsClient, UpdateDomainNameserversCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const command = new UpdateDomainNameserversCommand(input);
  * const response = await client.send(command);

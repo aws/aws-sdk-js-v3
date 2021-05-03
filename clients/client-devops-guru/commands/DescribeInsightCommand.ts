@@ -25,8 +25,10 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  *    		Returns details about an insight that you specify using its ID.
  *    	</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DevOpsGuruClient, DescribeInsightCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
+ * // const { DevOpsGuruClient, DescribeInsightCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const command = new DescribeInsightCommand(input);
  * const response = await client.send(command);

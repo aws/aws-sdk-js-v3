@@ -23,8 +23,10 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
 /**
  * <p>Lists discovered resources associated with the given <code>MigrationTask</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MigrationHubClient, ListDiscoveredResourcesCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
+ * // const { MigrationHubClient, ListDiscoveredResourcesCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const command = new ListDiscoveredResourcesCommand(input);
  * const response = await client.send(command);

@@ -29,8 +29,10 @@ export interface CreateCloudFormationChangeSetCommandOutput
 /**
  * <p>Creates an AWS CloudFormation change set for the given application.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServerlessApplicationRepositoryClient, CreateCloudFormationChangeSetCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
+ * // const { ServerlessApplicationRepositoryClient, CreateCloudFormationChangeSetCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
  * const command = new CreateCloudFormationChangeSetCommand(input);
  * const response = await client.send(command);

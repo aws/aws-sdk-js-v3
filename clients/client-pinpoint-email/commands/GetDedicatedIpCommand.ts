@@ -25,8 +25,10 @@ export interface GetDedicatedIpCommandOutput extends GetDedicatedIpResponse, __M
  *             pool that it's associated with, as well information about the automatic warm-up process
  *             for the address.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointEmailClient, GetDedicatedIpCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
+ * // const { PinpointEmailClient, GetDedicatedIpCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const command = new GetDedicatedIpCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesRes
 /**
  * <p>Returns details about your AWS Config rules.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConfigServiceClient, DescribeConfigRulesCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, DescribeConfigRulesCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const command = new DescribeConfigRulesCommand(input);
  * const response = await client.send(command);

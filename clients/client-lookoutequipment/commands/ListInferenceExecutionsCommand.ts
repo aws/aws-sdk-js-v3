@@ -24,8 +24,10 @@ export interface ListInferenceExecutionsCommandOutput extends ListInferenceExecu
  * <p> Lists all inference executions that have been performed by the specified inference
  *          scheduler. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutEquipmentClient, ListInferenceExecutionsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, ListInferenceExecutionsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const command = new ListInferenceExecutionsCommand(input);
  * const response = await client.send(command);

@@ -29,8 +29,10 @@ export interface RefreshSchemasCommandOutput extends RefreshSchemasResponse, __M
  *          can take several minutes. You can check the status of this operation by calling the
  *          DescribeRefreshSchemasStatus operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DatabaseMigrationServiceClient, RefreshSchemasCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, RefreshSchemasCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const command = new RefreshSchemasCommand(input);
  * const response = await client.send(command);

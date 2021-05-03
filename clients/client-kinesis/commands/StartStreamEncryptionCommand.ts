@@ -38,8 +38,10 @@ export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
  *             encryption, you can verify that encryption is applied by inspecting the API response
  *             from <code>PutRecord</code> or <code>PutRecords</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisClient, StartStreamEncryptionCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
+ * // const { KinesisClient, StartStreamEncryptionCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
  * const command = new StartStreamEncryptionCommand(input);
  * const response = await client.send(command);

@@ -27,8 +27,10 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
 /**
  * <p>Deletes the specified application. Kinesis Data Analytics halts application execution and deletes the application.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisAnalyticsV2Client, DeleteApplicationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, DeleteApplicationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const command = new DeleteApplicationCommand(input);
  * const response = await client.send(command);

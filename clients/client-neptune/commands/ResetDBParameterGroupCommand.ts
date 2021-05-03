@@ -29,8 +29,10 @@ export interface ResetDBParameterGroupCommandOutput extends DBParameterGroupName
  *       are set to <code>pending-reboot</code> to take effect on the next DB instance restart or
  *       <code>RebootDBInstance</code> request.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NeptuneClient, ResetDBParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, ResetDBParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
  * const command = new ResetDBParameterGroupCommand(input);
  * const response = await client.send(command);

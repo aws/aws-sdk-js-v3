@@ -30,8 +30,10 @@ export interface StartTextTranslationJobCommandOutput extends StartTextTranslati
  *             <p>Amazon Translate does not support batch translation of multiple source languages at once.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TranslateClient, StartTextTranslationJobCommand } from "@aws-sdk/client-translate"; // ES Modules import
+ * // const { TranslateClient, StartTextTranslationJobCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
  * const command = new StartTextTranslationJobCommand(input);
  * const response = await client.send(command);

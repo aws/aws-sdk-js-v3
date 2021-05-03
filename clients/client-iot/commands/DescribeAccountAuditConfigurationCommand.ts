@@ -30,8 +30,10 @@ export interface DescribeAccountAuditConfigurationCommandOutput
  *           Settings include how audit notifications are sent and which audit checks are
  *           enabled or disabled.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, DescribeAccountAuditConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DescribeAccountAuditConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new DescribeAccountAuditConfigurationCommand(input);
  * const response = await client.send(command);

@@ -31,8 +31,10 @@ export interface ListDomainDeliverabilityCampaignsCommandOutput
  *             enabled the Deliverability dashboard (<code>PutDeliverabilityDashboardOption</code> operation)
  *             for the domain.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointEmailClient, ListDomainDeliverabilityCampaignsCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
+ * // const { PinpointEmailClient, ListDomainDeliverabilityCampaignsCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const command = new ListDomainDeliverabilityCampaignsCommand(input);
  * const response = await client.send(command);

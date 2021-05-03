@@ -24,8 +24,10 @@ export interface EnableAddOnCommandOutput extends EnableAddOnResult, __MetadataB
  * <p>Enables or modifies an add-on for an Amazon Lightsail resource. For more information, see
  *       the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail Dev Guide</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, EnableAddOnCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, EnableAddOnCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new EnableAddOnCommand(input);
  * const response = await client.send(command);

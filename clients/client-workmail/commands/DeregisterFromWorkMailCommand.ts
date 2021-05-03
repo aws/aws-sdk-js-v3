@@ -26,8 +26,10 @@ export interface DeregisterFromWorkMailCommandOutput extends DeregisterFromWorkM
  *          before they are permanently removed. The functionality in the console is
  *             <i>Disable</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, DeregisterFromWorkMailCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, DeregisterFromWorkMailCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new DeregisterFromWorkMailCommand(input);
  * const response = await client.send(command);

@@ -31,8 +31,10 @@ export interface ListResourceDataSyncCommandOutput extends ListResourceDataSyncR
  *    more sync configurations to list, you can request them by specifying the <code>NextToken</code>
  *    returned in the call to the parameter of a subsequent call. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, ListResourceDataSyncCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, ListResourceDataSyncCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new ListResourceDataSyncCommand(input);
  * const response = await client.send(command);

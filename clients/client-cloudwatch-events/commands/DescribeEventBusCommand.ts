@@ -29,8 +29,10 @@ export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse,
  *       use <a>PutPermission</a>.</p>
  *          <p>For more information about partner event buses, see <a>CreateEventBus</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudWatchEventsClient, DescribeEventBusCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
+ * // const { CloudWatchEventsClient, DescribeEventBusCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const command = new DescribeEventBusCommand(input);
  * const response = await client.send(command);

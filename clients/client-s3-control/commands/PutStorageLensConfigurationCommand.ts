@@ -31,8 +31,10 @@ export interface PutStorageLensConfigurationCommandOutput extends __MetadataBear
  *          <i>Amazon Simple Storage Service User Guide</i>.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { S3ControlClient, PutStorageLensConfigurationCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
+ * // const { S3ControlClient, PutStorageLensConfigurationCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
  * const command = new PutStorageLensConfigurationCommand(input);
  * const response = await client.send(command);

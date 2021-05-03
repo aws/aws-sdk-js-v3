@@ -23,8 +23,10 @@ export interface ListProvisioningArtifactsCommandOutput extends ListProvisioning
 /**
  * <p>Lists all provisioning artifacts (also known as versions) for the specified product.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, ListProvisioningArtifactsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, ListProvisioningArtifactsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new ListProvisioningArtifactsCommand(input);
  * const response = await client.send(command);

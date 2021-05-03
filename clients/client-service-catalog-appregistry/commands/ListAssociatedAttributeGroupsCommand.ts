@@ -29,8 +29,10 @@ export interface ListAssociatedAttributeGroupsCommandOutput
 /**
  * <p>Lists all attribute groups that are associated with specified application.  Results are paginated.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogAppRegistryClient, ListAssociatedAttributeGroupsCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
+ * // const { ServiceCatalogAppRegistryClient, ListAssociatedAttributeGroupsCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const command = new ListAssociatedAttributeGroupsCommand(input);
  * const response = await client.send(command);

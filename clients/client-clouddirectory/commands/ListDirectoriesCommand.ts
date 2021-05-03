@@ -23,8 +23,10 @@ export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, _
 /**
  * <p>Lists directories created within an account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudDirectoryClient, ListDirectoriesCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, ListDirectoriesCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const command = new ListDirectoriesCommand(input);
  * const response = await client.send(command);

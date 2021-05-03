@@ -24,8 +24,10 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * <p>Associates an Identity and Access Management (IAM) role from an
  *       Neptune DB cluster.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NeptuneClient, AddRoleToDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, AddRoleToDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
  * const command = new AddRoleToDBClusterCommand(input);
  * const response = await client.send(command);

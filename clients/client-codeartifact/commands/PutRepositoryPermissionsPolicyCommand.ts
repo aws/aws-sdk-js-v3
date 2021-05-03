@@ -32,8 +32,10 @@ export interface PutRepositoryPermissionsPolicyCommandOutput
  *        able to update the resource policy.
  *      </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeartifactClient, PutRepositoryPermissionsPolicyCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
+ * // const { CodeartifactClient, PutRepositoryPermissionsPolicyCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const command = new PutRepositoryPermissionsPolicyCommand(input);
  * const response = await client.send(command);

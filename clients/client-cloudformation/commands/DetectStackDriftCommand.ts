@@ -43,8 +43,10 @@ export interface DetectStackDriftCommandOutput extends DetectStackDriftOutput, _
  *          belonging to that stack. Perform <code>DetectStackDrift</code> directly on the nested stack
  *          itself.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFormationClient, DetectStackDriftCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, DetectStackDriftCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const command = new DetectStackDriftCommand(input);
  * const response = await client.send(command);

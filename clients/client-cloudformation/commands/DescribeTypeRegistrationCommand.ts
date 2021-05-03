@@ -31,8 +31,10 @@ export interface DescribeTypeRegistrationCommandOutput extends DescribeTypeRegis
  *                <a>DescribeType</a>
  *             </code> to return detailed information about an extension.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFormationClient, DescribeTypeRegistrationCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, DescribeTypeRegistrationCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const command = new DescribeTypeRegistrationCommand(input);
  * const response = await client.send(command);

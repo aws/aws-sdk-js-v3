@@ -31,8 +31,10 @@ export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceR
  *       that has permissions to access AWS services, such as AWS Lambda and AWS IoT, that the flow uses when it executes.</p>
  *          <p>If the definition document doesn't specify a version of the user's namespace, the latest version will be used by default.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTThingsGraphClient, CreateSystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
+ * // const { IoTThingsGraphClient, CreateSystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const command = new CreateSystemInstanceCommand(input);
  * const response = await client.send(command);

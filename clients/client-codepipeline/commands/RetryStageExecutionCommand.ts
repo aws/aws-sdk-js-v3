@@ -26,8 +26,10 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  *             all actions that are still in progress continue working, and failed actions are
  *             triggered again.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodePipelineClient, RetryStageExecutionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
+ * // const { CodePipelineClient, RetryStageExecutionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const command = new RetryStageExecutionCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface UpdateInstanceAttributeCommandOutput extends __MetadataBearer {
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the value for the specified attribute type.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, UpdateInstanceAttributeCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, UpdateInstanceAttributeCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new UpdateInstanceAttributeCommand(input);
  * const response = await client.send(command);

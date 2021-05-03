@@ -28,8 +28,10 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  *          <p>The response returns the <code>ServerId</code> and the <code>UserName</code> for the
  *       updated user.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TransferClient, UpdateUserCommand } from "@aws-sdk/client-transfer"; // ES Modules import
+ * // const { TransferClient, UpdateUserCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);

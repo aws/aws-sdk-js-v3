@@ -30,8 +30,10 @@ export interface ListPhoneNumbersOptedOutCommandOutput extends ListPhoneNumbersO
  *                 <code>NextToken</code> string received from the previous call. When there are no
  *             more records to return, <code>NextToken</code> will be null.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SNSClient, ListPhoneNumbersOptedOutCommand } from "@aws-sdk/client-sns"; // ES Modules import
+ * // const { SNSClient, ListPhoneNumbersOptedOutCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
  * const command = new ListPhoneNumbersOptedOutCommand(input);
  * const response = await client.send(command);

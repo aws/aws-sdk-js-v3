@@ -63,8 +63,10 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  *
  *          <p>An example of a valid policy parameter is shown in the Examples section below.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFRegionalClient, PutPermissionPolicyCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
+ * // const { WAFRegionalClient, PutPermissionPolicyCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const command = new PutPermissionPolicyCommand(input);
  * const response = await client.send(command);

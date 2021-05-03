@@ -23,8 +23,10 @@ export interface UpdateVariableCommandOutput extends UpdateVariableResult, __Met
 /**
  * <p>Updates a variable.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FraudDetectorClient, UpdateVariableCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, UpdateVariableCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const command = new UpdateVariableCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface DescribeIdentityProviderConfigCommandOutput
 /**
  * <p>Returns descriptive information about an identity provider configuration.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EKSClient, DescribeIdentityProviderConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, DescribeIdentityProviderConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
  * const command = new DescribeIdentityProviderConfigCommand(input);
  * const response = await client.send(command);

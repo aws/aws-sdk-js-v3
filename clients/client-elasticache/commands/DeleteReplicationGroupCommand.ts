@@ -31,8 +31,10 @@ export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGr
  *             <p>This operation is valid for Redis only.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElastiCacheClient, DeleteReplicationGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, DeleteReplicationGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const command = new DeleteReplicationGroupCommand(input);
  * const response = await client.send(command);

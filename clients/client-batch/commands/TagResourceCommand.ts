@@ -26,8 +26,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *    associated with that resource are deleted as well. AWS Batch resources that support tags are compute environments, jobs, job definitions, and job
  *  queues. ARNs for child jobs of array and multi-node parallel (MNP) jobs are not supported.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BatchClient, TagResourceCommand } from "@aws-sdk/client-batch"; // ES Modules import
+ * // const { BatchClient, TagResourceCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

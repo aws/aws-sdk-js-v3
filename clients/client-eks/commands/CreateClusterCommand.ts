@@ -41,8 +41,10 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *             nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing Cluster
  *                 Authentication</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching Amazon EKS nodes</a> in the <i>Amazon EKS User Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EKSClient, CreateClusterCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, CreateClusterCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);

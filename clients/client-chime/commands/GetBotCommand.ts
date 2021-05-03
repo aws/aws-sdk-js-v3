@@ -20,8 +20,10 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
 /**
  * <p>Retrieves details for the specified bot, such as bot email address, bot type, status, and display name.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, GetBotCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, GetBotCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new GetBotCommand(input);
  * const response = await client.send(command);

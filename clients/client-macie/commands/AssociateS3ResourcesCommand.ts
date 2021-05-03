@@ -27,8 +27,10 @@ export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesR
  *       the action associates specified S3 resources with Macie Classic for the specified member
  *       account. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MacieClient, AssociateS3ResourcesCommand } from "@aws-sdk/client-macie"; // ES Modules import
+ * // const { MacieClient, AssociateS3ResourcesCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
  * const command = new AssociateS3ResourcesCommand(input);
  * const response = await client.send(command);

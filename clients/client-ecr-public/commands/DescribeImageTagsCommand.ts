@@ -23,8 +23,10 @@ export interface DescribeImageTagsCommandOutput extends DescribeImageTagsRespons
 /**
  * <p>Returns the image tag details for a repository in a public registry.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECRPUBLICClient, DescribeImageTagsCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
+ * // const { ECRPUBLICClient, DescribeImageTagsCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const command = new DescribeImageTagsCommand(input);
  * const response = await client.send(command);

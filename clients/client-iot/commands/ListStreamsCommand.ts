@@ -23,8 +23,10 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
 /**
  * <p>Lists all of the streams in your AWS account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, ListStreamsCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListStreamsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);

@@ -27,8 +27,10 @@ export interface PostToConnectionCommandOutput extends __MetadataBearer {}
 /**
  * <p>Sends the provided data to the specified connection.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ApiGatewayManagementApiClient, PostToConnectionCommand } from "@aws-sdk/client-apigatewaymanagementapi"; // ES Modules import
+ * // const { ApiGatewayManagementApiClient, PostToConnectionCommand } = require("@aws-sdk/client-apigatewaymanagementapi"); // CommonJS import
  * const client = new ApiGatewayManagementApiClient(config);
  * const command = new PostToConnectionCommand(input);
  * const response = await client.send(command);

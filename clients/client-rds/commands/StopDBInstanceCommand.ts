@@ -40,8 +40,10 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  *           </p>
  *         </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSClient, StopDBInstanceCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, StopDBInstanceCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
  * const command = new StopDBInstanceCommand(input);
  * const response = await client.send(command);

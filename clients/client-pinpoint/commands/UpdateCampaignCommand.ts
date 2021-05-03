@@ -23,8 +23,10 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
 /**
  * <p>Updates the configuration and other settings for a campaign.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointClient, UpdateCampaignCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, UpdateCampaignCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
  * const command = new UpdateCampaignCommand(input);
  * const response = await client.send(command);

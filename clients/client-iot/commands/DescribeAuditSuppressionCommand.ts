@@ -25,8 +25,10 @@ export interface DescribeAuditSuppressionCommandOutput extends DescribeAuditSupp
  *       Gets information about a Device Defender audit suppression.
  *     </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, DescribeAuditSuppressionCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DescribeAuditSuppressionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new DescribeAuditSuppressionCommand(input);
  * const response = await client.send(command);

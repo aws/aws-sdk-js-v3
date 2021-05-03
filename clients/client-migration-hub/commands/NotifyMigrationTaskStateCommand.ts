@@ -40,8 +40,10 @@ export interface NotifyMigrationTaskStateCommandOutput extends NotifyMigrationTa
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MigrationHubClient, NotifyMigrationTaskStateCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
+ * // const { MigrationHubClient, NotifyMigrationTaskStateCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const command = new NotifyMigrationTaskStateCommand(input);
  * const response = await client.send(command);

@@ -31,8 +31,10 @@ export interface AssociateInstanceStorageConfigCommandOutput
  *    instance. Ensure that the resource being specified in the storage configuration, like an S3
  *    bucket, exists when being used for association.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, AssociateInstanceStorageConfigCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, AssociateInstanceStorageConfigCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new AssociateInstanceStorageConfigCommand(input);
  * const response = await client.send(command);

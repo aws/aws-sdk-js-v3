@@ -23,8 +23,10 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
 /**
  * <p>Use this operation to see information from the most recent run of each canary that you have created.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SyntheticsClient, DescribeCanariesLastRunCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
+ * // const { SyntheticsClient, DescribeCanariesLastRunCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
  * const command = new DescribeCanariesLastRunCommand(input);
  * const response = await client.send(command);

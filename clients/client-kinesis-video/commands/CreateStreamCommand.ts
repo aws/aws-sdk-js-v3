@@ -31,8 +31,10 @@ export interface CreateStreamCommandOutput extends CreateStreamOutput, __Metadat
  *         <p>You must have permissions for the <code>KinesisVideo:CreateStream</code>
  *             action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisVideoClient, CreateStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
+ * // const { KinesisVideoClient, CreateStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const command = new CreateStreamCommand(input);
  * const response = await client.send(command);

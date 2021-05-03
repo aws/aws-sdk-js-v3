@@ -23,8 +23,10 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
 /**
  * <p>Deletes a fleet. Prevents users from accessing previously associated websites. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkLinkClient, DeleteFleetCommand } from "@aws-sdk/client-worklink"; // ES Modules import
+ * // const { WorkLinkClient, DeleteFleetCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const command = new DeleteFleetCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DeleteBotAliasCommandOutput extends DeleteBotAliasResponse, __M
 /**
  * <p>Deletes the specified bot alias.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LexModelsV2Client, DeleteBotAliasCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, DeleteBotAliasCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const command = new DeleteBotAliasCommand(input);
  * const response = await client.send(command);

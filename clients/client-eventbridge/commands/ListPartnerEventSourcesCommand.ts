@@ -24,8 +24,10 @@ export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSo
  * <p>An SaaS partner can use this operation to list all the partner event source names that
  *       they have created. This operation is not used by AWS customers.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EventBridgeClient, ListPartnerEventSourcesCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, ListPartnerEventSourcesCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const command = new ListPartnerEventSourcesCommand(input);
  * const response = await client.send(command);

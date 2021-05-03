@@ -28,8 +28,10 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  *       must provide the entire list. For example, to add an action, specify a list with the current
  *       actions plus the new action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticLoadBalancingV2Client, ModifyRuleCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, ModifyRuleCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const command = new ModifyRuleCommand(input);
  * const response = await client.send(command);

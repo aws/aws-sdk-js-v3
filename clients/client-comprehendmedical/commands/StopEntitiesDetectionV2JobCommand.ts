@@ -27,8 +27,10 @@ export interface StopEntitiesDetectionV2JobCommandOutput extends StopEntitiesDet
 /**
  * <p>Stops a medical entities detection job in progress.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendMedicalClient, StopEntitiesDetectionV2JobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
+ * // const { ComprehendMedicalClient, StopEntitiesDetectionV2JobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
  * const command = new StopEntitiesDetectionV2JobCommand(input);
  * const response = await client.send(command);

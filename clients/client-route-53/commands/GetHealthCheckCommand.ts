@@ -23,8 +23,10 @@ export interface GetHealthCheckCommandOutput extends GetHealthCheckResponse, __M
 /**
  * <p>Gets information about a specified health check.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53Client, GetHealthCheckCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, GetHealthCheckCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
  * const command = new GetHealthCheckCommand(input);
  * const response = await client.send(command);

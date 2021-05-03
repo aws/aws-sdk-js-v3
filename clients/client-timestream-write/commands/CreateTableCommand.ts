@@ -30,8 +30,10 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *          in the Timestream Developer Guide.
  *          </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TimestreamWriteClient, CreateTableCommand } from "@aws-sdk/client-timestream-write"; // ES Modules import
+ * // const { TimestreamWriteClient, CreateTableCommand } = require("@aws-sdk/client-timestream-write"); // CommonJS import
  * const client = new TimestreamWriteClient(config);
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);

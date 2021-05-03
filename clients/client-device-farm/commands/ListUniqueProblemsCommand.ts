@@ -27,8 +27,10 @@ export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResul
  *                 MyActivity.java:386</code>), <code>ListUniqueProblems</code> returns a single entry instead of many
  *             individual entries for that exception.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, ListUniqueProblemsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, ListUniqueProblemsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new ListUniqueProblemsCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface ListFieldLevelEncryptionConfigsCommandOutput
 /**
  * <p>List all field-level encryption configurations that have been created in CloudFront for this account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFrontClient, ListFieldLevelEncryptionConfigsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, ListFieldLevelEncryptionConfigsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const command = new ListFieldLevelEncryptionConfigsCommand(input);
  * const response = await client.send(command);

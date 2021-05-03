@@ -26,8 +26,10 @@ export interface BatchDeleteGeofenceCommandOutput extends BatchDeleteGeofenceRes
  *             <p>This action deletes the resource permanently. You can't undo this action.</p>
  *         </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LocationClient, BatchDeleteGeofenceCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, BatchDeleteGeofenceCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
  * const command = new BatchDeleteGeofenceCommand(input);
  * const response = await client.send(command);

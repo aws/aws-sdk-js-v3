@@ -35,8 +35,10 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  *       separately helps prevent unauthorized parties from gaining access to the Snow device associated
  *       with that job.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SnowballClient, GetJobUnlockCodeCommand } from "@aws-sdk/client-snowball"; // ES Modules import
+ * // const { SnowballClient, GetJobUnlockCodeCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
  * const command = new GetJobUnlockCodeCommand(input);
  * const response = await client.send(command);

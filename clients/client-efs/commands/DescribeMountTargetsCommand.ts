@@ -30,8 +30,10 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  *       that you specify in <code>FileSystemId</code>, or on the file system of the mount target that
  *       you specify in <code>MountTargetId</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EFSClient, DescribeMountTargetsCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, DescribeMountTargetsCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
  * const command = new DescribeMountTargetsCommand(input);
  * const response = await client.send(command);

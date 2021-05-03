@@ -27,8 +27,10 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  *        guaranteed. To guarantee ordering, you must send messages one at a time and wait for a successful
  *        response.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTEventsDataClient, BatchPutMessageCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
+ * // const { IoTEventsDataClient, BatchPutMessageCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
  * const client = new IoTEventsDataClient(config);
  * const command = new BatchPutMessageCommand(input);
  * const response = await client.send(command);

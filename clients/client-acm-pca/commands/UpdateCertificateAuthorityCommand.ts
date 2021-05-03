@@ -33,8 +33,10 @@ export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBeare
  *                         Access to ACM Private CA</a>.</p>
  *                 </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ACMPCAClient, UpdateCertificateAuthorityCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
+ * // const { ACMPCAClient, UpdateCertificateAuthorityCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const command = new UpdateCertificateAuthorityCommand(input);
  * const response = await client.send(command);

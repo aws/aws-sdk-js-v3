@@ -37,8 +37,10 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  *       specify either the SourceType nor the SourceIdentifier, you are notified of events generated
  *       from all Neptune sources belonging to your customer account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NeptuneClient, CreateEventSubscriptionCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, CreateEventSubscriptionCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
  * const command = new CreateEventSubscriptionCommand(input);
  * const response = await client.send(command);

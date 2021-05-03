@@ -25,8 +25,10 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  *             Adds the specified tags to an Elastic Inference Accelerator.
  *         </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticInferenceClient, TagResourceCommand } from "@aws-sdk/client-elastic-inference"; // ES Modules import
+ * // const { ElasticInferenceClient, TagResourceCommand } = require("@aws-sdk/client-elastic-inference"); // CommonJS import
  * const client = new ElasticInferenceClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

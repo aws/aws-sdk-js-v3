@@ -23,8 +23,10 @@ export interface ListStreamingDistributionsCommandOutput extends ListStreamingDi
 /**
  * <p>List streaming distributions. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFrontClient, ListStreamingDistributionsCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, ListStreamingDistributionsCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const command = new ListStreamingDistributionsCommand(input);
  * const response = await client.send(command);

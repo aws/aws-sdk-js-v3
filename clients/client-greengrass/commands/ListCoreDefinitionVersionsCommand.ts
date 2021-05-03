@@ -23,8 +23,10 @@ export interface ListCoreDefinitionVersionsCommandOutput extends ListCoreDefinit
 /**
  * Lists the versions of a core definition.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassClient, ListCoreDefinitionVersionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, ListCoreDefinitionVersionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
  * const command = new ListCoreDefinitionVersionsCommand(input);
  * const response = await client.send(command);

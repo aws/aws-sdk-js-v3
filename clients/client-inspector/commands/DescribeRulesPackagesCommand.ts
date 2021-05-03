@@ -24,8 +24,10 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
  * <p>Describes the rules packages that are specified by the ARNs of the rules
  *          packages.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { InspectorClient, DescribeRulesPackagesCommand } from "@aws-sdk/client-inspector"; // ES Modules import
+ * // const { InspectorClient, DescribeRulesPackagesCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
  * const command = new DescribeRulesPackagesCommand(input);
  * const response = await client.send(command);

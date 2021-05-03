@@ -23,8 +23,10 @@ export interface DescribeInstancePatchStatesCommandOutput extends DescribeInstan
 /**
  * <p>Retrieves the high-level patch state of one or more instances.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, DescribeInstancePatchStatesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DescribeInstancePatchStatesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new DescribeInstancePatchStatesCommand(input);
  * const response = await client.send(command);

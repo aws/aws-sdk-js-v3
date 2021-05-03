@@ -26,8 +26,10 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  *          For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>. </p>
  *          <p>The following example removes the stack tag with value Prod from a cluster:</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EMRClient, RemoveTagsCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, RemoveTagsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
  * const command = new RemoveTagsCommand(input);
  * const response = await client.send(command);

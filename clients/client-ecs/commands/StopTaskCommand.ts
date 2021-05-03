@@ -32,8 +32,10 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  * 					<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECSClient, StopTaskCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, StopTaskCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const command = new StopTaskCommand(input);
  * const response = await client.send(command);

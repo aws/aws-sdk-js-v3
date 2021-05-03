@@ -23,8 +23,10 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
 /**
  * <p>Updates room details, such as the room name, for a room in an Amazon Chime Enterprise account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, UpdateRoomCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, UpdateRoomCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new UpdateRoomCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DisassociateMemberAccountCommandOutput extends __MetadataBearer
 /**
  * <p>Removes the specified member account from Amazon Macie Classic.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MacieClient, DisassociateMemberAccountCommand } from "@aws-sdk/client-macie"; // ES Modules import
+ * // const { MacieClient, DisassociateMemberAccountCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
  * const command = new DisassociateMemberAccountCommand(input);
  * const response = await client.send(command);

@@ -27,8 +27,10 @@ export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesR
 /**
  * <p>Allows a user to update a specific attribute (one at a time).</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityProviderClient, UpdateUserAttributesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, UpdateUserAttributesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const command = new UpdateUserAttributesCommand(input);
  * const response = await client.send(command);

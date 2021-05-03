@@ -24,8 +24,10 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  * <p>Returns information about all of the operations that return an operation ID and that have ever been
  * 			performed on domains that were registered by the current account. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53DomainsClient, ListOperationsCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
+ * // const { Route53DomainsClient, ListOperationsCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const command = new ListOperationsCommand(input);
  * const response = await client.send(command);

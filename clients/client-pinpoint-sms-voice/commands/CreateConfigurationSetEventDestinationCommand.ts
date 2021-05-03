@@ -29,8 +29,10 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
 /**
  * Create a new event destination in a configuration set.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointSMSVoiceClient, CreateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-pinpoint-sms-voice"; // ES Modules import
+ * // const { PinpointSMSVoiceClient, CreateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-pinpoint-sms-voice"); // CommonJS import
  * const client = new PinpointSMSVoiceClient(config);
  * const command = new CreateConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);

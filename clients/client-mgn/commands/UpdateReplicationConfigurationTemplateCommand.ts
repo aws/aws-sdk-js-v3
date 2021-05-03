@@ -26,8 +26,10 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
 /**
  * <p>Updates multiple ReplicationConfigurationTemplates by ID.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MgnClient, UpdateReplicationConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
+ * // const { MgnClient, UpdateReplicationConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
  * const command = new UpdateReplicationConfigurationTemplateCommand(input);
  * const response = await client.send(command);

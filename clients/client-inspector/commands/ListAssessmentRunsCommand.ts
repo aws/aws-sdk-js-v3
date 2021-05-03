@@ -24,8 +24,10 @@ export interface ListAssessmentRunsCommandOutput extends ListAssessmentRunsRespo
  * <p>Lists the assessment runs that correspond to the assessment templates that are
  *          specified by the ARNs of the assessment templates.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { InspectorClient, ListAssessmentRunsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
+ * // const { InspectorClient, ListAssessmentRunsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
  * const command = new ListAssessmentRunsCommand(input);
  * const response = await client.send(command);

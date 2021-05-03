@@ -23,8 +23,10 @@ export interface DeleteStackInstancesCommandOutput extends DeleteStackInstancesO
 /**
  * <p>Deletes stack instances for the specified accounts, in the specified Regions. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFormationClient, DeleteStackInstancesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, DeleteStackInstancesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const command = new DeleteStackInstancesCommand(input);
  * const response = await client.send(command);

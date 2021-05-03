@@ -24,8 +24,10 @@ export interface GetResolverRuleCommandOutput extends GetResolverRuleResponse, _
  * <p>Gets information about a specified Resolver rule, such as the domain name that the rule forwards DNS queries for and the ID of the
  * 			outbound Resolver endpoint that the rule is associated with.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53ResolverClient, GetResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, GetResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const command = new GetResolverRuleCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
 /**
  * <p>Returns summaries of the organization's groups.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, ListGroupsCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, ListGroupsCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);

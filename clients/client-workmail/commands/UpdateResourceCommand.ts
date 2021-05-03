@@ -25,8 +25,10 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  *          a <a>DescribeResource</a> call. The dataset in the request should be the one
  *          expected when performing another <code>DescribeResource</code> call.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, UpdateResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, UpdateResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new UpdateResourceCommand(input);
  * const response = await client.send(command);

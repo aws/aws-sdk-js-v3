@@ -24,8 +24,10 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  * <p>Creates a new subnet group. subnet groups must contain at least one subnet in at
  *             least two Availability Zones in the AWS Region.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DocDBClient, CreateDBSubnetGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, CreateDBSubnetGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
  * const command = new CreateDBSubnetGroupCommand(input);
  * const response = await client.send(command);

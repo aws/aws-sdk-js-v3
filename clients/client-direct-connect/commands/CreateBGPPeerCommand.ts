@@ -29,8 +29,10 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
  *       the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.</p>
  *          <p>For a public virtual interface, the Autonomous System Number (ASN) must be private or already on the allow list for the virtual interface.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectConnectClient, CreateBGPPeerCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, CreateBGPPeerCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const command = new CreateBGPPeerCommand(input);
  * const response = await client.send(command);

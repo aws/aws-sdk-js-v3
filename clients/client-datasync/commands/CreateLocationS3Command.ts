@@ -29,8 +29,10 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  *       https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli
  *       in the <i>AWS DataSync User Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataSyncClient, CreateLocationS3Command } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, CreateLocationS3Command } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
  * const command = new CreateLocationS3Command(input);
  * const response = await client.send(command);

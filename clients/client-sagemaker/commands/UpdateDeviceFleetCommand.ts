@@ -23,8 +23,10 @@ export interface UpdateDeviceFleetCommandOutput extends __MetadataBearer {}
 /**
  * <p>Updates a fleet of devices.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, UpdateDeviceFleetCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, UpdateDeviceFleetCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new UpdateDeviceFleetCommand(input);
  * const response = await client.send(command);

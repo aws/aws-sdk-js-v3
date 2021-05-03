@@ -29,8 +29,10 @@ export interface DeleteEntityRecognizerCommandOutput extends DeleteEntityRecogni
  *       then removed by a background job. Once removed, the recognizer disappears from your account
  *       and is no longer available for use. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, DeleteEntityRecognizerCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, DeleteEntityRecognizerCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new DeleteEntityRecognizerCommand(input);
  * const response = await client.send(command);

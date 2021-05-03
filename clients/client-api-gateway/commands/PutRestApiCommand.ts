@@ -24,8 +24,10 @@ export interface PutRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * <p>A feature of the API Gateway control service for updating an existing API with an input of external API definitions.
  *             The update can take the form of merging the supplied definition into the existing API or overwriting the existing API.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { APIGatewayClient, PutRestApiCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, PutRestApiCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const command = new PutRestApiCommand(input);
  * const response = await client.send(command);

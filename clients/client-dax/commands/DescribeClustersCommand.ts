@@ -35,8 +35,10 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  *         <p>If nodes are currently being removed from the DAX cluster, no endpoint
  *             information for the removed nodes is displayed.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DAXClient, DescribeClustersCommand } from "@aws-sdk/client-dax"; // ES Modules import
+ * // const { DAXClient, DescribeClustersCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
  * const command = new DescribeClustersCommand(input);
  * const response = await client.send(command);

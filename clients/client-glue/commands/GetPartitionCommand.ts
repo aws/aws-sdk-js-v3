@@ -23,8 +23,10 @@ export interface GetPartitionCommandOutput extends GetPartitionResponse, __Metad
 /**
  * <p>Retrieves information about a specified partition.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlueClient, GetPartitionCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetPartitionCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
  * const command = new GetPartitionCommand(input);
  * const response = await client.send(command);

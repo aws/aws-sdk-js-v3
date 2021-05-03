@@ -23,8 +23,10 @@ export interface GetActiveNamesCommandOutput extends GetActiveNamesResult, __Met
 /**
  * <p>Returns the names of all active (not deleted) resources.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, GetActiveNamesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetActiveNamesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new GetActiveNamesCommand(input);
  * const response = await client.send(command);

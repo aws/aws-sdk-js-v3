@@ -23,8 +23,10 @@ export interface UpdateRobotApplicationCommandOutput extends UpdateRobotApplicat
 /**
  * <p>Updates a robot application.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RoboMakerClient, UpdateRobotApplicationCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
+ * // const { RoboMakerClient, UpdateRobotApplicationCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const command = new UpdateRobotApplicationCommand(input);
  * const response = await client.send(command);

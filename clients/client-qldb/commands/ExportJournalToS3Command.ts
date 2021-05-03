@@ -30,8 +30,10 @@ export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Respons
  *          <p>You can initiate up to two concurrent journal export requests for each ledger. Beyond
  *          this limit, journal export requests throw <code>LimitExceededException</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { QLDBClient, ExportJournalToS3Command } from "@aws-sdk/client-qldb"; // ES Modules import
+ * // const { QLDBClient, ExportJournalToS3Command } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
  * const command = new ExportJournalToS3Command(input);
  * const response = await client.send(command);

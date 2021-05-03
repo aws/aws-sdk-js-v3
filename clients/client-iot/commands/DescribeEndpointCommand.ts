@@ -23,8 +23,10 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
 /**
  * <p>Returns a unique endpoint specific to the AWS account making the call.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, DescribeEndpointCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DescribeEndpointCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new DescribeEndpointCommand(input);
  * const response = await client.send(command);

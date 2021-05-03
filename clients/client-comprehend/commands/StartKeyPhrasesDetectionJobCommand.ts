@@ -27,8 +27,10 @@ export interface StartKeyPhrasesDetectionJobCommandOutput
  *          operation to track the status of a
  *       job.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, StartKeyPhrasesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, StartKeyPhrasesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new StartKeyPhrasesDetectionJobCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface ListAssessmentsCommandOutput extends ListAssessmentsResponse, _
  * Returns a list of current and past assessments from AWS Audit Manager.
  * </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AuditManagerClient, ListAssessmentsCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
+ * // const { AuditManagerClient, ListAssessmentsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const command = new ListAssessmentsCommand(input);
  * const response = await client.send(command);

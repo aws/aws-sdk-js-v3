@@ -23,8 +23,10 @@ export interface ListConferenceProvidersCommandOutput extends ListConferenceProv
 /**
  * <p>Lists conference providers under a specific AWS account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AlexaForBusinessClient, ListConferenceProvidersCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, ListConferenceProvidersCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const command = new ListConferenceProvidersCommand(input);
  * const response = await client.send(command);

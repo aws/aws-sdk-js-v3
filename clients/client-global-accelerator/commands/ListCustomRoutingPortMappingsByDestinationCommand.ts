@@ -36,8 +36,10 @@ export interface ListCustomRoutingPortMappingsByDestinationCommandOutput
  * 			span multiple custom routing accelerators in your account, or for scenarios where you only want to
  * 			list the port mappings for a specific destination instance.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlobalAcceleratorClient, ListCustomRoutingPortMappingsByDestinationCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
+ * // const { GlobalAcceleratorClient, ListCustomRoutingPortMappingsByDestinationCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const command = new ListCustomRoutingPortMappingsByDestinationCommand(input);
  * const response = await client.send(command);

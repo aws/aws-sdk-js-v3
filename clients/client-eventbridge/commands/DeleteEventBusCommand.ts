@@ -24,8 +24,10 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  * <p>Deletes the specified custom event bus or partner event bus. All rules associated with
  *       this event bus need to be deleted. You can't delete your account's default event bus.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EventBridgeClient, DeleteEventBusCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, DeleteEventBusCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const command = new DeleteEventBusCommand(input);
  * const response = await client.send(command);

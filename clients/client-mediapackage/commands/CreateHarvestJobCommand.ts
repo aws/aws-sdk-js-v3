@@ -23,8 +23,10 @@ export interface CreateHarvestJobCommandOutput extends CreateHarvestJobResponse,
 /**
  * Creates a new HarvestJob record.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaPackageClient, CreateHarvestJobCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
+ * // const { MediaPackageClient, CreateHarvestJobCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
  * const command = new CreateHarvestJobCommand(input);
  * const response = await client.send(command);

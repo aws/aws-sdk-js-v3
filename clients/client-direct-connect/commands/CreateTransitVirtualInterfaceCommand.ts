@@ -34,8 +34,10 @@ export interface CreateTransitVirtualInterfaceCommandOutput
  *       frames, call <a>DescribeConnections</a>. To check whether your virtual
  *       interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectConnectClient, CreateTransitVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, CreateTransitVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const command = new CreateTransitVirtualInterfaceCommand(input);
  * const response = await client.send(command);

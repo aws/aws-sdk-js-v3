@@ -23,8 +23,10 @@ export interface DeleteRouteCommandOutput extends DeleteRouteOutput, __MetadataB
 /**
  * <p>Deletes an existing route.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppMeshClient, DeleteRouteCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
+ * // const { AppMeshClient, DeleteRouteCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
  * const command = new DeleteRouteCommand(input);
  * const response = await client.send(command);

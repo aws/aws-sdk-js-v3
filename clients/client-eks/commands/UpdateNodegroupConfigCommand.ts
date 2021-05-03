@@ -27,8 +27,10 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
  *             API operation. Currently you can update the Kubernetes labels for a node group or the
  *             scaling configuration.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EKSClient, UpdateNodegroupConfigCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, UpdateNodegroupConfigCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
  * const command = new UpdateNodegroupConfigCommand(input);
  * const response = await client.send(command);

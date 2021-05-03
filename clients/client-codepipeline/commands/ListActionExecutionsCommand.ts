@@ -23,8 +23,10 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
 /**
  * <p>Lists the action executions that have occurred in a pipeline.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodePipelineClient, ListActionExecutionsCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
+ * // const { CodePipelineClient, ListActionExecutionsCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const command = new ListActionExecutionsCommand(input);
  * const response = await client.send(command);

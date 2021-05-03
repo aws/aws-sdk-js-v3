@@ -23,8 +23,10 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
 /**
  * <p>Retrieves a list that describes one or more specified users in the user pool.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppStreamClient, DescribeUsersCommand } from "@aws-sdk/client-appstream"; // ES Modules import
+ * // const { AppStreamClient, DescribeUsersCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
  * const command = new DescribeUsersCommand(input);
  * const response = await client.send(command);

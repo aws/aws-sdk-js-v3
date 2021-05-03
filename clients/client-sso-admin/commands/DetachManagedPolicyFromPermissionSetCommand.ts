@@ -28,8 +28,10 @@ export interface DetachManagedPolicyFromPermissionSetCommandOutput
 /**
  * <p>Detaches the attached IAM managed policy ARN from the specified permission set.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSOAdminClient, DetachManagedPolicyFromPermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
+ * // const { SSOAdminClient, DetachManagedPolicyFromPermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const command = new DetachManagedPolicyFromPermissionSetCommand(input);
  * const response = await client.send(command);

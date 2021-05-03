@@ -30,8 +30,10 @@ export interface StartDominantLanguageDetectionJobCommandOutput
  *       the  operation to track the status
  *       of a job.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, StartDominantLanguageDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, StartDominantLanguageDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new StartDominantLanguageDetectionJobCommand(input);
  * const response = await client.send(command);

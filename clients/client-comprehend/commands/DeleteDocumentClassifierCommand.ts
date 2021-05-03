@@ -29,8 +29,10 @@ export interface DeleteDocumentClassifierCommandOutput extends DeleteDocumentCla
  *       then removed by a background job. Once removed, the classifier disappears from your account
  *       and is no longer available for use. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, DeleteDocumentClassifierCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, DeleteDocumentClassifierCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new DeleteDocumentClassifierCommand(input);
  * const response = await client.send(command);

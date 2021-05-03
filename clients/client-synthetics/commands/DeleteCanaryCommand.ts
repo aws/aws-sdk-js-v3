@@ -57,8 +57,10 @@ export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __Metad
  *          note of the information returned by this operation so that you can delete these resources
  *          after you delete the canary.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SyntheticsClient, DeleteCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
+ * // const { SyntheticsClient, DeleteCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
  * const command = new DeleteCanaryCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface GetRestApiCommandOutput extends RestApi, __MetadataBearer {}
 /**
  * <p>Lists the <a>RestApi</a> resource in the collection.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { APIGatewayClient, GetRestApiCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, GetRestApiCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const command = new GetRestApiCommand(input);
  * const response = await client.send(command);

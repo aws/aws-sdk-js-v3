@@ -23,8 +23,10 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
 /**
  * <p>Updates the filter specified by the filter name.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GuardDutyClient, UpdateFilterCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, UpdateFilterCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const command = new UpdateFilterCommand(input);
  * const response = await client.send(command);

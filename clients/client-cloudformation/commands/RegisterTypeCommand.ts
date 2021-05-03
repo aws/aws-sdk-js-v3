@@ -38,8 +38,10 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  *                <a>DescribeTypeRegistration</a>
  *             </code> to monitor the progress of the registration request.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFormationClient, RegisterTypeCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, RegisterTypeCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const command = new RegisterTypeCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
 /**
  * <p>Returns the detailed parameter list for a particular DB parameter group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NeptuneClient, DescribeDBParametersCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, DescribeDBParametersCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
  * const command = new DescribeDBParametersCommand(input);
  * const response = await client.send(command);

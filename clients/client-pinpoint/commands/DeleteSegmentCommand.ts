@@ -23,8 +23,10 @@ export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __Met
 /**
  * <p>Deletes a segment from an application.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointClient, DeleteSegmentCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, DeleteSegmentCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
  * const command = new DeleteSegmentCommand(input);
  * const response = await client.send(command);

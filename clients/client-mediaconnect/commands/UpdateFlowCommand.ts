@@ -23,8 +23,10 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
 /**
  * Updates flow
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaConnectClient, UpdateFlowCommand } from "@aws-sdk/client-mediaconnect"; // ES Modules import
+ * // const { MediaConnectClient, UpdateFlowCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const command = new UpdateFlowCommand(input);
  * const response = await client.send(command);

@@ -32,8 +32,10 @@ export interface ListAttachedUserPoliciesCommandOutput extends ListAttachedUserP
  *             attached to the specified group (or none that match the specified path prefix), the
  *             operation returns an empty list.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IAMClient, ListAttachedUserPoliciesCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, ListAttachedUserPoliciesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
  * const command = new ListAttachedUserPoliciesCommand(input);
  * const response = await client.send(command);

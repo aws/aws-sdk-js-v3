@@ -26,8 +26,10 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  *    		that contains information about how to improve your operations.
  *    	</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DevOpsGuruClient, RemoveNotificationChannelCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
+ * // const { DevOpsGuruClient, RemoveNotificationChannelCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const command = new RemoveNotificationChannelCommand(input);
  * const response = await client.send(command);

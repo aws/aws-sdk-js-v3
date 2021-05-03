@@ -23,8 +23,10 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
 /**
  * <p>List targets for the specified policy.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, ListTargetsForPolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListTargetsForPolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new ListTargetsForPolicyCommand(input);
  * const response = await client.send(command);

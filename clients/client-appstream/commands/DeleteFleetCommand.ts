@@ -23,8 +23,10 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResult, __MetadataB
 /**
  * <p>Deletes the specified fleet.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppStreamClient, DeleteFleetCommand } from "@aws-sdk/client-appstream"; // ES Modules import
+ * // const { AppStreamClient, DeleteFleetCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
  * const command = new DeleteFleetCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface ListMeshesCommandOutput extends ListMeshesOutput, __MetadataBea
 /**
  * <p>Returns a list of existing service meshes.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppMeshClient, ListMeshesCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
+ * // const { AppMeshClient, ListMeshesCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
  * const command = new ListMeshesCommand(input);
  * const response = await client.send(command);

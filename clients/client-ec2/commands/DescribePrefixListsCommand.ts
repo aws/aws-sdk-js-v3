@@ -25,8 +25,10 @@ export interface DescribePrefixListsCommandOutput extends DescribePrefixListsRes
  *             name and prefix list ID of the service and the IP address range for the service.</p>
  *         <p>We recommend that you use <a>DescribeManagedPrefixLists</a> instead.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, DescribePrefixListsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribePrefixListsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new DescribePrefixListsCommand(input);
  * const response = await client.send(command);

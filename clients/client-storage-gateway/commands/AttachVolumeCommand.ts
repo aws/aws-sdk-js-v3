@@ -26,8 +26,10 @@ export interface AttachVolumeCommandOutput extends AttachVolumeOutput, __Metadat
  *          to a different gateway without creating a snapshot. It also makes it easier to move your
  *          volumes from an on-premises gateway to a gateway hosted on an Amazon EC2 instance.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { StorageGatewayClient, AttachVolumeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, AttachVolumeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const command = new AttachVolumeCommand(input);
  * const response = await client.send(command);

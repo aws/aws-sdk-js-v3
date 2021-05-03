@@ -23,8 +23,10 @@ export interface UpdateImagePermissionsCommandOutput extends UpdateImagePermissi
 /**
  * <p>Adds or updates permissions for the specified private image. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppStreamClient, UpdateImagePermissionsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
+ * // const { AppStreamClient, UpdateImagePermissionsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
  * const command = new UpdateImagePermissionsCommand(input);
  * const response = await client.send(command);

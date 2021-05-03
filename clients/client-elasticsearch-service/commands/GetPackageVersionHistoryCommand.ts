@@ -27,8 +27,10 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
 /**
  * <p>Returns a list of versions of the package, along with their creation time and commit message.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticsearchServiceClient, GetPackageVersionHistoryCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
+ * // const { ElasticsearchServiceClient, GetPackageVersionHistoryCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const command = new GetPackageVersionHistoryCommand(input);
  * const response = await client.send(command);

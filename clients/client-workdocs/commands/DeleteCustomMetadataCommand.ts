@@ -23,8 +23,10 @@ export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataR
 /**
  * <p>Deletes custom metadata from the specified resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkDocsClient, DeleteCustomMetadataCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
+ * // const { WorkDocsClient, DeleteCustomMetadataCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const command = new DeleteCustomMetadataCommand(input);
  * const response = await client.send(command);

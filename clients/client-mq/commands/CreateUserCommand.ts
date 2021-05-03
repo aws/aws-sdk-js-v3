@@ -23,8 +23,10 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
 /**
  * Creates an ActiveMQ user.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MqClient, CreateUserCommand } from "@aws-sdk/client-mq"; // ES Modules import
+ * // const { MqClient, CreateUserCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);

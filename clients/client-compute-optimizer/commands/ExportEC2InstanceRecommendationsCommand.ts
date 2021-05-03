@@ -32,8 +32,10 @@ export interface ExportEC2InstanceRecommendationsCommandOutput
  *
  *         <p>You can have only one Amazon EC2 instance export job in progress per AWS Region.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComputeOptimizerClient, ExportEC2InstanceRecommendationsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
+ * // const { ComputeOptimizerClient, ExportEC2InstanceRecommendationsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const command = new ExportEC2InstanceRecommendationsCommand(input);
  * const response = await client.send(command);

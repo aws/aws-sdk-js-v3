@@ -31,8 +31,10 @@ export interface ListSizeConstraintSetsCommandOutput extends ListSizeConstraintS
  *          </note>
  * 		       <p>Returns an array of <a>SizeConstraintSetSummary</a> objects.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFClient, ListSizeConstraintSetsCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, ListSizeConstraintSetsCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
  * const command = new ListSizeConstraintSetsCommand(input);
  * const response = await client.send(command);

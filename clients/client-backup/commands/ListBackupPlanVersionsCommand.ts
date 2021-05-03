@@ -24,8 +24,10 @@ export interface ListBackupPlanVersionsCommandOutput extends ListBackupPlanVersi
  * <p>Returns version metadata of your backup plans, including Amazon Resource Names (ARNs),
  *          backup plan IDs, creation and deletion dates, plan names, and version IDs.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BackupClient, ListBackupPlanVersionsCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, ListBackupPlanVersionsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
  * const command = new ListBackupPlanVersionsCommand(input);
  * const response = await client.send(command);

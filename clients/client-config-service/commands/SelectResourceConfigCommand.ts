@@ -27,8 +27,10 @@ export interface SelectResourceConfigCommandOutput extends SelectResourceConfigR
  *                <b>Query Components</b>
  *             </a> section in the AWS Config Developer Guide.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConfigServiceClient, SelectResourceConfigCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, SelectResourceConfigCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const command = new SelectResourceConfigCommand(input);
  * const response = await client.send(command);

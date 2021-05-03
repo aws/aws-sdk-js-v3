@@ -23,8 +23,10 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>This operation removes one or more tags from a resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataExchangeClient, UntagResourceCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
+ * // const { DataExchangeClient, UntagResourceCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);

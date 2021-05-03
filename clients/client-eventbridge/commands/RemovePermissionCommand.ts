@@ -26,8 +26,10 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  *       associated with the account when you granted it permission with <code>PutPermission</code>.
  *       You can find the <code>StatementId</code> by using <a>DescribeEventBus</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EventBridgeClient, RemovePermissionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, RemovePermissionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const command = new RemovePermissionCommand(input);
  * const response = await client.send(command);

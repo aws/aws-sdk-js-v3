@@ -31,8 +31,10 @@ export interface StopNotebookInstanceCommandOutput extends __MetadataBearer {}
  *             it, and attaches the preserved ML storage volume so you can continue your work.
  *         </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, StopNotebookInstanceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, StopNotebookInstanceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new StopNotebookInstanceCommand(input);
  * const response = await client.send(command);

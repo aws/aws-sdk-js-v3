@@ -24,8 +24,10 @@ export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceI
  * <p>Retrieves a list that describes one or more specified images, if the image identifiers
  *          are provided. Otherwise, all images in the account are described. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkSpacesClient, DescribeWorkspaceImagesCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
+ * // const { WorkSpacesClient, DescribeWorkspaceImagesCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const command = new DescribeWorkspaceImagesCommand(input);
  * const response = await client.send(command);

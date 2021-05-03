@@ -24,8 +24,10 @@ export interface GetHostedZoneCommandOutput extends GetHostedZoneResponse, __Met
 /**
  * <p>Gets information about a specified hosted zone including the four name servers assigned to the hosted zone.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53Client, GetHostedZoneCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, GetHostedZoneCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
  * const command = new GetHostedZoneCommand(input);
  * const response = await client.send(command);

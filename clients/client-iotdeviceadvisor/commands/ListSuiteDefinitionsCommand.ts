@@ -23,8 +23,10 @@ export interface ListSuiteDefinitionsCommandOutput extends ListSuiteDefinitionsR
 /**
  * <p>Lists the Device Advisor test suites you have created.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IotDeviceAdvisorClient, ListSuiteDefinitionsCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
+ * // const { IotDeviceAdvisorClient, ListSuiteDefinitionsCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
  * const command = new ListSuiteDefinitionsCommand(input);
  * const response = await client.send(command);

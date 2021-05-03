@@ -24,8 +24,10 @@ export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdP
  * <p>Confirms a job worker has received the specified job. Used for partner actions
  *             only.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodePipelineClient, AcknowledgeThirdPartyJobCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
+ * // const { CodePipelineClient, AcknowledgeThirdPartyJobCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const command = new AcknowledgeThirdPartyJobCommand(input);
  * const response = await client.send(command);

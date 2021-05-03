@@ -29,8 +29,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *          <p>You can tag the AWS resources that you manage through AWS Network Firewall: firewalls, firewall
  *          policies, and rule groups. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NetworkFirewallClient, ListTagsForResourceCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
+ * // const { NetworkFirewallClient, ListTagsForResourceCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

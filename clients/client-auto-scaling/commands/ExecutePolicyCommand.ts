@@ -24,8 +24,10 @@ export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
  * <p>Executes the specified policy. This can be useful for testing the design of your
  *             scaling policy.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AutoScalingClient, ExecutePolicyCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, ExecutePolicyCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const command = new ExecutePolicyCommand(input);
  * const response = await client.send(command);

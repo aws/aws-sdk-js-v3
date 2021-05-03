@@ -28,8 +28,10 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  *             configuration set to an email, all of the rules in that configuration set are applied to
  *             the email.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointEmailClient, DeleteConfigurationSetCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
+ * // const { PinpointEmailClient, DeleteConfigurationSetCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const command = new DeleteConfigurationSetCommand(input);
  * const response = await client.send(command);

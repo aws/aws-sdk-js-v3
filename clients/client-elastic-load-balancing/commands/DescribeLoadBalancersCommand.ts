@@ -27,8 +27,10 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeAccessPoints
 /**
  * <p>Describes the specified the load balancers. If no load balancers are specified, the call describes all of your load balancers.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticLoadBalancingClient, DescribeLoadBalancersCommand } from "@aws-sdk/client-elastic-load-balancing"; // ES Modules import
+ * // const { ElasticLoadBalancingClient, DescribeLoadBalancersCommand } = require("@aws-sdk/client-elastic-load-balancing"); // CommonJS import
  * const client = new ElasticLoadBalancingClient(config);
  * const command = new DescribeLoadBalancersCommand(input);
  * const response = await client.send(command);

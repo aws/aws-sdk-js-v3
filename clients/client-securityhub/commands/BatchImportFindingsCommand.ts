@@ -81,8 +81,10 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *          </ul>
  *          <p>Instead, finding providers use <code>FindingProviderFields</code> to provide values for these attributes.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SecurityHubClient, BatchImportFindingsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, BatchImportFindingsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const command = new BatchImportFindingsCommand(input);
  * const response = await client.send(command);

@@ -26,8 +26,10 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  *             identities that are verified as well as those that aren't. This operation returns
  *             identities that are associated with Amazon SES and Amazon Pinpoint.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SESv2Client, ListEmailIdentitiesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, ListEmailIdentitiesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
  * const command = new ListEmailIdentitiesCommand(input);
  * const response = await client.send(command);

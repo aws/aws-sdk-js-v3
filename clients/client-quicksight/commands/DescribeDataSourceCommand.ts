@@ -23,8 +23,10 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
 /**
  * <p>Describes a data source.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { QuickSightClient, DescribeDataSourceCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, DescribeDataSourceCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
  * const command = new DescribeDataSourceCommand(input);
  * const response = await client.send(command);

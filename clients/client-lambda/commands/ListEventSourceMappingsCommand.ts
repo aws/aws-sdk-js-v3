@@ -24,8 +24,10 @@ export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMap
  * <p>Lists event source mappings. Specify an <code>EventSourceArn</code> to only show event source mappings for a
  *       single event source.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LambdaClient, ListEventSourceMappingsCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, ListEventSourceMappingsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
  * const command = new ListEventSourceMappingsCommand(input);
  * const response = await client.send(command);

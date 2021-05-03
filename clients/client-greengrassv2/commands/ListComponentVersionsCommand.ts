@@ -23,8 +23,10 @@ export interface ListComponentVersionsCommandOutput extends ListComponentVersion
 /**
  * <p>Retrieves a paginated list of all versions for a component.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassV2Client, ListComponentVersionsCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
+ * // const { GreengrassV2Client, ListComponentVersionsCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const command = new ListComponentVersionsCommand(input);
  * const response = await client.send(command);

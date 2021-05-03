@@ -23,8 +23,10 @@ export interface DescribeExportImageTasksCommandOutput extends DescribeExportIma
 /**
  * <p>Describes the specified export image tasks or all of your export image tasks.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, DescribeExportImageTasksCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeExportImageTasksCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new DescribeExportImageTasksCommand(input);
  * const response = await client.send(command);

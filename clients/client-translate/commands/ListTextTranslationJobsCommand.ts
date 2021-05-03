@@ -23,8 +23,10 @@ export interface ListTextTranslationJobsCommandOutput extends ListTextTranslatio
 /**
  * <p>Gets a list of the batch translation jobs that you have submitted.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TranslateClient, ListTextTranslationJobsCommand } from "@aws-sdk/client-translate"; // ES Modules import
+ * // const { TranslateClient, ListTextTranslationJobsCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
  * const command = new ListTextTranslationJobsCommand(input);
  * const response = await client.send(command);

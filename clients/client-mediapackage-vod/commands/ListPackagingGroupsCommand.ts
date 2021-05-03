@@ -23,8 +23,10 @@ export interface ListPackagingGroupsCommandOutput extends ListPackagingGroupsRes
 /**
  * Returns a collection of MediaPackage VOD PackagingGroup resources.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaPackageVodClient, ListPackagingGroupsCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
+ * // const { MediaPackageVodClient, ListPackagingGroupsCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
  * const command = new ListPackagingGroupsCommand(input);
  * const response = await client.send(command);

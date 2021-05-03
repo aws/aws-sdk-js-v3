@@ -23,8 +23,10 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
 /**
  * <p>Cancels a running query. To be canceled, a query must be running. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RedshiftDataClient, CancelStatementCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
+ * // const { RedshiftDataClient, CancelStatementCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
  * const client = new RedshiftDataClient(config);
  * const command = new CancelStatementCommand(input);
  * const response = await client.send(command);

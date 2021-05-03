@@ -23,8 +23,10 @@ export interface UpdateDomainNameCommandOutput extends DomainName, __MetadataBea
 /**
  * <p>Changes information about the <a>DomainName</a> resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { APIGatewayClient, UpdateDomainNameCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, UpdateDomainNameCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const command = new UpdateDomainNameCommand(input);
  * const response = await client.send(command);

@@ -31,8 +31,10 @@ export interface BatchDeletePhoneNumberCommandOutput extends BatchDeletePhoneNum
  * <b>Deletion queue</b> for 7 days before they are deleted permanently.
  * </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, BatchDeletePhoneNumberCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, BatchDeletePhoneNumberCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new BatchDeletePhoneNumberCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface ContainsPiiEntitiesCommandOutput extends ContainsPiiEntitiesRes
  *       returns the labels of identified PII entity types such as name, address, bank account number,
  *       or phone number.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, ContainsPiiEntitiesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, ContainsPiiEntitiesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new ContainsPiiEntitiesCommand(input);
  * const response = await client.send(command);

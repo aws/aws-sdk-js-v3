@@ -23,8 +23,10 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the specified pipeline.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodePipelineClient, DeletePipelineCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
+ * // const { CodePipelineClient, DeletePipelineCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const command = new DeletePipelineCommand(input);
  * const response = await client.send(command);

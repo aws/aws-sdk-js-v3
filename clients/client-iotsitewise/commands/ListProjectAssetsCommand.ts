@@ -23,8 +23,10 @@ export interface ListProjectAssetsCommandOutput extends ListProjectAssetsRespons
 /**
  * <p>Retrieves a paginated list of assets associated with an AWS IoT SiteWise Monitor project.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTSiteWiseClient, ListProjectAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, ListProjectAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const command = new ListProjectAssetsCommand(input);
  * const response = await client.send(command);

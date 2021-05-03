@@ -23,8 +23,10 @@ export interface DescribeMailboxExportJobCommandOutput extends DescribeMailboxEx
 /**
  * <p>Describes the current status of a mailbox export job.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, DescribeMailboxExportJobCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, DescribeMailboxExportJobCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new DescribeMailboxExportJobCommand(input);
  * const response = await client.send(command);

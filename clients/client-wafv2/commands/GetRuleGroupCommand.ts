@@ -23,8 +23,10 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
 /**
  * <p>Retrieves the specified <a>RuleGroup</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFV2Client, GetRuleGroupCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
+ * // const { WAFV2Client, GetRuleGroupCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
  * const command = new GetRuleGroupCommand(input);
  * const response = await client.send(command);

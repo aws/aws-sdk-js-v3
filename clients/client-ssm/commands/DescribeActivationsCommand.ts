@@ -25,8 +25,10 @@ export interface DescribeActivationsCommandOutput extends DescribeActivationsRes
  *    created, its expiration date, the IAM role assigned to the instances in the activation, and the
  *    number of instances registered by using this activation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, DescribeActivationsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DescribeActivationsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new DescribeActivationsCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface ListBulkDeploymentsCommandOutput extends ListBulkDeploymentsRes
 /**
  * Returns a list of bulk deployments.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassClient, ListBulkDeploymentsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, ListBulkDeploymentsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
  * const command = new ListBulkDeploymentsCommand(input);
  * const response = await client.send(command);

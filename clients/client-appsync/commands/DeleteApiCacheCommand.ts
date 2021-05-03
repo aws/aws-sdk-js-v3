@@ -23,8 +23,10 @@ export interface DeleteApiCacheCommandOutput extends DeleteApiCacheResponse, __M
 /**
  * <p>Deletes an <code>ApiCache</code> object.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppSyncClient, DeleteApiCacheCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, DeleteApiCacheCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
  * const command = new DeleteApiCacheCommand(input);
  * const response = await client.send(command);

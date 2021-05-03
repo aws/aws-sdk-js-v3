@@ -27,8 +27,10 @@ export interface DescribeBudgetActionHistoriesCommandOutput
  *          Describes a budget action history detail.
  *       </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BudgetsClient, DescribeBudgetActionHistoriesCommand } from "@aws-sdk/client-budgets"; // ES Modules import
+ * // const { BudgetsClient, DescribeBudgetActionHistoriesCommand } = require("@aws-sdk/client-budgets"); // CommonJS import
  * const client = new BudgetsClient(config);
  * const command = new DescribeBudgetActionHistoriesCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface DescribeDirectoryConfigsCommandOutput extends DescribeDirectory
  *         </p>
  *         <p>Although the response syntax in this topic includes the account password, this password is not returned in the actual response.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppStreamClient, DescribeDirectoryConfigsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
+ * // const { AppStreamClient, DescribeDirectoryConfigsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
  * const command = new DescribeDirectoryConfigsCommand(input);
  * const response = await client.send(command);

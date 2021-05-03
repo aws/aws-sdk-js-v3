@@ -33,8 +33,10 @@ export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBeare
  *                     evaluation logic</a> in the IAM User Guide. </p>
  *         </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IAMClient, PutUserPermissionsBoundaryCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, PutUserPermissionsBoundaryCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
  * const command = new PutUserPermissionsBoundaryCommand(input);
  * const response = await client.send(command);

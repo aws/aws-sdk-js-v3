@@ -43,8 +43,10 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ForecastClient, DescribeDatasetCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, DescribeDatasetCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);

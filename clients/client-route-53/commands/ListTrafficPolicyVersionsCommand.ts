@@ -25,8 +25,10 @@ export interface ListTrafficPolicyVersionsCommandOutput extends ListTrafficPolic
  * <p>Gets information about all of the versions for a specified traffic policy.</p>
  * 		       <p>Traffic policy versions are listed in numerical order by <code>VersionNumber</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53Client, ListTrafficPolicyVersionsCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, ListTrafficPolicyVersionsCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
  * const command = new ListTrafficPolicyVersionsCommand(input);
  * const response = await client.send(command);

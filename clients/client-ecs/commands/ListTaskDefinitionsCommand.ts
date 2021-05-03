@@ -25,8 +25,10 @@ export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsRes
  * 			the results by family name with the <code>familyPrefix</code> parameter or by status
  * 			with the <code>status</code> parameter.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECSClient, ListTaskDefinitionsCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, ListTaskDefinitionsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const command = new ListTaskDefinitionsCommand(input);
  * const response = await client.send(command);

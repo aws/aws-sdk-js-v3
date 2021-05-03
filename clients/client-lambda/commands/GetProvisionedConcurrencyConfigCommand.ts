@@ -25,8 +25,10 @@ export interface GetProvisionedConcurrencyConfigCommandOutput
 /**
  * <p>Retrieves the provisioned concurrency configuration for a function's alias or version.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LambdaClient, GetProvisionedConcurrencyConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, GetProvisionedConcurrencyConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
  * const command = new GetProvisionedConcurrencyConfigCommand(input);
  * const response = await client.send(command);

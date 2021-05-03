@@ -25,8 +25,10 @@ export interface IgnoreQueryParamsInResponseCommandOutput extends IgnoreQueryPar
  * serialized in the body of responses if the structure is used in both
  * the request and response.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RestJsonProtocolClient, IgnoreQueryParamsInResponseCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, IgnoreQueryParamsInResponseCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
  * const command = new IgnoreQueryParamsInResponseCommand(input);
  * const response = await client.send(command);

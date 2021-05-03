@@ -26,8 +26,10 @@ export interface NotifyApplicationStateCommandOutput extends NotifyApplicationSt
  *          three values to <code>Status</code>: <code>NOT_STARTED | IN_PROGRESS |
  *          COMPLETED</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MigrationHubClient, NotifyApplicationStateCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
+ * // const { MigrationHubClient, NotifyApplicationStateCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const command = new NotifyApplicationStateCommand(input);
  * const response = await client.send(command);

@@ -37,8 +37,10 @@ export interface ListEndpointsByPlatformApplicationCommandOutput
  *             Notifications</a>. </p>
  *         <p>This action is throttled at 30 transactions per second (TPS).</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SNSClient, ListEndpointsByPlatformApplicationCommand } from "@aws-sdk/client-sns"; // ES Modules import
+ * // const { SNSClient, ListEndpointsByPlatformApplicationCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
  * const command = new ListEndpointsByPlatformApplicationCommand(input);
  * const response = await client.send(command);

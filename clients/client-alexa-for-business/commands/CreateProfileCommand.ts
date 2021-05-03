@@ -23,8 +23,10 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
 /**
  * <p>Creates a new room profile with the specified details.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AlexaForBusinessClient, CreateProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, CreateProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Adds one or more tags (keys and values) to an application, campaign, message template, or segment.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointClient, TagResourceCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, TagResourceCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

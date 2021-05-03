@@ -29,8 +29,10 @@ export interface GetReusableDelegationSetLimitCommandOutput
  * 			in the <i>Amazon Route 53 Developer Guide</i>. To request a higher limit,
  * 			<a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53">open a case</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53Client, GetReusableDelegationSetLimitCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, GetReusableDelegationSetLimitCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
  * const command = new GetReusableDelegationSetLimitCommand(input);
  * const response = await client.send(command);

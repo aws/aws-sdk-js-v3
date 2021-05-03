@@ -26,8 +26,10 @@ export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlN
  * The wrapping element is always operation name + "Response", and
  * inside of that wrapper is another wrapper named operation name + "Result".
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { QueryProtocolClient, IgnoresWrappingXmlNameCommand } from "@aws-sdk/aws-query"; // ES Modules import
+ * // const { QueryProtocolClient, IgnoresWrappingXmlNameCommand } = require("@aws-sdk/aws-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
  * const command = new IgnoresWrappingXmlNameCommand(input);
  * const response = await client.send(command);

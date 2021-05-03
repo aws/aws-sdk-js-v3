@@ -23,8 +23,10 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
 /**
  * <p>Deletes a deployment group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeDeployClient, DeleteDeploymentGroupCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
+ * // const { CodeDeployClient, DeleteDeploymentGroupCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const command = new DeleteDeploymentGroupCommand(input);
  * const response = await client.send(command);

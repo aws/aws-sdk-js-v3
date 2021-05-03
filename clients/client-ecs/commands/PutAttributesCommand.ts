@@ -27,8 +27,10 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
  * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the
  * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECSClient, PutAttributesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, PutAttributesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const command = new PutAttributesCommand(input);
  * const response = await client.send(command);

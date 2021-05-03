@@ -35,8 +35,10 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  *       any given time.</p>
  *          <p>You can use the <code>DescribeTable</code> action to check the table status.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DynamoDBClient, CreateTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, CreateTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);

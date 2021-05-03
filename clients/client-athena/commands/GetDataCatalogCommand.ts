@@ -23,8 +23,10 @@ export interface GetDataCatalogCommandOutput extends GetDataCatalogOutput, __Met
 /**
  * <p>Returns the specified data catalog.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AthenaClient, GetDataCatalogCommand } from "@aws-sdk/client-athena"; // ES Modules import
+ * // const { AthenaClient, GetDataCatalogCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
  * const command = new GetDataCatalogCommand(input);
  * const response = await client.send(command);

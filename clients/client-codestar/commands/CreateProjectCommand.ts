@@ -25,8 +25,10 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  *       a submitted project request. A set of source code files and a toolchain template file
  *       can be included with the project request. If these are not provided, an empty project is created.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeStarClient, CreateProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
+ * // const { CodeStarClient, CreateProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);

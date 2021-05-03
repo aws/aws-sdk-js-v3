@@ -23,8 +23,10 @@ export interface UpdateAccountCommandOutput extends Account, __MetadataBearer {}
 /**
  * <p>Changes information about the current <a>Account</a> resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { APIGatewayClient, UpdateAccountCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, UpdateAccountCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const command = new UpdateAccountCommand(input);
  * const response = await client.send(command);

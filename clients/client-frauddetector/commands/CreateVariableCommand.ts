@@ -23,8 +23,10 @@ export interface CreateVariableCommandOutput extends CreateVariableResult, __Met
 /**
  * <p>Creates a variable.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FraudDetectorClient, CreateVariableCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, CreateVariableCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const command = new CreateVariableCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface ListSuitesCommandOutput extends ListSuitesResult, __MetadataBea
 /**
  * <p>Gets information about test suites for a given job.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, ListSuitesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, ListSuitesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new ListSuitesCommand(input);
  * const response = await client.send(command);

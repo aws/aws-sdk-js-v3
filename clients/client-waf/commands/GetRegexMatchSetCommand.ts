@@ -31,8 +31,10 @@ export interface GetRegexMatchSetCommandOutput extends GetRegexMatchSetResponse,
  *          </note>
  *          <p>Returns the <a>RegexMatchSet</a> specified by <code>RegexMatchSetId</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFClient, GetRegexMatchSetCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, GetRegexMatchSetCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
  * const command = new GetRegexMatchSetCommand(input);
  * const response = await client.send(command);

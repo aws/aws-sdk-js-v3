@@ -20,8 +20,10 @@ export interface GetFolderCommandOutput extends GetFolderOutput, __MetadataBeare
 /**
  * <p>Returns the contents of a specified folder in a repository.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeCommitClient, GetFolderCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, GetFolderCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const command = new GetFolderCommand(input);
  * const response = await client.send(command);

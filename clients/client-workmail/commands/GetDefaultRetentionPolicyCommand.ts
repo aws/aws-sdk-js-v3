@@ -23,8 +23,10 @@ export interface GetDefaultRetentionPolicyCommandOutput extends GetDefaultRetent
 /**
  * <p>Gets the default retention policy details for the specified organization.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, GetDefaultRetentionPolicyCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, GetDefaultRetentionPolicyCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new GetDefaultRetentionPolicyCommand(input);
  * const response = await client.send(command);

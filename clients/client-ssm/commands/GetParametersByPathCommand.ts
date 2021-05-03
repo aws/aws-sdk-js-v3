@@ -31,8 +31,10 @@ export interface GetParametersByPathCommandOutput extends GetParametersByPathRes
  *      <code>NextToken</code> in a subsequent call to get the next set of results.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, GetParametersByPathCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, GetParametersByPathCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new GetParametersByPathCommand(input);
  * const response = await client.send(command);

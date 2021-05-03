@@ -24,8 +24,10 @@ export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultP
  * <p>Returns the default system parameter information for the DAX caching
  *             software.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DAXClient, DescribeDefaultParametersCommand } from "@aws-sdk/client-dax"; // ES Modules import
+ * // const { DAXClient, DescribeDefaultParametersCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
  * const command = new DescribeDefaultParametersCommand(input);
  * const response = await client.send(command);

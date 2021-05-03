@@ -41,8 +41,10 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  *           <code>tags</code> will not be updated, even if they are different.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SFNClient, CreateStateMachineCommand } from "@aws-sdk/client-sfn"; // ES Modules import
+ * // const { SFNClient, CreateStateMachineCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
  * const command = new CreateStateMachineCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface CreateAuditSuppressionCommandOutput extends CreateAuditSuppress
  *       Creates a Device Defender audit suppression.
  *     </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, CreateAuditSuppressionCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, CreateAuditSuppressionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new CreateAuditSuppressionCommand(input);
  * const response = await client.send(command);

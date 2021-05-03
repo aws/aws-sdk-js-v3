@@ -27,8 +27,10 @@ export interface StopReplicationTaskCommandOutput extends StopReplicationTaskRes
 /**
  * <p>Stops the replication task.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DatabaseMigrationServiceClient, StopReplicationTaskCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, StopReplicationTaskCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const command = new StopReplicationTaskCommand(input);
  * const response = await client.send(command);

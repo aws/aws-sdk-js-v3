@@ -33,8 +33,10 @@ export interface DetectDocumentTextCommandOutput extends DetectDocumentTextRespo
  *          asynchronously, use <a>StartDocumentTextDetection</a>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document Text Detection</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TextractClient, DetectDocumentTextCommand } from "@aws-sdk/client-textract"; // ES Modules import
+ * // const { TextractClient, DetectDocumentTextCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
  * const command = new DetectDocumentTextCommand(input);
  * const response = await client.send(command);

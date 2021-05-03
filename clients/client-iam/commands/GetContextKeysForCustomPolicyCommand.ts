@@ -32,8 +32,10 @@ export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKe
  *             parameters are shown in unencoded form here for clarity but must be URL encoded to be
  *             included as a part of a real HTML request.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IAMClient, GetContextKeysForCustomPolicyCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, GetContextKeysForCustomPolicyCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
  * const command = new GetContextKeysForCustomPolicyCommand(input);
  * const response = await client.send(command);

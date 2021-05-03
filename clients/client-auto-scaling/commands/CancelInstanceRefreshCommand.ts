@@ -28,8 +28,10 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  *                 based on an instance refresh</a> in the
  *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AutoScalingClient, CancelInstanceRefreshCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, CancelInstanceRefreshCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const command = new CancelInstanceRefreshCommand(input);
  * const response = await client.send(command);

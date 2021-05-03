@@ -25,8 +25,10 @@ export interface UpdateRepositoryCommandOutput extends UpdateRepositoryResult, _
  *          Update the properties of a repository.
  *        </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeartifactClient, UpdateRepositoryCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
+ * // const { CodeartifactClient, UpdateRepositoryCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const command = new UpdateRepositoryCommand(input);
  * const response = await client.send(command);

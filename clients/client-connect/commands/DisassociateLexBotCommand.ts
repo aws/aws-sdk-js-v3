@@ -24,8 +24,10 @@ export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Revokes authorization from the specified instance to access the specified Amazon Lex bot.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, DisassociateLexBotCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DisassociateLexBotCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new DisassociateLexBotCommand(input);
  * const response = await client.send(command);

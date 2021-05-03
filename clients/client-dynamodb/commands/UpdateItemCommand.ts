@@ -25,8 +25,10 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  *          <p>You can also return the item's attribute values in the same <code>UpdateItem</code>
  *       operation using the <code>ReturnValues</code> parameter.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, UpdateItemCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const command = new UpdateItemCommand(input);
  * const response = await client.send(command);

@@ -27,8 +27,10 @@ export interface GetCommentCommandOutput extends GetCommentOutput, __MetadataBea
  *         reactions from active identities, use GetCommentReactions.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeCommitClient, GetCommentCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, GetCommentCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const command = new GetCommentCommand(input);
  * const response = await client.send(command);

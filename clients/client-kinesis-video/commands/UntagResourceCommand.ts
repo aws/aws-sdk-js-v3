@@ -25,8 +25,10 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  *             key or keys; don't specify the value. If you specify a tag key that does not exist, it's
  *             ignored.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisVideoClient, UntagResourceCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
+ * // const { KinesisVideoClient, UntagResourceCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);

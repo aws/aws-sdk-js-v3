@@ -23,8 +23,10 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
 /**
  * <p>Searches devices and lists the ones that meet a set of filter criteria.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AlexaForBusinessClient, SearchDevicesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, SearchDevicesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const command = new SearchDevicesCommand(input);
  * const response = await client.send(command);

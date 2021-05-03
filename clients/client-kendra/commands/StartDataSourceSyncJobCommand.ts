@@ -25,8 +25,10 @@ export interface StartDataSourceSyncJobCommandOutput extends StartDataSourceSync
  *       job is already in progress, Amazon Kendra returns a
  *         <code>ResourceInUseException</code> exception.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KendraClient, StartDataSourceSyncJobCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, StartDataSourceSyncJobCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
  * const command = new StartDataSourceSyncJobCommand(input);
  * const response = await client.send(command);

@@ -22,8 +22,10 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  *       address of the HSM's elastic network interface (ENI), or the ID of the HSM's ENI. You need to
  *       specify only one of these values. To find these values, use <a>DescribeClusters</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudHSMV2Client, DeleteHsmCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
+ * // const { CloudHSMV2Client, DeleteHsmCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
  * const command = new DeleteHsmCommand(input);
  * const response = await client.send(command);

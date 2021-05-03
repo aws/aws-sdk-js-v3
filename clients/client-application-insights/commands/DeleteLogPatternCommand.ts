@@ -27,8 +27,10 @@ export interface DeleteLogPatternCommandOutput extends DeleteLogPatternResponse,
 /**
  * <p>Removes the specified log pattern from a <code>LogPatternSet</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ApplicationInsightsClient, DeleteLogPatternCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
+ * // const { ApplicationInsightsClient, DeleteLogPatternCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const command = new DeleteLogPatternCommand(input);
  * const response = await client.send(command);

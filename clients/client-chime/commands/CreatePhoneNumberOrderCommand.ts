@@ -25,8 +25,10 @@ export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOr
  *             and Amazon Chime Voice Connector product types. For toll-free numbers, you must use the
  *             Amazon Chime Voice Connector product type.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, CreatePhoneNumberOrderCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, CreatePhoneNumberOrderCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new CreatePhoneNumberOrderCommand(input);
  * const response = await client.send(command);

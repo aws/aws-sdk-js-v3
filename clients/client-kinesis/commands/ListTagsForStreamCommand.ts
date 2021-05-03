@@ -24,8 +24,10 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  * <p>Lists the tags for the specified Kinesis data stream. This operation has a limit of
  *             five transactions per second per account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisClient, ListTagsForStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
+ * // const { KinesisClient, ListTagsForStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
  * const command = new ListTagsForStreamCommand(input);
  * const response = await client.send(command);

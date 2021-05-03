@@ -26,8 +26,10 @@ export interface UpdateRoomMembershipCommandOutput extends UpdateRoomMembershipR
  *             administrator or a general chat room member. The member role can be updated only for
  *             user IDs.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, UpdateRoomMembershipCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, UpdateRoomMembershipCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new UpdateRoomMembershipCommand(input);
  * const response = await client.send(command);

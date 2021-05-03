@@ -23,8 +23,10 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
 /**
  * <p>Retrieves information about all the Amazon Macie membership invitations that were received by an account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Macie2Client, ListInvitationsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, ListInvitationsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);

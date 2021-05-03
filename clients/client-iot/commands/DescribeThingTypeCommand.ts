@@ -23,8 +23,10 @@ export interface DescribeThingTypeCommandOutput extends DescribeThingTypeRespons
 /**
  * <p>Gets information about the specified thing type.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, DescribeThingTypeCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DescribeThingTypeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new DescribeThingTypeCommand(input);
  * const response = await client.send(command);

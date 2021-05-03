@@ -23,8 +23,10 @@ export interface DescribeLocationS3CommandOutput extends DescribeLocationS3Respo
 /**
  * <p>Returns metadata, such as bucket name, about an Amazon S3 bucket location.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataSyncClient, DescribeLocationS3Command } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, DescribeLocationS3Command } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
  * const command = new DescribeLocationS3Command(input);
  * const response = await client.send(command);

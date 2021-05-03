@@ -24,8 +24,10 @@ export interface GetAutoSnapshotsCommandOutput extends GetAutoSnapshotsResult, _
  * <p>Returns the available automatic snapshots for an instance or disk. For more information,
  *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Lightsail Dev Guide</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, GetAutoSnapshotsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetAutoSnapshotsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new GetAutoSnapshotsCommand(input);
  * const response = await client.send(command);

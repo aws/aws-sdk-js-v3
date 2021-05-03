@@ -23,8 +23,10 @@ export interface StartDataIngestionJobCommandOutput extends StartDataIngestionJo
 /**
  * <p>Starts a data ingestion job. Amazon Lookout for Equipment returns the job status. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutEquipmentClient, StartDataIngestionJobCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, StartDataIngestionJobCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const command = new StartDataIngestionJobCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, _
 /**
  * <p>Detaches the specified object from the specified index.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudDirectoryClient, DetachFromIndexCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, DetachFromIndexCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const command = new DetachFromIndexCommand(input);
  * const response = await client.send(command);

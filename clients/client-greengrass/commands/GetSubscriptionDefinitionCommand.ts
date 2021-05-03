@@ -23,8 +23,10 @@ export interface GetSubscriptionDefinitionCommandOutput extends GetSubscriptionD
 /**
  * Retrieves information about a subscription definition.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassClient, GetSubscriptionDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, GetSubscriptionDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
  * const command = new GetSubscriptionDefinitionCommand(input);
  * const response = await client.send(command);

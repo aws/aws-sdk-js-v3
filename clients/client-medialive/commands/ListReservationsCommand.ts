@@ -23,8 +23,10 @@ export interface ListReservationsCommandOutput extends ListReservationsResponse,
 /**
  * List purchased reservations.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaLiveClient, ListReservationsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, ListReservationsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const command = new ListReservationsCommand(input);
  * const response = await client.send(command);

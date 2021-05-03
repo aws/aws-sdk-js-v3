@@ -23,8 +23,10 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResponse, __M
 /**
  * <p>Updates a <code>Function</code> object.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppSyncClient, UpdateFunctionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, UpdateFunctionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
  * const command = new UpdateFunctionCommand(input);
  * const response = await client.send(command);

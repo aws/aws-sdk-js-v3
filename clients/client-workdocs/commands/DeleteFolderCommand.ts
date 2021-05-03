@@ -23,8 +23,10 @@ export interface DeleteFolderCommandOutput extends __MetadataBearer {}
 /**
  * <p>Permanently deletes the specified folder and its contents.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkDocsClient, DeleteFolderCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
+ * // const { WorkDocsClient, DeleteFolderCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const command = new DeleteFolderCommand(input);
  * const response = await client.send(command);

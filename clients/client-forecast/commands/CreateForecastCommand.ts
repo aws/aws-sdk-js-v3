@@ -41,8 +41,10 @@ export interface CreateForecastCommandOutput extends CreateForecastResponse, __M
  *         status.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ForecastClient, CreateForecastCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, CreateForecastCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
  * const command = new CreateForecastCommand(input);
  * const response = await client.send(command);

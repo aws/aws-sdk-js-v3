@@ -21,8 +21,10 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  * <p>Deletes a specified job definition. If the job definition
  *       is not found, no exception is thrown.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlueClient, DeleteJobCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, DeleteJobCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
  * const command = new DeleteJobCommand(input);
  * const response = await client.send(command);

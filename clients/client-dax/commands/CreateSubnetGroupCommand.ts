@@ -23,8 +23,10 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
 /**
  * <p>Creates a new subnet group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DAXClient, CreateSubnetGroupCommand } from "@aws-sdk/client-dax"; // ES Modules import
+ * // const { DAXClient, CreateSubnetGroupCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
  * const command = new CreateSubnetGroupCommand(input);
  * const response = await client.send(command);

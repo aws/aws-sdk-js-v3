@@ -39,8 +39,10 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  *             whether a manual DB snapshot public or private, use the <a>DescribeDBSnapshotAttributes</a> API action. The accounts are returned as
  *             values for the <code>restore</code> attribute.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSClient, ModifyDBSnapshotAttributeCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, ModifyDBSnapshotAttributeCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
  * const command = new ModifyDBSnapshotAttributeCommand(input);
  * const response = await client.send(command);

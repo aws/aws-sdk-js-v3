@@ -23,8 +23,10 @@ export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataB
 /**
  * <p>Deletes a task.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataSyncClient, DeleteTaskCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, DeleteTaskCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
  * const command = new DeleteTaskCommand(input);
  * const response = await client.send(command);

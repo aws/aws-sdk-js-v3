@@ -27,8 +27,10 @@ export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __Met
  *          <p>In response, Amazon Lex returns the next message to convey to the user
  *          and an optional response card to display.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LexRuntimeV2Client, RecognizeTextCommand } from "@aws-sdk/client-lex-runtime-v2"; // ES Modules import
+ * // const { LexRuntimeV2Client, RecognizeTextCommand } = require("@aws-sdk/client-lex-runtime-v2"); // CommonJS import
  * const client = new LexRuntimeV2Client(config);
  * const command = new RecognizeTextCommand(input);
  * const response = await client.send(command);

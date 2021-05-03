@@ -20,8 +20,10 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
 /**
  * <p>Describes one or more of your VPCs.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, DescribeVpcsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeVpcsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new DescribeVpcsCommand(input);
  * const response = await client.send(command);

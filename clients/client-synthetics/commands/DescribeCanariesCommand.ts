@@ -28,8 +28,10 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  *          deny policy can only be used to restrict access to all canaries. It cannot be used on
  *          specific resources. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SyntheticsClient, DescribeCanariesCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
+ * // const { SyntheticsClient, DescribeCanariesCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
  * const command = new DescribeCanariesCommand(input);
  * const response = await client.send(command);

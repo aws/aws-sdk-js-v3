@@ -28,8 +28,10 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  * <p>Create a listener to process inbound connections from clients to an accelerator. Connections arrive to assigned static
  * 			IP addresses on a port, port range, or list of port ranges that you specify. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlobalAcceleratorClient, CreateListenerCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
+ * // const { GlobalAcceleratorClient, CreateListenerCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const command = new CreateListenerCommand(input);
  * const response = await client.send(command);

@@ -32,8 +32,10 @@ export interface GetTrafficPolicyInstanceCommandOutput extends GetTrafficPolicyI
  * 			         <p>In the Route 53 console, traffic policy instances are known as policy records.</p>
  * 		       </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53Client, GetTrafficPolicyInstanceCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, GetTrafficPolicyInstanceCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
  * const command = new GetTrafficPolicyInstanceCommand(input);
  * const response = await client.send(command);

@@ -29,8 +29,10 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  *         </important>
  *         <p>The response size limit is 1 MB. If the call returns more than 1 MB of response data, the call is terminated.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSDataClient, ExecuteStatementCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
+ * // const { RDSDataClient, ExecuteStatementCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
  * const client = new RDSDataClient(config);
  * const command = new ExecuteStatementCommand(input);
  * const response = await client.send(command);

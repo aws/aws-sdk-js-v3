@@ -23,8 +23,10 @@ export interface CreateScalingPlanCommandOutput extends CreateScalingPlanRespons
 /**
  * <p>Creates a scaling plan. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AutoScalingPlansClient, CreateScalingPlanCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
+ * // const { AutoScalingPlansClient, CreateScalingPlanCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
  * const client = new AutoScalingPlansClient(config);
  * const command = new CreateScalingPlanCommand(input);
  * const response = await client.send(command);

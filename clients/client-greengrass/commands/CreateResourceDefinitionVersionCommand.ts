@@ -25,8 +25,10 @@ export interface CreateResourceDefinitionVersionCommandOutput
 /**
  * Creates a version of a resource definition that has already been defined.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassClient, CreateResourceDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, CreateResourceDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
  * const command = new CreateResourceDefinitionVersionCommand(input);
  * const response = await client.send(command);

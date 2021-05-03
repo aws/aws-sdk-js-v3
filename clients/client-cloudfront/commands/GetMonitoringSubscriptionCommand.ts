@@ -24,8 +24,10 @@ export interface GetMonitoringSubscriptionCommandOutput extends GetMonitoringSub
  * <p>Gets information about whether additional CloudWatch metrics are enabled for the specified
  * 			CloudFront distribution.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFrontClient, GetMonitoringSubscriptionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, GetMonitoringSubscriptionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const command = new GetMonitoringSubscriptionCommand(input);
  * const response = await client.send(command);

@@ -29,8 +29,10 @@ export interface ListElasticsearchInstanceTypesCommandOutput
 /**
  * <p>List all Elasticsearch instance types that are supported for given ElasticsearchVersion</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticsearchServiceClient, ListElasticsearchInstanceTypesCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
+ * // const { ElasticsearchServiceClient, ListElasticsearchInstanceTypesCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const command = new ListElasticsearchInstanceTypesCommand(input);
  * const response = await client.send(command);

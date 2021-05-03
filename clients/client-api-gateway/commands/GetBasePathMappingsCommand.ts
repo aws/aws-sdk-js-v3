@@ -23,8 +23,10 @@ export interface GetBasePathMappingsCommandOutput extends BasePathMappings, __Me
 /**
  * <p>Represents a collection of <a>BasePathMapping</a> resources.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { APIGatewayClient, GetBasePathMappingsCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, GetBasePathMappingsCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const command = new GetBasePathMappingsCommand(input);
  * const response = await client.send(command);

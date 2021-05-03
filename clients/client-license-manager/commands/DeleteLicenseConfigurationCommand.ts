@@ -24,8 +24,10 @@ export interface DeleteLicenseConfigurationCommandOutput extends DeleteLicenseCo
  * <p>Deletes the specified license configuration.</p>
  *          <p>You cannot delete a license configuration that is in use.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LicenseManagerClient, DeleteLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, DeleteLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const command = new DeleteLicenseConfigurationCommand(input);
  * const response = await client.send(command);

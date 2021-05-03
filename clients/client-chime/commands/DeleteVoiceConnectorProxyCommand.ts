@@ -23,8 +23,10 @@ export interface DeleteVoiceConnectorProxyCommandOutput extends __MetadataBearer
 /**
  * <p>Deletes the proxy configuration from the specified Amazon Chime Voice Connector.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, DeleteVoiceConnectorProxyCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, DeleteVoiceConnectorProxyCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new DeleteVoiceConnectorProxyCommand(input);
  * const response = await client.send(command);

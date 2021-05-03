@@ -29,8 +29,10 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  *         Wait for a few seconds, and then try the <code>DescribeTable</code> request again.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DynamoDBClient, DescribeTableCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, DescribeTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const command = new DescribeTableCommand(input);
  * const response = await client.send(command);

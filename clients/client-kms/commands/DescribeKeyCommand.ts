@@ -101,8 +101,10 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KMSClient, DescribeKeyCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, DescribeKeyCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
  * const command = new DescribeKeyCommand(input);
  * const response = await client.send(command);

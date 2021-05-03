@@ -40,8 +40,10 @@ export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse,
  *
  *         </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MTurkClient, GetFileUploadURLCommand } from "@aws-sdk/client-mturk"; // ES Modules import
+ * // const { MTurkClient, GetFileUploadURLCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
  * const command = new GetFileUploadURLCommand(input);
  * const response = await client.send(command);

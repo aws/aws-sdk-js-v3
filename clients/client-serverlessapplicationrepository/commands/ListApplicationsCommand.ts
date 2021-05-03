@@ -27,8 +27,10 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
 /**
  * <p>Lists applications owned by the requester.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServerlessApplicationRepositoryClient, ListApplicationsCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
+ * // const { ServerlessApplicationRepositoryClient, ListApplicationsCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);

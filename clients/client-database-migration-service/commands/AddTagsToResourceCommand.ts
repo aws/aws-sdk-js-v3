@@ -32,8 +32,10 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  *                <code>Tag</code>
  *             </a> data type description.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DatabaseMigrationServiceClient, AddTagsToResourceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, AddTagsToResourceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);

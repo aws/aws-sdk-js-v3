@@ -26,8 +26,10 @@ export interface DescribeMaintenanceStartTimeCommandOutput
  * <p>Returns your gateway's weekly maintenance start time including the day and time of
  *          the week. Note that values are in terms of the gateway's time zone.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { StorageGatewayClient, DescribeMaintenanceStartTimeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, DescribeMaintenanceStartTimeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const command = new DescribeMaintenanceStartTimeCommand(input);
  * const response = await client.send(command);

@@ -46,8 +46,10 @@ export interface GetSavingsPlansCoverageCommandOutput extends GetSavingsPlansCov
  *          </ul>
  * 	        <p>To determine valid values for a dimension, use the <code>GetDimensionValues</code> operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CostExplorerClient, GetSavingsPlansCoverageCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
+ * // const { CostExplorerClient, GetSavingsPlansCoverageCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const command = new GetSavingsPlansCoverageCommand(input);
  * const response = await client.send(command);

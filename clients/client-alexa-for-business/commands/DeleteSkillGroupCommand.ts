@@ -23,8 +23,10 @@ export interface DeleteSkillGroupCommandOutput extends DeleteSkillGroupResponse,
 /**
  * <p>Deletes a skill group by skill group ARN.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AlexaForBusinessClient, DeleteSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, DeleteSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const command = new DeleteSkillGroupCommand(input);
  * const response = await client.send(command);

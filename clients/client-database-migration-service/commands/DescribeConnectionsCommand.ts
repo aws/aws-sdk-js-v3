@@ -28,8 +28,10 @@ export interface DescribeConnectionsCommandOutput extends DescribeConnectionsRes
  * <p>Describes the status of the connections that have been made between the replication
  *          instance and an endpoint. Connections are created when you test an endpoint.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DatabaseMigrationServiceClient, DescribeConnectionsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeConnectionsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const command = new DescribeConnectionsCommand(input);
  * const response = await client.send(command);

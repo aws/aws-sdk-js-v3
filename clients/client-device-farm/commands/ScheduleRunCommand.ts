@@ -23,8 +23,10 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
 /**
  * <p>Schedules a run.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, ScheduleRunCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, ScheduleRunCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new ScheduleRunCommand(input);
  * const response = await client.send(command);

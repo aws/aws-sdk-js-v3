@@ -34,8 +34,10 @@ export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBa
  *             <code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.
  *             You can restore your table to any point in time during the last 35 days. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DynamoDBClient, UpdateContinuousBackupsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, UpdateContinuousBackupsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const command = new UpdateContinuousBackupsCommand(input);
  * const response = await client.send(command);

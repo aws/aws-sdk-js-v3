@@ -43,8 +43,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SNSClient, TagResourceCommand } from "@aws-sdk/client-sns"; // ES Modules import
+ * // const { SNSClient, TagResourceCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

@@ -32,8 +32,10 @@ export interface StopEntitiesDetectionJobCommandOutput extends StopEntitiesDetec
  *          <p>When a job is stopped, any documents already processed are written to the output
  *       location.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, StopEntitiesDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, StopEntitiesDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new StopEntitiesDetectionJobCommand(input);
  * const response = await client.send(command);

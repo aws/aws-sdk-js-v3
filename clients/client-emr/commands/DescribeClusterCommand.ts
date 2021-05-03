@@ -24,8 +24,10 @@ export interface DescribeClusterCommandOutput extends DescribeClusterOutput, __M
  * <p>Provides cluster-level details including status, hardware and software configuration,
  *          VPC settings, and so on. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EMRClient, DescribeClusterCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, DescribeClusterCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
  * const command = new DescribeClusterCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface UpdateSmsChannelCommandOutput extends UpdateSmsChannelResponse,
 /**
  * <p>Enables the SMS channel for an application or updates the status and settings of the SMS channel for an application.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointClient, UpdateSmsChannelCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, UpdateSmsChannelCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
  * const command = new UpdateSmsChannelCommand(input);
  * const response = await client.send(command);

@@ -33,8 +33,10 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutpu
  *       instances continue to run and are still registered to their target groups. If you no longer
  *       need these EC2 instances, you can stop or terminate them.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticLoadBalancingV2Client, DeleteLoadBalancerCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, DeleteLoadBalancerCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const command = new DeleteLoadBalancerCommand(input);
  * const response = await client.send(command);

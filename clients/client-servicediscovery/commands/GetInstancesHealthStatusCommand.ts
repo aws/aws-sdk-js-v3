@@ -28,8 +28,10 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  *     available. </p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceDiscoveryClient, GetInstancesHealthStatusCommand } from "@aws-sdk/client-servicediscovery"; // ES Modules import
+ * // const { ServiceDiscoveryClient, GetInstancesHealthStatusCommand } = require("@aws-sdk/client-servicediscovery"); // CommonJS import
  * const client = new ServiceDiscoveryClient(config);
  * const command = new GetInstancesHealthStatusCommand(input);
  * const response = await client.send(command);

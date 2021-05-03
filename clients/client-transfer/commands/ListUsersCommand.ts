@@ -21,8 +21,10 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * <p>Lists the users for a file transfer protocol-enabled server that you specify by passing
  *       the <code>ServerId</code> parameter.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TransferClient, ListUsersCommand } from "@aws-sdk/client-transfer"; // ES Modules import
+ * // const { TransferClient, ListUsersCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
 /**
  * <p>Creates an input.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTEventsClient, CreateInputCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
+ * // const { IoTEventsClient, CreateInputCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const command = new CreateInputCommand(input);
  * const response = await client.send(command);

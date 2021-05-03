@@ -30,8 +30,10 @@ export interface UpdateAuthEventFeedbackCommandOutput extends UpdateAuthEventFee
  *             not. This feedback is used for improving the risk evaluation decision for the user pool
  *             as part of Amazon Cognito advanced security.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityProviderClient, UpdateAuthEventFeedbackCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, UpdateAuthEventFeedbackCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const command = new UpdateAuthEventFeedbackCommand(input);
  * const response = await client.send(command);

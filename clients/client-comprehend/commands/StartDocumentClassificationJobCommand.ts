@@ -26,8 +26,10 @@ export interface StartDocumentClassificationJobCommandOutput
  * <p>Starts an asynchronous document classification job. Use the  operation to track the progress of the
  *       job.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, StartDocumentClassificationJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, StartDocumentClassificationJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new StartDocumentClassificationJobCommand(input);
  * const response = await client.send(command);

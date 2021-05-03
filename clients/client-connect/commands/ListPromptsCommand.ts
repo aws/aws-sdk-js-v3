@@ -23,8 +23,10 @@ export interface ListPromptsCommandOutput extends ListPromptsResponse, __Metadat
 /**
  * <p>Provides information about the prompts for the specified Amazon Connect instance.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, ListPromptsCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ListPromptsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new ListPromptsCommand(input);
  * const response = await client.send(command);

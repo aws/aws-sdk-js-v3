@@ -26,8 +26,10 @@ export interface DeleteFirewallManagerRuleGroupsCommandOutput
  * <p>Deletes all rule groups that are managed by AWS Firewall Manager for the specified web ACL. </p>
  *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified <a>WebACL</a>.  </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFV2Client, DeleteFirewallManagerRuleGroupsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
+ * // const { WAFV2Client, DeleteFirewallManagerRuleGroupsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
  * const command = new DeleteFirewallManagerRuleGroupsCommand(input);
  * const response = await client.send(command);

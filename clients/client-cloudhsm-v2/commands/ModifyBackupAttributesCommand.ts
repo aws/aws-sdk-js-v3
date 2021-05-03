@@ -23,8 +23,10 @@ export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttribu
 /**
  * <p>Modifies attributes for AWS CloudHSM backup.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudHSMV2Client, ModifyBackupAttributesCommand } from "@aws-sdk/client-cloudhsm-v2"; // ES Modules import
+ * // const { CloudHSMV2Client, ModifyBackupAttributesCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
  * const command = new ModifyBackupAttributesCommand(input);
  * const response = await client.send(command);

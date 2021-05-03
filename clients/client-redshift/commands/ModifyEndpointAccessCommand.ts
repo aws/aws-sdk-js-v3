@@ -24,8 +24,10 @@ export interface ModifyEndpointAccessCommandOutput extends EndpointAccess, __Met
 /**
  * <p>Modifies a Redshift-managed VPC endpoint.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RedshiftClient, ModifyEndpointAccessCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, ModifyEndpointAccessCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
  * const command = new ModifyEndpointAccessCommand(input);
  * const response = await client.send(command);

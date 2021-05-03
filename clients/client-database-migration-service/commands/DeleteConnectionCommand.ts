@@ -27,8 +27,10 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
 /**
  * <p>Deletes the connection between a replication instance and an endpoint.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DatabaseMigrationServiceClient, DeleteConnectionCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DeleteConnectionCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const command = new DeleteConnectionCommand(input);
  * const response = await client.send(command);

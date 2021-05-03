@@ -20,8 +20,10 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
 /**
  * <p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EventBridgeClient, PutEventsCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, PutEventsCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const command = new PutEventsCommand(input);
  * const response = await client.send(command);

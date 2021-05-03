@@ -23,8 +23,10 @@ export interface DeleteGraphqlApiCommandOutput extends DeleteGraphqlApiResponse,
 /**
  * <p>Deletes a <code>GraphqlApi</code> object.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppSyncClient, DeleteGraphqlApiCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, DeleteGraphqlApiCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
  * const command = new DeleteGraphqlApiCommand(input);
  * const response = await client.send(command);

@@ -28,8 +28,10 @@ export interface GetFindingsPublicationConfigurationCommandOutput
 /**
  * <p>Retrieves the configuration settings for publishing findings to AWS Security Hub.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Macie2Client, GetFindingsPublicationConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, GetFindingsPublicationConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
  * const command = new GetFindingsPublicationConfigurationCommand(input);
  * const response = await client.send(command);

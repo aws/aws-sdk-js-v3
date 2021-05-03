@@ -32,8 +32,10 @@ export interface DeleteStreamCommandOutput extends DeleteStreamOutput, __Metadat
  *         <p>This operation requires permission for the <code>KinesisVideo:DeleteStream</code>
  *             action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisVideoClient, DeleteStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
+ * // const { KinesisVideoClient, DeleteStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const command = new DeleteStreamCommand(input);
  * const response = await client.send(command);

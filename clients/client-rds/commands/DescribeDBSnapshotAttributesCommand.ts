@@ -32,8 +32,10 @@ export interface DescribeDBSnapshotAttributesCommandOutput
  *          <p>To add or remove access for an AWS account to copy or restore a manual DB snapshot, or to make the
  *       manual DB snapshot public or private, use the <code>ModifyDBSnapshotAttribute</code> API action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSClient, DescribeDBSnapshotAttributesCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeDBSnapshotAttributesCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
  * const command = new DescribeDBSnapshotAttributesCommand(input);
  * const response = await client.send(command);

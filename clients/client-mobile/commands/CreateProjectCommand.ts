@@ -25,8 +25,10 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  *             Creates an AWS Mobile Hub project.
  *         </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MobileClient, CreateProjectCommand } from "@aws-sdk/client-mobile"; // ES Modules import
+ * // const { MobileClient, CreateProjectCommand } = require("@aws-sdk/client-mobile"); // CommonJS import
  * const client = new MobileClient(config);
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);

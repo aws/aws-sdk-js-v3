@@ -34,8 +34,10 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *          web ACL WCU usage when they use a rule group.
  *          The WCU limit for web ACLs is 1,500.  </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFV2Client, CheckCapacityCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
+ * // const { WAFV2Client, CheckCapacityCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
  * const command = new CheckCapacityCommand(input);
  * const response = await client.send(command);

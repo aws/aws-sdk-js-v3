@@ -24,8 +24,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * <p>List tags for a given resource.</p>
  *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SFNClient, ListTagsForResourceCommand } from "@aws-sdk/client-sfn"; // ES Modules import
+ * // const { SFNClient, ListTagsForResourceCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

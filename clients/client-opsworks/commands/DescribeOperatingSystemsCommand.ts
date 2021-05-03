@@ -23,8 +23,10 @@ export interface DescribeOperatingSystemsCommandOutput extends DescribeOperating
 /**
  * <p>Describes the operating systems that are supported by AWS OpsWorks Stacks.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { OpsWorksClient, DescribeOperatingSystemsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
+ * // const { OpsWorksClient, DescribeOperatingSystemsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const command = new DescribeOperatingSystemsCommand(input);
  * const response = await client.send(command);

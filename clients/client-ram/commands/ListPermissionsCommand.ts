@@ -23,8 +23,10 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
 /**
  * <p>Lists the AWS RAM permissions.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RAMClient, ListPermissionsCommand } from "@aws-sdk/client-ram"; // ES Modules import
+ * // const { RAMClient, ListPermissionsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
  * const command = new ListPermissionsCommand(input);
  * const response = await client.send(command);

@@ -27,8 +27,10 @@ export interface ListNotificationRulesCommandOutput extends ListNotificationRule
 /**
  * <p>Returns a list of the notification rules for an AWS account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodestarNotificationsClient, ListNotificationRulesCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
+ * // const { CodestarNotificationsClient, ListNotificationRulesCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
  * const command = new ListNotificationRulesCommand(input);
  * const response = await client.send(command);

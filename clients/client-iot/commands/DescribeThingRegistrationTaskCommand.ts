@@ -25,8 +25,10 @@ export interface DescribeThingRegistrationTaskCommandOutput
 /**
  * <p>Describes a bulk thing provisioning task.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, DescribeThingRegistrationTaskCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DescribeThingRegistrationTaskCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new DescribeThingRegistrationTaskCommand(input);
  * const response = await client.send(command);

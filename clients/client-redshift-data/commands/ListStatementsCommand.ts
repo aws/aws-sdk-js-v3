@@ -24,8 +24,10 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  * <p>List of SQL statements. By default, only finished statements are shown.
  *         A token is returned to page through the statement list. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RedshiftDataClient, ListStatementsCommand } from "@aws-sdk/client-redshift-data"; // ES Modules import
+ * // const { RedshiftDataClient, ListStatementsCommand } = require("@aws-sdk/client-redshift-data"); // CommonJS import
  * const client = new RedshiftDataClient(config);
  * const command = new ListStatementsCommand(input);
  * const response = await client.send(command);

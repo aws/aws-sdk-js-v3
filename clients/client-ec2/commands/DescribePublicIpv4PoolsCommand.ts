@@ -23,8 +23,10 @@ export interface DescribePublicIpv4PoolsCommandOutput extends DescribePublicIpv4
 /**
  * <p>Describes the specified IPv4 address pools.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, DescribePublicIpv4PoolsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribePublicIpv4PoolsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new DescribePublicIpv4PoolsCommand(input);
  * const response = await client.send(command);

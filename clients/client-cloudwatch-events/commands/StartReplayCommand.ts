@@ -31,8 +31,10 @@ export interface StartReplayCommandOutput extends StartReplayResponse, __Metadat
  *       indicates the time within the specified time range associated with the last event
  *       replayed.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudWatchEventsClient, StartReplayCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
+ * // const { CloudWatchEventsClient, StartReplayCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const command = new StartReplayCommand(input);
  * const response = await client.send(command);

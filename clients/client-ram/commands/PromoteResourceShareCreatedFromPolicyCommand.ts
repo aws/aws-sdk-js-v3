@@ -41,8 +41,10 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
  *     		      </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RAMClient, PromoteResourceShareCreatedFromPolicyCommand } from "@aws-sdk/client-ram"; // ES Modules import
+ * // const { RAMClient, PromoteResourceShareCreatedFromPolicyCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
  * const command = new PromoteResourceShareCreatedFromPolicyCommand(input);
  * const response = await client.send(command);

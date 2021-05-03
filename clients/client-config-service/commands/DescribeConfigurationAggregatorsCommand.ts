@@ -28,8 +28,10 @@ export interface DescribeConfigurationAggregatorsCommandOutput
  * 			returns the details for all the configuration aggregators associated
  * 			with the account. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConfigServiceClient, DescribeConfigurationAggregatorsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, DescribeConfigurationAggregatorsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const command = new DescribeConfigurationAggregatorsCommand(input);
  * const response = await client.send(command);

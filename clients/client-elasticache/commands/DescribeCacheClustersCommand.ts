@@ -38,8 +38,10 @@ export interface DescribeCacheClustersCommandOutput extends CacheClusterMessage,
  *         <p>If cache nodes are currently being removed from the cluster, no endpoint information
  *             for the removed nodes is displayed.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElastiCacheClient, DescribeCacheClustersCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, DescribeCacheClustersCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const command = new DescribeCacheClustersCommand(input);
  * const response = await client.send(command);

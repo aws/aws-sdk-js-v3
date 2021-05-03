@@ -26,8 +26,10 @@ export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvi
  *    active jobs on that compute environment before deleting the compute environment. If this isn't done, the compute
  *    environment enters an invalid state.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BatchClient, DeleteComputeEnvironmentCommand } from "@aws-sdk/client-batch"; // ES Modules import
+ * // const { BatchClient, DeleteComputeEnvironmentCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
  * const command = new DeleteComputeEnvironmentCommand(input);
  * const response = await client.send(command);

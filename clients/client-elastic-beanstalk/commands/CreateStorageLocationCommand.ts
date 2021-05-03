@@ -27,8 +27,10 @@ export interface CreateStorageLocationCommandOutput extends CreateStorageLocatio
  *         <code>CreateStorageLocation</code> still returns the bucket name but does not create a new
  *       bucket.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticBeanstalkClient, CreateStorageLocationCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
+ * // const { ElasticBeanstalkClient, CreateStorageLocationCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const command = new CreateStorageLocationCommand(input);
  * const response = await client.send(command);

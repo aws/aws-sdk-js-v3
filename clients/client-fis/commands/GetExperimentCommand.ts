@@ -23,8 +23,10 @@ export interface GetExperimentCommandOutput extends GetExperimentResponse, __Met
 /**
  * <p>Gets information about the specified experiment.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FisClient, GetExperimentCommand } from "@aws-sdk/client-fis"; // ES Modules import
+ * // const { FisClient, GetExperimentCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
  * const command = new GetExperimentCommand(input);
  * const response = await client.send(command);

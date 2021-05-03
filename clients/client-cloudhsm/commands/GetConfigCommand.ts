@@ -31,8 +31,10 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  *          <p>Gets the configuration files necessary to connect to all high availability partition
  *       groups the client is associated with.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudHSMClient, GetConfigCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
+ * // const { CloudHSMClient, GetConfigCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const command = new GetConfigCommand(input);
  * const response = await client.send(command);

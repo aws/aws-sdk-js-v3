@@ -27,8 +27,10 @@ export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataB
  *          that a step will be canceled, even if the request is successfully submitted. You can only
  *          cancel steps that are in a <code>PENDING</code> state.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EMRClient, CancelStepsCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, CancelStepsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
  * const command = new CancelStepsCommand(input);
  * const response = await client.send(command);

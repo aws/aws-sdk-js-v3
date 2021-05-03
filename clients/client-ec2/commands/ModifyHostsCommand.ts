@@ -27,8 +27,10 @@ export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataB
  *     	    <p>You can also use this API action to modify a Dedicated Host to support either multiple
  *     		instance types in an instance family, or to support a specific instance type only.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, ModifyHostsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, ModifyHostsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new ModifyHostsCommand(input);
  * const response = await client.send(command);

@@ -28,8 +28,10 @@ export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointS
  * <p>Returns information about the possible endpoint settings available
  *          when you create an endpoint for a specific database engine.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DatabaseMigrationServiceClient, DescribeEndpointSettingsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeEndpointSettingsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const command = new DescribeEndpointSettingsCommand(input);
  * const response = await client.send(command);

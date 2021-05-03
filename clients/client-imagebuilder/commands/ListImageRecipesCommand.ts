@@ -23,8 +23,10 @@ export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse,
 /**
  * <p> Returns a list of image recipes.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ImagebuilderClient, ListImageRecipesCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, ListImageRecipesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const command = new ListImageRecipesCommand(input);
  * const response = await client.send(command);

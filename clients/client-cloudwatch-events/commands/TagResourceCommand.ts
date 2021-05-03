@@ -33,8 +33,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *       value that you specify replaces the previous value for that tag.</p>
  *          <p>You can associate as many as 50 tags with a resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudWatchEventsClient, TagResourceCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
+ * // const { CloudWatchEventsClient, TagResourceCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

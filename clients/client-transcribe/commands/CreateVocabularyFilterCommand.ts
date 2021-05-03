@@ -24,8 +24,10 @@ export interface CreateVocabularyFilterCommandOutput extends CreateVocabularyFil
  * <p>Creates a new vocabulary filter that you can use to filter words, such as profane
  *             words, from the output of a transcription job.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TranscribeClient, CreateVocabularyFilterCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
+ * // const { TranscribeClient, CreateVocabularyFilterCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
  * const command = new CreateVocabularyFilterCommand(input);
  * const response = await client.send(command);

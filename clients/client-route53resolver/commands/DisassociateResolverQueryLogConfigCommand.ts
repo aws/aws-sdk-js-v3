@@ -42,8 +42,10 @@ export interface DisassociateResolverQueryLogConfigCommandOutput
  *             </ul>
  * 		       </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53ResolverClient, DisassociateResolverQueryLogConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, DisassociateResolverQueryLogConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const command = new DisassociateResolverQueryLogConfigCommand(input);
  * const response = await client.send(command);

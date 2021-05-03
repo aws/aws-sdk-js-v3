@@ -46,8 +46,10 @@ export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetRespo
  *             </li>
  *          </ol>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFRegionalClient, DeleteByteMatchSetCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
+ * // const { WAFRegionalClient, DeleteByteMatchSetCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const command = new DeleteByteMatchSetCommand(input);
  * const response = await client.send(command);

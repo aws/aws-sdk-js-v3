@@ -23,8 +23,10 @@ export interface DescribeCodeReviewCommandOutput extends DescribeCodeReviewRespo
 /**
  * <p> Returns the metadata associated with the code review along with its status.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeGuruReviewerClient, DescribeCodeReviewCommand } from "@aws-sdk/client-codeguru-reviewer"; // ES Modules import
+ * // const { CodeGuruReviewerClient, DescribeCodeReviewCommand } = require("@aws-sdk/client-codeguru-reviewer"); // CommonJS import
  * const client = new CodeGuruReviewerClient(config);
  * const command = new DescribeCodeReviewCommand(input);
  * const response = await client.send(command);

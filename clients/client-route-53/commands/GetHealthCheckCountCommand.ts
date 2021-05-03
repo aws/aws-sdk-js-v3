@@ -23,8 +23,10 @@ export interface GetHealthCheckCountCommandOutput extends GetHealthCheckCountRes
 /**
  * <p>Retrieves the number of health checks that are associated with the current AWS account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53Client, GetHealthCheckCountCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, GetHealthCheckCountCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
  * const command = new GetHealthCheckCountCommand(input);
  * const response = await client.send(command);

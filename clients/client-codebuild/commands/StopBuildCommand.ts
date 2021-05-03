@@ -20,8 +20,10 @@ export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBeare
 /**
  * <p>Attempts to stop running a build.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeBuildClient, StopBuildCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
+ * // const { CodeBuildClient, StopBuildCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const command = new StopBuildCommand(input);
  * const response = await client.send(command);

@@ -28,8 +28,10 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  *       This operation is synchronous.
  *     </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { OpsWorksCMClient, DescribeAccountAttributesCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
+ * // const { OpsWorksCMClient, DescribeAccountAttributesCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);

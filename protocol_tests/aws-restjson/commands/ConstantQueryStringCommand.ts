@@ -26,8 +26,10 @@ export interface ConstantQueryStringCommandOutput extends __MetadataBearer {}
  * compatible. The fixed query string parameter named "hello" should
  * in no way conflict with the label, `{hello}`.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RestJsonProtocolClient, ConstantQueryStringCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, ConstantQueryStringCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
  * const command = new ConstantQueryStringCommand(input);
  * const response = await client.send(command);

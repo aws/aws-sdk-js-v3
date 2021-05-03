@@ -23,8 +23,10 @@ export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __Met
 /**
  * <p>Gets a deployment. Deployments define the components that run on AWS IoT Greengrass core devices.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassV2Client, GetDeploymentCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
+ * // const { GreengrassV2Client, GetDeploymentCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const command = new GetDeploymentCommand(input);
  * const response = await client.send(command);

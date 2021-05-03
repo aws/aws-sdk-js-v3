@@ -28,8 +28,10 @@ export interface GetCloudFormationStackRecordsCommandOutput
  *          <p>An AWS CloudFormation stack is used to create a new Amazon EC2 instance from an exported Lightsail
  *       snapshot.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, GetCloudFormationStackRecordsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetCloudFormationStackRecordsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new GetCloudFormationStackRecordsCommand(input);
  * const response = await client.send(command);

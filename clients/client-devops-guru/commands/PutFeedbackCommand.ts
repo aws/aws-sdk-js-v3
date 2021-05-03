@@ -25,8 +25,10 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  *    		Collects customer feedback about the specified insight.
  *    	</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DevOpsGuruClient, PutFeedbackCommand } from "@aws-sdk/client-devops-guru"; // ES Modules import
+ * // const { DevOpsGuruClient, PutFeedbackCommand } = require("@aws-sdk/client-devops-guru"); // CommonJS import
  * const client = new DevOpsGuruClient(config);
  * const command = new PutFeedbackCommand(input);
  * const response = await client.send(command);

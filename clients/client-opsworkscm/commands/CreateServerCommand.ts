@@ -50,8 +50,10 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *          <p>To specify your own domain for a server, and provide your own self-signed or CA-signed certificate and private key, specify values for <code>CustomDomain</code>,
  *       <code>CustomCertificate</code>, and <code>CustomPrivateKey</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { OpsWorksCMClient, CreateServerCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
+ * // const { OpsWorksCMClient, CreateServerCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
  * const command = new CreateServerCommand(input);
  * const response = await client.send(command);

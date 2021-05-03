@@ -34,8 +34,10 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
  *       contains records that were used to match, the information in those matched records that comes
  *       from the deleted records will also be deleted.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ApplicationDiscoveryServiceClient, BatchDeleteImportDataCommand } from "@aws-sdk/client-application-discovery-service"; // ES Modules import
+ * // const { ApplicationDiscoveryServiceClient, BatchDeleteImportDataCommand } = require("@aws-sdk/client-application-discovery-service"); // CommonJS import
  * const client = new ApplicationDiscoveryServiceClient(config);
  * const command = new BatchDeleteImportDataCommand(input);
  * const response = await client.send(command);

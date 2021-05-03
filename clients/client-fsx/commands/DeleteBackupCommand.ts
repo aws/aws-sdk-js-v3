@@ -31,8 +31,10 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  *                 means.</p>
  *         </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FSxClient, DeleteBackupCommand } from "@aws-sdk/client-fsx"; // ES Modules import
+ * // const { FSxClient, DeleteBackupCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
  * const command = new DeleteBackupCommand(input);
  * const response = await client.send(command);

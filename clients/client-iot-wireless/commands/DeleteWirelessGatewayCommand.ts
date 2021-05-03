@@ -23,8 +23,10 @@ export interface DeleteWirelessGatewayCommandOutput extends DeleteWirelessGatewa
 /**
  * <p>Deletes a wireless gateway.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTWirelessClient, DeleteWirelessGatewayCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, DeleteWirelessGatewayCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const command = new DeleteWirelessGatewayCommand(input);
  * const response = await client.send(command);

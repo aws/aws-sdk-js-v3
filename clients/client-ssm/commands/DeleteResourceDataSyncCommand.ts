@@ -25,8 +25,10 @@ export interface DeleteResourceDataSyncCommandOutput extends DeleteResourceDataS
  *    data on managed instances are no longer synced to or from the target. Deleting a sync
  *    configuration does not delete data.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, DeleteResourceDataSyncCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DeleteResourceDataSyncCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new DeleteResourceDataSyncCommand(input);
  * const response = await client.send(command);

@@ -48,8 +48,10 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  *         information about subscribing to Shield Advanced, see
  *     <a href="https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html">CreateSubscription</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FMSClient, PutPolicyCommand } from "@aws-sdk/client-fms"; // ES Modules import
+ * // const { FMSClient, PutPolicyCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
  * const command = new PutPolicyCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  * <p>Translates input text from the source language to the target language. For a list of
  *       available languages and language codes, see <a>what-is-languages</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TranslateClient, TranslateTextCommand } from "@aws-sdk/client-translate"; // ES Modules import
+ * // const { TranslateClient, TranslateTextCommand } = require("@aws-sdk/client-translate"); // CommonJS import
  * const client = new TranslateClient(config);
  * const command = new TranslateTextCommand(input);
  * const response = await client.send(command);

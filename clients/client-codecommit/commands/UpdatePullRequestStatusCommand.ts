@@ -23,8 +23,10 @@ export interface UpdatePullRequestStatusCommandOutput extends UpdatePullRequestS
 /**
  * <p>Updates the status of a pull request. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeCommitClient, UpdatePullRequestStatusCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, UpdatePullRequestStatusCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const command = new UpdatePullRequestStatusCommand(input);
  * const response = await client.send(command);

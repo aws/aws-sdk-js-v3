@@ -23,8 +23,10 @@ export interface GetImagePolicyCommandOutput extends GetImagePolicyResponse, __M
 /**
  * <p> Gets an image policy.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ImagebuilderClient, GetImagePolicyCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, GetImagePolicyCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const command = new GetImagePolicyCommand(input);
  * const response = await client.send(command);

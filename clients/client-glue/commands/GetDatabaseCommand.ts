@@ -23,8 +23,10 @@ export interface GetDatabaseCommandOutput extends GetDatabaseResponse, __Metadat
 /**
  * <p>Retrieves the definition of a specified database.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlueClient, GetDatabaseCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetDatabaseCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
  * const command = new GetDatabaseCommand(input);
  * const response = await client.send(command);

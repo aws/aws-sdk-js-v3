@@ -32,8 +32,10 @@ export interface AssociateTransitGatewayConnectPeerCommandOutput
  *             transit gateway that's registered in your global network.</p>
  *         <p>You cannot associate a transit gateway Connect peer with more than one device and link. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NetworkManagerClient, AssociateTransitGatewayConnectPeerCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
+ * // const { NetworkManagerClient, AssociateTransitGatewayConnectPeerCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const command = new AssociateTransitGatewayConnectPeerCommand(input);
  * const response = await client.send(command);

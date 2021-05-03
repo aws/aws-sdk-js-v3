@@ -27,8 +27,10 @@ export interface ResetClusterParameterGroupCommandOutput extends ClusterParamete
  *             entire parameter group specify the <i>ResetAllParameters</i> parameter.
  *             For parameter changes to take effect you must reboot any associated clusters. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RedshiftClient, ResetClusterParameterGroupCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, ResetClusterParameterGroupCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
  * const command = new ResetClusterParameterGroupCommand(input);
  * const response = await client.send(command);

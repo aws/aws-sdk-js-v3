@@ -25,8 +25,10 @@ export interface UpdatePipelineCommandOutput extends __MetadataBearer {}
  *         <code>datastore</code> activity and, optionally, as many as 23 additional activities in the
  *         <code>pipelineActivities</code> array.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTAnalyticsClient, UpdatePipelineCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
+ * // const { IoTAnalyticsClient, UpdatePipelineCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const command = new UpdatePipelineCommand(input);
  * const response = await client.send(command);

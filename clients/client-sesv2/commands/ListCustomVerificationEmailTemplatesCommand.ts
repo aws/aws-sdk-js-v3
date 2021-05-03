@@ -32,8 +32,10 @@ export interface ListCustomVerificationEmailTemplatesCommandOutput
  *                 Guide</i>.</p>
  *         <p>You can execute this operation no more than once per second.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SESv2Client, ListCustomVerificationEmailTemplatesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, ListCustomVerificationEmailTemplatesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
  * const command = new ListCustomVerificationEmailTemplatesCommand(input);
  * const response = await client.send(command);

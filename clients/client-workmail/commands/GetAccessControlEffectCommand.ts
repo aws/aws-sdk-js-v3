@@ -24,8 +24,10 @@ export interface GetAccessControlEffectCommandOutput extends GetAccessControlEff
  * <p>Gets the effects of an organization's access control rules as they apply to a
  *          specified IPv4 address, access protocol action, or user ID. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, GetAccessControlEffectCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, GetAccessControlEffectCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new GetAccessControlEffectCommand(input);
  * const response = await client.send(command);

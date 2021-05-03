@@ -28,8 +28,10 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  *         the API call as the value in the header.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, DeleteChannelCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, DeleteChannelCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new DeleteChannelCommand(input);
  * const response = await client.send(command);

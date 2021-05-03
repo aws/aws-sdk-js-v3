@@ -23,8 +23,10 @@ export interface RetryBuildCommandOutput extends RetryBuildOutput, __MetadataBea
 /**
  * <p>Restarts a build.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeBuildClient, RetryBuildCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
+ * // const { CodeBuildClient, RetryBuildCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const command = new RetryBuildCommand(input);
  * const response = await client.send(command);

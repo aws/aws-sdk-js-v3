@@ -29,8 +29,10 @@ export interface StartRxNormInferenceJobCommandOutput extends StartRxNormInferen
  *       ontology. Use the <code>DescribeRxNormInferenceJob</code> operation to track the status of a
  *       job.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendMedicalClient, StartRxNormInferenceJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
+ * // const { ComprehendMedicalClient, StartRxNormInferenceJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
  * const command = new StartRxNormInferenceJobCommand(input);
  * const response = await client.send(command);

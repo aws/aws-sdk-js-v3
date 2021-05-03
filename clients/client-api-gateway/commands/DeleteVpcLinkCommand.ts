@@ -23,8 +23,10 @@ export interface DeleteVpcLinkCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes an existing <a>VpcLink</a> of a specified identifier.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { APIGatewayClient, DeleteVpcLinkCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, DeleteVpcLinkCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const command = new DeleteVpcLinkCommand(input);
  * const response = await client.send(command);

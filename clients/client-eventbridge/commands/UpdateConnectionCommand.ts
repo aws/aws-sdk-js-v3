@@ -23,8 +23,10 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
 /**
  * <p>Updates settings for a connection.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EventBridgeClient, UpdateConnectionCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, UpdateConnectionCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const command = new UpdateConnectionCommand(input);
  * const response = await client.send(command);

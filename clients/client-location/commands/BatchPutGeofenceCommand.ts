@@ -24,8 +24,10 @@ export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse,
  * <p>A batch request for storing geofence geometries into a given geofence
  *             collection.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LocationClient, BatchPutGeofenceCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, BatchPutGeofenceCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
  * const command = new BatchPutGeofenceCommand(input);
  * const response = await client.send(command);

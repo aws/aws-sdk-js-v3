@@ -26,8 +26,10 @@ export interface ListRecordingConfigurationsCommandOutput
  * <p>Gets summary information about all recording configurations in your account, in the AWS
  *       region where the API request is processed.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IvsClient, ListRecordingConfigurationsCommand } from "@aws-sdk/client-ivs"; // ES Modules import
+ * // const { IvsClient, ListRecordingConfigurationsCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
  * const command = new ListRecordingConfigurationsCommand(input);
  * const response = await client.send(command);

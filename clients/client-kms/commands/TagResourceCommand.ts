@@ -57,8 +57,10 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KMSClient, TagResourceCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, TagResourceCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

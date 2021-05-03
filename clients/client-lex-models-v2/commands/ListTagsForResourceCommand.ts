@@ -24,8 +24,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Gets a list of tags associated with a resource. Only bots, bot
  *          aliases, and bot channels can have tags associated with them.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LexModelsV2Client, ListTagsForResourceCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, ListTagsForResourceCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

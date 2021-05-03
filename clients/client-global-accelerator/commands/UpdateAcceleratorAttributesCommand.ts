@@ -29,8 +29,10 @@ export interface UpdateAcceleratorAttributesCommandOutput
 /**
  * <p>Update the attributes for an accelerator. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlobalAcceleratorClient, UpdateAcceleratorAttributesCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
+ * // const { GlobalAcceleratorClient, UpdateAcceleratorAttributesCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const command = new UpdateAcceleratorAttributesCommand(input);
  * const response = await client.send(command);

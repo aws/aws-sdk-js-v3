@@ -30,8 +30,10 @@ export interface PutApplicationPolicyCommandOutput extends PutApplicationPolicyR
  *  Permissions</a>
  *  .</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServerlessApplicationRepositoryClient, PutApplicationPolicyCommand } from "@aws-sdk/client-serverlessapplicationrepository"; // ES Modules import
+ * // const { ServerlessApplicationRepositoryClient, PutApplicationPolicyCommand } = require("@aws-sdk/client-serverlessapplicationrepository"); // CommonJS import
  * const client = new ServerlessApplicationRepositoryClient(config);
  * const command = new PutApplicationPolicyCommand(input);
  * const response = await client.send(command);

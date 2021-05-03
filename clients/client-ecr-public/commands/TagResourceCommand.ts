@@ -26,8 +26,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *          changed. When a resource is deleted, the tags associated with that resource are deleted as
  *          well.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECRPUBLICClient, TagResourceCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
+ * // const { ECRPUBLICClient, TagResourceCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

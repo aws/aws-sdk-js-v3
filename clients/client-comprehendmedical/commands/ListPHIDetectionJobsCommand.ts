@@ -28,8 +28,10 @@ export interface ListPHIDetectionJobsCommandOutput extends ListPHIDetectionJobsR
  * <p>Gets a list of protected health information (PHI) detection jobs that you have
  *       submitted.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendMedicalClient, ListPHIDetectionJobsCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
+ * // const { ComprehendMedicalClient, ListPHIDetectionJobsCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
  * const command = new ListPHIDetectionJobsCommand(input);
  * const response = await client.send(command);

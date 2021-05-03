@@ -23,8 +23,10 @@ export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterf
 /**
  * <p>Deletes a virtual interface.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectConnectClient, DeleteVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, DeleteVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const command = new DeleteVirtualInterfaceCommand(input);
  * const response = await client.send(command);

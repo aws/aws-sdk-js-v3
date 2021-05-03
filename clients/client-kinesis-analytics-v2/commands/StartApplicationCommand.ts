@@ -28,8 +28,10 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * <p>Starts the specified Kinesis Data Analytics application. After creating an application, you must exclusively call this operation to
  *       start your application.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisAnalyticsV2Client, StartApplicationCommand } from "@aws-sdk/client-kinesis-analytics-v2"; // ES Modules import
+ * // const { KinesisAnalyticsV2Client, StartApplicationCommand } = require("@aws-sdk/client-kinesis-analytics-v2"); // CommonJS import
  * const client = new KinesisAnalyticsV2Client(config);
  * const command = new StartApplicationCommand(input);
  * const response = await client.send(command);

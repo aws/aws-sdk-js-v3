@@ -41,8 +41,10 @@ export interface GetIntentsCommandOutput extends GetIntentsResponse, __MetadataB
  *          <p> The operation requires permission for the
  *         <code>lex:GetIntents</code> action. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LexModelBuildingServiceClient, GetIntentsCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
+ * // const { LexModelBuildingServiceClient, GetIntentsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const command = new GetIntentsCommand(input);
  * const response = await client.send(command);

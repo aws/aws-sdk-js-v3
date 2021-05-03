@@ -29,8 +29,10 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
  * <p>Enable or disable email sending for messages that use a particular configuration set
  *             in a specific AWS Region.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SESv2Client, PutConfigurationSetSendingOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, PutConfigurationSetSendingOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
  * const command = new PutConfigurationSetSendingOptionsCommand(input);
  * const response = await client.send(command);

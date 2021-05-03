@@ -29,8 +29,10 @@ export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesR
  *                <code>dimensionName</code> and <code>metricName</code> cannot be used in the same request.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, ListSecurityProfilesCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListSecurityProfilesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new ListSecurityProfilesCommand(input);
  * const response = await client.send(command);

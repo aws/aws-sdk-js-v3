@@ -23,8 +23,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * <p>Applies the specified tags to the specified resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FisClient, TagResourceCommand } from "@aws-sdk/client-fis"; // ES Modules import
+ * // const { FisClient, TagResourceCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

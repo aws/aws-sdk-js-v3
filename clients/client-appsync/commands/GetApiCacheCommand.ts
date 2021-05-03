@@ -23,8 +23,10 @@ export interface GetApiCacheCommandOutput extends GetApiCacheResponse, __Metadat
 /**
  * <p>Retrieves an <code>ApiCache</code> object.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppSyncClient, GetApiCacheCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, GetApiCacheCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
  * const command = new GetApiCacheCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface ListAccessControlRulesCommandOutput extends ListAccessControlRu
 /**
  * <p>Lists the access control rules for the specified organization.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, ListAccessControlRulesCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, ListAccessControlRulesCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new ListAccessControlRulesCommand(input);
  * const response = await client.send(command);

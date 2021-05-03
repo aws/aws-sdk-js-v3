@@ -25,8 +25,10 @@ export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __Met
  *             no work team satisfies the filter specified in the <code>NameContains</code>
  *             parameter.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, ListWorkteamsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListWorkteamsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new ListWorkteamsCommand(input);
  * const response = await client.send(command);

@@ -27,8 +27,10 @@ export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataB
  *         <p>In the request, you must provide the <code>StreamName</code> or
  *                 <code>StreamARN</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisVideoClient, UntagStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
+ * // const { KinesisVideoClient, UntagStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const command = new UntagStreamCommand(input);
  * const response = await client.send(command);

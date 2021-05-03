@@ -23,8 +23,10 @@ export interface DeleteActionCommandOutput extends DeleteActionResponse, __Metad
 /**
  * <p>Deletes an action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, DeleteActionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DeleteActionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new DeleteActionCommand(input);
  * const response = await client.send(command);

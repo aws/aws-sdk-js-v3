@@ -28,8 +28,10 @@ export interface GetRelationalDatabaseBundlesCommandOutput
  *          <p>You can use a bundle ID to create a new database with explicit performance
  *       specifications.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, GetRelationalDatabaseBundlesCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetRelationalDatabaseBundlesCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new GetRelationalDatabaseBundlesCommand(input);
  * const response = await client.send(command);

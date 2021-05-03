@@ -25,8 +25,10 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  *          <p>This operation is only used by accounts that are managed by invitation.
  *          Accounts that are managed using the integration with AWS Organizations do not receive invitations.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SecurityHubClient, ListInvitationsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, ListInvitationsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);

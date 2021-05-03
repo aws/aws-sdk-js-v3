@@ -25,8 +25,10 @@ export interface CreateFieldLevelEncryptionProfileCommandOutput
 /**
  * <p>Create a field-level encryption profile.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFrontClient, CreateFieldLevelEncryptionProfileCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, CreateFieldLevelEncryptionProfileCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const command = new CreateFieldLevelEncryptionProfileCommand(input);
  * const response = await client.send(command);

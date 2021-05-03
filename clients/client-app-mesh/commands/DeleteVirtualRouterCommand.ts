@@ -25,8 +25,10 @@ export interface DeleteVirtualRouterCommandOutput extends DeleteVirtualRouterOut
  *          <p>You must delete any routes associated with the virtual router before you can delete the
  *          router itself.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppMeshClient, DeleteVirtualRouterCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
+ * // const { AppMeshClient, DeleteVirtualRouterCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
  * const command = new DeleteVirtualRouterCommand(input);
  * const response = await client.send(command);

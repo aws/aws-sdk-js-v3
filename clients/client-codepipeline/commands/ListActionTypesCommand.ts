@@ -24,8 +24,10 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
  * <p>Gets a summary of all AWS CodePipeline action types associated with your
  *             account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodePipelineClient, ListActionTypesCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
+ * // const { CodePipelineClient, ListActionTypesCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const command = new ListActionTypesCommand(input);
  * const response = await client.send(command);

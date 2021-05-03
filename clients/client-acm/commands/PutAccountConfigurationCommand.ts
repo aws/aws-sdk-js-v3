@@ -31,8 +31,10 @@ export interface PutAccountConfigurationCommandOutput extends __MetadataBearer {
  *       certificate expires. By default, accounts receive events starting 45 days before certificate
  *       expiration.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ACMClient, PutAccountConfigurationCommand } from "@aws-sdk/client-acm"; // ES Modules import
+ * // const { ACMClient, PutAccountConfigurationCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
  * const command = new PutAccountConfigurationCommand(input);
  * const response = await client.send(command);

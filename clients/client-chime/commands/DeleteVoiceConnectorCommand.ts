@@ -25,8 +25,10 @@ export interface DeleteVoiceConnectorCommandOutput extends __MetadataBearer {}
  *             Amazon Chime Voice Connector must be disassociated from it before it can be
  *             deleted.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, DeleteVoiceConnectorCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, DeleteVoiceConnectorCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new DeleteVoiceConnectorCommand(input);
  * const response = await client.send(command);

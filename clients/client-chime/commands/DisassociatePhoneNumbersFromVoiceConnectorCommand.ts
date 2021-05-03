@@ -29,8 +29,10 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
 /**
  * <p>Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, DisassociatePhoneNumbersFromVoiceConnectorCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, DisassociatePhoneNumbersFromVoiceConnectorCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new DisassociatePhoneNumbersFromVoiceConnectorCommand(input);
  * const response = await client.send(command);

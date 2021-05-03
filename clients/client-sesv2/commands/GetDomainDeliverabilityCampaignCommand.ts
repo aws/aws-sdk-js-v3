@@ -27,8 +27,10 @@ export interface GetDomainDeliverabilityCampaignCommandOutput
  *             for a campaign only if the campaign sent email by using a domain that the
  *             Deliverability dashboard is enabled for.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SESv2Client, GetDomainDeliverabilityCampaignCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, GetDomainDeliverabilityCampaignCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
  * const command = new GetDomainDeliverabilityCampaignCommand(input);
  * const response = await client.send(command);

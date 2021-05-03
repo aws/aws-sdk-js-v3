@@ -25,8 +25,10 @@ export interface ListOrganizationAdminAccountsCommandOutput
 /**
  * <p>Lists the accounts configured as GuardDuty delegated administrators.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GuardDutyClient, ListOrganizationAdminAccountsCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, ListOrganizationAdminAccountsCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const command = new ListOrganizationAdminAccountsCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
 /**
  * <p>Deletes an endpoint from an application.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointClient, DeleteEndpointCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, DeleteEndpointCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
  * const command = new DeleteEndpointCommand(input);
  * const response = await client.send(command);

@@ -30,8 +30,10 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  *       this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated Instances</a> in the
  *           <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, CreateVpcCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateVpcCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new CreateVpcCommand(input);
  * const response = await client.send(command);

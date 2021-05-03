@@ -23,8 +23,10 @@ export interface DeleteLaunchTemplateCommandOutput extends DeleteLaunchTemplateR
 /**
  * <p>Deletes a launch template. Deleting a launch template deletes all of its versions.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, DeleteLaunchTemplateCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DeleteLaunchTemplateCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new DeleteLaunchTemplateCommand(input);
  * const response = await client.send(command);

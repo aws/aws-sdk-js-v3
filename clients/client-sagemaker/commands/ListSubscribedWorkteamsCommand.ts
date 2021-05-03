@@ -25,8 +25,10 @@ export interface ListSubscribedWorkteamsCommandOutput extends ListSubscribedWork
  *             list may be empty if no work team satisfies the filter specified in the
  *                 <code>NameContains</code> parameter.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, ListSubscribedWorkteamsCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListSubscribedWorkteamsCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new ListSubscribedWorkteamsCommand(input);
  * const response = await client.send(command);

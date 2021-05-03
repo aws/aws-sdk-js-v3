@@ -23,8 +23,10 @@ export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaAp
 /**
  * <p>Creates a SIP media application.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, CreateSipMediaApplicationCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, CreateSipMediaApplicationCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new CreateSipMediaApplicationCommand(input);
  * const response = await client.send(command);

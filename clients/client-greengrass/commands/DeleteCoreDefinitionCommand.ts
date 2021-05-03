@@ -23,8 +23,10 @@ export interface DeleteCoreDefinitionCommandOutput extends DeleteCoreDefinitionR
 /**
  * Deletes a core definition.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassClient, DeleteCoreDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, DeleteCoreDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
  * const command = new DeleteCoreDefinitionCommand(input);
  * const response = await client.send(command);

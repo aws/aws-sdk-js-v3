@@ -42,8 +42,10 @@ export interface SetSecurityTokenServicePreferencesCommandOutput extends __Metad
  *         <p>To view the current session token version, see the
  *                 <code>GlobalEndpointTokenVersion</code> entry in the response of the <a>GetAccountSummary</a> operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IAMClient, SetSecurityTokenServicePreferencesCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, SetSecurityTokenServicePreferencesCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
  * const command = new SetSecurityTokenServicePreferencesCommand(input);
  * const response = await client.send(command);

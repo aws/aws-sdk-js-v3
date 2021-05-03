@@ -23,8 +23,10 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
 /**
  * <p>Returns information about DB snapshots. This API action supports pagination.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSClient, DescribeDBSnapshotsCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeDBSnapshotsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
  * const command = new DescribeDBSnapshotsCommand(input);
  * const response = await client.send(command);

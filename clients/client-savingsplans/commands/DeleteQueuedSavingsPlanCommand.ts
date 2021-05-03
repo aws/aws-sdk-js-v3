@@ -23,8 +23,10 @@ export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSaving
 /**
  * <p>Deletes the queued purchase for the specified Savings Plan.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SavingsplansClient, DeleteQueuedSavingsPlanCommand } from "@aws-sdk/client-savingsplans"; // ES Modules import
+ * // const { SavingsplansClient, DeleteQueuedSavingsPlanCommand } = require("@aws-sdk/client-savingsplans"); // CommonJS import
  * const client = new SavingsplansClient(config);
  * const command = new DeleteQueuedSavingsPlanCommand(input);
  * const response = await client.send(command);

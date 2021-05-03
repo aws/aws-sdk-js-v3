@@ -23,8 +23,10 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
 /**
  * <p>This operation returns all the domain names registered with Amazon Route 53 for the current AWS account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53DomainsClient, ListDomainsCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
+ * // const { Route53DomainsClient, ListDomainsCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const command = new ListDomainsCommand(input);
  * const response = await client.send(command);

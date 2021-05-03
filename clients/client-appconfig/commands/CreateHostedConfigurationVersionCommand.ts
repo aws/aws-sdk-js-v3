@@ -23,8 +23,10 @@ export interface CreateHostedConfigurationVersionCommandOutput extends HostedCon
 /**
  * <p>Create a new configuration in the AppConfig configuration store.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppConfigClient, CreateHostedConfigurationVersionCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
+ * // const { AppConfigClient, CreateHostedConfigurationVersionCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
  * const command = new CreateHostedConfigurationVersionCommand(input);
  * const response = await client.send(command);

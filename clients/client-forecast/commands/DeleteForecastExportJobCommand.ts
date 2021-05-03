@@ -25,8 +25,10 @@ export interface DeleteForecastExportJobCommandOutput extends __MetadataBearer {
  *       operation. You can delete only export jobs that have a status of <code>ACTIVE</code> or
  *         <code>CREATE_FAILED</code>. To get the status, use the <a>DescribeForecastExportJob</a> operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ForecastClient, DeleteForecastExportJobCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, DeleteForecastExportJobCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
  * const command = new DeleteForecastExportJobCommand(input);
  * const response = await client.send(command);

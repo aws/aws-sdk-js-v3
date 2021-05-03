@@ -24,8 +24,10 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  * <p>Inspects text for named entities, and returns information about them. For more
  *       information, about named entities, see <a>how-entities</a>. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, DetectEntitiesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, DetectEntitiesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new DetectEntitiesCommand(input);
  * const response = await client.send(command);

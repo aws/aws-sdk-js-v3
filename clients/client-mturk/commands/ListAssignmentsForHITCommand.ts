@@ -49,8 +49,10 @@ export interface ListAssignmentsForHITCommandOutput extends ListAssignmentsForHI
  *             of the operation to control sorting and pagination.
  *         </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MTurkClient, ListAssignmentsForHITCommand } from "@aws-sdk/client-mturk"; // ES Modules import
+ * // const { MTurkClient, ListAssignmentsForHITCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
  * const command = new ListAssignmentsForHITCommand(input);
  * const response = await client.send(command);

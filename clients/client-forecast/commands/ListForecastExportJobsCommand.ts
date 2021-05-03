@@ -26,8 +26,10 @@ export interface ListForecastExportJobsCommandOutput extends ListForecastExportJ
  *       complete set of properties, use the ARN with the <a>DescribeForecastExportJob</a>
  *       operation. You can filter the list using an array of <a>Filter</a> objects.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ForecastClient, ListForecastExportJobsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, ListForecastExportJobsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
  * const command = new ListForecastExportJobsCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface ListDevicePoolsCommandOutput extends ListDevicePoolsResult, __M
 /**
  * <p>Gets information about device pools.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, ListDevicePoolsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, ListDevicePoolsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new ListDevicePoolsCommand(input);
  * const response = await client.send(command);

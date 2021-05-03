@@ -24,8 +24,10 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * <p>Untags the specified tags from the specified Amazon WorkMail organization
  *          resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, UntagResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, UntagResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface ListHarvestJobsCommandOutput extends ListHarvestJobsResponse, _
 /**
  * Returns a collection of HarvestJob records.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaPackageClient, ListHarvestJobsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
+ * // const { MediaPackageClient, ListHarvestJobsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
  * const command = new ListHarvestJobsCommand(input);
  * const response = await client.send(command);

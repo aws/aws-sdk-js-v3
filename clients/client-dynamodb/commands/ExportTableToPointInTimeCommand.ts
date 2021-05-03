@@ -25,8 +25,10 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  *             enabled, and you can export data from any time within the point in time recovery
  *             window.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DynamoDBClient, ExportTableToPointInTimeCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, ExportTableToPointInTimeCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const command = new ExportTableToPointInTimeCommand(input);
  * const response = await client.send(command);

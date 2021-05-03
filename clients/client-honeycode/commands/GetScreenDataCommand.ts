@@ -27,8 +27,10 @@ export interface GetScreenDataCommandOutput extends GetScreenDataResult, __Metad
  *             displayed on the screen.
  *         </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { HoneycodeClient, GetScreenDataCommand } from "@aws-sdk/client-honeycode"; // ES Modules import
+ * // const { HoneycodeClient, GetScreenDataCommand } = require("@aws-sdk/client-honeycode"); // CommonJS import
  * const client = new HoneycodeClient(config);
  * const command = new GetScreenDataCommand(input);
  * const response = await client.send(command);

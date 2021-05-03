@@ -25,8 +25,10 @@ export interface GetMaintenanceWindowExecutionCommandOutput
 /**
  * <p>Retrieves details about a specific a maintenance window execution.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, GetMaintenanceWindowExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, GetMaintenanceWindowExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new GetMaintenanceWindowExecutionCommand(input);
  * const response = await client.send(command);

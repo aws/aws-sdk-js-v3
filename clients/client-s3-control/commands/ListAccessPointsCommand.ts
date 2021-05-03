@@ -48,8 +48,10 @@ export interface ListAccessPointsCommandOutput extends ListAccessPointsResult, _
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { S3ControlClient, ListAccessPointsCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
+ * // const { S3ControlClient, ListAccessPointsCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
  * const command = new ListAccessPointsCommand(input);
  * const response = await client.send(command);

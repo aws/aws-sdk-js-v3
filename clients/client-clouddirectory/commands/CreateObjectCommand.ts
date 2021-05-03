@@ -26,8 +26,10 @@ export interface CreateObjectCommandOutput extends CreateObjectResponse, __Metad
  *       collection of <a>Facet</a> attributes. You can also use this API call to create a
  *       policy object, if the facet from which you create the object is a policy facet. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudDirectoryClient, CreateObjectCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, CreateObjectCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const command = new CreateObjectCommand(input);
  * const response = await client.send(command);

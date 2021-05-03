@@ -47,8 +47,10 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFClient, GetChangeTokenStatusCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, GetChangeTokenStatusCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
  * const command = new GetChangeTokenStatusCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface UpdateThingCommandOutput extends UpdateThingResponse, __Metadat
 /**
  * <p>Updates the data for a thing.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, UpdateThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, UpdateThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new UpdateThingCommand(input);
  * const response = await client.send(command);

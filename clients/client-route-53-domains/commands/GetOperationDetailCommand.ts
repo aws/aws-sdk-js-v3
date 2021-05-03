@@ -23,8 +23,10 @@ export interface GetOperationDetailCommandOutput extends GetOperationDetailRespo
 /**
  * <p>This operation returns the current status of an operation that is not completed.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53DomainsClient, GetOperationDetailCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
+ * // const { Route53DomainsClient, GetOperationDetailCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const command = new GetOperationDetailCommand(input);
  * const response = await client.send(command);

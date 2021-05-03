@@ -25,8 +25,10 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  *       been executed recently in this account. You can request all queries or limit it to queries of
  *       a specific log group or queries with a certain status.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudWatchLogsClient, DescribeQueriesCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
+ * // const { CloudWatchLogsClient, DescribeQueriesCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const command = new DescribeQueriesCommand(input);
  * const response = await client.send(command);

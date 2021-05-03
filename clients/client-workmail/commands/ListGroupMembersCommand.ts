@@ -24,8 +24,10 @@ export interface ListGroupMembersCommandOutput extends ListGroupMembersResponse,
  * <p>Returns an overview of the members of a group. Users and groups can be members of a
  *          group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, ListGroupMembersCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, ListGroupMembersCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new ListGroupMembersCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface DescribeMaintenanceWindowTargetsCommandOutput
 /**
  * <p>Lists the targets registered with the maintenance window.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, DescribeMaintenanceWindowTargetsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DescribeMaintenanceWindowTargetsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new DescribeMaintenanceWindowTargetsCommand(input);
  * const response = await client.send(command);

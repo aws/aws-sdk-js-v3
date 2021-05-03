@@ -23,8 +23,10 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
 /**
  * Add a tag to a resource.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MqClient, CreateTagsCommand } from "@aws-sdk/client-mq"; // ES Modules import
+ * // const { MqClient, CreateTagsCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
  * const command = new CreateTagsCommand(input);
  * const response = await client.send(command);

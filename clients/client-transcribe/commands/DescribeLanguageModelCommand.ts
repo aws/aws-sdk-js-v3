@@ -28,8 +28,10 @@ export interface DescribeLanguageModelCommandOutput extends DescribeLanguageMode
  *             base model. If the language model wasn't created, you can use this operation to
  *             understand why Amazon Transcribe couldn't create it. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TranscribeClient, DescribeLanguageModelCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
+ * // const { TranscribeClient, DescribeLanguageModelCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
  * const command = new DescribeLanguageModelCommand(input);
  * const response = await client.send(command);

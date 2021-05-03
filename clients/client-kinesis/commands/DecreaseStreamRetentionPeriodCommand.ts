@@ -28,8 +28,10 @@ export interface DecreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  *             period is 48 hours and is decreased to 24 hours, any data already in the stream that is
  *             older than 24 hours is inaccessible.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisClient, DecreaseStreamRetentionPeriodCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
+ * // const { KinesisClient, DecreaseStreamRetentionPeriodCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
  * const command = new DecreaseStreamRetentionPeriodCommand(input);
  * const response = await client.send(command);

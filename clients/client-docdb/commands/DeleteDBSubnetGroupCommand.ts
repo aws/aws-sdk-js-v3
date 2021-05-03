@@ -27,8 +27,10 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  *                 instances.</p>
  *         </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DocDBClient, DeleteDBSubnetGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, DeleteDBSubnetGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
  * const command = new DeleteDBSubnetGroupCommand(input);
  * const response = await client.send(command);

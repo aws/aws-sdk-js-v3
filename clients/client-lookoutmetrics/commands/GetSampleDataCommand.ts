@@ -23,8 +23,10 @@ export interface GetSampleDataCommandOutput extends GetSampleDataResponse, __Met
 /**
  * <p>Returns a selection of sample records from an Amazon S3 datasource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutMetricsClient, GetSampleDataCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
+ * // const { LookoutMetricsClient, GetSampleDataCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const command = new GetSampleDataCommand(input);
  * const response = await client.send(command);

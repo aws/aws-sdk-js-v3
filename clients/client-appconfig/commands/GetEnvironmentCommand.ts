@@ -27,8 +27,10 @@ export interface GetEnvironmentCommandOutput extends Environment, __MetadataBear
  *          environment. You can enable one or more Amazon CloudWatch alarms for an environment. If an alarm is
  *          triggered during a deployment, AppConfig roles back the configuration.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppConfigClient, GetEnvironmentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
+ * // const { AppConfigClient, GetEnvironmentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
  * const command = new GetEnvironmentCommand(input);
  * const response = await client.send(command);

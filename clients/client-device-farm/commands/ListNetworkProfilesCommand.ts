@@ -23,8 +23,10 @@ export interface ListNetworkProfilesCommandOutput extends ListNetworkProfilesRes
 /**
  * <p>Returns the list of available network profiles.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, ListNetworkProfilesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, ListNetworkProfilesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new ListNetworkProfilesCommand(input);
  * const response = await client.send(command);

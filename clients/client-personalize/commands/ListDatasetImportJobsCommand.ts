@@ -27,8 +27,10 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  *       For more information on dataset import jobs, see <a>CreateDatasetImportJob</a>. For
  *       more information on datasets, see <a>CreateDataset</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PersonalizeClient, ListDatasetImportJobsCommand } from "@aws-sdk/client-personalize"; // ES Modules import
+ * // const { PersonalizeClient, ListDatasetImportJobsCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const command = new ListDatasetImportJobsCommand(input);
  * const response = await client.send(command);

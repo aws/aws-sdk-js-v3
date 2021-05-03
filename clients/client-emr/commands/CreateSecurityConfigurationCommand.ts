@@ -24,8 +24,10 @@ export interface CreateSecurityConfigurationCommandOutput extends CreateSecurity
  * <p>Creates a security configuration, which is stored in the service and can be specified
  *          when a cluster is created.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EMRClient, CreateSecurityConfigurationCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, CreateSecurityConfigurationCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
  * const command = new CreateSecurityConfigurationCommand(input);
  * const response = await client.send(command);

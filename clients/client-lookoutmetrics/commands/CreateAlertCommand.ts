@@ -23,8 +23,10 @@ export interface CreateAlertCommandOutput extends CreateAlertResponse, __Metadat
 /**
  * <p>Creates an alert for an anomaly detector.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutMetricsClient, CreateAlertCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
+ * // const { LookoutMetricsClient, CreateAlertCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const command = new CreateAlertCommand(input);
  * const response = await client.send(command);

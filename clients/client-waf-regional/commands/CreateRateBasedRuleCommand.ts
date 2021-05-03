@@ -116,8 +116,10 @@ export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleRes
  *          see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
  *             Guide</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFRegionalClient, CreateRateBasedRuleCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
+ * // const { WAFRegionalClient, CreateRateBasedRuleCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const command = new CreateRateBasedRuleCommand(input);
  * const response = await client.send(command);

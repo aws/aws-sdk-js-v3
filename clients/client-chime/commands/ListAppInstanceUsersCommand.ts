@@ -27,8 +27,10 @@ export interface ListAppInstanceUsersCommandOutput extends ListAppInstanceUsersR
  * created under a single <code>AppInstance</code>.
  * </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, ListAppInstanceUsersCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, ListAppInstanceUsersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new ListAppInstanceUsersCommand(input);
  * const response = await client.send(command);

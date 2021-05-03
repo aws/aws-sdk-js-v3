@@ -25,8 +25,10 @@ export interface DescribePendingMaintenanceActionsCommandOutput
 /**
  * <p>Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSClient, DescribePendingMaintenanceActionsCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribePendingMaintenanceActionsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
  * const command = new DescribePendingMaintenanceActionsCommand(input);
  * const response = await client.send(command);

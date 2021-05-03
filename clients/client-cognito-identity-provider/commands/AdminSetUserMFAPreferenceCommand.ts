@@ -32,8 +32,10 @@ export interface AdminSetUserMFAPreferenceCommandOutput extends AdminSetUserMFAP
  *             enabled. If multiple options are enabled and no preference is set, a challenge to choose
  *             an MFA option will be returned during sign in.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityProviderClient, AdminSetUserMFAPreferenceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminSetUserMFAPreferenceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const command = new AdminSetUserMFAPreferenceCommand(input);
  * const response = await client.send(command);

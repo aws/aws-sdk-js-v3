@@ -23,8 +23,10 @@ export interface DescribeProductViewCommandOutput extends DescribeProductViewOut
 /**
  * <p>Gets information about the specified product.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, DescribeProductViewCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, DescribeProductViewCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new DescribeProductViewCommand(input);
  * const response = await client.send(command);

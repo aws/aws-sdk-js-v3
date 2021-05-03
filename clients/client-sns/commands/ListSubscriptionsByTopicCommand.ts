@@ -27,8 +27,10 @@ export interface ListSubscriptionsByTopicCommandOutput extends ListSubscriptions
  *             a new <code>ListSubscriptionsByTopic</code> call to get further results.</p>
  *         <p>This action is throttled at 30 transactions per second (TPS).</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SNSClient, ListSubscriptionsByTopicCommand } from "@aws-sdk/client-sns"; // ES Modules import
+ * // const { SNSClient, ListSubscriptionsByTopicCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
  * const command = new ListSubscriptionsByTopicCommand(input);
  * const response = await client.send(command);

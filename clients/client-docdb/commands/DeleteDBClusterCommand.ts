@@ -26,8 +26,10 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  *             cluster snapshots of the specified cluster are not deleted.</p>
  *         <p></p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DocDBClient, DeleteDBClusterCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, DeleteDBClusterCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
  * const command = new DeleteDBClusterCommand(input);
  * const response = await client.send(command);

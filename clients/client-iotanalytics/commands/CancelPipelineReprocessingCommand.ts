@@ -23,8 +23,10 @@ export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineR
 /**
  * <p>Cancels the reprocessing of data through the pipeline.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTAnalyticsClient, CancelPipelineReprocessingCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
+ * // const { IoTAnalyticsClient, CancelPipelineReprocessingCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const command = new CancelPipelineReprocessingCommand(input);
  * const response = await client.send(command);

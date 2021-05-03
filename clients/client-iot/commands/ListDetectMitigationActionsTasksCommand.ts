@@ -27,8 +27,10 @@ export interface ListDetectMitigationActionsTasksCommandOutput
  *       List of Device Defender ML Detect mitigation actions tasks.
  *     </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, ListDetectMitigationActionsTasksCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListDetectMitigationActionsTasksCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new ListDetectMitigationActionsTasksCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * <p>Creates a channel. A channel collects data from an MQTT topic and archives the raw,
  *       unprocessed messages before publishing the data to a pipeline.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTAnalyticsClient, CreateChannelCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
+ * // const { IoTAnalyticsClient, CreateChannelCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);

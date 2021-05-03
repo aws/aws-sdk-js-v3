@@ -25,8 +25,10 @@ export interface PutBackupVaultAccessPolicyCommandOutput extends __MetadataBeare
  *          backup vault. Requires a backup vault name and an access policy document in JSON
  *          format.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BackupClient, PutBackupVaultAccessPolicyCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, PutBackupVaultAccessPolicyCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
  * const command = new PutBackupVaultAccessPolicyCommand(input);
  * const response = await client.send(command);

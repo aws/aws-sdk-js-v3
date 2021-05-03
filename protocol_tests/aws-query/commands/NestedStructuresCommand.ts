@@ -23,8 +23,10 @@ export interface NestedStructuresCommandOutput extends __MetadataBearer {}
 /**
  * This test serializes nested and recursive structure members.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { QueryProtocolClient, NestedStructuresCommand } from "@aws-sdk/aws-query"; // ES Modules import
+ * // const { QueryProtocolClient, NestedStructuresCommand } = require("@aws-sdk/aws-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
  * const command = new NestedStructuresCommand(input);
  * const response = await client.send(command);

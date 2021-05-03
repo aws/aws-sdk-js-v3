@@ -29,8 +29,10 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  *                 to get the content of the deployment’s AppSpec file. </p>
  *         </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeDeployClient, GetDeploymentCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
+ * // const { CodeDeployClient, GetDeploymentCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const command = new GetDeploymentCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 /**
  * <p>Tags an Amazon FSx resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FSxClient, TagResourceCommand } from "@aws-sdk/client-fsx"; // ES Modules import
+ * // const { FSxClient, TagResourceCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

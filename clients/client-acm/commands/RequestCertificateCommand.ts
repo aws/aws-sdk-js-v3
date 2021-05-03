@@ -32,8 +32,10 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  *       We recommend that you use DNS validation. ACM issues public certificates after receiving
  *       approval from the domain owner. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ACMClient, RequestCertificateCommand } from "@aws-sdk/client-acm"; // ES Modules import
+ * // const { ACMClient, RequestCertificateCommand } = require("@aws-sdk/client-acm"); // CommonJS import
  * const client = new ACMClient(config);
  * const command = new RequestCertificateCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface DescribeEventSourceCommandOutput extends DescribeEventSourceRes
  * <p>This operation lists details about a partner event source that is shared with your
  *       account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudWatchEventsClient, DescribeEventSourceCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
+ * // const { CloudWatchEventsClient, DescribeEventSourceCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const command = new DescribeEventSourceCommand(input);
  * const response = await client.send(command);

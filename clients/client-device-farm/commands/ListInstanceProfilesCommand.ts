@@ -23,8 +23,10 @@ export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesR
 /**
  * <p>Returns information about all the instance profiles in an AWS account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, ListInstanceProfilesCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, ListInstanceProfilesCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new ListInstanceProfilesCommand(input);
  * const response = await client.send(command);

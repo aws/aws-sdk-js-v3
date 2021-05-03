@@ -23,8 +23,10 @@ export interface ListBudgetsForResourceCommandOutput extends ListBudgetsForResou
 /**
  * <p>Lists all the budgets associated to the specified resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, ListBudgetsForResourceCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, ListBudgetsForResourceCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new ListBudgetsForResourceCommand(input);
  * const response = await client.send(command);

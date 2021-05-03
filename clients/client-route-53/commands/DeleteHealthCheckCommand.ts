@@ -36,8 +36,10 @@ export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckRespons
  * 			automatically when you deregister the instance; there can be a delay of several hours before the health check is deleted
  * 			from Route 53. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53Client, DeleteHealthCheckCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, DeleteHealthCheckCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
  * const command = new DeleteHealthCheckCommand(input);
  * const response = await client.send(command);

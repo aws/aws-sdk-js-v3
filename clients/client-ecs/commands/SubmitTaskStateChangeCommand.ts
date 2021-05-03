@@ -27,8 +27,10 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
  *          <p>Sent to acknowledge
  * 			that a task changed states.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECSClient, SubmitTaskStateChangeCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, SubmitTaskStateChangeCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const command = new SubmitTaskStateChangeCommand(input);
  * const response = await client.send(command);

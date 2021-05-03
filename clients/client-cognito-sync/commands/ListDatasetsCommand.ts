@@ -81,8 +81,10 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  *          </example>
  *       </examples>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoSyncClient, ListDatasetsCommand } from "@aws-sdk/client-cognito-sync"; // ES Modules import
+ * // const { CognitoSyncClient, ListDatasetsCommand } = require("@aws-sdk/client-cognito-sync"); // CommonJS import
  * const client = new CognitoSyncClient(config);
  * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);

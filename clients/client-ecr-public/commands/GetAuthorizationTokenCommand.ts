@@ -27,8 +27,10 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  *          the <code>ecr-public:GetAuthorizationToken</code> and
  *             <code>sts:GetServiceBearerToken</code> permissions.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECRPUBLICClient, GetAuthorizationTokenCommand } from "@aws-sdk/client-ecr-public"; // ES Modules import
+ * // const { ECRPUBLICClient, GetAuthorizationTokenCommand } = require("@aws-sdk/client-ecr-public"); // CommonJS import
  * const client = new ECRPUBLICClient(config);
  * const command = new GetAuthorizationTokenCommand(input);
  * const response = await client.send(command);

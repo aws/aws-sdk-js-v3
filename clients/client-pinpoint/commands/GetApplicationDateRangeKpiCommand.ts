@@ -23,8 +23,10 @@ export interface GetApplicationDateRangeKpiCommandOutput extends GetApplicationD
 /**
  * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to an application.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointClient, GetApplicationDateRangeKpiCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, GetApplicationDateRangeKpiCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
  * const command = new GetApplicationDateRangeKpiCommand(input);
  * const response = await client.send(command);

@@ -29,8 +29,10 @@ export interface CheckIfPhoneNumberIsOptedOutCommandOutput
  *         <p>To resume sending messages, you can opt in the number by using the
  *                 <code>OptInPhoneNumber</code> action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SNSClient, CheckIfPhoneNumberIsOptedOutCommand } from "@aws-sdk/client-sns"; // ES Modules import
+ * // const { SNSClient, CheckIfPhoneNumberIsOptedOutCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
  * const command = new CheckIfPhoneNumberIsOptedOutCommand(input);
  * const response = await client.send(command);

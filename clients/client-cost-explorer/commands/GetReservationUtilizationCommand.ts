@@ -25,8 +25,10 @@ export interface GetReservationUtilizationCommandOutput extends GetReservationUt
  * 			You can filter data by dimensions in a time period. You can use <code>GetDimensionValues</code> to determine the possible
  * 			dimension values. Currently, you can group only by <code>SUBSCRIPTION_ID</code>. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CostExplorerClient, GetReservationUtilizationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
+ * // const { CostExplorerClient, GetReservationUtilizationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const command = new GetReservationUtilizationCommand(input);
  * const response = await client.send(command);

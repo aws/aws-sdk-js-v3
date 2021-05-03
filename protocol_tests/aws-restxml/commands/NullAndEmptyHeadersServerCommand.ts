@@ -23,8 +23,10 @@ export interface NullAndEmptyHeadersServerCommandOutput extends NullAndEmptyHead
 /**
  * Null and empty headers are not sent over the wire.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RestXmlProtocolClient, NullAndEmptyHeadersServerCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, NullAndEmptyHeadersServerCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
  * const command = new NullAndEmptyHeadersServerCommand(input);
  * const response = await client.send(command);

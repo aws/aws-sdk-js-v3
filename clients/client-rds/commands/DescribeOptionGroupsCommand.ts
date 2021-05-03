@@ -23,8 +23,10 @@ export interface DescribeOptionGroupsCommandOutput extends OptionGroups, __Metad
 /**
  * <p>Describes the available option groups.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSClient, DescribeOptionGroupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeOptionGroupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
  * const command = new DescribeOptionGroupsCommand(input);
  * const response = await client.send(command);

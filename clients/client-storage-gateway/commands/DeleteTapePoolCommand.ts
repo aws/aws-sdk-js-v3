@@ -25,8 +25,10 @@ export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __Met
  *          in the pool and if there are no automatic tape creation policies that reference the custom
  *          tape pool.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { StorageGatewayClient, DeleteTapePoolCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, DeleteTapePoolCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const command = new DeleteTapePoolCommand(input);
  * const response = await client.send(command);

@@ -27,8 +27,10 @@ export interface DeleteTargetCommandOutput extends DeleteTargetResult, __Metadat
 /**
  * <p>Deletes a specified target for notifications.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodestarNotificationsClient, DeleteTargetCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
+ * // const { CodestarNotificationsClient, DeleteTargetCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
  * const command = new DeleteTargetCommand(input);
  * const response = await client.send(command);

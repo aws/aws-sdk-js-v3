@@ -23,8 +23,10 @@ export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __Metad
 /**
  * <p>Returns metadata about a task.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataSyncClient, DescribeTaskCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, DescribeTaskCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
  * const command = new DescribeTaskCommand(input);
  * const response = await client.send(command);

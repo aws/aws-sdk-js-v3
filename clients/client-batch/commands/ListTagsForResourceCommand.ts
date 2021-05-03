@@ -24,8 +24,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Lists the tags for an AWS Batch resource. AWS Batch resources that support tags are compute environments, jobs, job definitions, and job
  *  queues. ARNs for child jobs of array and multi-node parallel (MNP) jobs are not supported.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BatchClient, ListTagsForResourceCommand } from "@aws-sdk/client-batch"; // ES Modules import
+ * // const { BatchClient, ListTagsForResourceCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

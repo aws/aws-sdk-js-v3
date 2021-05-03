@@ -32,8 +32,10 @@ export interface ListAssociationsForLicenseConfigurationCommandOutput
  *          For example, an AMI or a stopped instance might not consume a license (depending on
  *          the license rules).</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LicenseManagerClient, ListAssociationsForLicenseConfigurationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, ListAssociationsForLicenseConfigurationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const command = new ListAssociationsForLicenseConfigurationCommand(input);
  * const response = await client.send(command);

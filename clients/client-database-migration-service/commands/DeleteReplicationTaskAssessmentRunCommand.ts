@@ -35,8 +35,10 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput
  *          However, the operation leaves untouched all information about this assessment run that is
  *          stored in your Amazon S3 bucket.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DatabaseMigrationServiceClient, DeleteReplicationTaskAssessmentRunCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DeleteReplicationTaskAssessmentRunCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const command = new DeleteReplicationTaskAssessmentRunCommand(input);
  * const response = await client.send(command);

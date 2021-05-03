@@ -24,8 +24,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>Associates a set of tags with a DAX resource.  You can call <code>TagResource</code> up to 5 times per second, per
  *             account. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DAXClient, TagResourceCommand } from "@aws-sdk/client-dax"; // ES Modules import
+ * // const { DAXClient, TagResourceCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

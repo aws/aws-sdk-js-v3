@@ -24,8 +24,10 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * <p>Lists your archives. You can either list all the archives or you can provide a prefix to
  *       match to the archive names. Filter parameters are exclusive.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudWatchEventsClient, ListArchivesCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
+ * // const { CloudWatchEventsClient, ListArchivesCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const command = new ListArchivesCommand(input);
  * const response = await client.send(command);

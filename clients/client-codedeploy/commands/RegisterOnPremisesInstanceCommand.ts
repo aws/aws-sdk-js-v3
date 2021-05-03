@@ -27,8 +27,10 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
  *                 You cannot use both.</p>
  *         </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeDeployClient, RegisterOnPremisesInstanceCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
+ * // const { CodeDeployClient, RegisterOnPremisesInstanceCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const command = new RegisterOnPremisesInstanceCommand(input);
  * const response = await client.send(command);

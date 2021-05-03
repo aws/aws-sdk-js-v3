@@ -23,8 +23,10 @@ export interface UpdateLoggerDefinitionCommandOutput extends UpdateLoggerDefinit
 /**
  * Updates a logger definition.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassClient, UpdateLoggerDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, UpdateLoggerDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
  * const command = new UpdateLoggerDefinitionCommand(input);
  * const response = await client.send(command);

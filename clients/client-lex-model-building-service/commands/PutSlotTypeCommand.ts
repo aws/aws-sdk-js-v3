@@ -42,8 +42,10 @@ export interface PutSlotTypeCommandOutput extends PutSlotTypeResponse, __Metadat
  *          <p>This operation requires permissions for the
  *         <code>lex:PutSlotType</code> action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LexModelBuildingServiceClient, PutSlotTypeCommand } from "@aws-sdk/client-lex-model-building-service"; // ES Modules import
+ * // const { LexModelBuildingServiceClient, PutSlotTypeCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const command = new PutSlotTypeCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface RequestServiceQuotaIncreaseCommandOutput
 /**
  * <p>Submits a quota increase request for the specified quota.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceQuotasClient, RequestServiceQuotaIncreaseCommand } from "@aws-sdk/client-service-quotas"; // ES Modules import
+ * // const { ServiceQuotasClient, RequestServiceQuotaIncreaseCommand } = require("@aws-sdk/client-service-quotas"); // CommonJS import
  * const client = new ServiceQuotasClient(config);
  * const command = new RequestServiceQuotaIncreaseCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface PutThirdPartyJobFailureResultCommandOutput extends __MetadataBe
  * <p>Represents the failure of a third party job as returned to the pipeline by a job
  *             worker. Used for partner actions only.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodePipelineClient, PutThirdPartyJobFailureResultCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
+ * // const { CodePipelineClient, PutThirdPartyJobFailureResultCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const command = new PutThirdPartyJobFailureResultCommand(input);
  * const response = await client.send(command);

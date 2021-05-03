@@ -40,8 +40,10 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  *             <code>StartDocumentAnalysis</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document Text Analysis</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TextractClient, StartDocumentAnalysisCommand } from "@aws-sdk/client-textract"; // ES Modules import
+ * // const { TextractClient, StartDocumentAnalysisCommand } = require("@aws-sdk/client-textract"); // CommonJS import
  * const client = new TextractClient(config);
  * const command = new StartDocumentAnalysisCommand(input);
  * const response = await client.send(command);

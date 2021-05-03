@@ -23,8 +23,10 @@ export interface DeprecateSystemTemplateCommandOutput extends DeprecateSystemTem
 /**
  * <p>Deprecates the specified system.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTThingsGraphClient, DeprecateSystemTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
+ * // const { IoTThingsGraphClient, DeprecateSystemTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const command = new DeprecateSystemTemplateCommand(input);
  * const response = await client.send(command);

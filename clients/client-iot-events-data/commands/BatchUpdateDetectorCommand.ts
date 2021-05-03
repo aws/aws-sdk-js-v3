@@ -24,8 +24,10 @@ export interface BatchUpdateDetectorCommandOutput extends BatchUpdateDetectorRes
  * <p>Updates the state, variable values, and timer settings of one or more detectors (instances)
  *         of a specified detector model.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTEventsDataClient, BatchUpdateDetectorCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
+ * // const { IoTEventsDataClient, BatchUpdateDetectorCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
  * const client = new IoTEventsDataClient(config);
  * const command = new BatchUpdateDetectorCommand(input);
  * const response = await client.send(command);

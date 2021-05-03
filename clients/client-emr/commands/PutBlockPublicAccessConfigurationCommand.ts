@@ -28,8 +28,10 @@ export interface PutBlockPublicAccessConfigurationCommandOutput
  *             Public Access for Amazon EMR</a> in the <i>Amazon EMR Management
  *             Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EMRClient, PutBlockPublicAccessConfigurationCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, PutBlockPublicAccessConfigurationCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
  * const command = new PutBlockPublicAccessConfigurationCommand(input);
  * const response = await client.send(command);

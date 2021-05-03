@@ -24,8 +24,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>Adds tags to an AWS IoT SiteWise resource. If a tag already exists for the resource, this operation
  *       updates the tag's value.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTSiteWiseClient, TagResourceCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, TagResourceCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

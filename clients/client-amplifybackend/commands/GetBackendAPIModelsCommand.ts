@@ -23,8 +23,10 @@ export interface GetBackendAPIModelsCommandOutput extends GetBackendAPIModelsRes
 /**
  * <p>Generates a model schema for existing backend API resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AmplifyBackendClient, GetBackendAPIModelsCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
+ * // const { AmplifyBackendClient, GetBackendAPIModelsCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const command = new GetBackendAPIModelsCommand(input);
  * const response = await client.send(command);

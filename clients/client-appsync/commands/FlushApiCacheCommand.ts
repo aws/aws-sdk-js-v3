@@ -23,8 +23,10 @@ export interface FlushApiCacheCommandOutput extends FlushApiCacheResponse, __Met
 /**
  * <p>Flushes an <code>ApiCache</code> object.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppSyncClient, FlushApiCacheCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, FlushApiCacheCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
  * const command = new FlushApiCacheCommand(input);
  * const response = await client.send(command);

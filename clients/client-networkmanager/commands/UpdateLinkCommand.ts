@@ -24,8 +24,10 @@ export interface UpdateLinkCommandOutput extends UpdateLinkResponse, __MetadataB
  * <p>Updates the details for an existing link. To remove information for any of the
  *             parameters, specify an empty string.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NetworkManagerClient, UpdateLinkCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
+ * // const { NetworkManagerClient, UpdateLinkCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const command = new UpdateLinkCommand(input);
  * const response = await client.send(command);

@@ -30,8 +30,10 @@ export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
  * <p>Retrieves the current effective patches (the patch and the approval state) for the specified
  *    patch baseline. Note that this API applies only to Windows patch baselines.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, DescribeEffectivePatchesForPatchBaselineCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DescribeEffectivePatchesForPatchBaselineCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new DescribeEffectivePatchesForPatchBaselineCommand(input);
  * const response = await client.send(command);

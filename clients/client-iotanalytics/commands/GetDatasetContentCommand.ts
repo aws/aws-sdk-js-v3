@@ -23,8 +23,10 @@ export interface GetDatasetContentCommandOutput extends GetDatasetContentRespons
 /**
  * <p>Retrieves the contents of a data set as presigned URIs.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTAnalyticsClient, GetDatasetContentCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
+ * // const { IoTAnalyticsClient, GetDatasetContentCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const command = new GetDatasetContentCommand(input);
  * const response = await client.send(command);

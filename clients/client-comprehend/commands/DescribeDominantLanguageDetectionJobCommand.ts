@@ -29,8 +29,10 @@ export interface DescribeDominantLanguageDetectionJobCommandOutput
  * <p>Gets the properties associated with a dominant language detection job. Use this operation
  *       to get the status of a detection job.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, DescribeDominantLanguageDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, DescribeDominantLanguageDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new DescribeDominantLanguageDetectionJobCommand(input);
  * const response = await client.send(command);

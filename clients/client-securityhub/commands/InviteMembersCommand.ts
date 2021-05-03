@@ -31,8 +31,10 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  *          <p>When the account owner enables Security Hub and accepts the invitation to become a member
  *          account, the administrator account can view the findings generated from the member account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SecurityHubClient, InviteMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, InviteMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const command = new InviteMembersCommand(input);
  * const response = await client.send(command);

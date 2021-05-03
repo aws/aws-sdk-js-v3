@@ -26,8 +26,10 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  *    aren't canceled, but the API operation still succeeds, even if no job is canceled. These jobs must be terminated with
  *    the <a>TerminateJob</a> operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BatchClient, CancelJobCommand } from "@aws-sdk/client-batch"; // ES Modules import
+ * // const { BatchClient, CancelJobCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);

@@ -28,8 +28,10 @@ export interface ListPredictorBacktestExportJobsCommandOutput
  *         <p>To retrieve the complete set of properties for a particular backtest export job, use the
  *             ARN with the <a>DescribePredictorBacktestExportJob</a> operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ForecastClient, ListPredictorBacktestExportJobsCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, ListPredictorBacktestExportJobsCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
  * const command = new ListPredictorBacktestExportJobsCommand(input);
  * const response = await client.send(command);

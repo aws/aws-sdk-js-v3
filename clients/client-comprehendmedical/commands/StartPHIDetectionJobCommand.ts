@@ -28,8 +28,10 @@ export interface StartPHIDetectionJobCommandOutput extends StartPHIDetectionJobR
  * <p>Starts an asynchronous job to detect protected health information (PHI). Use the
  *         <code>DescribePHIDetectionJob</code> operation to track the status of a job.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendMedicalClient, StartPHIDetectionJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
+ * // const { ComprehendMedicalClient, StartPHIDetectionJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
  * const command = new StartPHIDetectionJobCommand(input);
  * const response = await client.send(command);

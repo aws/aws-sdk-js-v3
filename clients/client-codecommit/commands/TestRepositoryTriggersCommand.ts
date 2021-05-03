@@ -25,8 +25,10 @@ export interface TestRepositoryTriggersCommandOutput extends TestRepositoryTrigg
  *             target. If real data is available in the repository, the test sends data from the last
  *             commit. If no data is available, sample data is generated.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeCommitClient, TestRepositoryTriggersCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, TestRepositoryTriggersCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const command = new TestRepositoryTriggersCommand(input);
  * const response = await client.send(command);

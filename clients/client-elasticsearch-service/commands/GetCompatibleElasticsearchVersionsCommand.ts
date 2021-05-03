@@ -39,8 +39,10 @@ export interface GetCompatibleElasticsearchVersionsCommandOutput
  *         to get all upgrade compatible Elasticsearch versions for that specific domain.
  *       </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticsearchServiceClient, GetCompatibleElasticsearchVersionsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
+ * // const { ElasticsearchServiceClient, GetCompatibleElasticsearchVersionsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const command = new GetCompatibleElasticsearchVersionsCommand(input);
  * const response = await client.send(command);

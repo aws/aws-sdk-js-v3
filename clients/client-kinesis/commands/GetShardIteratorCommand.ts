@@ -56,8 +56,10 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  *             <a>GetShardIterator</a> has a limit of five transactions per second per
  *             account per open shard.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisClient, GetShardIteratorCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
+ * // const { KinesisClient, GetShardIteratorCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
  * const command = new GetShardIteratorCommand(input);
  * const response = await client.send(command);

@@ -31,8 +31,10 @@ export interface DescribeLifecycleConfigurationCommandOutput
  *          <p>This operation requires permissions for the
  *         <code>elasticfilesystem:DescribeLifecycleConfiguration</code> operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EFSClient, DescribeLifecycleConfigurationCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, DescribeLifecycleConfigurationCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
  * const command = new DescribeLifecycleConfigurationCommand(input);
  * const response = await client.send(command);

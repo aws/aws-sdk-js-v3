@@ -115,8 +115,10 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KMSClient, ReEncryptCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, ReEncryptCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
  * const command = new ReEncryptCommand(input);
  * const response = await client.send(command);

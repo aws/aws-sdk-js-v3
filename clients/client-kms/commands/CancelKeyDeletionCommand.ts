@@ -36,8 +36,10 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  *             <b>Related operations</b>: <a>ScheduleKeyDeletion</a>
  *          </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KMSClient, CancelKeyDeletionCommand } from "@aws-sdk/client-kms"; // ES Modules import
+ * // const { KMSClient, CancelKeyDeletionCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
  * const command = new CancelKeyDeletionCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface DescribeFeatureTransformationCommandOutput
 /**
  * <p>Describes the given feature transformation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PersonalizeClient, DescribeFeatureTransformationCommand } from "@aws-sdk/client-personalize"; // ES Modules import
+ * // const { PersonalizeClient, DescribeFeatureTransformationCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const command = new DescribeFeatureTransformationCommand(input);
  * const response = await client.send(command);

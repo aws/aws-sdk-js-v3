@@ -24,8 +24,10 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  * <p>Creates an access preview that allows you to preview Access Analyzer findings for your resource
  *          before deploying resource permissions.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AccessAnalyzerClient, CreateAccessPreviewCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
+ * // const { AccessAnalyzerClient, CreateAccessPreviewCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const command = new CreateAccessPreviewCommand(input);
  * const response = await client.send(command);

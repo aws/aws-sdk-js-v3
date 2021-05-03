@@ -26,8 +26,10 @@ export interface DisassociateS3ResourcesCommandOutput extends DisassociateS3Reso
  *       for the current Macie Classic administrator account. If memberAccountId is specified, the action removes specified
  *       S3 resources from Macie Classic for the specified member account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MacieClient, DisassociateS3ResourcesCommand } from "@aws-sdk/client-macie"; // ES Modules import
+ * // const { MacieClient, DisassociateS3ResourcesCommand } = require("@aws-sdk/client-macie"); // CommonJS import
  * const client = new MacieClient(config);
  * const command = new DisassociateS3ResourcesCommand(input);
  * const response = await client.send(command);

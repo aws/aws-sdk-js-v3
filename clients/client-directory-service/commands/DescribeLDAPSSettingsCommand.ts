@@ -23,8 +23,10 @@ export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSetting
 /**
  * <p>Describes the status of LDAP security for the specified directory.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectoryServiceClient, DescribeLDAPSSettingsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
+ * // const { DirectoryServiceClient, DescribeLDAPSSettingsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const command = new DescribeLDAPSSettingsCommand(input);
  * const response = await client.send(command);

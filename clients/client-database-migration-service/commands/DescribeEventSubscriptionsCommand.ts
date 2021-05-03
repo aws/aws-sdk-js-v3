@@ -32,8 +32,10 @@ export interface DescribeEventSubscriptionsCommandOutput extends DescribeEventSu
  *          <p>If you specify <code>SubscriptionName</code>, this action lists the description for that
  *          subscription.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DatabaseMigrationServiceClient, DescribeEventSubscriptionsCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, DescribeEventSubscriptionsCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const command = new DescribeEventSubscriptionsCommand(input);
  * const response = await client.send(command);

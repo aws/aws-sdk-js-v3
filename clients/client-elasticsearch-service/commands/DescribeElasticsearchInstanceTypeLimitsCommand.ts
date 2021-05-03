@@ -40,8 +40,10 @@ export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput
  *     to know what Limits are supported for modifying.
  *   </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticsearchServiceClient, DescribeElasticsearchInstanceTypeLimitsCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
+ * // const { ElasticsearchServiceClient, DescribeElasticsearchInstanceTypeLimitsCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const command = new DescribeElasticsearchInstanceTypeLimitsCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBeare
 /**
  * <p>Gets the challenge token based on the given appId and sessionId.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AmplifyBackendClient, GetTokenCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
+ * // const { AmplifyBackendClient, GetTokenCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const command = new GetTokenCommand(input);
  * const response = await client.send(command);

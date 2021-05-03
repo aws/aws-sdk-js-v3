@@ -31,8 +31,10 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  *          to learn patterns of normal behavior and abnormal patterns that lead to equipment failure.
  *          Another portion of the data is used to evaluate the model's accuracy. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutEquipmentClient, CreateModelCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, CreateModelCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);

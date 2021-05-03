@@ -33,8 +33,10 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
  * .
  * </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, CreateMeetingCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, CreateMeetingCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new CreateMeetingCommand(input);
  * const response = await client.send(command);

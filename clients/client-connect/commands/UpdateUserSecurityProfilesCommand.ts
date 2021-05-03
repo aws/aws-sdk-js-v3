@@ -23,8 +23,10 @@ export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBeare
 /**
  * <p>Assigns the specified security profiles to the specified user.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, UpdateUserSecurityProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, UpdateUserSecurityProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new UpdateUserSecurityProfilesCommand(input);
  * const response = await client.send(command);

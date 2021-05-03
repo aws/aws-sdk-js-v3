@@ -23,8 +23,10 @@ export interface GetSkillGroupCommandOutput extends GetSkillGroupResponse, __Met
 /**
  * <p>Gets skill group details by skill group ARN.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AlexaForBusinessClient, GetSkillGroupCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, GetSkillGroupCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const command = new GetSkillGroupCommand(input);
  * const response = await client.send(command);

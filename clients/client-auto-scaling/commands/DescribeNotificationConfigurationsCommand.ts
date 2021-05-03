@@ -25,8 +25,10 @@ export interface DescribeNotificationConfigurationsCommandOutput
 /**
  * <p>Describes the notification actions associated with the specified Auto Scaling group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AutoScalingClient, DescribeNotificationConfigurationsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, DescribeNotificationConfigurationsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const command = new DescribeNotificationConfigurationsCommand(input);
  * const response = await client.send(command);

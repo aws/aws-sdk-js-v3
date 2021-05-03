@@ -46,8 +46,10 @@ export interface InvokeCommandOutput extends InvocationResponse, __MetadataBeare
  *
  *          <p>This operation requires permission for the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html">lambda:InvokeFunction</a> action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LambdaClient, InvokeCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, InvokeCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
  * const command = new InvokeCommand(input);
  * const response = await client.send(command);

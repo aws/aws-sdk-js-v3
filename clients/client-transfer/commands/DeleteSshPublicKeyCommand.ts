@@ -25,8 +25,10 @@ export interface DeleteSshPublicKeyCommandOutput extends __MetadataBearer {}
  *
  *          <p>No response is returned from this operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TransferClient, DeleteSshPublicKeyCommand } from "@aws-sdk/client-transfer"; // ES Modules import
+ * // const { TransferClient, DeleteSshPublicKeyCommand } = require("@aws-sdk/client-transfer"); // CommonJS import
  * const client = new TransferClient(config);
  * const command = new DeleteSshPublicKeyCommand(input);
  * const response = await client.send(command);

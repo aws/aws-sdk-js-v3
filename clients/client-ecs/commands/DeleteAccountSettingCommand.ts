@@ -24,8 +24,10 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  * <p>Disables an account setting for a specified IAM user, IAM role, or the root user for
  * 			an account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECSClient, DeleteAccountSettingCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, DeleteAccountSettingCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const command = new DeleteAccountSettingCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface ListMonitoringSchedulesCommandOutput extends ListMonitoringSche
 /**
  * <p>Returns list of all monitoring schedules.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, ListMonitoringSchedulesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListMonitoringSchedulesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new ListMonitoringSchedulesCommand(input);
  * const response = await client.send(command);

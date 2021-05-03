@@ -25,8 +25,10 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  *          setting for max results and the number of rule groups, a single call might not return the
  *          full list. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NetworkFirewallClient, ListRuleGroupsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
+ * // const { NetworkFirewallClient, ListRuleGroupsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const command = new ListRuleGroupsCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 /**
  * <p>Returns the tag values that are assigned to a behavior graph.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DetectiveClient, ListTagsForResourceCommand } from "@aws-sdk/client-detective"; // ES Modules import
+ * // const { DetectiveClient, ListTagsForResourceCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

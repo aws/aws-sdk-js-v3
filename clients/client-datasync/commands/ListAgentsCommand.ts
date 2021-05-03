@@ -30,8 +30,10 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  *       only a truncated list of your agents), the response contains a marker that you can specify in
  *       your next request to fetch the next page of agents.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataSyncClient, ListAgentsCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, ListAgentsCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
  * const command = new ListAgentsCommand(input);
  * const response = await client.send(command);

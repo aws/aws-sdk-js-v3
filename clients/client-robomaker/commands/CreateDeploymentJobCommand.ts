@@ -30,8 +30,10 @@ export interface CreateDeploymentJobCommandOutput extends CreateDeploymentJobRes
  *             accessible. </p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RoboMakerClient, CreateDeploymentJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
+ * // const { RoboMakerClient, CreateDeploymentJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const command = new CreateDeploymentJobCommand(input);
  * const response = await client.send(command);

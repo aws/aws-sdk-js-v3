@@ -32,8 +32,10 @@ export interface PutDestinationCommandOutput extends PutDestinationResponse, __M
  *          <p>To perform a <code>PutDestination</code> operation, you must also have the
  *     <code>iam:PassRole</code> permission.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudWatchLogsClient, PutDestinationCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
+ * // const { CloudWatchLogsClient, PutDestinationCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const command = new PutDestinationCommand(input);
  * const response = await client.send(command);

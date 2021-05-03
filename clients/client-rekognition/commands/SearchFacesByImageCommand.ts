@@ -67,8 +67,10 @@ export interface SearchFacesByImageCommandOutput extends SearchFacesByImageRespo
  *          <p>This operation requires permissions to perform the <code>rekognition:SearchFacesByImage</code>
  *       action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RekognitionClient, SearchFacesByImageCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, SearchFacesByImageCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
  * const command = new SearchFacesByImageCommand(input);
  * const response = await client.send(command);

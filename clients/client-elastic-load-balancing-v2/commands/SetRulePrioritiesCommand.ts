@@ -29,8 +29,10 @@ export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput,
  *          <p>You can reorder the rules as long as there are no priority conflicts in the new order. Any
  *       existing rules that you do not specify retain their current priority.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticLoadBalancingV2Client, SetRulePrioritiesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, SetRulePrioritiesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const command = new SetRulePrioritiesCommand(input);
  * const response = await client.send(command);

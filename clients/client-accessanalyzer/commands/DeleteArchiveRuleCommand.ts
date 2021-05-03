@@ -23,8 +23,10 @@ export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the specified archive rule.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AccessAnalyzerClient, DeleteArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
+ * // const { AccessAnalyzerClient, DeleteArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const command = new DeleteArchiveRuleCommand(input);
  * const response = await client.send(command);

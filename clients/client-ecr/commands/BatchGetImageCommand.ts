@@ -26,8 +26,10 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  *         <p>When an image is pulled, the BatchGetImage API is called once to retrieve the image
  *             manifest.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECRClient, BatchGetImageCommand } from "@aws-sdk/client-ecr"; // ES Modules import
+ * // const { ECRClient, BatchGetImageCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
  * const command = new BatchGetImageCommand(input);
  * const response = await client.send(command);

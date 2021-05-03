@@ -35,8 +35,10 @@ export interface DeleteResolverQueryLogConfigCommandOutput
  * 			that they associated with the configuration, but that's not necessary. If you stop sharing the configuration, those VPCs are automatically
  * 			disassociated from the configuration.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53ResolverClient, DeleteResolverQueryLogConfigCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, DeleteResolverQueryLogConfigCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const command = new DeleteResolverQueryLogConfigCommand(input);
  * const response = await client.send(command);

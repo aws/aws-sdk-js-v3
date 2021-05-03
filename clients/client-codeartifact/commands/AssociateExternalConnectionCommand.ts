@@ -27,8 +27,10 @@ export interface AssociateExternalConnectionCommandOutput extends AssociateExter
  *             <p>A repository can have one or more upstream repositories, or an external connection.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeartifactClient, AssociateExternalConnectionCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
+ * // const { CodeartifactClient, AssociateExternalConnectionCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const command = new AssociateExternalConnectionCommand(input);
  * const response = await client.send(command);

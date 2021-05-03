@@ -28,8 +28,10 @@ export interface ListUserImportJobsCommandOutput extends ListUserImportJobsRespo
 /**
  * <p>Lists the user import jobs.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityProviderClient, ListUserImportJobsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, ListUserImportJobsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const command = new ListUserImportJobsCommand(input);
  * const response = await client.send(command);

@@ -35,8 +35,10 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  *             storage.</p>
  *         <p>A single configuration set can include more than one event destination.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointEmailClient, CreateConfigurationSetEventDestinationCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
+ * // const { PinpointEmailClient, CreateConfigurationSetEventDestinationCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const command = new CreateConfigurationSetEventDestinationCommand(input);
  * const response = await client.send(command);

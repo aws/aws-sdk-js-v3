@@ -29,8 +29,10 @@ export interface ListAuditMitigationActionsExecutionsCommandOutput
  * <p>Gets the status of audit mitigation action tasks that were
  *       executed.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, ListAuditMitigationActionsExecutionsCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListAuditMitigationActionsExecutionsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new ListAuditMitigationActionsExecutionsCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
 /**
  * <p>Deletes a group from Amazon WorkMail.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, DeleteGroupCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, DeleteGroupCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);

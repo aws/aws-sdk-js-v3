@@ -24,8 +24,10 @@ export interface GetConnectionStatusCommandOutput extends GetConnectionStatusRes
  * <p>Retrieves the Session Manager connection status for an instance to determine whether it is running and
  *    ready to receive Session Manager connections.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, GetConnectionStatusCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, GetConnectionStatusCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new GetConnectionStatusCommand(input);
  * const response = await client.send(command);

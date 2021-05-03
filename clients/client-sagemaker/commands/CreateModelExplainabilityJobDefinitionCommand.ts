@@ -29,8 +29,10 @@ export interface CreateModelExplainabilityJobDefinitionCommandOutput
 /**
  * <p>Creates the definition for a model explainability job.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, CreateModelExplainabilityJobDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, CreateModelExplainabilityJobDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new CreateModelExplainabilityJobDefinitionCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface GetProtectionStatusCommandOutput extends GetProtectionStatusRes
  * <p>If you created a Shield Advanced policy, returns policy-level attack summary information
  *          in the event of a potential DDoS attack. Other policy types are currently unsupported.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FMSClient, GetProtectionStatusCommand } from "@aws-sdk/client-fms"; // ES Modules import
+ * // const { FMSClient, GetProtectionStatusCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
  * const command = new GetProtectionStatusCommand(input);
  * const response = await client.send(command);

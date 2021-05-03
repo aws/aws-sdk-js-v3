@@ -64,8 +64,10 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *         training data. Use the <a>DescribeDataset</a> operation to get the status.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ForecastClient, CreateDatasetCommand } from "@aws-sdk/client-forecast"; // ES Modules import
+ * // const { ForecastClient, CreateDatasetCommand } = require("@aws-sdk/client-forecast"); // CommonJS import
  * const client = new ForecastClient(config);
  * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);

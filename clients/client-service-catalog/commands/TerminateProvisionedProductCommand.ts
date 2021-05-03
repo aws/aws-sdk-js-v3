@@ -25,8 +25,10 @@ export interface TerminateProvisionedProductCommandOutput extends TerminateProvi
  *          <p>This operation does not delete any records associated with the provisioned product.</p>
  *          <p>You can check the status of this request using <a>DescribeRecord</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, TerminateProvisionedProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, TerminateProvisionedProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new TerminateProvisionedProductCommand(input);
  * const response = await client.send(command);

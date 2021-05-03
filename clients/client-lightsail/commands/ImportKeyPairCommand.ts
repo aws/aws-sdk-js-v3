@@ -23,8 +23,10 @@ export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __Metad
 /**
  * <p>Imports a public SSH key from a specific key pair.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, ImportKeyPairCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, ImportKeyPairCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new ImportKeyPairCommand(input);
  * const response = await client.send(command);

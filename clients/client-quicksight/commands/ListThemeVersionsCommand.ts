@@ -23,8 +23,10 @@ export interface ListThemeVersionsCommandOutput extends ListThemeVersionsRespons
 /**
  * <p>Lists all the versions of the themes in the current AWS account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { QuickSightClient, ListThemeVersionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, ListThemeVersionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
  * const command = new ListThemeVersionsCommand(input);
  * const response = await client.send(command);

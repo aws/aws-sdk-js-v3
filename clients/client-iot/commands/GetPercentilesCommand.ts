@@ -31,8 +31,10 @@ export interface GetPercentilesCommandOutput extends GetPercentilesResponse, __M
  *         The result is an approximation, the more values that match the query, the more accurate
  *         the percentile values.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, GetPercentilesCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, GetPercentilesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new GetPercentilesCommand(input);
  * const response = await client.send(command);

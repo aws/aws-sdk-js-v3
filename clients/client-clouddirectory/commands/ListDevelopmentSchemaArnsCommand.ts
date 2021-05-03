@@ -24,8 +24,10 @@ export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentS
  * <p>Retrieves each Amazon Resource Name (ARN) of schemas in the development
  *       state.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudDirectoryClient, ListDevelopmentSchemaArnsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, ListDevelopmentSchemaArnsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const command = new ListDevelopmentSchemaArnsCommand(input);
  * const response = await client.send(command);

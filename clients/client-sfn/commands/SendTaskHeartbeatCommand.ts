@@ -37,8 +37,10 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  *         for heartbeats.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SFNClient, SendTaskHeartbeatCommand } from "@aws-sdk/client-sfn"; // ES Modules import
+ * // const { SFNClient, SendTaskHeartbeatCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
  * const command = new SendTaskHeartbeatCommand(input);
  * const response = await client.send(command);

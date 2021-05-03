@@ -29,8 +29,10 @@ export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __Metadat
  *             deleted.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppSyncClient, ListApiKeysCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, ListApiKeysCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
  * const command = new ListApiKeysCommand(input);
  * const response = await client.send(command);

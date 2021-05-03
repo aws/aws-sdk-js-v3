@@ -23,8 +23,10 @@ export interface GetMinuteUsageCommandOutput extends GetMinuteUsageResponse, __M
 /**
  * <p>Returns the number of minutes used by account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GroundStationClient, GetMinuteUsageCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
+ * // const { GroundStationClient, GetMinuteUsageCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
  * const command = new GetMinuteUsageCommand(input);
  * const response = await client.send(command);

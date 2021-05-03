@@ -24,8 +24,10 @@ export interface ApplyArchiveRuleCommandOutput extends __MetadataBearer {}
  * <p>Retroactively applies the archive rule to existing findings that meet the archive rule
  *          criteria.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AccessAnalyzerClient, ApplyArchiveRuleCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
+ * // const { AccessAnalyzerClient, ApplyArchiveRuleCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const command = new ApplyArchiveRuleCommand(input);
  * const response = await client.send(command);

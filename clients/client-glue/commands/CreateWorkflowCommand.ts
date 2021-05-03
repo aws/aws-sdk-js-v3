@@ -23,8 +23,10 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
 /**
  * <p>Creates a new workflow.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlueClient, CreateWorkflowCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, CreateWorkflowCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
  * const command = new CreateWorkflowCommand(input);
  * const response = await client.send(command);

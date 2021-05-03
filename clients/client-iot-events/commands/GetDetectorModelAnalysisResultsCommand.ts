@@ -25,8 +25,10 @@ export interface GetDetectorModelAnalysisResultsCommandOutput
 /**
  * <p>Retrieves one or more analysis results of the detector model.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTEventsClient, GetDetectorModelAnalysisResultsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
+ * // const { IoTEventsClient, GetDetectorModelAnalysisResultsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const command = new GetDetectorModelAnalysisResultsCommand(input);
  * const response = await client.send(command);

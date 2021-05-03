@@ -44,8 +44,10 @@ export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, _
  *             <p>This operation only applies to private workforces.</p>
  *         </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, UpdateWorkforceCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, UpdateWorkforceCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new UpdateWorkforceCommand(input);
  * const response = await client.send(command);

@@ -26,8 +26,10 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from
  *     Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, DeleteUserCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DeleteUserCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);

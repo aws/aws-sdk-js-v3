@@ -35,8 +35,10 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  *          <p>Each tag consists of a key and a value. Tag keys must be unique to each
  *       resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudHSMClient, AddTagsToResourceCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
+ * // const { CloudHSMClient, AddTagsToResourceCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const command = new AddTagsToResourceCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  *       that's valid for 10 minutes. If you specify a function version, only details that are specific to that version are
  *       returned.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LambdaClient, GetFunctionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, GetFunctionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
  * const command = new GetFunctionCommand(input);
  * const response = await client.send(command);

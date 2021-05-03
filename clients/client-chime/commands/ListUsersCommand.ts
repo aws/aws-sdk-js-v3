@@ -24,8 +24,10 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * <p>Lists the users that belong to the specified Amazon Chime account. You can specify an email
  *             address to list only the user that the email address belongs to.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, ListUsersCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, ListUsersCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);

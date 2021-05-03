@@ -24,8 +24,10 @@ export interface UpdateBatchPredictionCommandOutput extends UpdateBatchPredictio
  * <p>Updates the <code>BatchPredictionName</code> of a <code>BatchPrediction</code>.</p>
  *         <p>You can use the <code>GetBatchPrediction</code> operation to view the contents of the updated data element.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MachineLearningClient, UpdateBatchPredictionCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
+ * // const { MachineLearningClient, UpdateBatchPredictionCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const command = new UpdateBatchPredictionCommand(input);
  * const response = await client.send(command);

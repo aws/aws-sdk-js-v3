@@ -38,8 +38,10 @@ export interface CreateGraphCommandOutput extends CreateGraphResponse, __Metadat
  *          If the same account calls <code>CreateGraph</code> with the same administrator account, it
  *          always returns the same behavior graph ARN. It does not create a new behavior graph.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DetectiveClient, CreateGraphCommand } from "@aws-sdk/client-detective"; // ES Modules import
+ * // const { DetectiveClient, CreateGraphCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
  * const command = new CreateGraphCommand(input);
  * const response = await client.send(command);

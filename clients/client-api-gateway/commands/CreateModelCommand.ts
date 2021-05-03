@@ -23,8 +23,10 @@ export interface CreateModelCommandOutput extends Model, __MetadataBearer {}
 /**
  * <p>Adds a new <a>Model</a> resource to an existing <a>RestApi</a> resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { APIGatewayClient, CreateModelCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, CreateModelCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);

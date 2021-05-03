@@ -27,8 +27,10 @@ export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
  *             <p>You can cancel only stacks that are in the UPDATE_IN_PROGRESS state.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFormationClient, CancelUpdateStackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, CancelUpdateStackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const command = new CancelUpdateStackCommand(input);
  * const response = await client.send(command);

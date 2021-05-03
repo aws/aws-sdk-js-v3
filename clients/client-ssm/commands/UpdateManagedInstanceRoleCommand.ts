@@ -25,8 +25,10 @@ export interface UpdateManagedInstanceRoleCommandOutput extends UpdateManagedIns
  *    on-premises instance or virtual machines (VM). IAM roles are first assigned to these hybrid
  *    instances during the activation process. For more information, see <a>CreateActivation</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, UpdateManagedInstanceRoleCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, UpdateManagedInstanceRoleCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new UpdateManagedInstanceRoleCommand(input);
  * const response = await client.send(command);

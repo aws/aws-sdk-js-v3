@@ -25,8 +25,10 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  *             action is to be used by customers of the external provider. The action can be created
  *             with any supported integration model.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodePipelineClient, GetActionTypeCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
+ * // const { CodePipelineClient, GetActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const command = new GetActionTypeCommand(input);
  * const response = await client.send(command);

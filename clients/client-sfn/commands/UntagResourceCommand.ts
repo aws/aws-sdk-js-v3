@@ -23,8 +23,10 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
 /**
  * <p>Remove a tag from a Step Functions resource</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SFNClient, UntagResourceCommand } from "@aws-sdk/client-sfn"; // ES Modules import
+ * // const { SFNClient, UntagResourceCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);

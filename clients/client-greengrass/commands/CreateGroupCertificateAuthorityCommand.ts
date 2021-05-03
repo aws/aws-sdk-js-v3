@@ -25,8 +25,10 @@ export interface CreateGroupCertificateAuthorityCommandOutput
 /**
  * Creates a CA for the group. If a CA already exists, it will rotate the existing CA.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassClient, CreateGroupCertificateAuthorityCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, CreateGroupCertificateAuthorityCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
  * const command = new CreateGroupCertificateAuthorityCommand(input);
  * const response = await client.send(command);

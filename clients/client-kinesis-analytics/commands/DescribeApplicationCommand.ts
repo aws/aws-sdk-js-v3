@@ -32,8 +32,10 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  *             operations such as <code>Update</code>.
  *         </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisAnalyticsClient, DescribeApplicationCommand } from "@aws-sdk/client-kinesis-analytics"; // ES Modules import
+ * // const { KinesisAnalyticsClient, DescribeApplicationCommand } = require("@aws-sdk/client-kinesis-analytics"); // CommonJS import
  * const client = new KinesisAnalyticsClient(config);
  * const command = new DescribeApplicationCommand(input);
  * const response = await client.send(command);

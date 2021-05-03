@@ -23,8 +23,10 @@ export interface CreateMultiplexProgramCommandOutput extends CreateMultiplexProg
 /**
  * Create a new program in the multiplex.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaLiveClient, CreateMultiplexProgramCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, CreateMultiplexProgramCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const command = new CreateMultiplexProgramCommand(input);
  * const response = await client.send(command);

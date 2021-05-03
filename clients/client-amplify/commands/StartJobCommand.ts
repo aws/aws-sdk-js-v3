@@ -23,8 +23,10 @@ export interface StartJobCommandOutput extends StartJobResult, __MetadataBearer 
 /**
  * <p> Starts a new job for a branch of an Amplify app. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AmplifyClient, StartJobCommand } from "@aws-sdk/client-amplify"; // ES Modules import
+ * // const { AmplifyClient, StartJobCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
  * const command = new StartJobCommand(input);
  * const response = await client.send(command);

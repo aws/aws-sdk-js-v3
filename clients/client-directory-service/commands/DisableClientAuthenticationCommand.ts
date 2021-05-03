@@ -23,8 +23,10 @@ export interface DisableClientAuthenticationCommandOutput extends DisableClientA
 /**
  * <p>Disables alternative client authentication methods for the specified directory. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectoryServiceClient, DisableClientAuthenticationCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
+ * // const { DirectoryServiceClient, DisableClientAuthenticationCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const command = new DisableClientAuthenticationCommand(input);
  * const response = await client.send(command);

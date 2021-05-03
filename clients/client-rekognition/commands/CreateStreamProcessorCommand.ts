@@ -31,8 +31,10 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
  *         <p>After you have finished analyzing a streaming video, use <a>StopStreamProcessor</a> to
  *         stop processing. You can delete the stream processor by calling <a>DeleteStreamProcessor</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RekognitionClient, CreateStreamProcessorCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, CreateStreamProcessorCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
  * const command = new CreateStreamProcessorCommand(input);
  * const response = await client.send(command);

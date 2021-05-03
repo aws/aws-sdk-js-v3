@@ -30,8 +30,10 @@ export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __Met
  *             user. The user's current access and Id tokens remain valid until their expiry. Access
  *             and Id tokens expire one hour after they are issued.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityProviderClient, GlobalSignOutCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, GlobalSignOutCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const command = new GlobalSignOutCommand(input);
  * const response = await client.send(command);

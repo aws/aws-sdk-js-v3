@@ -33,8 +33,10 @@ export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuo
  *      </p>
  *          <p>You can call <code>DescribeContinuousBackups</code> at a maximum rate of 10 times per second.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DynamoDBClient, DescribeContinuousBackupsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, DescribeContinuousBackupsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const command = new DescribeContinuousBackupsCommand(input);
  * const response = await client.send(command);

@@ -29,8 +29,10 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  *             notifications about and the targets (such as SNS topics) where you want to receive
  *             them.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodestarNotificationsClient, CreateNotificationRuleCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
+ * // const { CodestarNotificationsClient, CreateNotificationRuleCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
  * const command = new CreateNotificationRuleCommand(input);
  * const response = await client.send(command);

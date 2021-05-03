@@ -24,8 +24,10 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * <p>Updates the specified attributes of the specified user, and grants or revokes
  *             administrative privileges to the Amazon WorkDocs site.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkDocsClient, UpdateUserCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
+ * // const { WorkDocsClient, UpdateUserCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const command = new UpdateUserCommand(input);
  * const response = await client.send(command);

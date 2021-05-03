@@ -38,8 +38,10 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  *             <a>ListStreams</a> has a limit of five transactions per second per
  *             account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisClient, ListStreamsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
+ * // const { KinesisClient, ListStreamsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);

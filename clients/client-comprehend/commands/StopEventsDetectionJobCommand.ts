@@ -23,8 +23,10 @@ export interface StopEventsDetectionJobCommandOutput extends StopEventsDetection
 /**
  * <p>Stops an events detection job in progress.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, StopEventsDetectionJobCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, StopEventsDetectionJobCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new StopEventsDetectionJobCommand(input);
  * const response = await client.send(command);

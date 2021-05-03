@@ -24,8 +24,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>Adds tags to an AWS IoT Greengrass resource. If a tag already exists for the resource, this operation
  *       updates the tag's value.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassV2Client, TagResourceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
+ * // const { GreengrassV2Client, TagResourceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

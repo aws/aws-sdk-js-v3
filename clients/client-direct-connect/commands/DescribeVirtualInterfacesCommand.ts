@@ -27,8 +27,10 @@ export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterface
  *       If you specify a virtual interface ID, then only a single virtual interface is returned.</p>
  *          <p>A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer network.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectConnectClient, DescribeVirtualInterfacesCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, DescribeVirtualInterfacesCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const command = new DescribeVirtualInterfacesCommand(input);
  * const response = await client.send(command);

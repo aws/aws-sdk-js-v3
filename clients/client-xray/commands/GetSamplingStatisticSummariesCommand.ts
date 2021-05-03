@@ -25,8 +25,10 @@ export interface GetSamplingStatisticSummariesCommandOutput
 /**
  * <p>Retrieves information about recent sampling results for all sampling rules.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { XRayClient, GetSamplingStatisticSummariesCommand } from "@aws-sdk/client-xray"; // ES Modules import
+ * // const { XRayClient, GetSamplingStatisticSummariesCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
  * const command = new GetSamplingStatisticSummariesCommand(input);
  * const response = await client.send(command);

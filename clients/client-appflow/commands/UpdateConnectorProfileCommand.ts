@@ -25,8 +25,10 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  *   Updates a given connector profile associated with your account.
  * </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppflowClient, UpdateConnectorProfileCommand } from "@aws-sdk/client-appflow"; // ES Modules import
+ * // const { AppflowClient, UpdateConnectorProfileCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
  * const command = new UpdateConnectorProfileCommand(input);
  * const response = await client.send(command);

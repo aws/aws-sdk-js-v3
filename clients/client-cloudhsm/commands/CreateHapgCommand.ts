@@ -34,8 +34,10 @@ export interface CreateHapgCommandOutput extends CreateHapgResponse, __MetadataB
  *          <p>Creates a high-availability partition group. A high-availability partition group is a
  *       group of partitions that spans multiple physical HSMs.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudHSMClient, CreateHapgCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
+ * // const { CloudHSMClient, CreateHapgCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const command = new CreateHapgCommand(input);
  * const response = await client.send(command);

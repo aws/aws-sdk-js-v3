@@ -24,8 +24,10 @@ export interface GetEffectivePoliciesCommandOutput extends GetEffectivePoliciesR
  * <p>Gets a list of the policies that have an effect on the authorization behavior of the
  *          specified device when it connects to the AWS IoT device gateway.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, GetEffectivePoliciesCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, GetEffectivePoliciesCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new GetEffectivePoliciesCommand(input);
  * const response = await client.send(command);

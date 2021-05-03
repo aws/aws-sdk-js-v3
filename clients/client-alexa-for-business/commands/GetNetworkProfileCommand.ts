@@ -23,8 +23,10 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileRespons
 /**
  * <p>Gets the network profile details by the network profile ARN.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AlexaForBusinessClient, GetNetworkProfileCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, GetNetworkProfileCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const command = new GetNetworkProfileCommand(input);
  * const response = await client.send(command);

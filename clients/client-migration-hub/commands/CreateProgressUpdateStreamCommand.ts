@@ -27,8 +27,10 @@ export interface CreateProgressUpdateStreamCommandOutput extends CreateProgressU
  *          tool; however, it does not need to be unique for each AWS account because it is scoped to
  *          the AWS account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MigrationHubClient, CreateProgressUpdateStreamCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
+ * // const { MigrationHubClient, CreateProgressUpdateStreamCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const command = new CreateProgressUpdateStreamCommand(input);
  * const response = await client.send(command);

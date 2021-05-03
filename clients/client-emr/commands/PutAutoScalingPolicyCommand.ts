@@ -26,8 +26,10 @@ export interface PutAutoScalingPolicyCommandOutput extends PutAutoScalingPolicyO
  *          instance group dynamically adds and terminates EC2 instances in response to the value of a
  *          CloudWatch metric.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EMRClient, PutAutoScalingPolicyCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, PutAutoScalingPolicyCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
  * const command = new PutAutoScalingPolicyCommand(input);
  * const response = await client.send(command);

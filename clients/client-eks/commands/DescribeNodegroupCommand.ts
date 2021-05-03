@@ -23,8 +23,10 @@ export interface DescribeNodegroupCommandOutput extends DescribeNodegroupRespons
 /**
  * <p>Returns descriptive information about an Amazon EKS node group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EKSClient, DescribeNodegroupCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, DescribeNodegroupCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
  * const command = new DescribeNodegroupCommand(input);
  * const response = await client.send(command);

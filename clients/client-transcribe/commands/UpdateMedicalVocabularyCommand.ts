@@ -26,8 +26,10 @@ export interface UpdateMedicalVocabularyCommandOutput extends UpdateMedicalVocab
  *             operation overwrites all of the existing information with the values that you provide in
  *             the request.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TranscribeClient, UpdateMedicalVocabularyCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
+ * // const { TranscribeClient, UpdateMedicalVocabularyCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
  * const command = new UpdateMedicalVocabularyCommand(input);
  * const response = await client.send(command);

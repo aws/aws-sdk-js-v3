@@ -23,8 +23,10 @@ export interface GetCustomDataIdentifierCommandOutput extends GetCustomDataIdent
 /**
  * <p>Retrieves the criteria and other settings for a custom data identifier.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Macie2Client, GetCustomDataIdentifierCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, GetCustomDataIdentifierCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
  * const command = new GetCustomDataIdentifierCommand(input);
  * const response = await client.send(command);

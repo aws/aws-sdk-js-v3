@@ -28,8 +28,10 @@ export interface GetDevEndpointCommandOutput extends GetDevEndpointResponse, __M
  *         non-VPC development endpoint, AWS Glue returns only a public IP address.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlueClient, GetDevEndpointCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, GetDevEndpointCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
  * const command = new GetDevEndpointCommand(input);
  * const response = await client.send(command);

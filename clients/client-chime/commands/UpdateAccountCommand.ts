@@ -24,8 +24,10 @@ export interface UpdateAccountCommandOutput extends UpdateAccountResponse, __Met
  * <p>Updates account details for the specified Amazon Chime account. Currently, only account name
  *             updates are supported for this action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, UpdateAccountCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, UpdateAccountCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new UpdateAccountCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DeleteApiDestinationCommandOutput extends DeleteApiDestinationR
 /**
  * <p>Deletes the specified API destination.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EventBridgeClient, DeleteApiDestinationCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, DeleteApiDestinationCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const command = new DeleteApiDestinationCommand(input);
  * const response = await client.send(command);

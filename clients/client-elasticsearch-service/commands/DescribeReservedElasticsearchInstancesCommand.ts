@@ -33,8 +33,10 @@ export interface DescribeReservedElasticsearchInstancesCommandOutput
 /**
  * <p>Returns information about reserved Elasticsearch instances for this account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticsearchServiceClient, DescribeReservedElasticsearchInstancesCommand } from "@aws-sdk/client-elasticsearch-service"; // ES Modules import
+ * // const { ElasticsearchServiceClient, DescribeReservedElasticsearchInstancesCommand } = require("@aws-sdk/client-elasticsearch-service"); // CommonJS import
  * const client = new ElasticsearchServiceClient(config);
  * const command = new DescribeReservedElasticsearchInstancesCommand(input);
  * const response = await client.send(command);

@@ -37,8 +37,10 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  *          </important>
  *          <p>Invokes a function asynchronously.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LambdaClient, InvokeAsyncCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, InvokeAsyncCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
  * const command = new InvokeAsyncCommand(input);
  * const response = await client.send(command);

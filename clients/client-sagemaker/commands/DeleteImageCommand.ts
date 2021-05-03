@@ -24,8 +24,10 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  * <p>Deletes a SageMaker image and all versions of the image. The container images aren't
  *         deleted.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, DeleteImageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DeleteImageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new DeleteImageCommand(input);
  * const response = await client.send(command);

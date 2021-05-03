@@ -25,8 +25,10 @@ export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __M
  *       pattern to report that the task identified by the <code>taskToken</code> completed
  *       successfully.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SFNClient, SendTaskSuccessCommand } from "@aws-sdk/client-sfn"; // ES Modules import
+ * // const { SFNClient, SendTaskSuccessCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
  * const command = new SendTaskSuccessCommand(input);
  * const response = await client.send(command);

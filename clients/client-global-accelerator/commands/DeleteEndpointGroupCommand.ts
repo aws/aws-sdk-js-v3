@@ -27,8 +27,10 @@ export interface DeleteEndpointGroupCommandOutput extends __MetadataBearer {}
 /**
  * <p>Delete an endpoint group from a listener.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlobalAcceleratorClient, DeleteEndpointGroupCommand } from "@aws-sdk/client-global-accelerator"; // ES Modules import
+ * // const { GlobalAcceleratorClient, DeleteEndpointGroupCommand } = require("@aws-sdk/client-global-accelerator"); // CommonJS import
  * const client = new GlobalAcceleratorClient(config);
  * const command = new DeleteEndpointGroupCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface ListIPSetsCommandOutput extends ListIPSetsResponse, __MetadataB
 /**
  * <p>Retrieves an array of <a>IPSetSummary</a> objects for the IP sets that you manage.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFV2Client, ListIPSetsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
+ * // const { WAFV2Client, ListIPSetsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
  * const command = new ListIPSetsCommand(input);
  * const response = await client.send(command);

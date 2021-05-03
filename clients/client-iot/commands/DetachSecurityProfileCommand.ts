@@ -23,8 +23,10 @@ export interface DetachSecurityProfileCommandOutput extends DetachSecurityProfil
 /**
  * <p>Disassociates a Device Defender security profile from a thing group or from this account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, DetachSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DetachSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new DetachSecurityProfileCommand(input);
  * const response = await client.send(command);

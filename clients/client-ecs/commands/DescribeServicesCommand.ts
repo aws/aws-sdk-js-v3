@@ -23,8 +23,10 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
 /**
  * <p>Describes the specified services running in your cluster.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECSClient, DescribeServicesCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, DescribeServicesCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const command = new DescribeServicesCommand(input);
  * const response = await client.send(command);

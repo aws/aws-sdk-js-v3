@@ -23,8 +23,10 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
 /**
  * Returns a collection of Channels.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaPackageClient, ListChannelsCommand } from "@aws-sdk/client-mediapackage"; // ES Modules import
+ * // const { MediaPackageClient, ListChannelsCommand } = require("@aws-sdk/client-mediapackage"); // CommonJS import
  * const client = new MediaPackageClient(config);
  * const command = new ListChannelsCommand(input);
  * const response = await client.send(command);

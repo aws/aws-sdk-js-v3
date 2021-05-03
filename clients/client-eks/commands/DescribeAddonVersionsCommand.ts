@@ -23,8 +23,10 @@ export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersion
 /**
  * <p>Describes the Kubernetes versions that the add-on can be used with.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EKSClient, DescribeAddonVersionsCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, DescribeAddonVersionsCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
  * const command = new DescribeAddonVersionsCommand(input);
  * const response = await client.send(command);

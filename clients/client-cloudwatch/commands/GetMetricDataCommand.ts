@@ -58,8 +58,10 @@ export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __Metad
  * 			when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified.
  * 			If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudWatchClient, GetMetricDataCommand } from "@aws-sdk/client-cloudwatch"; // ES Modules import
+ * // const { CloudWatchClient, GetMetricDataCommand } = require("@aws-sdk/client-cloudwatch"); // CommonJS import
  * const client = new CloudWatchClient(config);
  * const command = new GetMetricDataCommand(input);
  * const response = await client.send(command);

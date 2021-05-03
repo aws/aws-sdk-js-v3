@@ -36,8 +36,10 @@ export interface GetEC2RecommendationProjectedMetricsCommandOutput
  *                     Utilization with the CloudWatch Agent</a>.</p>
  *         </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComputeOptimizerClient, GetEC2RecommendationProjectedMetricsCommand } from "@aws-sdk/client-compute-optimizer"; // ES Modules import
+ * // const { ComputeOptimizerClient, GetEC2RecommendationProjectedMetricsCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const command = new GetEC2RecommendationProjectedMetricsCommand(input);
  * const response = await client.send(command);

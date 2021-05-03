@@ -23,8 +23,10 @@ export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedu
 /**
  * <p>Stops an inference scheduler. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutEquipmentClient, StopInferenceSchedulerCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, StopInferenceSchedulerCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const command = new StopInferenceSchedulerCommand(input);
  * const response = await client.send(command);

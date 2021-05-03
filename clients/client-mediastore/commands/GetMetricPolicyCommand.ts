@@ -23,8 +23,10 @@ export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __M
 /**
  * <p>Returns the metric policy for the specified container. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaStoreClient, GetMetricPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
+ * // const { MediaStoreClient, GetMetricPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const command = new GetMetricPolicyCommand(input);
  * const response = await client.send(command);

@@ -28,8 +28,10 @@ export interface ListWorkersWithQualificationTypeCommandOutput
  *             that have been associated with a given Qualification type.
  *         </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MTurkClient, ListWorkersWithQualificationTypeCommand } from "@aws-sdk/client-mturk"; // ES Modules import
+ * // const { MTurkClient, ListWorkersWithQualificationTypeCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
  * const command = new ListWorkersWithQualificationTypeCommand(input);
  * const response = await client.send(command);

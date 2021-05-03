@@ -24,8 +24,10 @@ export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __M
  * <p>Lists the principals that you have shared resources with or that have shared resources
  * 			with you.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RAMClient, ListPrincipalsCommand } from "@aws-sdk/client-ram"; // ES Modules import
+ * // const { RAMClient, ListPrincipalsCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
  * const command = new ListPrincipalsCommand(input);
  * const response = await client.send(command);

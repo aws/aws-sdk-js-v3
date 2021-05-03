@@ -26,8 +26,10 @@ export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBeare
  *             only when it no longer intends to upload the document version, or fails to do
  *             so.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkDocsClient, AbortDocumentVersionUploadCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
+ * // const { WorkDocsClient, AbortDocumentVersionUploadCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const command = new AbortDocumentVersionUploadCommand(input);
  * const response = await client.send(command);

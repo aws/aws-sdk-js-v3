@@ -24,8 +24,10 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * <p>Creates a tag for an EFS resource. You can create tags for EFS file systems and access points using this API operation.</p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:TagResource</code> action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EFSClient, TagResourceCommand } from "@aws-sdk/client-efs"; // ES Modules import
+ * // const { EFSClient, TagResourceCommand } = require("@aws-sdk/client-efs"); // CommonJS import
  * const client = new EFSClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

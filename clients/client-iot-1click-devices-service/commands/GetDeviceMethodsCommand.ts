@@ -27,8 +27,10 @@ export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse,
 /**
  * <p>Given a device ID, returns the invokable methods associated with the device.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoT1ClickDevicesServiceClient, GetDeviceMethodsCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
+ * // const { IoT1ClickDevicesServiceClient, GetDeviceMethodsCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
  * const command = new GetDeviceMethodsCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface GetSubscriptionAttributesCommandOutput extends GetSubscriptionA
 /**
  * <p>Returns all of the properties of a subscription.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SNSClient, GetSubscriptionAttributesCommand } from "@aws-sdk/client-sns"; // ES Modules import
+ * // const { SNSClient, GetSubscriptionAttributesCommand } = require("@aws-sdk/client-sns"); // CommonJS import
  * const client = new SNSClient(config);
  * const command = new GetSubscriptionAttributesCommand(input);
  * const response = await client.send(command);

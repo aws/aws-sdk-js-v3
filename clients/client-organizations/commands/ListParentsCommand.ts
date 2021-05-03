@@ -38,8 +38,10 @@ export interface ListParentsCommandOutput extends ListParentsResponse, __Metadat
  *             <p>In the current release, a child can have only a single parent.</p>
  *         </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { OrganizationsClient, ListParentsCommand } from "@aws-sdk/client-organizations"; // ES Modules import
+ * // const { OrganizationsClient, ListParentsCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const command = new ListParentsCommand(input);
  * const response = await client.send(command);

@@ -29,8 +29,10 @@ export interface DescribeIdentityProviderConfigurationCommandOutput
 /**
  * <p>Describes the identity provider configuration of the specified fleet.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkLinkClient, DescribeIdentityProviderConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
+ * // const { WorkLinkClient, DescribeIdentityProviderConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const command = new DescribeIdentityProviderConfigurationCommand(input);
  * const response = await client.send(command);

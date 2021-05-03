@@ -31,8 +31,10 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  *       registered targets. For example, any EC2 instances continue to run until you stop or terminate
  *       them.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticLoadBalancingV2Client, DeleteTargetGroupCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, DeleteTargetGroupCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const command = new DeleteTargetGroupCommand(input);
  * const response = await client.send(command);

@@ -32,8 +32,10 @@ export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBeare
  *             action.</p>
  *         <p>Kinesis video streams support up to 50 tags.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisVideoClient, TagStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
+ * // const { KinesisVideoClient, TagStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const command = new TagStreamCommand(input);
  * const response = await client.send(command);

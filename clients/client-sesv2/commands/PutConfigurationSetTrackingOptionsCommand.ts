@@ -29,8 +29,10 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
  * <p>Specify a custom domain to use for open and click tracking elements in email that you
  *             send.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SESv2Client, PutConfigurationSetTrackingOptionsCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, PutConfigurationSetTrackingOptionsCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
  * const command = new PutConfigurationSetTrackingOptionsCommand(input);
  * const response = await client.send(command);

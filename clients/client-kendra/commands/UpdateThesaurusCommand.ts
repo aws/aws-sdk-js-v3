@@ -23,8 +23,10 @@ export interface UpdateThesaurusCommandOutput extends __MetadataBearer {}
 /**
  * <p>Updates a thesaurus file associated with an index.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KendraClient, UpdateThesaurusCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, UpdateThesaurusCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
  * const command = new UpdateThesaurusCommand(input);
  * const response = await client.send(command);

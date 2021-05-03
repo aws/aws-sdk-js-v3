@@ -27,8 +27,10 @@ export interface GetContactReachabilityStatusCommandOutput
  * 			such as registering a new domain, this operation returns information about whether the registrant contact has responded.</p>
  * 		       <p>If you want us to resend the email, use the <code>ResendContactReachabilityEmail</code> operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53DomainsClient, GetContactReachabilityStatusCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
+ * // const { Route53DomainsClient, GetContactReachabilityStatusCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
  * const command = new GetContactReachabilityStatusCommand(input);
  * const response = await client.send(command);

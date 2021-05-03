@@ -23,8 +23,10 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
 /**
  * <p>Retrieves an array of <a>WebACLSummary</a> objects for the web ACLs that you manage.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFV2Client, ListWebACLsCommand } from "@aws-sdk/client-wafv2"; // ES Modules import
+ * // const { WAFV2Client, ListWebACLsCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
  * const command = new ListWebACLsCommand(input);
  * const response = await client.send(command);

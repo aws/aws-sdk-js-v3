@@ -23,8 +23,10 @@ export interface UpdateDeviceDefinitionCommandOutput extends UpdateDeviceDefinit
 /**
  * Updates a device definition.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassClient, UpdateDeviceDefinitionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, UpdateDeviceDefinitionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
  * const command = new UpdateDeviceDefinitionCommand(input);
  * const response = await client.send(command);

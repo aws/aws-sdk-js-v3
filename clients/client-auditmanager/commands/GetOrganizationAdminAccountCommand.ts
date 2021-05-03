@@ -27,8 +27,10 @@ export interface GetOrganizationAdminAccountCommandOutput
  *   Returns the name of the delegated AWS administrator account for the AWS organization.
  * </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AuditManagerClient, GetOrganizationAdminAccountCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
+ * // const { AuditManagerClient, GetOrganizationAdminAccountCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const command = new GetOrganizationAdminAccountCommand(input);
  * const response = await client.send(command);

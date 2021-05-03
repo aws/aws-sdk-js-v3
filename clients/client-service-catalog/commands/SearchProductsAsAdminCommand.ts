@@ -23,8 +23,10 @@ export interface SearchProductsAsAdminCommandOutput extends SearchProductsAsAdmi
 /**
  * <p>Gets information about the products for the specified portfolio or all products.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, SearchProductsAsAdminCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, SearchProductsAsAdminCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new SearchProductsAsAdminCommand(input);
  * const response = await client.send(command);

@@ -57,8 +57,10 @@ export interface InitiateVaultLockCommandOutput extends InitiateVaultLockOutput,
  *          lock is in the <code>InProgress</code> state you must call <a>AbortVaultLock</a>
  *          before you can initiate a new vault lock policy. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlacierClient, InitiateVaultLockCommand } from "@aws-sdk/client-glacier"; // ES Modules import
+ * // const { GlacierClient, InitiateVaultLockCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
  * const command = new InitiateVaultLockCommand(input);
  * const response = await client.send(command);

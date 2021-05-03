@@ -25,8 +25,10 @@ export interface DeleteProductCommandOutput extends DeleteProductOutput, __Metad
  *          <p>You cannot delete a product if it was shared with you or is associated with a portfolio.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, DeleteProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, DeleteProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new DeleteProductCommand(input);
  * const response = await client.send(command);

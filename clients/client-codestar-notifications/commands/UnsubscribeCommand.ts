@@ -29,8 +29,10 @@ export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataB
  *             subscribers to that topic stop receiving notifications when the events described in the
  *             rule are triggered.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodestarNotificationsClient, UnsubscribeCommand } from "@aws-sdk/client-codestar-notifications"; // ES Modules import
+ * // const { CodestarNotificationsClient, UnsubscribeCommand } = require("@aws-sdk/client-codestar-notifications"); // CommonJS import
  * const client = new CodestarNotificationsClient(config);
  * const command = new UnsubscribeCommand(input);
  * const response = await client.send(command);

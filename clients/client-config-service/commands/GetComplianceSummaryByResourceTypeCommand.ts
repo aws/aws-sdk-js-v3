@@ -31,8 +31,10 @@ export interface GetComplianceSummaryByResourceTypeCommandOutput
  * 			types to get these numbers for each resource type. The maximum
  * 			number returned is 100.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConfigServiceClient, GetComplianceSummaryByResourceTypeCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, GetComplianceSummaryByResourceTypeCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const command = new GetComplianceSummaryByResourceTypeCommand(input);
  * const response = await client.send(command);

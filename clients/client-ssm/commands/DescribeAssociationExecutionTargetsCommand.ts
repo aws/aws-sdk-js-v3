@@ -29,8 +29,10 @@ export interface DescribeAssociationExecutionTargetsCommandOutput
  * <p>Use this API action to view information about a specific execution of a specific
  *    association.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, DescribeAssociationExecutionTargetsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DescribeAssociationExecutionTargetsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new DescribeAssociationExecutionTargetsCommand(input);
  * const response = await client.send(command);

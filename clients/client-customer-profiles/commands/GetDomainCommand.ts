@@ -23,8 +23,10 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
 /**
  * <p>Returns information about a specific domain.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CustomerProfilesClient, GetDomainCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, GetDomainCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const command = new GetDomainCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface DeleteAnalyzerCommandOutput extends __MetadataBearer {}
  *          account or organization in the current or specific Region. All findings that were generated
  *          by the analyzer are deleted. You cannot undo this action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AccessAnalyzerClient, DeleteAnalyzerCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
+ * // const { AccessAnalyzerClient, DeleteAnalyzerCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const command = new DeleteAnalyzerCommand(input);
  * const response = await client.send(command);

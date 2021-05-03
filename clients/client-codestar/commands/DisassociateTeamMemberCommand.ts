@@ -26,8 +26,10 @@ export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMem
  *       team member does not remove that user's profile from AWS CodeStar. It does not remove the user from
  *       IAM.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeStarClient, DisassociateTeamMemberCommand } from "@aws-sdk/client-codestar"; // ES Modules import
+ * // const { CodeStarClient, DisassociateTeamMemberCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
  * const command = new DisassociateTeamMemberCommand(input);
  * const response = await client.send(command);

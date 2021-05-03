@@ -33,8 +33,10 @@ export interface ListJournalKinesisStreamsForLedgerCommandOutput
  *          you can retrieve all the items by calling <code>ListJournalKinesisStreamsForLedger</code>
  *          multiple times.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { QLDBClient, ListJournalKinesisStreamsForLedgerCommand } from "@aws-sdk/client-qldb"; // ES Modules import
+ * // const { QLDBClient, ListJournalKinesisStreamsForLedgerCommand } = require("@aws-sdk/client-qldb"); // CommonJS import
  * const client = new QLDBClient(config);
  * const command = new ListJournalKinesisStreamsForLedgerCommand(input);
  * const response = await client.send(command);

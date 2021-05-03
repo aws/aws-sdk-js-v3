@@ -29,8 +29,10 @@ export interface PutEmailIdentityMailFromAttributesCommandOutput
  * <p>Used to enable or disable the custom Mail-From domain configuration for an email
  *             identity.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SESv2Client, PutEmailIdentityMailFromAttributesCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, PutEmailIdentityMailFromAttributesCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
  * const command = new PutEmailIdentityMailFromAttributesCommand(input);
  * const response = await client.send(command);

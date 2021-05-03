@@ -23,8 +23,10 @@ export interface DescribeExportCommandOutput extends DescribeExportOutput, __Met
 /**
  * <p>Describes an existing table export.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DynamoDBClient, DescribeExportCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, DescribeExportCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const command = new DescribeExportCommand(input);
  * const response = await client.send(command);

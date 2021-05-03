@@ -27,8 +27,10 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  *       the deletion by using AWS CloudWatch. Any error messages related to the
  *       processing of the batch are sent to you CloudWatch log.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KendraClient, BatchDeleteDocumentCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, BatchDeleteDocumentCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
  * const command = new BatchDeleteDocumentCommand(input);
  * const response = await client.send(command);

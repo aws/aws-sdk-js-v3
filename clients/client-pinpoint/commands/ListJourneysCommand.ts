@@ -23,8 +23,10 @@ export interface ListJourneysCommandOutput extends ListJourneysResponse, __Metad
 /**
  * <p>Retrieves information about the status, configuration, and other settings for all the journeys that are associated with an application.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointClient, ListJourneysCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, ListJourneysCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
  * const command = new ListJourneysCommand(input);
  * const response = await client.send(command);

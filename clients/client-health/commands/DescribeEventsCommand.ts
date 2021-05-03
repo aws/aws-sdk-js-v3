@@ -46,8 +46,10 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  *
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { HealthClient, DescribeEventsCommand } from "@aws-sdk/client-health"; // ES Modules import
+ * // const { HealthClient, DescribeEventsCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Creates a new queue for the specified Amazon Connect instance.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, CreateQueueCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, CreateQueueCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new CreateQueueCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
 /**
  * <p>Removes tags from a resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FraudDetectorClient, UntagResourceCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, UntagResourceCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);

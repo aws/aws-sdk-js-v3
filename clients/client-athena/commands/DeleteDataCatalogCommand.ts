@@ -23,8 +23,10 @@ export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput,
 /**
  * <p>Deletes a data catalog.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AthenaClient, DeleteDataCatalogCommand } from "@aws-sdk/client-athena"; // ES Modules import
+ * // const { AthenaClient, DeleteDataCatalogCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
  * const command = new DeleteDataCatalogCommand(input);
  * const response = await client.send(command);

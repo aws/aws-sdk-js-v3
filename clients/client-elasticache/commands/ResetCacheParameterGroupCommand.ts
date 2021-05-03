@@ -26,8 +26,10 @@ export interface ResetCacheParameterGroupCommandOutput extends CacheParameterGro
  *             by submitting a list of parameter names. To reset the entire cache parameter group,
  *             specify the <code>ResetAllParameters</code> and <code>CacheParameterGroupName</code> parameters.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElastiCacheClient, ResetCacheParameterGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, ResetCacheParameterGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const command = new ResetCacheParameterGroupCommand(input);
  * const response = await client.send(command);

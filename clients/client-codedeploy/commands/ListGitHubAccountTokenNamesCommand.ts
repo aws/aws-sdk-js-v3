@@ -23,8 +23,10 @@ export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAcco
 /**
  * <p>Lists the names of stored connections to GitHub accounts.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeDeployClient, ListGitHubAccountTokenNamesCommand } from "@aws-sdk/client-codedeploy"; // ES Modules import
+ * // const { CodeDeployClient, ListGitHubAccountTokenNamesCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const command = new ListGitHubAccountTokenNamesCommand(input);
  * const response = await client.send(command);

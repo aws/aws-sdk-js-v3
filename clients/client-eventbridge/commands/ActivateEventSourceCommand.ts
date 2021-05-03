@@ -24,8 +24,10 @@ export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
  * <p>Activates a partner event source that has been deactivated. Once activated, your matching
  *       event bus will start receiving events from the event source.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EventBridgeClient, ActivateEventSourceCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, ActivateEventSourceCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const command = new ActivateEventSourceCommand(input);
  * const response = await client.send(command);

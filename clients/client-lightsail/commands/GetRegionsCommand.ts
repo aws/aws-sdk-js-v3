@@ -25,8 +25,10 @@ export interface GetRegionsCommandOutput extends GetRegionsResult, __MetadataBea
  *         availability zones</code> parameter to also return the Availability Zones in a
  *       region.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, GetRegionsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetRegionsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new GetRegionsCommand(input);
  * const response = await client.send(command);

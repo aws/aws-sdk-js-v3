@@ -31,8 +31,10 @@ export interface AdminRespondToAuthChallengeCommandOutput
  * <p>Responds to an authentication challenge, as an administrator.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityProviderClient, AdminRespondToAuthChallengeCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminRespondToAuthChallengeCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const command = new AdminRespondToAuthChallengeCommand(input);
  * const response = await client.send(command);

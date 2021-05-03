@@ -25,8 +25,10 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
  *          <p>A standard profile represents the following attributes for a customer profile in a
  *          domain.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CustomerProfilesClient, CreateProfileCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, CreateProfileCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const command = new CreateProfileCommand(input);
  * const response = await client.send(command);

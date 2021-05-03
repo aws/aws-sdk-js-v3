@@ -35,8 +35,10 @@ export interface CancelDataRepositoryTaskCommandOutput extends CancelDataReposit
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FSxClient, CancelDataRepositoryTaskCommand } from "@aws-sdk/client-fsx"; // ES Modules import
+ * // const { FSxClient, CancelDataRepositoryTaskCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
  * const command = new CancelDataRepositoryTaskCommand(input);
  * const response = await client.send(command);

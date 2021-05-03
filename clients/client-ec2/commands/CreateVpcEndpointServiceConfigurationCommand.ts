@@ -48,8 +48,10 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
  *                 Private DNS Name Verification</a> in the
  *             <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, CreateVpcEndpointServiceConfigurationCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateVpcEndpointServiceConfigurationCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new CreateVpcEndpointServiceConfigurationCommand(input);
  * const response = await client.send(command);

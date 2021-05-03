@@ -23,8 +23,10 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
 /**
  * <p>Retrieves details about an archive.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EventBridgeClient, DescribeArchiveCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, DescribeArchiveCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const command = new DescribeArchiveCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface ListLexBotsCommandOutput extends ListLexBotsResponse, __Metadat
  *          <p>Returns a paginated list of all the Amazon Lex bots currently associated with the
  *    instance.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, ListLexBotsCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ListLexBotsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new ListLexBotsCommand(input);
  * const response = await client.send(command);

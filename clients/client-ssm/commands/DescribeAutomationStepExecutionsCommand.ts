@@ -26,8 +26,10 @@ export interface DescribeAutomationStepExecutionsCommandOutput
  * <p>Information about all active and terminated step executions in an Automation
  *    workflow.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, DescribeAutomationStepExecutionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DescribeAutomationStepExecutionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new DescribeAutomationStepExecutionsCommand(input);
  * const response = await client.send(command);

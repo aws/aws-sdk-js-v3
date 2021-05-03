@@ -23,8 +23,10 @@ export interface DetachPolicyCommandOutput extends DetachPolicyResponse, __Metad
 /**
  * <p>Detaches a policy from an object.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudDirectoryClient, DetachPolicyCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, DetachPolicyCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const command = new DetachPolicyCommand(input);
  * const response = await client.send(command);

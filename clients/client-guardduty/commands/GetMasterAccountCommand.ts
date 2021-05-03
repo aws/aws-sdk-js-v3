@@ -24,8 +24,10 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  * <p>Provides the details for the GuardDuty administrator account associated with the current
  *       GuardDuty member account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GuardDutyClient, GetMasterAccountCommand } from "@aws-sdk/client-guardduty"; // ES Modules import
+ * // const { GuardDutyClient, GetMasterAccountCommand } = require("@aws-sdk/client-guardduty"); // CommonJS import
  * const client = new GuardDutyClient(config);
  * const command = new GetMasterAccountCommand(input);
  * const response = await client.send(command);

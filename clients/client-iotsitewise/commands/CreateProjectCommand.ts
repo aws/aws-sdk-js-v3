@@ -23,8 +23,10 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
 /**
  * <p>Creates a project in the specified portal.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTSiteWiseClient, CreateProjectCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, CreateProjectCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);

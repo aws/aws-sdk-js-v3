@@ -28,8 +28,10 @@ export interface GetProposalCommandOutput extends GetProposalOutput, __MetadataB
  * <p>Returns detailed information about a proposal.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ManagedBlockchainClient, GetProposalCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
+ * // const { ManagedBlockchainClient, GetProposalCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const command = new GetProposalCommand(input);
  * const response = await client.send(command);

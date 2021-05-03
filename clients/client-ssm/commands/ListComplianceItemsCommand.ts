@@ -25,8 +25,10 @@ export interface ListComplianceItemsCommandOutput extends ListComplianceItemsRes
  *    different resource types. Currently, you can only specify one resource ID per call. List results
  *    depend on the criteria specified in the filter.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, ListComplianceItemsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, ListComplianceItemsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new ListComplianceItemsCommand(input);
  * const response = await client.send(command);

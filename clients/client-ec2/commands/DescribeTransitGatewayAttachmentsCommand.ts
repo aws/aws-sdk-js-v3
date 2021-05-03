@@ -26,8 +26,10 @@ export interface DescribeTransitGatewayAttachmentsCommandOutput
  * <p>Describes one or more attachments between resources and transit gateways. By default, all attachments are described.
  *          Alternatively, you can filter the results by attachment ID, attachment state, resource ID, or resource owner.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, DescribeTransitGatewayAttachmentsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeTransitGatewayAttachmentsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new DescribeTransitGatewayAttachmentsCommand(input);
  * const response = await client.send(command);

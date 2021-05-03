@@ -25,8 +25,10 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  * <p>Registers the user in the specified user pool and creates a user name, password, and
  *             user attributes.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityProviderClient, SignUpCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, SignUpCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const command = new SignUpCommand(input);
  * const response = await client.send(command);

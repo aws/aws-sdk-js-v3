@@ -25,8 +25,10 @@ export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageR
  *          any bundles that are associated with the image and unshare the image if it is shared with
  *          other accounts. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkSpacesClient, DeleteWorkspaceImageCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
+ * // const { WorkSpacesClient, DeleteWorkspaceImageCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const command = new DeleteWorkspaceImageCommand(input);
  * const response = await client.send(command);

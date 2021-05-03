@@ -28,8 +28,10 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  *          <p>Queries time out after 15 minutes of execution. If your queries are timing out, reduce the
  *       time range being searched or partition your query into a number of queries.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudWatchLogsClient, StartQueryCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
+ * // const { CloudWatchLogsClient, StartQueryCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const command = new StartQueryCommand(input);
  * const response = await client.send(command);

@@ -35,8 +35,10 @@ export interface PutReplicationConfigurationCommandOutput
  *                 registry permissions policy. For more information, see <a>PutRegistryPolicy</a>.</p>
  *         </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECRClient, PutReplicationConfigurationCommand } from "@aws-sdk/client-ecr"; // ES Modules import
+ * // const { ECRClient, PutReplicationConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
  * const command = new PutReplicationConfigurationCommand(input);
  * const response = await client.send(command);

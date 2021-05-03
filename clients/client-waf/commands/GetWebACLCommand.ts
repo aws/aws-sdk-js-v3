@@ -28,8 +28,10 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  *          </note>
  * 		       <p>Returns the <a>WebACL</a> that is specified by <code>WebACLId</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFClient, GetWebACLCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, GetWebACLCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
  * const command = new GetWebACLCommand(input);
  * const response = await client.send(command);

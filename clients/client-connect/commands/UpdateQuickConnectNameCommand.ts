@@ -24,8 +24,10 @@ export interface UpdateQuickConnectNameCommandOutput extends __MetadataBearer {}
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, UpdateQuickConnectNameCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, UpdateQuickConnectNameCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new UpdateQuickConnectNameCommand(input);
  * const response = await client.send(command);

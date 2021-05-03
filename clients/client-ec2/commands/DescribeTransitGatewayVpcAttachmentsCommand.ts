@@ -29,8 +29,10 @@ export interface DescribeTransitGatewayVpcAttachmentsCommandOutput
  * <p>Describes one or more VPC attachments. By default, all VPC attachments are described.
  *          Alternatively, you can filter the results.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, DescribeTransitGatewayVpcAttachmentsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeTransitGatewayVpcAttachmentsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new DescribeTransitGatewayVpcAttachmentsCommand(input);
  * const response = await client.send(command);

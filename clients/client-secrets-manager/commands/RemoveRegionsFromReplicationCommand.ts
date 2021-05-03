@@ -25,8 +25,10 @@ export interface RemoveRegionsFromReplicationCommandOutput
 /**
  * <p>Remove regions from replication.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SecretsManagerClient, RemoveRegionsFromReplicationCommand } from "@aws-sdk/client-secrets-manager"; // ES Modules import
+ * // const { SecretsManagerClient, RemoveRegionsFromReplicationCommand } = require("@aws-sdk/client-secrets-manager"); // CommonJS import
  * const client = new SecretsManagerClient(config);
  * const command = new RemoveRegionsFromReplicationCommand(input);
  * const response = await client.send(command);

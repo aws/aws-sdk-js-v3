@@ -23,8 +23,10 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
 /**
  * <p>Gets the policies for the specified resources that you own and have shared.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RAMClient, GetResourcePoliciesCommand } from "@aws-sdk/client-ram"; // ES Modules import
+ * // const { RAMClient, GetResourcePoliciesCommand } = require("@aws-sdk/client-ram"); // CommonJS import
  * const client = new RAMClient(config);
  * const command = new GetResourcePoliciesCommand(input);
  * const response = await client.send(command);

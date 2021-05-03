@@ -42,8 +42,10 @@ export interface AssociateEnclaveCertificateIamRoleCommandOutput
  * 				Grant the role permission to access the certificate and encryption key</a> in the
  * 			<i>AWS Nitro Enclaves User Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, AssociateEnclaveCertificateIamRoleCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, AssociateEnclaveCertificateIamRoleCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new AssociateEnclaveCertificateIamRoleCommand(input);
  * const response = await client.send(command);

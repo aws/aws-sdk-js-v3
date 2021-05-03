@@ -27,8 +27,10 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
  *          <p>Spot Fleet events are delayed by up to 30 seconds before they can be described. This ensures that you can query
  *           by the last evaluated time and not miss a recorded event. Spot Fleet events are available for 48 hours.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, DescribeSpotFleetRequestHistoryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeSpotFleetRequestHistoryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new DescribeSpotFleetRequestHistoryCommand(input);
  * const response = await client.send(command);

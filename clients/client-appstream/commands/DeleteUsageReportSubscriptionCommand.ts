@@ -25,8 +25,10 @@ export interface DeleteUsageReportSubscriptionCommandOutput
 /**
  * <p>Disables usage report generation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppStreamClient, DeleteUsageReportSubscriptionCommand } from "@aws-sdk/client-appstream"; // ES Modules import
+ * // const { AppStreamClient, DeleteUsageReportSubscriptionCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
  * const command = new DeleteUsageReportSubscriptionCommand(input);
  * const response = await client.send(command);

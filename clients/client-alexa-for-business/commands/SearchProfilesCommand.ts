@@ -24,8 +24,10 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  * <p>Searches room profiles and lists the ones that meet a set of filter
  *          criteria.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AlexaForBusinessClient, SearchProfilesCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, SearchProfilesCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const command = new SearchProfilesCommand(input);
  * const response = await client.send(command);

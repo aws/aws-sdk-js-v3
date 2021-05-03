@@ -24,8 +24,10 @@ export interface UpdateDetectorModelCommandOutput extends UpdateDetectorModelRes
  * <p>Updates a detector model. Detectors (instances) spawned by the previous version are
  *       deleted and then re-created as new inputs arrive.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTEventsClient, UpdateDetectorModelCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
+ * // const { IoTEventsClient, UpdateDetectorModelCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const command = new UpdateDetectorModelCommand(input);
  * const response = await client.send(command);

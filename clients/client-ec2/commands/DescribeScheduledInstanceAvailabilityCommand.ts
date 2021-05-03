@@ -32,8 +32,10 @@ export interface DescribeScheduledInstanceAvailabilityCommandOutput
  *          <p>After you find a schedule that meets your needs, call <a>PurchaseScheduledInstances</a>
  *          to purchase Scheduled Instances with that schedule.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, DescribeScheduledInstanceAvailabilityCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeScheduledInstanceAvailabilityCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new DescribeScheduledInstanceAvailabilityCommand(input);
  * const response = await client.send(command);

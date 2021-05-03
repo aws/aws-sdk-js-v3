@@ -27,8 +27,10 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
 /**
  * <p>Retrieves a list of all of your applications. Results are paginated.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogAppRegistryClient, ListApplicationsCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
+ * // const { ServiceCatalogAppRegistryClient, ListApplicationsCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const command = new ListApplicationsCommand(input);
  * const response = await client.send(command);

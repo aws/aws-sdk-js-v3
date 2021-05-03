@@ -24,8 +24,10 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  *         <p>If you specify a key that already exists for the resource, the value for that key
  *             will be updated with the new value.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RedshiftClient, CreateTagsCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, CreateTagsCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
  * const command = new CreateTagsCommand(input);
  * const response = await client.send(command);

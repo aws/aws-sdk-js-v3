@@ -25,8 +25,10 @@ export interface ListThingRegistrationTaskReportsCommandOutput
 /**
  * <p>Information about the thing registration tasks.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, ListThingRegistrationTaskReportsCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListThingRegistrationTaskReportsCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new ListThingRegistrationTaskReportsCommand(input);
  * const response = await client.send(command);

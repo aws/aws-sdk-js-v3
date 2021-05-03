@@ -29,8 +29,10 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * 			which are already created and available to all accounts in Regions supported by
  * 			AWS Fargate.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECSClient, CreateCapacityProviderCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, CreateCapacityProviderCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const command = new CreateCapacityProviderCommand(input);
  * const response = await client.send(command);

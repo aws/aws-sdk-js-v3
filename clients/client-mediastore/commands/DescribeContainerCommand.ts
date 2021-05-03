@@ -29,8 +29,10 @@ export interface DescribeContainerCommandOutput extends DescribeContainerOutput,
  *             <code>Container</code> objects that are associated with a specified AWS account, use
  *             <a>ListContainers</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaStoreClient, DescribeContainerCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
+ * // const { MediaStoreClient, DescribeContainerCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const command = new DescribeContainerCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupRespo
 /**
  * <p>Deletes the billing group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, DeleteBillingGroupCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DeleteBillingGroupCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new DeleteBillingGroupCommand(input);
  * const response = await client.send(command);

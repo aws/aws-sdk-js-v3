@@ -27,8 +27,10 @@ export interface DescribeTargetHealthCommandOutput extends DescribeTargetHealthO
 /**
  * <p>Describes the health of the specified targets or all of your targets.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticLoadBalancingV2Client, DescribeTargetHealthCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, DescribeTargetHealthCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const command = new DescribeTargetHealthCommand(input);
  * const response = await client.send(command);

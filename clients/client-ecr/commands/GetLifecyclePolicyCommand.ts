@@ -23,8 +23,10 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
 /**
  * <p>Retrieves the lifecycle policy for the specified repository.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECRClient, GetLifecyclePolicyCommand } from "@aws-sdk/client-ecr"; // ES Modules import
+ * // const { ECRClient, GetLifecyclePolicyCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
  * const command = new GetLifecyclePolicyCommand(input);
  * const response = await client.send(command);

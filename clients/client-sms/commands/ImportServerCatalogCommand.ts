@@ -26,8 +26,10 @@ export interface ImportServerCatalogCommandOutput extends ImportServerCatalogRes
  *         <p>This call returns immediately, but might take additional time to retrieve all the
  *             servers.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SMSClient, ImportServerCatalogCommand } from "@aws-sdk/client-sms"; // ES Modules import
+ * // const { SMSClient, ImportServerCatalogCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
  * const command = new ImportServerCatalogCommand(input);
  * const response = await client.send(command);

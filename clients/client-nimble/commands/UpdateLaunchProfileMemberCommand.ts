@@ -23,8 +23,10 @@ export interface UpdateLaunchProfileMemberCommandOutput extends UpdateLaunchProf
 /**
  * <p>Update a user persona in launch profile membership.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NimbleClient, UpdateLaunchProfileMemberCommand } from "@aws-sdk/client-nimble"; // ES Modules import
+ * // const { NimbleClient, UpdateLaunchProfileMemberCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
  * const command = new UpdateLaunchProfileMemberCommand(input);
  * const response = await client.send(command);

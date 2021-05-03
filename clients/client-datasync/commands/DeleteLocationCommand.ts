@@ -23,8 +23,10 @@ export interface DeleteLocationCommandOutput extends DeleteLocationResponse, __M
 /**
  * <p>Deletes the configuration of a location used by AWS DataSync. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataSyncClient, DeleteLocationCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, DeleteLocationCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
  * const command = new DeleteLocationCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsRes
 /**
  * <p>Returns a list of the standards that are currently enabled.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SecurityHubClient, GetEnabledStandardsCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, GetEnabledStandardsCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const command = new GetEnabledStandardsCommand(input);
  * const response = await client.send(command);

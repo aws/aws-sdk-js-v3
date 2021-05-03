@@ -25,8 +25,10 @@ export interface ListInfrastructureConfigurationsCommandOutput
 /**
  * <p> Returns a list of infrastructure configurations.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ImagebuilderClient, ListInfrastructureConfigurationsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, ListInfrastructureConfigurationsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const command = new ListInfrastructureConfigurationsCommand(input);
  * const response = await client.send(command);

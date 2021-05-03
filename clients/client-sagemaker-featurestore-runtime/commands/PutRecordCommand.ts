@@ -31,8 +31,10 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
  *          both the <code>OnlineStore</code> and <code>OfflineStore</code>. If the record is a
  *          historic record, it is written only to the <code>OfflineStore</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerFeatureStoreRuntimeClient, PutRecordCommand } from "@aws-sdk/client-sagemaker-featurestore-runtime"; // ES Modules import
+ * // const { SageMakerFeatureStoreRuntimeClient, PutRecordCommand } = require("@aws-sdk/client-sagemaker-featurestore-runtime"); // CommonJS import
  * const client = new SageMakerFeatureStoreRuntimeClient(config);
  * const command = new PutRecordCommand(input);
  * const response = await client.send(command);

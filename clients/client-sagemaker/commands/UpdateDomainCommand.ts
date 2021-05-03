@@ -23,8 +23,10 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
 /**
  * <p>Updates the default settings for new user profiles in the domain.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, UpdateDomainCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, UpdateDomainCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new UpdateDomainCommand(input);
  * const response = await client.send(command);

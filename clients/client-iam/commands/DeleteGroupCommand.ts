@@ -21,8 +21,10 @@ export interface DeleteGroupCommandOutput extends __MetadataBearer {}
  * <p>Deletes the specified IAM group. The group must not contain any users or have any
  *             attached policies.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IAMClient, DeleteGroupCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, DeleteGroupCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
  * const command = new DeleteGroupCommand(input);
  * const response = await client.send(command);

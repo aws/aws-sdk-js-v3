@@ -29,8 +29,10 @@ export interface CreateBackupVaultCommandOutput extends CreateBackupVaultOutput,
  *             vault.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BackupClient, CreateBackupVaultCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, CreateBackupVaultCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
  * const command = new CreateBackupVaultCommand(input);
  * const response = await client.send(command);

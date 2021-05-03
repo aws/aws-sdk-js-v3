@@ -23,8 +23,10 @@ export interface GetSatelliteCommandOutput extends GetSatelliteResponse, __Metad
 /**
  * <p>Returns a satellite.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GroundStationClient, GetSatelliteCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
+ * // const { GroundStationClient, GetSatelliteCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
  * const command = new GetSatelliteCommand(input);
  * const response = await client.send(command);

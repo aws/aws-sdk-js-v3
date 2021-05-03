@@ -25,8 +25,10 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  *       administrator of the account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Assign User Access</a> in the <i>AWS SSO User Guide</i>. This operation
  *       returns a paginated response.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSOClient, ListAccountsCommand } from "@aws-sdk/client-sso"; // ES Modules import
+ * // const { SSOClient, ListAccountsCommand } = require("@aws-sdk/client-sso"); // CommonJS import
  * const client = new SSOClient(config);
  * const command = new ListAccountsCommand(input);
  * const response = await client.send(command);

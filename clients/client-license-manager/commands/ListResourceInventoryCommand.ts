@@ -23,8 +23,10 @@ export interface ListResourceInventoryCommandOutput extends ListResourceInventor
 /**
  * <p>Lists resources managed using Systems Manager inventory.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LicenseManagerClient, ListResourceInventoryCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, ListResourceInventoryCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const command = new ListResourceInventoryCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface UntagProjectCommandOutput extends UntagProjectResult, __Metadat
 /**
  * <p>Removes tags from a project.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeStarClient, UntagProjectCommand } from "@aws-sdk/client-codestar"; // ES Modules import
+ * // const { CodeStarClient, UntagProjectCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
  * const command = new UntagProjectCommand(input);
  * const response = await client.send(command);

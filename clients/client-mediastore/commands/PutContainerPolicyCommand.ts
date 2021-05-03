@@ -29,8 +29,10 @@ export interface PutContainerPolicyCommandOutput extends PutContainerPolicyOutpu
  *          you enter <code>PutContainerPolicy</code> twice, the second command modifies the existing
  *          policy. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaStoreClient, PutContainerPolicyCommand } from "@aws-sdk/client-mediastore"; // ES Modules import
+ * // const { MediaStoreClient, PutContainerPolicyCommand } = require("@aws-sdk/client-mediastore"); // CommonJS import
  * const client = new MediaStoreClient(config);
  * const command = new PutContainerPolicyCommand(input);
  * const response = await client.send(command);

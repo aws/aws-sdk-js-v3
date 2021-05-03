@@ -23,8 +23,10 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
 /**
  * <p>Retrieves information about a channel.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTAnalyticsClient, DescribeChannelCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
+ * // const { IoTAnalyticsClient, DescribeChannelCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const command = new DescribeChannelCommand(input);
  * const response = await client.send(command);

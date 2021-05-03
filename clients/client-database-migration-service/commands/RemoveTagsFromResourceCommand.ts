@@ -32,8 +32,10 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  *             </a>
  *          data type description.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DatabaseMigrationServiceClient, RemoveTagsFromResourceCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, RemoveTagsFromResourceCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const command = new RemoveTagsFromResourceCommand(input);
  * const response = await client.send(command);

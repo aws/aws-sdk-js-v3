@@ -28,8 +28,10 @@ export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataB
  *          <p>You can use <code>StartCanary</code> to start it running again
  *          with the canary’s current schedule at any point in the future.  </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SyntheticsClient, StopCanaryCommand } from "@aws-sdk/client-synthetics"; // ES Modules import
+ * // const { SyntheticsClient, StopCanaryCommand } = require("@aws-sdk/client-synthetics"); // CommonJS import
  * const client = new SyntheticsClient(config);
  * const command = new StopCanaryCommand(input);
  * const response = await client.send(command);

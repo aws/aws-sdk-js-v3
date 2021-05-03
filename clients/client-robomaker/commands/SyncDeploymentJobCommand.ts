@@ -24,8 +24,10 @@ export interface SyncDeploymentJobCommandOutput extends SyncDeploymentJobRespons
  * <p>Syncrhonizes robots in a fleet to the latest deployment. This is helpful if robots were
  *          added after a deployment.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RoboMakerClient, SyncDeploymentJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
+ * // const { RoboMakerClient, SyncDeploymentJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const command = new SyncDeploymentJobCommand(input);
  * const response = await client.send(command);

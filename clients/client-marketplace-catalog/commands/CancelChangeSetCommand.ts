@@ -30,8 +30,10 @@ export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, _
  *             can describe a change during the 60-day request history retention period for API
  *             calls.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MarketplaceCatalogClient, CancelChangeSetCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
+ * // const { MarketplaceCatalogClient, CancelChangeSetCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
  * const command = new CancelChangeSetCommand(input);
  * const response = await client.send(command);

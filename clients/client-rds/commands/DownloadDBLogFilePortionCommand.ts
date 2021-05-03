@@ -23,8 +23,10 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
 /**
  * <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSClient, DownloadDBLogFilePortionCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DownloadDBLogFilePortionCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
  * const command = new DownloadDBLogFilePortionCommand(input);
  * const response = await client.send(command);

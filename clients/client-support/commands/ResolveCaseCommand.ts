@@ -38,8 +38,10 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  *             </ul>
  *         </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SupportClient, ResolveCaseCommand } from "@aws-sdk/client-support"; // ES Modules import
+ * // const { SupportClient, ResolveCaseCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
  * const command = new ResolveCaseCommand(input);
  * const response = await client.send(command);

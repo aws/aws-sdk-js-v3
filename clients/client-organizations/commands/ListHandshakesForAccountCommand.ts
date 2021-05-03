@@ -36,8 +36,10 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  *          </note>
  *         <p>This operation can be called from any account in the organization.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { OrganizationsClient, ListHandshakesForAccountCommand } from "@aws-sdk/client-organizations"; // ES Modules import
+ * // const { OrganizationsClient, ListHandshakesForAccountCommand } = require("@aws-sdk/client-organizations"); // CommonJS import
  * const client = new OrganizationsClient(config);
  * const command = new ListHandshakesForAccountCommand(input);
  * const response = await client.send(command);

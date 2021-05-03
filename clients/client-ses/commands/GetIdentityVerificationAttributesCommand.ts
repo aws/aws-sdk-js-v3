@@ -43,8 +43,10 @@ export interface GetIdentityVerificationAttributesCommandOutput
  *         <p>This operation is throttled at one request per second and can only get verification
  *             attributes for up to 100 identities at a time.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SESClient, GetIdentityVerificationAttributesCommand } from "@aws-sdk/client-ses"; // ES Modules import
+ * // const { SESClient, GetIdentityVerificationAttributesCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
  * const command = new GetIdentityVerificationAttributesCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface UpdateModelCommandOutput extends Model, __MetadataBearer {}
 /**
  * <p>Changes information about a model.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { APIGatewayClient, UpdateModelCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, UpdateModelCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const command = new UpdateModelCommand(input);
  * const response = await client.send(command);

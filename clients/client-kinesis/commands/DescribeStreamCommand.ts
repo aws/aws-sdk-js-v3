@@ -39,8 +39,10 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  *             the oldest shard.</p>
  *         <p>This operation has a limit of 10 transactions per second per account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisClient, DescribeStreamCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
+ * // const { KinesisClient, DescribeStreamCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
  * const command = new DescribeStreamCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * <p>Generates a list of all models in the account, including model name and ARN, dataset,
  *          and status. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutEquipmentClient, ListModelsCommand } from "@aws-sdk/client-lookoutequipment"; // ES Modules import
+ * // const { LookoutEquipmentClient, ListModelsCommand } = require("@aws-sdk/client-lookoutequipment"); // CommonJS import
  * const client = new LookoutEquipmentClient(config);
  * const command = new ListModelsCommand(input);
  * const response = await client.send(command);

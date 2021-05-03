@@ -27,8 +27,10 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  *       <code>DBClusterParameterGroupName</code> parameter is specified, the list will contain only
  *       the description of the specified DB cluster parameter group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NeptuneClient, DescribeDBClusterParameterGroupsCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, DescribeDBClusterParameterGroupsCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
  * const command = new DescribeDBClusterParameterGroupsCommand(input);
  * const response = await client.send(command);

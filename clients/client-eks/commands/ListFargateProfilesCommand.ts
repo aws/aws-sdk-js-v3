@@ -24,8 +24,10 @@ export interface ListFargateProfilesCommandOutput extends ListFargateProfilesRes
  * <p>Lists the AWS Fargate profiles associated with the specified cluster in your AWS
  *             account in the specified Region.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EKSClient, ListFargateProfilesCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, ListFargateProfilesCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
  * const command = new ListFargateProfilesCommand(input);
  * const response = await client.send(command);

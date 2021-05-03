@@ -29,8 +29,10 @@ export interface ExecuteProvisionedProductServiceActionCommandOutput
 /**
  * <p>Executes a self-service action against a provisioned product.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, ExecuteProvisionedProductServiceActionCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, ExecuteProvisionedProductServiceActionCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new ExecuteProvisionedProductServiceActionCommand(input);
  * const response = await client.send(command);

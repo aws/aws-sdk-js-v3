@@ -26,8 +26,10 @@ export interface ImportMigrationTaskCommandOutput extends ImportMigrationTaskRes
  *          <p>This API is a prerequisite to calling the <code>NotifyMigrationTaskState</code> API as
  *          the migration tool must first register the migration task with Migration Hub.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MigrationHubClient, ImportMigrationTaskCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
+ * // const { MigrationHubClient, ImportMigrationTaskCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const command = new ImportMigrationTaskCommand(input);
  * const response = await client.send(command);

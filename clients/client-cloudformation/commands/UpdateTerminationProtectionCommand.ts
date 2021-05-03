@@ -29,8 +29,10 @@ export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminat
  *             stacks</a>, termination protection is set on the root stack and cannot be changed
  *          directly on the nested stack.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFormationClient, UpdateTerminationProtectionCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, UpdateTerminationProtectionCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const command = new UpdateTerminationProtectionCommand(input);
  * const response = await client.send(command);

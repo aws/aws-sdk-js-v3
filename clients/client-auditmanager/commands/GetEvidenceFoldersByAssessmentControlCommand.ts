@@ -31,8 +31,10 @@ export interface GetEvidenceFoldersByAssessmentControlCommandOutput
  *    Returns a list of evidence folders associated with a specified control of an assessment in AWS Audit Manager.
  * </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AuditManagerClient, GetEvidenceFoldersByAssessmentControlCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
+ * // const { AuditManagerClient, GetEvidenceFoldersByAssessmentControlCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const command = new GetEvidenceFoldersByAssessmentControlCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
 /**
  * Stops a running channel
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaLiveClient, StopChannelCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, StopChannelCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const command = new StopChannelCommand(input);
  * const response = await client.send(command);

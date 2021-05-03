@@ -22,8 +22,10 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *          various ways, such as grouping clusters to track your Amazon EMR resource allocation costs.
  *          For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html">Tag Clusters</a>. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EMRClient, AddTagsCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, AddTagsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
  * const command = new AddTagsCommand(input);
  * const response = await client.send(command);

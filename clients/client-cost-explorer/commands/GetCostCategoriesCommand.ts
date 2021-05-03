@@ -26,8 +26,10 @@ export interface GetCostCategoriesCommandOutput extends GetCostCategoriesRespons
  *             <p>If some Cost Category names and values are not associated with any cost, they will not be returned by this API.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CostExplorerClient, GetCostCategoriesCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
+ * // const { CostExplorerClient, GetCostCategoriesCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
  * const command = new GetCostCategoriesCommand(input);
  * const response = await client.send(command);

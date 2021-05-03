@@ -23,8 +23,10 @@ export interface ListModelPackagesCommandOutput extends ListModelPackagesOutput,
 /**
  * <p>Lists the model packages that have been created.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, ListModelPackagesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListModelPackagesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new ListModelPackagesCommand(input);
  * const response = await client.send(command);

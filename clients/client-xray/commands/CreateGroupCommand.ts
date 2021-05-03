@@ -23,8 +23,10 @@ export interface CreateGroupCommandOutput extends CreateGroupResult, __MetadataB
 /**
  * <p>Creates a group resource with a name and a filter expression. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { XRayClient, CreateGroupCommand } from "@aws-sdk/client-xray"; // ES Modules import
+ * // const { XRayClient, CreateGroupCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);

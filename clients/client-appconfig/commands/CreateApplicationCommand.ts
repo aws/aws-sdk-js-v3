@@ -26,8 +26,10 @@ export interface CreateApplicationCommandOutput extends Application, __MetadataB
  *          a mobile application installed by your users, a serverless application using Amazon API
  *          Gateway and AWS Lambda, or any system you run on behalf of others.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppConfigClient, CreateApplicationCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
+ * // const { AppConfigClient, CreateApplicationCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);

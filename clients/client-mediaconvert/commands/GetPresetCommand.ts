@@ -23,8 +23,10 @@ export interface GetPresetCommandOutput extends GetPresetResponse, __MetadataBea
 /**
  * Retrieve the JSON for a specific preset.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaConvertClient, GetPresetCommand } from "@aws-sdk/client-mediaconvert"; // ES Modules import
+ * // const { MediaConvertClient, GetPresetCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
  * const command = new GetPresetCommand(input);
  * const response = await client.send(command);

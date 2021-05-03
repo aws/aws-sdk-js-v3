@@ -54,8 +54,10 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FSxClient, DescribeFileSystemsCommand } from "@aws-sdk/client-fsx"; // ES Modules import
+ * // const { FSxClient, DescribeFileSystemsCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
  * const command = new DescribeFileSystemsCommand(input);
  * const response = await client.send(command);

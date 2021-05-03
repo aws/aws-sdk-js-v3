@@ -26,8 +26,10 @@ export interface GetTimeSeriesServiceStatisticsCommandOutput
  * <p>Get an aggregation of service statistics defined by a specific time
  *             range.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { XRayClient, GetTimeSeriesServiceStatisticsCommand } from "@aws-sdk/client-xray"; // ES Modules import
+ * // const { XRayClient, GetTimeSeriesServiceStatisticsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
  * const command = new GetTimeSeriesServiceStatisticsCommand(input);
  * const response = await client.send(command);

@@ -57,8 +57,10 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *       in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a
  *       function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Functions</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LambdaClient, CreateFunctionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, CreateFunctionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
  * const command = new CreateFunctionCommand(input);
  * const response = await client.send(command);

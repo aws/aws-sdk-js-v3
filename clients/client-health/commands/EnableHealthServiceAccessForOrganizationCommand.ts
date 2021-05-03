@@ -44,8 +44,10 @@ export interface EnableHealthServiceAccessForOrganizationCommandOutput extends _
  *          to enable the organizational view feature. For more information, see <a href="https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html">Aggregating
  *             AWS Health events</a> in the <i>AWS Health User Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { HealthClient, EnableHealthServiceAccessForOrganizationCommand } from "@aws-sdk/client-health"; // ES Modules import
+ * // const { HealthClient, EnableHealthServiceAccessForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
  * const command = new EnableHealthServiceAccessForOrganizationCommand(input);
  * const response = await client.send(command);

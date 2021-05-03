@@ -33,8 +33,10 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  *          deleted, it assumes that the database instance still exists and attempts to roll back to
  *          it, causing the update rollback to fail.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFormationClient, ContinueUpdateRollbackCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, ContinueUpdateRollbackCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const command = new ContinueUpdateRollbackCommand(input);
  * const response = await client.send(command);

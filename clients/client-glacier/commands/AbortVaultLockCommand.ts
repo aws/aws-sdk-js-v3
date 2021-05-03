@@ -36,8 +36,10 @@ export interface AbortVaultLockCommandOutput extends __MetadataBearer {}
  *          times, if the vault lock is in the <code>InProgress</code> state or if there is no policy
  *          associated with the vault.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlacierClient, AbortVaultLockCommand } from "@aws-sdk/client-glacier"; // ES Modules import
+ * // const { GlacierClient, AbortVaultLockCommand } = require("@aws-sdk/client-glacier"); // CommonJS import
  * const client = new GlacierClient(config);
  * const command = new AbortVaultLockCommand(input);
  * const response = await client.send(command);

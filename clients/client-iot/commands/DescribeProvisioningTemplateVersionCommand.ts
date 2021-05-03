@@ -28,8 +28,10 @@ export interface DescribeProvisioningTemplateVersionCommandOutput
 /**
  * <p>Returns information about a fleet provisioning template version.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, DescribeProvisioningTemplateVersionCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DescribeProvisioningTemplateVersionCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new DescribeProvisioningTemplateVersionCommand(input);
  * const response = await client.send(command);

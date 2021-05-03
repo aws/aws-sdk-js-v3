@@ -30,8 +30,10 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  *             process. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth">Registry
  *                 Authentication</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECRClient, GetAuthorizationTokenCommand } from "@aws-sdk/client-ecr"; // ES Modules import
+ * // const { ECRClient, GetAuthorizationTokenCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
  * const command = new GetAuthorizationTokenCommand(input);
  * const response = await client.send(command);

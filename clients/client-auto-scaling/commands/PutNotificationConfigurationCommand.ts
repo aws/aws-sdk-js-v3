@@ -31,8 +31,10 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  *         <p>If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling group, the call
  *             fails.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AutoScalingClient, PutNotificationConfigurationCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, PutNotificationConfigurationCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const command = new PutNotificationConfigurationCommand(input);
  * const response = await client.send(command);

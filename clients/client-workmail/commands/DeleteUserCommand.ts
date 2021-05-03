@@ -27,8 +27,10 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  *          <p>Deleting a user is permanent and cannot be undone. WorkMail archives user mailboxes for
  *          30 days before they are permanently removed.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, DeleteUserCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, DeleteUserCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new DeleteUserCommand(input);
  * const response = await client.send(command);

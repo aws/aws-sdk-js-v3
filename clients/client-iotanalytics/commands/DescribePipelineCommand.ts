@@ -23,8 +23,10 @@ export interface DescribePipelineCommandOutput extends DescribePipelineResponse,
 /**
  * <p>Retrieves information about a pipeline.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTAnalyticsClient, DescribePipelineCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
+ * // const { IoTAnalyticsClient, DescribePipelineCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const command = new DescribePipelineCommand(input);
  * const response = await client.send(command);

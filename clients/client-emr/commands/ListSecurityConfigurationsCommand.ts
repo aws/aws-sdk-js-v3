@@ -26,8 +26,10 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  *          returns a marker to track the paging of the cluster list across multiple
  *          ListSecurityConfigurations calls.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EMRClient, ListSecurityConfigurationsCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, ListSecurityConfigurationsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
  * const command = new ListSecurityConfigurationsCommand(input);
  * const response = await client.send(command);

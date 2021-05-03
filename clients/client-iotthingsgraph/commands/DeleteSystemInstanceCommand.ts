@@ -25,8 +25,10 @@ export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceR
  *          Only system instances that have never been deployed, or that have been undeployed can be deleted.</p>
  *          <p>Users can create a new system instance that has the same ID as a deleted system instance.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTThingsGraphClient, DeleteSystemInstanceCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
+ * // const { IoTThingsGraphClient, DeleteSystemInstanceCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const command = new DeleteSystemInstanceCommand(input);
  * const response = await client.send(command);

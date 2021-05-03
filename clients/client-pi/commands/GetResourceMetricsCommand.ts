@@ -29,8 +29,10 @@ export interface GetResourceMetricsCommandOutput extends GetResourceMetricsRespo
  *                only the first 500 bytes are returned.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PIClient, GetResourceMetricsCommand } from "@aws-sdk/client-pi"; // ES Modules import
+ * // const { PIClient, GetResourceMetricsCommand } = require("@aws-sdk/client-pi"); // CommonJS import
  * const client = new PIClient(config);
  * const command = new GetResourceMetricsCommand(input);
  * const response = await client.send(command);

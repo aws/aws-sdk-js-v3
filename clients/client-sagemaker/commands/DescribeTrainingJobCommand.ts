@@ -29,8 +29,10 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
  *                 <code>TrainingEndTime</code>, and <code>BillableTimeInSeconds</code> may not be
  *             present in the response.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, DescribeTrainingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DescribeTrainingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new DescribeTrainingJobCommand(input);
  * const response = await client.send(command);

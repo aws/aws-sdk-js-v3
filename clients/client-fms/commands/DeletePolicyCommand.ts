@@ -23,8 +23,10 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
 /**
  * <p>Permanently deletes an AWS Firewall Manager policy. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FMSClient, DeletePolicyCommand } from "@aws-sdk/client-fms"; // ES Modules import
+ * // const { FMSClient, DeletePolicyCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
  * const command = new DeletePolicyCommand(input);
  * const response = await client.send(command);

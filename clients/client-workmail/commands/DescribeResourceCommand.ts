@@ -23,8 +23,10 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
 /**
  * <p>Returns the data available for the resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, DescribeResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, DescribeResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new DescribeResourceCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface GetCardinalityCommandOutput extends GetCardinalityResponse, __M
 /**
  * <p>Returns the approximate count of unique values that match the query.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, GetCardinalityCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, GetCardinalityCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new GetCardinalityCommand(input);
  * const response = await client.send(command);

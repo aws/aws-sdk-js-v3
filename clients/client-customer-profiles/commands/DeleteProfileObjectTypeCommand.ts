@@ -26,8 +26,10 @@ export interface DeleteProfileObjectTypeCommandOutput extends DeleteProfileObjec
  *          ProfileObjectType. In addition, it scrubs all of the fields of the standard profile that
  *          were populated from this ProfileObjectType.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CustomerProfilesClient, DeleteProfileObjectTypeCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, DeleteProfileObjectTypeCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const command = new DeleteProfileObjectTypeCommand(input);
  * const response = await client.send(command);

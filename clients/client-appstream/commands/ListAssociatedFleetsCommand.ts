@@ -23,8 +23,10 @@ export interface ListAssociatedFleetsCommandOutput extends ListAssociatedFleetsR
 /**
  * <p>Retrieves the name of the fleet that is associated with the specified stack.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppStreamClient, ListAssociatedFleetsCommand } from "@aws-sdk/client-appstream"; // ES Modules import
+ * // const { AppStreamClient, ListAssociatedFleetsCommand } = require("@aws-sdk/client-appstream"); // CommonJS import
  * const client = new AppStreamClient(config);
  * const command = new ListAssociatedFleetsCommand(input);
  * const response = await client.send(command);

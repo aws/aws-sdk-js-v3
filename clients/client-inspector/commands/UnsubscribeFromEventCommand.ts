@@ -24,8 +24,10 @@ export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
  * <p>Disables the process of sending Amazon Simple Notification Service (SNS)
  *          notifications about a specified event to a specified SNS topic.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { InspectorClient, UnsubscribeFromEventCommand } from "@aws-sdk/client-inspector"; // ES Modules import
+ * // const { InspectorClient, UnsubscribeFromEventCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
  * const command = new UnsubscribeFromEventCommand(input);
  * const response = await client.send(command);

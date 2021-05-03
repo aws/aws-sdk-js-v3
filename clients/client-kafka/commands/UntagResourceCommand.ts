@@ -23,8 +23,10 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes the tags associated with the keys that are provided in the query.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KafkaClient, UntagResourceCommand } from "@aws-sdk/client-kafka"; // ES Modules import
+ * // const { KafkaClient, UntagResourceCommand } = require("@aws-sdk/client-kafka"); // CommonJS import
  * const client = new KafkaClient(config);
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);

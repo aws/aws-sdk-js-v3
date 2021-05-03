@@ -23,8 +23,10 @@ export interface SearchQuantumTasksCommandOutput extends SearchQuantumTasksRespo
 /**
  * <p>Searches for tasks that match the specified filter values.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BraketClient, SearchQuantumTasksCommand } from "@aws-sdk/client-braket"; // ES Modules import
+ * // const { BraketClient, SearchQuantumTasksCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
  * const command = new SearchQuantumTasksCommand(input);
  * const response = await client.send(command);

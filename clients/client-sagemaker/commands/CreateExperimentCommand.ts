@@ -39,8 +39,10 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  *       list of all the trials associated with an experiment, call the <a>ListTrials</a>
  *       API. To create a trial call the <a>CreateTrial</a> API.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, CreateExperimentCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, CreateExperimentCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new CreateExperimentCommand(input);
  * const response = await client.send(command);

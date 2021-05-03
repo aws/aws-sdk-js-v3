@@ -23,8 +23,10 @@ export interface UpdateSuiteDefinitionCommandOutput extends UpdateSuiteDefinitio
 /**
  * <p>Updates a Device Advisor test suite.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IotDeviceAdvisorClient, UpdateSuiteDefinitionCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
+ * // const { IotDeviceAdvisorClient, UpdateSuiteDefinitionCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
  * const command = new UpdateSuiteDefinitionCommand(input);
  * const response = await client.send(command);

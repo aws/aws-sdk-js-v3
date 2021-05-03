@@ -24,8 +24,10 @@ export interface HttpRequestWithLabelsCommandOutput extends __MetadataBearer {}
  * The example tests how requests are serialized when there's no input
  * payload but there are HTTP labels.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RestXmlProtocolClient, HttpRequestWithLabelsCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, HttpRequestWithLabelsCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
  * const command = new HttpRequestWithLabelsCommand(input);
  * const response = await client.send(command);

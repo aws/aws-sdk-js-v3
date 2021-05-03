@@ -23,8 +23,10 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
 /**
  * <p> Lists the jobs for a branch of an Amplify app. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AmplifyClient, ListJobsCommand } from "@aws-sdk/client-amplify"; // ES Modules import
+ * // const { AmplifyClient, ListJobsCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);

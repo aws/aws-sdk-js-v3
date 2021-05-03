@@ -33,8 +33,10 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  *                     <i>IAM User Guide</i>.</p>
  *         </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { STSClient, GetCallerIdentityCommand } from "@aws-sdk/client-sts"; // ES Modules import
+ * // const { STSClient, GetCallerIdentityCommand } = require("@aws-sdk/client-sts"); // CommonJS import
  * const client = new STSClient(config);
  * const command = new GetCallerIdentityCommand(input);
  * const response = await client.send(command);

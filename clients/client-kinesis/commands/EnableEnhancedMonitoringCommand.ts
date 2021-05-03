@@ -23,8 +23,10 @@ export interface EnableEnhancedMonitoringCommandOutput extends EnhancedMonitorin
 /**
  * <p>Enables enhanced Kinesis data stream monitoring for shard-level metrics.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisClient, EnableEnhancedMonitoringCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
+ * // const { KinesisClient, EnableEnhancedMonitoringCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
  * const command = new EnableEnhancedMonitoringCommand(input);
  * const response = await client.send(command);

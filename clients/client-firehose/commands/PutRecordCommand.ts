@@ -51,8 +51,10 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *             Instead, concatenate the raw data, then perform base64 encoding.</p>
  *          </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FirehoseClient, PutRecordCommand } from "@aws-sdk/client-firehose"; // ES Modules import
+ * // const { FirehoseClient, PutRecordCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
  * const command = new PutRecordCommand(input);
  * const response = await client.send(command);

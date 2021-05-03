@@ -27,8 +27,10 @@ export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __M
  *       Downstream services can be other applications, AWS resources, HTTP web APIs, or SQL
  *       databases.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { XRayClient, GetServiceGraphCommand } from "@aws-sdk/client-xray"; // ES Modules import
+ * // const { XRayClient, GetServiceGraphCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
  * const command = new GetServiceGraphCommand(input);
  * const response = await client.send(command);

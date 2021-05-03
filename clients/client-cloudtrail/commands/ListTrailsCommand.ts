@@ -23,8 +23,10 @@ export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataB
 /**
  * <p>Lists trails that are in the current account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudTrailClient, ListTrailsCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
+ * // const { CloudTrailClient, ListTrailsCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
  * const command = new ListTrailsCommand(input);
  * const response = await client.send(command);

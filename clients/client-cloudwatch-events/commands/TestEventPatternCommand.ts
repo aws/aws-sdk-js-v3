@@ -27,8 +27,10 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  *       correct ARN characters when creating event patterns so that they match the ARN syntax in the
  *       event you want to match.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudWatchEventsClient, TestEventPatternCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
+ * // const { CloudWatchEventsClient, TestEventPatternCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const command = new TestEventPatternCommand(input);
  * const response = await client.send(command);

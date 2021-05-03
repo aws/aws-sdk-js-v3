@@ -23,8 +23,10 @@ export interface RunPipelineActivityCommandOutput extends RunPipelineActivityRes
 /**
  * <p>Simulates the results of running a pipeline activity on a message payload.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTAnalyticsClient, RunPipelineActivityCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
+ * // const { IoTAnalyticsClient, RunPipelineActivityCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const command = new RunPipelineActivityCommand(input);
  * const response = await client.send(command);

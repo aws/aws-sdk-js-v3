@@ -24,8 +24,10 @@ export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessio
  * <p>Returns a list of all user or group session mappings for the Amazon EMR Studio specified by
  *             <code>StudioId</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EMRClient, ListStudioSessionMappingsCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, ListStudioSessionMappingsCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
  * const command = new ListStudioSessionMappingsCommand(input);
  * const response = await client.send(command);

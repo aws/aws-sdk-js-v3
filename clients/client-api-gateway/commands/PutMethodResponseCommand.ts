@@ -23,8 +23,10 @@ export interface PutMethodResponseCommandOutput extends MethodResponse, __Metada
 /**
  * <p>Adds a <a>MethodResponse</a> to an existing <a>Method</a> resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { APIGatewayClient, PutMethodResponseCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, PutMethodResponseCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const command = new PutMethodResponseCommand(input);
  * const response = await client.send(command);

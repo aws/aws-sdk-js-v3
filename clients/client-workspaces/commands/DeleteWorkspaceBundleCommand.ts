@@ -25,8 +25,10 @@ export interface DeleteWorkspaceBundleCommandOutput extends DeleteWorkspaceBundl
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/delete_bundle.html">
  *             Delete a Custom WorkSpaces Bundle or Image</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkSpacesClient, DeleteWorkspaceBundleCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
+ * // const { WorkSpacesClient, DeleteWorkspaceBundleCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const command = new DeleteWorkspaceBundleCommand(input);
  * const response = await client.send(command);

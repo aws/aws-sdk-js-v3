@@ -28,8 +28,10 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *          current <a>RuleGroup</a> object, update the object as needed, and then provide
  *          the updated object to this call. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NetworkFirewallClient, UpdateRuleGroupCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
+ * // const { NetworkFirewallClient, UpdateRuleGroupCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const command = new UpdateRuleGroupCommand(input);
  * const response = await client.send(command);

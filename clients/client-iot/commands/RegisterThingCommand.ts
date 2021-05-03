@@ -27,8 +27,10 @@ export interface RegisterThingCommandOutput extends RegisterThingResponse, __Met
  *             AWS IoT Throttling Limits</a> and cause throttle errors. Please contact <a href="https://console.aws.amazon.com/support/home">AWS Customer Support</a> to raise
  *          your throttling limits if necessary.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, RegisterThingCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, RegisterThingCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new RegisterThingCommand(input);
  * const response = await client.send(command);

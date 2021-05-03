@@ -23,8 +23,10 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
 /**
  * <p>Sends messages to a channel.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTAnalyticsClient, BatchPutMessageCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
+ * // const { IoTAnalyticsClient, BatchPutMessageCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const command = new BatchPutMessageCommand(input);
  * const response = await client.send(command);

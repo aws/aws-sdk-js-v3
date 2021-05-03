@@ -50,8 +50,10 @@ export interface CreateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  *
  *          <p>You must use AWS Developer credentials to call this API.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityClient, CreateIdentityPoolCommand } from "@aws-sdk/client-cognito-identity"; // ES Modules import
+ * // const { CognitoIdentityClient, CreateIdentityPoolCommand } = require("@aws-sdk/client-cognito-identity"); // CommonJS import
  * const client = new CognitoIdentityClient(config);
  * const command = new CreateIdentityPoolCommand(input);
  * const response = await client.send(command);

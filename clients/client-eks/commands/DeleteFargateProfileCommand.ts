@@ -30,8 +30,10 @@ export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileR
  *             time. You must wait for a Fargate profile to finish deleting before you can delete any
  *             other profiles in that cluster.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EKSClient, DeleteFargateProfileCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, DeleteFargateProfileCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
  * const command = new DeleteFargateProfileCommand(input);
  * const response = await client.send(command);

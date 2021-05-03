@@ -36,8 +36,10 @@ export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBea
  *         operation during a maintenance window.</p>
  *          </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudHSMClient, ModifyHsmCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
+ * // const { CloudHSMClient, ModifyHsmCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const command = new ModifyHsmCommand(input);
  * const response = await client.send(command);

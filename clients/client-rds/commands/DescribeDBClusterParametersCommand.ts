@@ -30,8 +30,10 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  *             <p>This action only applies to Aurora DB clusters.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSClient, DescribeDBClusterParametersCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeDBClusterParametersCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
  * const command = new DescribeDBClusterParametersCommand(input);
  * const response = await client.send(command);

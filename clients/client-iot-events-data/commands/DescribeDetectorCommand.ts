@@ -23,8 +23,10 @@ export interface DescribeDetectorCommandOutput extends DescribeDetectorResponse,
 /**
  * <p>Returns information about the specified detector (instance).</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTEventsDataClient, DescribeDetectorCommand } from "@aws-sdk/client-iot-events-data"; // ES Modules import
+ * // const { IoTEventsDataClient, DescribeDetectorCommand } = require("@aws-sdk/client-iot-events-data"); // CommonJS import
  * const client = new IoTEventsDataClient(config);
  * const command = new DescribeDetectorCommand(input);
  * const response = await client.send(command);

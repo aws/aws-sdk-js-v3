@@ -27,8 +27,10 @@ export interface ListLogPatternSetsCommandOutput extends ListLogPatternSetsRespo
 /**
  * <p>Lists the log pattern sets in the specific application.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ApplicationInsightsClient, ListLogPatternSetsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
+ * // const { ApplicationInsightsClient, ListLogPatternSetsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const command = new ListLogPatternSetsCommand(input);
  * const response = await client.send(command);

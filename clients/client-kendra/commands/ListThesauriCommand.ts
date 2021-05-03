@@ -23,8 +23,10 @@ export interface ListThesauriCommandOutput extends ListThesauriResponse, __Metad
 /**
  * <p>Lists the Amazon Kendra thesauri associated with an index.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KendraClient, ListThesauriCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, ListThesauriCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
  * const command = new ListThesauriCommand(input);
  * const response = await client.send(command);

@@ -31,8 +31,10 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  *          </note>
  *          <p>Returns an array of <a>RuleGroup</a> objects.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFRegionalClient, ListRuleGroupsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
+ * // const { WAFRegionalClient, ListRuleGroupsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const command = new ListRuleGroupsCommand(input);
  * const response = await client.send(command);

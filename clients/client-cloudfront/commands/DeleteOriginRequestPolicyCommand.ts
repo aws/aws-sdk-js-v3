@@ -29,8 +29,10 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
  * 			get the identifier, you can use <code>ListOriginRequestPolicies</code> or
  * 			<code>GetOriginRequestPolicy</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFrontClient, DeleteOriginRequestPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, DeleteOriginRequestPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const command = new DeleteOriginRequestPolicyCommand(input);
  * const response = await client.send(command);

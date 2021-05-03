@@ -25,8 +25,10 @@ export interface DeleteRecommenderConfigurationCommandOutput
 /**
  * <p>Deletes an Amazon Pinpoint configuration for a recommender model.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointClient, DeleteRecommenderConfigurationCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, DeleteRecommenderConfigurationCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
  * const command = new DeleteRecommenderConfigurationCommand(input);
  * const response = await client.send(command);

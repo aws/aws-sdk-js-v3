@@ -37,8 +37,10 @@ export interface GetStorageLensConfigurationTaggingCommandOutput
  *          <i>Amazon Simple Storage Service User Guide</i>.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { S3ControlClient, GetStorageLensConfigurationTaggingCommand } from "@aws-sdk/client-s3-control"; // ES Modules import
+ * // const { S3ControlClient, GetStorageLensConfigurationTaggingCommand } = require("@aws-sdk/client-s3-control"); // CommonJS import
  * const client = new S3ControlClient(config);
  * const command = new GetStorageLensConfigurationTaggingCommand(input);
  * const response = await client.send(command);

@@ -32,8 +32,10 @@ export interface DisassociateConnectionFromLagCommandOutput extends Connection, 
  *       member of the LAG. If all connections are disassociated, the LAG continues to exist as
  *       an empty LAG with no physical connections. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectConnectClient, DisassociateConnectionFromLagCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, DisassociateConnectionFromLagCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const command = new DisassociateConnectionFromLagCommand(input);
  * const response = await client.send(command);

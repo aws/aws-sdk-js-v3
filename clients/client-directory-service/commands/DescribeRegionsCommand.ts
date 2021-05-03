@@ -24,8 +24,10 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * <p>Provides information about the Regions that are configured for multi-Region
  *       replication.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectoryServiceClient, DescribeRegionsCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
+ * // const { DirectoryServiceClient, DescribeRegionsCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const command = new DescribeRegionsCommand(input);
  * const response = await client.send(command);

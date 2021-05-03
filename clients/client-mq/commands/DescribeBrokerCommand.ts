@@ -23,8 +23,10 @@ export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __M
 /**
  * Returns information about the specified broker.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MqClient, DescribeBrokerCommand } from "@aws-sdk/client-mq"; // ES Modules import
+ * // const { MqClient, DescribeBrokerCommand } = require("@aws-sdk/client-mq"); // CommonJS import
  * const client = new MqClient(config);
  * const command = new DescribeBrokerCommand(input);
  * const response = await client.send(command);

@@ -27,8 +27,10 @@ export interface DeleteSlotTypeCommandOutput extends __MetadataBearer {}
  *          exception, set the <code>skipResourceInUseCheck</code> parameter to
  *             <code>true</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LexModelsV2Client, DeleteSlotTypeCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, DeleteSlotTypeCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const command = new DeleteSlotTypeCommand(input);
  * const response = await client.send(command);

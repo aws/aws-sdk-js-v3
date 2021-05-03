@@ -25,8 +25,10 @@ export interface CancelClusterCommandOutput extends CancelClusterResult, __Metad
  *         <code>AwaitingQuorum</code> status. You'll have at least an hour after creating a cluster
  *       job to cancel it.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SnowballClient, CancelClusterCommand } from "@aws-sdk/client-snowball"; // ES Modules import
+ * // const { SnowballClient, CancelClusterCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
  * const command = new CancelClusterCommand(input);
  * const response = await client.send(command);

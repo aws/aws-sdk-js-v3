@@ -34,8 +34,10 @@ export interface BeginTransactionCommandOutput extends BeginTransactionResponse,
  *                 <code>continueAfterTimeout</code> enabled.</p>
  *         </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSDataClient, BeginTransactionCommand } from "@aws-sdk/client-rds-data"; // ES Modules import
+ * // const { RDSDataClient, BeginTransactionCommand } = require("@aws-sdk/client-rds-data"); // CommonJS import
  * const client = new RDSDataClient(config);
  * const command = new BeginTransactionCommand(input);
  * const response = await client.send(command);

@@ -26,8 +26,10 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:CreateProject</code> operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutVisionClient, CreateProjectCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
+ * // const { LookoutVisionClient, CreateProjectCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);

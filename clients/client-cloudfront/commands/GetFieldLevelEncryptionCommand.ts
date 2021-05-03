@@ -23,8 +23,10 @@ export interface GetFieldLevelEncryptionCommandOutput extends GetFieldLevelEncry
 /**
  * <p>Get the field-level encryption configuration information.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFrontClient, GetFieldLevelEncryptionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, GetFieldLevelEncryptionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const command = new GetFieldLevelEncryptionCommand(input);
  * const response = await client.send(command);

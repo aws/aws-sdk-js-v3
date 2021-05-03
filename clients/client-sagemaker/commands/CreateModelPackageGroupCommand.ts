@@ -23,8 +23,10 @@ export interface CreateModelPackageGroupCommandOutput extends CreateModelPackage
 /**
  * <p>Creates a model group. A model group contains a group of model versions.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, CreateModelPackageGroupCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, CreateModelPackageGroupCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new CreateModelPackageGroupCommand(input);
  * const response = await client.send(command);

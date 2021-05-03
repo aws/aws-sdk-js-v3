@@ -23,8 +23,10 @@ export interface GetBranchCommandOutput extends GetBranchResult, __MetadataBeare
 /**
  * <p> Returns a branch for an Amplify app. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AmplifyClient, GetBranchCommand } from "@aws-sdk/client-amplify"; // ES Modules import
+ * // const { AmplifyClient, GetBranchCommand } = require("@aws-sdk/client-amplify"); // CommonJS import
  * const client = new AmplifyClient(config);
  * const command = new GetBranchCommand(input);
  * const response = await client.send(command);

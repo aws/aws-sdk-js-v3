@@ -25,8 +25,10 @@ export interface UpdateAssessmentStatusCommandOutput extends UpdateAssessmentSta
  *    Updates the status of an assessment in AWS Audit Manager.
  * </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AuditManagerClient, UpdateAssessmentStatusCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
+ * // const { AuditManagerClient, UpdateAssessmentStatusCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const command = new UpdateAssessmentStatusCommand(input);
  * const response = await client.send(command);

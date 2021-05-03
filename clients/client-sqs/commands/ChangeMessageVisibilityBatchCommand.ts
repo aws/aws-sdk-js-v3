@@ -39,8 +39,10 @@ export interface ChangeMessageVisibilityBatchCommandOutput
  *             <code>&AttributeName.2=second</code>
  *          </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SQSClient, ChangeMessageVisibilityBatchCommand } from "@aws-sdk/client-sqs"; // ES Modules import
+ * // const { SQSClient, ChangeMessageVisibilityBatchCommand } = require("@aws-sdk/client-sqs"); // CommonJS import
  * const client = new SQSClient(config);
  * const command = new ChangeMessageVisibilityBatchCommand(input);
  * const response = await client.send(command);

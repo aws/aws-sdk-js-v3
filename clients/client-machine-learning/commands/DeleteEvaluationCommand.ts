@@ -28,8 +28,10 @@ export interface DeleteEvaluationCommandOutput extends DeleteEvaluationOutput, _
  *         <p>
  *             <b>Caution:</b> The results of the <code>DeleteEvaluation</code> operation are irreversible.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MachineLearningClient, DeleteEvaluationCommand } from "@aws-sdk/client-machine-learning"; // ES Modules import
+ * // const { MachineLearningClient, DeleteEvaluationCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const command = new DeleteEvaluationCommand(input);
  * const response = await client.send(command);

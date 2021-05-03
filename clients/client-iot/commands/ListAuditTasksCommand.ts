@@ -24,8 +24,10 @@ export interface ListAuditTasksCommandOutput extends ListAuditTasksResponse, __M
  * <p>Lists the Device Defender audits that have been performed during a given
  *           time period.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, ListAuditTasksCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, ListAuditTasksCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new ListAuditTasksCommand(input);
  * const response = await client.send(command);

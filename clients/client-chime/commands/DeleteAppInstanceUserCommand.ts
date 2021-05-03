@@ -23,8 +23,10 @@ export interface DeleteAppInstanceUserCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes an <code>AppInstanceUser</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, DeleteAppInstanceUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, DeleteAppInstanceUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new DeleteAppInstanceUserCommand(input);
  * const response = await client.send(command);

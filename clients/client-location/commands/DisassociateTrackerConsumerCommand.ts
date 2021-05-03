@@ -29,8 +29,10 @@ export interface DisassociateTrackerConsumerCommandOutput
  *                 positions will no longer be automatically evaluated against geofences.</p>
  *         </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LocationClient, DisassociateTrackerConsumerCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, DisassociateTrackerConsumerCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
  * const command = new DisassociateTrackerConsumerCommand(input);
  * const response = await client.send(command);

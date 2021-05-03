@@ -24,8 +24,10 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  * <p>Defines a file system on a Server Message Block (SMB) server that can be read from or
  *       written to.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataSyncClient, CreateLocationSmbCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, CreateLocationSmbCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
  * const command = new CreateLocationSmbCommand(input);
  * const response = await client.send(command);

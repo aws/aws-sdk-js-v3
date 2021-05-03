@@ -27,8 +27,10 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  *         <p>By default, only the events occurring within the last 24 hours are returned; however,
  *             you can retrieve up to 14 days' worth of events if necessary.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DAXClient, DescribeEventsCommand } from "@aws-sdk/client-dax"; // ES Modules import
+ * // const { DAXClient, DescribeEventsCommand } = require("@aws-sdk/client-dax"); // CommonJS import
  * const client = new DAXClient(config);
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);

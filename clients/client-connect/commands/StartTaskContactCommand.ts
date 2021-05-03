@@ -23,8 +23,10 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
 /**
  * <p>Initiates a contact flow to start a new task.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, StartTaskContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, StartTaskContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new StartTaskContactCommand(input);
  * const response = await client.send(command);

@@ -38,8 +38,10 @@ export interface StartReplicationTaskAssessmentRunCommandOutput
  *          individual assessment. You can also run the migration task manually after the assessment
  *          run and its individual assessments complete.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentRunCommand } from "@aws-sdk/client-database-migration-service"; // ES Modules import
+ * // const { DatabaseMigrationServiceClient, StartReplicationTaskAssessmentRunCommand } = require("@aws-sdk/client-database-migration-service"); // CommonJS import
  * const client = new DatabaseMigrationServiceClient(config);
  * const command = new StartReplicationTaskAssessmentRunCommand(input);
  * const response = await client.send(command);

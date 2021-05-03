@@ -28,8 +28,10 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  *          invitation. The results also do not include behavior graphs that the member account
  *          resigned from or was removed from.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DetectiveClient, ListInvitationsCommand } from "@aws-sdk/client-detective"; // ES Modules import
+ * // const { DetectiveClient, ListInvitationsCommand } = require("@aws-sdk/client-detective"); // CommonJS import
  * const client = new DetectiveClient(config);
  * const command = new ListInvitationsCommand(input);
  * const response = await client.send(command);

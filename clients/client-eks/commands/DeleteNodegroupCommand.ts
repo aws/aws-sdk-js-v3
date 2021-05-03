@@ -23,8 +23,10 @@ export interface DeleteNodegroupCommandOutput extends DeleteNodegroupResponse, _
 /**
  * <p>Deletes an Amazon EKS node group for a cluster.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EKSClient, DeleteNodegroupCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, DeleteNodegroupCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
  * const command = new DeleteNodegroupCommand(input);
  * const response = await client.send(command);

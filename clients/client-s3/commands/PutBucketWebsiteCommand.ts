@@ -149,8 +149,10 @@ export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
  *          than 50 routing rules, you can use object redirect. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">Configuring an
  *             Object Redirect</a> in the <i>Amazon S3 User Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { S3Client, PutBucketWebsiteCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, PutBucketWebsiteCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
  * const command = new PutBucketWebsiteCommand(input);
  * const response = await client.send(command);

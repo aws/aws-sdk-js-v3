@@ -28,8 +28,10 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  *          the directory identifier. When the <b>DirectoryDescription.Stage</b> value changes to
  *             <code>Active</code>, the restore operation is complete.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectoryServiceClient, RestoreFromSnapshotCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
+ * // const { DirectoryServiceClient, RestoreFromSnapshotCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const command = new RestoreFromSnapshotCommand(input);
  * const response = await client.send(command);

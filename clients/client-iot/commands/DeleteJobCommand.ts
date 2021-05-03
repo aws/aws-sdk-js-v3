@@ -30,8 +30,10 @@ export interface DeleteJobCommandOutput extends __MetadataBearer {}
  *          <p>Only 10 jobs may have status "DELETION_IN_PROGRESS" at the same time, or
  *         a LimitExceededException will occur.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, DeleteJobCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DeleteJobCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new DeleteJobCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface UpdateApiKeyCommandOutput extends UpdateApiKeyResponse, __Metad
 /**
  * <p>Updates an API key. The key can be updated while it is not deleted.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppSyncClient, UpdateApiKeyCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, UpdateApiKeyCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
  * const command = new UpdateApiKeyCommand(input);
  * const response = await client.send(command);

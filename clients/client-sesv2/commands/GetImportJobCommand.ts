@@ -23,8 +23,10 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
 /**
  * <p>Provides information about an import job.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SESv2Client, GetImportJobCommand } from "@aws-sdk/client-sesv2"; // ES Modules import
+ * // const { SESv2Client, GetImportJobCommand } = require("@aws-sdk/client-sesv2"); // CommonJS import
  * const client = new SESv2Client(config);
  * const command = new GetImportJobCommand(input);
  * const response = await client.send(command);

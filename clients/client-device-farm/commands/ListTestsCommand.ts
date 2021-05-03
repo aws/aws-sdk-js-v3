@@ -20,8 +20,10 @@ export interface ListTestsCommandOutput extends ListTestsResult, __MetadataBeare
 /**
  * <p>Gets information about tests in a given test suite.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, ListTestsCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, ListTestsCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new ListTestsCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface CreateFpgaImageCommandOutput extends CreateFpgaImageResult, __M
  *          You can securely deploy an AFI on multiple FPGA-accelerated instances.
  *          For more information, see the <a href="https://github.com/aws/aws-fpga/">AWS FPGA Hardware Development Kit</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, CreateFpgaImageCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateFpgaImageCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new CreateFpgaImageCommand(input);
  * const response = await client.send(command);

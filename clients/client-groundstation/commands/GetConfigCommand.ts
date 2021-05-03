@@ -24,8 +24,10 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * <p>Returns <code>Config</code> information.</p>
  *          <p>Only one <code>Config</code> response can be returned.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GroundStationClient, GetConfigCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
+ * // const { GroundStationClient, GetConfigCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
  * const command = new GetConfigCommand(input);
  * const response = await client.send(command);

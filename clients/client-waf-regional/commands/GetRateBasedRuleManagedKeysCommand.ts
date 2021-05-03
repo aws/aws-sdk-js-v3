@@ -35,8 +35,10 @@ export interface GetRateBasedRuleManagedKeysCommandOutput
  *          number of managed keys that will be blocked is 10,000. If more than 10,000 addresses exceed
  *          the rate limit, the 10,000 addresses with the highest rates will be blocked.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFRegionalClient, GetRateBasedRuleManagedKeysCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
+ * // const { WAFRegionalClient, GetRateBasedRuleManagedKeysCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const command = new GetRateBasedRuleManagedKeysCommand(input);
  * const response = await client.send(command);

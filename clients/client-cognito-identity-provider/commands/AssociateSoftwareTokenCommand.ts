@@ -29,8 +29,10 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  * <p>Returns a unique generated shared secret key code for the user account. The request
  *             takes an access token or a session string, but not both.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityProviderClient, AssociateSoftwareTokenCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AssociateSoftwareTokenCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const command = new AssociateSoftwareTokenCommand(input);
  * const response = await client.send(command);

@@ -32,8 +32,10 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  *                 <a>UpdatePipelineStatus</a> to temporarily pause the pipeline.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticTranscoderClient, CancelJobCommand } from "@aws-sdk/client-elastic-transcoder"; // ES Modules import
+ * // const { ElasticTranscoderClient, CancelJobCommand } = require("@aws-sdk/client-elastic-transcoder"); // CommonJS import
  * const client = new ElasticTranscoderClient(config);
  * const command = new CancelJobCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface UpdateStudioCommandOutput extends UpdateStudioResponse, __Metad
 /**
  * <p>Update a Studio resource.</p> <p>Currently, this operation only supports updating the displayName of your studio.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NimbleClient, UpdateStudioCommand } from "@aws-sdk/client-nimble"; // ES Modules import
+ * // const { NimbleClient, UpdateStudioCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
  * const command = new UpdateStudioCommand(input);
  * const response = await client.send(command);

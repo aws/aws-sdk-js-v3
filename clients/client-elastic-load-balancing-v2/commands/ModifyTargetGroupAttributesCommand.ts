@@ -27,8 +27,10 @@ export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGr
 /**
  * <p>Modifies the specified attributes of the specified target group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticLoadBalancingV2Client, ModifyTargetGroupAttributesCommand } from "@aws-sdk/client-elastic-load-balancing-v2"; // ES Modules import
+ * // const { ElasticLoadBalancingV2Client, ModifyTargetGroupAttributesCommand } = require("@aws-sdk/client-elastic-load-balancing-v2"); // CommonJS import
  * const client = new ElasticLoadBalancingV2Client(config);
  * const command = new ModifyTargetGroupAttributesCommand(input);
  * const response = await client.send(command);

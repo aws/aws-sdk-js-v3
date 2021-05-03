@@ -27,8 +27,10 @@ export interface ListHostedZonesCommandOutput extends ListHostedZonesResponse, _
  * 		       <p>Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot of hosted zones, you can use the
  * 			<code>maxitems</code> parameter to list them in groups of up to 100.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53Client, ListHostedZonesCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, ListHostedZonesCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
  * const command = new ListHostedZonesCommand(input);
  * const response = await client.send(command);

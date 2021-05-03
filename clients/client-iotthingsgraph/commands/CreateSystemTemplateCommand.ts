@@ -24,8 +24,10 @@ export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateR
  * <p>Creates a system. The system is validated against the entities in the
  *          latest version of the user's namespace unless another namespace version is specified in the request.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTThingsGraphClient, CreateSystemTemplateCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
+ * // const { IoTThingsGraphClient, CreateSystemTemplateCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const command = new CreateSystemTemplateCommand(input);
  * const response = await client.send(command);

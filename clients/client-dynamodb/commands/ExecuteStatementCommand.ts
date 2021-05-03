@@ -25,8 +25,10 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * This operation allows you to perform reads and singleton writes on data stored in DynamoDB, using PartiQL.
  * </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DynamoDBClient, ExecuteStatementCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, ExecuteStatementCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const command = new ExecuteStatementCommand(input);
  * const response = await client.send(command);

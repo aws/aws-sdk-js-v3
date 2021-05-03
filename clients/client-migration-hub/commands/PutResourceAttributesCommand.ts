@@ -48,8 +48,10 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  *             details, call <code>ListDiscoveredResources</code>.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MigrationHubClient, PutResourceAttributesCommand } from "@aws-sdk/client-migration-hub"; // ES Modules import
+ * // const { MigrationHubClient, PutResourceAttributesCommand } = require("@aws-sdk/client-migration-hub"); // CommonJS import
  * const client = new MigrationHubClient(config);
  * const command = new PutResourceAttributesCommand(input);
  * const response = await client.send(command);

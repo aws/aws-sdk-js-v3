@@ -78,8 +78,10 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  *         <p>By default, data records are accessible for 24 hours from the time that they are
  *             added to a stream. You can use <a>IncreaseStreamRetentionPeriod</a> or <a>DecreaseStreamRetentionPeriod</a> to modify this retention period.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisClient, PutRecordsCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
+ * // const { KinesisClient, PutRecordsCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
  * const command = new PutRecordsCommand(input);
  * const response = await client.send(command);

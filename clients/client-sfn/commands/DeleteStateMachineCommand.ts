@@ -29,8 +29,10 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
  *         API is called.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SFNClient, DeleteStateMachineCommand } from "@aws-sdk/client-sfn"; // ES Modules import
+ * // const { SFNClient, DeleteStateMachineCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
  * const command = new DeleteStateMachineCommand(input);
  * const response = await client.send(command);

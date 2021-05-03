@@ -23,8 +23,10 @@ export interface ListEntitiesDetectionJobsCommandOutput extends ListEntitiesDete
 /**
  * <p>Gets a list of the entity detection jobs that you have submitted.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, ListEntitiesDetectionJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, ListEntitiesDetectionJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new ListEntitiesDetectionJobsCommand(input);
  * const response = await client.send(command);

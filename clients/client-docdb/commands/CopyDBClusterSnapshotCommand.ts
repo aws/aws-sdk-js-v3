@@ -35,8 +35,10 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  *             <code>TargetDBClusterSnapshotIdentifier</code> while that cluster
  *             snapshot is in the <i>copying</i> status.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DocDBClient, CopyDBClusterSnapshotCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, CopyDBClusterSnapshotCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
  * const command = new CopyDBClusterSnapshotCommand(input);
  * const response = await client.send(command);

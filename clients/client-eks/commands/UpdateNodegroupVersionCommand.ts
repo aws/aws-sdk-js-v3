@@ -40,8 +40,10 @@ export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVers
  *             and will fail if it is unable to do so. You can <code>force</code> the update if Amazon EKS
  *             is unable to drain the nodes as a result of a pod disruption budget issue.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EKSClient, UpdateNodegroupVersionCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, UpdateNodegroupVersionCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * const client = new EKSClient(config);
  * const command = new UpdateNodegroupVersionCommand(input);
  * const response = await client.send(command);

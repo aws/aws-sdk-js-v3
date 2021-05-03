@@ -25,8 +25,10 @@ export interface BatchDetectEntitiesCommandOutput extends BatchDetectEntitiesRes
  *       about them. For more information about named entities, see <a>how-entities</a>
  *          </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, BatchDetectEntitiesCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, BatchDetectEntitiesCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new BatchDetectEntitiesCommand(input);
  * const response = await client.send(command);

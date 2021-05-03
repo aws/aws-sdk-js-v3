@@ -23,8 +23,10 @@ export interface ListPolicyAttachmentsCommandOutput extends ListPolicyAttachment
 /**
  * <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudDirectoryClient, ListPolicyAttachmentsCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, ListPolicyAttachmentsCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const command = new ListPolicyAttachmentsCommand(input);
  * const response = await client.send(command);

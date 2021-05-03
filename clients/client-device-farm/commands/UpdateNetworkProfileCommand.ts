@@ -23,8 +23,10 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
 /**
  * <p>Updates the network profile.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, UpdateNetworkProfileCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, UpdateNetworkProfileCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new UpdateNetworkProfileCommand(input);
  * const response = await client.send(command);

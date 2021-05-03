@@ -23,8 +23,10 @@ export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsRes
 /**
  * <p>Used by the AWS X-Ray daemon to upload telemetry.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { XRayClient, PutTelemetryRecordsCommand } from "@aws-sdk/client-xray"; // ES Modules import
+ * // const { XRayClient, PutTelemetryRecordsCommand } = require("@aws-sdk/client-xray"); // CommonJS import
  * const client = new XRayClient(config);
  * const command = new PutTelemetryRecordsCommand(input);
  * const response = await client.send(command);

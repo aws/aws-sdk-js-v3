@@ -32,8 +32,10 @@ export interface DeregisterScalableTargetCommandOutput extends DeregisterScalabl
  *             actions that are associated with it.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ApplicationAutoScalingClient, DeregisterScalableTargetCommand } from "@aws-sdk/client-application-auto-scaling"; // ES Modules import
+ * // const { ApplicationAutoScalingClient, DeregisterScalableTargetCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
  * const command = new DeregisterScalableTargetCommand(input);
  * const response = await client.send(command);

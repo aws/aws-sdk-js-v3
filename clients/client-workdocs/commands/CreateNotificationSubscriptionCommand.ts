@@ -29,8 +29,10 @@ export interface CreateNotificationSubscriptionCommandOutput
  *                 Notifications</a> in the <i>Amazon WorkDocs Developer
  *             Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkDocsClient, CreateNotificationSubscriptionCommand } from "@aws-sdk/client-workdocs"; // ES Modules import
+ * // const { WorkDocsClient, CreateNotificationSubscriptionCommand } = require("@aws-sdk/client-workdocs"); // CommonJS import
  * const client = new WorkDocsClient(config);
  * const command = new CreateNotificationSubscriptionCommand(input);
  * const response = await client.send(command);

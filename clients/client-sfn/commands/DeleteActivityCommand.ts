@@ -23,8 +23,10 @@ export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __Met
 /**
  * <p>Deletes an activity.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SFNClient, DeleteActivityCommand } from "@aws-sdk/client-sfn"; // ES Modules import
+ * // const { SFNClient, DeleteActivityCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
  * const command = new DeleteActivityCommand(input);
  * const response = await client.send(command);

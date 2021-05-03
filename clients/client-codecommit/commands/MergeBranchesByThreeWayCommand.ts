@@ -23,8 +23,10 @@ export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThr
 /**
  * <p>Merges two specified branches using the three-way merge strategy.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeCommitClient, MergeBranchesByThreeWayCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, MergeBranchesByThreeWayCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const command = new MergeBranchesByThreeWayCommand(input);
  * const response = await client.send(command);

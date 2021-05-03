@@ -37,8 +37,10 @@ export interface AdminSetUserPasswordCommandOutput extends AdminSetUserPasswordR
  *         <p>Once the user has set a new password, or the password is permanent, the user status
  *             will be set to <code>Confirmed</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityProviderClient, AdminSetUserPasswordCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminSetUserPasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const command = new AdminSetUserPasswordCommand(input);
  * const response = await client.send(command);

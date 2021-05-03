@@ -25,8 +25,10 @@ export interface DeleteAppValidationConfigurationCommandOutput
 /**
  * <p>Deletes the validation configuration for the specified application.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SMSClient, DeleteAppValidationConfigurationCommand } from "@aws-sdk/client-sms"; // ES Modules import
+ * // const { SMSClient, DeleteAppValidationConfigurationCommand } = require("@aws-sdk/client-sms"); // CommonJS import
  * const client = new SMSClient(config);
  * const command = new DeleteAppValidationConfigurationCommand(input);
  * const response = await client.send(command);

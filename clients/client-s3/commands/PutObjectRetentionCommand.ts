@@ -26,8 +26,10 @@ export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutpu
  *          </p>
  *          <p>This action is not supported by Amazon S3 on Outposts.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { S3Client, PutObjectRetentionCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, PutObjectRetentionCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
  * const command = new PutObjectRetentionCommand(input);
  * const response = await client.send(command);

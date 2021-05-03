@@ -31,8 +31,10 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *         the API call as the value in the header.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, CreateChannelCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, CreateChannelCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);

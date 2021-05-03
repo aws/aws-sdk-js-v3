@@ -25,8 +25,10 @@ export interface UpdateScalingPlanCommandOutput extends UpdateScalingPlanRespons
  *          <p>You cannot update a scaling plan if it is in the process of being created, updated, or
  *          deleted.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AutoScalingPlansClient, UpdateScalingPlanCommand } from "@aws-sdk/client-auto-scaling-plans"; // ES Modules import
+ * // const { AutoScalingPlansClient, UpdateScalingPlanCommand } = require("@aws-sdk/client-auto-scaling-plans"); // CommonJS import
  * const client = new AutoScalingPlansClient(config);
  * const command = new UpdateScalingPlanCommand(input);
  * const response = await client.send(command);

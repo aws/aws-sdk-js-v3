@@ -37,8 +37,10 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  *             specify only instance IDs that are in an unaffected zone, the call works
  *             normally.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, DescribeInstancesCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new DescribeInstancesCommand(input);
  * const response = await client.send(command);

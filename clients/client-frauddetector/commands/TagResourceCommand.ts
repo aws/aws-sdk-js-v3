@@ -23,8 +23,10 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
 /**
  * <p>Assigns tags to a resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FraudDetectorClient, TagResourceCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, TagResourceCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DeleteProfileKeyCommandOutput extends DeleteProfileKeyResponse,
 /**
  * <p>Removes a searchable key from a customer profile.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CustomerProfilesClient, DeleteProfileKeyCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, DeleteProfileKeyCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const command = new DeleteProfileKeyCommand(input);
  * const response = await client.send(command);

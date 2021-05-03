@@ -29,8 +29,10 @@ export interface StopTrainingJobCommandOutput extends __MetadataBearer {}
  *             the job to <code>Stopping</code>. After Amazon SageMaker stops the job, it sets the status to
  *                 <code>Stopped</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, StopTrainingJobCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, StopTrainingJobCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new StopTrainingJobCommand(input);
  * const response = await client.send(command);

@@ -33,8 +33,10 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
  * 			         </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53Client, GetChangeCommand } from "@aws-sdk/client-route-53"; // ES Modules import
+ * // const { Route53Client, GetChangeCommand } = require("@aws-sdk/client-route-53"); // CommonJS import
  * const client = new Route53Client(config);
  * const command = new GetChangeCommand(input);
  * const response = await client.send(command);

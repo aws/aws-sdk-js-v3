@@ -24,8 +24,10 @@ export interface EnableSnapshotCopyCommandOutput extends EnableSnapshotCopyResul
  * <p>Enables the automatic copy of snapshots from one region to another region for a
  *             specified cluster.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RedshiftClient, EnableSnapshotCopyCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, EnableSnapshotCopyCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
  * const command = new EnableSnapshotCopyCommand(input);
  * const response = await client.send(command);

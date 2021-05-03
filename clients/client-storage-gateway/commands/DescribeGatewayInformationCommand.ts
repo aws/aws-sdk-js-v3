@@ -25,8 +25,10 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  *          zone, and the state (whether the gateway is running or not). To specify which gateway to
  *          describe, use the Amazon Resource Name (ARN) of the gateway in your request.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { StorageGatewayClient, DescribeGatewayInformationCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, DescribeGatewayInformationCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const command = new DescribeGatewayInformationCommand(input);
  * const response = await client.send(command);

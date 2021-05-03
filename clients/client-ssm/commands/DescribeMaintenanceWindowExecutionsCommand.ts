@@ -30,8 +30,10 @@ export interface DescribeMaintenanceWindowExecutionsCommandOutput
  *    maintenance window was scheduled to be active, and information about tasks registered and run
  *    with the maintenance window.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, DescribeMaintenanceWindowExecutionsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DescribeMaintenanceWindowExecutionsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new DescribeMaintenanceWindowExecutionsCommand(input);
  * const response = await client.send(command);

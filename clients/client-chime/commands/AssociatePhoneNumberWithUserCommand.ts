@@ -25,8 +25,10 @@ export interface AssociatePhoneNumberWithUserCommandOutput
 /**
  * <p>Associates a phone number with the specified Amazon Chime user.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, AssociatePhoneNumberWithUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, AssociatePhoneNumberWithUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new AssociatePhoneNumberWithUserCommand(input);
  * const response = await client.send(command);

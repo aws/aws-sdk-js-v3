@@ -23,8 +23,10 @@ export interface DescribeDeviceFleetCommandOutput extends DescribeDeviceFleetRes
 /**
  * <p>A description of the fleet the device belongs to.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, DescribeDeviceFleetCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DescribeDeviceFleetCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new DescribeDeviceFleetCommand(input);
  * const response = await client.send(command);

@@ -31,8 +31,10 @@ export interface GetFindingsReportAccountSummaryCommandOutput
  *             objects that contain analysis results for all profiling groups in your AWS account.
  *         </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeGuruProfilerClient, GetFindingsReportAccountSummaryCommand } from "@aws-sdk/client-codeguruprofiler"; // ES Modules import
+ * // const { CodeGuruProfilerClient, GetFindingsReportAccountSummaryCommand } = require("@aws-sdk/client-codeguruprofiler"); // CommonJS import
  * const client = new CodeGuruProfilerClient(config);
  * const command = new GetFindingsReportAccountSummaryCommand(input);
  * const response = await client.send(command);

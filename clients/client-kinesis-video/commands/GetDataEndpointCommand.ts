@@ -34,8 +34,10 @@ export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __M
  *         <p>In the request, specify the stream either by <code>StreamName</code> or
  *                 <code>StreamARN</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisVideoClient, GetDataEndpointCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
+ * // const { KinesisVideoClient, GetDataEndpointCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
  * const command = new GetDataEndpointCommand(input);
  * const response = await client.send(command);

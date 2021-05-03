@@ -24,8 +24,10 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  * <p>Lists your replays. You can either list all the replays or you can provide a prefix to
  *       match to the replay names. Filter parameters are exclusive.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EventBridgeClient, ListReplaysCommand } from "@aws-sdk/client-eventbridge"; // ES Modules import
+ * // const { EventBridgeClient, ListReplaysCommand } = require("@aws-sdk/client-eventbridge"); // CommonJS import
  * const client = new EventBridgeClient(config);
  * const command = new ListReplaysCommand(input);
  * const response = await client.send(command);

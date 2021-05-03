@@ -23,8 +23,10 @@ export interface CreateRuleCommandOutput extends CreateRuleResult, __MetadataBea
 /**
  * <p>Creates a rule for use with the specified detector. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FraudDetectorClient, CreateRuleCommand } from "@aws-sdk/client-frauddetector"; // ES Modules import
+ * // const { FraudDetectorClient, CreateRuleCommand } = require("@aws-sdk/client-frauddetector"); // CommonJS import
  * const client = new FraudDetectorClient(config);
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);

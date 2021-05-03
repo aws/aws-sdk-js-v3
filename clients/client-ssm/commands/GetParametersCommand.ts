@@ -23,8 +23,10 @@ export interface GetParametersCommandOutput extends GetParametersResult, __Metad
 /**
  * <p>Get details of a parameter. Don't confuse this API action with the <a>GetParameter</a> API action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, GetParametersCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, GetParametersCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new GetParametersCommand(input);
  * const response = await client.send(command);

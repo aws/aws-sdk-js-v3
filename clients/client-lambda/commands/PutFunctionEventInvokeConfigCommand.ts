@@ -33,8 +33,10 @@ export interface PutFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  *       that fail all processing attempts (on-failure). You can configure destinations in addition to or instead of a
  *       dead-letter queue.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LambdaClient, PutFunctionEventInvokeConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, PutFunctionEventInvokeConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
  * const command = new PutFunctionEventInvokeConfigCommand(input);
  * const response = await client.send(command);

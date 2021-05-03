@@ -29,8 +29,10 @@ export interface GetAppInstanceStreamingConfigurationsCommandOutput
 /**
  * <p>Gets the streaming settings for an <code>AppInstance</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, GetAppInstanceStreamingConfigurationsCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, GetAppInstanceStreamingConfigurationsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new GetAppInstanceStreamingConfigurationsCommand(input);
  * const response = await client.send(command);

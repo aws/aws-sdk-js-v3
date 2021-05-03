@@ -33,8 +33,10 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
  * 				configuration per region in your account.</p>
  * 		       </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConfigServiceClient, PutRetentionConfigurationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, PutRetentionConfigurationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const command = new PutRetentionConfigurationCommand(input);
  * const response = await client.send(command);

@@ -27,8 +27,10 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
 /**
  * <p>Lists the connections associated with your account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeStarConnectionsClient, ListConnectionsCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
+ * // const { CodeStarConnectionsClient, ListConnectionsCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
  * const command = new ListConnectionsCommand(input);
  * const response = await client.send(command);

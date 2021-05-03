@@ -23,8 +23,10 @@ export interface CheckInLicenseCommandOutput extends CheckInLicenseResponse, __M
 /**
  * <p>Checks in the specified license. Check in a license when it is no longer in use.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LicenseManagerClient, CheckInLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, CheckInLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const command = new CheckInLicenseCommand(input);
  * const response = await client.send(command);

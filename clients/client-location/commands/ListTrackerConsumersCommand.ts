@@ -23,8 +23,10 @@ export interface ListTrackerConsumersCommandOutput extends ListTrackerConsumersR
 /**
  * <p>Lists geofence collections currently associated to the given tracker resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LocationClient, ListTrackerConsumersCommand } from "@aws-sdk/client-location"; // ES Modules import
+ * // const { LocationClient, ListTrackerConsumersCommand } = require("@aws-sdk/client-location"); // CommonJS import
  * const client = new LocationClient(config);
  * const command = new ListTrackerConsumersCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface ListEventSubscriptionsCommandOutput extends ListEventSubscripti
  * <p>Lists all the event subscriptions for the assessment template that is specified by
  *          the ARN of the assessment template. For more information, see <a>SubscribeToEvent</a> and <a>UnsubscribeFromEvent</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { InspectorClient, ListEventSubscriptionsCommand } from "@aws-sdk/client-inspector"; // ES Modules import
+ * // const { InspectorClient, ListEventSubscriptionsCommand } = require("@aws-sdk/client-inspector"); // CommonJS import
  * const client = new InspectorClient(config);
  * const command = new ListEventSubscriptionsCommand(input);
  * const response = await client.send(command);

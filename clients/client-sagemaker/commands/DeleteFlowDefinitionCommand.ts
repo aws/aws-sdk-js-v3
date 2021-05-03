@@ -23,8 +23,10 @@ export interface DeleteFlowDefinitionCommandOutput extends DeleteFlowDefinitionR
 /**
  * <p>Deletes the specified flow definition.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, DeleteFlowDefinitionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DeleteFlowDefinitionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new DeleteFlowDefinitionCommand(input);
  * const response = await client.send(command);

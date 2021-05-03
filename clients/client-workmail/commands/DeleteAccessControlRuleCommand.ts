@@ -23,8 +23,10 @@ export interface DeleteAccessControlRuleCommandOutput extends DeleteAccessContro
 /**
  * <p>Deletes an access control rule for the specified WorkMail organization.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, DeleteAccessControlRuleCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, DeleteAccessControlRuleCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new DeleteAccessControlRuleCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface GetFindingCommandOutput extends GetFindingResponse, __MetadataB
 /**
  * <p>Retrieves information about the specified finding.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AccessAnalyzerClient, GetFindingCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
+ * // const { AccessAnalyzerClient, GetFindingCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const command = new GetFindingCommand(input);
  * const response = await client.send(command);

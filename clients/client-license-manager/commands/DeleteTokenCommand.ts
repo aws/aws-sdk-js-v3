@@ -23,8 +23,10 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
 /**
  * <p>Deletes the specified token. Must be called in the license home Region.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LicenseManagerClient, DeleteTokenCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, DeleteTokenCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
  * const command = new DeleteTokenCommand(input);
  * const response = await client.send(command);

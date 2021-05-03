@@ -24,8 +24,10 @@ export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectP
  * <p>Returns information about the specified OpenID Connect (OIDC) provider resource object
  *             in IAM.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IAMClient, GetOpenIDConnectProviderCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, GetOpenIDConnectProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
  * const command = new GetOpenIDConnectProviderCommand(input);
  * const response = await client.send(command);

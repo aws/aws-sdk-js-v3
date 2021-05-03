@@ -23,8 +23,10 @@ export interface DeletePermissionSetCommandOutput extends DeletePermissionSetRes
 /**
  * <p>Deletes the specified permission set.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSOAdminClient, DeletePermissionSetCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
+ * // const { SSOAdminClient, DeletePermissionSetCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const command = new DeletePermissionSetCommand(input);
  * const response = await client.send(command);

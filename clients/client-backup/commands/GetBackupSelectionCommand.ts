@@ -24,8 +24,10 @@ export interface GetBackupSelectionCommandOutput extends GetBackupSelectionOutpu
  * <p>Returns selection metadata and a document in JSON format that specifies a list of
  *          resources that are associated with a backup plan.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BackupClient, GetBackupSelectionCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, GetBackupSelectionCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
  * const command = new GetBackupSelectionCommand(input);
  * const response = await client.send(command);

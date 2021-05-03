@@ -23,8 +23,10 @@ export interface GetFeedbackCommandOutput extends GetFeedbackResponse, __Metadat
 /**
  * <p>Get feedback for an anomaly group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutMetricsClient, GetFeedbackCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
+ * // const { LookoutMetricsClient, GetFeedbackCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const command = new GetFeedbackCommand(input);
  * const response = await client.send(command);

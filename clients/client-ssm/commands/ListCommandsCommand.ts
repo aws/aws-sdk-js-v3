@@ -23,8 +23,10 @@ export interface ListCommandsCommandOutput extends ListCommandsResult, __Metadat
 /**
  * <p>Lists the commands requested by users of the AWS account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, ListCommandsCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, ListCommandsCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new ListCommandsCommand(input);
  * const response = await client.send(command);

@@ -28,8 +28,10 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  *             <p>You can call <code>ListStreams</code> at a maximum rate of 5 times per second.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DynamoDBStreamsClient, ListStreamsCommand } from "@aws-sdk/client-dynamodb-streams"; // ES Modules import
+ * // const { DynamoDBStreamsClient, ListStreamsCommand } = require("@aws-sdk/client-dynamodb-streams"); // CommonJS import
  * const client = new DynamoDBStreamsClient(config);
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);

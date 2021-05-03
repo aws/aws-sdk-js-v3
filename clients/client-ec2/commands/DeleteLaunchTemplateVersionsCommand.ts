@@ -28,8 +28,10 @@ export interface DeleteLaunchTemplateVersionsCommandOutput
  *             If the default version is the only version for the launch template, you must delete the
  *             entire launch template using <a>DeleteLaunchTemplate</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, DeleteLaunchTemplateVersionsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DeleteLaunchTemplateVersionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new DeleteLaunchTemplateVersionsCommand(input);
  * const response = await client.send(command);

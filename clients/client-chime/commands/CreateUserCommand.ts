@@ -23,8 +23,10 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
 /**
  * <p>Creates a user under the specified Amazon Chime account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, CreateUserCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, CreateUserCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new CreateUserCommand(input);
  * const response = await client.send(command);

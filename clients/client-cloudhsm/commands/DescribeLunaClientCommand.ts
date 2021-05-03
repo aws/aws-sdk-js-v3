@@ -33,8 +33,10 @@ export interface DescribeLunaClientCommandOutput extends DescribeLunaClientRespo
  *       Reference</a>.</p>
  *          <p>Retrieves information about an HSM client.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudHSMClient, DescribeLunaClientCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
+ * // const { CloudHSMClient, DescribeLunaClientCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const command = new DescribeLunaClientCommand(input);
  * const response = await client.send(command);

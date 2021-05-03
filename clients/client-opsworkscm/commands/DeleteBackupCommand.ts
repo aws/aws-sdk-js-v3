@@ -30,8 +30,10 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  *       A <code>ValidationException</code> is thrown when parameters of the request are not valid.
  *     </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { OpsWorksCMClient, DeleteBackupCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
+ * // const { OpsWorksCMClient, DeleteBackupCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
  * const command = new DeleteBackupCommand(input);
  * const response = await client.send(command);

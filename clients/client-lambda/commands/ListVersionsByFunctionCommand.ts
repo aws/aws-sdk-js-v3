@@ -24,8 +24,10 @@ export interface ListVersionsByFunctionCommandOutput extends ListVersionsByFunct
  * <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">versions</a>,
  *       with the version-specific configuration of each. Lambda returns up to 50 versions per call.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LambdaClient, ListVersionsByFunctionCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, ListVersionsByFunctionCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
  * const command = new ListVersionsByFunctionCommand(input);
  * const response = await client.send(command);

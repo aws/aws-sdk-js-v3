@@ -28,8 +28,10 @@ export interface GetComplianceDetailsByConfigRuleCommandOutput
  * 			rule, when each resource was last evaluated, and whether each
  * 			resource complies with the rule.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConfigServiceClient, GetComplianceDetailsByConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, GetComplianceDetailsByConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const command = new GetComplianceDetailsByConfigRuleCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *          already exists, the existing value is replaced with the new
  *          value.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LexModelsV2Client, TagResourceCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, TagResourceCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

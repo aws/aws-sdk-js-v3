@@ -23,8 +23,10 @@ export interface UpdateUserSettingsCommandOutput extends __MetadataBearer {}
 /**
  * <p>Updates the settings for the specified user, such as phone number settings.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, UpdateUserSettingsCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, UpdateUserSettingsCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new UpdateUserSettingsCommand(input);
  * const response = await client.send(command);

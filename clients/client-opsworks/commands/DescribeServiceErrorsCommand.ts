@@ -29,8 +29,10 @@ export interface DescribeServiceErrorsCommandOutput extends DescribeServiceError
  *         Permissions</a>.</p>
  *          <p>This call accepts only one resource-identifying parameter.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { OpsWorksClient, DescribeServiceErrorsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
+ * // const { OpsWorksClient, DescribeServiceErrorsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const command = new DescribeServiceErrorsCommand(input);
  * const response = await client.send(command);

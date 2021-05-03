@@ -20,8 +20,10 @@ export interface XmlMapsCommandOutput extends XmlMapsOutput, __MetadataBearer {}
 /**
  * The example tests basic map serialization.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { QueryProtocolClient, XmlMapsCommand } from "@aws-sdk/aws-query"; // ES Modules import
+ * // const { QueryProtocolClient, XmlMapsCommand } = require("@aws-sdk/aws-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
  * const command = new XmlMapsCommand(input);
  * const response = await client.send(command);

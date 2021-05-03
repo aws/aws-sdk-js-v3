@@ -31,8 +31,10 @@ export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse,
  *          </note>
  * 		       <p>Returns an array of <a>XssMatchSet</a> objects.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFRegionalClient, ListXssMatchSetsCommand } from "@aws-sdk/client-waf-regional"; // ES Modules import
+ * // const { WAFRegionalClient, ListXssMatchSetsCommand } = require("@aws-sdk/client-waf-regional"); // CommonJS import
  * const client = new WAFRegionalClient(config);
  * const command = new ListXssMatchSetsCommand(input);
  * const response = await client.send(command);

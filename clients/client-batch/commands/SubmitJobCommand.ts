@@ -32,8 +32,10 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *     days, Fargate resources might become unavailable and job might be terminated.</p>
  *          </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BatchClient, SubmitJobCommand } from "@aws-sdk/client-batch"; // ES Modules import
+ * // const { BatchClient, SubmitJobCommand } = require("@aws-sdk/client-batch"); // CommonJS import
  * const client = new BatchClient(config);
  * const command = new SubmitJobCommand(input);
  * const response = await client.send(command);

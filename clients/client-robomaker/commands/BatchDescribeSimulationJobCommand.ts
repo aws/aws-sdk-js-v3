@@ -23,8 +23,10 @@ export interface BatchDescribeSimulationJobCommandOutput extends BatchDescribeSi
 /**
  * <p>Describes one or more simulation jobs.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RoboMakerClient, BatchDescribeSimulationJobCommand } from "@aws-sdk/client-robomaker"; // ES Modules import
+ * // const { RoboMakerClient, BatchDescribeSimulationJobCommand } = require("@aws-sdk/client-robomaker"); // CommonJS import
  * const client = new RoboMakerClient(config);
  * const command = new BatchDescribeSimulationJobCommand(input);
  * const response = await client.send(command);

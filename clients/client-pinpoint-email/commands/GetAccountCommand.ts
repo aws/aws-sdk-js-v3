@@ -24,8 +24,10 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * <p>Obtain information about the email-sending status and capabilities of your Amazon Pinpoint
  *             account in the current AWS Region.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointEmailClient, GetAccountCommand } from "@aws-sdk/client-pinpoint-email"; // ES Modules import
+ * // const { PinpointEmailClient, GetAccountCommand } = require("@aws-sdk/client-pinpoint-email"); // CommonJS import
  * const client = new PinpointEmailClient(config);
  * const command = new GetAccountCommand(input);
  * const response = await client.send(command);

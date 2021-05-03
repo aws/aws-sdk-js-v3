@@ -23,8 +23,10 @@ export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __M
 /**
  * <p>Gets a job document.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, GetJobDocumentCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, GetJobDocumentCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new GetJobDocumentCommand(input);
  * const response = await client.send(command);

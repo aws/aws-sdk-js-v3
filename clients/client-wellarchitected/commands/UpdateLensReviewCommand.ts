@@ -23,8 +23,10 @@ export interface UpdateLensReviewCommandOutput extends UpdateLensReviewOutput, _
 /**
  * <p>Update lens review.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WellArchitectedClient, UpdateLensReviewCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, UpdateLensReviewCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
  * const command = new UpdateLensReviewCommand(input);
  * const response = await client.send(command);

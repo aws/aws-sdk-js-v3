@@ -23,8 +23,10 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
 /**
  * <p>Deletes a contact by the contact ARN.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AlexaForBusinessClient, DeleteContactCommand } from "@aws-sdk/client-alexa-for-business"; // ES Modules import
+ * // const { AlexaForBusinessClient, DeleteContactCommand } = require("@aws-sdk/client-alexa-for-business"); // CommonJS import
  * const client = new AlexaForBusinessClient(config);
  * const command = new DeleteContactCommand(input);
  * const response = await client.send(command);

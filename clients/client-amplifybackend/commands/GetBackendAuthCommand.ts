@@ -23,8 +23,10 @@ export interface GetBackendAuthCommandOutput extends GetBackendAuthResponse, __M
 /**
  * <p>Gets backend auth details.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AmplifyBackendClient, GetBackendAuthCommand } from "@aws-sdk/client-amplifybackend"; // ES Modules import
+ * // const { AmplifyBackendClient, GetBackendAuthCommand } = require("@aws-sdk/client-amplifybackend"); // CommonJS import
  * const client = new AmplifyBackendClient(config);
  * const command = new GetBackendAuthCommand(input);
  * const response = await client.send(command);

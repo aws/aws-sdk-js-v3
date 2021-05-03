@@ -35,8 +35,10 @@ export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBeare
  *       token that you pass in the next call to <code>ListHsms</code> to retrieve the next set of
  *       items.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudHSMClient, ListHsmsCommand } from "@aws-sdk/client-cloudhsm"; // ES Modules import
+ * // const { CloudHSMClient, ListHsmsCommand } = require("@aws-sdk/client-cloudhsm"); // CommonJS import
  * const client = new CloudHSMClient(config);
  * const command = new ListHsmsCommand(input);
  * const response = await client.send(command);

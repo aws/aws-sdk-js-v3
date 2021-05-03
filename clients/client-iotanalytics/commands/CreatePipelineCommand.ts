@@ -26,8 +26,10 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  *       and a <code>datastore</code> activity and, optionally, as many as 23 additional activities in
  *       the <code>pipelineActivities</code> array.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTAnalyticsClient, CreatePipelineCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
+ * // const { IoTAnalyticsClient, CreatePipelineCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const command = new CreatePipelineCommand(input);
  * const response = await client.send(command);

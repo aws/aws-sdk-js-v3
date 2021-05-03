@@ -29,8 +29,10 @@ export interface AdminListDevicesCommandOutput extends AdminListDevicesResponse,
  * <p>Lists devices, as an administrator.</p>
  *         <p>Calling this action requires developer credentials.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityProviderClient, AdminListDevicesCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminListDevicesCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const command = new AdminListDevicesCommand(input);
  * const response = await client.send(command);

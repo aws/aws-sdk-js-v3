@@ -27,8 +27,10 @@ export interface GetEvidenceByEvidenceFolderCommandOutput
  *    Returns all evidence from a specified evidence folder in AWS Audit Manager.
  * </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AuditManagerClient, GetEvidenceByEvidenceFolderCommand } from "@aws-sdk/client-auditmanager"; // ES Modules import
+ * // const { AuditManagerClient, GetEvidenceByEvidenceFolderCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const command = new GetEvidenceByEvidenceFolderCommand(input);
  * const response = await client.send(command);

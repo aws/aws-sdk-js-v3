@@ -23,8 +23,10 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
 /**
  * <p>Gets information about one or more build projects.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeBuildClient, BatchGetProjectsCommand } from "@aws-sdk/client-codebuild"; // ES Modules import
+ * // const { CodeBuildClient, BatchGetProjectsCommand } = require("@aws-sdk/client-codebuild"); // CommonJS import
  * const client = new CodeBuildClient(config);
  * const command = new BatchGetProjectsCommand(input);
  * const response = await client.send(command);

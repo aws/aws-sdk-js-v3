@@ -32,8 +32,10 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *             static parameters are set to <code>pending-reboot</code> to take effect on the next DB
  *             instance reboot.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DocDBClient, ResetDBClusterParameterGroupCommand } from "@aws-sdk/client-docdb"; // ES Modules import
+ * // const { DocDBClient, ResetDBClusterParameterGroupCommand } = require("@aws-sdk/client-docdb"); // CommonJS import
  * const client = new DocDBClient(config);
  * const command = new ResetDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);

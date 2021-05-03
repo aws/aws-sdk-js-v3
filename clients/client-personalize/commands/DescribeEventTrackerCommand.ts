@@ -25,8 +25,10 @@ export interface DescribeEventTrackerCommandOutput extends DescribeEventTrackerR
  *       <code>status</code> of the event tracker.
  *       For more information on event trackers, see <a>CreateEventTracker</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PersonalizeClient, DescribeEventTrackerCommand } from "@aws-sdk/client-personalize"; // ES Modules import
+ * // const { PersonalizeClient, DescribeEventTrackerCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const command = new DescribeEventTrackerCommand(input);
  * const response = await client.send(command);

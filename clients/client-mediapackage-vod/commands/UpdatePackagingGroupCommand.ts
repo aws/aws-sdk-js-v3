@@ -23,8 +23,10 @@ export interface UpdatePackagingGroupCommandOutput extends UpdatePackagingGroupR
 /**
  * Updates a specific packaging group. You can't change the id attribute or any other system-generated attributes.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaPackageVodClient, UpdatePackagingGroupCommand } from "@aws-sdk/client-mediapackage-vod"; // ES Modules import
+ * // const { MediaPackageVodClient, UpdatePackagingGroupCommand } = require("@aws-sdk/client-mediapackage-vod"); // CommonJS import
  * const client = new MediaPackageVodClient(config);
  * const command = new UpdatePackagingGroupCommand(input);
  * const response = await client.send(command);

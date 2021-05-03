@@ -60,8 +60,10 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  *         <p>You can view the lifecycle hooks for an Auto Scaling group using the <a>DescribeLifecycleHooks</a> API call. If you are no longer using a lifecycle
  *             hook, you can delete it by calling the <a>DeleteLifecycleHook</a> API.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AutoScalingClient, PutLifecycleHookCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, PutLifecycleHookCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
  * const command = new PutLifecycleHookCommand(input);
  * const response = await client.send(command);

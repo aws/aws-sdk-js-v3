@@ -23,8 +23,10 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
 /**
  * <p>Creates a quantum task.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BraketClient, CreateQuantumTaskCommand } from "@aws-sdk/client-braket"; // ES Modules import
+ * // const { BraketClient, CreateQuantumTaskCommand } = require("@aws-sdk/client-braket"); // CommonJS import
  * const client = new BraketClient(config);
  * const command = new CreateQuantumTaskCommand(input);
  * const response = await client.send(command);

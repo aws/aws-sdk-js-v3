@@ -27,8 +27,10 @@ export interface UpdateHITReviewStatusCommandOutput extends UpdateHITReviewStatu
  *             or it can revert a Reviewing HIT back to the Reviewable status.
  *         </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MTurkClient, UpdateHITReviewStatusCommand } from "@aws-sdk/client-mturk"; // ES Modules import
+ * // const { MTurkClient, UpdateHITReviewStatusCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
  * const command = new UpdateHITReviewStatusCommand(input);
  * const response = await client.send(command);

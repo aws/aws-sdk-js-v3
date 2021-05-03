@@ -23,8 +23,10 @@ export interface GetProtocolsListCommandOutput extends GetProtocolsListResponse,
 /**
  * <p>Returns information about the specified AWS Firewall Manager protocols list.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FMSClient, GetProtocolsListCommand } from "@aws-sdk/client-fms"; // ES Modules import
+ * // const { FMSClient, GetProtocolsListCommand } = require("@aws-sdk/client-fms"); // CommonJS import
  * const client = new FMSClient(config);
  * const command = new GetProtocolsListCommand(input);
  * const response = await client.send(command);

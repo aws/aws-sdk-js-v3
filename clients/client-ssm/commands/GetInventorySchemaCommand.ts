@@ -24,8 +24,10 @@ export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResul
  * <p>Return a list of inventory type names for the account, or return a list of attribute names
  *    for a specific Inventory item type.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, GetInventorySchemaCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, GetInventorySchemaCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new GetInventorySchemaCommand(input);
  * const response = await client.send(command);

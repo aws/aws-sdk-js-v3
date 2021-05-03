@@ -23,8 +23,10 @@ export interface ListServiceActionsCommandOutput extends ListServiceActionsOutpu
 /**
  * <p>Lists all self-service actions.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, ListServiceActionsCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, ListServiceActionsCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new ListServiceActionsCommand(input);
  * const response = await client.send(command);

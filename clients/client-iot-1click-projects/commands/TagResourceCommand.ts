@@ -29,8 +29,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *       used to manage a resource. For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS Tagging
  *         Strategies</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoT1ClickProjectsClient, TagResourceCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
+ * // const { IoT1ClickProjectsClient, TagResourceCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

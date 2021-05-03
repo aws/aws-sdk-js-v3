@@ -23,8 +23,10 @@ export interface UpdateAnomalyDetectorCommandOutput extends UpdateAnomalyDetecto
 /**
  * <p>Updates a detector. After activation, you can only change a detector's ingestion delay and description.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutMetricsClient, UpdateAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
+ * // const { LookoutMetricsClient, UpdateAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const command = new UpdateAnomalyDetectorCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface PutResolverRulePolicyCommandOutput extends PutResolverRulePolic
  * <p>Specifies an AWS rule that you want to share with another account, the account that you want to share the rule with,
  * 			and the operations that you want the account to be able to perform on the rule.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53ResolverClient, PutResolverRulePolicyCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, PutResolverRulePolicyCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const command = new PutResolverRulePolicyCommand(input);
  * const response = await client.send(command);

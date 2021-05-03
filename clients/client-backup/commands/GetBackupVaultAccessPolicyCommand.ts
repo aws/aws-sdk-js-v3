@@ -24,8 +24,10 @@ export interface GetBackupVaultAccessPolicyCommandOutput extends GetBackupVaultA
  * <p>Returns the access policy document that is associated with the named backup
  *          vault.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BackupClient, GetBackupVaultAccessPolicyCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, GetBackupVaultAccessPolicyCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
  * const command = new GetBackupVaultAccessPolicyCommand(input);
  * const response = await client.send(command);

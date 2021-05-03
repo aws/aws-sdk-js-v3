@@ -59,8 +59,10 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *                <a>DisassociateMembers</a>
  *             </code> operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SecurityHubClient, CreateMembersCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, CreateMembersCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * const client = new SecurityHubClient(config);
  * const command = new CreateMembersCommand(input);
  * const response = await client.send(command);

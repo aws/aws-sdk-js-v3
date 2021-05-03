@@ -28,8 +28,10 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * <p>Using tag keys, deletes the tags (key/value pairs) associated with the specified
  *  resource ARN.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoT1ClickDevicesServiceClient, UntagResourceCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
+ * // const { IoT1ClickDevicesServiceClient, UntagResourceCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
  * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);

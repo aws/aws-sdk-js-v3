@@ -23,8 +23,10 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResponse, __Met
 /**
  * List offerings available for purchase.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaLiveClient, ListOfferingsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, ListOfferingsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const command = new ListOfferingsCommand(input);
  * const response = await client.send(command);

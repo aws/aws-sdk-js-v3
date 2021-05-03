@@ -23,8 +23,10 @@ export interface DescribeMultiplexProgramCommandOutput extends DescribeMultiplex
 /**
  * Get the details for a program in a multiplex.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaLiveClient, DescribeMultiplexProgramCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, DescribeMultiplexProgramCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const command = new DescribeMultiplexProgramCommand(input);
  * const response = await client.send(command);

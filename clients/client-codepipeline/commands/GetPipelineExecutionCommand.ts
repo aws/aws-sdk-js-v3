@@ -25,8 +25,10 @@ export interface GetPipelineExecutionCommandOutput extends GetPipelineExecutionO
  *             artifacts, the pipeline execution ID, and the name, version, and status of the
  *             pipeline.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodePipelineClient, GetPipelineExecutionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
+ * // const { CodePipelineClient, GetPipelineExecutionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const command = new GetPipelineExecutionCommand(input);
  * const response = await client.send(command);

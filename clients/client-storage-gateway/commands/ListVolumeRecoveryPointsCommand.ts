@@ -29,8 +29,10 @@ export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecover
  *          clone a new cached volume from a source volume. To create a snapshot from a volume recovery
  *          point use the <a>CreateSnapshotFromVolumeRecoveryPoint</a> operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { StorageGatewayClient, ListVolumeRecoveryPointsCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, ListVolumeRecoveryPointsCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const command = new ListVolumeRecoveryPointsCommand(input);
  * const response = await client.send(command);

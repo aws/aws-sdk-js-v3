@@ -24,8 +24,10 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * <p>Starts an Amazon Neptune  DB cluster that was stopped using the AWS
  *       console, the AWS CLI stop-db-cluster command, or the StopDBCluster API.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NeptuneClient, StartDBClusterCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, StartDBClusterCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
  * const command = new StartDBClusterCommand(input);
  * const response = await client.send(command);

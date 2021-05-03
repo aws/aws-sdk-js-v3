@@ -62,8 +62,10 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { S3Client, AbortMultipartUploadCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, AbortMultipartUploadCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
  * const command = new AbortMultipartUploadCommand(input);
  * const response = await client.send(command);

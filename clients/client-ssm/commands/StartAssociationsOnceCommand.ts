@@ -24,8 +24,10 @@ export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnc
  * <p>Use this API action to run an association immediately and only one time. This action can be
  *    helpful when troubleshooting associations.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, StartAssociationsOnceCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, StartAssociationsOnceCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new StartAssociationsOnceCommand(input);
  * const response = await client.send(command);

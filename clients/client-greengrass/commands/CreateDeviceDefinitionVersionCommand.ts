@@ -25,8 +25,10 @@ export interface CreateDeviceDefinitionVersionCommandOutput
 /**
  * Creates a version of a device definition that has already been defined.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassClient, CreateDeviceDefinitionVersionCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, CreateDeviceDefinitionVersionCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
  * const command = new CreateDeviceDefinitionVersionCommand(input);
  * const response = await client.send(command);

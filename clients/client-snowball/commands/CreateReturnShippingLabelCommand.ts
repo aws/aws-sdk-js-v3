@@ -23,8 +23,10 @@ export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShip
 /**
  * <p>Creates a shipping label that will be used to return the Snow device to AWS.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SnowballClient, CreateReturnShippingLabelCommand } from "@aws-sdk/client-snowball"; // ES Modules import
+ * // const { SnowballClient, CreateReturnShippingLabelCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
  * const command = new CreateReturnShippingLabelCommand(input);
  * const response = await client.send(command);

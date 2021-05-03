@@ -27,8 +27,10 @@ export interface ListPartnerEventSourceAccountsCommandOutput
  *       partner event source name is associated with. This operation is not used by AWS
  *       customers.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudWatchEventsClient, ListPartnerEventSourceAccountsCommand } from "@aws-sdk/client-cloudwatch-events"; // ES Modules import
+ * // const { CloudWatchEventsClient, ListPartnerEventSourceAccountsCommand } = require("@aws-sdk/client-cloudwatch-events"); // CommonJS import
  * const client = new CloudWatchEventsClient(config);
  * const command = new ListPartnerEventSourceAccountsCommand(input);
  * const response = await client.send(command);

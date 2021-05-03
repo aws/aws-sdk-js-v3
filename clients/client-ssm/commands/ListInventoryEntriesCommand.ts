@@ -23,8 +23,10 @@ export interface ListInventoryEntriesCommandOutput extends ListInventoryEntriesR
 /**
  * <p>A list of inventory items returned by the request.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, ListInventoryEntriesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, ListInventoryEntriesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new ListInventoryEntriesCommand(input);
  * const response = await client.send(command);

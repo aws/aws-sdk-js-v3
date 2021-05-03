@@ -35,8 +35,10 @@ export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __Met
  *          <p>The <code>ShareNotes</code> parameter is only used when <code>HANDSHAKE</code> is called,
  *       which sends a directory sharing request to the directory consumer. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectoryServiceClient, ShareDirectoryCommand } from "@aws-sdk/client-directory-service"; // ES Modules import
+ * // const { DirectoryServiceClient, ShareDirectoryCommand } = require("@aws-sdk/client-directory-service"); // CommonJS import
  * const client = new DirectoryServiceClient(config);
  * const command = new ShareDirectoryCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface AssociateLambdaFunctionCommandOutput extends __MetadataBearer {
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Allows the specified Amazon Connect instance to access the specified Lambda function.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, AssociateLambdaFunctionCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, AssociateLambdaFunctionCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new AssociateLambdaFunctionCommand(input);
  * const response = await client.send(command);

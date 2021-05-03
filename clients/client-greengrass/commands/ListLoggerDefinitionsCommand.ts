@@ -23,8 +23,10 @@ export interface ListLoggerDefinitionsCommandOutput extends ListLoggerDefinition
 /**
  * Retrieves a list of logger definitions.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassClient, ListLoggerDefinitionsCommand } from "@aws-sdk/client-greengrass"; // ES Modules import
+ * // const { GreengrassClient, ListLoggerDefinitionsCommand } = require("@aws-sdk/client-greengrass"); // CommonJS import
  * const client = new GreengrassClient(config);
  * const command = new ListLoggerDefinitionsCommand(input);
  * const response = await client.send(command);

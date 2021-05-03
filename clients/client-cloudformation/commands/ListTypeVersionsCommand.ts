@@ -23,8 +23,10 @@ export interface ListTypeVersionsCommandOutput extends ListTypeVersionsOutput, _
 /**
  * <p>Returns summary information about the versions of an extension.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFormationClient, ListTypeVersionsCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, ListTypeVersionsCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const command = new ListTypeVersionsCommand(input);
  * const response = await client.send(command);

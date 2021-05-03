@@ -24,8 +24,10 @@ export interface ListAccountAssignmentsCommandOutput extends ListAccountAssignme
  * <p>Lists the assignee of the specified AWS account with the specified permission
  *        set.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSOAdminClient, ListAccountAssignmentsCommand } from "@aws-sdk/client-sso-admin"; // ES Modules import
+ * // const { SSOAdminClient, ListAccountAssignmentsCommand } = require("@aws-sdk/client-sso-admin"); // CommonJS import
  * const client = new SSOAdminClient(config);
  * const command = new ListAccountAssignmentsCommand(input);
  * const response = await client.send(command);

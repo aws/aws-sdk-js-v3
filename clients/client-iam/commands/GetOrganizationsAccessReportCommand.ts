@@ -42,8 +42,10 @@ export interface GetOrganizationsAccessReportCommandOutput
  *             that it failed.</p>
  *         <p>By default, the list is sorted by service namespace.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IAMClient, GetOrganizationsAccessReportCommand } from "@aws-sdk/client-iam"; // ES Modules import
+ * // const { IAMClient, GetOrganizationsAccessReportCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
  * const command = new GetOrganizationsAccessReportCommand(input);
  * const response = await client.send(command);

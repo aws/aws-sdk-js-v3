@@ -66,8 +66,10 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  *             status by calling the <a>DescribeBackups</a> operation, which returns the
  *             backup state along with other information.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FSxClient, CreateBackupCommand } from "@aws-sdk/client-fsx"; // ES Modules import
+ * // const { FSxClient, CreateBackupCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
  * const command = new CreateBackupCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
 /**
  * <p>Retrieves the user metadata and attributes from <code>UserId</code> in an identity store.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IdentitystoreClient, DescribeUserCommand } from "@aws-sdk/client-identitystore"; // ES Modules import
+ * // const { IdentitystoreClient, DescribeUserCommand } = require("@aws-sdk/client-identitystore"); // CommonJS import
  * const client = new IdentitystoreClient(config);
  * const command = new DescribeUserCommand(input);
  * const response = await client.send(command);

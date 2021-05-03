@@ -23,8 +23,10 @@ export interface UpdateSecurityProfileCommandOutput extends UpdateSecurityProfil
 /**
  * <p>Updates a Device Defender security profile.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, UpdateSecurityProfileCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, UpdateSecurityProfileCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new UpdateSecurityProfileCommand(input);
  * const response = await client.send(command);

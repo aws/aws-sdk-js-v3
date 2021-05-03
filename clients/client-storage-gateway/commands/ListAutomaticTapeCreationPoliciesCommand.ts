@@ -28,8 +28,10 @@ export interface ListAutomaticTapeCreationPoliciesCommandOutput
  *
  *          <p>This operation is only supported for tape gateways.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { StorageGatewayClient, ListAutomaticTapeCreationPoliciesCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, ListAutomaticTapeCreationPoliciesCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const command = new ListAutomaticTapeCreationPoliciesCommand(input);
  * const response = await client.send(command);

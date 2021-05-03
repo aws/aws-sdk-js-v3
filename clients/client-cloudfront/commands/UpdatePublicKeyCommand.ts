@@ -23,8 +23,10 @@ export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __M
 /**
  * <p>Update public key information. Note that the only value you can change is the comment.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFrontClient, UpdatePublicKeyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, UpdatePublicKeyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const command = new UpdatePublicKeyCommand(input);
  * const response = await client.send(command);

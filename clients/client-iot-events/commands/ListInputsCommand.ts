@@ -23,8 +23,10 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
 /**
  * <p>Lists the inputs you have created.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTEventsClient, ListInputsCommand } from "@aws-sdk/client-iot-events"; // ES Modules import
+ * // const { IoTEventsClient, ListInputsCommand } = require("@aws-sdk/client-iot-events"); // CommonJS import
  * const client = new IoTEventsClient(config);
  * const command = new ListInputsCommand(input);
  * const response = await client.send(command);

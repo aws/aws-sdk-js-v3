@@ -25,8 +25,10 @@ export interface CreateMedicalVocabularyCommandOutput extends CreateMedicalVocab
  *             change
  *             how Amazon Transcribe Medical transcribes your audio file.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { TranscribeClient, CreateMedicalVocabularyCommand } from "@aws-sdk/client-transcribe"; // ES Modules import
+ * // const { TranscribeClient, CreateMedicalVocabularyCommand } = require("@aws-sdk/client-transcribe"); // CommonJS import
  * const client = new TranscribeClient(config);
  * const command = new CreateMedicalVocabularyCommand(input);
  * const response = await client.send(command);

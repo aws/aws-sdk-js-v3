@@ -20,8 +20,10 @@ export interface DeleteFaqCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes an FAQ from an index.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KendraClient, DeleteFaqCommand } from "@aws-sdk/client-kendra"; // ES Modules import
+ * // const { KendraClient, DeleteFaqCommand } = require("@aws-sdk/client-kendra"); // CommonJS import
  * const client = new KendraClient(config);
  * const command = new DeleteFaqCommand(input);
  * const response = await client.send(command);

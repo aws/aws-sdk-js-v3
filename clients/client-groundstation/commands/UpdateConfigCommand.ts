@@ -25,8 +25,10 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  *          <p>Updating a <code>Config</code> will not update the execution parameters
  *          for existing future contacts scheduled with this <code>Config</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GroundStationClient, UpdateConfigCommand } from "@aws-sdk/client-groundstation"; // ES Modules import
+ * // const { GroundStationClient, UpdateConfigCommand } = require("@aws-sdk/client-groundstation"); // CommonJS import
  * const client = new GroundStationClient(config);
  * const command = new UpdateConfigCommand(input);
  * const response = await client.send(command);

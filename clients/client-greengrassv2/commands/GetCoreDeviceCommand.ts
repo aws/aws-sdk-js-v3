@@ -23,8 +23,10 @@ export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __Met
 /**
  * <p>Retrieves metadata for a AWS IoT Greengrass core device.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GreengrassV2Client, GetCoreDeviceCommand } from "@aws-sdk/client-greengrassv2"; // ES Modules import
+ * // const { GreengrassV2Client, GetCoreDeviceCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const command = new GetCoreDeviceCommand(input);
  * const response = await client.send(command);

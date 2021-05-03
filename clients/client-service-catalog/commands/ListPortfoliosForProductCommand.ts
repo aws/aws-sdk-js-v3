@@ -23,8 +23,10 @@ export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosFor
 /**
  * <p>Lists all portfolios that the specified product is associated with.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, ListPortfoliosForProductCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, ListPortfoliosForProductCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new ListPortfoliosForProductCommand(input);
  * const response = await client.send(command);

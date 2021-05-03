@@ -23,8 +23,10 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
 /**
  * <p>Deletes an existing DataBrew project.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataBrewClient, DeleteProjectCommand } from "@aws-sdk/client-databrew"; // ES Modules import
+ * // const { DataBrewClient, DeleteProjectCommand } = require("@aws-sdk/client-databrew"); // CommonJS import
  * const client = new DataBrewClient(config);
  * const command = new DeleteProjectCommand(input);
  * const response = await client.send(command);

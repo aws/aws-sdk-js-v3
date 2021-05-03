@@ -23,8 +23,10 @@ export interface DescribeDBParametersCommandOutput extends DBParameterGroupDetai
 /**
  * <p>Returns the detailed parameter list for a particular DB parameter group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RDSClient, DescribeDBParametersCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeDBParametersCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
  * const command = new DescribeDBParametersCommand(input);
  * const response = await client.send(command);

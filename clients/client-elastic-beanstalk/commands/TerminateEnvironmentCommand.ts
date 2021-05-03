@@ -23,8 +23,10 @@ export interface TerminateEnvironmentCommandOutput extends EnvironmentDescriptio
 /**
  * <p>Terminates the specified environment.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticBeanstalkClient, TerminateEnvironmentCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
+ * // const { ElasticBeanstalkClient, TerminateEnvironmentCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const command = new TerminateEnvironmentCommand(input);
  * const response = await client.send(command);

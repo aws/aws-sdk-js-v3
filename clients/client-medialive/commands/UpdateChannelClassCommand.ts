@@ -23,8 +23,10 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
 /**
  * Changes the class of the channel.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaLiveClient, UpdateChannelClassCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, UpdateChannelClassCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const command = new UpdateChannelClassCommand(input);
  * const response = await client.send(command);

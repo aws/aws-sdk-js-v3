@@ -25,8 +25,10 @@ export interface UpdatePrimaryEmailAddressCommandOutput extends UpdatePrimaryEma
  *          into the list of aliases (or swapped between an existing alias and the current primary
  *          email), and the email provided in the input is promoted as the primary.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, UpdatePrimaryEmailAddressCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, UpdatePrimaryEmailAddressCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new UpdatePrimaryEmailAddressCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface ListVirtualInterfaceTestHistoryCommandOutput
 /**
  * <p>Lists the virtual interface failover test history.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectConnectClient, ListVirtualInterfaceTestHistoryCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, ListVirtualInterfaceTestHistoryCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const command = new ListVirtualInterfaceTestHistoryCommand(input);
  * const response = await client.send(command);

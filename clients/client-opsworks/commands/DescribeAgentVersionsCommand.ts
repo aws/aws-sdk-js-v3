@@ -25,8 +25,10 @@ export interface DescribeAgentVersionsCommandOutput extends DescribeAgentVersion
  *     configuration manager. <code>DescribeAgentVersions</code> returns a list of available
  *     agent versions for the specified stack or configuration manager.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { OpsWorksClient, DescribeAgentVersionsCommand } from "@aws-sdk/client-opsworks"; // ES Modules import
+ * // const { OpsWorksClient, DescribeAgentVersionsCommand } = require("@aws-sdk/client-opsworks"); // CommonJS import
  * const client = new OpsWorksClient(config);
  * const command = new DescribeAgentVersionsCommand(input);
  * const response = await client.send(command);

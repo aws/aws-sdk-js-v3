@@ -24,8 +24,10 @@ export interface EnableDirectoryCommandOutput extends EnableDirectoryResponse, _
  * <p>Enables the specified directory. Only disabled directories can be enabled. Once
  *       enabled, the directory can then be read and written to.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudDirectoryClient, EnableDirectoryCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, EnableDirectoryCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const command = new EnableDirectoryCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
 /**
  * <p>Retrieves a list of pipelines.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTAnalyticsClient, ListPipelinesCommand } from "@aws-sdk/client-iotanalytics"; // ES Modules import
+ * // const { IoTAnalyticsClient, ListPipelinesCommand } = require("@aws-sdk/client-iotanalytics"); // CommonJS import
  * const client = new IoTAnalyticsClient(config);
  * const command = new ListPipelinesCommand(input);
  * const response = await client.send(command);

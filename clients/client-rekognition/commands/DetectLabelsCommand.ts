@@ -96,8 +96,10 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *          <p>This operation requires permissions to perform the
  *         <code>rekognition:DetectLabels</code> action. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RekognitionClient, DetectLabelsCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, DetectLabelsCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
  * const command = new DetectLabelsCommand(input);
  * const response = await client.send(command);

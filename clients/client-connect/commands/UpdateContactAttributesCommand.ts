@@ -38,8 +38,10 @@ export interface UpdateContactAttributesCommandOutput extends UpdateContactAttri
  *    400 error is returned. This applies also to queued callbacks that were initiated prior to the
  *    release of the API but are still active in your instance.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, UpdateContactAttributesCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, UpdateContactAttributesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new UpdateContactAttributesCommand(input);
  * const response = await client.send(command);

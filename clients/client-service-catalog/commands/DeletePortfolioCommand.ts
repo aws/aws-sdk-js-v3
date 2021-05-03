@@ -26,8 +26,10 @@ export interface DeletePortfolioCommandOutput extends DeletePortfolioOutput, __M
  *          products, users, constraints, or shared accounts.</p>
  *          <p>A delegated admin is authorized to invoke this command.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, DeletePortfolioCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, DeletePortfolioCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new DeletePortfolioCommand(input);
  * const response = await client.send(command);

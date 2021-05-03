@@ -23,8 +23,10 @@ export interface GetDevicePoolCommandOutput extends GetDevicePoolResult, __Metad
 /**
  * <p>Gets information about a device pool.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, GetDevicePoolCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, GetDevicePoolCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new GetDevicePoolCommand(input);
  * const response = await client.send(command);

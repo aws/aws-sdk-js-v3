@@ -23,8 +23,10 @@ export interface DescribeVirtualGatewayCommandOutput extends DescribeVirtualGate
 /**
  * <p>Describes an existing virtual gateway.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppMeshClient, DescribeVirtualGatewayCommand } from "@aws-sdk/client-app-mesh"; // ES Modules import
+ * // const { AppMeshClient, DescribeVirtualGatewayCommand } = require("@aws-sdk/client-app-mesh"); // CommonJS import
  * const client = new AppMeshClient(config);
  * const command = new DescribeVirtualGatewayCommand(input);
  * const response = await client.send(command);

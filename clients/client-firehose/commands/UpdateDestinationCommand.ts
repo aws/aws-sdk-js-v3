@@ -46,8 +46,10 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *          update is applied successfully, the version ID is updated, and can be retrieved using <a>DescribeDeliveryStream</a>. Use the new version ID to set
  *             <code>CurrentDeliveryStreamVersionId</code> in the next call.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FirehoseClient, UpdateDestinationCommand } from "@aws-sdk/client-firehose"; // ES Modules import
+ * // const { FirehoseClient, UpdateDestinationCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
  * const command = new UpdateDestinationCommand(input);
  * const response = await client.send(command);

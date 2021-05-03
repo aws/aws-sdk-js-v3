@@ -23,8 +23,10 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
 /**
  * Produces list of inputs that have been created
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaLiveClient, ListInputsCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, ListInputsCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const command = new ListInputsCommand(input);
  * const response = await client.send(command);

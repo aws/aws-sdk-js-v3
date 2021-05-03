@@ -23,8 +23,10 @@ export interface DescribeEndpointAuthorizationCommandOutput extends EndpointAuth
 /**
  * <p>Describes an endpoint authorization.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RedshiftClient, DescribeEndpointAuthorizationCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, DescribeEndpointAuthorizationCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
  * const command = new DescribeEndpointAuthorizationCommand(input);
  * const response = await client.send(command);

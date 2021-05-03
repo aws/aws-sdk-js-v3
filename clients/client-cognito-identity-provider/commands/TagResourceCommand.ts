@@ -41,8 +41,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *         <p>You can use this action up to 5 times per second, per account. A user pool can have as
  *             many as 50 tags.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityProviderClient, TagResourceCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, TagResourceCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

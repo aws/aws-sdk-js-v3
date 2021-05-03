@@ -27,8 +27,10 @@ export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobRes
 /**
  * <p>Stops a protected health information (PHI) detection job in progress.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendMedicalClient, StopPHIDetectionJobCommand } from "@aws-sdk/client-comprehendmedical"; // ES Modules import
+ * // const { ComprehendMedicalClient, StopPHIDetectionJobCommand } = require("@aws-sdk/client-comprehendmedical"); // CommonJS import
  * const client = new ComprehendMedicalClient(config);
  * const command = new StopPHIDetectionJobCommand(input);
  * const response = await client.send(command);

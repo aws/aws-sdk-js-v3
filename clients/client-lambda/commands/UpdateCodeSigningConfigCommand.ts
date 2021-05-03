@@ -24,8 +24,10 @@ export interface UpdateCodeSigningConfigCommandOutput extends UpdateCodeSigningC
  * <p>Update the code signing configuration. Changes to the code signing configuration take effect the next time a
  *       user tries to deploy a code package to the function. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LambdaClient, UpdateCodeSigningConfigCommand } from "@aws-sdk/client-lambda"; // ES Modules import
+ * // const { LambdaClient, UpdateCodeSigningConfigCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
  * const command = new UpdateCodeSigningConfigCommand(input);
  * const response = await client.send(command);

@@ -28,8 +28,10 @@ export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetReq
  *        Otherwise, the Spot Fleet request enters the <code>cancelled_running</code> state and the instances
  *        continue to run until they are interrupted or you terminate them manually.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, CancelSpotFleetRequestsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CancelSpotFleetRequestsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new CancelSpotFleetRequestsCommand(input);
  * const response = await client.send(command);

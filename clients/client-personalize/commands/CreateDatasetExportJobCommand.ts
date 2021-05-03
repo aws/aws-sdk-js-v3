@@ -44,8 +44,10 @@ export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExport
  *       includes a <code>failureReason</code> key, which describes why the job failed.
  *     </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PersonalizeClient, CreateDatasetExportJobCommand } from "@aws-sdk/client-personalize"; // ES Modules import
+ * // const { PersonalizeClient, CreateDatasetExportJobCommand } = require("@aws-sdk/client-personalize"); // CommonJS import
  * const client = new PersonalizeClient(config);
  * const command = new CreateDatasetExportJobCommand(input);
  * const response = await client.send(command);

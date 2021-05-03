@@ -24,8 +24,10 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  * <p>Deletes a detector. Deleting an anomaly detector will delete all of its corresponding resources including any
  *       configured datasets and alerts. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutMetricsClient, DeleteAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics"; // ES Modules import
+ * // const { LookoutMetricsClient, DeleteAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics"); // CommonJS import
  * const client = new LookoutMetricsClient(config);
  * const command = new DeleteAnomalyDetectorCommand(input);
  * const response = await client.send(command);

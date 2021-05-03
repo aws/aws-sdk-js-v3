@@ -34,8 +34,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *          general label that acts as a category for more specific tag values. A tag value acts as
  *          a descriptor within a tag key.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ApplicationInsightsClient, TagResourceCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
+ * // const { ApplicationInsightsClient, TagResourceCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const command = new TagResourceCommand(input);
  * const response = await client.send(command);

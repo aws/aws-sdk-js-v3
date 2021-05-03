@@ -23,8 +23,10 @@ export interface StopBgpFailoverTestCommandOutput extends StopBgpFailoverTestRes
 /**
  * <p>Stops the virtual interface failover test.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectConnectClient, StopBgpFailoverTestCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, StopBgpFailoverTestCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const command = new StopBgpFailoverTestCommand(input);
  * const response = await client.send(command);

@@ -44,8 +44,10 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  *             </li>
  *          </ol>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WAFClient, DeleteWebACLCommand } from "@aws-sdk/client-waf"; // ES Modules import
+ * // const { WAFClient, DeleteWebACLCommand } = require("@aws-sdk/client-waf"); // CommonJS import
  * const client = new WAFClient(config);
  * const command = new DeleteWebACLCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  *       the US regions will return addresses from the list of all addresses associated with this
  *       account in all US regions.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SnowballClient, DescribeAddressesCommand } from "@aws-sdk/client-snowball"; // ES Modules import
+ * // const { SnowballClient, DescribeAddressesCommand } = require("@aws-sdk/client-snowball"); // CommonJS import
  * const client = new SnowballClient(config);
  * const command = new DescribeAddressesCommand(input);
  * const response = await client.send(command);

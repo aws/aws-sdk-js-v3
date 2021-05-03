@@ -29,8 +29,10 @@ export interface DeleteModelCommandOutput extends DeleteModelResponse, __Metadat
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:DeleteModel</code> operation.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LookoutVisionClient, DeleteModelCommand } from "@aws-sdk/client-lookoutvision"; // ES Modules import
+ * // const { LookoutVisionClient, DeleteModelCommand } = require("@aws-sdk/client-lookoutvision"); // CommonJS import
  * const client = new LookoutVisionClient(config);
  * const command = new DeleteModelCommand(input);
  * const response = await client.send(command);

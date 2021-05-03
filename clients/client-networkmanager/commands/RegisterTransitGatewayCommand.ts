@@ -25,8 +25,10 @@ export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGate
  *             AWS Region, but it must be owned by the same AWS account that owns the global network.
  *             You cannot register a transit gateway in more than one global network.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NetworkManagerClient, RegisterTransitGatewayCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
+ * // const { NetworkManagerClient, RegisterTransitGatewayCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
  * const command = new RegisterTransitGatewayCommand(input);
  * const response = await client.send(command);

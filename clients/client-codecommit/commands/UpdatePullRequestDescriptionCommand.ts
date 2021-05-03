@@ -25,8 +25,10 @@ export interface UpdatePullRequestDescriptionCommandOutput
 /**
  * <p>Replaces the contents of the description of a pull request.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeCommitClient, UpdatePullRequestDescriptionCommand } from "@aws-sdk/client-codecommit"; // ES Modules import
+ * // const { CodeCommitClient, UpdatePullRequestDescriptionCommand } = require("@aws-sdk/client-codecommit"); // CommonJS import
  * const client = new CodeCommitClient(config);
  * const command = new UpdatePullRequestDescriptionCommand(input);
  * const response = await client.send(command);

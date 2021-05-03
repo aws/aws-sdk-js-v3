@@ -23,8 +23,10 @@ export interface DeleteUploadCommandOutput extends DeleteUploadResult, __Metadat
 /**
  * <p>Deletes an upload given the upload ARN.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, DeleteUploadCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, DeleteUploadCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new DeleteUploadCommand(input);
  * const response = await client.send(command);

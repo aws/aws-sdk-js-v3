@@ -25,8 +25,10 @@ export interface TestAuthorizationCommandOutput extends TestAuthorizationRespons
  *          specified resource. Use this to test and debug the authorization behavior of devices that
  *          connect to the AWS IoT device gateway.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, TestAuthorizationCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, TestAuthorizationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new TestAuthorizationCommand(input);
  * const response = await client.send(command);

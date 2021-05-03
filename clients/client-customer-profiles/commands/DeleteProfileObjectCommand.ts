@@ -23,8 +23,10 @@ export interface DeleteProfileObjectCommandOutput extends DeleteProfileObjectRes
 /**
  * <p>Removes an object associated with a profile of a given ProfileObjectType.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CustomerProfilesClient, DeleteProfileObjectCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, DeleteProfileObjectCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const command = new DeleteProfileObjectCommand(input);
  * const response = await client.send(command);

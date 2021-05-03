@@ -25,8 +25,10 @@ export interface DeleteBackupPlanCommandOutput extends DeleteBackupPlanOutput, _
  *          of resources have been deleted. Deleting a backup plan deletes the current version of a
  *          backup plan. Previous versions, if any, will still exist.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BackupClient, DeleteBackupPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, DeleteBackupPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
  * const command = new DeleteBackupPlanCommand(input);
  * const response = await client.send(command);

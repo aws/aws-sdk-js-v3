@@ -26,8 +26,10 @@ export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsInputOu
  * In this example, no XML document is synthesized because the payload is
  * not a structure or a union type.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RestXmlProtocolClient, HttpPayloadTraitsCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, HttpPayloadTraitsCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
  * const command = new HttpPayloadTraitsCommand(input);
  * const response = await client.send(command);

@@ -27,8 +27,10 @@ export interface UpdateApplicationCommandOutput extends ApplicationDescriptionMe
  *         remains unchanged. To clear these properties, specify an empty string.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElasticBeanstalkClient, UpdateApplicationCommand } from "@aws-sdk/client-elastic-beanstalk"; // ES Modules import
+ * // const { ElasticBeanstalkClient, UpdateApplicationCommand } = require("@aws-sdk/client-elastic-beanstalk"); // CommonJS import
  * const client = new ElasticBeanstalkClient(config);
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);

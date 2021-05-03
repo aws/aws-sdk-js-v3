@@ -204,8 +204,10 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *             </li>
  *          </ul>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { S3Client, UploadPartCopyCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, UploadPartCopyCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
  * const command = new UploadPartCopyCommand(input);
  * const response = await client.send(command);

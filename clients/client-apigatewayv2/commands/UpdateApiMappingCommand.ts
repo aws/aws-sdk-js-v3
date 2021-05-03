@@ -23,8 +23,10 @@ export interface UpdateApiMappingCommandOutput extends UpdateApiMappingResponse,
 /**
  * <p>The API mapping.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ApiGatewayV2Client, UpdateApiMappingCommand } from "@aws-sdk/client-apigatewayv2"; // ES Modules import
+ * // const { ApiGatewayV2Client, UpdateApiMappingCommand } = require("@aws-sdk/client-apigatewayv2"); // CommonJS import
  * const client = new ApiGatewayV2Client(config);
  * const command = new UpdateApiMappingCommand(input);
  * const response = await client.send(command);

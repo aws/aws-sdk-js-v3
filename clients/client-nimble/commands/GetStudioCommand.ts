@@ -23,8 +23,10 @@ export interface GetStudioCommandOutput extends GetStudioResponse, __MetadataBea
 /**
  * <p>Get a Studio resource.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NimbleClient, GetStudioCommand } from "@aws-sdk/client-nimble"; // ES Modules import
+ * // const { NimbleClient, GetStudioCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
  * const command = new GetStudioCommand(input);
  * const response = await client.send(command);

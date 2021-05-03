@@ -42,8 +42,10 @@ export interface RevokeCertificateCommandOutput extends __MetadataBearer {}
  * 			         <p>You cannot revoke a root CA self-signed certificate.</p>
  * 		       </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ACMPCAClient, RevokeCertificateCommand } from "@aws-sdk/client-acm-pca"; // ES Modules import
+ * // const { ACMPCAClient, RevokeCertificateCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const command = new RevokeCertificateCommand(input);
  * const response = await client.send(command);

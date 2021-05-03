@@ -23,8 +23,10 @@ export interface ListStreamKeysCommandOutput extends ListStreamKeysResponse, __M
 /**
  * <p>Gets summary information about stream keys for the specified channel.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IvsClient, ListStreamKeysCommand } from "@aws-sdk/client-ivs"; // ES Modules import
+ * // const { IvsClient, ListStreamKeysCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
  * const command = new ListStreamKeysCommand(input);
  * const response = await client.send(command);

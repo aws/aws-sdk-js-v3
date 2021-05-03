@@ -24,8 +24,10 @@ export interface ListNotebookInstancesCommandOutput extends ListNotebookInstance
  * <p>Returns a list of the Amazon SageMaker notebook instances in the requester's account in an AWS
  *             Region. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, ListNotebookInstancesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, ListNotebookInstancesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new ListNotebookInstancesCommand(input);
  * const response = await client.send(command);

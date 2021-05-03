@@ -25,8 +25,10 @@ export interface CreateResolverCommandOutput extends CreateResolverResponse, __M
  *          <p>A resolver converts incoming requests into a format that a data source can understand
  *          and converts the data source's responses into GraphQL.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppSyncClient, CreateResolverCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, CreateResolverCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
  * const command = new CreateResolverCommand(input);
  * const response = await client.send(command);

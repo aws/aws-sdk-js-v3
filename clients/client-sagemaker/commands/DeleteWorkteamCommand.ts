@@ -23,8 +23,10 @@ export interface DeleteWorkteamCommandOutput extends DeleteWorkteamResponse, __M
 /**
  * <p>Deletes an existing work team. This operation can't be undone.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, DeleteWorkteamCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, DeleteWorkteamCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new DeleteWorkteamCommand(input);
  * const response = await client.send(command);

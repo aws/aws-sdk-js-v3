@@ -24,8 +24,10 @@ export interface CreateStudioSessionMappingCommandOutput extends __MetadataBeare
  * <p>Maps a user or group to the Amazon EMR Studio specified by <code>StudioId</code>, and
  *          applies a session policy to refine Studio permissions for that user or group.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EMRClient, CreateStudioSessionMappingCommand } from "@aws-sdk/client-emr"; // ES Modules import
+ * // const { EMRClient, CreateStudioSessionMappingCommand } = require("@aws-sdk/client-emr"); // CommonJS import
  * const client = new EMRClient(config);
  * const command = new CreateStudioSessionMappingCommand(input);
  * const response = await client.send(command);

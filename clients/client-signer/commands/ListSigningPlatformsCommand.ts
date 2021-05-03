@@ -29,8 +29,10 @@ export interface ListSigningPlatformsCommandOutput extends ListSigningPlatformsR
  * 				<code>nextToken</code> parameter until all of your signing jobs have been
  * 			returned.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SignerClient, ListSigningPlatformsCommand } from "@aws-sdk/client-signer"; // ES Modules import
+ * // const { SignerClient, ListSigningPlatformsCommand } = require("@aws-sdk/client-signer"); // CommonJS import
  * const client = new SignerClient(config);
  * const command = new ListSigningPlatformsCommand(input);
  * const response = await client.send(command);

@@ -26,8 +26,10 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  *          <p>If the value for the <code>VersionNumber</code> (checkpoint) is provided, <code>Compatibility</code> is optional and this can be used to set/reset a checkpoint for the schema.</p>
  * 	        <p>This update will happen only if the schema is in the AVAILABLE state.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlueClient, UpdateSchemaCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, UpdateSchemaCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
  * const command = new UpdateSchemaCommand(input);
  * const response = await client.send(command);

@@ -28,8 +28,10 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
  * <p>Confirms registration of a user and handles the existing alias from a previous
  *             user.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CognitoIdentityProviderClient, ConfirmSignUpCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, ConfirmSignUpCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const command = new ConfirmSignUpCommand(input);
  * const response = await client.send(command);

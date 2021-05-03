@@ -25,8 +25,10 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  *          <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics
  *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConnectClient, GetCurrentMetricDataCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, GetCurrentMetricDataCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
  * const command = new GetCurrentMetricDataCommand(input);
  * const response = await client.send(command);

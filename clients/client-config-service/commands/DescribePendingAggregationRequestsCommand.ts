@@ -28,8 +28,10 @@ export interface DescribePendingAggregationRequestsCommandOutput
 /**
  * <p>Returns a list of all pending aggregation requests.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConfigServiceClient, DescribePendingAggregationRequestsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, DescribePendingAggregationRequestsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const command = new DescribePendingAggregationRequestsCommand(input);
  * const response = await client.send(command);

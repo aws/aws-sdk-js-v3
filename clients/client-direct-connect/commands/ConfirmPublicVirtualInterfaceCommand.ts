@@ -27,8 +27,10 @@ export interface ConfirmPublicVirtualInterfaceCommandOutput
  *          <p>After the virtual interface owner makes this call, the specified virtual interface is
  *       created and made available to handle traffic.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DirectConnectClient, ConfirmPublicVirtualInterfaceCommand } from "@aws-sdk/client-direct-connect"; // ES Modules import
+ * // const { DirectConnectClient, ConfirmPublicVirtualInterfaceCommand } = require("@aws-sdk/client-direct-connect"); // CommonJS import
  * const client = new DirectConnectClient(config);
  * const command = new ConfirmPublicVirtualInterfaceCommand(input);
  * const response = await client.send(command);

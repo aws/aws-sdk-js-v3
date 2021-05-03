@@ -28,8 +28,10 @@ export interface ListDominantLanguageDetectionJobsCommandOutput
 /**
  * <p>Gets a list of the dominant language detection jobs that you have submitted.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ComprehendClient, ListDominantLanguageDetectionJobsCommand } from "@aws-sdk/client-comprehend"; // ES Modules import
+ * // const { ComprehendClient, ListDominantLanguageDetectionJobsCommand } = require("@aws-sdk/client-comprehend"); // CommonJS import
  * const client = new ComprehendClient(config);
  * const command = new ListDominantLanguageDetectionJobsCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResult, __Metadat
 /**
  * <p>Gets a public key.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFrontClient, GetPublicKeyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, GetPublicKeyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
  * const command = new GetPublicKeyCommand(input);
  * const response = await client.send(command);

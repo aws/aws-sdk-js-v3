@@ -24,8 +24,10 @@ export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBeare
 /**
  * <p>Lists the hosts associated with your account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeStarConnectionsClient, ListHostsCommand } from "@aws-sdk/client-codestar-connections"; // ES Modules import
+ * // const { CodeStarConnectionsClient, ListHostsCommand } = require("@aws-sdk/client-codestar-connections"); // CommonJS import
  * const client = new CodeStarConnectionsClient(config);
  * const command = new ListHostsCommand(input);
  * const response = await client.send(command);

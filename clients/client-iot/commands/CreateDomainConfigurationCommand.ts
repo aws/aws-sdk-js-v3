@@ -26,8 +26,10 @@ export interface CreateDomainConfigurationCommandOutput extends CreateDomainConf
  *             <p>The domain configuration feature is in public preview and is subject to change.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, CreateDomainConfigurationCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, CreateDomainConfigurationCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new CreateDomainConfigurationCommand(input);
  * const response = await client.send(command);

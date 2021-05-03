@@ -26,8 +26,10 @@ export interface ListBackupPlansCommandOutput extends ListBackupPlansOutput, __M
  *          information such as Amazon Resource Names (ARNs), plan IDs, creation and deletion dates,
  *          version IDs, plan names, and creator request IDs.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BackupClient, ListBackupPlansCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, ListBackupPlansCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
  * const command = new ListBackupPlansCommand(input);
  * const response = await client.send(command);

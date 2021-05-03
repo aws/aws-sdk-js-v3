@@ -23,8 +23,10 @@ export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSe
 /**
  * <p>Ends a specified remote access session.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, StopRemoteAccessSessionCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, StopRemoteAccessSessionCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new StopRemoteAccessSessionCommand(input);
  * const response = await client.send(command);

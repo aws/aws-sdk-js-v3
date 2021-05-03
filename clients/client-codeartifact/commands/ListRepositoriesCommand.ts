@@ -30,8 +30,10 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesResult, _
  *        parameters.
  *      </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeartifactClient, ListRepositoriesCommand } from "@aws-sdk/client-codeartifact"; // ES Modules import
+ * // const { CodeartifactClient, ListRepositoriesCommand } = require("@aws-sdk/client-codeartifact"); // CommonJS import
  * const client = new CodeartifactClient(config);
  * const command = new ListRepositoriesCommand(input);
  * const response = await client.send(command);

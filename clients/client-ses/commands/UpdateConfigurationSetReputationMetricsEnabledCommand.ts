@@ -28,8 +28,10 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput ext
  *             create alarms when bounce or complaint rates exceed certain thresholds.</p>
  *         <p>You can execute this operation no more than once per second.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SESClient, UpdateConfigurationSetReputationMetricsEnabledCommand } from "@aws-sdk/client-ses"; // ES Modules import
+ * // const { SESClient, UpdateConfigurationSetReputationMetricsEnabledCommand } = require("@aws-sdk/client-ses"); // CommonJS import
  * const client = new SESClient(config);
  * const command = new UpdateConfigurationSetReputationMetricsEnabledCommand(input);
  * const response = await client.send(command);

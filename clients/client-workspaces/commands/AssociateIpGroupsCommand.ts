@@ -23,8 +23,10 @@ export interface AssociateIpGroupsCommandOutput extends AssociateIpGroupsResult,
 /**
  * <p>Associates the specified IP access control group with the specified directory.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkSpacesClient, AssociateIpGroupsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
+ * // const { WorkSpacesClient, AssociateIpGroupsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const command = new AssociateIpGroupsCommand(input);
  * const response = await client.send(command);

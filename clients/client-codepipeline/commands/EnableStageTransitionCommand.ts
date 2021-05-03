@@ -23,8 +23,10 @@ export interface EnableStageTransitionCommandOutput extends __MetadataBearer {}
 /**
  * <p>Enables artifacts in a pipeline to transition to a stage in a pipeline.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodePipelineClient, EnableStageTransitionCommand } from "@aws-sdk/client-codepipeline"; // ES Modules import
+ * // const { CodePipelineClient, EnableStageTransitionCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const command = new EnableStageTransitionCommand(input);
  * const response = await client.send(command);

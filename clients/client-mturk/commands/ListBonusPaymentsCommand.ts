@@ -28,8 +28,10 @@ export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsRespons
  *             for a given HIT or assignment.
  *         </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MTurkClient, ListBonusPaymentsCommand } from "@aws-sdk/client-mturk"; // ES Modules import
+ * // const { MTurkClient, ListBonusPaymentsCommand } = require("@aws-sdk/client-mturk"); // CommonJS import
  * const client = new MTurkClient(config);
  * const command = new ListBonusPaymentsCommand(input);
  * const response = await client.send(command);

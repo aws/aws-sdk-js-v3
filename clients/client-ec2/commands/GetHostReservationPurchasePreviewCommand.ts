@@ -29,8 +29,10 @@ export interface GetHostReservationPurchasePreviewCommandOutput
  *         <p>This is a preview of the <a>PurchaseHostReservation</a> action and does
  *             not result in the offering being purchased.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, GetHostReservationPurchasePreviewCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, GetHostReservationPurchasePreviewCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new GetHostReservationPurchasePreviewCommand(input);
  * const response = await client.send(command);

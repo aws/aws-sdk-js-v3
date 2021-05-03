@@ -26,8 +26,10 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput
  * <p>Describes the permissions that the owner of an image has granted to other
  *          AWS accounts for an image.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkSpacesClient, DescribeWorkspaceImagePermissionsCommand } from "@aws-sdk/client-workspaces"; // ES Modules import
+ * // const { WorkSpacesClient, DescribeWorkspaceImagePermissionsCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const command = new DescribeWorkspaceImagePermissionsCommand(input);
  * const response = await client.send(command);

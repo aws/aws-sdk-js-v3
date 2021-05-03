@@ -24,8 +24,10 @@ export interface ListObjectChildrenCommandOutput extends ListObjectChildrenRespo
  * <p>Returns a paginated list of child objects that are associated with a given
  *       object.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudDirectoryClient, ListObjectChildrenCommand } from "@aws-sdk/client-clouddirectory"; // ES Modules import
+ * // const { CloudDirectoryClient, ListObjectChildrenCommand } = require("@aws-sdk/client-clouddirectory"); // CommonJS import
  * const client = new CloudDirectoryClient(config);
  * const command = new ListObjectChildrenCommand(input);
  * const response = await client.send(command);

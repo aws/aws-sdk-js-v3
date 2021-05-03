@@ -39,8 +39,10 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  *                 is using. The endpoint must be deleted in order to stop incurring charges.</p>
  *         </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, UpdateEndpointCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, UpdateEndpointCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new UpdateEndpointCommand(input);
  * const response = await client.send(command);

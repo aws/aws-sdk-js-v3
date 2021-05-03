@@ -58,8 +58,10 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  *                 information.</p>
  *         </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FSxClient, CreateFileSystemFromBackupCommand } from "@aws-sdk/client-fsx"; // ES Modules import
+ * // const { FSxClient, CreateFileSystemFromBackupCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
  * const client = new FSxClient(config);
  * const command = new CreateFileSystemFromBackupCommand(input);
  * const response = await client.send(command);

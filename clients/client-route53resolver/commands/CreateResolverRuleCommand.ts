@@ -24,8 +24,10 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  * <p>For DNS queries that originate in your VPCs, specifies which Resolver endpoint the queries pass through,
  * 			one domain name that you want to forward to your network, and the IP addresses of the DNS resolvers in your network.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53ResolverClient, CreateResolverRuleCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, CreateResolverRuleCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const command = new CreateResolverRuleCommand(input);
  * const response = await client.send(command);

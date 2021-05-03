@@ -24,8 +24,10 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * <p>Deletes a scheduled action.
  *              </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RedshiftClient, DeleteScheduledActionCommand } from "@aws-sdk/client-redshift"; // ES Modules import
+ * // const { RedshiftClient, DeleteScheduledActionCommand } = require("@aws-sdk/client-redshift"); // CommonJS import
  * const client = new RedshiftClient(config);
  * const command = new DeleteScheduledActionCommand(input);
  * const response = await client.send(command);

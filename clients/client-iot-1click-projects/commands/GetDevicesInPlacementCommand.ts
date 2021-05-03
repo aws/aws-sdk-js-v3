@@ -27,8 +27,10 @@ export interface GetDevicesInPlacementCommandOutput extends GetDevicesInPlacemen
 /**
  * <p>Returns an object enumerating the devices in a placement.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoT1ClickProjectsClient, GetDevicesInPlacementCommand } from "@aws-sdk/client-iot-1click-projects"; // ES Modules import
+ * // const { IoT1ClickProjectsClient, GetDevicesInPlacementCommand } = require("@aws-sdk/client-iot-1click-projects"); // CommonJS import
  * const client = new IoT1ClickProjectsClient(config);
  * const command = new GetDevicesInPlacementCommand(input);
  * const response = await client.send(command);

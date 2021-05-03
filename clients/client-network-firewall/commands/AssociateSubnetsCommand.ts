@@ -28,8 +28,10 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  *          subnet's Availability Zone, to redirect the traffic that's coming into and going out of the
  *          zone through the firewall endpoint. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NetworkFirewallClient, AssociateSubnetsCommand } from "@aws-sdk/client-network-firewall"; // ES Modules import
+ * // const { NetworkFirewallClient, AssociateSubnetsCommand } = require("@aws-sdk/client-network-firewall"); // CommonJS import
  * const client = new NetworkFirewallClient(config);
  * const command = new AssociateSubnetsCommand(input);
  * const response = await client.send(command);

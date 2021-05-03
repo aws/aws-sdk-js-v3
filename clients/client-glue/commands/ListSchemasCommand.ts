@@ -24,8 +24,10 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  * <p>Returns a list of schemas with minimal details. Schemas in Deleting status will not be included in the results. Empty results will be returned if there are no schemas available.</p>
  *          <p>When the <code>RegistryId</code> is not provided, all the schemas across registries will be part of the API response.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { GlueClient, ListSchemasCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, ListSchemasCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
  * const command = new ListSchemasCommand(input);
  * const response = await client.send(command);

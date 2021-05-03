@@ -23,8 +23,10 @@ export interface UpdateJourneyCommandOutput extends UpdateJourneyResponse, __Met
 /**
  * <p>Updates the configuration and other settings for a journey.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointClient, UpdateJourneyCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, UpdateJourneyCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
  * const command = new UpdateJourneyCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface JsonTimestampsCommandOutput extends JsonTimestampsInputOutput, 
  * default format of date-time and various @timestampFormat trait
  * values.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RestJsonProtocolClient, JsonTimestampsCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, JsonTimestampsCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
  * const command = new JsonTimestampsCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface StopDeploymentCommandOutput extends Deployment, __MetadataBeare
  *             <code>DEPLOYING</code>. This action moves the deployment to a status of
  *             <code>ROLLED_BACK</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppConfigClient, StopDeploymentCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
+ * // const { AppConfigClient, StopDeploymentCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
  * const command = new StopDeploymentCommand(input);
  * const response = await client.send(command);

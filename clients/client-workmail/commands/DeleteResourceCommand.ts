@@ -23,8 +23,10 @@ export interface DeleteResourceCommandOutput extends DeleteResourceResponse, __M
 /**
  * <p>Deletes the specified resource. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkMailClient, DeleteResourceCommand } from "@aws-sdk/client-workmail"; // ES Modules import
+ * // const { WorkMailClient, DeleteResourceCommand } = require("@aws-sdk/client-workmail"); // CommonJS import
  * const client = new WorkMailClient(config);
  * const command = new DeleteResourceCommand(input);
  * const response = await client.send(command);

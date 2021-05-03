@@ -25,8 +25,10 @@ export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer
  *             group. You cannot delete a cache parameter group if it is associated with any cache
  *             clusters. You cannot delete the default cache parameter groups in your account.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElastiCacheClient, DeleteCacheParameterGroupCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, DeleteCacheParameterGroupCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const command = new DeleteCacheParameterGroupCommand(input);
  * const response = await client.send(command);

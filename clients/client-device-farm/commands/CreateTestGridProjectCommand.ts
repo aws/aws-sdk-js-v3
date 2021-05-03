@@ -24,8 +24,10 @@ export interface CreateTestGridProjectCommandOutput extends CreateTestGridProjec
  * <p>Creates a Selenium testing project. Projects are used to track <a>TestGridSession</a>
  *          instances.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DeviceFarmClient, CreateTestGridProjectCommand } from "@aws-sdk/client-device-farm"; // ES Modules import
+ * // const { DeviceFarmClient, CreateTestGridProjectCommand } = require("@aws-sdk/client-device-farm"); // CommonJS import
  * const client = new DeviceFarmClient(config);
  * const command = new CreateTestGridProjectCommand(input);
  * const response = await client.send(command);

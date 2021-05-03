@@ -44,8 +44,10 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  *         been created or modified.</p>
  *          </important>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NeptuneClient, CreateDBParameterGroupCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, CreateDBParameterGroupCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
  * const command = new CreateDBParameterGroupCommand(input);
  * const response = await client.send(command);

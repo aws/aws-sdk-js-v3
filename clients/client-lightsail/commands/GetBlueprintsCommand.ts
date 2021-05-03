@@ -32,8 +32,10 @@ export interface GetBlueprintsCommandOutput extends GetBlueprintsResult, __Metad
  *         updates or new application releases.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LightsailClient, GetBlueprintsCommand } from "@aws-sdk/client-lightsail"; // ES Modules import
+ * // const { LightsailClient, GetBlueprintsCommand } = require("@aws-sdk/client-lightsail"); // CommonJS import
  * const client = new LightsailClient(config);
  * const command = new GetBlueprintsCommand(input);
  * const response = await client.send(command);

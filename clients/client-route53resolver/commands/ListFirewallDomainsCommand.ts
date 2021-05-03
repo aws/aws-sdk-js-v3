@@ -24,8 +24,10 @@ export interface ListFirewallDomainsCommandOutput extends ListFirewallDomainsRes
  * <p>Retrieves the domains that you have defined for the specified firewall domain list.  </p>
  *          <p>A single call might return only a partial list of the domains. For information, see <code>MaxResults</code>. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Route53ResolverClient, ListFirewallDomainsCommand } from "@aws-sdk/client-route53resolver"; // ES Modules import
+ * // const { Route53ResolverClient, ListFirewallDomainsCommand } = require("@aws-sdk/client-route53resolver"); // CommonJS import
  * const client = new Route53ResolverClient(config);
  * const command = new ListFirewallDomainsCommand(input);
  * const response = await client.send(command);

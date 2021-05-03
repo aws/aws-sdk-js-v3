@@ -23,8 +23,10 @@ export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbRes
 /**
  * <p>Returns metadata, such as the path and user information about an SMB location.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataSyncClient, DescribeLocationSmbCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, DescribeLocationSmbCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
  * const command = new DescribeLocationSmbCommand(input);
  * const response = await client.send(command);

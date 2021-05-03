@@ -27,8 +27,10 @@ export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRa
  *          Amazon Resource Name (ARN) of the gateway in your request. This operation is supported for
  *          the stored volume, cached volume and tape gateway types.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { StorageGatewayClient, DeleteBandwidthRateLimitCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, DeleteBandwidthRateLimitCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const command = new DeleteBandwidthRateLimitCommand(input);
  * const response = await client.send(command);

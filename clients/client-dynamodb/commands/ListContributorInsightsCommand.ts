@@ -23,8 +23,10 @@ export interface ListContributorInsightsCommandOutput extends ListContributorIns
 /**
  * <p>Returns a list of ContributorInsightsSummary for a table and all its global secondary indexes.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DynamoDBClient, ListContributorInsightsCommand } from "@aws-sdk/client-dynamodb"; // ES Modules import
+ * // const { DynamoDBClient, ListContributorInsightsCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
  * const client = new DynamoDBClient(config);
  * const command = new ListContributorInsightsCommand(input);
  * const response = await client.send(command);

@@ -54,8 +54,10 @@ export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __Metadat
  *          </ul>
  *          <p>This action doesn't return definitions for systems, flows, and deployments.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTThingsGraphClient, GetEntitiesCommand } from "@aws-sdk/client-iotthingsgraph"; // ES Modules import
+ * // const { IoTThingsGraphClient, GetEntitiesCommand } = require("@aws-sdk/client-iotthingsgraph"); // CommonJS import
  * const client = new IoTThingsGraphClient(config);
  * const command = new GetEntitiesCommand(input);
  * const response = await client.send(command);

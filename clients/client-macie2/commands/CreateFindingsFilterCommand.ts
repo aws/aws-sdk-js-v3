@@ -23,8 +23,10 @@ export interface CreateFindingsFilterCommandOutput extends CreateFindingsFilterR
 /**
  * <p>Creates and defines the criteria and other settings for a findings filter.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { Macie2Client, CreateFindingsFilterCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, CreateFindingsFilterCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
  * const command = new CreateFindingsFilterCommand(input);
  * const response = await client.send(command);

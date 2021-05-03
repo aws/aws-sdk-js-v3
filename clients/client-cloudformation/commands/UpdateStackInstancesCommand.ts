@@ -35,8 +35,10 @@ export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesO
  *          new parameter, you can then override the parameter value using
  *             <code>UpdateStackInstances</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CloudFormationClient, UpdateStackInstancesCommand } from "@aws-sdk/client-cloudformation"; // ES Modules import
+ * // const { CloudFormationClient, UpdateStackInstancesCommand } = require("@aws-sdk/client-cloudformation"); // CommonJS import
  * const client = new CloudFormationClient(config);
  * const command = new UpdateStackInstancesCommand(input);
  * const response = await client.send(command);

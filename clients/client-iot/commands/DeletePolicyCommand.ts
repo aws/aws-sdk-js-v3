@@ -30,8 +30,10 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  *          <p>When a policy is deleted using DeletePolicy, its default version is deleted with
  *          it.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTClient, DeletePolicyCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, DeletePolicyCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
  * const command = new DeletePolicyCommand(input);
  * const response = await client.send(command);

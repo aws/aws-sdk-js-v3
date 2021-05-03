@@ -28,8 +28,10 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  * <p>Given a device ID, returns a DescribeDeviceResponse object describing the
  *  details of the device.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoT1ClickDevicesServiceClient, DescribeDeviceCommand } from "@aws-sdk/client-iot-1click-devices-service"; // ES Modules import
+ * // const { IoT1ClickDevicesServiceClient, DescribeDeviceCommand } = require("@aws-sdk/client-iot-1click-devices-service"); // CommonJS import
  * const client = new IoT1ClickDevicesServiceClient(config);
  * const command = new DescribeDeviceCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface DisassociateAssetsCommandOutput extends __MetadataBearer {}
  * <p>Disassociates a child asset from the given parent asset through a hierarchy defined in the
  *       parent asset's model.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTSiteWiseClient, DisassociateAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, DisassociateAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const command = new DisassociateAssetsCommand(input);
  * const response = await client.send(command);

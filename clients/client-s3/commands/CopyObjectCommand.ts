@@ -195,8 +195,10 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CopyingObjectsExamples.html">Copying
  *             Objects</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { S3Client, CopyObjectCommand } from "@aws-sdk/client-s3"; // ES Modules import
+ * // const { S3Client, CopyObjectCommand } = require("@aws-sdk/client-s3"); // CommonJS import
  * const client = new S3Client(config);
  * const command = new CopyObjectCommand(input);
  * const response = await client.send(command);

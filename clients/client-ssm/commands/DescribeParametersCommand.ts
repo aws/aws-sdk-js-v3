@@ -31,8 +31,10 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  *      <code>NextToken</code> in a subsequent call to get the next set of results.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, DescribeParametersCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DescribeParametersCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new DescribeParametersCommand(input);
  * const response = await client.send(command);

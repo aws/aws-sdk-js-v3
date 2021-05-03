@@ -24,8 +24,10 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  * <p>Delete a configuration profile. Deleting a configuration profile does not delete a
  *          configuration from a host.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppConfigClient, DeleteConfigurationProfileCommand } from "@aws-sdk/client-appconfig"; // ES Modules import
+ * // const { AppConfigClient, DeleteConfigurationProfileCommand } = require("@aws-sdk/client-appconfig"); // CommonJS import
  * const client = new AppConfigClient(config);
  * const command = new DeleteConfigurationProfileCommand(input);
  * const response = await client.send(command);

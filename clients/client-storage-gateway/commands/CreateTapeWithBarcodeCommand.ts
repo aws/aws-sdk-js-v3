@@ -31,8 +31,10 @@ export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcod
  *             Use the <a>AddCache</a> operation to add cache storage to a gateway.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { StorageGatewayClient, CreateTapeWithBarcodeCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, CreateTapeWithBarcodeCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const command = new CreateTapeWithBarcodeCommand(input);
  * const response = await client.send(command);

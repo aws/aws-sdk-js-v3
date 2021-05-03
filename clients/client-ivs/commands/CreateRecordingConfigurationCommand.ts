@@ -36,8 +36,10 @@ export interface CreateRecordingConfigurationCommandOutput
  *       bucket, delete that recording configuration and create a new one with an S3 bucket from the
  *       correct region.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IvsClient, CreateRecordingConfigurationCommand } from "@aws-sdk/client-ivs"; // ES Modules import
+ * // const { IvsClient, CreateRecordingConfigurationCommand } = require("@aws-sdk/client-ivs"); // CommonJS import
  * const client = new IvsClient(config);
  * const command = new CreateRecordingConfigurationCommand(input);
  * const response = await client.send(command);

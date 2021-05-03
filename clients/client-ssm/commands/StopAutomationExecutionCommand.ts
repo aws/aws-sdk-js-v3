@@ -23,8 +23,10 @@ export interface StopAutomationExecutionCommandOutput extends StopAutomationExec
 /**
  * <p>Stop an Automation that is currently running.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SSMClient, StopAutomationExecutionCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, StopAutomationExecutionCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
  * const command = new StopAutomationExecutionCommand(input);
  * const response = await client.send(command);

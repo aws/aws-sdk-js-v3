@@ -34,8 +34,10 @@ export interface StartCelebrityRecognitionCommandOutput extends StartCelebrityRe
  *
  *          <p>For more information, see Recognizing Celebrities in the Amazon Rekognition Developer Guide.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { RekognitionClient, StartCelebrityRecognitionCommand } from "@aws-sdk/client-rekognition"; // ES Modules import
+ * // const { RekognitionClient, StartCelebrityRecognitionCommand } = require("@aws-sdk/client-rekognition"); // CommonJS import
  * const client = new RekognitionClient(config);
  * const command = new StartCelebrityRecognitionCommand(input);
  * const response = await client.send(command);

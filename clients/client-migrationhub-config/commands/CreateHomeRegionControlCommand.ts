@@ -27,8 +27,10 @@ export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionCo
 /**
  * <p>This API sets up the home region for the calling account only.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MigrationHubConfigClient, CreateHomeRegionControlCommand } from "@aws-sdk/client-migrationhub-config"; // ES Modules import
+ * // const { MigrationHubConfigClient, CreateHomeRegionControlCommand } = require("@aws-sdk/client-migrationhub-config"); // CommonJS import
  * const client = new MigrationHubConfigClient(config);
  * const command = new CreateHomeRegionControlCommand(input);
  * const response = await client.send(command);

@@ -23,8 +23,10 @@ export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
 /**
  * <p>Updates the status for the specified findings.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AccessAnalyzerClient, UpdateFindingsCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
+ * // const { AccessAnalyzerClient, UpdateFindingsCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
  * const command = new UpdateFindingsCommand(input);
  * const response = await client.send(command);

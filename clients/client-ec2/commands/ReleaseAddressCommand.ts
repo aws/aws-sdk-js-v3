@@ -31,8 +31,10 @@ export interface ReleaseAddressCommandOutput extends __MetadataBearer {}
  *          <p>[EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able to recover it.
  *         For more information, see <a>AllocateAddress</a>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, ReleaseAddressCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, ReleaseAddressCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new ReleaseAddressCommand(input);
  * const response = await client.send(command);

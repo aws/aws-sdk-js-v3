@@ -23,8 +23,10 @@ export interface GetProfileObjectTypeCommandOutput extends GetProfileObjectTypeR
 /**
  * <p>Returns the object types for a specific domain.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CustomerProfilesClient, GetProfileObjectTypeCommand } from "@aws-sdk/client-customer-profiles"; // ES Modules import
+ * // const { CustomerProfilesClient, GetProfileObjectTypeCommand } = require("@aws-sdk/client-customer-profiles"); // CommonJS import
  * const client = new CustomerProfilesClient(config);
  * const command = new GetProfileObjectTypeCommand(input);
  * const response = await client.send(command);

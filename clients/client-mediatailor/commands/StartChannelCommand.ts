@@ -23,8 +23,10 @@ export interface StartChannelCommandOutput extends StartChannelResponse, __Metad
 /**
  * <p>Starts a specific channel.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaTailorClient, StartChannelCommand } from "@aws-sdk/client-mediatailor"; // ES Modules import
+ * // const { MediaTailorClient, StartChannelCommand } = require("@aws-sdk/client-mediatailor"); // CommonJS import
  * const client = new MediaTailorClient(config);
  * const command = new StartChannelCommand(input);
  * const response = await client.send(command);

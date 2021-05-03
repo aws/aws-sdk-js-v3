@@ -24,8 +24,10 @@ export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliv
  * <p>Lists the tags for the specified delivery stream. This operation has a limit of five
  *          transactions per second per account. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FirehoseClient, ListTagsForDeliveryStreamCommand } from "@aws-sdk/client-firehose"; // ES Modules import
+ * // const { FirehoseClient, ListTagsForDeliveryStreamCommand } = require("@aws-sdk/client-firehose"); // CommonJS import
  * const client = new FirehoseClient(config);
  * const command = new ListTagsForDeliveryStreamCommand(input);
  * const response = await client.send(command);

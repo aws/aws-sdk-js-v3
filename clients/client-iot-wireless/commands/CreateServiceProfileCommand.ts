@@ -23,8 +23,10 @@ export interface CreateServiceProfileCommandOutput extends CreateServiceProfileR
 /**
  * <p>Creates a new service profile.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IoTWirelessClient, CreateServiceProfileCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, CreateServiceProfileCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
  * const command = new CreateServiceProfileCommand(input);
  * const response = await client.send(command);

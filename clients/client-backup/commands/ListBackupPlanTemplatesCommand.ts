@@ -24,8 +24,10 @@ export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemp
  * <p>Returns metadata of your saved backup plan templates, including the template ID, name,
  *          and the creation and deletion dates.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { BackupClient, ListBackupPlanTemplatesCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, ListBackupPlanTemplatesCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
  * const command = new ListBackupPlanTemplatesCommand(input);
  * const response = await client.send(command);

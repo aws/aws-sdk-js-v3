@@ -37,8 +37,10 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * 			Only capacity providers that are not associated with a cluster can be deleted. To remove
  * 			a capacity provider from a cluster, you can either use <a>PutClusterCapacityProviders</a> or delete the cluster.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECSClient, DeleteCapacityProviderCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, DeleteCapacityProviderCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const command = new DeleteCapacityProviderCommand(input);
  * const response = await client.send(command);

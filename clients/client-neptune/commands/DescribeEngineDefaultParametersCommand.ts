@@ -26,8 +26,10 @@ export interface DescribeEngineDefaultParametersCommandOutput
  * <p>Returns the default engine and system parameter information for the specified database
  *       engine.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NeptuneClient, DescribeEngineDefaultParametersCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, DescribeEngineDefaultParametersCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
  * const command = new DescribeEngineDefaultParametersCommand(input);
  * const response = await client.send(command);

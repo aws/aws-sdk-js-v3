@@ -30,8 +30,10 @@ export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * 		       <p>After you add an entry, you can't modify it; you must either replace it, or create an entry and delete the old one.</p>
  *          <p>For more information about network ACLs, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, CreateNetworkAclEntryCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateNetworkAclEntryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new CreateNetworkAclEntryCommand(input);
  * const response = await client.send(command);

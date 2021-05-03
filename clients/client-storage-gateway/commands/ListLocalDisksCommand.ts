@@ -31,8 +31,10 @@ export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __Met
  *          (the disk node is occupied by a disk that has incorrect metadata or the disk content is
  *          corrupted).</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { StorageGatewayClient, ListLocalDisksCommand } from "@aws-sdk/client-storage-gateway"; // ES Modules import
+ * // const { StorageGatewayClient, ListLocalDisksCommand } = require("@aws-sdk/client-storage-gateway"); // CommonJS import
  * const client = new StorageGatewayClient(config);
  * const command = new ListLocalDisksCommand(input);
  * const response = await client.send(command);

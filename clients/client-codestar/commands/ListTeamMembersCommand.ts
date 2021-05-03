@@ -23,8 +23,10 @@ export interface ListTeamMembersCommandOutput extends ListTeamMembersResult, __M
 /**
  * <p>Lists all team members associated with a project.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { CodeStarClient, ListTeamMembersCommand } from "@aws-sdk/client-codestar"; // ES Modules import
+ * // const { CodeStarClient, ListTeamMembersCommand } = require("@aws-sdk/client-codestar"); // CommonJS import
  * const client = new CodeStarClient(config);
  * const command = new ListTeamMembersCommand(input);
  * const response = await client.send(command);

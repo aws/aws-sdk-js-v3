@@ -27,8 +27,10 @@ export interface SubmitContainerStateChangeCommandOutput extends SubmitContainer
  *          <p>Sent to
  * 			acknowledge that a container changed states.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ECSClient, SubmitContainerStateChangeCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, SubmitContainerStateChangeCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const command = new SubmitContainerStateChangeCommand(input);
  * const response = await client.send(command);

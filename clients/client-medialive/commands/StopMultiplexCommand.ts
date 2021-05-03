@@ -23,8 +23,10 @@ export interface StopMultiplexCommandOutput extends StopMultiplexResponse, __Met
 /**
  * Stops a running multiplex. If the multiplex isn't running, this action has no effect.
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { MediaLiveClient, StopMultiplexCommand } from "@aws-sdk/client-medialive"; // ES Modules import
+ * // const { MediaLiveClient, StopMultiplexCommand } = require("@aws-sdk/client-medialive"); // CommonJS import
  * const client = new MediaLiveClient(config);
  * const command = new StopMultiplexCommand(input);
  * const response = await client.send(command);

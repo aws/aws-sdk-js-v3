@@ -27,8 +27,10 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  *          <p>You can see a list of the event categories for a given SourceType
  *       by using the <b>DescribeEventCategories</b> action.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { NeptuneClient, ModifyEventSubscriptionCommand } from "@aws-sdk/client-neptune"; // ES Modules import
+ * // const { NeptuneClient, ModifyEventSubscriptionCommand } = require("@aws-sdk/client-neptune"); // CommonJS import
  * const client = new NeptuneClient(config);
  * const command = new ModifyEventSubscriptionCommand(input);
  * const response = await client.send(command);

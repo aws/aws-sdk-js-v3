@@ -23,8 +23,10 @@ export interface RejectPortfolioShareCommandOutput extends RejectPortfolioShareO
 /**
  * <p>Rejects an offer to share the specified portfolio.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogClient, RejectPortfolioShareCommand } from "@aws-sdk/client-service-catalog"; // ES Modules import
+ * // const { ServiceCatalogClient, RejectPortfolioShareCommand } = require("@aws-sdk/client-service-catalog"); // CommonJS import
  * const client = new ServiceCatalogClient(config);
  * const command = new RejectPortfolioShareCommand(input);
  * const response = await client.send(command);

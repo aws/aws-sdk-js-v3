@@ -30,8 +30,10 @@ export interface ListBotVersionsCommandOutput extends ListBotVersionsResponse, _
  *          <p>The <code>ListBotVersions</code> operation always returns at least
  *          one version, the <code>DRAFT</code> version.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { LexModelsV2Client, ListBotVersionsCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, ListBotVersionsCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
  * const command = new ListBotVersionsCommand(input);
  * const response = await client.send(command);

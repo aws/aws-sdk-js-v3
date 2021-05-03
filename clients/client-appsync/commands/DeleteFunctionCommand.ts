@@ -23,8 +23,10 @@ export interface DeleteFunctionCommandOutput extends DeleteFunctionResponse, __M
 /**
  * <p>Deletes a <code>Function</code>.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { AppSyncClient, DeleteFunctionCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, DeleteFunctionCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
  * const command = new DeleteFunctionCommand(input);
  * const response = await client.send(command);

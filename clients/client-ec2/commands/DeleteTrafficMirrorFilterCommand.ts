@@ -24,8 +24,10 @@ export interface DeleteTrafficMirrorFilterCommandOutput extends DeleteTrafficMir
  * <p>Deletes the specified Traffic Mirror filter.</p>
  *          <p>You cannot delete a Traffic Mirror filter that is in use by a Traffic Mirror session.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { EC2Client, DeleteTrafficMirrorFilterCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DeleteTrafficMirrorFilterCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const command = new DeleteTrafficMirrorFilterCommand(input);
  * const response = await client.send(command);

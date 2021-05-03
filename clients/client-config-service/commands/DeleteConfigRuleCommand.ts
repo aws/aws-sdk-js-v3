@@ -31,8 +31,10 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  * 		       <p>You can check the state of a rule by using the
  * 				<code>DescribeConfigRules</code> request.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ConfigServiceClient, DeleteConfigRuleCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, DeleteConfigRuleCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
  * const command = new DeleteConfigRuleCommand(input);
  * const response = await client.send(command);

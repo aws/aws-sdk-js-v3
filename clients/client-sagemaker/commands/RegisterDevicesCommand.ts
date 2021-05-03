@@ -23,8 +23,10 @@ export interface RegisterDevicesCommandOutput extends __MetadataBearer {}
 /**
  * <p>Register devices.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerClient, RegisterDevicesCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, RegisterDevicesCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const command = new RegisterDevicesCommand(input);
  * const response = await client.send(command);

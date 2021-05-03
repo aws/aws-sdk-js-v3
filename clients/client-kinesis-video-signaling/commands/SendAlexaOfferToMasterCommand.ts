@@ -32,8 +32,10 @@ export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMas
  *             connected to the signaling channel, redelivery requests are made until the message
  *             expires.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisVideoSignalingClient, SendAlexaOfferToMasterCommand } from "@aws-sdk/client-kinesis-video-signaling"; // ES Modules import
+ * // const { KinesisVideoSignalingClient, SendAlexaOfferToMasterCommand } = require("@aws-sdk/client-kinesis-video-signaling"); // CommonJS import
  * const client = new KinesisVideoSignalingClient(config);
  * const command = new SendAlexaOfferToMasterCommand(input);
  * const response = await client.send(command);

@@ -24,8 +24,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Returns a list of tags that are applied to the specified AWS OpsWorks for Chef Automate or
  *       AWS OpsWorks for Puppet Enterprise servers or backups.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { OpsWorksCMClient, ListTagsForResourceCommand } from "@aws-sdk/client-opsworkscm"; // ES Modules import
+ * // const { OpsWorksCMClient, ListTagsForResourceCommand } = require("@aws-sdk/client-opsworkscm"); // CommonJS import
  * const client = new OpsWorksCMClient(config);
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);

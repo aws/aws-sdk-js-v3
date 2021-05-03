@@ -23,8 +23,10 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
 /**
  * <p>Updates the name of an agent.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataSyncClient, UpdateAgentCommand } from "@aws-sdk/client-datasync"; // ES Modules import
+ * // const { DataSyncClient, UpdateAgentCommand } = require("@aws-sdk/client-datasync"); // CommonJS import
  * const client = new DataSyncClient(config);
  * const command = new UpdateAgentCommand(input);
  * const response = await client.send(command);

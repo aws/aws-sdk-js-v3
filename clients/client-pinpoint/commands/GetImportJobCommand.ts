@@ -23,8 +23,10 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
 /**
  * <p>Retrieves information about the status and settings of a specific import job for an application.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { PinpointClient, GetImportJobCommand } from "@aws-sdk/client-pinpoint"; // ES Modules import
+ * // const { PinpointClient, GetImportJobCommand } = require("@aws-sdk/client-pinpoint"); // CommonJS import
  * const client = new PinpointClient(config);
  * const command = new GetImportJobCommand(input);
  * const response = await client.send(command);

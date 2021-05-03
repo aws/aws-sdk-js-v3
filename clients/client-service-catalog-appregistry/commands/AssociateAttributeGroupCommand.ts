@@ -29,8 +29,10 @@ export interface AssociateAttributeGroupCommandOutput extends AssociateAttribute
  *       with the group's attributes. This feature enables applications to be described with
  *       user-defined details that are machine-readable, such as third-party integrations.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ServiceCatalogAppRegistryClient, AssociateAttributeGroupCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
+ * // const { ServiceCatalogAppRegistryClient, AssociateAttributeGroupCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
  * const command = new AssociateAttributeGroupCommand(input);
  * const response = await client.send(command);

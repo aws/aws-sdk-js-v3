@@ -23,8 +23,10 @@ export interface ListExperimentTemplatesCommandOutput extends ListExperimentTemp
 /**
  * <p>Lists your experiment templates.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { FisClient, ListExperimentTemplatesCommand } from "@aws-sdk/client-fis"; // ES Modules import
+ * // const { FisClient, ListExperimentTemplatesCommand } = require("@aws-sdk/client-fis"); // CommonJS import
  * const client = new FisClient(config);
  * const command = new ListExperimentTemplatesCommand(input);
  * const response = await client.send(command);

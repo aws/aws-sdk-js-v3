@@ -24,8 +24,10 @@ export interface ListSuiteRunsCommandOutput extends ListSuiteRunsResponse, __Met
  * <p>Lists the runs of the specified Device Advisor test suite.
  *             You can list all runs of the test suite, or the runs of a specific version of the test suite.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { IotDeviceAdvisorClient, ListSuiteRunsCommand } from "@aws-sdk/client-iotdeviceadvisor"; // ES Modules import
+ * // const { IotDeviceAdvisorClient, ListSuiteRunsCommand } = require("@aws-sdk/client-iotdeviceadvisor"); // CommonJS import
  * const client = new IotDeviceAdvisorClient(config);
  * const command = new ListSuiteRunsCommand(input);
  * const response = await client.send(command);

@@ -25,8 +25,10 @@ export interface UpdateDevicePolicyConfigurationCommandOutput
 /**
  * <p>Updates the device policy configuration for the fleet.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { WorkLinkClient, UpdateDevicePolicyConfigurationCommand } from "@aws-sdk/client-worklink"; // ES Modules import
+ * // const { WorkLinkClient, UpdateDevicePolicyConfigurationCommand } = require("@aws-sdk/client-worklink"); // CommonJS import
  * const client = new WorkLinkClient(config);
  * const command = new UpdateDevicePolicyConfigurationCommand(input);
  * const response = await client.send(command);

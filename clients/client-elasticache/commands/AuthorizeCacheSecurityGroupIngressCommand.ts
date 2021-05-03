@@ -34,8 +34,10 @@ export interface AuthorizeCacheSecurityGroupIngressCommandOutput
  *             ElastiCache cluster in another region.</p>
  *          </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ElastiCacheClient, AuthorizeCacheSecurityGroupIngressCommand } from "@aws-sdk/client-elasticache"; // ES Modules import
+ * // const { ElastiCacheClient, AuthorizeCacheSecurityGroupIngressCommand } = require("@aws-sdk/client-elasticache"); // CommonJS import
  * const client = new ElastiCacheClient(config);
  * const command = new AuthorizeCacheSecurityGroupIngressCommand(input);
  * const response = await client.send(command);

@@ -29,8 +29,10 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  *          latest records stored in the <code>OnlineStore</code> can be retrieved. If no Record with
  *             <code>RecordIdentifierValue</code> is found, then an empty result is returned. </p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SageMakerFeatureStoreRuntimeClient, GetRecordCommand } from "@aws-sdk/client-sagemaker-featurestore-runtime"; // ES Modules import
+ * // const { SageMakerFeatureStoreRuntimeClient, GetRecordCommand } = require("@aws-sdk/client-sagemaker-featurestore-runtime"); // CommonJS import
  * const client = new SageMakerFeatureStoreRuntimeClient(config);
  * const command = new GetRecordCommand(input);
  * const response = await client.send(command);

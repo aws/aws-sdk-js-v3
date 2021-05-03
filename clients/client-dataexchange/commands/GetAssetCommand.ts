@@ -23,8 +23,10 @@ export interface GetAssetCommandOutput extends GetAssetResponse, __MetadataBeare
 /**
  * <p>This operation returns information about an asset.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { DataExchangeClient, GetAssetCommand } from "@aws-sdk/client-dataexchange"; // ES Modules import
+ * // const { DataExchangeClient, GetAssetCommand } = require("@aws-sdk/client-dataexchange"); // CommonJS import
  * const client = new DataExchangeClient(config);
  * const command = new GetAssetCommand(input);
  * const response = await client.send(command);

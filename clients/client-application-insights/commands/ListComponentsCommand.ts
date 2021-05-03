@@ -27,8 +27,10 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
 /**
  * <p>Lists the auto-grouped, standalone, and custom components of the application.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ApplicationInsightsClient, ListComponentsCommand } from "@aws-sdk/client-application-insights"; // ES Modules import
+ * // const { ApplicationInsightsClient, ListComponentsCommand } = require("@aws-sdk/client-application-insights"); // CommonJS import
  * const client = new ApplicationInsightsClient(config);
  * const command = new ListComponentsCommand(input);
  * const response = await client.send(command);

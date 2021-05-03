@@ -41,8 +41,10 @@ export interface DescribeAttachmentCommandOutput extends DescribeAttachmentRespo
  *             </ul>
  *         </note>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { SupportClient, DescribeAttachmentCommand } from "@aws-sdk/client-support"; // ES Modules import
+ * // const { SupportClient, DescribeAttachmentCommand } = require("@aws-sdk/client-support"); // CommonJS import
  * const client = new SupportClient(config);
  * const command = new DescribeAttachmentCommand(input);
  * const response = await client.send(command);

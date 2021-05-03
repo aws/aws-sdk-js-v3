@@ -25,8 +25,10 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  *             and provides information about each consumer.</p>
  *         <p>This operation has a limit of 5 transactions per second per stream.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { KinesisClient, ListStreamConsumersCommand } from "@aws-sdk/client-kinesis"; // ES Modules import
+ * // const { KinesisClient, ListStreamConsumersCommand } = require("@aws-sdk/client-kinesis"); // CommonJS import
  * const client = new KinesisClient(config);
  * const command = new ListStreamConsumersCommand(input);
  * const response = await client.send(command);

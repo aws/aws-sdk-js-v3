@@ -24,8 +24,10 @@ export interface ResetPersonalPINCommandOutput extends ResetPersonalPINResponse,
  * <p>Resets the personal meeting PIN for the specified user on an Amazon Chime account. Returns
  *             the <a>User</a> object with the updated personal meeting PIN.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ChimeClient, ResetPersonalPINCommand } from "@aws-sdk/client-chime"; // ES Modules import
+ * // const { ChimeClient, ResetPersonalPINCommand } = require("@aws-sdk/client-chime"); // CommonJS import
  * const client = new ChimeClient(config);
  * const command = new ResetPersonalPINCommand(input);
  * const response = await client.send(command);

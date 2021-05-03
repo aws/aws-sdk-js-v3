@@ -28,8 +28,10 @@ export interface UpdateNodeCommandOutput extends UpdateNodeOutput, __MetadataBea
  * <p>Updates a node configuration with new parameters.</p>
  *          <p>Applies only to Hyperledger Fabric.</p>
  * @example
- * User a bare-bone client and the command you need to make an API call.
+ * User a bare-bones client and the command you need to make an API call.
  * ```javascript
+ * import { ManagedBlockchainClient, UpdateNodeCommand } from "@aws-sdk/client-managedblockchain"; // ES Modules import
+ * // const { ManagedBlockchainClient, UpdateNodeCommand } = require("@aws-sdk/client-managedblockchain"); // CommonJS import
  * const client = new ManagedBlockchainClient(config);
  * const command = new UpdateNodeCommand(input);
  * const response = await client.send(command);
