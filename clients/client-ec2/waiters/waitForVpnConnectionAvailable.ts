@@ -61,9 +61,9 @@ const checkState = async (client: EC2Client, input: DescribeVpnConnectionsComman
 };
 /**
  *
- *  @deprecated in favor of waitUntilVpnConnectionAvailable. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeVpnConnectionsCommand for polling.
+ *  @deprecated In favor of waitUntilVpnConnectionAvailable. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeVpnConnectionsCommand for polling.
  */
 export const waitForVpnConnectionAvailable = async (
   params: WaiterConfiguration<EC2Client>,
@@ -74,8 +74,8 @@ export const waitForVpnConnectionAvailable = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeVpnConnectionsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeVpnConnectionsCommand for polling.
  */
 export const waitUntilVpnConnectionAvailable = async (
   params: WaiterConfiguration<EC2Client>,

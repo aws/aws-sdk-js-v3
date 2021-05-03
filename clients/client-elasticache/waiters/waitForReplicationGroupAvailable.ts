@@ -50,9 +50,9 @@ const checkState = async (
 };
 /**
  * Wait until ElastiCache replication group is available.
- *  @deprecated in favor of waitUntilReplicationGroupAvailable. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeReplicationGroupsCommand for polling.
+ *  @deprecated In favor of waitUntilReplicationGroupAvailable. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeReplicationGroupsCommand for polling.
  */
 export const waitForReplicationGroupAvailable = async (
   params: WaiterConfiguration<ElastiCacheClient>,
@@ -63,8 +63,8 @@ export const waitForReplicationGroupAvailable = async (
 };
 /**
  * Wait until ElastiCache replication group is available.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeReplicationGroupsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeReplicationGroupsCommand for polling.
  */
 export const waitUntilReplicationGroupAvailable = async (
   params: WaiterConfiguration<ElastiCacheClient>,

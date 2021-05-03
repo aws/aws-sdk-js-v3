@@ -30,9 +30,9 @@ const checkState = async (client: ECSClient, input: DescribeTasksCommandInput): 
 };
 /**
  *
- *  @deprecated in favor of waitUntilTasksStopped. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeTasksCommand for polling.
+ *  @deprecated In favor of waitUntilTasksStopped. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeTasksCommand for polling.
  */
 export const waitForTasksStopped = async (
   params: WaiterConfiguration<ECSClient>,
@@ -43,8 +43,8 @@ export const waitForTasksStopped = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeTasksCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeTasksCommand for polling.
  */
 export const waitUntilTasksStopped = async (
   params: WaiterConfiguration<ECSClient>,

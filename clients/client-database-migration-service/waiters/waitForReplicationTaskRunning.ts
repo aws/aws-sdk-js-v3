@@ -148,9 +148,9 @@ const checkState = async (
 };
 /**
  * Wait until DMS replication task is running.
- *  @deprecated in favor of waitUntilReplicationTaskRunning. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeReplicationTasksCommand for polling.
+ *  @deprecated In favor of waitUntilReplicationTaskRunning. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeReplicationTasksCommand for polling.
  */
 export const waitForReplicationTaskRunning = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,
@@ -161,8 +161,8 @@ export const waitForReplicationTaskRunning = async (
 };
 /**
  * Wait until DMS replication task is running.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeReplicationTasksCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeReplicationTasksCommand for polling.
  */
 export const waitUntilReplicationTaskRunning = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,

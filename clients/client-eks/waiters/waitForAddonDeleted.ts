@@ -25,9 +25,9 @@ const checkState = async (client: EKSClient, input: DescribeAddonCommandInput): 
 };
 /**
  *
- *  @deprecated in favor of waitUntilAddonDeleted. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeAddonCommand for polling.
+ *  @deprecated In favor of waitUntilAddonDeleted. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeAddonCommand for polling.
  */
 export const waitForAddonDeleted = async (
   params: WaiterConfiguration<EKSClient>,
@@ -38,8 +38,8 @@ export const waitForAddonDeleted = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeAddonCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeAddonCommand for polling.
  */
 export const waitUntilAddonDeleted = async (
   params: WaiterConfiguration<EKSClient>,

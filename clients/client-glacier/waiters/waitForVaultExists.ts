@@ -18,9 +18,9 @@ const checkState = async (client: GlacierClient, input: DescribeVaultCommandInpu
 };
 /**
  *
- *  @deprecated in favor of waitUntilVaultExists. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeVaultCommand for polling.
+ *  @deprecated In favor of waitUntilVaultExists. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeVaultCommand for polling.
  */
 export const waitForVaultExists = async (
   params: WaiterConfiguration<GlacierClient>,
@@ -31,8 +31,8 @@ export const waitForVaultExists = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeVaultCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeVaultCommand for polling.
  */
 export const waitUntilVaultExists = async (
   params: WaiterConfiguration<GlacierClient>,

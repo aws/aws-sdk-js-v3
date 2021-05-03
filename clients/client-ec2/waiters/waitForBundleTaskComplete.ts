@@ -44,9 +44,9 @@ const checkState = async (client: EC2Client, input: DescribeBundleTasksCommandIn
 };
 /**
  *
- *  @deprecated in favor of waitUntilBundleTaskComplete. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeBundleTasksCommand for polling.
+ *  @deprecated In favor of waitUntilBundleTaskComplete. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeBundleTasksCommand for polling.
  */
 export const waitForBundleTaskComplete = async (
   params: WaiterConfiguration<EC2Client>,
@@ -57,8 +57,8 @@ export const waitForBundleTaskComplete = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeBundleTasksCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeBundleTasksCommand for polling.
  */
 export const waitUntilBundleTaskComplete = async (
   params: WaiterConfiguration<EC2Client>,

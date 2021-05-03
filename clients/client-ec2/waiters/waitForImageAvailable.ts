@@ -44,9 +44,9 @@ const checkState = async (client: EC2Client, input: DescribeImagesCommandInput):
 };
 /**
  *
- *  @deprecated in favor of waitUntilImageAvailable. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeImagesCommand for polling.
+ *  @deprecated In favor of waitUntilImageAvailable. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeImagesCommand for polling.
  */
 export const waitForImageAvailable = async (
   params: WaiterConfiguration<EC2Client>,
@@ -57,8 +57,8 @@ export const waitForImageAvailable = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeImagesCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeImagesCommand for polling.
  */
 export const waitUntilImageAvailable = async (
   params: WaiterConfiguration<EC2Client>,

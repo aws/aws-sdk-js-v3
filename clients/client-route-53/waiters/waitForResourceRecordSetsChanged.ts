@@ -22,9 +22,9 @@ const checkState = async (client: Route53Client, input: GetChangeCommandInput): 
 };
 /**
  *
- *  @deprecated in favor of waitUntilResourceRecordSetsChanged. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetChangeCommand for polling.
+ *  @deprecated In favor of waitUntilResourceRecordSetsChanged. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetChangeCommand for polling.
  */
 export const waitForResourceRecordSetsChanged = async (
   params: WaiterConfiguration<Route53Client>,
@@ -35,8 +35,8 @@ export const waitForResourceRecordSetsChanged = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetChangeCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetChangeCommand for polling.
  */
 export const waitUntilResourceRecordSetsChanged = async (
   params: WaiterConfiguration<Route53Client>,

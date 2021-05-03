@@ -49,9 +49,9 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated in favor of waitUntilEnvironmentTerminated. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeEnvironmentsCommand for polling.
+ *  @deprecated In favor of waitUntilEnvironmentTerminated. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeEnvironmentsCommand for polling.
  */
 export const waitForEnvironmentTerminated = async (
   params: WaiterConfiguration<ElasticBeanstalkClient>,
@@ -62,8 +62,8 @@ export const waitForEnvironmentTerminated = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeEnvironmentsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeEnvironmentsCommand for polling.
  */
 export const waitUntilEnvironmentTerminated = async (
   params: WaiterConfiguration<ElasticBeanstalkClient>,

@@ -41,9 +41,9 @@ const checkState = async (client: SchemasClient, input: DescribeCodeBindingComma
 };
 /**
  * Wait until code binding is generated
- *  @deprecated in favor of waitUntilCodeBindingExists. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeCodeBindingCommand for polling.
+ *  @deprecated In favor of waitUntilCodeBindingExists. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeCodeBindingCommand for polling.
  */
 export const waitForCodeBindingExists = async (
   params: WaiterConfiguration<SchemasClient>,
@@ -54,8 +54,8 @@ export const waitForCodeBindingExists = async (
 };
 /**
  * Wait until code binding is generated
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeCodeBindingCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeCodeBindingCommand for polling.
  */
 export const waitUntilCodeBindingExists = async (
   params: WaiterConfiguration<SchemasClient>,

@@ -22,9 +22,9 @@ const checkState = async (client: CloudFrontClient, input: GetDistributionComman
 };
 /**
  * Wait until a distribution is deployed.
- *  @deprecated in favor of waitUntilDistributionDeployed. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetDistributionCommand for polling.
+ *  @deprecated In favor of waitUntilDistributionDeployed. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetDistributionCommand for polling.
  */
 export const waitForDistributionDeployed = async (
   params: WaiterConfiguration<CloudFrontClient>,
@@ -35,8 +35,8 @@ export const waitForDistributionDeployed = async (
 };
 /**
  * Wait until a distribution is deployed.
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetDistributionCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetDistributionCommand for polling.
  */
 export const waitUntilDistributionDeployed = async (
   params: WaiterConfiguration<CloudFrontClient>,

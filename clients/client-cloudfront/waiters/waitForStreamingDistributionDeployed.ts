@@ -28,9 +28,9 @@ const checkState = async (
 };
 /**
  * Wait until a streaming distribution is deployed.
- *  @deprecated in favor of waitUntilStreamingDistributionDeployed. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetStreamingDistributionCommand for polling.
+ *  @deprecated In favor of waitUntilStreamingDistributionDeployed. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetStreamingDistributionCommand for polling.
  */
 export const waitForStreamingDistributionDeployed = async (
   params: WaiterConfiguration<CloudFrontClient>,
@@ -41,8 +41,8 @@ export const waitForStreamingDistributionDeployed = async (
 };
 /**
  * Wait until a streaming distribution is deployed.
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetStreamingDistributionCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetStreamingDistributionCommand for polling.
  */
 export const waitUntilStreamingDistributionDeployed = async (
   params: WaiterConfiguration<CloudFrontClient>,

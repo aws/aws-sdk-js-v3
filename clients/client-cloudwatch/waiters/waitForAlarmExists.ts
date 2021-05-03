@@ -23,9 +23,9 @@ const checkState = async (client: CloudWatchClient, input: DescribeAlarmsCommand
 };
 /**
  *
- *  @deprecated in favor of waitUntilAlarmExists. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeAlarmsCommand for polling.
+ *  @deprecated In favor of waitUntilAlarmExists. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeAlarmsCommand for polling.
  */
 export const waitForAlarmExists = async (
   params: WaiterConfiguration<CloudWatchClient>,
@@ -36,8 +36,8 @@ export const waitForAlarmExists = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeAlarmsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeAlarmsCommand for polling.
  */
 export const waitUntilAlarmExists = async (
   params: WaiterConfiguration<CloudWatchClient>,

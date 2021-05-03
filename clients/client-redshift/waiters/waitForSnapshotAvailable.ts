@@ -64,9 +64,9 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated in favor of waitUntilSnapshotAvailable. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeClusterSnapshotsCommand for polling.
+ *  @deprecated In favor of waitUntilSnapshotAvailable. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeClusterSnapshotsCommand for polling.
  */
 export const waitForSnapshotAvailable = async (
   params: WaiterConfiguration<RedshiftClient>,
@@ -77,8 +77,8 @@ export const waitForSnapshotAvailable = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeClusterSnapshotsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeClusterSnapshotsCommand for polling.
  */
 export const waitUntilSnapshotAvailable = async (
   params: WaiterConfiguration<RedshiftClient>,

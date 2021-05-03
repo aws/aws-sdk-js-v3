@@ -38,9 +38,9 @@ const checkState = async (client: ElasticTranscoderClient, input: ReadJobCommand
 };
 /**
  *
- *  @deprecated in favor of waitUntilJobComplete. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to ReadJobCommand for polling.
+ *  @deprecated In favor of waitUntilJobComplete. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to ReadJobCommand for polling.
  */
 export const waitForJobComplete = async (
   params: WaiterConfiguration<ElasticTranscoderClient>,
@@ -51,8 +51,8 @@ export const waitForJobComplete = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to ReadJobCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to ReadJobCommand for polling.
  */
 export const waitUntilJobComplete = async (
   params: WaiterConfiguration<ElasticTranscoderClient>,

@@ -42,9 +42,9 @@ const checkState = async (client: ECSClient, input: DescribeServicesCommandInput
 };
 /**
  *
- *  @deprecated in favor of waitUntilServicesInactive. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeServicesCommand for polling.
+ *  @deprecated In favor of waitUntilServicesInactive. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeServicesCommand for polling.
  */
 export const waitForServicesInactive = async (
   params: WaiterConfiguration<ECSClient>,
@@ -55,8 +55,8 @@ export const waitForServicesInactive = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeServicesCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeServicesCommand for polling.
  */
 export const waitUntilServicesInactive = async (
   params: WaiterConfiguration<ECSClient>,

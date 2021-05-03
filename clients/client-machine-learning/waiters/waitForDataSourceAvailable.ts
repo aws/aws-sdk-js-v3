@@ -47,9 +47,9 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated in favor of waitUntilDataSourceAvailable. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeDataSourcesCommand for polling.
+ *  @deprecated In favor of waitUntilDataSourceAvailable. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeDataSourcesCommand for polling.
  */
 export const waitForDataSourceAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,
@@ -60,8 +60,8 @@ export const waitForDataSourceAvailable = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeDataSourcesCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeDataSourcesCommand for polling.
  */
 export const waitUntilDataSourceAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,

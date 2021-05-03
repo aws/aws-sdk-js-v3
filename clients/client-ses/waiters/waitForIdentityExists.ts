@@ -35,9 +35,9 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated in favor of waitUntilIdentityExists. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetIdentityVerificationAttributesCommand for polling.
+ *  @deprecated In favor of waitUntilIdentityExists. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetIdentityVerificationAttributesCommand for polling.
  */
 export const waitForIdentityExists = async (
   params: WaiterConfiguration<SESClient>,
@@ -48,8 +48,8 @@ export const waitForIdentityExists = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetIdentityVerificationAttributesCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetIdentityVerificationAttributesCommand for polling.
  */
 export const waitUntilIdentityExists = async (
   params: WaiterConfiguration<SESClient>,

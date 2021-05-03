@@ -38,9 +38,9 @@ const checkState = async (client: EKSClient, input: DescribeClusterCommandInput)
 };
 /**
  *
- *  @deprecated in favor of waitUntilClusterActive. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeClusterCommand for polling.
+ *  @deprecated In favor of waitUntilClusterActive. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeClusterCommand for polling.
  */
 export const waitForClusterActive = async (
   params: WaiterConfiguration<EKSClient>,
@@ -51,8 +51,8 @@ export const waitForClusterActive = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeClusterCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeClusterCommand for polling.
  */
 export const waitUntilClusterActive = async (
   params: WaiterConfiguration<EKSClient>,

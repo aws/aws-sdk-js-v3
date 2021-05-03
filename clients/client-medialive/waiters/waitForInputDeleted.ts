@@ -33,9 +33,9 @@ const checkState = async (client: MediaLiveClient, input: DescribeInputCommandIn
 };
 /**
  * Wait until an input has been deleted
- *  @deprecated in favor of waitUntilInputDeleted. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInputCommand for polling.
+ *  @deprecated In favor of waitUntilInputDeleted. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInputCommand for polling.
  */
 export const waitForInputDeleted = async (
   params: WaiterConfiguration<MediaLiveClient>,
@@ -46,8 +46,8 @@ export const waitForInputDeleted = async (
 };
 /**
  * Wait until an input has been deleted
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInputCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInputCommand for polling.
  */
 export const waitUntilInputDeleted = async (
   params: WaiterConfiguration<MediaLiveClient>,

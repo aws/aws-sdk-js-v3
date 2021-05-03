@@ -55,9 +55,9 @@ const checkState = async (client: ACMClient, input: DescribeCertificateCommandIn
 };
 /**
  *
- *  @deprecated in favor of waitUntilCertificateValidated. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeCertificateCommand for polling.
+ *  @deprecated In favor of waitUntilCertificateValidated. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeCertificateCommand for polling.
  */
 export const waitForCertificateValidated = async (
   params: WaiterConfiguration<ACMClient>,
@@ -68,8 +68,8 @@ export const waitForCertificateValidated = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeCertificateCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeCertificateCommand for polling.
  */
 export const waitUntilCertificateValidated = async (
   params: WaiterConfiguration<ACMClient>,

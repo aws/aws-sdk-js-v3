@@ -58,9 +58,9 @@ const checkState = async (client: AppStreamClient, input: DescribeFleetsCommandI
 };
 /**
  *
- *  @deprecated in favor of waitUntilFleetStopped. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeFleetsCommand for polling.
+ *  @deprecated In favor of waitUntilFleetStopped. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeFleetsCommand for polling.
  */
 export const waitForFleetStopped = async (
   params: WaiterConfiguration<AppStreamClient>,
@@ -71,8 +71,8 @@ export const waitForFleetStopped = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeFleetsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeFleetsCommand for polling.
  */
 export const waitUntilFleetStopped = async (
   params: WaiterConfiguration<AppStreamClient>,

@@ -70,9 +70,9 @@ const checkState = async (client: EC2Client, input: DescribeInstancesCommandInpu
 };
 /**
  *
- *  @deprecated in favor of waitUntilInstanceStopped. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInstancesCommand for polling.
+ *  @deprecated In favor of waitUntilInstanceStopped. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInstancesCommand for polling.
  */
 export const waitForInstanceStopped = async (
   params: WaiterConfiguration<EC2Client>,
@@ -83,8 +83,8 @@ export const waitForInstanceStopped = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInstancesCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInstancesCommand for polling.
  */
 export const waitUntilInstanceStopped = async (
   params: WaiterConfiguration<EC2Client>,

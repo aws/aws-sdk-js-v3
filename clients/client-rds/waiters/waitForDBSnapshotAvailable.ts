@@ -100,9 +100,9 @@ const checkState = async (client: RDSClient, input: DescribeDBSnapshotsCommandIn
 };
 /**
  *
- *  @deprecated in favor of waitUntilDBSnapshotAvailable. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeDBSnapshotsCommand for polling.
+ *  @deprecated In favor of waitUntilDBSnapshotAvailable. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeDBSnapshotsCommand for polling.
  */
 export const waitForDBSnapshotAvailable = async (
   params: WaiterConfiguration<RDSClient>,
@@ -113,8 +113,8 @@ export const waitForDBSnapshotAvailable = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeDBSnapshotsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeDBSnapshotsCommand for polling.
  */
 export const waitUntilDBSnapshotAvailable = async (
   params: WaiterConfiguration<RDSClient>,

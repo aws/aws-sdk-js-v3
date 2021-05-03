@@ -18,9 +18,9 @@ const checkState = async (client: LambdaClient, input: GetFunctionCommandInput):
 };
 /**
  *
- *  @deprecated in favor of waitUntilFunctionExists. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetFunctionCommand for polling.
+ *  @deprecated In favor of waitUntilFunctionExists. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetFunctionCommand for polling.
  */
 export const waitForFunctionExists = async (
   params: WaiterConfiguration<LambdaClient>,
@@ -31,8 +31,8 @@ export const waitForFunctionExists = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetFunctionCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetFunctionCommand for polling.
  */
 export const waitUntilFunctionExists = async (
   params: WaiterConfiguration<LambdaClient>,

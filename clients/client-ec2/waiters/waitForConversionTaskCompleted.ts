@@ -61,9 +61,9 @@ const checkState = async (client: EC2Client, input: DescribeConversionTasksComma
 };
 /**
  *
- *  @deprecated in favor of waitUntilConversionTaskCompleted. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeConversionTasksCommand for polling.
+ *  @deprecated In favor of waitUntilConversionTaskCompleted. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeConversionTasksCommand for polling.
  */
 export const waitForConversionTaskCompleted = async (
   params: WaiterConfiguration<EC2Client>,
@@ -74,8 +74,8 @@ export const waitForConversionTaskCompleted = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeConversionTasksCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeConversionTasksCommand for polling.
  */
 export const waitUntilConversionTaskCompleted = async (
   params: WaiterConfiguration<EC2Client>,

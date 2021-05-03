@@ -134,9 +134,9 @@ const checkState = async (
 };
 /**
  * Wait until DMS replication task is stopped.
- *  @deprecated in favor of waitUntilReplicationTaskStopped. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeReplicationTasksCommand for polling.
+ *  @deprecated In favor of waitUntilReplicationTaskStopped. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeReplicationTasksCommand for polling.
  */
 export const waitForReplicationTaskStopped = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,
@@ -147,8 +147,8 @@ export const waitForReplicationTaskStopped = async (
 };
 /**
  * Wait until DMS replication task is stopped.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeReplicationTasksCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeReplicationTasksCommand for polling.
  */
 export const waitUntilReplicationTaskStopped = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,

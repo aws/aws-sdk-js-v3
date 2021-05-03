@@ -30,9 +30,9 @@ const checkState = async (client: IoTSiteWiseClient, input: DescribeAssetCommand
 };
 /**
  *
- *  @deprecated in favor of waitUntilAssetActive. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeAssetCommand for polling.
+ *  @deprecated In favor of waitUntilAssetActive. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeAssetCommand for polling.
  */
 export const waitForAssetActive = async (
   params: WaiterConfiguration<IoTSiteWiseClient>,
@@ -43,8 +43,8 @@ export const waitForAssetActive = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeAssetCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeAssetCommand for polling.
  */
 export const waitUntilAssetActive = async (
   params: WaiterConfiguration<IoTSiteWiseClient>,

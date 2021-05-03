@@ -50,9 +50,9 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated in favor of waitUntilBatchPredictionAvailable. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeBatchPredictionsCommand for polling.
+ *  @deprecated In favor of waitUntilBatchPredictionAvailable. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeBatchPredictionsCommand for polling.
  */
 export const waitForBatchPredictionAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,
@@ -63,8 +63,8 @@ export const waitForBatchPredictionAvailable = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeBatchPredictionsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeBatchPredictionsCommand for polling.
  */
 export const waitUntilBatchPredictionAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,

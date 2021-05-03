@@ -145,9 +145,9 @@ const checkState = async (client: OpsWorksClient, input: DescribeInstancesComman
 };
 /**
  * Wait until OpsWorks instance is terminated.
- *  @deprecated in favor of waitUntilInstanceTerminated. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInstancesCommand for polling.
+ *  @deprecated In favor of waitUntilInstanceTerminated. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInstancesCommand for polling.
  */
 export const waitForInstanceTerminated = async (
   params: WaiterConfiguration<OpsWorksClient>,
@@ -158,8 +158,8 @@ export const waitForInstanceTerminated = async (
 };
 /**
  * Wait until OpsWorks instance is terminated.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInstancesCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInstancesCommand for polling.
  */
 export const waitUntilInstanceTerminated = async (
   params: WaiterConfiguration<OpsWorksClient>,

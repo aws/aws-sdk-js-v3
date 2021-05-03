@@ -58,9 +58,9 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated in favor of waitUntilGroupInService. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeAutoScalingGroupsCommand for polling.
+ *  @deprecated In favor of waitUntilGroupInService. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeAutoScalingGroupsCommand for polling.
  */
 export const waitForGroupInService = async (
   params: WaiterConfiguration<AutoScalingClient>,
@@ -71,8 +71,8 @@ export const waitForGroupInService = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeAutoScalingGroupsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeAutoScalingGroupsCommand for polling.
  */
 export const waitUntilGroupInService = async (
   params: WaiterConfiguration<AutoScalingClient>,

@@ -33,9 +33,9 @@ const checkState = async (client: MediaLiveClient, input: DescribeChannelCommand
 };
 /**
  * Wait until a channel has is stopped
- *  @deprecated in favor of waitUntilChannelStopped. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeChannelCommand for polling.
+ *  @deprecated In favor of waitUntilChannelStopped. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeChannelCommand for polling.
  */
 export const waitForChannelStopped = async (
   params: WaiterConfiguration<MediaLiveClient>,
@@ -46,8 +46,8 @@ export const waitForChannelStopped = async (
 };
 /**
  * Wait until a channel has is stopped
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeChannelCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeChannelCommand for polling.
  */
 export const waitUntilChannelStopped = async (
   params: WaiterConfiguration<MediaLiveClient>,

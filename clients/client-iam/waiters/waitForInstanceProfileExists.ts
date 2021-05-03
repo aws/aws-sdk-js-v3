@@ -18,9 +18,9 @@ const checkState = async (client: IAMClient, input: GetInstanceProfileCommandInp
 };
 /**
  *
- *  @deprecated in favor of waitUntilInstanceProfileExists. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetInstanceProfileCommand for polling.
+ *  @deprecated In favor of waitUntilInstanceProfileExists. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetInstanceProfileCommand for polling.
  */
 export const waitForInstanceProfileExists = async (
   params: WaiterConfiguration<IAMClient>,
@@ -31,8 +31,8 @@ export const waitForInstanceProfileExists = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetInstanceProfileCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetInstanceProfileCommand for polling.
  */
 export const waitUntilInstanceProfileExists = async (
   params: WaiterConfiguration<IAMClient>,

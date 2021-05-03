@@ -17,9 +17,9 @@ const checkState = async (client: S3Client, input: HeadObjectCommandInput): Prom
 };
 /**
  *
- *  @deprecated in favor of waitUntilObjectNotExists. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to HeadObjectCommand for polling.
+ *  @deprecated In favor of waitUntilObjectNotExists. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to HeadObjectCommand for polling.
  */
 export const waitForObjectNotExists = async (
   params: WaiterConfiguration<S3Client>,
@@ -30,8 +30,8 @@ export const waitForObjectNotExists = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to HeadObjectCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to HeadObjectCommand for polling.
  */
 export const waitUntilObjectNotExists = async (
   params: WaiterConfiguration<S3Client>,

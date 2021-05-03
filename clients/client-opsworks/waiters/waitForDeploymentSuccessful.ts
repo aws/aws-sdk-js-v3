@@ -44,9 +44,9 @@ const checkState = async (client: OpsWorksClient, input: DescribeDeploymentsComm
 };
 /**
  * Wait until a deployment has completed successfully.
- *  @deprecated in favor of waitUntilDeploymentSuccessful. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeDeploymentsCommand for polling.
+ *  @deprecated In favor of waitUntilDeploymentSuccessful. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeDeploymentsCommand for polling.
  */
 export const waitForDeploymentSuccessful = async (
   params: WaiterConfiguration<OpsWorksClient>,
@@ -57,8 +57,8 @@ export const waitForDeploymentSuccessful = async (
 };
 /**
  * Wait until a deployment has completed successfully.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeDeploymentsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeDeploymentsCommand for polling.
  */
 export const waitUntilDeploymentSuccessful = async (
   params: WaiterConfiguration<OpsWorksClient>,

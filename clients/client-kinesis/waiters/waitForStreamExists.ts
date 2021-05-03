@@ -22,9 +22,9 @@ const checkState = async (client: KinesisClient, input: DescribeStreamCommandInp
 };
 /**
  *
- *  @deprecated in favor of waitUntilStreamExists. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeStreamCommand for polling.
+ *  @deprecated In favor of waitUntilStreamExists. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeStreamCommand for polling.
  */
 export const waitForStreamExists = async (
   params: WaiterConfiguration<KinesisClient>,
@@ -35,8 +35,8 @@ export const waitForStreamExists = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeStreamCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeStreamCommand for polling.
  */
 export const waitUntilStreamExists = async (
   params: WaiterConfiguration<KinesisClient>,

@@ -22,9 +22,9 @@ const checkState = async (client: IoTSiteWiseClient, input: DescribePortalComman
 };
 /**
  *
- *  @deprecated in favor of waitUntilPortalActive. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribePortalCommand for polling.
+ *  @deprecated In favor of waitUntilPortalActive. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribePortalCommand for polling.
  */
 export const waitForPortalActive = async (
   params: WaiterConfiguration<IoTSiteWiseClient>,
@@ -35,8 +35,8 @@ export const waitForPortalActive = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribePortalCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribePortalCommand for polling.
  */
 export const waitUntilPortalActive = async (
   params: WaiterConfiguration<IoTSiteWiseClient>,

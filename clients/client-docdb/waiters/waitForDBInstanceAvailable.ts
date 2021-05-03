@@ -100,9 +100,9 @@ const checkState = async (client: DocDBClient, input: DescribeDBInstancesCommand
 };
 /**
  *
- *  @deprecated in favor of waitUntilDBInstanceAvailable. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeDBInstancesCommand for polling.
+ *  @deprecated In favor of waitUntilDBInstanceAvailable. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeDBInstancesCommand for polling.
  */
 export const waitForDBInstanceAvailable = async (
   params: WaiterConfiguration<DocDBClient>,
@@ -113,8 +113,8 @@ export const waitForDBInstanceAvailable = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeDBInstancesCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeDBInstancesCommand for polling.
  */
 export const waitUntilDBInstanceAvailable = async (
   params: WaiterConfiguration<DocDBClient>,

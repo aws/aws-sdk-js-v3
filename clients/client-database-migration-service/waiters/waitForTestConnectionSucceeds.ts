@@ -47,9 +47,9 @@ const checkState = async (
 };
 /**
  * Wait until testing connection succeeds.
- *  @deprecated in favor of waitUntilTestConnectionSucceeds. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeConnectionsCommand for polling.
+ *  @deprecated In favor of waitUntilTestConnectionSucceeds. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeConnectionsCommand for polling.
  */
 export const waitForTestConnectionSucceeds = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,
@@ -60,8 +60,8 @@ export const waitForTestConnectionSucceeds = async (
 };
 /**
  * Wait until testing connection succeeds.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeConnectionsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeConnectionsCommand for polling.
  */
 export const waitUntilTestConnectionSucceeds = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,

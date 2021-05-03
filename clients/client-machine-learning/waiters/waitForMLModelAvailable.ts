@@ -47,9 +47,9 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated in favor of waitUntilMLModelAvailable. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeMLModelsCommand for polling.
+ *  @deprecated In favor of waitUntilMLModelAvailable. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeMLModelsCommand for polling.
  */
 export const waitForMLModelAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,
@@ -60,8 +60,8 @@ export const waitForMLModelAvailable = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeMLModelsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeMLModelsCommand for polling.
  */
 export const waitUntilMLModelAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,

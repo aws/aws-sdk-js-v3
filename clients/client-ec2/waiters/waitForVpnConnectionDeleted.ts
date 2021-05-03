@@ -47,9 +47,9 @@ const checkState = async (client: EC2Client, input: DescribeVpnConnectionsComman
 };
 /**
  *
- *  @deprecated in favor of waitUntilVpnConnectionDeleted. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeVpnConnectionsCommand for polling.
+ *  @deprecated In favor of waitUntilVpnConnectionDeleted. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeVpnConnectionsCommand for polling.
  */
 export const waitForVpnConnectionDeleted = async (
   params: WaiterConfiguration<EC2Client>,
@@ -60,8 +60,8 @@ export const waitForVpnConnectionDeleted = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeVpnConnectionsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeVpnConnectionsCommand for polling.
  */
 export const waitUntilVpnConnectionDeleted = async (
   params: WaiterConfiguration<EC2Client>,

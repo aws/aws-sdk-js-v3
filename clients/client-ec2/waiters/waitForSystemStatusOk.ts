@@ -33,9 +33,9 @@ const checkState = async (client: EC2Client, input: DescribeInstanceStatusComman
 };
 /**
  *
- *  @deprecated in favor of waitUntilSystemStatusOk. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInstanceStatusCommand for polling.
+ *  @deprecated In favor of waitUntilSystemStatusOk. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInstanceStatusCommand for polling.
  */
 export const waitForSystemStatusOk = async (
   params: WaiterConfiguration<EC2Client>,
@@ -46,8 +46,8 @@ export const waitForSystemStatusOk = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInstanceStatusCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInstanceStatusCommand for polling.
  */
 export const waitUntilSystemStatusOk = async (
   params: WaiterConfiguration<EC2Client>,

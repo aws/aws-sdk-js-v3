@@ -33,9 +33,9 @@ const checkState = async (client: EKSClient, input: DescribeClusterCommandInput)
 };
 /**
  *
- *  @deprecated in favor of waitUntilClusterDeleted. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeClusterCommand for polling.
+ *  @deprecated In favor of waitUntilClusterDeleted. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeClusterCommand for polling.
  */
 export const waitForClusterDeleted = async (
   params: WaiterConfiguration<EKSClient>,
@@ -46,8 +46,8 @@ export const waitForClusterDeleted = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeClusterCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeClusterCommand for polling.
  */
 export const waitUntilClusterDeleted = async (
   params: WaiterConfiguration<EKSClient>,

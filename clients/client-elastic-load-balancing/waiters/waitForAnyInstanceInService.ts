@@ -34,9 +34,9 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated in favor of waitUntilAnyInstanceInService. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInstanceHealthCommand for polling.
+ *  @deprecated In favor of waitUntilAnyInstanceInService. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInstanceHealthCommand for polling.
  */
 export const waitForAnyInstanceInService = async (
   params: WaiterConfiguration<ElasticLoadBalancingClient>,
@@ -47,8 +47,8 @@ export const waitForAnyInstanceInService = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInstanceHealthCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInstanceHealthCommand for polling.
  */
 export const waitUntilAnyInstanceInService = async (
   params: WaiterConfiguration<ElasticLoadBalancingClient>,

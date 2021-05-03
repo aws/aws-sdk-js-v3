@@ -16,9 +16,9 @@ const checkState = async (client: OpsWorksClient, input: DescribeAppsCommandInpu
 };
 /**
  *
- *  @deprecated in favor of waitUntilAppExists. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeAppsCommand for polling.
+ *  @deprecated In favor of waitUntilAppExists. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeAppsCommand for polling.
  */
 export const waitForAppExists = async (
   params: WaiterConfiguration<OpsWorksClient>,
@@ -29,8 +29,8 @@ export const waitForAppExists = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeAppsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeAppsCommand for polling.
  */
 export const waitUntilAppExists = async (
   params: WaiterConfiguration<OpsWorksClient>,

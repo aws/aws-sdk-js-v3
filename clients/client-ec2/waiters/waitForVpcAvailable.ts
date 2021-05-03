@@ -30,9 +30,9 @@ const checkState = async (client: EC2Client, input: DescribeVpcsCommandInput): P
 };
 /**
  *
- *  @deprecated in favor of waitUntilVpcAvailable. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeVpcsCommand for polling.
+ *  @deprecated In favor of waitUntilVpcAvailable. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeVpcsCommand for polling.
  */
 export const waitForVpcAvailable = async (
   params: WaiterConfiguration<EC2Client>,
@@ -43,8 +43,8 @@ export const waitForVpcAvailable = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeVpcsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeVpcsCommand for polling.
  */
 export const waitUntilVpcAvailable = async (
   params: WaiterConfiguration<EC2Client>,

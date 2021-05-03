@@ -50,9 +50,9 @@ const checkState = async (
 };
 /**
  * Wait until the ProjectVersion training completes.
- *  @deprecated in favor of waitUntilProjectVersionTrainingCompleted. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeProjectVersionsCommand for polling.
+ *  @deprecated In favor of waitUntilProjectVersionTrainingCompleted. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeProjectVersionsCommand for polling.
  */
 export const waitForProjectVersionTrainingCompleted = async (
   params: WaiterConfiguration<RekognitionClient>,
@@ -63,8 +63,8 @@ export const waitForProjectVersionTrainingCompleted = async (
 };
 /**
  * Wait until the ProjectVersion training completes.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeProjectVersionsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeProjectVersionsCommand for polling.
  */
 export const waitUntilProjectVersionTrainingCompleted = async (
   params: WaiterConfiguration<RekognitionClient>,

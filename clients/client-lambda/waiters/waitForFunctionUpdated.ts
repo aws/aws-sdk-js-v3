@@ -41,9 +41,9 @@ const checkState = async (client: LambdaClient, input: GetFunctionConfigurationC
 };
 /**
  * Waits for the function's LastUpdateStatus to be Successful.
- *  @deprecated in favor of waitUntilFunctionUpdated. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetFunctionConfigurationCommand for polling.
+ *  @deprecated In favor of waitUntilFunctionUpdated. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetFunctionConfigurationCommand for polling.
  */
 export const waitForFunctionUpdated = async (
   params: WaiterConfiguration<LambdaClient>,
@@ -54,8 +54,8 @@ export const waitForFunctionUpdated = async (
 };
 /**
  * Waits for the function's LastUpdateStatus to be Successful.
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetFunctionConfigurationCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetFunctionConfigurationCommand for polling.
  */
 export const waitUntilFunctionUpdated = async (
   params: WaiterConfiguration<LambdaClient>,

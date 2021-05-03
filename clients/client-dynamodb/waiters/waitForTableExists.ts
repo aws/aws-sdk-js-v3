@@ -25,9 +25,9 @@ const checkState = async (client: DynamoDBClient, input: DescribeTableCommandInp
 };
 /**
  *
- *  @deprecated in favor of waitUntilTableExists. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeTableCommand for polling.
+ *  @deprecated In favor of waitUntilTableExists. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeTableCommand for polling.
  */
 export const waitForTableExists = async (
   params: WaiterConfiguration<DynamoDBClient>,
@@ -38,8 +38,8 @@ export const waitForTableExists = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeTableCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeTableCommand for polling.
  */
 export const waitUntilTableExists = async (
   params: WaiterConfiguration<DynamoDBClient>,

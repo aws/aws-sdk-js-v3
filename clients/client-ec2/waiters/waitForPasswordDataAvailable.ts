@@ -22,9 +22,9 @@ const checkState = async (client: EC2Client, input: GetPasswordDataCommandInput)
 };
 /**
  *
- *  @deprecated in favor of waitUntilPasswordDataAvailable. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetPasswordDataCommand for polling.
+ *  @deprecated In favor of waitUntilPasswordDataAvailable. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetPasswordDataCommand for polling.
  */
 export const waitForPasswordDataAvailable = async (
   params: WaiterConfiguration<EC2Client>,
@@ -35,8 +35,8 @@ export const waitForPasswordDataAvailable = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetPasswordDataCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetPasswordDataCommand for polling.
  */
 export const waitUntilPasswordDataAvailable = async (
   params: WaiterConfiguration<EC2Client>,

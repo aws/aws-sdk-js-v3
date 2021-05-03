@@ -142,9 +142,9 @@ const checkState = async (client: OpsWorksClient, input: DescribeInstancesComman
 };
 /**
  * Wait until OpsWorks instance is online.
- *  @deprecated in favor of waitUntilInstanceOnline. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInstancesCommand for polling.
+ *  @deprecated In favor of waitUntilInstanceOnline. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInstancesCommand for polling.
  */
 export const waitForInstanceOnline = async (
   params: WaiterConfiguration<OpsWorksClient>,
@@ -155,8 +155,8 @@ export const waitForInstanceOnline = async (
 };
 /**
  * Wait until OpsWorks instance is online.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInstancesCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInstancesCommand for polling.
  */
 export const waitUntilInstanceOnline = async (
   params: WaiterConfiguration<OpsWorksClient>,

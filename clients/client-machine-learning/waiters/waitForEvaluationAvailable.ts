@@ -47,9 +47,9 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated in favor of waitUntilEvaluationAvailable. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeEvaluationsCommand for polling.
+ *  @deprecated In favor of waitUntilEvaluationAvailable. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeEvaluationsCommand for polling.
  */
 export const waitForEvaluationAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,
@@ -60,8 +60,8 @@ export const waitForEvaluationAvailable = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeEvaluationsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeEvaluationsCommand for polling.
  */
 export const waitUntilEvaluationAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,

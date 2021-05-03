@@ -33,9 +33,9 @@ const checkState = async (client: ECRClient, input: DescribeImageScanFindingsCom
 };
 /**
  * Wait until an image scan is complete and findings can be accessed
- *  @deprecated in favor of waitUntilImageScanComplete. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeImageScanFindingsCommand for polling.
+ *  @deprecated In favor of waitUntilImageScanComplete. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeImageScanFindingsCommand for polling.
  */
 export const waitForImageScanComplete = async (
   params: WaiterConfiguration<ECRClient>,
@@ -46,8 +46,8 @@ export const waitForImageScanComplete = async (
 };
 /**
  * Wait until an image scan is complete and findings can be accessed
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeImageScanFindingsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeImageScanFindingsCommand for polling.
  */
 export const waitUntilImageScanComplete = async (
   params: WaiterConfiguration<ECRClient>,

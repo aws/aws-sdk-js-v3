@@ -18,9 +18,9 @@ const checkState = async (client: ACMPCAClient, input: GetCertificateCommandInpu
 };
 /**
  * Wait until a certificate is issued
- *  @deprecated in favor of waitUntilCertificateIssued. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetCertificateCommand for polling.
+ *  @deprecated In favor of waitUntilCertificateIssued. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetCertificateCommand for polling.
  */
 export const waitForCertificateIssued = async (
   params: WaiterConfiguration<ACMPCAClient>,
@@ -31,8 +31,8 @@ export const waitForCertificateIssued = async (
 };
 /**
  * Wait until a certificate is issued
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetCertificateCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetCertificateCommand for polling.
  */
 export const waitUntilCertificateIssued = async (
   params: WaiterConfiguration<ACMPCAClient>,

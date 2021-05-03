@@ -128,9 +128,9 @@ const checkState = async (client: OpsWorksClient, input: DescribeInstancesComman
 };
 /**
  * Wait until OpsWorks instance is registered.
- *  @deprecated in favor of waitUntilInstanceRegistered. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInstancesCommand for polling.
+ *  @deprecated In favor of waitUntilInstanceRegistered. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInstancesCommand for polling.
  */
 export const waitForInstanceRegistered = async (
   params: WaiterConfiguration<OpsWorksClient>,
@@ -141,8 +141,8 @@ export const waitForInstanceRegistered = async (
 };
 /**
  * Wait until OpsWorks instance is registered.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInstancesCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInstancesCommand for polling.
  */
 export const waitUntilInstanceRegistered = async (
   params: WaiterConfiguration<OpsWorksClient>,

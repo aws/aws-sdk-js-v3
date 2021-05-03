@@ -36,9 +36,9 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated in favor of waitUntilNotebookInstanceStopped. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeNotebookInstanceCommand for polling.
+ *  @deprecated In favor of waitUntilNotebookInstanceStopped. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeNotebookInstanceCommand for polling.
  */
 export const waitForNotebookInstanceStopped = async (
   params: WaiterConfiguration<SageMakerClient>,
@@ -49,8 +49,8 @@ export const waitForNotebookInstanceStopped = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeNotebookInstanceCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeNotebookInstanceCommand for polling.
  */
 export const waitUntilNotebookInstanceStopped = async (
   params: WaiterConfiguration<SageMakerClient>,

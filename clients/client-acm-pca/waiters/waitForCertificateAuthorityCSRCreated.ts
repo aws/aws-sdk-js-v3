@@ -24,9 +24,9 @@ const checkState = async (
 };
 /**
  * Wait until a Certificate Authority CSR is created
- *  @deprecated in favor of waitUntilCertificateAuthorityCSRCreated. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetCertificateAuthorityCsrCommand for polling.
+ *  @deprecated In favor of waitUntilCertificateAuthorityCSRCreated. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetCertificateAuthorityCsrCommand for polling.
  */
 export const waitForCertificateAuthorityCSRCreated = async (
   params: WaiterConfiguration<ACMPCAClient>,
@@ -37,8 +37,8 @@ export const waitForCertificateAuthorityCSRCreated = async (
 };
 /**
  * Wait until a Certificate Authority CSR is created
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetCertificateAuthorityCsrCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetCertificateAuthorityCsrCommand for polling.
  */
 export const waitUntilCertificateAuthorityCSRCreated = async (
   params: WaiterConfiguration<ACMPCAClient>,

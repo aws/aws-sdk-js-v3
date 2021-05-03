@@ -36,9 +36,9 @@ const checkState = async (
 };
 /**
  * Wait until node is associated or disassociated.
- *  @deprecated in favor of waitUntilNodeAssociated. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeNodeAssociationStatusCommand for polling.
+ *  @deprecated In favor of waitUntilNodeAssociated. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeNodeAssociationStatusCommand for polling.
  */
 export const waitForNodeAssociated = async (
   params: WaiterConfiguration<OpsWorksCMClient>,
@@ -49,8 +49,8 @@ export const waitForNodeAssociated = async (
 };
 /**
  * Wait until node is associated or disassociated.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeNodeAssociationStatusCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeNodeAssociationStatusCommand for polling.
  */
 export const waitUntilNodeAssociated = async (
   params: WaiterConfiguration<OpsWorksCMClient>,

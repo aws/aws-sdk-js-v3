@@ -36,9 +36,9 @@ const checkState = async (
 };
 /**
  * Wait until type registration is COMPLETE.
- *  @deprecated in favor of waitUntilTypeRegistrationComplete. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeTypeRegistrationCommand for polling.
+ *  @deprecated In favor of waitUntilTypeRegistrationComplete. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeTypeRegistrationCommand for polling.
  */
 export const waitForTypeRegistrationComplete = async (
   params: WaiterConfiguration<CloudFormationClient>,
@@ -49,8 +49,8 @@ export const waitForTypeRegistrationComplete = async (
 };
 /**
  * Wait until type registration is COMPLETE.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeTypeRegistrationCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeTypeRegistrationCommand for polling.
  */
 export const waitUntilTypeRegistrationComplete = async (
   params: WaiterConfiguration<CloudFormationClient>,

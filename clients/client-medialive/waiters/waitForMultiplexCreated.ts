@@ -41,9 +41,9 @@ const checkState = async (client: MediaLiveClient, input: DescribeMultiplexComma
 };
 /**
  * Wait until a multiplex has been created
- *  @deprecated in favor of waitUntilMultiplexCreated. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeMultiplexCommand for polling.
+ *  @deprecated In favor of waitUntilMultiplexCreated. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeMultiplexCommand for polling.
  */
 export const waitForMultiplexCreated = async (
   params: WaiterConfiguration<MediaLiveClient>,
@@ -54,8 +54,8 @@ export const waitForMultiplexCreated = async (
 };
 /**
  * Wait until a multiplex has been created
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeMultiplexCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeMultiplexCommand for polling.
  */
 export const waitUntilMultiplexCreated = async (
   params: WaiterConfiguration<MediaLiveClient>,

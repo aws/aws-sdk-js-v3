@@ -53,9 +53,9 @@ const checkState = async (
 };
 /**
  * Wait until ElastiCache replication group is deleted.
- *  @deprecated in favor of waitUntilReplicationGroupDeleted. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeReplicationGroupsCommand for polling.
+ *  @deprecated In favor of waitUntilReplicationGroupDeleted. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeReplicationGroupsCommand for polling.
  */
 export const waitForReplicationGroupDeleted = async (
   params: WaiterConfiguration<ElastiCacheClient>,
@@ -66,8 +66,8 @@ export const waitForReplicationGroupDeleted = async (
 };
 /**
  * Wait until ElastiCache replication group is deleted.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeReplicationGroupsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeReplicationGroupsCommand for polling.
  */
 export const waitUntilReplicationGroupDeleted = async (
   params: WaiterConfiguration<ElastiCacheClient>,

@@ -33,9 +33,9 @@ const checkState = async (client: SignerClient, input: DescribeSigningJobCommand
 };
 /**
  *
- *  @deprecated in favor of waitUntilSuccessfulSigningJob. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeSigningJobCommand for polling.
+ *  @deprecated In favor of waitUntilSuccessfulSigningJob. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeSigningJobCommand for polling.
  */
 export const waitForSuccessfulSigningJob = async (
   params: WaiterConfiguration<SignerClient>,
@@ -46,8 +46,8 @@ export const waitForSuccessfulSigningJob = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeSigningJobCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeSigningJobCommand for polling.
  */
 export const waitUntilSuccessfulSigningJob = async (
   params: WaiterConfiguration<SignerClient>,

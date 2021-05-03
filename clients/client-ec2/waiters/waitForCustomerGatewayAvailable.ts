@@ -61,9 +61,9 @@ const checkState = async (client: EC2Client, input: DescribeCustomerGatewaysComm
 };
 /**
  *
- *  @deprecated in favor of waitUntilCustomerGatewayAvailable. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeCustomerGatewaysCommand for polling.
+ *  @deprecated In favor of waitUntilCustomerGatewayAvailable. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeCustomerGatewaysCommand for polling.
  */
 export const waitForCustomerGatewayAvailable = async (
   params: WaiterConfiguration<EC2Client>,
@@ -74,8 +74,8 @@ export const waitForCustomerGatewayAvailable = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeCustomerGatewaysCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeCustomerGatewaysCommand for polling.
  */
 export const waitUntilCustomerGatewayAvailable = async (
   params: WaiterConfiguration<EC2Client>,

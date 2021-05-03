@@ -93,9 +93,9 @@ const checkState = async (
 };
 /**
  * Wait until DMS replication task is deleted.
- *  @deprecated in favor of waitUntilReplicationTaskDeleted. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeReplicationTasksCommand for polling.
+ *  @deprecated In favor of waitUntilReplicationTaskDeleted. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeReplicationTasksCommand for polling.
  */
 export const waitForReplicationTaskDeleted = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,
@@ -106,8 +106,8 @@ export const waitForReplicationTaskDeleted = async (
 };
 /**
  * Wait until DMS replication task is deleted.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeReplicationTasksCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeReplicationTasksCommand for polling.
  */
 export const waitUntilReplicationTaskDeleted = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,

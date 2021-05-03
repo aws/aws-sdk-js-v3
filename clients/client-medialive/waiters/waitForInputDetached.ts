@@ -41,9 +41,9 @@ const checkState = async (client: MediaLiveClient, input: DescribeInputCommandIn
 };
 /**
  * Wait until an input has been detached
- *  @deprecated in favor of waitUntilInputDetached. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInputCommand for polling.
+ *  @deprecated In favor of waitUntilInputDetached. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInputCommand for polling.
  */
 export const waitForInputDetached = async (
   params: WaiterConfiguration<MediaLiveClient>,
@@ -54,8 +54,8 @@ export const waitForInputDetached = async (
 };
 /**
  * Wait until an input has been detached
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeInputCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeInputCommand for polling.
  */
 export const waitUntilInputDetached = async (
   params: WaiterConfiguration<MediaLiveClient>,

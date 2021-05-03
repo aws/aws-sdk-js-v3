@@ -30,9 +30,9 @@ const checkState = async (client: EKSClient, input: DescribeNodegroupCommandInpu
 };
 /**
  *
- *  @deprecated in favor of waitUntilNodegroupActive. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeNodegroupCommand for polling.
+ *  @deprecated In favor of waitUntilNodegroupActive. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeNodegroupCommand for polling.
  */
 export const waitForNodegroupActive = async (
   params: WaiterConfiguration<EKSClient>,
@@ -43,8 +43,8 @@ export const waitForNodegroupActive = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeNodegroupCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeNodegroupCommand for polling.
  */
 export const waitUntilNodegroupActive = async (
   params: WaiterConfiguration<EKSClient>,

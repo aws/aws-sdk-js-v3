@@ -30,9 +30,9 @@ const checkState = async (client: EC2Client, input: DescribeSnapshotsCommandInpu
 };
 /**
  *
- *  @deprecated in favor of waitUntilSnapshotCompleted. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeSnapshotsCommand for polling.
+ *  @deprecated In favor of waitUntilSnapshotCompleted. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeSnapshotsCommand for polling.
  */
 export const waitForSnapshotCompleted = async (
   params: WaiterConfiguration<EC2Client>,
@@ -43,8 +43,8 @@ export const waitForSnapshotCompleted = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeSnapshotsCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeSnapshotsCommand for polling.
  */
 export const waitUntilSnapshotCompleted = async (
   params: WaiterConfiguration<EC2Client>,

@@ -38,9 +38,9 @@ const checkState = async (client: CodeDeployClient, input: GetDeploymentCommandI
 };
 /**
  *
- *  @deprecated in favor of waitUntilDeploymentSuccessful. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetDeploymentCommand for polling.
+ *  @deprecated In favor of waitUntilDeploymentSuccessful. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetDeploymentCommand for polling.
  */
 export const waitForDeploymentSuccessful = async (
   params: WaiterConfiguration<CodeDeployClient>,
@@ -51,8 +51,8 @@ export const waitForDeploymentSuccessful = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to GetDeploymentCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to GetDeploymentCommand for polling.
  */
 export const waitUntilDeploymentSuccessful = async (
   params: WaiterConfiguration<CodeDeployClient>,

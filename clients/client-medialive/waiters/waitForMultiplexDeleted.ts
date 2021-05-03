@@ -33,9 +33,9 @@ const checkState = async (client: MediaLiveClient, input: DescribeMultiplexComma
 };
 /**
  * Wait until a multiplex has been deleted
- *  @deprecated in favor of waitUntilMultiplexDeleted. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeMultiplexCommand for polling.
+ *  @deprecated In favor of waitUntilMultiplexDeleted. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeMultiplexCommand for polling.
  */
 export const waitForMultiplexDeleted = async (
   params: WaiterConfiguration<MediaLiveClient>,
@@ -46,8 +46,8 @@ export const waitForMultiplexDeleted = async (
 };
 /**
  * Wait until a multiplex has been deleted
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeMultiplexCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeMultiplexCommand for polling.
  */
 export const waitUntilMultiplexDeleted = async (
   params: WaiterConfiguration<MediaLiveClient>,

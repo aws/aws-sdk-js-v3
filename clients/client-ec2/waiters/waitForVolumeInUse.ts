@@ -44,9 +44,9 @@ const checkState = async (client: EC2Client, input: DescribeVolumesCommandInput)
 };
 /**
  *
- *  @deprecated in favor of waitUntilVolumeInUse. This does not throw on failure.
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeVolumesCommand for polling.
+ *  @deprecated In favor of waitUntilVolumeInUse. This does not throw on failure.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeVolumesCommand for polling.
  */
 export const waitForVolumeInUse = async (
   params: WaiterConfiguration<EC2Client>,
@@ -57,8 +57,8 @@ export const waitForVolumeInUse = async (
 };
 /**
  *
- *  @param params : Waiter configuration options.
- *  @param input : the input to DescribeVolumesCommand for polling.
+ *  @param params - Waiter configuration options.
+ *  @param input - The input to DescribeVolumesCommand for polling.
  */
 export const waitUntilVolumeInUse = async (
   params: WaiterConfiguration<EC2Client>,
