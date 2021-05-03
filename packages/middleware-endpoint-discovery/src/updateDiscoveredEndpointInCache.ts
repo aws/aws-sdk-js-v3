@@ -30,7 +30,7 @@ export const updateDiscoveredEndpointInCache = async (
   } else {
     // put in a placeholder for endpoints already requested, prevent
     // too much in-flight calls.
-    endpointCache.put(cacheKey, [
+    endpointCache.set(cacheKey, [
       {
         Address: "",
         CachePeriodInMinutes: 1,
@@ -43,9 +43,9 @@ export const updateDiscoveredEndpointInCache = async (
         Identifiers: getEndpointDiscoveryId ? getEndpointDiscoveryId() : undefined,
       });
       const { Endpoints } = await client?.send(command);
-      endpointCache.put(cacheKey, Endpoints);
+      endpointCache.set(cacheKey, Endpoints);
     } catch (error) {
-      endpointCache.put(cacheKey, [
+      endpointCache.set(cacheKey, [
         {
           Address: "",
           CachePeriodInMinutes: 1, // Not to make more endpoint operation in next 1 minute
