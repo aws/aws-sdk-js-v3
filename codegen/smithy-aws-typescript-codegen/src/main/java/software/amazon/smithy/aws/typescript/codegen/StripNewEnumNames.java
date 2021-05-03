@@ -32,6 +32,7 @@ import software.amazon.smithy.model.transform.ModelTransformer;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.IoUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Strips enum names from enums that GA'd without them.
@@ -41,6 +42,7 @@ import software.amazon.smithy.utils.IoUtils;
  * preserve backwards-compatibility by stripping names from enums that were known to have
  * launched without them.
  */
+@SmithyInternalApi
 public final class StripNewEnumNames implements TypeScriptIntegration {
     private final Set<ShapeId> enumsToStrip;
 

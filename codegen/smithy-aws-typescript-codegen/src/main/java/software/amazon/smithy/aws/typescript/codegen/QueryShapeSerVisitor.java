@@ -34,6 +34,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Visitor to generate serialization functions for shapes in form-urlencoded
@@ -44,6 +45,7 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
  *
  * Timestamps are serialized to {@link Format}.DATE_TIME by default.
  */
+@SmithyInternalApi
 class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
     private static final Format TIMESTAMP_FORMAT = Format.DATE_TIME;
 

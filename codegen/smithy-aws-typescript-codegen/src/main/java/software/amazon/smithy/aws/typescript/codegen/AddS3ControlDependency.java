@@ -33,10 +33,12 @@ import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Add S3Control customization.
  */
+@SmithyInternalApi
 public class AddS3ControlDependency implements TypeScriptIntegration {
 
     @Override

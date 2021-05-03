@@ -33,6 +33,7 @@ import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Handles generating the aws.rest-xml protocol for services. It handles reading and
@@ -55,6 +56,7 @@ import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocol
  * @see <a href="https://awslabs.github.io/smithy/spec/http.html">Smithy HTTP protocol bindings.</a>
  * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
  */
+@SmithyInternalApi
 final class AwsRestXml extends HttpBindingProtocolGenerator {
 
     AwsRestXml() {

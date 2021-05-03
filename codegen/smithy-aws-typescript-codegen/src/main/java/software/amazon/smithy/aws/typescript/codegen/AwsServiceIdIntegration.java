@@ -24,12 +24,14 @@ import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.SmithyInternalApi;
 import software.amazon.smithy.utils.StringUtils;
 
 /**
  * Uses the {@code aws.api#service$sdkId} trait property to determine the
  * name of a service.
  */
+@SmithyInternalApi
 public final class AwsServiceIdIntegration implements TypeScriptIntegration {
 
     private static final Logger LOGGER = Logger.getLogger(AwsServiceIdIntegration.class.getName());

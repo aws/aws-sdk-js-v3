@@ -30,10 +30,12 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SetUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Adds Md5Hash if needed.
  */
+@SmithyInternalApi
 public class AddMd5HashDependency implements TypeScriptIntegration {
     private static final Set<String> SERVICE_IDS = SetUtils.of("S3", "SQS");
 

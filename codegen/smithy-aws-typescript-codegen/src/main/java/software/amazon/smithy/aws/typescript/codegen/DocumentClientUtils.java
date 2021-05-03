@@ -29,7 +29,9 @@ import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
+@SmithyInternalApi
 final class DocumentClientUtils {
     static final String CLIENT_NAME = "DynamoDBDocumentClient";
     static final String CLIENT_FULL_NAME = "DynamoDBDocument";

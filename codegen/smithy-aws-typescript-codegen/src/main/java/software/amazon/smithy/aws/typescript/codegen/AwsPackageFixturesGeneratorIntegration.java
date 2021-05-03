@@ -34,8 +34,10 @@ import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.IoUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 import software.amazon.smithy.utils.StringUtils;
 
+@SmithyInternalApi
 public final class AwsPackageFixturesGeneratorIntegration implements TypeScriptIntegration {
     @Override
     public void writeAdditionalFiles(

@@ -37,10 +37,12 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpProtocolGeneratorUtils;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 import software.amazon.smithy.utils.IoUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Utility methods for generating AWS protocols.
  */
+@SmithyInternalApi
 final class AwsProtocolUtils {
 
     private AwsProtocolUtils() {}

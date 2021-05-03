@@ -33,6 +33,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.MapUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 // TODO: This javadoc is specific to needs of AWS client. However it has elements that would be needed by non-AWS
 // clients too, like logger, region for SigV4. We should refactor these into different Integration or rename this
@@ -74,6 +75,7 @@ import software.amazon.smithy.utils.MapUtils;
  *     <li>logger: Sets to empty as logger is passed in client configuration</li>
  * </ul>
  */
+@SmithyInternalApi
 public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
 
     private static final Logger LOGGER = Logger.getLogger(AddAwsRuntimeConfig.class.getName());

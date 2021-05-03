@@ -34,6 +34,7 @@ import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Overrides several of the default implementations to handle XML document
@@ -48,6 +49,7 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.G
  *
  * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
  */
+@SmithyInternalApi
 final class XmlMemberSerVisitor extends DocumentMemberSerVisitor {
     private final GenerationContext context;
 

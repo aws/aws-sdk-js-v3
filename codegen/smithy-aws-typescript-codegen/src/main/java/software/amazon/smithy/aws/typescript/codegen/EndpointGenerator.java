@@ -32,12 +32,14 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.utils.CaseUtils;
 import software.amazon.smithy.utils.IoUtils;
 import software.amazon.smithy.utils.OptionalUtils;
+import software.amazon.smithy.utils.SmithyInternalApi;
 import software.amazon.smithy.utils.StringUtils;
 
 /**
  * Writes out a file that resolves endpoints using endpoints.json, but the
  * created resolver resolves endpoints for a single service.
  */
+@SmithyInternalApi
 final class EndpointGenerator implements Runnable {
 
     private static final int VERSION = 3;

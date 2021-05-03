@@ -20,10 +20,12 @@ import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
+import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Utility methods related to AWS traits.
  */
+@SmithyInternalApi
 final class AwsTraitsUtils {
 
     private AwsTraitsUtils() {}

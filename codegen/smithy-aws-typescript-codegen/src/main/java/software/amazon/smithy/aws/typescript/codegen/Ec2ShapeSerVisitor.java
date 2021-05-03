@@ -24,6 +24,7 @@ import software.amazon.smithy.model.shapes.ShapeType;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.utils.SmithyInternalApi;
 import software.amazon.smithy.utils.StringUtils;
 
 /**
@@ -45,6 +46,7 @@ import software.amazon.smithy.utils.StringUtils;
  * @see QueryShapeSerVisitor
  * @see <a href="https://awslabs.github.io/smithy/spec/aws-core.html#ec2QueryName-trait">Smithy EC2 Query Name trait.</a>
  */
+@SmithyInternalApi
 final class Ec2ShapeSerVisitor extends QueryShapeSerVisitor {
 
     Ec2ShapeSerVisitor(GenerationContext context) {
