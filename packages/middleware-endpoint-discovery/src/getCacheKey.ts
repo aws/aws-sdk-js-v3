@@ -8,16 +8,16 @@ export const getCacheKey = async (
   commandName: string,
   config: AwsAuthResolvedConfig & RegionResolvedConfig,
   options: {
-    endpointDiscoveryId?: string;
+    identifiers?: Map<String, String>;
   }
 ) => {
   const region = await config.region();
   const { accessKeyId } = await config.credentials();
-  const { endpointDiscoveryId } = options;
+  const { identifiers } = options;
   return {
     commandName,
     ...(region && { region }),
     ...(accessKeyId && { accessKeyId }),
-    ...(endpointDiscoveryId && { endpointDiscoveryId }),
+    ...(identifiers && { identifiers }),
   }.toString();
 };

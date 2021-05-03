@@ -1,6 +1,5 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import {
-  Command,
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
@@ -23,7 +22,7 @@ export const endpointDiscoveryMiddlewareOptions: FinalizeRequestHandlerOptions =
 
 export type EndpointDiscoveryMiddlewareConfig = {
   isDiscoveredEndpointRequired: boolean;
-  endpointDiscoveryId?: string;
+  identifiers?: Map<String, String>;
 };
 
 export const endpointDiscoveryMiddleware = (
@@ -37,7 +36,7 @@ export const endpointDiscoveryMiddleware = (
 ): Promise<FinalizeHandlerOutput<Output>> => {
   const { client } = config;
   const { endpointDiscoveryCommandCtor } = client?.config;
-  const { isDiscoveredEndpointRequired, endpointDiscoveryId } = middlewareConfig;
+  const { isDiscoveredEndpointRequired, identifiers } = middlewareConfig;
   const { commandName } = context;
 
   if (isDiscoveredEndpointRequired === true) {
@@ -46,7 +45,7 @@ export const endpointDiscoveryMiddleware = (
     await updateDiscoveredEndpointInCache(config, {
       commandName,
       endpointDiscoveryCommandCtor,
-      endpointDiscoveryId,
+      identifiers,
     });
   } else if (isDiscoveredEndpointRequired === false) {
     // Do not call await await on Endpoint Discovery API utility so that function
@@ -54,12 +53,12 @@ export const endpointDiscoveryMiddleware = (
     updateDiscoveredEndpointInCache(config, {
       commandName,
       endpointDiscoveryCommandCtor,
-      endpointDiscoveryId,
+      identifiers,
     });
   }
 
   const { request } = args;
-  const cacheKey = await getCacheKey(commandName, client?.config, { endpointDiscoveryId });
+  const cacheKey = await getCacheKey(commandName, client?.config, { identifiers });
   if (cacheKey && HttpRequest.isInstance(request)) {
     const endpoints = client?.config.endpointCache.get(cacheKey);
     if (endpoints && endpoints.length > 0) {
