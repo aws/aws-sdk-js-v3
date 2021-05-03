@@ -59,8 +59,6 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
     this.middlewareStack.use(
       getEndpointDiscoveryCommandPlugin(configuration, {
         isDiscoveredEndpointRequired: true,
-        // @ts-ignore
-        getEndpointDiscoveryId: undefined,
       })
     );
 
