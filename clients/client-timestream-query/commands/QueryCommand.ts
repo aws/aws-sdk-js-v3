@@ -62,7 +62,6 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
         isDiscoveredEndpointRequired: true,
         // @ts-ignore
         getEndpointDiscoveryId: undefined,
-        discoveryEndpointCommandCtor: DescribeEndpointsCommand,
       })
     );
 

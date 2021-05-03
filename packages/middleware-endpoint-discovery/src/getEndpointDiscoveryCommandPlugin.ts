@@ -24,7 +24,6 @@ export const endpointDiscoveryMiddlewareOptions: FinalizeRequestHandlerOptions =
 export type EndpointDiscoveryMiddlewareConfig = {
   isDiscoveredEndpointRequired: boolean;
   getEndpointDiscoveryId: () => string | undefined;
-  discoveryEndpointCommandCtor: new (comandConfig: any) => Command<any, any, any, any, any>;
 };
 
 export const endpointDiscoveryMiddleware = (
@@ -36,7 +35,9 @@ export const endpointDiscoveryMiddleware = (
 ): FinalizeHandler<any, Output> => async (
   args: FinalizeHandlerArguments<any>
 ): Promise<FinalizeHandlerOutput<Output>> => {
-  const { isDiscoveredEndpointRequired, discoveryEndpointCommandCtor, getEndpointDiscoveryId } = middlewareConfig;
+  const { client } = config;
+  const { discoveryEndpointCommandCtor } = client?.config;
+  const { isDiscoveredEndpointRequired, getEndpointDiscoveryId } = middlewareConfig;
   const { commandName } = context;
 
   if (isDiscoveredEndpointRequired === true) {
@@ -57,7 +58,6 @@ export const endpointDiscoveryMiddleware = (
     });
   }
 
-  const { client } = config;
   const { request } = args;
   const cacheKey = await getCacheKey(commandName, client?.config, getEndpointDiscoveryId);
   if (cacheKey && HttpRequest.isInstance(request)) {

@@ -1,5 +1,9 @@
 import { CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
-import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "./commands/DescribeEndpointsCommand";
+import {
+  DescribeEndpointsCommand,
+  DescribeEndpointsCommandInput,
+  DescribeEndpointsCommandOutput,
+} from "./commands/DescribeEndpointsCommand";
 import { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -215,6 +219,7 @@ export class TimestreamQueryClient extends __Client<
     let _config_7 = resolveEndpointDiscoveryClientConfig(_config_6);
     super(_config_7);
     _config_7.client = this;
+    _config_7.discoveryEndpointCommandCtor = DescribeEndpointsCommand;
     this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
