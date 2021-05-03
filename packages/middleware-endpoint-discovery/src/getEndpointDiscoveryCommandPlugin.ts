@@ -23,7 +23,7 @@ export const endpointDiscoveryMiddlewareOptions: FinalizeRequestHandlerOptions =
 
 export type EndpointDiscoveryMiddlewareConfig = {
   isDiscoveredEndpointRequired: boolean;
-  getEndpointDiscoveryId: () => string | undefined;
+  endpointDiscoveryId?: string;
 };
 
 export const endpointDiscoveryMiddleware = (
@@ -37,7 +37,7 @@ export const endpointDiscoveryMiddleware = (
 ): Promise<FinalizeHandlerOutput<Output>> => {
   const { client } = config;
   const { endpointDiscoveryCommandCtor } = client?.config;
-  const { isDiscoveredEndpointRequired, getEndpointDiscoveryId } = middlewareConfig;
+  const { isDiscoveredEndpointRequired, endpointDiscoveryId } = middlewareConfig;
   const { commandName } = context;
 
   if (isDiscoveredEndpointRequired === true) {
@@ -46,7 +46,7 @@ export const endpointDiscoveryMiddleware = (
     await updateDiscoveredEndpointInCache(config, {
       commandName,
       endpointDiscoveryCommandCtor,
-      getEndpointDiscoveryId,
+      endpointDiscoveryId,
     });
   } else if (isDiscoveredEndpointRequired === false) {
     // Do not call await await on Endpoint Discovery API utility so that function
@@ -54,12 +54,12 @@ export const endpointDiscoveryMiddleware = (
     updateDiscoveredEndpointInCache(config, {
       commandName,
       endpointDiscoveryCommandCtor,
-      getEndpointDiscoveryId,
+      endpointDiscoveryId,
     });
   }
 
   const { request } = args;
-  const cacheKey = await getCacheKey(commandName, client?.config, getEndpointDiscoveryId);
+  const cacheKey = await getCacheKey(commandName, client?.config, { endpointDiscoveryId });
   if (cacheKey && HttpRequest.isInstance(request)) {
     const endpoints = client?.config.endpointCache.get(cacheKey);
     if (endpoints && endpoints.length > 0) {

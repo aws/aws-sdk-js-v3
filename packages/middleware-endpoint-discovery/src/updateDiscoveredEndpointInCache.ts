@@ -6,7 +6,7 @@ import { EndpointDiscoveryClientResolvedConfig } from "./resolveEndpointDiscover
 export type updateDiscoveredEndpointInCacheOptions = {
   commandName: string;
   endpointDiscoveryCommandCtor: new (comandConfig: any) => Command<any, any, any, any, any>;
-  getEndpointDiscoveryId: () => string | undefined;
+  endpointDiscoveryId?: string;
 };
 
 export const updateDiscoveredEndpointInCache = async (
@@ -16,8 +16,8 @@ export const updateDiscoveredEndpointInCache = async (
   const { client } = config;
   const { endpointCache } = client?.config;
 
-  const { commandName, getEndpointDiscoveryId } = options;
-  const cacheKey = await getCacheKey(commandName, client?.config, getEndpointDiscoveryId);
+  const { commandName, endpointDiscoveryId } = options;
+  const cacheKey = await getCacheKey(commandName, client?.config, { endpointDiscoveryId });
 
   const endpoints = endpointCache.get(cacheKey);
   if (endpoints && endpoints.length === 1 && endpoints[0].Address === "") {
@@ -40,7 +40,7 @@ export const updateDiscoveredEndpointInCache = async (
     try {
       const command = new options.endpointDiscoveryCommandCtor({
         Operation: commandName.substr(0, commandName.length - 7), // strip "Command"
-        Identifiers: getEndpointDiscoveryId ? getEndpointDiscoveryId() : undefined,
+        Identifiers: endpointDiscoveryId,
       });
       const { Endpoints } = await client?.send(command);
       endpointCache.set(cacheKey, Endpoints);
