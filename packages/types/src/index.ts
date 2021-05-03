@@ -13,3 +13,4 @@ export * from "./response";
 export * from "./signature";
 export * from "./transfer";
 export * from "./util";
+export * from "./waiter";
