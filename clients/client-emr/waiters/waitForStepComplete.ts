@@ -38,9 +38,7 @@ const checkState = async (client: EMRClient, input: DescribeStepCommandInput): P
 };
 /**
  *
- *  @deprecated In favor of waitUntilStepComplete. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeStepCommand for polling.
+ *  @deprecated Use waitUntilStepComplete instead. waitForStepComplete does not throw error in non-success cases.
  */
 export const waitForStepComplete = async (
   params: WaiterConfiguration<EMRClient>,

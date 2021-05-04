@@ -17,9 +17,7 @@ const checkState = async (client: DynamoDBClient, input: DescribeTableCommandInp
 };
 /**
  *
- *  @deprecated In favor of waitUntilTableNotExists. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeTableCommand for polling.
+ *  @deprecated Use waitUntilTableNotExists instead. waitForTableNotExists does not throw error in non-success cases.
  */
 export const waitForTableNotExists = async (
   params: WaiterConfiguration<DynamoDBClient>,

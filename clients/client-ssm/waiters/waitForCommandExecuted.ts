@@ -78,9 +78,7 @@ const checkState = async (client: SSMClient, input: GetCommandInvocationCommandI
 };
 /**
  *
- *  @deprecated In favor of waitUntilCommandExecuted. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to GetCommandInvocationCommand for polling.
+ *  @deprecated Use waitUntilCommandExecuted instead. waitForCommandExecuted does not throw error in non-success cases.
  */
 export const waitForCommandExecuted = async (
   params: WaiterConfiguration<SSMClient>,

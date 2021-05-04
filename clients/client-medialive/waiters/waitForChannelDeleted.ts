@@ -33,9 +33,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeChannelCommand
 };
 /**
  * Wait until a channel has been deleted
- *  @deprecated In favor of waitUntilChannelDeleted. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeChannelCommand for polling.
+ *  @deprecated Use waitUntilChannelDeleted instead. waitForChannelDeleted does not throw error in non-success cases.
  */
 export const waitForChannelDeleted = async (
   params: WaiterConfiguration<MediaLiveClient>,

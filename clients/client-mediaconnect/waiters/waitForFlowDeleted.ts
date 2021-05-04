@@ -39,9 +39,7 @@ const checkState = async (client: MediaConnectClient, input: DescribeFlowCommand
 };
 /**
  * Wait until a flow is deleted
- *  @deprecated In favor of waitUntilFlowDeleted. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeFlowCommand for polling.
+ *  @deprecated Use waitUntilFlowDeleted instead. waitForFlowDeleted does not throw error in non-success cases.
  */
 export const waitForFlowDeleted = async (
   params: WaiterConfiguration<MediaConnectClient>,

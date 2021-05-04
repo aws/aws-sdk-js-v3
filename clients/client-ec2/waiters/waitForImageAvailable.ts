@@ -44,9 +44,7 @@ const checkState = async (client: EC2Client, input: DescribeImagesCommandInput):
 };
 /**
  *
- *  @deprecated In favor of waitUntilImageAvailable. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeImagesCommand for polling.
+ *  @deprecated Use waitUntilImageAvailable instead. waitForImageAvailable does not throw error in non-success cases.
  */
 export const waitForImageAvailable = async (
   params: WaiterConfiguration<EC2Client>,

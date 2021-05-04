@@ -36,9 +36,7 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated In favor of waitUntilNotebookInstanceInService. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeNotebookInstanceCommand for polling.
+ *  @deprecated Use waitUntilNotebookInstanceInService instead. waitForNotebookInstanceInService does not throw error in non-success cases.
  */
 export const waitForNotebookInstanceInService = async (
   params: WaiterConfiguration<SageMakerClient>,

@@ -30,9 +30,7 @@ const checkState = async (client: EC2Client, input: DescribeVpcsCommandInput): P
 };
 /**
  *
- *  @deprecated In favor of waitUntilVpcAvailable. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeVpcsCommand for polling.
+ *  @deprecated Use waitUntilVpcAvailable instead. waitForVpcAvailable does not throw error in non-success cases.
  */
 export const waitForVpcAvailable = async (
   params: WaiterConfiguration<EC2Client>,

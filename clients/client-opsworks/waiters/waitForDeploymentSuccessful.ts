@@ -44,9 +44,7 @@ const checkState = async (client: OpsWorksClient, input: DescribeDeploymentsComm
 };
 /**
  * Wait until a deployment has completed successfully.
- *  @deprecated In favor of waitUntilDeploymentSuccessful. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeDeploymentsCommand for polling.
+ *  @deprecated Use waitUntilDeploymentSuccessful instead. waitForDeploymentSuccessful does not throw error in non-success cases.
  */
 export const waitForDeploymentSuccessful = async (
   params: WaiterConfiguration<OpsWorksClient>,

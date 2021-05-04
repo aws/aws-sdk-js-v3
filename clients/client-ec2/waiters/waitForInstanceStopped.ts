@@ -70,9 +70,7 @@ const checkState = async (client: EC2Client, input: DescribeInstancesCommandInpu
 };
 /**
  *
- *  @deprecated In favor of waitUntilInstanceStopped. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeInstancesCommand for polling.
+ *  @deprecated Use waitUntilInstanceStopped instead. waitForInstanceStopped does not throw error in non-success cases.
  */
 export const waitForInstanceStopped = async (
   params: WaiterConfiguration<EC2Client>,

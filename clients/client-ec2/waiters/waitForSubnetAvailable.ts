@@ -30,9 +30,7 @@ const checkState = async (client: EC2Client, input: DescribeSubnetsCommandInput)
 };
 /**
  *
- *  @deprecated In favor of waitUntilSubnetAvailable. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeSubnetsCommand for polling.
+ *  @deprecated Use waitUntilSubnetAvailable instead. waitForSubnetAvailable does not throw error in non-success cases.
  */
 export const waitForSubnetAvailable = async (
   params: WaiterConfiguration<EC2Client>,

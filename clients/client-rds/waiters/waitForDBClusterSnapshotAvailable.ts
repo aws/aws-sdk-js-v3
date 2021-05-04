@@ -103,9 +103,7 @@ const checkState = async (client: RDSClient, input: DescribeDBClusterSnapshotsCo
 };
 /**
  *
- *  @deprecated In favor of waitUntilDBClusterSnapshotAvailable. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeDBClusterSnapshotsCommand for polling.
+ *  @deprecated Use waitUntilDBClusterSnapshotAvailable instead. waitForDBClusterSnapshotAvailable does not throw error in non-success cases.
  */
 export const waitForDBClusterSnapshotAvailable = async (
   params: WaiterConfiguration<RDSClient>,

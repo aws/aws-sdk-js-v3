@@ -36,9 +36,7 @@ const checkState = async (
 };
 /**
  * Wait until a Audit Report is created
- *  @deprecated In favor of waitUntilAuditReportCreated. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeCertificateAuthorityAuditReportCommand for polling.
+ *  @deprecated Use waitUntilAuditReportCreated instead. waitForAuditReportCreated does not throw error in non-success cases.
  */
 export const waitForAuditReportCreated = async (
   params: WaiterConfiguration<ACMPCAClient>,

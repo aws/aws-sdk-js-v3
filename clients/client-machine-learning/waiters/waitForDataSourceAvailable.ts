@@ -47,9 +47,7 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated In favor of waitUntilDataSourceAvailable. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeDataSourcesCommand for polling.
+ *  @deprecated Use waitUntilDataSourceAvailable instead. waitForDataSourceAvailable does not throw error in non-success cases.
  */
 export const waitForDataSourceAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,

@@ -47,9 +47,7 @@ const checkState = async (client: EC2Client, input: DescribeVpnConnectionsComman
 };
 /**
  *
- *  @deprecated In favor of waitUntilVpnConnectionDeleted. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeVpnConnectionsCommand for polling.
+ *  @deprecated Use waitUntilVpnConnectionDeleted instead. waitForVpnConnectionDeleted does not throw error in non-success cases.
  */
 export const waitForVpnConnectionDeleted = async (
   params: WaiterConfiguration<EC2Client>,

@@ -44,9 +44,7 @@ const checkState = async (client: RedshiftClient, input: DescribeClustersCommand
 };
 /**
  *
- *  @deprecated In favor of waitUntilClusterRestored. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeClustersCommand for polling.
+ *  @deprecated Use waitUntilClusterRestored instead. waitForClusterRestored does not throw error in non-success cases.
  */
 export const waitForClusterRestored = async (
   params: WaiterConfiguration<RedshiftClient>,

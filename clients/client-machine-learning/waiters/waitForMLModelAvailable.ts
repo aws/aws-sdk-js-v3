@@ -47,9 +47,7 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated In favor of waitUntilMLModelAvailable. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeMLModelsCommand for polling.
+ *  @deprecated Use waitUntilMLModelAvailable instead. waitForMLModelAvailable does not throw error in non-success cases.
  */
 export const waitForMLModelAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,

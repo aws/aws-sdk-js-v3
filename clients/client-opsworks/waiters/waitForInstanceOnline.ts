@@ -142,9 +142,7 @@ const checkState = async (client: OpsWorksClient, input: DescribeInstancesComman
 };
 /**
  * Wait until OpsWorks instance is online.
- *  @deprecated In favor of waitUntilInstanceOnline. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeInstancesCommand for polling.
+ *  @deprecated Use waitUntilInstanceOnline instead. waitForInstanceOnline does not throw error in non-success cases.
  */
 export const waitForInstanceOnline = async (
   params: WaiterConfiguration<OpsWorksClient>,

@@ -16,9 +16,7 @@ const checkState = async (client: OpsWorksClient, input: DescribeAppsCommandInpu
 };
 /**
  *
- *  @deprecated In favor of waitUntilAppExists. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeAppsCommand for polling.
+ *  @deprecated Use waitUntilAppExists instead. waitForAppExists does not throw error in non-success cases.
  */
 export const waitForAppExists = async (
   params: WaiterConfiguration<OpsWorksClient>,

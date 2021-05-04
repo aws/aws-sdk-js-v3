@@ -33,9 +33,7 @@ const checkState = async (client: SignerClient, input: DescribeSigningJobCommand
 };
 /**
  *
- *  @deprecated In favor of waitUntilSuccessfulSigningJob. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeSigningJobCommand for polling.
+ *  @deprecated Use waitUntilSuccessfulSigningJob instead. waitForSuccessfulSigningJob does not throw error in non-success cases.
  */
 export const waitForSuccessfulSigningJob = async (
   params: WaiterConfiguration<SignerClient>,

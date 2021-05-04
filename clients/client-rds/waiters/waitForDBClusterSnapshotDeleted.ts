@@ -84,9 +84,7 @@ const checkState = async (client: RDSClient, input: DescribeDBClusterSnapshotsCo
 };
 /**
  *
- *  @deprecated In favor of waitUntilDBClusterSnapshotDeleted. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeDBClusterSnapshotsCommand for polling.
+ *  @deprecated Use waitUntilDBClusterSnapshotDeleted instead. waitForDBClusterSnapshotDeleted does not throw error in non-success cases.
  */
 export const waitForDBClusterSnapshotDeleted = async (
   params: WaiterConfiguration<RDSClient>,

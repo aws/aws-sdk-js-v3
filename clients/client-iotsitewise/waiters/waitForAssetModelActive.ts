@@ -30,9 +30,7 @@ const checkState = async (client: IoTSiteWiseClient, input: DescribeAssetModelCo
 };
 /**
  *
- *  @deprecated In favor of waitUntilAssetModelActive. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeAssetModelCommand for polling.
+ *  @deprecated Use waitUntilAssetModelActive instead. waitForAssetModelActive does not throw error in non-success cases.
  */
 export const waitForAssetModelActive = async (
   params: WaiterConfiguration<IoTSiteWiseClient>,

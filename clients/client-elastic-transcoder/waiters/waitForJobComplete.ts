@@ -38,9 +38,7 @@ const checkState = async (client: ElasticTranscoderClient, input: ReadJobCommand
 };
 /**
  *
- *  @deprecated In favor of waitUntilJobComplete. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to ReadJobCommand for polling.
+ *  @deprecated Use waitUntilJobComplete instead. waitForJobComplete does not throw error in non-success cases.
  */
 export const waitForJobComplete = async (
   params: WaiterConfiguration<ElasticTranscoderClient>,

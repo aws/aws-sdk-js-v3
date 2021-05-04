@@ -50,9 +50,7 @@ const checkState = async (
 };
 /**
  * Wait until the ProjectVersion is running.
- *  @deprecated In favor of waitUntilProjectVersionRunning. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeProjectVersionsCommand for polling.
+ *  @deprecated Use waitUntilProjectVersionRunning instead. waitForProjectVersionRunning does not throw error in non-success cases.
  */
 export const waitForProjectVersionRunning = async (
   params: WaiterConfiguration<RekognitionClient>,

@@ -49,9 +49,7 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated In favor of waitUntilEnvironmentTerminated. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeEnvironmentsCommand for polling.
+ *  @deprecated Use waitUntilEnvironmentTerminated instead. waitForEnvironmentTerminated does not throw error in non-success cases.
  */
 export const waitForEnvironmentTerminated = async (
   params: WaiterConfiguration<ElasticBeanstalkClient>,

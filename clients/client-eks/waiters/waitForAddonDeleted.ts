@@ -25,9 +25,7 @@ const checkState = async (client: EKSClient, input: DescribeAddonCommandInput): 
 };
 /**
  *
- *  @deprecated In favor of waitUntilAddonDeleted. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeAddonCommand for polling.
+ *  @deprecated Use waitUntilAddonDeleted instead. waitForAddonDeleted does not throw error in non-success cases.
  */
 export const waitForAddonDeleted = async (
   params: WaiterConfiguration<EKSClient>,

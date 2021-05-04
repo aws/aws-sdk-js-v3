@@ -33,9 +33,7 @@ const checkState = async (client: ECRClient, input: GetLifecyclePolicyPreviewCom
 };
 /**
  * Wait until a lifecycle policy preview request is complete and results can be accessed
- *  @deprecated In favor of waitUntilLifecyclePolicyPreviewComplete. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to GetLifecyclePolicyPreviewCommand for polling.
+ *  @deprecated Use waitUntilLifecyclePolicyPreviewComplete instead. waitForLifecyclePolicyPreviewComplete does not throw error in non-success cases.
  */
 export const waitForLifecyclePolicyPreviewComplete = async (
   params: WaiterConfiguration<ECRClient>,

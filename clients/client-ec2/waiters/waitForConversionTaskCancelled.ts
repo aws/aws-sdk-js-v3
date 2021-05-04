@@ -33,9 +33,7 @@ const checkState = async (client: EC2Client, input: DescribeConversionTasksComma
 };
 /**
  *
- *  @deprecated In favor of waitUntilConversionTaskCancelled. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeConversionTasksCommand for polling.
+ *  @deprecated Use waitUntilConversionTaskCancelled instead. waitForConversionTaskCancelled does not throw error in non-success cases.
  */
 export const waitForConversionTaskCancelled = async (
   params: WaiterConfiguration<EC2Client>,

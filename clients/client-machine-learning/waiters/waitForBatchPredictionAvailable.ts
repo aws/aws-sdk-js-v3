@@ -50,9 +50,7 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated In favor of waitUntilBatchPredictionAvailable. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeBatchPredictionsCommand for polling.
+ *  @deprecated Use waitUntilBatchPredictionAvailable instead. waitForBatchPredictionAvailable does not throw error in non-success cases.
  */
 export const waitForBatchPredictionAvailable = async (
   params: WaiterConfiguration<MachineLearningClient>,

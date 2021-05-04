@@ -18,9 +18,7 @@ const checkState = async (client: IAMClient, input: GetInstanceProfileCommandInp
 };
 /**
  *
- *  @deprecated In favor of waitUntilInstanceProfileExists. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to GetInstanceProfileCommand for polling.
+ *  @deprecated Use waitUntilInstanceProfileExists instead. waitForInstanceProfileExists does not throw error in non-success cases.
  */
 export const waitForInstanceProfileExists = async (
   params: WaiterConfiguration<IAMClient>,

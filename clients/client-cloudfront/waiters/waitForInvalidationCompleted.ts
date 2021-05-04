@@ -22,9 +22,7 @@ const checkState = async (client: CloudFrontClient, input: GetInvalidationComman
 };
 /**
  * Wait until an invalidation has completed.
- *  @deprecated In favor of waitUntilInvalidationCompleted. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to GetInvalidationCommand for polling.
+ *  @deprecated Use waitUntilInvalidationCompleted instead. waitForInvalidationCompleted does not throw error in non-success cases.
  */
 export const waitForInvalidationCompleted = async (
   params: WaiterConfiguration<CloudFrontClient>,

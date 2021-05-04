@@ -61,9 +61,7 @@ const checkState = async (client: EC2Client, input: DescribeCustomerGatewaysComm
 };
 /**
  *
- *  @deprecated In favor of waitUntilCustomerGatewayAvailable. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeCustomerGatewaysCommand for polling.
+ *  @deprecated Use waitUntilCustomerGatewayAvailable instead. waitForCustomerGatewayAvailable does not throw error in non-success cases.
  */
 export const waitForCustomerGatewayAvailable = async (
   params: WaiterConfiguration<EC2Client>,

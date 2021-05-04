@@ -33,9 +33,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeMultiplexComma
 };
 /**
  * Wait until a multiplex is running
- *  @deprecated In favor of waitUntilMultiplexRunning. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeMultiplexCommand for polling.
+ *  @deprecated Use waitUntilMultiplexRunning instead. waitForMultiplexRunning does not throw error in non-success cases.
  */
 export const waitForMultiplexRunning = async (
   params: WaiterConfiguration<MediaLiveClient>,

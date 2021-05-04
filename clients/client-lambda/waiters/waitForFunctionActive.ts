@@ -41,9 +41,7 @@ const checkState = async (client: LambdaClient, input: GetFunctionConfigurationC
 };
 /**
  * Waits for the function's State to be Active.
- *  @deprecated In favor of waitUntilFunctionActive. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to GetFunctionConfigurationCommand for polling.
+ *  @deprecated Use waitUntilFunctionActive instead. waitForFunctionActive does not throw error in non-success cases.
  */
 export const waitForFunctionActive = async (
   params: WaiterConfiguration<LambdaClient>,

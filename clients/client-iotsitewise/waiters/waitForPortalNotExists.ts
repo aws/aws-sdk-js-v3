@@ -17,9 +17,7 @@ const checkState = async (client: IoTSiteWiseClient, input: DescribePortalComman
 };
 /**
  *
- *  @deprecated In favor of waitUntilPortalNotExists. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribePortalCommand for polling.
+ *  @deprecated Use waitUntilPortalNotExists instead. waitForPortalNotExists does not throw error in non-success cases.
  */
 export const waitForPortalNotExists = async (
   params: WaiterConfiguration<IoTSiteWiseClient>,

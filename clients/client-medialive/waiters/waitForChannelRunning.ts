@@ -33,9 +33,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeChannelCommand
 };
 /**
  * Wait until a channel is running
- *  @deprecated In favor of waitUntilChannelRunning. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeChannelCommand for polling.
+ *  @deprecated Use waitUntilChannelRunning instead. waitForChannelRunning does not throw error in non-success cases.
  */
 export const waitForChannelRunning = async (
   params: WaiterConfiguration<MediaLiveClient>,

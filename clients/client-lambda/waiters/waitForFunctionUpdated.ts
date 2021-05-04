@@ -41,9 +41,7 @@ const checkState = async (client: LambdaClient, input: GetFunctionConfigurationC
 };
 /**
  * Waits for the function's LastUpdateStatus to be Successful.
- *  @deprecated In favor of waitUntilFunctionUpdated. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to GetFunctionConfigurationCommand for polling.
+ *  @deprecated Use waitUntilFunctionUpdated instead. waitForFunctionUpdated does not throw error in non-success cases.
  */
 export const waitForFunctionUpdated = async (
   params: WaiterConfiguration<LambdaClient>,

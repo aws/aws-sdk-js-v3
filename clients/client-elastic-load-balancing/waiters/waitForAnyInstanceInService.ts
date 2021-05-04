@@ -34,9 +34,7 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated In favor of waitUntilAnyInstanceInService. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeInstanceHealthCommand for polling.
+ *  @deprecated Use waitUntilAnyInstanceInService instead. waitForAnyInstanceInService does not throw error in non-success cases.
  */
 export const waitForAnyInstanceInService = async (
   params: WaiterConfiguration<ElasticLoadBalancingClient>,

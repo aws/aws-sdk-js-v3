@@ -100,9 +100,7 @@ const checkState = async (client: NeptuneClient, input: DescribeDBInstancesComma
 };
 /**
  *
- *  @deprecated In favor of waitUntilDBInstanceAvailable. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeDBInstancesCommand for polling.
+ *  @deprecated Use waitUntilDBInstanceAvailable instead. waitForDBInstanceAvailable does not throw error in non-success cases.
  */
 export const waitForDBInstanceAvailable = async (
   params: WaiterConfiguration<NeptuneClient>,

@@ -30,9 +30,7 @@ const checkState = async (client: ECSClient, input: DescribeTasksCommandInput): 
 };
 /**
  *
- *  @deprecated In favor of waitUntilTasksStopped. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeTasksCommand for polling.
+ *  @deprecated Use waitUntilTasksStopped instead. waitForTasksStopped does not throw error in non-success cases.
  */
 export const waitForTasksStopped = async (
   params: WaiterConfiguration<ECSClient>,

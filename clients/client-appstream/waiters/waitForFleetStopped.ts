@@ -58,9 +58,7 @@ const checkState = async (client: AppStreamClient, input: DescribeFleetsCommandI
 };
 /**
  *
- *  @deprecated In favor of waitUntilFleetStopped. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeFleetsCommand for polling.
+ *  @deprecated Use waitUntilFleetStopped instead. waitForFleetStopped does not throw error in non-success cases.
  */
 export const waitForFleetStopped = async (
   params: WaiterConfiguration<AppStreamClient>,

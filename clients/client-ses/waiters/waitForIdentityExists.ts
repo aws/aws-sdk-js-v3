@@ -35,9 +35,7 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated In favor of waitUntilIdentityExists. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to GetIdentityVerificationAttributesCommand for polling.
+ *  @deprecated Use waitUntilIdentityExists instead. waitForIdentityExists does not throw error in non-success cases.
  */
 export const waitForIdentityExists = async (
   params: WaiterConfiguration<SESClient>,

@@ -52,9 +52,7 @@ const checkState = async (client: MediaConnectClient, input: DescribeFlowCommand
 };
 /**
  * Wait until a flow is active
- *  @deprecated In favor of waitUntilFlowActive. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeFlowCommand for polling.
+ *  @deprecated Use waitUntilFlowActive instead. waitForFlowActive does not throw error in non-success cases.
  */
 export const waitForFlowActive = async (
   params: WaiterConfiguration<MediaConnectClient>,

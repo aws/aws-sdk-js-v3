@@ -92,9 +92,7 @@ const checkState = async (
 };
 /**
  * Wait until DMS replication instance is available.
- *  @deprecated In favor of waitUntilReplicationInstanceAvailable. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeReplicationInstancesCommand for polling.
+ *  @deprecated Use waitUntilReplicationInstanceAvailable instead. waitForReplicationInstanceAvailable does not throw error in non-success cases.
  */
 export const waitForReplicationInstanceAvailable = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,

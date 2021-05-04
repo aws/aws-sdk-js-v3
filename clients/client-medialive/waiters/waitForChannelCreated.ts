@@ -41,9 +41,7 @@ const checkState = async (client: MediaLiveClient, input: DescribeChannelCommand
 };
 /**
  * Wait until a channel has been created
- *  @deprecated In favor of waitUntilChannelCreated. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeChannelCommand for polling.
+ *  @deprecated Use waitUntilChannelCreated instead. waitForChannelCreated does not throw error in non-success cases.
  */
 export const waitForChannelCreated = async (
   params: WaiterConfiguration<MediaLiveClient>,

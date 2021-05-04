@@ -44,9 +44,7 @@ const checkState = async (client: EC2Client, input: DescribeBundleTasksCommandIn
 };
 /**
  *
- *  @deprecated In favor of waitUntilBundleTaskComplete. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeBundleTasksCommand for polling.
+ *  @deprecated Use waitUntilBundleTaskComplete instead. waitForBundleTaskComplete does not throw error in non-success cases.
  */
 export const waitForBundleTaskComplete = async (
   params: WaiterConfiguration<EC2Client>,

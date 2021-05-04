@@ -42,9 +42,7 @@ const checkState = async (client: ECSClient, input: DescribeServicesCommandInput
 };
 /**
  *
- *  @deprecated In favor of waitUntilServicesInactive. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeServicesCommand for polling.
+ *  @deprecated Use waitUntilServicesInactive instead. waitForServicesInactive does not throw error in non-success cases.
  */
 export const waitForServicesInactive = async (
   params: WaiterConfiguration<ECSClient>,

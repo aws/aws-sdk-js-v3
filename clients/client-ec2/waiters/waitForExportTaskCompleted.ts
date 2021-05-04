@@ -30,9 +30,7 @@ const checkState = async (client: EC2Client, input: DescribeExportTasksCommandIn
 };
 /**
  *
- *  @deprecated In favor of waitUntilExportTaskCompleted. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeExportTasksCommand for polling.
+ *  @deprecated Use waitUntilExportTaskCompleted instead. waitForExportTaskCompleted does not throw error in non-success cases.
  */
 export const waitForExportTaskCompleted = async (
   params: WaiterConfiguration<EC2Client>,

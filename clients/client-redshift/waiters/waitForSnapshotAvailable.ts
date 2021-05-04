@@ -64,9 +64,7 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated In favor of waitUntilSnapshotAvailable. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeClusterSnapshotsCommand for polling.
+ *  @deprecated Use waitUntilSnapshotAvailable instead. waitForSnapshotAvailable does not throw error in non-success cases.
  */
 export const waitForSnapshotAvailable = async (
   params: WaiterConfiguration<RedshiftClient>,

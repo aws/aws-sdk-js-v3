@@ -25,9 +25,7 @@ const checkState = async (client: EKSClient, input: DescribeNodegroupCommandInpu
 };
 /**
  *
- *  @deprecated In favor of waitUntilNodegroupDeleted. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeNodegroupCommand for polling.
+ *  @deprecated Use waitUntilNodegroupDeleted instead. waitForNodegroupDeleted does not throw error in non-success cases.
  */
 export const waitForNodegroupDeleted = async (
   params: WaiterConfiguration<EKSClient>,

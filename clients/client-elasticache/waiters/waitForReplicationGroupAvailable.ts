@@ -50,9 +50,7 @@ const checkState = async (
 };
 /**
  * Wait until ElastiCache replication group is available.
- *  @deprecated In favor of waitUntilReplicationGroupAvailable. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeReplicationGroupsCommand for polling.
+ *  @deprecated Use waitUntilReplicationGroupAvailable instead. waitForReplicationGroupAvailable does not throw error in non-success cases.
  */
 export const waitForReplicationGroupAvailable = async (
   params: WaiterConfiguration<ElastiCacheClient>,

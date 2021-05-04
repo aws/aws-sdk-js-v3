@@ -54,9 +54,7 @@ const checkState = async (client: EMRClient, input: DescribeClusterCommandInput)
 };
 /**
  *
- *  @deprecated In favor of waitUntilClusterRunning. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeClusterCommand for polling.
+ *  @deprecated Use waitUntilClusterRunning instead. waitForClusterRunning does not throw error in non-success cases.
  */
 export const waitForClusterRunning = async (
   params: WaiterConfiguration<EMRClient>,

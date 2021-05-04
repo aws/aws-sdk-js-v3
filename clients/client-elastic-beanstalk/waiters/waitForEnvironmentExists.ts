@@ -49,9 +49,7 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated In favor of waitUntilEnvironmentExists. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeEnvironmentsCommand for polling.
+ *  @deprecated Use waitUntilEnvironmentExists instead. waitForEnvironmentExists does not throw error in non-success cases.
  */
 export const waitForEnvironmentExists = async (
   params: WaiterConfiguration<ElasticBeanstalkClient>,

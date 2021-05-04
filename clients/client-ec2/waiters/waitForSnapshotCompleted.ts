@@ -30,9 +30,7 @@ const checkState = async (client: EC2Client, input: DescribeSnapshotsCommandInpu
 };
 /**
  *
- *  @deprecated In favor of waitUntilSnapshotCompleted. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeSnapshotsCommand for polling.
+ *  @deprecated Use waitUntilSnapshotCompleted instead. waitForSnapshotCompleted does not throw error in non-success cases.
  */
 export const waitForSnapshotCompleted = async (
   params: WaiterConfiguration<EC2Client>,

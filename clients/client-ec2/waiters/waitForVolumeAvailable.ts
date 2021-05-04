@@ -44,9 +44,7 @@ const checkState = async (client: EC2Client, input: DescribeVolumesCommandInput)
 };
 /**
  *
- *  @deprecated In favor of waitUntilVolumeAvailable. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeVolumesCommand for polling.
+ *  @deprecated Use waitUntilVolumeAvailable instead. waitForVolumeAvailable does not throw error in non-success cases.
  */
 export const waitForVolumeAvailable = async (
   params: WaiterConfiguration<EC2Client>,

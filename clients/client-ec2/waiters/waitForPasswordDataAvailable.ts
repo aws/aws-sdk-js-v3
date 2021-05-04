@@ -22,9 +22,7 @@ const checkState = async (client: EC2Client, input: GetPasswordDataCommandInput)
 };
 /**
  *
- *  @deprecated In favor of waitUntilPasswordDataAvailable. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to GetPasswordDataCommand for polling.
+ *  @deprecated Use waitUntilPasswordDataAvailable instead. waitForPasswordDataAvailable does not throw error in non-success cases.
  */
 export const waitForPasswordDataAvailable = async (
   params: WaiterConfiguration<EC2Client>,

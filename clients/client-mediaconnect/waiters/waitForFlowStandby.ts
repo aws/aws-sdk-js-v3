@@ -44,9 +44,7 @@ const checkState = async (client: MediaConnectClient, input: DescribeFlowCommand
 };
 /**
  * Wait until a flow is in standby mode
- *  @deprecated In favor of waitUntilFlowStandby. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeFlowCommand for polling.
+ *  @deprecated Use waitUntilFlowStandby instead. waitForFlowStandby does not throw error in non-success cases.
  */
 export const waitForFlowStandby = async (
   params: WaiterConfiguration<MediaConnectClient>,

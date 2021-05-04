@@ -22,9 +22,7 @@ const checkState = async (client: Route53Client, input: GetChangeCommandInput): 
 };
 /**
  *
- *  @deprecated In favor of waitUntilResourceRecordSetsChanged. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to GetChangeCommand for polling.
+ *  @deprecated Use waitUntilResourceRecordSetsChanged instead. waitForResourceRecordSetsChanged does not throw error in non-success cases.
  */
 export const waitForResourceRecordSetsChanged = async (
   params: WaiterConfiguration<Route53Client>,

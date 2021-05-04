@@ -17,9 +17,7 @@ const checkState = async (client: S3Client, input: HeadBucketCommandInput): Prom
 };
 /**
  *
- *  @deprecated In favor of waitUntilBucketNotExists. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to HeadBucketCommand for polling.
+ *  @deprecated Use waitUntilBucketNotExists instead. waitForBucketNotExists does not throw error in non-success cases.
  */
 export const waitForBucketNotExists = async (
   params: WaiterConfiguration<S3Client>,

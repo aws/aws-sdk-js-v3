@@ -22,9 +22,7 @@ const checkState = async (client: CloudFrontClient, input: GetDistributionComman
 };
 /**
  * Wait until a distribution is deployed.
- *  @deprecated In favor of waitUntilDistributionDeployed. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to GetDistributionCommand for polling.
+ *  @deprecated Use waitUntilDistributionDeployed instead. waitForDistributionDeployed does not throw error in non-success cases.
  */
 export const waitForDistributionDeployed = async (
   params: WaiterConfiguration<CloudFrontClient>,

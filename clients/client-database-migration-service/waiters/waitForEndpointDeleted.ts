@@ -48,9 +48,7 @@ const checkState = async (
 };
 /**
  * Wait until testing endpoint is deleted.
- *  @deprecated In favor of waitUntilEndpointDeleted. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeEndpointsCommand for polling.
+ *  @deprecated Use waitUntilEndpointDeleted instead. waitForEndpointDeleted does not throw error in non-success cases.
  */
 export const waitForEndpointDeleted = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,

@@ -58,9 +58,7 @@ const checkState = async (
 };
 /**
  *
- *  @deprecated In favor of waitUntilGroupInService. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeAutoScalingGroupsCommand for polling.
+ *  @deprecated Use waitUntilGroupInService instead. waitForGroupInService does not throw error in non-success cases.
  */
 export const waitForGroupInService = async (
   params: WaiterConfiguration<AutoScalingClient>,

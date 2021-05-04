@@ -38,9 +38,7 @@ const checkState = async (client: EKSClient, input: DescribeClusterCommandInput)
 };
 /**
  *
- *  @deprecated In favor of waitUntilClusterActive. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeClusterCommand for polling.
+ *  @deprecated Use waitUntilClusterActive instead. waitForClusterActive does not throw error in non-success cases.
  */
 export const waitForClusterActive = async (
   params: WaiterConfiguration<EKSClient>,

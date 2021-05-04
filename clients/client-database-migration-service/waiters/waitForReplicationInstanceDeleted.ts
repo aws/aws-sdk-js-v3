@@ -37,9 +37,7 @@ const checkState = async (
 };
 /**
  * Wait until DMS replication instance is deleted.
- *  @deprecated In favor of waitUntilReplicationInstanceDeleted. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeReplicationInstancesCommand for polling.
+ *  @deprecated Use waitUntilReplicationInstanceDeleted instead. waitForReplicationInstanceDeleted does not throw error in non-success cases.
  */
 export const waitForReplicationInstanceDeleted = async (
   params: WaiterConfiguration<DatabaseMigrationServiceClient>,

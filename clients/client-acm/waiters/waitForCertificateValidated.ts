@@ -55,9 +55,7 @@ const checkState = async (client: ACMClient, input: DescribeCertificateCommandIn
 };
 /**
  *
- *  @deprecated In favor of waitUntilCertificateValidated. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeCertificateCommand for polling.
+ *  @deprecated Use waitUntilCertificateValidated instead. waitForCertificateValidated does not throw error in non-success cases.
  */
 export const waitForCertificateValidated = async (
   params: WaiterConfiguration<ACMClient>,

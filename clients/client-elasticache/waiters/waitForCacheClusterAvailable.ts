@@ -92,9 +92,7 @@ const checkState = async (
 };
 /**
  * Wait until ElastiCache cluster is available.
- *  @deprecated In favor of waitUntilCacheClusterAvailable. This does not throw on failure.
- *  @param params - Waiter configuration options.
- *  @param input - The input to DescribeCacheClustersCommand for polling.
+ *  @deprecated Use waitUntilCacheClusterAvailable instead. waitForCacheClusterAvailable does not throw error in non-success cases.
  */
 export const waitForCacheClusterAvailable = async (
   params: WaiterConfiguration<ElastiCacheClient>,
