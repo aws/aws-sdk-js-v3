@@ -100,6 +100,16 @@ describe("defaultStrategy", () => {
     });
   });
 
+  it("handles non-standard errors", () => {
+    const nonStandardErrors = [undefined, "foo", { foo: "bar" }, 123, false, null];
+    const maxAttempts = 1;
+    const retryStrategy = new StandardRetryStrategy(() => Promise.resolve(maxAttempts));
+    for (const error of nonStandardErrors) {
+      next = jest.fn().mockRejectedValue(error);
+      expect(retryStrategy.retry(next, { request: { headers: {} } } as any)).rejects.toBeInstanceOf(Error);
+    }
+  });
+
   describe("retryDecider init", () => {
     it("sets defaultRetryDecider if options is undefined", () => {
       const retryStrategy = new StandardRetryStrategy(() => Promise.resolve(maxAttempts));
