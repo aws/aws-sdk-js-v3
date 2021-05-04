@@ -39,13 +39,23 @@ export type WaiterResult = {
  */
 export const checkExceptions = (result: WaiterResult): WaiterResult => {
   if (result.state === WaiterState.ABORTED) {
-    throw new Error(
+    const abortError = new Error(
       `${JSON.stringify({
         ...result,
-        name: "AbortError",
         reason: "Request was aborted",
       })}`
     );
+    abortError.name = "AbortError";
+    throw abortError;
+  } else if (result.state === WaiterState.TIMEOUT) {
+    const timeoutError = new Error(
+      `${JSON.stringify({
+        ...result,
+        reason: "Waiter has timed out",
+      })}`
+    );
+    timeoutError.name = "TimeoutError";
+    throw timeoutError;
   } else if (result.state !== WaiterState.SUCCESS) {
     throw new Error(`${JSON.stringify({ result })}`);
   }
