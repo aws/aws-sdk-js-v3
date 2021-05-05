@@ -25,6 +25,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/credential-provider-env": "3.13.1",
+    "@aws-sdk/credential-provider-web-identity": "3.13.1",
     "@aws-sdk/credential-provider-imds": "3.13.1",
     "@aws-sdk/credential-provider-ini": "3.13.1",
     "@aws-sdk/credential-provider-process": "3.13.1",

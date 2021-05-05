@@ -9,6 +9,8 @@ const ENV_TOKEN_FILE = "AWS_WEB_IDENTITY_TOKEN_FILE";
 const ENV_ROLE_ARN = "AWS_ROLE_ARN";
 const ENV_ROLE_SESSION_NAME = "AWS_ROLE_SESSION_NAME";
 
+import { ProviderError } from "@aws-sdk/property-provider";
+
 jest.mock("fs");
 
 const MOCK_CREDS = {
@@ -113,6 +115,28 @@ describe(fromTokenFile.name, () => {
         expect(error).toEqual(readFileSyncError);
       }
       expect(readFileSync).toHaveBeenCalledTimes(1);
+    });
+
+    it("throws if web_identity_token_file is not specified", async () => {
+      try {
+        delete process.env[ENV_TOKEN_FILE];
+        await fromTokenFile()();
+        fail(`Expected error to be thrown`);
+      } catch (error) {
+        expect(error).toBeInstanceOf(ProviderError);
+        expect(error.tryNextLink).toBe(true);
+      }
+    });
+
+    it("throws if role_arn is not specified", async () => {
+      try {
+        delete process.env[ENV_ROLE_ARN];
+        await fromTokenFile()();
+        fail(`Expected error to be thrown`);
+      } catch (error) {
+        expect(error).toBeInstanceOf(ProviderError);
+        expect(error.tryNextLink).toBe(true);
+      }
     });
   });
 });
