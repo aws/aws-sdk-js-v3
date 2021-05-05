@@ -1,7 +1,6 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import * as assert from "assert";
-import { IncomingMessage, ServerResponse } from "http";
-import { constants, Http2Session, Http2Stream } from "http2";
+import { constants, Http2Stream } from "http2";
 
 import { NodeHttp2Handler } from "./node-http2-handler";
 import { createMockHttp2Server, createResponseFunction } from "./server.mock";
