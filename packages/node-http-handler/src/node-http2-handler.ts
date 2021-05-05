@@ -45,7 +45,14 @@ export class NodeHttp2Handler implements HttpHandler {
   }
 
   handle(request: HttpRequest, { abortSignal }: HttpHandlerOptions = {}): Promise<{ response: HttpResponse }> {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, rejectOriginal) => {
+      // It's redundant to track fulfilled because promises use the first resolution/rejection
+      // but avoids generating unnecessary stack traces in the "close" event handler.
+      let fulfilled = false;
+      const reject = (err: Error) => {
+        fulfilled = true;
+        rejectOriginal(err);
+      };
       // if the request was already aborted, prevent doing extra work
       if (abortSignal?.aborted) {
         const abortError = new Error("Request aborted");
@@ -70,12 +77,9 @@ export class NodeHttp2Handler implements HttpHandler {
           headers: getTransformedHeaders(headers),
           body: req,
         });
+        fulfilled = true;
         resolve({ response: httpResponse });
       });
-
-      req.on("error", reject);
-      req.on("frameError", reject);
-      req.on("aborted", reject);
 
       const requestTimeout = this.requestTimeout;
       if (requestTimeout) {
@@ -96,6 +100,20 @@ export class NodeHttp2Handler implements HttpHandler {
         };
       }
 
+      // Set up handlers for errors
+      req.on("frameError", reject);
+      req.on("error", reject);
+      req.on("goaway", reject);
+      req.on("aborted", reject);
+
+      // The HTTP/2 error code used when closing the stream can be retrieved using the
+      // http2stream.rstCode property. If the code is any value other than NGHTTP2_NO_ERROR (0),
+      // an 'error' event will have also been emitted.
+      req.on("close", () => {
+        if (!fulfilled) {
+          reject(new Error("Unexpected error: http2 request did not get a response"));
+        }
+      });
       writeRequestBody(req, request);
     });
   }
@@ -107,14 +125,42 @@ export class NodeHttp2Handler implements HttpHandler {
 
     const newSession = connect(authority);
     connectionPool.set(authority, newSession);
+    const destroySessionCb = () => {
+      this.destroySession(authority, newSession);
+    };
+    newSession.on("goaway", destroySessionCb);
+    newSession.on("error", destroySessionCb);
+    newSession.on("frameError", destroySessionCb);
 
     const sessionTimeout = this.sessionTimeout;
     if (sessionTimeout) {
       newSession.setTimeout(sessionTimeout, () => {
-        newSession.close();
-        connectionPool.delete(authority);
+        if (connectionPool.get(authority) === newSession) {
+          newSession.close();
+          connectionPool.delete(authority);
+        }
       });
     }
     return newSession;
+  }
+
+  /**
+   * Destroy a session immediately and remove it from the http2 pool.
+   *
+   * This check ensures that the session is only closed once
+   * and that an event on one session does not close a different session.
+   */
+  private destroySession(authority: string, session: ClientHttp2Session): void {
+    if (this.connectionPool.get(authority) !== session) {
+      // Already closed?
+      return;
+    }
+    this.connectionPool.delete(authority);
+    session.removeAllListeners("goaway");
+    session.removeAllListeners("error");
+    session.removeAllListeners("frameError");
+    if (!session.destroyed) {
+      session.destroy();
+    }
   }
 }
